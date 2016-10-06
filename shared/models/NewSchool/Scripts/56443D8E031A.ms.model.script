@@ -426,6 +426,159 @@ ME ME_5644424602DA
 
 ENDME // ME_5644424602DA RemoveFilter
 
+FORWARD ME_57EE319603DC
+
+ME ME_57EE31D9009C
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57EE31D9009C aSource
+
+ME ME_57EE31D5011F
+ MEPROP UID '57EE31D5011F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE319603DC // CopyFilters
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE31D9009C // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_57EE31D5011F DoIt
+
+ME ME_57EE319603DC
+ MEPROP UID '57EE319603DC'
+ MEPROP Name 'CopyFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EE31D5011F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EE319603DC CopyFilters
+
+FORWARD ME_57EE36080188
+
+ME ME_57EE3637006B
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57EE3637006B aSource
+
+ME ME_57EE3637009A
+ MEPROP Name 'aDestination'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57EE3637009A aDestination
+
+ME ME_57EE36340215
+ MEPROP UID '57EE36340215'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE36080188 // AssignFilters
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE3637006B // aSource
+ ME_57EE3637009A // aDestination
+ )
+ ; // Parameters
+
+ENDME // ME_57EE36340215 DoIt
+
+ME ME_57EE36080188
+ MEPROP UID '57EE36080188'
+ MEPROP Name 'AssignFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EE36340215 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EE36080188 AssignFilters
+
+FORWARD ME_57F229B60026
+
+ME ME_57F229D40096
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57F229D40096 aFirst
+
+ME ME_57F229D400B5
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57F229D400B5 aSecond
+
+ME ME_57F229C202F0
+ MEPROP UID '57F229C202F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F229B60026 // SameFilters
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F229D40096 // aFirst
+ ME_57F229D400B5 // aSecond
+ )
+ ; // Parameters
+
+ENDME // ME_57F229C202F0 DoIt
+
+ME ME_57F229B60026
+ MEPROP UID '57F229B60026'
+ MEPROP Name 'SameFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56443D8E031A // nsFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F229C202F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F229B60026 SameFilters
+
 ME ME_56444008025A
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -471,6 +624,9 @@ ME ME_56443D8E031A
    Seq: ( HWL ME_564441680148 // HasFilter
  HWL ME_5644419601AD // CatFilters
  HWL ME_5644424602DA // RemoveFilter
+ HWL ME_57EE319603DC // CopyFilters
+ HWL ME_57EE36080188 // AssignFilters
+ HWL ME_57F229B60026 // SameFilters
  )
  ; // Operations
  MELIST Children

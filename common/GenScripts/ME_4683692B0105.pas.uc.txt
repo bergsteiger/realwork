@@ -1,0 +1,55 @@
+//#UC START# *4683692B0105_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsOneLevelTreeStruct.pas
+//#UC END# *4683692B0105_ext:FileName
+//#UC START# *4683692B0105impl_uses*
+//#UC END# *4683692B0105impl_uses*
+//#UC START# *48FDA0DD02E1_4683692B0105_impl*
+ Result := True;
+//#UC END# *48FDA0DD02E1_4683692B0105_impl*
+//#UC START# *48FDA0DD02E1_4683692B0105_var*
+//#UC END# *48FDA0DD02E1_4683692B0105_var*
+//#UC START# *48FDA11E02D1_4683692B0105_impl*
+ if (aDelta <> 0) and (RootNode <> nil) and (aNodeIndex = 0) then
+  inherited;
+//#UC END# *48FDA11E02D1_4683692B0105_impl*
+//#UC START# *48FDA11E02D1_4683692B0105_var*
+//#UC END# *48FDA11E02D1_4683692B0105_var*
+//#UC START# *48FDC58F0218_4683692B0105_impl*
+ Result := nil;
+ if (CurrentNode = nil) then
+ begin
+  if Get_ShowRoot then
+   l_Index := anIndex - 1
+  else
+   l_Index := anIndex;
+  if (RootNode <> nil) then
+  begin
+   RootNode.GetFirstChild(l_Child);
+   try
+    if l_Index = 0 then
+     Result := l_Child
+    else
+     l_Child.GetBySibblingIndex(l_Index, Result);
+   finally
+    l_Child := nil;
+   end;//try..finally
+  end;//RootNode <> nil
+ end//CurrentNode = nil
+ else
+  CurrentNode.GetBySibblingIndex(anIndex - CurrentNodeIndex, Result);
+//#UC END# *48FDC58F0218_4683692B0105_impl*
+//#UC START# *48FDC58F0218_4683692B0105_var*
+var
+ l_Child: INodeBase;
+ l_Index: Integer;
+//#UC END# *48FDC58F0218_4683692B0105_var*
+//#UC START# *48FEE3640227_4683692B0105_impl*
+ Result := TnsINodeOneLevelRootWrap;
+//#UC END# *48FEE3640227_4683692B0105_impl*
+//#UC START# *48FEE3640227_4683692B0105_var*
+//#UC END# *48FEE3640227_4683692B0105_var*
+//#UC START# *48FEFA1E02E7_4683692B0105_impl*
+ Result := False;
+//#UC END# *48FEFA1E02E7_4683692B0105_impl*
+//#UC START# *48FEFA1E02E7_4683692B0105_var*
+//#UC END# *48FEFA1E02E7_4683692B0105_var*

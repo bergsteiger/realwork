@@ -1,0 +1,26 @@
+//#UC START# *54607DDC0159_5464A0E40234_impl*
+ l3System.Msg2Log('Не найден обработчик для ncsMessage (%s)!!', [aContext.rMessage.TaggedData.TagType.AsString]);
+ if aContext.rMessage.Kind = ncs_mkMessage then
+ begin
+  l_Reply := TncsInvalidMessage.Create;
+  try
+   l_Reply.Kind := ncs_mkReply;
+   l_Reply.MessageID := aContext.rMessage.MessageID;
+   aContext.rTransporter.Send(l_Reply);
+  finally
+   FreeANdNil(l_Reply);
+  end;
+ end;
+//#UC END# *54607DDC0159_5464A0E40234_impl*
+//#UC START# *54607DDC0159_5464A0E40234_var*
+var
+ l_Reply: TncsInvalidMessage;
+//#UC END# *54607DDC0159_5464A0E40234_var*
+//#UC START# *5464A0E40234_ext:ParentFileName
+w:\common\components\rtl\Garant\cs\ncsMessageExecutorFactory.pas
+//#UC END# *5464A0E40234_ext:ParentFileName
+//#UC START# *5464A4DE0181_5464A0E40234_impl*
+ inherited Create;
+//#UC END# *5464A4DE0181_5464A0E40234_impl*
+//#UC START# *5464A4DE0181_5464A0E40234_var*
+//#UC END# *5464A4DE0181_5464A0E40234_var*

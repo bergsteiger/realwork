@@ -1825,9 +1825,16 @@ function Tl3_SPoint.GetCursorPos: Boolean;
 var
  WP : TPoint;
 begin
- Windows.GetCursorPos(WP);
- Self := Tl3_SPoint_C(WP.X, WP.Y);
- Result := true;
+ if Windows.GetCursorPos(WP) then
+ begin
+  Self := Tl3_SPoint_C(WP.X, WP.Y);
+  Result := true;
+ end // if Windows.GetCursorPos(WP) then
+ else
+ begin
+  Self := Tl3_SPoint_C(0, 0);
+  Result := False;
+ end;
 end;
 
 function Tl3_SPoint.Zoom(Z: Integer): Tl3_SPoint;

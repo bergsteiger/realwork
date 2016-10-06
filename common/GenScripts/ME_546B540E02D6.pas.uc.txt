@@ -1,0 +1,72 @@
+//#UC START# *54607DDC0159_546B540E02D6_impl*
+ l_TaskID := (aContext.rMessage as TncsGetTaskDescription).TaskID;
+ l_Reply := TncsGetTaskDescriptionReply.Create(aContext.rMessage);
+ try
+  TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_TaskID);
+  aContext.rTransporter.Send(l_Reply);
+ finally
+  FreeAndNil(l_Reply);
+ end;
+//#UC END# *54607DDC0159_546B540E02D6_impl*
+//#UC START# *54607DDC0159_546B540E02D6_var*
+var
+ l_Reply: TncsGetTaskDescriptionReply;
+ l_TaskID: AnsiString;
+
+ function DoProcess(anItem: TddProcessTask): Boolean;
+ var
+  l_Task: TcsExport;
+  l_FileIterator: TddFileIterator;
+  l_Ptr: TddIterateProc;
+
+  function DoProcessOneFile(const aFileName: AnsiString): Boolean;
+  var
+   l_FileDesc: TncsFileDesc;
+   l_Stream: TStream;
+  begin
+   Result := True;
+   l_FileDesc := TncsFileDesc.Create;
+   try
+    l_FileDesc.Name := ExtractRelativePath(l_Reply.RemoteFolder, aFileName);
+    l_FileDesc.DateTime := FileAge(aFileName);
+    l_Stream := Tl3FileStream.Create(aFileName, l3_fmRead);
+    try
+     l_FileDesc.Size := l_Stream.Size;
+     l_FileDesc.CRC := l3CalcCRC32(l_Stream);
+    finally
+     FreeAndNil(l_Stream);
+    end;
+    l_Reply.FileDesc.Add(l_FileDesc.TaggedData);
+   finally
+    FreeAndNil(l_FileDesc);
+   end;
+  end;
+
+ begin
+  Result := False;
+  l_Task := (anItem as TcsExport);
+  l_Reply.RemoteFolder := IncludeTrailingPathDelimiter(l_Task.TaskFolder);
+  l_Reply.LocalFolder := IncludeTrailingPathDelimiter(l_Task.ExportDirectory);
+  l_Task.SetProgress(0, '');
+  l_Task.RequestDelivering;
+  l3System.Msg2Log('Передача пользователю результатов экспорта');
+  l3System.Msg2Log('Задача от пользователя: %d', [l_Task.UserID]);
+  l_FileIterator := TddFileIterator.Make(l_Reply.RemoteFolder, '*.*', nil, True);
+  try
+   l_Ptr := L2IterateFilesProc(@DoProcessOneFile);
+   try
+    l_FileIterator.IterateFiles(l_Ptr);
+   finally
+    FreeIterateFilesProc(l_Ptr);
+   end;
+  finally
+   FreeANdNil(l_FileIterator);
+  end;
+ end;
+
+//#UC END# *54607DDC0159_546B540E02D6_var*
+//#UC START# *546B540E02D6_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuGetTaskDescriptionExecutor.pas
+//#UC END# *546B540E02D6_ext:FileName
+//#UC START# *546B540E02D6impl_uses*
+//#UC END# *546B540E02D6impl_uses*

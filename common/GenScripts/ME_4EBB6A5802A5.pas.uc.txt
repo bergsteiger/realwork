@@ -1,0 +1,45 @@
+//#UC START# *4EBB6A5802A5_ext:FileName
+w:\common\components\rtl\Garant\Abstract_Tests\AllChildreCountTest.pas
+//#UC END# *4EBB6A5802A5_ext:FileName
+//#UC START# *4EBB6A5802A5impl_uses*
+//#UC END# *4EBB6A5802A5impl_uses*
+//#UC START# *4EBB7150025C_4EBB6A5802A5_impl*
+ f_Filer.WriteLn(aTag.TagType.AsString);
+ f_Filer.WriteLn(Format('AllChildrenCount = %d', [aTag.IntA[k2_tiAllChildrenCount]]));
+ aTag.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_CheckChild));
+//#UC END# *4EBB7150025C_4EBB6A5802A5_impl*
+//#UC START# *4EBB7150025C_4EBB6A5802A5_var*
+
+  function lp_CheckChild(aChild: Tl3Variant; anIndex: Long): Bool;
+  begin
+   if aChild.ChildrenCount > 0 then
+    CheckTag(aChild);
+   Result := True;
+  end;
+
+//#UC END# *4EBB7150025C_4EBB6A5802A5_var*
+//#UC START# *4EBB83340283_4EBB6A5802A5_impl*
+ l_F := MakeForm;
+ try
+  l_F.Show;
+  Load(l_F, KPage + '.evd', 'Load');
+  f_Filer := FilerForOutput;
+  try
+   f_Filer.Open;
+   try
+    CheckTag(l_F.TextSource.Document.AsObject);
+   finally
+    f_Filer.Close;
+   end;
+  finally
+   FreeAndNil(f_Filer);
+  end;
+ finally
+  l_F.Free;
+ end;//try..finally
+ CheckOutputWithInput(KPage + EtalonSuffix + '.' + 'out', '%');
+//#UC END# *4EBB83340283_4EBB6A5802A5_impl*
+//#UC START# *4EBB83340283_4EBB6A5802A5_var*
+var
+ l_F : _FormClass_;
+//#UC END# *4EBB83340283_4EBB6A5802A5_var*

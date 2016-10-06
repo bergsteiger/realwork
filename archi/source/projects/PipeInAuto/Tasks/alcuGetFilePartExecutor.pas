@@ -66,6 +66,9 @@ uses
  , ncsProfile
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Base
+ {$If NOT Defined(Nemesis)}
+ , ncsTrafficCounter
+ {$IfEnd} // NOT Defined(Nemesis)
  //#UC START# *54759BFB02B4impl_uses*
  //#UC END# *54759BFB02B4impl_uses*
 ;
@@ -88,6 +91,7 @@ procedure TalcuGetFilePartExecutor.Execute(const aContext: TncsExecuteContext);
 var
  l_Message: TncsGetFilePart;
  l_Reply: TncsGetFilePartReply;
+ l_Counter: IncsTrafficCounter;
 
  function DoProcess(anItem: TddProcessTask): Boolean;
  var
@@ -131,12 +135,14 @@ var
        l_PushMessage.FileName := l_Message.FileName;
        l_PushMessage.Offset := l_Stream.Position;
        l_PushMessage.PartSize := Min(l_Message.PartSize, l_ToCopyCount);
+       if Assigned(l_Counter) then
+        l_Counter.DoProgress(l_PushMessage.PartSize);
        g_WriteFile.Start;
        try
         l_PushMessage.Data.CopyFrom(l_Stream, l_PushMessage.PartSize);
        finally
         g_WriteFile.Stop;
-       end; 
+       end;
        aContext.rTransporter.Send(l_PushMessage);
        Dec(l_ToCopyCount, l_PushMessage.PartSize);
       finally
@@ -156,15 +162,20 @@ var
 //#UC END# *54607DDC0159_54759BFB02B4_var*
 begin
 //#UC START# *54607DDC0159_54759BFB02B4_impl*
- l_Message := aContext.rMessage as TncsGetFilePart;
- l_Reply := TncsGetFilePartReply.Create(l_Message);
+ Supports(aContext.rTransporter, IncsTrafficCounter, l_Counter);
  try
-  l_Reply.IsSuccess := False;
-  if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
-   l3System.Msg2Log('Задача с идентификатором %s не найдена (запрос файла)', [l_Message.TaskID]);
-  aContext.rTransporter.Send(l_Reply);
+  l_Message := aContext.rMessage as TncsGetFilePart;
+  l_Reply := TncsGetFilePartReply.Create(l_Message);
+  try
+   l_Reply.IsSuccess := False;
+   if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
+    l3System.Msg2Log('Задача с идентификатором %s не найдена (запрос файла)', [l_Message.TaskID]);
+   aContext.rTransporter.Send(l_Reply);
+  finally
+   FreeAndNil(l_Reply);
+  end;
  finally
-  FreeAndNil(l_Reply);
+  l_Counter := nil;
  end;
 //#UC END# *54607DDC0159_54759BFB02B4_impl*
 end;//TalcuGetFilePartExecutor.Execute

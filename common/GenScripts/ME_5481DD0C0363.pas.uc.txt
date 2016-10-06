@@ -1,0 +1,68 @@
+//#UC START# *479731C50290_5481DD0C0363_impl*
+ f_Sub := nil;
+ f_Hyperlink := nil;
+ f_InSelection := False;
+ inherited;
+//#UC END# *479731C50290_5481DD0C0363_impl*
+//#UC START# *479731C50290_5481DD0C0363_var*
+//#UC END# *479731C50290_5481DD0C0363_var*
+//#UC START# *4A60B23E00C3_5481DD0C0363_impl*
+ if IID.EQ(IeePara) then
+ begin
+  if (Document = nil) then
+   Result.SetNoInterface
+  else 
+  begin
+   Result.SetOk;
+   IeePara(Obj) := TeePara.Make(TagInst, Document);
+  end;//Document = nil
+ end 
+ else 
+ if IID.EQ(IevHyperlink) then
+ begin
+  if (f_Hyperlink = nil) then
+   Result.SetNoInterface
+  else
+  begin
+   Result.SetOk;
+   IevHyperlink(Obj) := f_Hyperlink;
+  end;//f_Hyperlink = nil
+ end 
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_5481DD0C0363_impl*
+//#UC START# *4A60B23E00C3_5481DD0C0363_var*
+//#UC END# *4A60B23E00C3_5481DD0C0363_var*
+//#UC START# *54819EA50228_5481DD0C0363get_impl*
+ QueryInterface(IeePara, Result);
+//#UC END# *54819EA50228_5481DD0C0363get_impl*
+//#UC START# *54819EA50228_5481DD0C0363get_var*
+//#UC END# *54819EA50228_5481DD0C0363get_var*
+//#UC START# *54819EA90089_5481DD0C0363get_impl*
+ QueryInterface(IevHyperlink, Result);
+//#UC END# *54819EA90089_5481DD0C0363get_impl*
+//#UC START# *54819EA90089_5481DD0C0363get_var*
+//#UC END# *54819EA90089_5481DD0C0363get_var*
+//#UC START# *54819EB40253_5481DD0C0363get_impl*
+ Result := f_InSelection;
+//#UC END# *54819EB40253_5481DD0C0363get_impl*
+//#UC START# *54819EB40253_5481DD0C0363get_var*
+//#UC END# *54819EB40253_5481DD0C0363get_var*
+//#UC START# *54819EBD00AD_5481DD0C0363get_impl*
+ Result := f_Sub;
+//#UC END# *54819EBD00AD_5481DD0C0363get_impl*
+//#UC START# *54819EBD00AD_5481DD0C0363get_var*
+//#UC END# *54819EBD00AD_5481DD0C0363get_var*
+//#UC START# *5481DD0C0363_ext:FileName
+w:\common\components\gui\Garant\Everest_Engine\eeHotSpot.pas
+//#UC END# *5481DD0C0363_ext:FileName
+//#UC START# *5481DD0C0363impl_uses*
+//#UC END# *5481DD0C0363impl_uses*
+//#UC START# *54872F04032C_5481DD0C0363_impl*
+ inherited Create(aTagWrap, aDocument, nil);
+ f_Hyperlink := aHyperlink;
+ f_InSelection := aInSelection;
+ f_Sub := aSub;
+//#UC END# *54872F04032C_5481DD0C0363_impl*
+//#UC START# *54872F04032C_5481DD0C0363_var*
+//#UC END# *54872F04032C_5481DD0C0363_var*

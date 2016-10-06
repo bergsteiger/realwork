@@ -1147,6 +1147,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
+ , tfwParserProgressService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserProgressService.pas'
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2589,6 +2590,20 @@ uses
  {$If Defined(ServerTasks)}
  , alcuMultiOperationExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMultiOperation in 'w:\common\components\rtl\Garant\cs\csMultiOperation.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiOperation_Const in 'w:\common\components\rtl\Garant\EVD\csMultiOperation_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csMultiOperationReply in 'w:\common\components\rtl\Garant\cs\csMultiOperationReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiOperationReply_Const in 'w:\common\components\rtl\Garant\EVD\csMultiOperationReply_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiOperationRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ , arDirectMultiOperationHelper in 'w:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas'
+ , arCustomMultiOperationHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas'
+ , MultiOperationRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiOperationRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'

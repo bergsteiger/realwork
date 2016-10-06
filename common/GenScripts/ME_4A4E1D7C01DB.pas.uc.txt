@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_4A4E1D7C01DB_impl*
+ inherited;
+//#UC END# *479731C50290_4A4E1D7C01DB_impl*
+//#UC START# *479731C50290_4A4E1D7C01DB_var*
+//#UC END# *479731C50290_4A4E1D7C01DB_var*
+//#UC START# *47A042E100E2_4A4E1D7C01DB_impl*
+ inherited;
+//#UC END# *47A042E100E2_4A4E1D7C01DB_impl*
+//#UC START# *47A042E100E2_4A4E1D7C01DB_var*
+//#UC END# *47A042E100E2_4A4E1D7C01DB_var*
+//#UC START# *4A4E1D7C01DB_ext:ParentFileName
+w:\common\components\rtl\Garant\K2\k2Prim.pas
+//#UC END# *4A4E1D7C01DB_ext:ParentFileName
+//#UC START# *54785FC20224_4A4E1D7C01DB_impl*
+ if (Self = nil) then
+  Result := false
+ else
+ begin
+  Assert(aTypeID >= Ord(Low(Tk2TypeIDPrim)) + 1);
+  if (aTypeID <= Ord(High(Tk2TypeIDPrim))) then
+   Result := Tk2TypeIDPrim(aTypeID) in f_Small
+  else
+   Result := FindData(aTypeID, l_Index);
+ end;//Self = nil
+//#UC END# *54785FC20224_4A4E1D7C01DB_impl*
+//#UC START# *54785FC20224_4A4E1D7C01DB_var*
+var
+ l_Index : Integer;
+//#UC END# *54785FC20224_4A4E1D7C01DB_var*
+//#UC START# *54785FF603C6_4A4E1D7C01DB_impl*
+ Assert(Self <> nil);
+ Assert(aTypeID >= Ord(Low(Tk2TypeIDPrim)) + 1);
+ if (aTypeID <= Ord(High(Tk2TypeIDPrim))) then
+  f_Small := f_Small + [Tk2TypeIDPrim(aTypeID)]
+ else
+  Add(aTypeID);
+//#UC END# *54785FF603C6_4A4E1D7C01DB_impl*
+//#UC START# *54785FF603C6_4A4E1D7C01DB_var*
+//#UC END# *54785FF603C6_4A4E1D7C01DB_var*
+//#UC START# *547863510376_4A4E1D7C01DB_impl*
+ Assert(Self <> nil);
+ if (anOther = nil) then
+ begin
+  Clear;
+  f_Small := [];
+ end//anOther = nil
+ else
+ begin
+  inherited Assign(anOther);
+  f_Small := anOther.f_Small;
+ end;//anOther = nil
+//#UC END# *547863510376_4A4E1D7C01DB_impl*
+//#UC START# *547863510376_4A4E1D7C01DB_var*
+//#UC END# *547863510376_4A4E1D7C01DB_var*

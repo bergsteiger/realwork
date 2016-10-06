@@ -1,0 +1,37 @@
+//#UC START# *492D9071038D_492D91B7037Eget_impl*
+ if f_CurrentContextFilter = nil then
+  f_CurrentContextFilter := TnscContextFilterState.Make(False, nil, 0);
+ Result := f_CurrentContextFilter;
+//#UC END# *492D9071038D_492D91B7037Eget_impl*
+//#UC START# *492D9071038D_492D91B7037Eget_var*
+//#UC END# *492D9071038D_492D91B7037Eget_var*
+//#UC START# *492D90AA0118_492D91B7037E_impl*
+ if Supports(aTreeSource, Il3FilterableTree, l_FilterableTree) then
+ begin
+  if (aFilter = nil) then
+   pm_GetCurrentContextFilter
+  else
+   f_CurrentContextFilter := aFilter;
+  Result := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.
+                                          SetContext(f_CurrentContextFilter.ActiveContext),
+                                          aCurrentNode,
+                                          aCurrent,
+                                          True,
+                                          f_CurrentContextFilter.NeedRefilterTree);
+ end
+ else
+  Result := aTreeSource;
+//#UC END# *492D90AA0118_492D91B7037E_impl*
+//#UC START# *492D90AA0118_492D91B7037E_var*
+var
+ l_FilterableTree: Il3FilterableTree;
+//#UC END# *492D90AA0118_492D91B7037E_var*
+//#UC START# *492D91B7037E_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas
+//#UC END# *492D91B7037E_ext:FileName
+//#UC START# *492D92370149_492D91B7037E_impl*
+ f_CurrentContextFilter := nil;
+ inherited;
+//#UC END# *492D92370149_492D91B7037E_impl*
+//#UC START# *492D92370149_492D91B7037E_var*
+//#UC END# *492D92370149_492D91B7037E_var*

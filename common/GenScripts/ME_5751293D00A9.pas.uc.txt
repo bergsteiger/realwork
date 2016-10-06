@@ -1,0 +1,30 @@
+//#UC START# *479731C50290_5751293D00A9_impl*
+ f_HTCalculator := nil;
+ f_PGCalculator := nil;
+ inherited;
+//#UC END# *479731C50290_5751293D00A9_impl*
+//#UC START# *479731C50290_5751293D00A9_var*
+//#UC END# *479731C50290_5751293D00A9_var*
+//#UC START# *575000000164_5751293D00A9_impl*
+ Result := f_HTCalculator.Calc(aUserID, aImportPriority, aExportPriority);
+ Assert(Result = f_PGCalculator.Calc(aUserID, l_ImportPriority, l_ExportPriority));
+ if Result then
+  Assert((aImportPriority = l_ImportPriority) and (aExportPriority = l_ExportPriority));
+//#UC END# *575000000164_5751293D00A9_impl*
+//#UC START# *575000000164_5751293D00A9_var*
+var
+ l_ImportPriority: TdaPriority;
+ l_ExportPriority: TdaPriority;
+//#UC END# *575000000164_5751293D00A9_var*
+//#UC START# *5751293D00A9_ext:FileName
+w:\common\components\rtl\Garant\ComboAccess\caPriorityCalculator.pas
+//#UC END# *5751293D00A9_ext:FileName
+//#UC START# *5751293D00A9impl_uses*
+//#UC END# *5751293D00A9impl_uses*
+//#UC START# *5751296703D0_5751293D00A9_impl*
+ inherited Create;
+ f_HTCalculator := aHTCalculator;
+ f_PGCalculator := aPGCalculator;
+//#UC END# *5751296703D0_5751293D00A9_impl*
+//#UC START# *5751296703D0_5751293D00A9_var*
+//#UC END# *5751296703D0_5751293D00A9_var*

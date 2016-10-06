@@ -1,0 +1,41 @@
+//#UC START# *45EEDE9D01C5_4AC200650301_impl*
+  if (Notify.GetId = f_NotifyType) then
+  begin
+    if f_NotifyType = NT_BASE_UPDATE_END then // запил
+      TatGblAdapterWorker.Instance.ControlManager.UpdateStatus(false);
+    //  
+    Logger.Info('Нотификация с кодом ' + NTTypeToStr + ' получена.');
+    l_Notification := TatNotification.Create(Notify);
+    Trigger(Self, l_Notification);
+  end;
+//#UC END# *45EEDE9D01C5_4AC200650301_impl*
+//#UC START# *45EEDE9D01C5_4AC200650301_var*
+  function NTTypeToStr : String;
+  begin
+    case f_NotifyType of
+      NT_LONG_OPERATION_START   : Result := 'NT_LONG_OPERATION_START';
+      NT_LONG_OPERATION_END     : Result := 'NT_LONG_OPERATION_END';
+      NT_MONITORING_UPDATE      : Result := 'NT_MONITORING_UPDATE';
+      NT_SHUTDOWN               : Result := 'NT_SHUTDOWN';
+      NT_LOGOUT                 : Result := 'NT_LOGOUT';
+      NT_BASE_UPDATE_START      : Result := 'NT_BASE_UPDATE_START';
+      NT_BASE_UPDATE_END        : Result := 'NT_BASE_UPDATE_END';
+      NT_BASE_UPDATE_FAILED     : Result := 'NT_BASE_UPDATE_FAILED';
+      NT_CONSULTATION_RECEIVED  : Result := 'NT_CONSULTATION_RECEIVED';
+      NT_CONSULTATION_NOT_SENT  : Result := 'NT_CONSULTATION_NOT_SENT';
+      NT_NO_SUBSCRIPTION        : Result := 'NT_NO_SUBSCRIPTION';
+    end;
+  end;
+
+  var
+    l_Notification : IatNotification;
+//#UC END# *45EEDE9D01C5_4AC200650301_var*
+//#UC START# *4AC200650301_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas
+//#UC END# *4AC200650301_ext:ParentFileName
+//#UC START# *4AC2018D006C_4AC200650301_impl*
+  inherited Create;
+  f_NotifyType := aNotifyType;
+//#UC END# *4AC2018D006C_4AC200650301_impl*
+//#UC START# *4AC2018D006C_4AC200650301_var*
+//#UC END# *4AC2018D006C_4AC200650301_var*

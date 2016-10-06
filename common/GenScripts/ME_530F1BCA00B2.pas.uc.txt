@@ -1,0 +1,77 @@
+//#UC START# *479731C50290_530F1BCA00B2_impl*
+ FreeAndNil(f_Stream);
+ FreeAndNil(f_Tag);
+ inherited;
+//#UC END# *479731C50290_530F1BCA00B2_impl*
+//#UC START# *479731C50290_530F1BCA00B2_var*
+//#UC END# *479731C50290_530F1BCA00B2_var*
+//#UC START# *47A6FEE600FC_530F1BCA00B2_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_530F1BCA00B2_impl*
+//#UC START# *47A6FEE600FC_530F1BCA00B2_var*
+//#UC END# *47A6FEE600FC_530F1BCA00B2_var*
+//#UC START# *530F1B3C029B_530F1BCA00B2get_impl*
+ if f_Tag.IsTransparent then
+  Result := k2_vkTransparent
+ else
+ if f_Tag.IsOrd then
+  Result := k2_vkInteger
+ else
+ if f_Tag.IsKindOf(k2_typString) then
+  Result := k2_vkString
+ else
+ if f_Tag.IsStream(f_IStream) then
+  Result := k2_vkStream
+ else
+  Result := k2_vkInteger;
+//#UC END# *530F1B3C029B_530F1BCA00B2get_impl*
+//#UC START# *530F1B3C029B_530F1BCA00B2get_var*
+//#UC END# *530F1B3C029B_530F1BCA00B2get_var*
+//#UC START# *530F1B6501B3_530F1BCA00B2get_impl*
+ Result := f_Tag As Tl3PrimString;
+//#UC END# *530F1B6501B3_530F1BCA00B2get_impl*
+//#UC START# *530F1B6501B3_530F1BCA00B2get_var*
+//#UC END# *530F1B6501B3_530F1BCA00B2get_var*
+//#UC START# *530F1B86025B_530F1BCA00B2get_impl*
+ Result := f_Tag.AsLong;
+//#UC END# *530F1B86025B_530F1BCA00B2get_impl*
+//#UC START# *530F1B86025B_530F1BCA00B2get_var*
+//#UC END# *530F1B86025B_530F1BCA00B2get_var*
+//#UC START# *530F1BA50053_530F1BCA00B2get_impl*
+ if (f_Stream = nil) then
+ begin
+  if (f_IStream <> nil) then
+   l3IStream2Stream(f_IStream, f_Stream)
+  else
+  if f_Tag.IsStream(f_IStream) then
+   l3IStream2Stream(f_IStream, f_Stream);
+ end;//f_Stream = nil
+ Result := f_Stream;
+//#UC END# *530F1BA50053_530F1BCA00B2get_impl*
+//#UC START# *530F1BA50053_530F1BCA00B2get_var*
+//#UC END# *530F1BA50053_530F1BCA00B2get_var*
+//#UC START# *530F1BCA00B2_ext:FileName
+w:\common\components\rtl\Garant\K2\k2VariantImpl.pas
+//#UC END# *530F1BCA00B2_ext:FileName
+//#UC START# *530F1BCA00B2impl_uses*
+//#UC END# *530F1BCA00B2impl_uses*
+//#UC START# *530F2A36024A_530F1BCA00B2_impl*
+ inherited Create;
+// Assert(aTag <> nil);
+ if (aTag = nil) then
+  Tk2NullTagImpl.Instance.SetRef(f_Tag)
+ else
+  aTag.SetRef(f_Tag);
+//#UC END# *530F2A36024A_530F1BCA00B2_impl*
+//#UC START# *530F2A36024A_530F1BCA00B2_var*
+//#UC END# *530F2A36024A_530F1BCA00B2_var*
+//#UC START# *530F438C01D2_530F1BCA00B2_impl*
+ Result := Make(k2_typLong.MakeTag(aValue).AsObject);
+//#UC END# *530F438C01D2_530F1BCA00B2_impl*
+//#UC START# *530F438C01D2_530F1BCA00B2_var*
+//#UC END# *530F438C01D2_530F1BCA00B2_var*
+//#UC START# *532AE5E5015C_530F1BCA00B2get_impl*
+ Result := f_Tag;
+//#UC END# *532AE5E5015C_530F1BCA00B2get_impl*
+//#UC START# *532AE5E5015C_530F1BCA00B2get_var*
+//#UC END# *532AE5E5015C_530F1BCA00B2get_var*

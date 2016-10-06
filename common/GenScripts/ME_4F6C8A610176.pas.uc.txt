@@ -1,0 +1,77 @@
+//#UC START# *47B9BAFD01F4_4F6C8A610176_impl*
+ Result := l3Compare(l3PCharLen(anItem.rKey), l3PCharLen(aData));
+//#UC END# *47B9BAFD01F4_4F6C8A610176_impl*
+//#UC START# *47B9BAFD01F4_4F6C8A610176_var*
+//#UC END# *47B9BAFD01F4_4F6C8A610176_var*
+//#UC START# *4F6C7F2B036B_4F6C8A610176_impl*
+ if FindData(aSettingId, l_Index) then
+ begin
+  Result := true;
+  theValue := Items[l_Index].rValue;
+ end//FindData(aSettingId, l_Index)
+ else
+  Result := false;
+//#UC END# *4F6C7F2B036B_4F6C8A610176_impl*
+//#UC START# *4F6C7F2B036B_4F6C8A610176_var*
+var
+ l_Index : Integer;
+//#UC END# *4F6C7F2B036B_4F6C8A610176_var*
+//#UC START# *4F6C7F650121_4F6C8A610176_impl*
+ if FindData(aSettingId, l_Index) then
+  Result := TryStrToInt(l3Str(Items[l_Index].rValue), theValue)
+ else
+  Result := false;
+//#UC END# *4F6C7F650121_4F6C8A610176_impl*
+//#UC START# *4F6C7F650121_4F6C8A610176_var*
+var
+ l_Index : Integer;
+//#UC END# *4F6C7F650121_4F6C8A610176_var*
+//#UC START# *4F6C7F9D0247_4F6C8A610176_impl*
+ if FindData(aSettingId, l_Index) then
+  Result := TryStrToBool(l3Str(Items[l_Index].rValue), theValue)
+ else
+  Result := false;
+//#UC END# *4F6C7F9D0247_4F6C8A610176_impl*
+//#UC START# *4F6C7F9D0247_4F6C8A610176_var*
+var
+ l_Index : Integer;
+//#UC END# *4F6C7F9D0247_4F6C8A610176_var*
+//#UC START# *4F6C7FDF00C2_4F6C8A610176_impl*
+ if FindData(aSettingId, l_Index) then
+  ItemSlot(l_Index)^.rValue := l3CStr(aValue)
+ else
+  Add(TafwKeyValue_C(l3CStr(aSettingId), l3CStr(aValue)));
+//#UC END# *4F6C7FDF00C2_4F6C8A610176_impl*
+//#UC START# *4F6C7FDF00C2_4F6C8A610176_var*
+var
+ l_Index : Integer;
+//#UC END# *4F6C7FDF00C2_4F6C8A610176_var*
+//#UC START# *4F6C800D02AE_4F6C8A610176_impl*
+ l_V := IntToStr(aValue);
+ if FindData(aSettingId, l_Index) then
+  ItemSlot(l_Index)^.rValue := l3CStr(l_V)
+ else
+  Add(TafwKeyValue_C(l3CStr(aSettingId), l3CStr(l_V)));
+//#UC END# *4F6C800D02AE_4F6C8A610176_impl*
+//#UC START# *4F6C800D02AE_4F6C8A610176_var*
+var
+ l_Index : Integer;
+ l_V : AnsiString;
+//#UC END# *4F6C800D02AE_4F6C8A610176_var*
+//#UC START# *4F6C80390209_4F6C8A610176_impl*
+ l_V := BoolToStr(aValue, true);
+ if FindData(aSettingId, l_Index) then
+  ItemSlot(l_Index)^.rValue := l3CStr(l_V)
+ else
+  Add(TafwKeyValue_C(l3CStr(aSettingId), l3CStr(l_V)));
+//#UC END# *4F6C80390209_4F6C8A610176_impl*
+//#UC START# *4F6C80390209_4F6C8A610176_var*
+var
+ l_Index : Integer;
+ l_V : AnsiString;
+//#UC END# *4F6C80390209_4F6C8A610176_var*
+//#UC START# *4F6C8A610176_ext:FileName
+w:\common\components\gui\Garant\AFW\afwSettingsImpl.pas
+//#UC END# *4F6C8A610176_ext:FileName
+//#UC START# *4F6C8A610176impl_uses*
+//#UC END# *4F6C8A610176impl_uses*

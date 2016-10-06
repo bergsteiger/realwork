@@ -1,0 +1,26 @@
+//#UC START# *4BE419AF0217_4DF1E915017B_impl*
+ l_LogName := OutputPath + KPage + '.rowh';
+ TPrintRowHeightsSpy.Instance.StartLogging(l_LogName);
+ try
+  inherited DoVisit(aForm);
+ finally
+  TPrintRowHeightsSpy.Instance.StopLogging;
+ end;
+ l_OldName := f_CurrentOutput;
+ try
+  f_CurrentOutput := l_LogName;
+  CheckOutputWithInput(ChangeFileExt(ExtractFileName(l_LogName), EtalonSuffix + '.rowh'));
+ finally
+  f_CurrentOutput := l_OldName;
+ end;
+//#UC END# *4BE419AF0217_4DF1E915017B_impl*
+//#UC START# *4BE419AF0217_4DF1E915017B_var*
+var
+ l_OldName: string;
+ l_LogName: string;
+//#UC END# *4BE419AF0217_4DF1E915017B_var*
+//#UC START# *4DF1E915017B_ext:FileName
+w:\common\components\rtl\Garant\Abstract_Tests\PreviewWithRowCompare.pas
+//#UC END# *4DF1E915017B_ext:FileName
+//#UC START# *4DF1E915017Bimpl_uses*
+//#UC END# *4DF1E915017Bimpl_uses*

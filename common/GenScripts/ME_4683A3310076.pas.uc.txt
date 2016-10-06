@@ -1,0 +1,397 @@
+//#UC START# *4683A3310076_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *4683A3310076_ext:ParentFileName
+//#UC START# *5232EA510243_4683A3310076_impl*
+ l_EdFieldCount := Get_EditorReq.FieldsCount - 1;
+ l_FieldCount := 0;
+ // не удаляем значения, используем существующие поля ввода
+ l_Cursor := Screen.Cursor;
+ Screen.Cursor := crHourGlass;
+ try
+  f_MgrSearch.StartGettingFromView;
+  try
+   // первая операция
+   l_Index := Low(TLogicOperation);
+   // пройдем по списку итераторов
+   while True do
+   begin
+    if l_Index <> loNone then
+    begin
+     // итератор
+     l_Iterator := GetOperationIterator(Root, l_Index);
+     try
+      // узлы
+      l_Iterator.GetNext(l_NodeBase);
+      while Assigned(l_NodeBase) do
+      begin
+       try
+        // создадим поле ввода
+        AddField(l_NodeBase, l_Index);
+       finally
+        l_NodeBase := nil;
+       end;
+       l_Iterator.GetNext(l_NodeBase);
+      end;//while Assigned(l_NodeBase) do
+     finally
+      l_Iterator := nil;
+     end;//try..finally
+    end;
+    if l_Index < High(TLogicOperation) then
+     Inc(l_Index)
+    else
+     Break;
+   end;//while l_Index < Pred(aParams.Count) do
+   // удалим "лишние поля"
+   if l_FieldCount > 0 then
+    for l_Count := l_EdFieldCount downto l_FieldCount do
+     Get_EditorReq.DeleteField(nil)
+   else
+    ReqClear;
+   Get_EditorReq.UpdateState(Get_EditorReq.FirstField, nil);
+   Get_EditorReq.UpdateState(Get_EditorReq.LastField, nil);
+  finally
+   f_MgrSearch.FinishGettingFromView;
+  end;//try..finally
+  DoOperateChanged;
+  // установим фокус в последнем элементе
+  Get_EditorReq.SetFocus(Get_EditorReq.LastField);
+ finally
+  Screen.Cursor := l_Cursor;
+ end;//Screen.Cursor := crHourGlass;
+//#UC END# *5232EA510243_4683A3310076_impl*
+//#UC START# *5232EA510243_4683A3310076_var*
+var
+ l_Index: TLogicOperation;
+ l_Iterator: INodeIterator;
+ l_NodeBase: INodeBase;
+ l_Cursor: TCursor;
+ l_FieldCount: Integer;
+ //* - Количество выбранных элементов. Для удаления лишних полей.
+ l_Count: Integer;
+ l_EdFieldCount: Integer;
+
+ procedure AddField(const aNodeBase: INodeBase; aOperation: TLogicOperation);
+ var
+  l_Field: IevEditorFieldWithTree;
+  l_EdField: IevEditorControlField;
+ begin
+  // счетчик загруженных полей
+  Inc(l_FieldCount);
+  // используем существующее поле
+  if (l_FieldCount <= Get_EditorReq.FieldsCount) then  
+   Get_EditorReq.Fields[l_FieldCount - 1].QueryInterface(IevEditorFieldWithTree, l_Field)
+  // новое поле 
+  else
+   begin
+    l_EdField := Get_EditorReq.AddField(nil);    
+    Assert(Assigned(l_EdField), caFieldNotAdded);
+    try
+     l_EdField.QueryInterface(IevEditorFieldWithTree, l_Field);
+    finally
+     l_EdField := nil;
+    end;
+   end;
+  try
+   Assert(Assigned(l_Field), caFieldNotInitialized);
+   // покажем значение
+   LoadField(l_Field, aOperation, aNodeBase);
+   Get_EditorReq.SetFocus(l_Field, True);
+   Get_EditorReq.UpdateState(l_Field, nil);
+  finally
+   l_Field := nil;
+  end;
+ end;
+//#UC END# *5232EA510243_4683A3310076_var*
+//#UC START# *54E5C2970015_4683A3310076_impl*
+ Result := IsAttrValid;
+//#UC END# *54E5C2970015_4683A3310076_impl*
+//#UC START# *54E5C2970015_4683A3310076_var*
+//#UC END# *54E5C2970015_4683A3310076_var*
+//#UC START# *54E5C2C801EC_4683A3310076_impl*
+ Result := True;
+//#UC END# *54E5C2C801EC_4683A3310076_impl*
+//#UC START# *54E5C2C801EC_4683A3310076_var*
+//#UC END# *54E5C2C801EC_4683A3310076_var*
+//#UC START# *54E5C6B2036C_4683A3310076_impl*
+ l_List := TqaAttrInfoList.Make;
+ try
+  {$IfNDef Admin}
+  LoadDictionaryNew(l_List, f_MgrSearch.Query, Get_TagName);
+  {$Else   Admin}
+  Assert(false);
+  {$EndIf  Admin}
+  l_Count := l_List.Count - 1;
+  l_FieldCount := Get_EditorReq.FieldsCount;
+  Assert((l_FieldCount = 1) OR (l_Count >= l_FieldCount - 1));
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=227478809&focusedCommentId=227967127#comment-227967127
+  for l_Index := 0 to l_Count do
+  begin
+   { Новый TasField }
+   if (l_Index = 0) then
+    l_ED := Get_EditorReq.FirstField
+   else
+   if (l_FieldCount > l_Index) then
+    l_ED := Get_EditorReq.Fields[l_Index]
+   else
+   begin
+    Get_EditorReq.AddField(nil);
+    l_ED := Get_EditorReq.LastField;
+   end;//l_FieldCount > l_Index
+   try
+    { Введена маска }
+    if not l3IsNil(l_List[l_Index].Mask) then
+    begin
+     if Supports(l_ED, IevEditorFieldWithTree, l_FieldTree) then
+     try
+      l_FieldTree.SetMaskText(l_List[l_Index].Mask)
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=588810734
+     finally
+      l_FieldTree := nil;
+     end
+     else
+      l_ED.Text := l_List[l_Index].Mask;
+    end
+    { Выбран конкретный элемент }
+    else
+     with l_List[l_Index] do
+     begin
+      if Supports(l_ED, IevEditorFieldWithTree, l_FieldTree) then
+      try
+       l_Tree := l_FieldTree.SourceTree;
+       if Supports(l_Tree, Il3ExpandedSimpleTree) then
+       begin
+        // преобразуем ноду в IQuery в ноду в дереве
+        // l_Node := GetTwinNode(l_Mgr.ComboBox.TreeStruct, NodeBase);
+        // !! обход бага в дереве, связанного с тем, что ноды в View и IQuery - разные
+        // поправить после правки бага в дереве
+        {$IFDEF NEW_TREE}
+        LoadField(l_FieldTree, Oper, NodeBase);
+        {$ELSE}
+        l_Node := GetTwinNode(TnsAttributeTreeStruct.Make(Get_TagName, l_Tree.ShowRoot), NodeBase);
+        try
+         LoadField(l_FieldTree, Oper, l_Node);
+        finally
+         l_Node := nil;
+        end;//try..finally
+        {$ENDIF NEW_TREE}
+       end;//Supports(l_Tree, Il3ExpandedSimpleTree)
+      finally
+       l_FieldTree := nil;
+      end;//try..finally
+     end;//with l_List[l_Index]
+   finally
+    l_ED := nil;
+   end;//try..finally
+  end;//for l_Index
+  if (Get_EditorReq.FieldsCount > 0) and IsSet(True) then
+  begin
+   Get_EditorReq.Group.Expanded := True;   
+   //EditorReq.Valid := True; //Проверяем загруженные данные 
+  end;//EditorReq.FieldsCount > 0..
+ finally
+  vcmFree(l_List);
+ end;//try..finally
+ isAttrValid;
+ inherited;
+//#UC END# *54E5C6B2036C_4683A3310076_impl*
+//#UC START# *54E5C6B2036C_4683A3310076_var*
+var
+ l_List: TqaAttrInfoList;
+ l_Index: Integer;
+ l_Node: INodeBase;
+ l_Count: Integer;
+ l_FieldCount: Integer;
+ l_FieldTree: IevEditorFieldWithTree;
+ l_ED: IevEditorControlField;
+ l_Tree: Il3SimpleTree;
+//#UC END# *54E5C6B2036C_4683A3310076_var*
+//#UC START# *54E5C719014A_4683A3310076_impl*
+ SetAttributesToView;
+ if DoShowTree(Get_TagName, AdditionalFilter) then
+  f_MgrSearch.FinishOpenTree(Root, Self);
+//#UC END# *54E5C719014A_4683A3310076_impl*
+//#UC START# *54E5C719014A_4683A3310076_var*
+ function DoShowTree(const aTagName: Il3CString; anAdditionalFilter: TnsFilterType): Boolean;
+ var
+  l_Cursor: TCursor;
+ begin
+  Result := False;
+  l_Cursor := Screen.Cursor;
+  try
+   Screen.Cursor := crHourGlass;
+   Result := TLiteSearchService.Instance.OpenTreeSelection(aTagName, anAdditionalFilter, nil) = mrOk;
+  finally
+   Screen.Cursor := l_Cursor;
+  end;//try..finally
+ end;
+//#UC END# *54E5C719014A_4683A3310076_var*
+//#UC START# *54E5C85002FA_4683A3310076_impl*
+ if not f_MgrSearch.GettingFromView then
+  inherited;
+//#UC END# *54E5C85002FA_4683A3310076_impl*
+//#UC START# *54E5C85002FA_4683A3310076_var*
+//#UC END# *54E5C85002FA_4683A3310076_var*
+//#UC START# *54E5C884028F_4683A3310076_impl*
+ for l_Index := 0 to Get_EditorReq.FieldsCount - 1 do
+  SaveFieldToQuery(Get_EditorReq.Fields[l_Index]);
+//#UC END# *54E5C884028F_4683A3310076_impl*
+//#UC START# *54E5C884028F_4683A3310076_var*
+var
+ l_Index: Integer;
+//#UC END# *54E5C884028F_4683A3310076_var*
+//#UC START# *54F348660219_4683A3310076_impl*
+ if not Multi then
+  f_MgrSearch.ExecQuery
+ else
+  OpenSelectWindow;
+//#UC END# *54F348660219_4683A3310076_impl*
+//#UC START# *54F348660219_4683A3310076_var*
+//#UC END# *54F348660219_4683A3310076_var*
+//#UC START# *54F34897011A_4683A3310076_impl*
+ Set_Modified(True);
+ DoOperateChanged;
+//#UC END# *54F34897011A_4683A3310076_impl*
+//#UC START# *54F34897011A_4683A3310076_var*
+//#UC END# *54F34897011A_4683A3310076_var*
+//#UC START# *54F42EA70211_4683A3310076_impl*
+ Result := TnsAttributeTreeCacheNew.Instance.AttributeRoot[Get_TagName];
+//#UC END# *54F42EA70211_4683A3310076_impl*
+//#UC START# *54F42EA70211_4683A3310076_var*
+//#UC END# *54F42EA70211_4683A3310076_var*
+//#UC START# *54F42EBA00FC_4683A3310076_impl*
+ // Сбросим флаги
+ DropAllOperations(Root);
+ Root.SetAllFlag(FM_SELECTION, False); 
+ l_Count := Get_EditorReq.FieldsCount - 1;  
+ // Установим флаги
+ for l_Index := 0 to l_Count do
+  if Supports(Get_EditorReq.Fields[l_Index], IevEditorFieldWithTree, l_Field) then
+  try
+   if l_Field.IsFieldEmpty then
+    l_Field.ClearText;
+   if Supports(l_Field.Value, INodeBase, l_NodeBase) then
+   try
+    nsLogicOperationToFlags.SetLogicOperation(l_NodeBase, FieldLogicOperation(l_Field));
+   finally
+    l_NodeBase := nil;
+   end;//try..finally
+  finally
+   l_Field := nil;
+  end;//try..finally
+//#UC END# *54F42EBA00FC_4683A3310076_impl*
+//#UC START# *54F42EBA00FC_4683A3310076_var*
+var
+ l_Index: Integer;
+ l_NodeBase: INodeBase;
+ l_Count: Integer;
+ l_Field: IevEditorFieldWithTree;
+//#UC END# *54F42EBA00FC_4683A3310076_var*
+//#UC START# *54F42F9D008B_4683A3310076_impl*
+ if Supports(aValue, IevEditorFieldWithTree, l_ComboField) then
+ try
+  if l_ComboField.IsFieldEmpty then
+   l_ComboField.ClearText //Заточка для новой реакции на откатку, т.к. теперь
+   //ядро не ждет никакой нотификации, то может получиться так, что текст
+   //удален при нажатии "Ctrl + Z", а выбранный узел остался.
+  else
+  if evIsFieldSet(l_ComboField, false) then
+  begin
+   // Введено значение со звездочкой
+   if l_ComboField.IsAsterisk then
+    {$If not defined(Admin)}
+    SaveContextNew(f_MgrSearch.Query, Get_TagName, aValue.Text)
+    {$Else}
+    Assert(false)
+    {$IfEnd}
+   // Выбрано конкретное значение
+   else
+   if aValue.Valid and Supports(l_ComboField.Value, INodeBase, l_DictNode) then
+   try
+    // !! обход бага в дереве, связанного с IQuery
+    // убрать после правки.
+    {$IFDEF NEW_TREE}
+    SaveAttributeNew(f_MgrSearch.Query, Get_TagName, FieldLogicOperation(l_ComboField), l_DictNode);
+    {$ELSE}
+    l_Node := GetTwinNode(TnsAttributeTreeStruct.Make(Get_TagName, False), l_DictNode);
+    if not Assigned(l_Node) then
+     l_Node := l_DictNode;
+    {$If not defined(Admin)}
+    SaveAttributeNew(f_MgrSearch.Query, Get_TagName, FieldLogicOperation(l_ComboField), l_Node);
+    {$Else}
+    Assert(false);
+    {$IfEnd}
+    {$ENDIF NEW_TREE}
+   finally
+    l_DictNode := nil;
+   end;//try..finally
+  end;//if evIsFieldSet(aValue) then
+ finally
+  l_ComboField := nil;
+ end;//try..finally
+//#UC END# *54F42F9D008B_4683A3310076_impl*
+//#UC START# *54F42F9D008B_4683A3310076_var*
+var
+ l_DictNode,
+ l_Node: INodeBase;
+ l_ComboField: IevEditorFieldWithTree;
+//#UC END# *54F42F9D008B_4683A3310076_var*
+//#UC START# *54F42FBA00EA_4683A3310076_impl*
+ Result := StateIndex2LogicState(aValue.LogicalState);
+//#UC END# *54F42FBA00EA_4683A3310076_impl*
+//#UC START# *54F42FBA00EA_4683A3310076_var*
+//#UC END# *54F42FBA00EA_4683A3310076_var*
+//#UC START# *54F42FD60076_4683A3310076_impl*
+ l_State := Ord(aLogicOper) - 1; //loNone - не учитываем
+ l_Node := TnsINodeWrap.Make(aNode);
+ try
+  aValue.ShowNode(l_Node); 
+  aValue.LogicalState := l_State;
+ finally
+  l_Node := nil;
+ end; 
+//#UC END# *54F42FD60076_4683A3310076_impl*
+//#UC START# *54F42FD60076_4683A3310076_var*
+var
+ l_State: Integer;
+ l_Node: Il3SimpleNode;
+//#UC END# *54F42FD60076_4683A3310076_var*
+//#UC START# *555495740306_4683A3310076_impl*
+Result := TvcmStringList.Make;
+ l_Count := Get_EditorReq.FieldsCount - 1;
+ l_SpecialWasAdded := False;
+ l_SpecialLanguage := afw.Application.LocaleInfo.Language = afw_lngRussian;
+ if (l_Count >= 0) then
+  for i := 0 to l_Count do
+   if Supports(Get_EditorReq.Fields[i], IevEditorFieldWithTree, l_Field) then
+   try
+    if evIsFieldSet(l_Field, false) then
+    begin
+     if l_SpecialLanguage and
+        (l3Same(Get_TagName, AT_ANNO_KIND)) then //Для более короткого названия в мониторингах.
+     begin
+      l_Str := nsConvertAnnoKind(l_Field.Text);
+      if not ((l3Same(l_Str, ccakRegionalLaw)) and
+         l_SpecialWasAdded) then
+      begin
+       Result.add(l_Str);
+      end;//not ((l3Same(l_Str.AsWStr, ccakRegionalLaw)) and
+      if (l3Same(l_Str, ccakRegionalLaw)) then
+       l_SpecialWasAdded := true;
+     end//l_SpecialLanguage..
+     else
+     begin
+      Result.Add(l_Field.Text);
+     end;//l_SpecialLanguage..
+    end;//evIsFieldSet(l_Field)
+   finally
+    l_Field := nil;
+   end;//try..finally
+//#UC END# *555495740306_4683A3310076_impl*
+//#UC START# *555495740306_4683A3310076_var*
+var
+ I, l_Count: Integer;
+ l_Field: IevEditorFieldWithTree;
+ l_Str: Il3CString;
+ l_SpecialWasAdded: Boolean;
+ l_SpecialLanguage: Boolean;
+//#UC END# *555495740306_4683A3310076_var*

@@ -1,0 +1,27 @@
+//#UC START# *556317DE02B5_556427250160_impl*
+ Result := inherited SourcePoint;
+ Result.rFileName := f_SourceFileName;
+ Result.rLine := f_SourceLine;
+//#UC END# *556317DE02B5_556427250160_impl*
+//#UC START# *556317DE02B5_556427250160_var*
+//#UC END# *556317DE02B5_556427250160_var*
+//#UC START# *556427250160_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwSourcePointWord.pas
+//#UC END# *556427250160_ext:FileName
+//#UC START# *556427250160impl_uses*
+//#UC END# *556427250160impl_uses*
+//#UC START# *556427DD0163_556427250160_impl*
+ if (aCtx.rParser = nil) then
+ begin
+  f_SourceLine := -1;
+  f_SourceFileName := nil;
+ end//aCtx.rParser = nil
+ else
+ begin
+  f_SourceLine := aCtx.rParser.SourceLine;
+  f_SourceFileName := TtfwCStringFactory.C(aCtx.rParser.FileName);
+ end;//aCtx.rParser = nil
+ inherited Create;
+//#UC END# *556427DD0163_556427250160_impl*
+//#UC START# *556427DD0163_556427250160_var*
+//#UC END# *556427DD0163_556427250160_var*

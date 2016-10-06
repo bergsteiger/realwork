@@ -1,0 +1,38 @@
+//#UC START# *479731C50290_49242CB201D0_impl*
+ if (UseCaseController <> nil) then
+  UseCaseController.As_Il3ChangeNotifier.Unsubscribe(IbsCurrentChangedListener(Self));
+ inherited;
+//#UC END# *479731C50290_49242CB201D0_impl*
+//#UC START# *479731C50290_49242CB201D0_var*
+//#UC END# *479731C50290_49242CB201D0_var*
+//#UC START# *47A042E100E2_49242CB201D0_impl*
+ inherited;
+ BlockNotification := 0;
+ if (UseCaseController <> nil) then
+  UseCaseController.As_Il3ChangeNotifier.Subscribe(IbsCurrentChangedListener(Self));
+//#UC END# *47A042E100E2_49242CB201D0_impl*
+//#UC START# *47A042E100E2_49242CB201D0_var*
+//#UC END# *47A042E100E2_49242CB201D0_var*
+//#UC START# *47F0C1BF0314_49242CB201D0_impl*
+ inherited;
+ if (CurrentChangedListener <> nil) then
+ begin
+  Inc(f_BlockNotification);
+  try
+   CurrentChangedListener.Process(aNode);
+  finally
+   Dec(f_BlockNotification);
+  end;//try..finally
+ end;//CurrentChangedListener <> nil
+//#UC END# *47F0C1BF0314_49242CB201D0_impl*
+//#UC START# *47F0C1BF0314_49242CB201D0_var*
+//#UC END# *47F0C1BF0314_49242CB201D0_var*
+//#UC START# *49242A4E0252_49242CB201D0_impl*
+ if (BlockNotification = 0) then
+  inherited;
+//#UC END# *49242A4E0252_49242CB201D0_impl*
+//#UC START# *49242A4E0252_49242CB201D0_var*
+//#UC END# *49242A4E0252_49242CB201D0_var*
+//#UC START# *49242CB201D0_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas
+//#UC END# *49242CB201D0_ext:FileName

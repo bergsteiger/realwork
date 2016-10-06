@@ -1,0 +1,150 @@
+//#UC START# *479731C50290_4FFEF43201C7_impl*
+ FreeAndNil(f_IsParents);
+ FreeAndNil(f_IsNotParents);
+ FreeAndNil(f_DisabledChildTypeIDs);
+ inherited;
+//#UC END# *479731C50290_4FFEF43201C7_impl*
+//#UC START# *479731C50290_4FFEF43201C7_var*
+//#UC END# *479731C50290_4FFEF43201C7_var*
+//#UC START# *4A4DE5340236_4FFEF43201C7get_impl*
+ Result := Tk2TypePrim(Self);
+//#UC END# *4A4DE5340236_4FFEF43201C7get_impl*
+//#UC START# *4A4DE5340236_4FFEF43201C7get_var*
+//#UC END# *4A4DE5340236_4FFEF43201C7get_var*
+//#UC START# *4A4E01DA0396_4FFEF43201C7_impl*
+ Result := (Self = anAtomType);
+//#UC END# *4A4E01DA0396_4FFEF43201C7_impl*
+//#UC START# *4A4E01DA0396_4FFEF43201C7_var*
+//#UC END# *4A4E01DA0396_4FFEF43201C7_var*
+//#UC START# *4A533DF0031C_4FFEF43201C7set_impl*
+ if (f_AtomType <> nil) AND (aValue <> nil) then
+ begin
+  if (f_AtomType.Kind <> aValue.Kind) then
+  begin
+   if not (f_AtomType.Kind in [tkInteger, tkChar, tkEnumeration, tkSet]) OR
+      not (aValue.Kind in [tkInteger, tkChar, tkEnumeration, tkSet]) then
+    raise Exception.Create('При наследовании типов тегов нельзя смешивать атомарные и структурированные типы');  
+  end;//f_AtomType.Kind <> aValue.Kind
+ end;//f_AtomType <> nil
+ f_AtomType := aValue;
+//#UC END# *4A533DF0031C_4FFEF43201C7set_impl*
+//#UC START# *4A533DF0031C_4FFEF43201C7set_var*
+//#UC END# *4A533DF0031C_4FFEF43201C7set_var*
+//#UC START# *4A534133014D_4FFEF43201C7_impl*
+ l_Prop := Tk2ChildrenProperty(Tk2TypePrim(Self).Prop[k2_tiChildren]);
+ if (l_Prop = nil) then
+  Result := k2_typEmpty
+ else
+  Result := l_Prop.DefaultChildType; 
+//#UC END# *4A534133014D_4FFEF43201C7_impl*
+//#UC START# *4A534133014D_4FFEF43201C7_var*
+var
+ l_Prop : Tk2ChildrenProperty;
+//#UC END# *4A534133014D_4FFEF43201C7_var*
+//#UC START# *4C177E4700AB_4FFEF43201C7_impl*
+ if (f_DisabledChildTypeIDs = nil) then
+  f_DisabledChildTypeIDs := Tk2TypeIDs.Create;
+ f_DisabledChildTypeIDs.Include(anID);
+//#UC END# *4C177E4700AB_4FFEF43201C7_impl*
+//#UC START# *4C177E4700AB_4FFEF43201C7_var*
+//#UC END# *4C177E4700AB_4FFEF43201C7_var*
+//#UC START# *4C177E9D0375_4FFEF43201C7_impl*
+ Result := f_DisabledChildTypeIDs.Has(anID);
+//#UC END# *4C177E9D0375_4FFEF43201C7_impl*
+//#UC START# *4C177E9D0375_4FFEF43201C7_var*
+//#UC END# *4C177E9D0375_4FFEF43201C7_var*
+//#UC START# *4C177F23037E_4FFEF43201C7set_impl*
+ if (aValue = nil) then
+ begin
+  if (f_DisabledChildTypeIDs <> nil) then
+   f_DisabledChildTypeIDs.Assign(aValue);
+ end//aValue = nil
+ else
+ begin
+  if (f_DisabledChildTypeIDs = nil) then
+   f_DisabledChildTypeIDs := Tk2TypeIDs.Create;
+  f_DisabledChildTypeIDs.Assign(aValue);
+ end;//aValue = nil
+//#UC END# *4C177F23037E_4FFEF43201C7set_impl*
+//#UC START# *4C177F23037E_4FFEF43201C7set_var*
+//#UC END# *4C177F23037E_4FFEF43201C7set_var*
+//#UC START# *4FFEF43201C7_ext:ParentFileName
+w:\common\components\rtl\Garant\K2\k2Prim.pas
+//#UC END# *4FFEF43201C7_ext:ParentFileName
+//#UC START# *52615ECC03BD_4FFEF43201C7_impl*
+ Assert(false);
+//#UC END# *52615ECC03BD_4FFEF43201C7_impl*
+//#UC START# *52615ECC03BD_4FFEF43201C7_var*
+//#UC END# *52615ECC03BD_4FFEF43201C7_var*
+//#UC START# *532AE8F2009A_4FFEF43201C7_impl*
+ assert(Self <> nil);
+ Case f_IsOrd of
+  l3_bUnknown:
+  begin
+   if (AtomType = nil) then
+    Result := (Tk2TypePrim(Self).f_Tags.Count = 0)
+   else
+    Result := AtomType.Kind in [tkInteger, tkChar, tkEnumeration, tkSet];
+   if Result then
+    f_IsOrd := l3_bTrue
+   else
+    f_IsOrd := l3_bFalse;
+  end;//l3_bUnknown
+  l3_bFalse:
+   Result := false;
+  l3_bTrue:
+   Result := true;
+  else
+  begin
+   Result := false;
+   Assert(false);
+  end;//else
+ end;//Case f_IsOrd
+//#UC END# *532AE8F2009A_4FFEF43201C7_impl*
+//#UC START# *532AE8F2009A_4FFEF43201C7_var*
+//#UC END# *532AE8F2009A_4FFEF43201C7_var*
+//#UC START# *533129DC037C_4FFEF43201C7_impl*
+ if (Self = nil) then
+  Result := (aType = nil)
+ else
+ if (Self = aType) then
+  Result := true
+ else
+ begin
+  if (aType = nil) then
+  begin
+   Result := false;
+   Exit;
+  end;//anID = nil
+  Assert(aType <> nil);
+  if true(*((Tk2TypePrimPrim(aType).ID >= Ord(Low(Tk2TypeIDPrim))) AND
+      (Tk2TypePrimPrim(aType).ID <= Ord(High(Tk2TypeIDPrim))))*) then
+  begin
+   if f_IsParents.Has(Tk2TypePrimPrim(aType).ID) then
+    Result := true
+   else
+   if f_IsNotParents.Has(Tk2TypePrimPrim(aType).ID) then
+    Result := false
+   else
+   begin
+    Result := GetIsKindOf(Tk2TypePrim(aType));
+    if Result then
+    begin
+     if (f_IsParents = nil) then
+      f_IsParents := Tk2TypeIDs.Create;
+     f_IsParents.Include(Tk2TypePrimPrim(aType).ID)
+    end//Result
+    else
+    begin
+     if (f_IsNotParents = nil) then
+      f_IsNotParents := Tk2TypeIDs.Create;
+     f_IsNotParents.Include(Tk2TypePrimPrim(aType).ID)
+    end;//Result
+   end;//anID in f_IsNotParent
+  end//(anID >= Ord(Low(Tk2TypeIDPrim))..
+  else
+   Result := GetIsKindOf(Tk2TypePrim(aType));
+ end;//ID = anID
+//#UC END# *533129DC037C_4FFEF43201C7_impl*
+//#UC START# *533129DC037C_4FFEF43201C7_var*
+//#UC END# *533129DC037C_4FFEF43201C7_var*

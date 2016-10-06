@@ -1,0 +1,37 @@
+//#UC START# *03211FE23BF3_5515501B009E_impl*
+ f_OnClick := aClickCallback;
+ vcmMessageDlg(Tl3Message_C(vcmCStr(aText), '', mtInformation), OnJumpTo);
+//#UC END# *03211FE23BF3_5515501B009E_impl*
+//#UC START# *03211FE23BF3_5515501B009E_var*
+//#UC END# *03211FE23BF3_5515501B009E_var*
+//#UC START# *3CDB8D32C712_5515501B009E_impl*
+ Result := '{cloak}'#13#10 + aCaption + #13#10 + aText + #13#10'{/cloak}'#13#10;
+//#UC END# *3CDB8D32C712_5515501B009E_impl*
+//#UC START# *3CDB8D32C712_5515501B009E_var*
+//#UC END# *3CDB8D32C712_5515501B009E_var*
+//#UC START# *5515501B009E_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessagesSupport.pas
+//#UC END# *5515501B009E_ext:ParentFileName
+//#UC START# *5515515F0098_5515501B009E_impl*
+ if Assigned(f_OnClick) then
+  if Supports(aMoniker, IevAddressMoniker, l_URL) then
+  begin
+   l_LinkData := l_URL.Address.{$IfDef XE}rTafwAddress.{$EndIf}DocID - 100000;  // ó-è-è-è-è-è-è-è-è-è!!!
+   f_OnClick(IntToStr(l_LinkData));
+  end;
+//#UC END# *5515515F0098_5515501B009E_impl*
+//#UC START# *5515515F0098_5515501B009E_var*
+var
+ l_URL: IevAddressMoniker;
+ l_LinkData: Integer;
+//#UC END# *5515515F0098_5515501B009E_var*
+//#UC START# *5AFFFDE1F6AB_5515501B009E_impl*
+ Result := '[' + aLinkText + '|' + aLinkData + ']';
+//#UC END# *5AFFFDE1F6AB_5515501B009E_impl*
+//#UC START# *5AFFFDE1F6AB_5515501B009E_var*
+//#UC END# *5AFFFDE1F6AB_5515501B009E_var*
+//#UC START# *CDCC556698E5_5515501B009E_impl*
+ Result := True;
+//#UC END# *CDCC556698E5_5515501B009E_impl*
+//#UC START# *CDCC556698E5_5515501B009E_var*
+//#UC END# *CDCC556698E5_5515501B009E_var*

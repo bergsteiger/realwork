@@ -1,7 +1,13 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.169 2016/09/30 14:45:01 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.171 2016/10/04 13:26:52 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.171  2016/10/04 13:26:52  lukyanets
+// Расставляем секундомеры
+//
+// Revision 1.170  2016/10/04 06:47:45  lukyanets
+// Обрабатываем сообщение
+//
 // Revision 1.169  2016/09/30 14:45:01  lukyanets
 // Отправляем сообщение
 //
@@ -1492,7 +1498,7 @@ const
    cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
  alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
    cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc, cs_ttMultiModifyDocs,
-   cs_ttMultiClearAttributes];
+   cs_ttMultiClearAttributes, cs_ttMultiOperation];
 
 implementation
 Uses
@@ -1522,6 +1528,7 @@ Uses
  alcuRelCorrector,
  l3MultiThreadIntegerList,
  l3CardinalList,
+ ncsTrafficCounter,
 
  ddProcessTaskPrim,
  alcuAsyncSubmitterManager,
@@ -2784,7 +2791,8 @@ procedure TddServerTaskManager.WorkupRequests;
    cs_ttDownloadDoc,
    cs_ttUploadDoc,
    cs_ttMultiModifyDocs,
-   cs_ttMultiClearAttributes:
+   cs_ttMultiClearAttributes,
+   cs_ttMultiOperation:
     DoRunRequest(anItem);
    else
     Assert(false, 'WorkupRequests. Неизвестный тип задачи: ' + GetEnumName(TypeInfo(TcsTaskType), Ord(anItem.TaskType)));
@@ -3170,6 +3178,7 @@ var
  l_Transporter: IncsServerTransporter;
  l_IsMainSocket: Boolean;
  l_Watch: Tl3StopWatch;
+ l_Counter: IncsTrafficCounter;
 begin
  l_Watch.Reset;
 
@@ -3183,42 +3192,54 @@ begin
  g_WriteFile.ReSet;
  g_SaveControl.ReSet;
 
- l_Watch.Start;
+ l_Counter := TncsTrafficCounter.Make;
  try
-{$IFDEF csSynchroTransport}
-  l_Transporter := TncsSynchroServerTransporter.Make(aPipe.IOHandler);
-  l_IsMainSocket := True;
-{$ELSE csSynchroTransport}
-  l_Transporter := TncsServerTransporter.Make(aPipe.IOHandler, l_IsMainSocket);
-{$ENDIF csSynchroTransport}
+  l_Watch.Start;
   try
-   Assert(l_IsMainSocket);
-   f_TransporterPool.Register(l_Transporter);
+ {$IFDEF csSynchroTransport}
+   l_Transporter := TncsSynchroServerTransporter.Make(aPipe.IOHandler);
+   l_IsMainSocket := True;
+ {$ELSE csSynchroTransport}
+   l_Transporter := TncsServerTransporter.Make(aPipe.IOHandler, l_IsMainSocket);
+ {$ENDIF csSynchroTransport}
    try
-    l_Transporter.ProcessMessages(l_IsMainSocket);
+    l_Transporter.RegisterHelper(l_Counter);
+    try
+     Assert(l_IsMainSocket);
+     f_TransporterPool.Register(l_Transporter);
+     try
+      l_Transporter.ProcessMessages(l_IsMainSocket);
+     finally
+      CancelDelivering(l_Transporter.ClientID);
+      f_TransporterPool.UnRegister(l_Transporter);
+     end;
+    finally
+     l_Transporter.UnregisterHelper(l_Counter);
+    end;
    finally
-    CancelDelivering(l_Transporter.ClientID);
-    f_TransporterPool.UnRegister(l_Transporter);
+    l_Transporter := nil;
    end;
   finally
-   l_Transporter := nil;
+   l_Watch.Stop;
   end;
- finally
-  l_Watch.Stop;
- end;
 
- l3System.Msg2Log('Затраченное время - %s ms', [FormatFloat('0,###.000', l_Watch.Time * 1000)]);
-{$IFDEF ncsProfile}
- l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('0,###.000', g_SaveMessage.Time * 1000)]);
- l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('0,###.000', g_SendMessage.Time * 1000)]);
- l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('0,###.000', g_SaveControl.Time * 1000)]);
- l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('0,###.000', g_LoadMessage.Time * 1000)]);
- l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('0,###.000', g_ReveiveMessage.Time * 1000)]);
- l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('0,###.000', g_WaitFile.Time * 1000)]);
- l3System.Msg2Log('SEND FILE = %s', [FormatFloat('0,###.000', g_ReceivePartFile.Time * 1000)]);
- l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('0,###.000', g_WriteFile.Time * 1000)]);
- l3System.Msg2Log('TOTAL = %s', [FormatFloat('0,###.000', l_Watch.Time * 1000)]);
-{$ENDIF ncsProfile}
+  l3System.Msg2Log('Доставка результатов для %s(%d). Затраченное время - %s ms. Объем - %s kb. Скорость - %s kb/s',
+    [GlobalDataProvider.UserManager.GetUserName(aPipe.ClientID), aPipe.ClientID, FormatFloat('#,###.000', l_Watch.Time * 1000),
+    FormatFloat('#,###', l_Counter.BytesProcessed / 1024), FormatFloat('#,###', l_Counter.BytesProcessed / 1024 / (l_Watch.Time))]);
+ {$IFDEF ncsProfile}
+  l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,###.000', g_SaveMessage.Time * 1000)]);
+  l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,###.000', g_SendMessage.Time * 1000)]);
+  l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('#,###.000', g_SaveControl.Time * 1000)]);
+  l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,###.000', g_LoadMessage.Time * 1000)]);
+  l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,###.000', g_ReveiveMessage.Time * 1000)]);
+  l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,###.000', g_WaitFile.Time * 1000)]);
+  l3System.Msg2Log('SEND FILE = %s', [FormatFloat('#,###.000', g_ReceivePartFile.Time * 1000)]);
+  l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,###.000', g_WriteFile.Time * 1000)]);
+  l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
+ {$ENDIF ncsProfile}
+ finally
+  l_Counter := nil;
+ end;
 end;
 
 function TddServerTaskManager.MakeExecutor(

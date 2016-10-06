@@ -58,6 +58,7 @@ uses
  , dt_Sab
  {$IfEnd} // NOT Defined(Nemesis)
  , evdTasksHelpers
+ , daDataProvider
  //#UC START# *57EBA2190344impl_uses*
  //#UC END# *57EBA2190344impl_uses*
 ;
@@ -76,6 +77,7 @@ begin
  inherited Create;
  f_Reply := nil;
  f_Message := TcsMultiClearAttributes.Create;
+ f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.FamilyID := aFamilyID;
  dtCopyValuesSabToList(aDocsToLock, f_Message.DocIDList);
  f_Message.RightsNeeded := RightsNeeded;

@@ -1,0 +1,62 @@
+//#UC START# *57AB0F1703C1_57B6C958008A_impl*
+ ItemString := Self.Model.List.Strings[Index];
+//#UC END# *57AB0F1703C1_57B6C958008A_impl*
+//#UC START# *57AB0F1703C1_57B6C958008A_var*
+//#UC END# *57AB0F1703C1_57B6C958008A_var*
+//#UC START# *57ADFB33027D_57B6C958008A_impl*
+ inherited;
+ OwnView.OnGetStrItem := Self.DoGetStrItem;
+ OwnView.AllowWithoutCurrent := true;
+//#UC END# *57ADFB33027D_57B6C958008A_impl*
+//#UC START# *57ADFB33027D_57B6C958008A_var*
+//#UC END# *57ADFB33027D_57B6C958008A_var*
+//#UC START# *57B6A49900F4_57B6C958008A_impl*
+ inherited;
+ if (Self.Model.List = nil) then
+  OwnView.Total := 0
+ else
+  OwnView.Total := Self.Model.List.Count;
+ l_Index := 0; 
+ if (Self.Model.List = nil) then
+  OwnView.Current := 0
+ else
+ begin
+  l_Index := Self.Model.List.IndexOfElementView(Self.Model.CurrentElement);
+  if (l_Index < 0) then
+   OwnView.Current := 0
+  else
+   OwnView.Current := l_Index;
+ end;//Self.Model.List = nil
+ if (OwnView.Total = 0) then
+  //DoCurrentChanged(Self, -1, -1)
+ else
+  DoCurrentChanged(Self, l_Index, -1);
+ if OwnView.MultiStrokeItem then
+  CallDropDrawPoints;
+ OwnView.Invalidate;
+//#UC END# *57B6A49900F4_57B6C958008A_impl*
+//#UC START# *57B6A49900F4_57B6C958008A_var*
+var
+ l_Index : Integer;
+//#UC END# *57B6A49900F4_57B6C958008A_var*
+//#UC START# *57B6C958008A_57ADBA39026E_57B6C958008A_impl*
+ inherited;
+ LinkDataToView;
+//#UC END# *57B6C958008A_57ADBA39026E_57B6C958008A_impl*
+//#UC START# *57B6C958008A_57ADBA39026E_57B6C958008A_var*
+//#UC END# *57B6C958008A_57ADBA39026E_57B6C958008A_var*
+//#UC START# *57B6C958008A_57E2C2970206_57B6C958008A_impl*
+ inherited;
+ if (Self.Model.List = nil) then
+  OwnView.Total := 0
+ else
+  OwnView.Total := Self.Model.List.Count;
+ if OwnView.MultiStrokeItem then
+  CallDropDrawPoints;
+ OwnView.Invalidate;
+//#UC END# *57B6C958008A_57E2C2970206_57B6C958008A_impl*
+//#UC START# *57B6C958008A_57E2C2970206_57B6C958008A_var*
+//#UC END# *57B6C958008A_57E2C2970206_57B6C958008A_var*
+//#UC START# *57B6C958008A_ext:FileName
+w:\common\components\gui\Garant\msm\msmListViewController.imp.pas
+//#UC END# *57B6C958008A_ext:FileName

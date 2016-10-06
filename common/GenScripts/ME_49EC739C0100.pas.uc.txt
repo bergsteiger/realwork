@@ -1,0 +1,37 @@
+//#UC START# *49EC739C0100_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\PrimInternetAgent_Module.pas
+//#UC END# *49EC739C0100_ext:FileName
+//#UC START# *49EC739C0100impl_uses*
+//#UC END# *49EC739C0100impl_uses*
+//#UC START# *49ECAADA03C7_49EC739C0100_impl*
+ if Assigned(aContainer) then
+  l_Cont := aContainer
+ else
+  l_Cont := DefaultContainer;
+
+ Tfs_InternetAgent.Make(TsdsInternetAgent.Make(anURL), l_Cont);
+//#UC END# *49ECAADA03C7_49EC739C0100_impl*
+//#UC START# *49ECAADA03C7_49EC739C0100_var*
+var
+ l_Cont: IvcmContainer;
+//#UC END# *49ECAADA03C7_49EC739C0100_var*
+//#UC START# *4B14DF4201A3_4B14DF1F0101_impl*
+ GetLogger.AddEvent(LE_OPEN_INTERNET_AGENT, MakeParamsList);
+//#UC END# *4B14DF4201A3_4B14DF1F0101_impl*
+//#UC START# *4B14DF4201A3_4B14DF1F0101_var*
+//#UC END# *4B14DF4201A3_4B14DF1F0101_var*
+//#UC START# *57971D020184_49EC739C0100exec_impl*
+ {if afw.Application.LocaleInfo.Language = afw_lngEnglish then
+  MakeInternetAgent(l3CStr(ciitEnglishGarant), DefaultContainer)
+ else}
+  TInternetAgentService.Instance.MakeInternetAgent(l3CStr(ciitGarant), DefaultContainer);
+ TnsOpenInternetAgentEvent.Log;
+//#UC END# *57971D020184_49EC739C0100exec_impl*
+//#UC START# *57971D020184_49EC739C0100exec_var*
+//#UC END# *57971D020184_49EC739C0100exec_var*
+//#UC START# *57971D020184_49EC739C0100test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.IsInternetAgentEnabled;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *57971D020184_49EC739C0100test_impl*
+//#UC START# *57971D020184_49EC739C0100test_var*
+//#UC END# *57971D020184_49EC739C0100test_var*

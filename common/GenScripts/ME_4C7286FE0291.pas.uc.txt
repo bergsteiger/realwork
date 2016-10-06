@@ -1,0 +1,41 @@
+//#UC START# *4C727B6A0242_4C7286FE0291_impl*
+ Assert(aProvider <> nil);
+ l_EP.rChild := aChildID;
+ l_EP.rLayer := aParent.LayerID;
+ try
+  l_T := k2.TypeTable.TypeByHandle[Ord(aProvider.GetChildType(l_EP))];
+ except
+  on EInvalidEntryPoint do
+   raise EnevMaybeBaseSwitched.Create('Наверное переключили базы. <K>: 344135940');
+ end;//try..except
+ Assert(l_T <> nil);
+ l_P := nil;
+ try
+  if l_T.IsKindOf(k2_typLeafPara) then
+   l_P := Tf1LeafTagDataFromDTP.Create(aProvider, aParent, aChildID)
+  else
+(*  if l_T.IsKindOf(k2_typCommentPara) then
+   l_P := Tf1CommentTagDataFromDTP.Create(aProvider, aParent, aChildID)
+  else*)
+  if l_T.IsKindOf(k2_typParaList) then
+   l_P := Tf1ListTagDataFromDTP.Create(aProvider, aParent, aChildID)
+  else
+  begin
+   Assert(false, 'Неверный тип тега - ' + l_T.AsString);
+   // - т.к. нельзя создавать экземпляры Tf1TagDataFromDTP, т.к. он - абстрактный
+   l_P := Tf1TagDataFromDTP.Create(aProvider);
+  end;//l_T.IsKindOf(k2_typParaList)
+  Result := l_P;
+ finally
+  FreeAndNil(l_P);
+ end;//try..finally
+//#UC END# *4C727B6A0242_4C7286FE0291_impl*
+//#UC START# *4C727B6A0242_4C7286FE0291_var*
+var
+ l_EP : TEntryPoint;
+//#UC END# *4C727B6A0242_4C7286FE0291_var*
+//#UC START# *4C7286FE0291_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataFromDTPFactory.pas
+//#UC END# *4C7286FE0291_ext:FileName
+//#UC START# *4C7286FE0291impl_uses*
+//#UC END# *4C7286FE0291impl_uses*

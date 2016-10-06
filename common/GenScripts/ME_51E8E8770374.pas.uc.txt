@@ -1,0 +1,147 @@
+//#UC START# *479731C50290_51E8E8770374_impl*
+ inherited;
+ f_PrevNumber := -1;
+ f_ParaID := -1;
+ f_InitSymbol := False;
+ f_ExternalSymbol := False;
+//#UC END# *479731C50290_51E8E8770374_impl*
+//#UC START# *479731C50290_51E8E8770374_var*
+//#UC END# *479731C50290_51E8E8770374_var*
+//#UC START# *47A042E100E2_51E8E8770374_impl*
+ inherited;
+ f_InitSymbol := False;
+ f_PrevNumber := -1;
+ f_ParaID := -1;
+ f_ExternalSymbol := False;
+//#UC END# *47A042E100E2_51E8E8770374_impl*
+//#UC START# *47A042E100E2_51E8E8770374_var*
+//#UC END# *47A042E100E2_51E8E8770374_var*
+//#UC START# *51D27A48038E_51E8E8770374_impl*
+ inherited;
+ f_PrevNumber := -1;
+ f_ParaID := -1;
+ f_InitSymbol := False;
+ f_ExternalSymbol := False;
+//#UC END# *51D27A48038E_51E8E8770374_impl*
+//#UC START# *51D27A48038E_51E8E8770374_var*
+//#UC END# *51D27A48038E_51E8E8770374_var*
+//#UC START# *51D27C0402E9_51E8E8770374_impl*
+ inherited;
+//#UC END# *51D27C0402E9_51E8E8770374_impl*
+//#UC START# *51D27C0402E9_51E8E8770374_var*
+//#UC END# *51D27C0402E9_51E8E8770374_var*
+//#UC START# *51E8CFEF027A_51E8E8770374_impl*
+ if not ((propType = propCHP) and (Symbol = symbolFootnote)) then
+  inherited;
+//#UC END# *51E8CFEF027A_51E8E8770374_impl*
+//#UC START# *51E8CFEF027A_51E8E8770374_var*
+//#UC END# *51E8CFEF027A_51E8E8770374_var*
+//#UC START# *51E8D04603DF_51E8E8770374_impl*
+ aGenerator.StartDefaultChild;
+ try
+  aGenerator.AddIntegerAtom(k2_tiStyle, ev_saTxtNormalOEM);
+  aGenerator.AddStringAtom(k2_tiText, 'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ', CP_OEM);
+ finally
+  aGenerator.Finish;
+ end; { TextPara }
+
+ for i := 0 to GetParagraphsCount - 1 do
+ begin
+  l_Para := Paragraph[i];
+  l_Para.Write2Generator(aGenerator, True, dd_lvStyleOnly); // Ãðîõàåì âñå ñòèëè ó ñíîñîê: http://mdp.garant.ru/pages/viewpage.action?pageId=596626773
+ end; { for Paragraphs.Count }
+//#UC END# *51E8D04603DF_51E8E8770374_impl*
+//#UC START# *51E8D04603DF_51E8E8770374_var*
+var
+ i      : LongInt;
+ l_Para : TddDocumentAtom;
+//#UC END# *51E8D04603DF_51E8E8770374_var*
+//#UC START# *51E8E8770374_ext:FileName
+w:\common\components\rtl\Garant\dd\destFootnote.pas
+//#UC END# *51E8E8770374_ext:FileName
+//#UC START# *51E8E8770374impl_uses*
+//#UC END# *51E8E8770374impl_uses*
+//#UC START# *5385C5C802D5_51E8E8770374_impl*
+
+//#UC END# *5385C5C802D5_51E8E8770374_impl*
+//#UC START# *5385C5C802D5_51E8E8770374_var*
+//#UC END# *5385C5C802D5_51E8E8770374_var*
+//#UC START# *5461BEC2017D_51E8E8770374_impl*
+ if (aNewDest.RDS = RDS) and not f_InitSymbol then
+ begin
+  f_CustomRTFReader.AddFooterHyperlink;
+  FlushBuffer(aState);
+  f_InitSymbol := True;
+ end; // if (aNewDest.RDS = RDS) and not f_InitSymbol then
+ if (aNewDest.RDS <> RDS) and (aNewDest is TdestNorm) then
+ begin
+  if f_ExternalSymbol and not f_InitSymbol then
+  begin
+   f_CustomRTFReader.AddFooterHyperlink;
+   FlushBuffer(aState);
+  end;
+  Try2AddFootNote(True);
+ end; // if (aNewDest.RDS <> RDS) and (aNewDest is TdestNorm) then
+//#UC END# *5461BEC2017D_51E8E8770374_impl*
+//#UC START# *5461BEC2017D_51E8E8770374_var*
+//#UC END# *5461BEC2017D_51E8E8770374_var*
+//#UC START# *5526883F0018_51E8E8770374_impl*
+ if (f_PrevNumber = f_CustomRTFReader.NextFootnoteNumber) then Exit;
+ if f_ParaID = -1 then
+  AddTextPara2Document;
+ l_Atom := Paragraph[f_ParaID];
+ if l_Atom.IsTextPara then
+  l_Para := TddTextParagraph(l_Atom)
+ else
+ begin
+  l_Para := nil;
+  Assert(False);
+ end;
+ l_FN := Format('*(%d)', [f_CustomRTFReader.NextFootnoteNumber]);
+ with l_Para do
+ begin
+  AddSub(f_CustomRTFReader.NextFootnoteNumber, Format('Ñíîñêà %d', [f_CustomRTFReader.NextFootnoteNumber]));
+  if (Text[0] in cc_WhiteSpaceExt) then
+   Text.LTrim;
+  l_FN := l_FN + cc_SoftSpace;
+  Text.Insert(l3PCharLen(l_FN), 0);
+  Closed := True;
+  l_Last := Self.LastParagraph;
+  if l_Last <> nil then
+   l_Last.Closed := True;
+  f_PrevNumber := f_CustomRTFReader.NextFootnoteNumber;
+  f_InitSymbol := False;
+  f_ParaID := -1;
+ end; // with Lastparagraph
+//#UC END# *5526883F0018_51E8E8770374_impl*
+//#UC START# *5526883F0018_51E8E8770374_var*
+var
+ l_FN  : AnsiString;
+ l_Atom: TddDocumentAtom;
+ l_Para: TddTextParagraph;
+ l_Last: TddTextParagraph;
+//#UC END# *5526883F0018_51E8E8770374_var*
+//#UC START# *55F1787803BB_51E8E8770374_impl*
+ if f_InitSymbol then
+  inherited
+ else
+  ClearTextBuffer;
+//#UC END# *55F1787803BB_51E8E8770374_impl*
+//#UC START# *55F1787803BB_51E8E8770374_var*
+//#UC END# *55F1787803BB_51E8E8770374_var*
+//#UC START# *5620DCA40213_51E8E8770374_impl*
+ Result := aSymbol = symbolFootnote;
+//#UC END# *5620DCA40213_51E8E8770374_impl*
+//#UC START# *5620DCA40213_51E8E8770374_var*
+//#UC END# *5620DCA40213_51E8E8770374_var*
+//#UC START# *5624D79C03A8_51E8E8770374_impl*
+ if anAtom.IsTextPara and (f_ParaID = -1) then
+  f_ParaID := GetParagraphsCount - 1;
+//#UC END# *5624D79C03A8_51E8E8770374_impl*
+//#UC START# *5624D79C03A8_51E8E8770374_var*
+//#UC END# *5624D79C03A8_51E8E8770374_var*
+//#UC START# *5626172003A9_51E8E8770374_impl*
+ f_ExternalSymbol := True;
+//#UC END# *5626172003A9_51E8E8770374_impl*
+//#UC START# *5626172003A9_51E8E8770374_var*
+//#UC END# *5626172003A9_51E8E8770374_var*

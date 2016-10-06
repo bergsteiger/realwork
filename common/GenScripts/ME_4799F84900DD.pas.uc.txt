@@ -1,0 +1,25 @@
+//#UC START# *4799F84900DD_ext:FileName
+w:\common\components\rtl\Garant\L3\l3ScreenIC.pas
+//#UC END# *4799F84900DD_ext:FileName
+//#UC START# *4799F84900DDimpl_uses*
+//#UC END# *4799F84900DDimpl_uses*
+//#UC START# *4799F86A0356_4799F84900DD_impl*
+ if (f_CrtIC = nil) then
+ begin
+  Il3InfoCanvas(f_CrtIC) := Tl3Canvas.MakeForScreen;
+  l3System.AddExitProc(FreeInfoCanvas);
+ end;//f_CrtIC = nil
+ Result := Il3InfoCanvas(f_CrtIC);
+//#UC END# *4799F86A0356_4799F84900DD_impl*
+//#UC START# *4799F86A0356_4799F84900DD_var*
+//#UC END# *4799F86A0356_4799F84900DD_var*
+//#UC START# *4799F8A402EA_4799F84900DD_impl*
+ Il3InfoCanvas(f_CrtIC) := nil;
+//#UC END# *4799F8A402EA_4799F84900DD_impl*
+//#UC START# *4799F8A402EA_4799F84900DD_var*
+//#UC END# *4799F8A402EA_4799F84900DD_var*
+//#UC START# *88066E5D0414_556EE661021E_impl*
+ Result := l3CrtIC;
+//#UC END# *88066E5D0414_556EE661021E_impl*
+//#UC START# *88066E5D0414_556EE661021E_var*
+//#UC END# *88066E5D0414_556EE661021E_var*

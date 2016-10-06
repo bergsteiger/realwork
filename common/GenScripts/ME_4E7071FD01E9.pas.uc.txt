@@ -1,0 +1,35 @@
+//#UC START# *479731C50290_4E7071FD01E9_impl*
+ f_EditorControlIndex := -1;
+ inherited;
+//#UC END# *479731C50290_4E7071FD01E9_impl*
+//#UC START# *479731C50290_4E7071FD01E9_var*
+//#UC END# *479731C50290_4E7071FD01E9_var*
+//#UC START# *47A042E100E2_4E7071FD01E9_impl*
+ f_EditorControlIndex := -1;
+ inherited;
+//#UC END# *47A042E100E2_4E7071FD01E9_impl*
+//#UC START# *47A042E100E2_4E7071FD01E9_var*
+//#UC END# *47A042E100E2_4E7071FD01E9_var*
+//#UC START# *4E7071FD01E9_ext:FileName
+w:\common\components\gui\Garant\Everest\new\nevReqRowFormatInfo.pas
+//#UC END# *4E7071FD01E9_ext:FileName
+//#UC START# *4E7071FD01E9impl_uses*
+//#UC END# *4E7071FD01E9impl_uses*
+//#UC START# *50A37A030343_4E7071FD01E9_impl*
+ if f_EditorControlIndex < 0 then
+ begin
+  f_EditorControlIndex := 0;
+  Obj.AsObject.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_CheckChild))
+ end; // if f_EditorControlIndex < 0 then
+ Result := anIndex = f_EditorControlIndex;
+//#UC END# *50A37A030343_4E7071FD01E9_impl*
+//#UC START# *50A37A030343_4E7071FD01E9_var*
+
+ function lp_CheckChild(aChild: Tl3Variant; anIndex: Integer): Boolean;
+ begin
+  Result := not (TevControlType(aChild.Child[0].IntA[k2_tiType]) in evEditControls);
+  if not Result then
+   f_EditorControlIndex := anIndex;
+ end;
+
+//#UC END# *50A37A030343_4E7071FD01E9_var*

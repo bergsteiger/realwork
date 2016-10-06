@@ -1,0 +1,22 @@
+//#UC START# *55879E12008D_ext:FileName
+w:\common\components\rtl\Garant\L3\l3PopupControlService.pas
+//#UC END# *55879E12008D_ext:FileName
+//#UC START# *55879E12008Dimpl_uses*
+//#UC END# *55879E12008Dimpl_uses*
+//#UC START# *D2E4642CC7BC_55879E12008D_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.IsPopupControlWindow(aControlWnd)
+ else
+ begin
+  SetLength(l_ClassName, 128);
+  GetClassName(aControlWnd, PChar(l_ClassName), 128);
+  l_ClassName := PChar(l_ClassName);
+  Result := (l_ClassName = cMenuClassName);
+ end;
+//#UC END# *D2E4642CC7BC_55879E12008D_impl*
+//#UC START# *D2E4642CC7BC_55879E12008D_var*
+const
+ cMenuClassName: String = '#32768';
+var
+ l_ClassName: String;
+//#UC END# *D2E4642CC7BC_55879E12008D_var*

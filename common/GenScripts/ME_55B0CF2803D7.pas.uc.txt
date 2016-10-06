@@ -1,0 +1,40 @@
+//#UC START# *2627E933260B_55B0CF2803D7_impl*
+ if NeedAskToFillPrimeAtStartup then
+ begin
+  NeedAskToFillPrimeAtStartup := False;
+  if vcmAsk(str_StartupInitPrime, []) then
+   TPrimMonitoringsModule.OpenNewsLinePrim;
+ end;
+
+ if NeedShowSettingsDialog then
+ begin
+  NeedShowSettingsDialog := False;
+  vcmAsk(str_DefaultSetttingsWereChanged, []);
+ end;
+//#UC END# *2627E933260B_55B0CF2803D7_impl*
+//#UC START# *2627E933260B_55B0CF2803D7_var*
+//#UC END# *2627E933260B_55B0CF2803D7_var*
+//#UC START# *47A042E100E2_55B0CF2803D7_impl*
+ inherited;
+ f_NeedAskToFillPrimeAtStartup := False;
+ f_NeedShowSettingsDialog := False;
+//#UC END# *47A042E100E2_55B0CF2803D7_impl*
+//#UC START# *47A042E100E2_55B0CF2803D7_var*
+//#UC END# *47A042E100E2_55B0CF2803D7_var*
+//#UC START# *55B0CF2803D7_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\f1StartupCompleteNotificationServiceImpl.pas
+//#UC END# *55B0CF2803D7_ext:FileName
+//#UC START# *55B0CF2803D7ci*
+//#UC END# *55B0CF2803D7ci*
+//#UC START# *55B0CF2803D7cit*
+//#UC END# *55B0CF2803D7cit*
+//#UC START# *55B0CF2803D7impl*
+//#UC END# *55B0CF2803D7impl*
+//#UC START# *55B0CF2803D7impl_uses*
+ , StdRes
+ , vcmMessagesSupport
+//#UC END# *55B0CF2803D7impl_uses*
+//#UC START# *55B0CF2803D7intf_uses*
+//#UC END# *55B0CF2803D7intf_uses*
+//#UC START# *55B0CF2803D7publ*
+//#UC END# *55B0CF2803D7publ*

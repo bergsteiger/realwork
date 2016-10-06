@@ -1,0 +1,36 @@
+//#UC START# *47A1B1C102E9_47B084190028get_impl*
+ Result := GetItem(anIndex);
+//#UC END# *47A1B1C102E9_47B084190028get_impl*
+//#UC START# *47A1B1C102E9_47B084190028get_var*
+//#UC END# *47A1B1C102E9_47B084190028get_var*
+//#UC START# *47A1B1C102E9_47B084190028set_impl*
+ DoSetItem(anIndex, aValue);
+//#UC END# *47A1B1C102E9_47B084190028set_impl*
+//#UC START# *47A1B1C102E9_47B084190028set_var*
+//#UC END# *47A1B1C102E9_47B084190028set_var*
+//#UC START# *47B084190028_ext:FileName
+w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas
+//#UC END# *47B084190028_ext:FileName
+//#UC START# *47B48A510176_47B084190028_impl*
+ if (aSize > 0) then
+ begin
+  l_B := aList.f_Data.AsPointer;
+  l_S := Src * cItemSize;
+  l_D := Dst * cItemSize;
+  l_Sz := aSize * cItemSize;
+  if (l_Sz = SizeOf(Integer)) then
+  begin
+   PLong(l_B + l_D)^ := PLong(l_B + l_S)^;
+   Exit;
+  end//l_Sz = SizeOf(Integer)
+  else
+   l3Move((l_B + l_S)^, (l_B + l_D)^, l_Sz);
+ end;//aSize > 0
+//#UC END# *47B48A510176_47B084190028_impl*
+//#UC START# *47B48A510176_47B084190028_var*
+var
+ l_Sz : Integer;
+ l_S  : Integer;
+ l_D  : Integer;
+ l_B  : PAnsiChar;
+//#UC END# *47B48A510176_47B084190028_var*

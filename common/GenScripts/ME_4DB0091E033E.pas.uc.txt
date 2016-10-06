@@ -1,0 +1,23 @@
+//#UC START# *4DB0091E033E_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas
+//#UC END# *4DB0091E033E_ext:ParentFileName
+//#UC START# *55C386170161_4DB0091E033E_impl*
+ rTypeInfo := aValue;
+//#UC END# *55C386170161_4DB0091E033E_impl*
+//#UC START# *55C386170161_4DB0091E033E_var*
+//#UC END# *55C386170161_4DB0091E033E_var*
+//#UC START# *55C89C5C015C_4DB0091E033E_impl*
+ if (ExtractFileDrive(aFile) <> '') OR
+    AnsiStartsText('axiom:', aFile) then
+ begin
+  Result := aFile;
+  if (Length(Result) > 2) then
+   if (Result[2] = ':') then
+    l3MakeLowerCase(@Result[1], 1);
+ end//ExtractFileDrive(aFile) <> ''
+ else
+  Result := rCaller.ResolveIncludedFilePath(aFile);
+ Result := TtfwParserService.Instance.ResolveIncludedFilePath(Result);
+//#UC END# *55C89C5C015C_4DB0091E033E_impl*
+//#UC START# *55C89C5C015C_4DB0091E033E_var*
+//#UC END# *55C89C5C015C_4DB0091E033E_var*

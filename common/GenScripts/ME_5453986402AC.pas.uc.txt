@@ -1,0 +1,26 @@
+//#UC START# *47A042E100E2_544E079E0253_impl*
+ inherited;
+ if Kind <> ncs_mkReply then
+  MessageID := l3CreateStringGUID;
+ TimeStamp := Now;
+//#UC END# *47A042E100E2_544E079E0253_impl*
+//#UC START# *47A042E100E2_544E079E0253_var*
+//#UC END# *47A042E100E2_544E079E0253_var*
+//#UC START# *5453986402AC_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsMessage.pas
+//#UC END# *5453986402AC_ext:FileName
+//#UC START# *5453986402ACimpl_uses*
+//#UC END# *5453986402ACimpl_uses*
+//#UC START# *547831D300BE_547831BD02E5_impl*
+ Assert(Assigned(aMessage) and (aMessage.Kind = ncs_mkMessage));
+ inherited Create;
+ Kind := ncs_mkReply;
+ MessageID := aMessage.MessageID
+//#UC END# *547831D300BE_547831BD02E5_impl*
+//#UC START# *547831D300BE_547831BD02E5_var*
+//#UC END# *547831D300BE_547831BD02E5_var*
+//#UC START# *549413590379_544E079E0253_impl*
+ Result := True;
+//#UC END# *549413590379_544E079E0253_impl*
+//#UC START# *549413590379_544E079E0253_var*
+//#UC END# *549413590379_544E079E0253_var*

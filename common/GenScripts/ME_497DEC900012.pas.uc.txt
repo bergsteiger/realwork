@@ -1,0 +1,119 @@
+//#UC START# *47D1602000C6_497DEC900012_impl*
+ inherited;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=303858773
+ // на всякий случай, т.к. ограничение только для оболочки
+ {$If not defined(Admin) AND not defined(Monitorings)}
+  if (DefDataAdapter <> nil) then
+   //ListInfoViewer.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
+ {$ifend}
+//#UC END# *47D1602000C6_497DEC900012_impl*
+//#UC START# *47D1602000C6_497DEC900012_var*
+//#UC END# *47D1602000C6_497DEC900012_var*
+//#UC START# *497469C90140_497DEC900012_impl*
+ if (dsListInfo <> nil) then
+  TextSource.DocumentContainer := nil;
+//#UC END# *497469C90140_497DEC900012_impl*
+//#UC START# *497469C90140_497DEC900012_var*
+//#UC END# *497469C90140_497DEC900012_var*
+//#UC START# *497DEC900012_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfo_Form.pas
+//#UC END# *497DEC900012_ext:FileName
+//#UC START# *497DEC900012impl_uses*
+//#UC END# *497DEC900012impl_uses*
+//#UC START# *497F16AC015A_497DEC900012_impl*
+ if (sdsListPrim <> nil) then
+  TnsListReferenceActivateEvent.Log(sdsListPrim.dsListPrim.List);
+//#UC END# *497F16AC015A_497DEC900012_impl*
+//#UC START# *497F16AC015A_497DEC900012_var*
+//#UC END# *497F16AC015A_497DEC900012_var*
+//#UC START# *4A8E8F2E0195_497DEC900012_impl*
+ Width := 549;
+ Height := 337;
+ Scaled := False;
+ 
+ with ListInfoViewer do
+ begin
+  Align := alClient;
+  TextSource := Self.TextSource;
+  IsStaticText := True;
+ end;
+
+ with TextSource do
+ begin
+  OnMakeDocumentContainer := TextSourceMakeDocumentContainer;
+ end;
+//#UC END# *4A8E8F2E0195_497DEC900012_impl*
+//#UC START# *4A8E8F2E0195_497DEC900012_var*
+//#UC END# *4A8E8F2E0195_497DEC900012_var*
+//#UC START# *4AF858F30202_497DEC900012exec_impl*
+ SetActiveInParent;
+//#UC END# *4AF858F30202_497DEC900012exec_impl*
+//#UC START# *4AF858F30202_497DEC900012exec_var*
+//#UC END# *4AF858F30202_497DEC900012exec_var*
+//#UC START# *4B14E35A0092_4B14E32102A2_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aList);
+ GetLogger.AddEvent(LE_LIST_REFERENCE_ACTIVATE, l_Data);
+//#UC END# *4B14E35A0092_4B14E32102A2_impl*
+//#UC START# *4B14E35A0092_4B14E32102A2_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B14E35A0092_4B14E32102A2_var*
+//#UC START# *4C88CF0C0337_497DEC900012_impl*
+ if (sdsListPrim <> nil) then
+  l_HAF := TnsListHAFMacroReplacer.Make(nil, sdsListPrim.dsListPrim.List)
+ else
+  l_HAF := nil;
+ Result := ListInfoViewer.Preview(TevFormatHAFMacroReplacer.Make(l_HAF, str_nevmmReference.AsCStr));
+//#UC END# *4C88CF0C0337_497DEC900012_impl*
+//#UC START# *4C88CF0C0337_497DEC900012_var*
+var
+ l_HAF: IafwHAFMacroReplacer;
+//#UC END# *4C88CF0C0337_497DEC900012_var*
+//#UC START# *51C1A3A902F1_497DEC900012_impl*
+ if (dsListInfo <> nil) and not l3IsNil(dsListInfo.Info) then
+ begin
+  l_Stream := Tl3StringStream.Create(dsListInfo.Info);
+  try
+   aMade.TagWriter.WriteTag(nil, cf_HTML, l_Stream);
+    //^ иначе бесконечная рекурсия - http://mdp.garant.ru/pages/viewpage.action?pageId=90445071
+  finally
+   l3Free(l_Stream);
+  end;
+ end//not l3IsNil(aValue)
+ else
+ begin
+  l_eeGenerator := aMade.GetGenerator(nil, nil);
+   //^ иначе бесконечная рекурсия - http://mdp.garant.ru/pages/viewpage.action?pageId=90445071
+  try
+   l_eeGenerator.Start;
+   try
+    l_eeGenerator.StartChild(k2_typDocument);
+    try
+     l_eeGenerator.StartChild(k2_typTextPara);
+     l_eeGenerator.Finish;
+    finally
+     l_eeGenerator.Finish;
+    end;
+   finally
+    l_eeGenerator.Finish;
+   end;
+  finally
+   l_eeGenerator := nil;
+  end;//try..finally
+ end;//not l3IsNil(aValue)end;
+ // А это шаманство для установки текста документа
+ // см. обсуждение к К-60293145
+ if HandleAllocated then
+  PostMessage(ListInfoViewer.Handle, EM_SetReadOnly, WParam(True), 0);
+//#UC END# *51C1A3A902F1_497DEC900012_impl*
+//#UC START# *51C1A3A902F1_497DEC900012_var*
+var
+ l_eeGenerator: Ik2TagGenerator;
+ l_Stream: Tl3StringStream;
+//#UC END# *51C1A3A902F1_497DEC900012_var*
+//#UC START# *E4208250FA5A_497DEC900012_impl*
+ op_Switcher_SetFirstPageActive.Call(Container);
+//#UC END# *E4208250FA5A_497DEC900012_impl*
+//#UC START# *E4208250FA5A_497DEC900012_var*
+//#UC END# *E4208250FA5A_497DEC900012_var*

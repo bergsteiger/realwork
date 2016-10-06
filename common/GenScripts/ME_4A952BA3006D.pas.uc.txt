@@ -1,0 +1,894 @@
+//#UC START# *46A4504B03C4_4A952BA3006D_impl*
+ if TbsNotification(aOperation) = nConsultation then
+  CheckConsultationManagerStatus;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=590745386 
+//#UC END# *46A4504B03C4_4A952BA3006D_impl*
+//#UC START# *46A4504B03C4_4A952BA3006D_var*
+//#UC END# *46A4504B03C4_4A952BA3006D_var*
+//#UC START# *479731C50290_4A952BA3006D_impl*
+ f_InitialContext := nil;
+ f_StartupTipsForm := nil;
+ TvcmTabbedContainerFormDispatcher.Instance.UnSubscribe(Self);
+ if (ConsultationManager <> nil) then
+  ConsultationManager.As_Il3ChangeNotifier.Unsubscribe(Il3ItemNotifyRecipient(Self));
+ // ”далим форму из списка открытых окон
+ Tl3ListenersManager.RemoveMouseWheelListener(Self);
+ TnsNotificationManager.RemoveListener(Self);
+ NotifyBaseSearcherFormClosing;
+ TnsBaseSearchService.Instance.UnregisterBaseSearcherProvider(Self, Self); 
+ inherited;
+//#UC END# *479731C50290_4A952BA3006D_impl*
+//#UC START# *479731C50290_4A952BA3006D_var*
+//#UC END# *479731C50290_4A952BA3006D_var*
+//#UC START# *47D1602000C6_4A952BA3006D_impl*
+ Self.OnShow := Self.VcmMainFormShow;
+ inherited;
+//#UC END# *47D1602000C6_4A952BA3006D_impl*
+//#UC START# *47D1602000C6_4A952BA3006D_var*
+//#UC END# *47D1602000C6_4A952BA3006D_var*
+//#UC START# *47EA4E9002C6_4A952BA3006D_impl*
+ inherited;
+ UpdateMainCaptionPrefix;
+ FillOldBaseWarning;
+//#UC END# *47EA4E9002C6_4A952BA3006D_impl*
+//#UC START# *47EA4E9002C6_4A952BA3006D_var*
+//#UC END# *47EA4E9002C6_4A952BA3006D_var*
+//#UC START# *47EA8B9601FE_4A952BA3006D_impl*
+ inherited;
+ TasksPanel.Refresh;
+  // - перечитаем операции панели задач;
+ InitForm;
+//#UC END# *47EA8B9601FE_4A952BA3006D_impl*
+//#UC START# *47EA8B9601FE_4A952BA3006D_var*
+//#UC END# *47EA8B9601FE_4A952BA3006D_var*
+//#UC START# *4958BE910345_4A952BA3006D_impl*
+ inherited;
+ LoadSettings;
+//#UC END# *4958BE910345_4A952BA3006D_impl*
+//#UC START# *4958BE910345_4A952BA3006D_var*
+//#UC END# *4958BE910345_4A952BA3006D_var*
+//#UC START# *4958F46C003B_4A952BA3006D_impl*
+ inherited;
+ DoSaveInSettings;
+//#UC END# *4958F46C003B_4A952BA3006D_impl*
+//#UC START# *4958F46C003B_4A952BA3006D_var*
+//#UC END# *4958F46C003B_4A952BA3006D_var*
+//#UC START# *496B4F6D02B5_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchDataReadyChecker, l_Notifier) then
+  l_Notifier.CheckLocalDataReady;
+//#UC END# *496B4F6D02B5_4A952BA3006D_impl*
+//#UC START# *496B4F6D02B5_4A952BA3006D_var*
+var
+ l_Notifier: InsBaseSearchDataReadyChecker;
+//#UC END# *496B4F6D02B5_4A952BA3006D_var*
+//#UC START# *496B4FAA02FA_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.SearchResultEmpty(TryFullList);
+//#UC END# *496B4FAA02FA_4A952BA3006D_impl*
+//#UC START# *496B4FAA02FA_4A952BA3006D_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FAA02FA_4A952BA3006D_var*
+//#UC START# *496B4FC70065_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.SearchResultExists;
+//#UC END# *496B4FC70065_4A952BA3006D_impl*
+//#UC START# *496B4FC70065_4A952BA3006D_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FC70065_4A952BA3006D_var*
+//#UC START# *496B4FD20320_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.AnotherSearchSuccessed;
+//#UC END# *496B4FD20320_4A952BA3006D_impl*
+//#UC START# *496B4FD20320_4A952BA3006D_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FD20320_4A952BA3006D_var*
+//#UC START# *496B534B0098_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchQueryDataProcessor, l_QueryLoader) then
+  l_QueryLoader.SetDataFromQuery(aQuery);
+//#UC END# *496B534B0098_4A952BA3006D_impl*
+//#UC START# *496B534B0098_4A952BA3006D_var*
+var
+ l_QueryLoader: InsBaseSearchQueryDataProcessor;
+//#UC END# *496B534B0098_4A952BA3006D_var*
+//#UC START# *496B5356008C_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchQueryDataProcessor, l_QueryLoader) then
+  try
+   l_QueryLoader.RequestFind;
+  except
+   on ETryToFindEmptyContext do
+    Ask(inf_SimpleMainMenuSearchCondition);
+  end;//try..except
+//#UC END# *496B5356008C_4A952BA3006D_impl*
+//#UC START# *496B5356008C_4A952BA3006D_var*
+var
+ l_QueryLoader: InsBaseSearchQueryDataProcessor;
+//#UC END# *496B5356008C_4A952BA3006D_var*
+//#UC START# *49803F5503AA_4A952BA3006D_impl*
+ Constraints.MinHeight := 600;
+ Constraints.MinWidth := 800;
+ inherited;
+
+ if (not aFromHistory) then
+  TnsBaseSearchService.Instance.RegisterBaseSearcherProvider(Self, Self);
+
+ TnsNotificationManager.AddListener(Self);
+ Tl3ListenersManager.AddMouseWheelListener(Self);
+ if (ConsultationManager <> nil) then
+  ConsultationManager.As_Il3ChangeNotifier.Subscribe(Il3ItemNotifyRecipient(Self));
+ // √р€знейший хак дл€  -132222088.
+ // ѕосле успешных разборок с тормозами записи (загрузки) журнала работы
+ // этот вызов папок надо убрать !!
+ //UserFoldersTree.AsyncTree;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=271753603
+ nsWarnImages;
+ with Dispatcher do
+ begin
+  if (FormDispatcher.MainFormsCount = 1) then
+  begin
+   InitialLoadStyleTableFromSettings;
+   LogSystemInfo;
+  end;//if (FormDispatcher.MainFormsCount = 1) then
+  FormDispatcher.Lock;
+  try
+   // ”бираем вспомогательные элементы:
+   ChildZonePanel.Hide;
+   InitForm;
+   if (Dispatcher.FormDispatcher.MainFormsCount = 1) and
+       (not IntegrationInProcess) then
+    LoadStartState(vcmMakeParams(nil, Self));
+  finally
+   FormDispatcher.UnLock;
+  end;//try..finally
+ end;//with Dispatcher
+ if (Dispatcher.FormDispatcher.MainFormsCount = 1) then
+  defDataAdapter.ControlMgr.UpdateStatus(False);
+ FillOldBaseWarning;
+ // ѕо€вилась нова€ форма, перегрузим список открытых окон
+ TnsWindowsList.Instance.Reload;
+ f_InternetMap := nsStringMapManager.Map[smap_InternetCaptions];
+
+ UpdateUnreadConsultations;
+
+ // —ообщим пользователю если были установлены настройки по умолчанию:
+ Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := CheckInstallDefaultSettings;
+
+ CheckFirstLoginActivity;
+
+ TvcmTabbedContainerFormDispatcher.Instance.Subscribe(Self);
+
+ if (ConsultationManager <> nil) then
+  CheckConsultationManagerStatus;
+//#UC END# *49803F5503AA_4A952BA3006D_impl*
+//#UC START# *49803F5503AA_4A952BA3006D_var*
+//#UC END# *49803F5503AA_4A952BA3006D_var*
+//#UC START# *49806ED503D5_4A952BA3006D_impl*
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+ Assert(l_BaseSearcher <> nil);
+ theState := TMainFormState.Make(l_BaseSearcher.MakeState, l_InnerState);
+//#UC END# *49806ED503D5_4A952BA3006D_impl*
+//#UC START# *49806ED503D5_4A952BA3006D_var*
+var
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49806ED503D5_4A952BA3006D_var*
+//#UC START# *49807428008C_4A952BA3006D_impl*
+ if Supports(aState, IMainFormState, l_MainFormState) then
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  Assert(l_BaseSearcher <> nil);
+  l_BaseSearcher.AssignState(l_MainFormState.BaseSearcherState);
+  l_InnerState := l_MainFormState.InnerState;
+ end
+ else
+  l_InnerState := aState;
+ Result := inherited DoLoadState(l_InnerState, aStateType, aClone);
+//#UC END# *49807428008C_4A952BA3006D_impl*
+//#UC START# *49807428008C_4A952BA3006D_var*
+var
+ l_MainFormState: IMainFormState;
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49807428008C_4A952BA3006D_var*
+//#UC START# *49FFFE5B033A_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchQueryDataProcessor, l_QueryLoader) then
+  l_QueryLoader.RequestCheckFragmentsCount;
+//#UC END# *49FFFE5B033A_4A952BA3006D_impl*
+//#UC START# *49FFFE5B033A_4A952BA3006D_var*
+var
+ l_QueryLoader: InsBaseSearchQueryDataProcessor;
+//#UC END# *49FFFE5B033A_4A952BA3006D_var*
+//#UC START# *4A13A97F0211_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchQueryDataProcessor, l_QueryLoader) then
+  l_QueryLoader.RequestCheckFindBack;
+//#UC END# *4A13A97F0211_4A952BA3006D_impl*
+//#UC START# *4A13A97F0211_4A952BA3006D_var*
+var
+ l_QueryLoader: InsBaseSearchQueryDataProcessor;
+//#UC END# *4A13A97F0211_4A952BA3006D_var*
+//#UC START# *4A952BA3006D_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Main_Form.pas
+//#UC END# *4A952BA3006D_ext:FileName
+//#UC START# *4A952BA3006Dimpl_uses*
+ , Common_F1CommonServices_Contracts
+ , F1_Application_Template_Services
+ , vcmDispatcher
+//#UC END# *4A952BA3006Dimpl_uses*
+//#UC START# *4AC5D61E0284_4A952BA3006Dexec_impl*
+ Dispatcher.History.Back;
+//#UC END# *4AC5D61E0284_4A952BA3006Dexec_impl*
+//#UC START# *4AC5D61E0284_4A952BA3006Dexec_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dexec_var*
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+//#UC START# *4AC5D61E0284_4A952BA3006Dtest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4AC5D61E0284_4A952BA3006Dtest_impl*
+//#UC START# *4AC5D61E0284_4A952BA3006Dtest_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dtest_var*
+//#UC START# *4C04AFC8015D_4A952BA3006D_impl*
+ if Supports(BaseSearcher, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.AnotherSearchCancelled;
+//#UC END# *4C04AFC8015D_4A952BA3006D_impl*
+//#UC START# *4C04AFC8015D_4A952BA3006D_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *4C04AFC8015D_4A952BA3006D_var*
+//#UC START# *4F79D08A02C7_4A952BA3006D_impl*
+ if HandleAllocated and (Msg^.Message = WM_MOUSEWHEEL) and
+   (KeysToShiftState(LoWord(Msg^.wParam)) = [ssCtrl]) and IsWindowEnabled(Handle) then
+ begin
+  GetWindowRect(Handle, l_Rect);
+  if PtInRect(l_Rect, SmallPointToPoint(TSmallPoint(Msg^.LParam))) then
+  begin
+   if CanChangeDefaultFontSize(Msg^.wParam > 0) then
+    ChangeDefaultFontSize(Msg^.wParam > 0);
+   Msg^.Message := WM_NULL;
+  end;//PtInRect(l_Rect, SmallPointToPoint(TSmallPoint(Msg^.LParam)))
+ end;//HandleAllocated and (Msg^.Message = WM_MOUSEWHEEL)..
+//#UC END# *4F79D08A02C7_4A952BA3006D_impl*
+//#UC START# *4F79D08A02C7_4A952BA3006D_var*
+var
+ l_Rect: TRect;
+//#UC END# *4F79D08A02C7_4A952BA3006D_var*
+//#UC START# *4F86BF5F0198_4A952BA3006D_impl*
+ f_WindowInitialized := True;
+ Result := (aCommand >= GC_FIRST) and (aCommand <= GC_LAST);
+ if Result then
+ begin
+  ActivateFormIfNeeded;
+  afw.ProcessMessages;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
+  case aCommand of
+   GC_ACTIVATE:
+    if InNewWindow then
+     ProcessCommand(ConvertOpenOnStartSetting, false, aContainer);
+   GC_MAIN_MENU:
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_NAVIGATOR:
+    TCommonService.Instance.OpenRubricatorOnStart(aContainer);
+   GC_SITUATION_SEARCH:
+    TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, nil, aContainer);
+   GC_ATTRIBUTES_SEARCH:
+    TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, nil, aContainer);
+   GC_PUBLISH_SOURCE_SEARCH:
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=497226332
+    if defDataAdapter.IsExists_PublishSourceTag then
+     TQueryOpenService.Instance.OpenQuery(lg_qtPublishedSource, nil, aContainer)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_REVIEW:
+    TQueryOpenService.Instance.OpenQuery(lg_qtLegislationReview, nil, aContainer);
+   GC_DICTION:
+    Dispatcher.ModuleOperation(mod_opcode_DictionService_OpenDict);
+   GC_NEW_DOCS:
+    TCommonService.Instance.OpenNewDocs(aContainer);
+   GC_INPHARM_SEARCH:
+    if defDataAdapter.IsInpharmExists then
+     TQueryOpenService.Instance.OpenQuery(lg_qtInpharmSearch, nil, aContainer)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_DRUG_LIST:
+    if defDataAdapter.IsInpharmExists then
+     TInpharmService.Instance.OpenDrugListIfNeeded(aContainer)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_INPHARM_MAIN_MENU:
+    if defDataAdapter.IsInpharmExists then
+     TInpharmService.Instance.OpenInpharmMainMenu(aContainer)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_IMPHARM_DICTION:
+    if defDataAdapter.IsInpharmExists then
+     Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_INTERNET_AGENT:
+    if defDataAdapter.IsInternetAgentEnabled then
+     Dispatcher.ModuleOperation(mod_opcode_InternetAgentService_InternetAgent)
+    else
+     TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+   GC_OPEN_CONSULT:
+    Dispatcher.ModuleOperation(mod_opcode_SearchService_OpenConsult);
+   GC_PRIME:
+    TMonitoringsService.Instance.OpenNewsLine(True);
+   else
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(aContainer);
+  end;//case aCommand
+ end;//Result
+//#UC END# *4F86BF5F0198_4A952BA3006D_impl*
+//#UC START# *4F86BF5F0198_4A952BA3006D_var*
+//#UC END# *4F86BF5F0198_4A952BA3006D_var*
+//#UC START# *4F86BF850173_4A952BA3006D_impl*
+ try
+  ActivateFormIfNeeded;
+  Result := nsIntergationOpenLink(PAnsiChar(aLink), Self);
+ except
+  if not HasForm(vcm_ztParent) then
+   ProcessCommand(ConvertOpenOnStartSetting, False, Self);
+  raise;
+ end;//try..except
+//#UC END# *4F86BF850173_4A952BA3006D_impl*
+//#UC START# *4F86BF850173_4A952BA3006D_var*
+//#UC END# *4F86BF850173_4A952BA3006D_var*
+//#UC START# *4F86BFA3034E_4A952BA3006D_impl*
+ try
+  DefDataAdapter.Integration.GetIntegrationComplectId(l_Str);
+  Result := StrComp(PAnsiChar(aKey),l_Str.GetData) = 0;
+ except
+  on ECanNotFindData do
+   Result := False;
+ end;//try..except
+//#UC END# *4F86BFA3034E_4A952BA3006D_impl*
+//#UC START# *4F86BFA3034E_4A952BA3006D_var*
+var
+ l_Str: IString;
+//#UC END# *4F86BFA3034E_4A952BA3006D_var*
+//#UC START# *4F86BFBF01AE_4A952BA3006D_impl*
+ if IsIconic(Handle) then
+ begin
+  l_Placement.length := SizeOf(TWindowPlacement);
+  GetWindowPlacement(Handle, @l_Placement);
+  if (l_Placement.flags and WPF_RESTORETOMAXIMIZED) <> 0 then
+   WindowState := wsMaximized
+  else
+   WindowState := wsNormal;
+ end;//IsIconic(Handle)
+//#UC END# *4F86BFBF01AE_4A952BA3006D_impl*
+//#UC START# *4F86BFBF01AE_4A952BA3006D_var*
+var
+ l_Placement: TWindowPlacement;
+//#UC END# *4F86BFBF01AE_4A952BA3006D_var*
+//#UC START# *4F88013F007B_4A952BA3006D_impl*
+ IsRemUnreadConsultationsVisible := ConsultationManager.HasUnread;
+ CheckConsultationConnection;
+//#UC END# *4F88013F007B_4A952BA3006D_impl*
+//#UC START# *4F88013F007B_4A952BA3006D_var*
+//#UC END# *4F88013F007B_4A952BA3006D_var*
+//#UC START# *4F8813D6026A_4A952BA3006D_impl*
+ { „итаем позиции значка напоминани€ из настроек }
+ if (not defDataAdapter.AdministratorLogin) and
+  (not TvcmTabbedContainerFormDispatcher.Instance.CloningTab) and
+  (not TvcmTabbedContainerFormDispatcher.Instance.ReopeningTab) then
+ begin
+  //  онфигурации
+  if afw.Settings.LoadBoolean(pi_Sheets_Config, dv_Sheets_Config) then
+   TSettingsService.Instance.OpenConfList(Self)
+  else
+   TSettingsService.Instance.CloseConfList(Self);
+  // ќсновное меню(навигатор)
+  if afw.Settings.LoadBoolean(pi_Sheets_MainMenu, dv_Sheets_MainMenu) then
+   TCommonService.Instance.GetNavigator(nil, Self)
+  else
+   TCommonService.Instance.CloseNavigator(Self);
+  // ћои документы
+  if afw.Settings.LoadBoolean(pi_Sheets_MyDocuments, dv_Sheets_MyDocuments) then
+   TFoldersService.Instance.OpenFolders(Self, true)
+  else
+   TFoldersService.Instance.CloseFolders(Self);
+  // Ќа контроле
+  if afw.Settings.LoadBoolean(piSheetsDocUnderControl, dvSheetsDocUnderControl) then
+   TUnderControlService.Instance.OpenUnderControl(Self)
+  else
+   TUnderControlService.Instance.CloseUnderControl(Self);
+  if afw.Settings.LoadBoolean(piSheetsTaskPanel, dvSheetsTaskPanel) then
+  begin
+   TCommonService.Instance.CloseTasksPanel(Self); // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296
+   TCommonService.Instance.OpenTasksPanel(Self);
+  end
+  else
+   TCommonService.Instance.CloseTasksPanel(Self);
+ end;//not defDataAdapter.AdministratorLogin
+ LoadSettings;
+//#UC END# *4F8813D6026A_4A952BA3006D_impl*
+//#UC START# *4F8813D6026A_4A952BA3006D_var*
+//#UC END# *4F8813D6026A_4A952BA3006D_var*
+//#UC START# *4F881735018D_4A952BA3006D_impl*
+ if (ChildZonePanel <> nil) then
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=365840014
+  if ChildZonePanel.Visible then
+  begin
+   l_AvailableHeight := aNewHeight - lp_UsedHeight;
+   // ѕри уменьшении размера главной формы уменьшаем размер дочерней зоны, иначе
+   // форму уменьшить будет нельз€:
+   if (ChildZonePanel.Height > l_AvailableHeight) and
+     (l_AvailableHeight >= ChildZonePanel.Constraints.MinHeight) then
+    ChildZonePanel.Height := l_AvailableHeight;
+  end;//if ChildZonePanel.Visible then
+//#UC END# *4F881735018D_4A952BA3006D_impl*
+//#UC START# *4F881735018D_4A952BA3006D_var*
+
+ function lp_UsedHeight: Integer;
+  {* ¬ысота используема€ панелью инструментов, строкой состо€ни€ и другими
+     "посто€нными". }
+ begin//lp_UsedHeight
+  Result := Height - (ChildZonePanel.Height + ParentZonePanel.Height) +
+   ParentZonePanel.Constraints.MinHeight;
+ end;//lp_UsedHeight
+
+var
+ l_AvailableHeight: Integer;
+//#UC END# *4F881735018D_4A952BA3006D_var*
+//#UC START# *4F881C2E0175_4A952BA3006D_impl*
+ if (f_BaseSearcher = nil) then
+  f_BaseSearcher := TnsBaseSearcher.Make(Self, nsGetContextHistory(ns_chkDocument));
+ Result := f_BaseSearcher;
+//#UC END# *4F881C2E0175_4A952BA3006D_impl*
+//#UC START# *4F881C2E0175_4A952BA3006D_var*
+//#UC END# *4F881C2E0175_4A952BA3006D_var*
+//#UC START# *4F88213001DE_4A952BA3006Dexec_impl*
+ {$IfOpt D+}
+ TMemoryUsageForm.Make(vcmMakeParams);
+ {$EndIf}
+//#UC END# *4F88213001DE_4A952BA3006Dexec_impl*
+//#UC START# *4F88213001DE_4A952BA3006Dexec_var*
+//#UC END# *4F88213001DE_4A952BA3006Dexec_var*
+//#UC START# *4F882B3402EB_4A952BA3006D_impl*
+ inherited;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=346763353
+ // PS1: никакие комбинации с SetActiveWindow, WM_ACTIVATE + Result не помогли...
+ // PS2: после inherited сделано специально
+ if Visible and CanFocus and
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
+    (Message.Active = WA_ACTIVE) then
+ begin
+  if not l3IsTimeElapsed(f_LastWMActivateTickCount, 100) then
+  begin
+   // ждем указанное число миганий, чтобы не выполн€ть в обычном режиме работы
+   // после чего, делаем клик средней клавишей мыши (перевод фокуса)
+   Inc(f_ActivatesCount);
+   if f_ActivatesCount > 2 then
+   begin
+    f_ActivatesCount := 0;
+
+    SetForegroundWindow(Handle);
+
+    GetCursorPos(l_p);
+    SetCursorPos(Left + Width div 2, Top + 2);
+    Mouse_Event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
+    Mouse_Event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
+    SetCursorPos(l_p.x, l_p.y);
+   end;//f_ActivatesCount > 2
+  end//not l3IsTimeElapsed(f_LastWMActivateTickCount, 100)
+  else
+   f_ActivatesCount := 0;
+  f_LastWMActivateTickCount := GetTickCount;   
+ end;//Message.Active = WA_ACTIVE 
+//#UC END# *4F882B3402EB_4A952BA3006D_impl*
+//#UC START# *4F882B3402EB_4A952BA3006D_var*
+var
+ l_p: TPoint;
+//#UC END# *4F882B3402EB_4A952BA3006D_var*
+//#UC START# *4F882B6101CA_4A952BA3006D_impl*
+ ActivateAllAsyncWindows(Message.Active);
+ if Message.Active then
+  for l_IDX := 0 to Dispatcher.FormDispatcher.MainFormsCount - 1 do
+   if Supports(Dispatcher.FormDispatcher.MainForm[l_IDX], IvcmFlashingWindow, l_Flash) then
+    l_Flash.StopFlashing;
+ TvcmTabbedContainerFormDispatcher.Instance.StopFlashing;
+ inherited;
+//#UC END# *4F882B6101CA_4A952BA3006D_impl*
+//#UC START# *4F882B6101CA_4A952BA3006D_var*
+var
+ l_Flash: IvcmFlashingWindow;
+ l_IDX: Integer;
+//#UC END# *4F882B6101CA_4A952BA3006D_var*
+//#UC START# *4F882BA300FD_4A952BA3006D_impl*
+ if aMessage.CopyDataStruct^.dwData = g_IntegrationMessage then
+ begin
+  l_RealMainForm := GetParentForm(Self);
+  if (l_RealMainForm = nil) then
+   l_RealMainForm := Self;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566812855
+  if not IsWindowEnabled(l_RealMainForm.Handle) then
+   aMessage.Result := GI_BUSY
+  else
+   if aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData) then
+    aMessage.Result := GI_INVALIDLINKFORMAT
+   else
+    with PIntegrationData(aMessage.CopyDataStruct^.lpData)^ do
+    begin
+     if OpenInNewWindow then
+      if OpenNewMainWindow = nil then
+      begin
+       aMessage.Result := GI_TOOMANYOPENWINDOWS;
+       Exit;
+      end;
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
+     if Supports(Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1],
+      InsIntegrationProcessor, l_Processor) then
+      begin
+       l_Processor.CheckInconic;
+       aMessage.Result := aMessage.CopyDataStruct^.dwData;
+       case Kind of
+        idkCommand:
+         if aMessage.CopyDataStruct^.cbData<>SizeOf(TIntegrationData) then
+          aMessage.Result := GI_INVALIDLINKFORMAT
+         else
+          if not l_Processor.ProcessCommand(Command, OpenInNewWindow, nil) then
+           aMessage.Result := GI_INVALIDLINKFORMAT;
+        idkLink:
+         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or
+          (Integer(StrLen(PAnsiChar(@Link)))<>LinkLength) then
+          aMessage.Result := GI_INVALIDLINKFORMAT
+         else
+         begin
+          try
+           if not l_Processor.ProcessLink(@Link) then
+            aMessage.Result := GI_INVALIDLINKFORMAT;
+          except
+           on ECanNotFindData do aMessage.Result := GI_SYSTEMERROR;
+           on EInvalidXMLType do aMessage.Result := GI_INVALIDLINKFORMAT;
+           on ECantCreateObject do aMessage.Result := GI_QUERYPARAMSHASABSENTVALUES;
+           //http://mdp.garant.ru/pages/viewpage.action?pageId=462553651
+           on ETryToFindEmptyContext do aMessage.Result := GI_TRYTOFINDEMPTYCONTEXT;
+          end;
+         end;
+        idkCheckIntegrationKey:
+         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or
+          (Integer(StrLen(PAnsiChar(@Key)))<>KeyLength) then
+          aMessage.Result := GI_SYSTEMERROR
+         else
+          if not l_Processor.CheckKey(@Key) then
+           aMessage.Result := GI_ALREADYRUNNING;
+       end;
+       if (aMessage.Result <> LongInt(aMessage.CopyDataStruct^.dwData)) and
+        (OpenInNewWindow or not f_WindowInitialized) then
+        l_Processor.ProcessCommand(GC_ACTIVATE, True, nil);
+      end
+     else
+      aMessage.Result := GI_NOTFOUND;
+   end;//aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData)
+ end//aMessage.CopyDataStruct^.dwData = g_IntegrationMessage
+ else
+  if aMessage.CopyDataStruct^.dwData = g_LastMainWindowMessage then
+   aMessage.Result := Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1].VCLWinControl.Handle;
+//#UC END# *4F882BA300FD_4A952BA3006D_impl*
+//#UC START# *4F882BA300FD_4A952BA3006D_var*
+var
+ l_Processor: InsIntegrationProcessor;
+ l_RealMainForm: TCustomForm;
+//#UC END# *4F882BA300FD_4A952BA3006D_var*
+//#UC START# *4F882BCD02ED_4A952BA3006D_impl*
+ MenuManager.BeginOp;
+ try
+  (MenuManager as TvcmCustomMenuManager).GlyphColordepth := (MenuManager as TvcmCustomMenuManager).GlyphColordepth;
+ finally
+  MenuManager.EndOp;
+ end;//try..finally
+//#UC END# *4F882BCD02ED_4A952BA3006D_impl*
+//#UC START# *4F882BCD02ED_4A952BA3006D_var*
+//#UC END# *4F882BCD02ED_4A952BA3006D_var*
+//#UC START# *4F882C0000BA_4A952BA3006D_impl*
+ with aMessage.WindowPos^ do
+  if cy > Constraints.MinHeight then
+   PrepareChildZoneBeforeResize(cy);
+ inherited;
+//#UC END# *4F882C0000BA_4A952BA3006D_impl*
+//#UC START# *4F882C0000BA_4A952BA3006D_var*
+//#UC END# *4F882C0000BA_4A952BA3006D_var*
+//#UC START# *4F882E1B0358*
+ g_IntegrationMessage := RegisterWindowMessage(c_IntegrationMessageName);
+ g_LastMainWindowMessage := RegisterWindowMessage(c_LastMainWindowMessageName);
+//#UC END# *4F882E1B0358*
+//#UC START# *4F8BF3940103_4A952BA3006D_impl*
+ if CheckStartupAdvertisingEnabled then
+ begin
+  if (c_BuildVersion <> 'X.XX.X.XXX') then
+  begin
+   l_ShellVersion := l3Fmt('%s', [Copy(c_BuildVersion, 1, 6)]);
+  end
+  else
+   with TVersionInfo.Create, FileLongVersion do
+   try
+    l_ShellVersion := l3Fmt('%d.%d.%d', [All[2], All[1], All[4]]);
+   finally
+    Free;
+   end;//try..finally
+
+  if defDataAdapter.Monitoring.IsExist and
+     defDataAdapter.PrimeManager.GetHasOnlineAccess and
+   not afw.PermanentSettings.LoadBoolean(pi_NoShowPrimeDialog, dv_NoShowPrimeDialog) then
+  begin
+   afw.PermanentSettings.SaveBoolean(pi_NoShowPrimeDialog, True);
+   afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog);
+   Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := False;
+   Tf1StartupCompleteNotificationServiceImpl.Instance.NeedAskToFillPrimeAtStartup := True;
+  end;
+
+  if not Tf1StartupCompleteNotificationServiceImpl.Instance.NeedAskToFillPrimeAtStartup then
+  begin
+   if not Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog then
+    Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := afw.PermanentSettings.LoadBoolean(pi_NeedShowSettingsDialog, dv_NeedShowSettingsDialog);
+   if Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog then
+   begin
+    Tf1StartupCompleteNotificationServiceImpl.Instance.NeedShowSettingsDialog := True;
+    afw.PermanentSettings.SaveBoolean(pi_NeedShowSettingsDialog, False);
+   end else
+   if not afw.Settings.LoadBoolean(pi_DayTips_DontShowAtStart, dv_DayTips_DontShowAtStart) then
+   begin
+    f_StartupTipsForm := TDayTipsService.Instance.ShowDayTipsAtStartup;
+    if not Assigned(f_StartupTipsForm) then
+     lp_ShowHelp;
+   end else
+    lp_ShowHelp;
+  end;
+ end;//CheckStartupAdvertisingEnabled
+//#UC END# *4F8BF3940103_4A952BA3006D_impl*
+//#UC START# *4F8BF3940103_4A952BA3006D_var*
+const
+ c_HelpWhatsNewPage ='page-main.htm';
+ {$I nsBuildVersion.inc}
+var
+ l_SettingsVersion: Il3CString;
+ l_ShellVersion: Il3CString;
+ l_ShowCounter: Integer;
+
+ procedure lp_ShowHelp;
+ const
+  c_MaxWhatNewAutoFlash = 3;
+ var
+  l_HelpFile: string;
+ begin//lp_ShowHelp
+  if defDataAdapter.CommonInterfaces.AutoShowHelp then
+  begin
+   l_SettingsVersion := afw.PermanentSettings.LoadString(pi_ActiveShelVersion);
+   if l3Same(l_SettingsVersion, l_ShellVersion) then
+   begin
+    l_ShowCounter := afw.PermanentSettings.LoadInteger(pi_ShowHelpCounter);
+    // ≈сли верси€ совпадает и уже показывали нужное число раз - выходим и ничего не делаем
+    if l_ShowCounter >= c_MaxWhatNewAutoFlash then
+     Exit;
+    Inc(l_ShowCounter);
+   end//l3Same(l_SettingsVersion, l_ShellVersion)
+   else
+    l_ShowCounter := 1;
+
+   // Ќовинки показываютс€ из своего chm-файла
+   l_HelpFile := Application.HelpFile;
+   try
+    Application.HelpFile := 'F1WhatsNew.chm';
+    try
+     Application.HelpSystem.ShowTopicHelp(c_HelpWhatsNewPage, '');
+    except
+     on EHelpSystemException do
+      Say(war_HelpNotFound);
+    end;//try..except
+   finally
+    Application.HelpFile := l_HelpFile;
+   end;//try..finally
+  end//defDataAdapter.CommonInterfaces.AutoShowHelp
+  else
+   l_ShowCounter := c_MaxWhatNewAutoFlash;
+  afw.PermanentSettings.SaveInteger(pi_ShowHelpCounter, l_ShowCounter);
+  afw.PermanentSettings.SaveString(pi_ActiveShelVersion, l_ShellVersion);
+ end;//lp_ShowHelp
+
+//#UC END# *4F8BF3940103_4A952BA3006D_var*
+//#UC START# *4F8BF3B5012A_4A952BA3006D_impl*
+ Result := (TvcmDispatcher.Instance.FormDispatcher.MainFormsCount = 1) and
+  not defDataAdapter.AdministratorLogin;
+//#UC END# *4F8BF3B5012A_4A952BA3006D_impl*
+//#UC START# *4F8BF3B5012A_4A952BA3006D_var*
+//#UC END# *4F8BF3B5012A_4A952BA3006D_var*
+//#UC START# *4F8BF3CC02A6_4A952BA3006D_impl*
+ if CanFirstLoginActivity then
+ begin
+  l_FirstLogin := afw.PermanentSettings.LoadBoolean(pi_FirstLogin, True);
+  if l_FirstLogin then
+   defDataAdapter.ConsultationManager.CreateQueryWithNoticeUser;
+  afw.PermanentSettings.SaveBoolean(pi_FirstLogin, false);
+ end;//CanFirstLoginActivity
+//#UC END# *4F8BF3CC02A6_4A952BA3006D_impl*
+//#UC START# *4F8BF3CC02A6_4A952BA3006D_var*
+var
+ l_FirstLogin: Boolean;
+//#UC END# *4F8BF3CC02A6_4A952BA3006D_var*
+//#UC START# *4F8BF3ED02D0_4A952BA3006D_impl*
+ Result := (TvcmDispatcher.Instance.FormDispatcher.MainFormsCount = 1) and
+  not defDataAdapter.AdministratorLogin;
+//#UC END# *4F8BF3ED02D0_4A952BA3006D_impl*
+//#UC START# *4F8BF3ED02D0_4A952BA3006D_var*
+//#UC END# *4F8BF3ED02D0_4A952BA3006D_var*
+//#UC START# *4F8BF4060008_4A952BA3006D_impl*
+ Result := False;
+ with DefDataAdapter do
+ begin
+  // ≈сли открываетс€ копи€ оболочки, то InstallDefaultSettingsInfo будет уже
+  // пустым, см. комм. в конце процедуры.
+  //
+  // ¬ системе были установлены настройки по умолчанию:
+  if Assigned(InstallDefaultSettingsInfo) and
+   (InstallDefaultSettingsInfo.GetState <> NO_CHANGES) then
+   Result := True;
+ end;//with DefDataAdapter.InstallDefaultSettingsInfo do
+ // ќтпустим интерфейс, он нам больше не нужен, во избежании недоразумений,
+ // он всетаки содержит указатель на скопированную конфигурацию:
+ DefDataAdapter.InstallDefaultSettingsInfo := nil;
+//#UC END# *4F8BF4060008_4A952BA3006D_impl*
+//#UC START# *4F8BF4060008_4A952BA3006D_var*
+//#UC END# *4F8BF4060008_4A952BA3006D_var*
+//#UC START# *4F8BF41E00D8_4A952BA3006D_impl*
+ l_Handle := OpenMutex(SYNCHRONIZE,False,c_IntergationMutexName);
+ try
+  Result := l_Handle <> 0;
+ finally
+  CloseHandle(l_Handle);
+ end;//try..finally 
+//#UC END# *4F8BF41E00D8_4A952BA3006D_impl*
+//#UC START# *4F8BF41E00D8_4A952BA3006D_var*
+var
+ l_Handle: THandle;
+//#UC END# *4F8BF41E00D8_4A952BA3006D_var*
+//#UC START# *4F8BF5C602C3_4A952BA3006D_impl*
+ if not NeedUseTabs then
+  ShowStartupAdvertising;
+ TChatService.Instance.MakeChatDispatcher.StartProcessing;
+//#UC END# *4F8BF5C602C3_4A952BA3006D_impl*
+//#UC START# *4F8BF5C602C3_4A952BA3006D_var*
+//#UC END# *4F8BF5C602C3_4A952BA3006D_var*
+//#UC START# *538C374A00B7_4A952BA3006D_impl*
+ NotifyBaseSearcherFormClosing;
+ inherited;
+//#UC END# *538C374A00B7_4A952BA3006D_impl*
+//#UC START# *538C374A00B7_4A952BA3006D_var*
+//#UC END# *538C374A00B7_4A952BA3006D_var*
+//#UC START# *5411B2D10071_4A952BA3006D_impl*
+ if Assigned(f_StartupTipsForm) and
+    Assigned(f_StartupTipsForm.VCLWinControl) then
+ try
+  l_WndPos := ClientToScreen(Point(0, 0));
+
+  with f_StartupTipsForm.VCLWinControl do
+   SetBounds(l_WndPos.X + (Self.Width - Width) div 2,
+             l_WndPos.Y + (Self.Height - Height) div 2,
+             Width, Height);
+ finally
+  f_StartupTipsForm := nil;
+ end;
+//#UC END# *5411B2D10071_4A952BA3006D_impl*
+//#UC START# *5411B2D10071_4A952BA3006D_var*
+var
+ l_WndPos: TPoint;
+//#UC END# *5411B2D10071_4A952BA3006D_var*
+//#UC START# *542BF11D00B6_4A952BA3006D_impl*
+ if aType = ntMainFormBecomeTopmostAtStartup then
+  ShowStartupAdvertising;
+//#UC END# *542BF11D00B6_4A952BA3006D_impl*
+//#UC START# *542BF11D00B6_4A952BA3006D_var*
+//#UC END# *542BF11D00B6_4A952BA3006D_var*
+//#UC START# *54327CCD0178_4A952BA3006Dget_impl*
+ Result := BaseSearcher.MakeStateParams([ns_sseContext, ns_sseNeedShowWindow], False);
+//#UC END# *54327CCD0178_4A952BA3006Dget_impl*
+//#UC START# *54327CCD0178_4A952BA3006Dget_var*
+//#UC END# *54327CCD0178_4A952BA3006Dget_var*
+//#UC START# *54327E120331_4A952BA3006D_impl*
+ inherited;
+ if Supports(aContainer, InsBaseSearchInitialStateProvider, l_StateProvider) then
+ try
+  if aForClone then
+  begin
+   l_State := l_StateProvider.StateForClone;
+//   f_NeedSkipDropCurrentClass := True;
+  end
+  else
+   l_State := l_StateProvider.InitialState;
+  try
+   BaseSearcher.AssignState(l_State);
+  finally
+   l_State := nil;
+  end;
+ finally
+  l_StateProvider := nil;
+ end;
+//#UC END# *54327E120331_4A952BA3006D_impl*
+//#UC START# *54327E120331_4A952BA3006D_var*
+var
+ l_StateProvider: InsBaseSearchInitialStateProvider;
+ l_State: InsBaseSearcherInitialState;
+//#UC END# *54327E120331_4A952BA3006D_var*
+//#UC START# *550144FA0072_4A952BA3006D_impl*
+ l_NeedSay := (Visible and Enabled and
+  ((Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl = Self) or
+  (Dispatcher.FormDispatcher.MainFormsCount = 1)));
+
+ l_Status := ConsultationManager.CurrentStatus;
+
+ if (coUnreadChanged in l_Status) then
+  UpdateUnreadConsultations;
+ if (coNoConnection in l_Status) and l_NeedSay then
+  Say(war_NoConnectionOnSend, [defDataAdapter.GetDealerInfo]);
+ if (coNoSubscription in l_Status) and l_NeedSay then
+  Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+ if (coInternetConnected in l_Status) then
+  CheckConsultationConnection;
+ if (coInternetDisConnected in l_Status) then
+  CheckInternetConnection;
+//#UC END# *550144FA0072_4A952BA3006D_impl*
+//#UC START# *550144FA0072_4A952BA3006D_var*
+var
+ l_NeedSay: Boolean;
+ l_Status: TbsConsultationOperations;
+//#UC END# *550144FA0072_4A952BA3006D_var*
+//#UC START# *55321ADE02E9_4A952BA3006D_impl*
+ if aNotification = tcnMainFormBecomeVisible then
+ begin
+  if Assigned(Application.MainForm) then
+   if Application.MainForm.Visible then
+    CorrectStartupTipsPosition;
+ end;
+//#UC END# *55321ADE02E9_4A952BA3006D_impl*
+//#UC START# *55321ADE02E9_4A952BA3006D_var*
+//#UC END# *55321ADE02E9_4A952BA3006D_var*
+//#UC START# *55CC2C9101F8_4A952BA3006D_impl*
+ if (f_BaseSearcher <> nil) then
+  f_BaseSearcher.ContainerIsClosing;
+//#UC END# *55CC2C9101F8_4A952BA3006D_impl*
+//#UC START# *55CC2C9101F8_4A952BA3006D_var*
+//#UC END# *55CC2C9101F8_4A952BA3006D_var*
+//#UC START# *560B83DE0294_4A952BA3006Dget_impl*
+ Result := BaseSearcher.MakeStateParams([ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind], True); 
+//#UC END# *560B83DE0294_4A952BA3006Dget_impl*
+//#UC START# *560B83DE0294_4A952BA3006Dget_var*
+//#UC END# *560B83DE0294_4A952BA3006Dget_var*
+//#UC START# *5631AC7700D9_4A952BA3006Dget_impl*
+ Result := BaseSearcher;
+//#UC END# *5631AC7700D9_4A952BA3006Dget_impl*
+//#UC START# *5631AC7700D9_4A952BA3006Dget_var*
+//#UC END# *5631AC7700D9_4A952BA3006Dget_var*
+//#UC START# *5729DEC300A8_5729DF4D0159get_impl*
+ Result := f_BaseSearcherState;
+//#UC END# *5729DEC300A8_5729DF4D0159get_impl*
+//#UC START# *5729DEC300A8_5729DF4D0159get_var*
+//#UC END# *5729DEC300A8_5729DF4D0159get_var*
+//#UC START# *5729DFB7006F_5729DF4D0159get_impl*
+ Result := f_InnerState;
+//#UC END# *5729DFB7006F_5729DF4D0159get_impl*
+//#UC START# *5729DFB7006F_5729DF4D0159get_var*
+//#UC END# *5729DFB7006F_5729DF4D0159get_var*
+//#UC START# *5729DFC3021F_5729DF4D0159_impl*
+ inherited Create;
+ f_BaseSearcherState := aBaseSearcherState;
+ f_InnerState := aInnerState;
+//#UC END# *5729DFC3021F_5729DF4D0159_impl*
+//#UC START# *5729DFC3021F_5729DF4D0159_var*
+//#UC END# *5729DFC3021F_5729DF4D0159_var*
+//#UC START# *576A792F01D9_4A952BA3006D_impl*
+ l_FormToActivate := GetParentForm(Self);
+ if (l_FormToActivate = nil) then
+  l_FormToActivate := Self;
+ if (l_FormToActivate.WindowState = wsMinimized) then
+  SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);
+ SetActiveWindow(l_FormToActivate.Handle);
+ SetForegroundWindow(l_FormToActivate.Handle);
+//#UC END# *576A792F01D9_4A952BA3006D_impl*
+//#UC START# *576A792F01D9_4A952BA3006D_var*
+var
+ l_FormToActivate: TCustomForm; 
+//#UC END# *576A792F01D9_4A952BA3006D_var*

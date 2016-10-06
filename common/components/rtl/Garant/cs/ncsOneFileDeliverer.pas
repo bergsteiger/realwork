@@ -16,6 +16,7 @@ uses
  , ncsTaskedFileDesc
  , Classes
  , ddProgressObj
+ , l3StopWatch
  , ncsFileDesc
  , ncsMessage
 ;
@@ -28,6 +29,8 @@ type
    f_TaskID: AnsiString;
    f_Stream: TStream;
    f_Progressor: TddProgressObject;
+   f_Watch: Tl3StopWatch;
+   f_ReceiveTime: Double;
    f_LocalDesc: TncsTaskedFileDesc;
   private
    function CheckContinue(aRemoteDesc: TncsFileDesc): Boolean;
@@ -49,6 +52,8 @@ type
    procedure CommitDelivery;
    function DoProcess(aProgressor: TddProgressObject): Boolean; overload;
   public
+   property ReceiveTime: Double
+    read f_ReceiveTime;
    property LocalDesc: TncsTaskedFileDesc
     read f_LocalDesc;
  end;//TncsOneFileDeliverer
@@ -70,6 +75,7 @@ uses
  , ncsMessageExecutorFactory
  , ncsProfile
  , l3Base
+ , ncsTrafficCounter
  , l3FileUtils
  //#UC START# *546F3804032Dimpl_uses*
  //#UC END# *546F3804032Dimpl_uses*
@@ -216,95 +222,103 @@ function TncsOneFileDeliverer.DoProcess(aProgressor: TddProgressObject): Boolean
 var
  l_Message: TncsGetFilePart;
  l_RawReply: TncsMessage;
+ l_Counter: IncsTrafficCounter;
 
 const
  cPartSize = 31*1024;
 //#UC END# *5472E6E201EE_546F3804032D_var*
 begin
 //#UC START# *5472E6E201EE_546F3804032D_impl*
- aProgressor.SetRefTo(f_Progressor);
+ Supports(f_Transporter, IncsTrafficCounter, l_Counter);
  try
-  TncsMessageExecutorFactory.Instance.Register(Self);
+  aProgressor.SetRefTo(f_Progressor);
   try
-   Result := LocalDesc.CopiedSize = LocalDesc.Size;
-   if Assigned(aProgressor) then
-    aProgressor.IncProgress(LocalDesc.CopiedSize);
-   if not Result then
-   begin
-    l_RawReply := nil;
-    if not FileExists(LocalPartialFileName) then
-     raise EInOutError.Create('File not found');
-    f_Stream := Tl3FileStream.Create(LocalPartialFileName, l3_fmExclusiveReadWrite);
-    try
-     repeat
-      if not f_Transporter.Processing then
-      begin
-       l3System.Msg2Log('Обшика доставки - обрыв связи');
-       Exit;
-      end;
-      l_Message := TncsGetFilePart.Create;
-      try
-       l_Message.TaskID := f_TaskID;
-       l_Message.FileName := LocalDesc.Name;
-       l_Message.Offset := LocalDesc.CopiedSize;
-       l_Message.PartSize := Min(cPartSize, LocalDesc.Size - LocalDesc.CopiedSize);
-       f_Transporter.Send(l_Message);
-       FreeAndNil(l_RawReply);
+   TncsMessageExecutorFactory.Instance.Register(Self);
+   try
+    Result := LocalDesc.CopiedSize = LocalDesc.Size;
+    if Assigned(aProgressor) then
+     aProgressor.IncProgress(LocalDesc.CopiedSize);
+    if not Result then
+    begin
+     l_RawReply := nil;
+     if not FileExists(LocalPartialFileName) then
+      raise EInOutError.Create('File not found');
+     f_Stream := Tl3FileStream.Create(LocalPartialFileName, l3_fmExclusiveReadWrite);
+     try
+      repeat
+       if not f_Transporter.Processing then
+       begin
+        l3System.Msg2Log('Обшика доставки - обрыв связи');
+        Exit;
+       end;
+       l_Message := TncsGetFilePart.Create;
        try
-        g_WaitFile.Start;
+        l_Message.TaskID := f_TaskID;
+        l_Message.FileName := LocalDesc.Name;
+        l_Message.Offset := LocalDesc.CopiedSize;
+        l_Message.PartSize := Min(cPartSize, LocalDesc.Size - LocalDesc.CopiedSize);
+        if Assigned(l_Counter) then
+         l_Counter.DoProgress(l_Message.PartSize);
+        f_Transporter.Send(l_Message);
+        FreeAndNil(l_RawReply);
         try
-         if not f_Transporter.WaitForReply(l_Message, l_RawReply) then
+         g_WaitFile.Start;
+         try
+          if not f_Transporter.WaitForReply(l_Message, l_RawReply) then
+          begin
+           l3System.Msg2Log('Обшика доставки - не дождались ответа на запрос файла');
+           Exit;
+          end;
+         finally
+          g_WaitFile.Stop;
+         end;
+         if not (l_RawReply is TncsGetFilePartReply) then
          begin
-          l3System.Msg2Log('Обшика доставки - не дождались ответа на запрос файла');
+          l3System.Msg2Log('Обшика доставки - нераспознанный ответ на запрос файла');
+          Exit;
+         end;
+         if not TncsGetFilePartReply(l_RawReply).IsSuccess then
+         begin
+          l3System.Msg2Log('Обшика доставки - неуспешный ответ на запрос файла');
           Exit;
          end;
         finally
-         g_WaitFile.Stop;
-        end;
-        if not (l_RawReply is TncsGetFilePartReply) then
-        begin
-         l3System.Msg2Log('Обшика доставки - нераспознанный ответ на запрос файла');
-         Exit;
-        end;
-        if not TncsGetFilePartReply(l_RawReply).IsSuccess then
-        begin
-         l3System.Msg2Log('Обшика доставки - неуспешный ответ на запрос файла');
-         Exit;
+         FreeAndNil(l_RawReply);
         end;
        finally
-        FreeAndNil(l_RawReply);
+        FreeAndNil(l_Message);
        end;
-      finally
-       FreeAndNil(l_Message);
-      end;
-      if LocalDesc.CopiedSize = LocalDesc.Size then
-      begin
-       if (l3CalcCRC32(f_Stream) = LocalDesc.CRC) then
+       if LocalDesc.CopiedSize = LocalDesc.Size then
        begin
-        Result := True;
-        Break;
+        if (l3CalcCRC32(f_Stream) = LocalDesc.CRC) then
+        begin
+         Result := True;
+         Break;
+        end
+        else
+        begin
+         LocalDesc.CopiedSize := 0;
+         if Assigned(aProgressor) then
+          aProgressor.IncProgress(-LocalDesc.Size);
+         SaveControl;
+        end;
        end
        else
-       begin
-        LocalDesc.CopiedSize := 0;
-        if Assigned(aProgressor) then
-         aProgressor.IncProgress(-LocalDesc.Size);
-        SaveControl;
-       end;
-      end
-      else
-       l3System.Msg2Log('Доставка файлов - несовпал размер после сигнала об успехе');
-     until False;
-    finally
-     SaveControl;
-     FreeAndNil(f_Stream);
+        l3System.Msg2Log('Доставка файлов - несовпал размер после сигнала об успехе');
+      until False;
+     finally
+      SaveControl;
+      FreeAndNil(f_Stream);
+     end;
     end;
+   finally
+    TncsMessageExecutorFactory.Instance.UnRegister(Self);
    end;
   finally
-   TncsMessageExecutorFactory.Instance.UnRegister(Self);
+   FreeAndNil(f_Progressor);
   end;
  finally
-  FreeAndNil(f_Progressor);
+  l_Counter := nil;
  end;
 //#UC END# *5472E6E201EE_546F3804032D_impl*
 end;//TncsOneFileDeliverer.DoProcess

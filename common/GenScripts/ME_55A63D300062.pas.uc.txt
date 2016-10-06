@@ -1,0 +1,25 @@
+//#UC START# *47B9BAFD01F4_55A63D300062_impl*
+ Result := l3Compare(l3PCharLen(anItem.FileName), aData, l3_siCaseUnsensitive);
+//#UC END# *47B9BAFD01F4_55A63D300062_impl*
+//#UC START# *47B9BAFD01F4_55A63D300062_var*
+//#UC END# *47B9BAFD01F4_55A63D300062_var*
+//#UC START# *559E857A037A_55A63D300062_impl*
+ Lock;
+ try
+  if FindData(l3PCharLen(aFileName), l_Index) then
+   Result := Items[l_Index]
+  else
+   Result := nil;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *559E857A037A_55A63D300062_impl*
+//#UC START# *559E857A037A_55A63D300062_var*
+var
+ l_Index : Integer;
+//#UC END# *559E857A037A_55A63D300062_var*
+//#UC START# *55A63D300062_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwMainDictionaryCache.pas
+//#UC END# *55A63D300062_ext:FileName
+//#UC START# *55A63D300062impl_uses*
+//#UC END# *55A63D300062impl_uses*

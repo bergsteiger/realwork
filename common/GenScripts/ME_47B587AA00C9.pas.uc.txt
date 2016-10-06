@@ -1,0 +1,22 @@
+//#UC START# *47B07CF403D0_47B587AA00C9_impl*
+ Result := (A = B);
+//#UC END# *47B07CF403D0_47B587AA00C9_impl*
+//#UC START# *47B07CF403D0_47B587AA00C9_var*
+//#UC END# *47B07CF403D0_47B587AA00C9_var*
+//#UC START# *47B2C42A0163_47B587AA00C9_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_47B587AA00C9_impl*
+//#UC START# *47B2C42A0163_47B587AA00C9_var*
+//#UC END# *47B2C42A0163_47B587AA00C9_var*
+//#UC START# *47B587AA00C9_ext:FileName
+w:\common\components\rtl\Garant\L3\l3DataPtrList.imp.pas
+//#UC END# *47B587AA00C9_ext:FileName
+//#UC START# *47B99D4503A2_47B587AA00C9_impl*
+ Assert(false, 'На самом деле непонятно - каков критерий сравнения нетипизированных указателей');
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ Result := Integer(CI.rA^) - Integer(CI.rB^);
+//#UC END# *47B99D4503A2_47B587AA00C9_impl*
+//#UC START# *47B99D4503A2_47B587AA00C9_var*
+//#UC END# *47B99D4503A2_47B587AA00C9_var*

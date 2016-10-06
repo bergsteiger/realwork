@@ -64,7 +64,7 @@ begin
   l_Reply.ErrorMessage := '';
   try
    l_Reply.IsSuccess := False;
-   l_Task := TalcuMultiModifyDocsRequest.Create(usServerService);
+   l_Task := TalcuMultiModifyDocsRequest.Create(l_Message.UserID);
    try
     l_Task.Message := l_Message;
     l_Task.Reply := l_Reply;

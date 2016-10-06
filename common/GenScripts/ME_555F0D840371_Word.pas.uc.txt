@@ -1,0 +1,16 @@
+//#UC START# *555F0D840371_555F0D840371_Word_impl*
+ l_CompSize := MAX_COMPUTERNAME_LENGTH + 1;
+ SetLength(l_S, l_CompSize);
+
+ Win32Check(GetComputerNameA(PAnsiChar(l_S), LongWord(l_CompSize)));
+ SetLength(l_S, l_CompSize);
+ Result := l_S;
+//#UC END# *555F0D840371_555F0D840371_Word_impl*
+//#UC START# *555F0D840371_555F0D840371_Word_var*
+var
+ l_CompSize : Integer;
+ l_S : AnsiString;
+//#UC END# *555F0D840371_555F0D840371_Word_var*
+//#UC START# *555F0D840371_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas
+//#UC END# *555F0D840371_Word_ext:ParentFileName

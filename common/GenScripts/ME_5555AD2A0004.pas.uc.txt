@@ -1,0 +1,101 @@
+//#UC START# *479731C50290_5555AD2A0004_impl*
+ f_Converter.FreeParamBuffer(f_Description, f_Buffer);
+ f_Description := nil;
+ f_Converter := nil;
+ inherited;
+//#UC END# *479731C50290_5555AD2A0004_impl*
+//#UC START# *479731C50290_5555AD2A0004_var*
+//#UC END# *479731C50290_5555AD2A0004_var*
+//#UC START# *5555AD2A0004_ext:FileName
+w:\common\components\rtl\Garant\DA\daParam.pas
+//#UC END# *5555AD2A0004_ext:FileName
+//#UC START# *5555AD2A0004impl_uses*
+//#UC END# *5555AD2A0004impl_uses*
+//#UC START# *5555AD6F0065_5555AD2A0004_impl*
+ inherited Create;
+ f_Description := aDesc;
+ f_Converter := aConverter;
+ f_Buffer := f_Converter.AllocateParamBuffer(f_Description);
+//#UC END# *5555AD6F0065_5555AD2A0004_impl*
+//#UC START# *5555AD6F0065_5555AD2A0004_var*
+//#UC END# *5555AD6F0065_5555AD2A0004_var*
+//#UC START# *5555CC750283_5555AD2A0004get_impl*
+ Result := f_Description.Name;
+//#UC END# *5555CC750283_5555AD2A0004get_impl*
+//#UC START# *5555CC750283_5555AD2A0004get_var*
+//#UC END# *5555CC750283_5555AD2A0004get_var*
+//#UC START# *5555D4F5030D_5555AD2A0004_impl*
+ Result := (f_Description.DataType = aDesc.DataType) and (f_Description.Size = aDesc.Size);
+//#UC END# *5555D4F5030D_5555AD2A0004_impl*
+//#UC START# *5555D4F5030D_5555AD2A0004_var*
+//#UC END# *5555D4F5030D_5555AD2A0004_var*
+//#UC START# *5555E85C00B8_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtInteger, f_Buffer, @Result);
+//#UC END# *5555E85C00B8_5555AD2A0004get_impl*
+//#UC START# *5555E85C00B8_5555AD2A0004get_var*
+//#UC END# *5555E85C00B8_5555AD2A0004get_var*
+//#UC START# *5555E85C00B8_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtInteger, @aValue, f_Buffer);
+//#UC END# *5555E85C00B8_5555AD2A0004set_impl*
+//#UC START# *5555E85C00B8_5555AD2A0004set_var*
+//#UC END# *5555E85C00B8_5555AD2A0004set_var*
+//#UC START# *555D928D00E0_5555AD2A0004get_impl*
+ Result := f_Buffer;
+//#UC END# *555D928D00E0_5555AD2A0004get_impl*
+//#UC START# *555D928D00E0_5555AD2A0004get_var*
+//#UC END# *555D928D00E0_5555AD2A0004get_var*
+//#UC START# *55FA75FD01D3_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtQWord, f_Buffer, @Result);
+//#UC END# *55FA75FD01D3_5555AD2A0004get_impl*
+//#UC START# *55FA75FD01D3_5555AD2A0004get_var*
+//#UC END# *55FA75FD01D3_5555AD2A0004get_var*
+//#UC START# *55FA75FD01D3_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtQWord, @aValue, f_Buffer);
+//#UC END# *55FA75FD01D3_5555AD2A0004set_impl*
+//#UC START# *55FA75FD01D3_5555AD2A0004set_var*
+//#UC END# *55FA75FD01D3_5555AD2A0004set_var*
+//#UC START# *560CEA210293_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtChar, f_Buffer, @Result);
+//#UC END# *560CEA210293_5555AD2A0004get_impl*
+//#UC START# *560CEA210293_5555AD2A0004get_var*
+//#UC END# *560CEA210293_5555AD2A0004get_var*
+//#UC START# *560CEA210293_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtChar, @aValue, f_Buffer);
+//#UC END# *560CEA210293_5555AD2A0004set_impl*
+//#UC START# *560CEA210293_5555AD2A0004set_var*
+//#UC END# *560CEA210293_5555AD2A0004set_var*
+//#UC START# *563C8B50016A_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtDate, f_Buffer, @Result);
+//#UC END# *563C8B50016A_5555AD2A0004get_impl*
+//#UC START# *563C8B50016A_5555AD2A0004get_var*
+//#UC END# *563C8B50016A_5555AD2A0004get_var*
+//#UC START# *563C8B50016A_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtDate, @aValue, f_Buffer);
+//#UC END# *563C8B50016A_5555AD2A0004set_impl*
+//#UC START# *563C8B50016A_5555AD2A0004set_var*
+//#UC END# *563C8B50016A_5555AD2A0004set_var*
+//#UC START# *564C37CF00C4_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtTime, f_Buffer, @Result);
+//#UC END# *564C37CF00C4_5555AD2A0004get_impl*
+//#UC START# *564C37CF00C4_5555AD2A0004get_var*
+//#UC END# *564C37CF00C4_5555AD2A0004get_var*
+//#UC START# *564C37CF00C4_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtTime, @aValue, f_Buffer);
+//#UC END# *564C37CF00C4_5555AD2A0004set_impl*
+//#UC START# *564C37CF00C4_5555AD2A0004set_var*
+//#UC END# *564C37CF00C4_5555AD2A0004set_var*
+//#UC START# *5666822101CA_5555AD2A0004get_impl*
+ Result := f_Description.ParamType;
+//#UC END# *5666822101CA_5555AD2A0004get_impl*
+//#UC START# *5666822101CA_5555AD2A0004get_var*
+//#UC END# *5666822101CA_5555AD2A0004get_var*
+//#UC START# *578625FB03A1_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtByte, f_Buffer, @Result);
+//#UC END# *578625FB03A1_5555AD2A0004get_impl*
+//#UC START# *578625FB03A1_5555AD2A0004get_var*
+//#UC END# *578625FB03A1_5555AD2A0004get_var*
+//#UC START# *578625FB03A1_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtByte, @aValue, f_Buffer);
+//#UC END# *578625FB03A1_5555AD2A0004set_impl*
+//#UC START# *578625FB03A1_5555AD2A0004set_var*
+//#UC END# *578625FB03A1_5555AD2A0004set_var*

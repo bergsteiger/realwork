@@ -1,0 +1,70 @@
+//#UC START# *479731C50290_543F7EF202C6_impl*
+ inherited;
+ FreeAndNil(f_Logger);
+//#UC END# *479731C50290_543F7EF202C6_impl*
+//#UC START# *479731C50290_543F7EF202C6_var*
+//#UC END# *479731C50290_543F7EF202C6_var*
+//#UC START# *540EFD500389_543F7EF202C6_impl*
+ Result := (aPosition <= Self.AllocatedStreamSize);
+//#UC END# *540EFD500389_543F7EF202C6_impl*
+//#UC START# *540EFD500389_543F7EF202C6_var*
+//#UC END# *540EFD500389_543F7EF202C6_var*
+//#UC START# *540EFD670025_543F7EF202C6_impl*
+ if (aPosition = -1) then
+  Result := true
+ else
+  Result := IsValidPosition(aPosition, aName); 
+//#UC END# *540EFD670025_543F7EF202C6_impl*
+//#UC START# *540EFD670025_543F7EF202C6_var*
+//#UC END# *540EFD670025_543F7EF202C6_var*
+//#UC START# *54253CF402B1_543F7EF202C6_impl*
+ Assert(Self <> nil);
+ Result := Self.ClusterHeaderSize + Self.ClusterBodySize;
+//#UC END# *54253CF402B1_543F7EF202C6_impl*
+//#UC START# *54253CF402B1_543F7EF202C6_var*
+//#UC END# *54253CF402B1_543F7EF202C6_var*
+//#UC START# *543F7EF202C6_ext:FileName
+w:\common\components\rtl\Garant\m3\m3RootStreamManagerPrimPrim.pas
+//#UC END# *543F7EF202C6_ext:FileName
+//#UC START# *543F7EF202C6impl_uses*
+//#UC END# *543F7EF202C6impl_uses*
+//#UC START# *543F9D22008D_543F7EF202C6_impl*
+ aLogger.SetRefTo(f_Logger);
+ inherited Create;
+//#UC END# *543F9D22008D_543F7EF202C6_impl*
+//#UC START# *543F9D22008D_543F7EF202C6_var*
+//#UC END# *543F9D22008D_543F7EF202C6_var*
+//#UC START# *543FA0F703D6_543F7EF202C6_impl*
+ if (aPosition = High(aPosition)) then
+  Result := false
+ else 
+ if (aPosition < 0) then
+  Result := false
+ else
+ begin
+  Result := DoIsValidPosition(aPosition, aName);
+  if not Result then
+  begin
+   l_S := 'Ќе удалось провалидировать позицию, в потоке: ' + aName.AsString;
+   if (Logger <> nil) then
+    Logger.ToLog(l_S);
+   l3System.Stack2Log(l_S);
+  end;//not Result
+ end;//aPosition < 0
+//#UC END# *543FA0F703D6_543F7EF202C6_impl*
+//#UC START# *543FA0F703D6_543F7EF202C6_var*
+var
+ l_S : String;
+//#UC END# *543FA0F703D6_543F7EF202C6_var*
+//#UC START# *543FAAB80195_543F7EF202C6_impl*
+ Assert(Self <> nil);
+ DoLockRegion(aForRead, aRegion);
+//#UC END# *543FAAB80195_543F7EF202C6_impl*
+//#UC START# *543FAAB80195_543F7EF202C6_var*
+//#UC END# *543FAAB80195_543F7EF202C6_var*
+//#UC START# *543FAAD0011B_543F7EF202C6_impl*
+ Assert(Self <> nil);
+ DoUnlockRegion(aForRead, aRegion);
+//#UC END# *543FAAD0011B_543F7EF202C6_impl*
+//#UC START# *543FAAD0011B_543F7EF202C6_var*
+//#UC END# *543FAAD0011B_543F7EF202C6_var*

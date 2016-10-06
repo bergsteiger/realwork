@@ -11,7 +11,7 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , ncsMessage
+ , csPersonificatedMessage
  , k2SizedMemoryPool
  , evdTasksHelpers
  , l3MarshalledTypes
@@ -19,7 +19,7 @@ uses
 ;
 
 type
- TcsMultiModifyDocs = class(TncsMessage)
+ TcsMultiModifyDocs = class(TcsPersonificatedMessage)
   protected
    function pm_GetData: Tk2RawData;
    procedure pm_SetData(aValue: Tk2RawData);

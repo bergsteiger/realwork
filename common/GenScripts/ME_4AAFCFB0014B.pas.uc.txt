@@ -1,0 +1,288 @@
+//#UC START# *479731C50290_4AAFCFB0014B_impl*
+ f_ValueMap := nil;
+ f_Info := nil;
+ inherited;
+//#UC END# *479731C50290_4AAFCFB0014B_impl*
+//#UC START# *479731C50290_4AAFCFB0014B_var*
+//#UC END# *479731C50290_4AAFCFB0014B_var*
+//#UC START# *479731C50290_52494F8A0055_impl*
+ f_Caption := nil;
+ f_Info := nil;
+ FreeAndNil(f_Bitmap);
+ inherited;
+//#UC END# *479731C50290_52494F8A0055_impl*
+//#UC START# *479731C50290_52494F8A0055_var*
+//#UC END# *479731C50290_52494F8A0055_var*
+//#UC START# *47A042E100E2_4AAFCFB0014B_impl*
+ inherited;
+ f_ValueMap := nsStringMapManager.Map[smap_piDocumentPictureScale] as InsSpecialStringValueMap;
+ with ieViewer.MouseWheelParams do
+ begin
+  Action := iemwVScroll;
+  Variation := iemwPercentage;
+  Value := 15;
+ end;
+ f_SaveDialog := TnsSaveDialog.Create(Self);
+ with f_SaveDialog do
+ begin
+  Filter := vcmConstString(str_PictuteSaveDialogFilter);
+  Title := vcmConstString(str_SaveAsDialogTitle);
+  DefaultExt := vcmConstString(str_PictuteSaveDialogExtension);
+  if GetWindowsVersion in [wvWin95, wvWin95OSR2, wvWinNT31, wvWinNT35, wvWinNT351, wvWinNT4] then
+   Options := [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist]
+  else
+   Options := [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing, ofPathMustExist];
+ end;
+//#UC END# *47A042E100E2_4AAFCFB0014B_impl*
+//#UC START# *47A042E100E2_4AAFCFB0014B_var*
+//#UC END# *47A042E100E2_4AAFCFB0014B_var*
+//#UC START# *49806ED503D5_4AAFCFB0014B_impl*
+ if aStateType = vcm_stContent then
+ begin
+  if ieViewer.AutoFit then
+   l_Scale := -1
+  else
+   l_Scale := Scale;
+  theState := TPictureFormState.Make(CCaption, ieViewer.IEBitmap.VclBitmap, l_Scale,
+   SaveDialog.FileName, SaveDialog.InitialDir, f_Info);
+ end;
+//#UC END# *49806ED503D5_4AAFCFB0014B_impl*
+//#UC START# *49806ED503D5_4AAFCFB0014B_var*
+var
+ l_Scale : Integer;
+//#UC END# *49806ED503D5_4AAFCFB0014B_var*
+//#UC START# *49807428008C_4AAFCFB0014B_impl*
+ if aStateType = vcm_stContent then
+ if (l3BQueryInterface(aState, IPictureFormState, l_PictureFormState)) then
+ begin
+  CCaption := l_PictureFormState.GetCaption;
+  SaveDialog.FileName := l_PictureFormState.GetFileName;
+//  SaveDialog.InitialDir := l_PictureFormState.GetInitialDir;
+  ieViewer.IEBitmap.Assign(l_PictureFormState.GetBitmap);
+  l_Scale := l_PictureFormState.GetScale;
+  if l_Scale > 1 then
+   Scale := l_Scale
+  else
+   FitInWindow;
+  f_Info := l_PictureFormState.GetInfo;
+ end
+ else
+  Assert(False);
+//#UC END# *49807428008C_4AAFCFB0014B_impl*
+//#UC START# *49807428008C_4AAFCFB0014B_var*
+var
+ l_PictureFormState : IPictureFormState;
+ l_Scale            : Integer;
+//#UC END# *49807428008C_4AAFCFB0014B_var*
+//#UC START# *4A8E8F2E0195_4AAFCFB0014B_impl*
+ //ScrollBox.DoubleBuffered := true;
+ ActiveControl := ieViewer;
+ f_InitViewer := False;
+
+ with ieViewer do
+ begin
+  Cursor := crArrow;
+  BorderStyle := bsNone;
+  LegacyBitmap := False;
+  ZoomFilter := rfLanczos3;
+  MouseInteract := [miScroll];
+  DelayZoomFilter := True;
+  Align := alClient;
+  TabOrder := 0;
+ end;
+ with ieIO do
+ begin
+  AttachedImageEn := ieViewer;
+  Background := $00F9F8FA;
+  PreviewFont.Charset := RUSSIAN_CHARSET;
+  PreviewFont.Color := clWindowText;
+  PreviewFont.Height := -11;
+  PreviewFont.Name := 'MS Sans Serif';
+  PreviewFont.Style := [];
+ end;
+ with ieProc do
+ begin
+  AttachedImageEn := ieViewer;
+  Background := $00F9F8FA;
+  PreviewFont.Charset := RUSSIAN_CHARSET;
+  PreviewFont.Color := clWindowText;
+  PreviewFont.Height := -11;
+  PreviewFont.Name := 'MS Sans Serif';
+  PreviewFont.Style := [];
+ end;
+//#UC END# *4A8E8F2E0195_4AAFCFB0014B_impl*
+//#UC START# *4A8E8F2E0195_4AAFCFB0014B_var*
+//#UC END# *4A8E8F2E0195_4AAFCFB0014B_var*
+//#UC START# *4AAFCFB0014B_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_Form.pas
+//#UC END# *4AAFCFB0014B_ext:FileName
+//#UC START# *4AAFCFB0014Bimpl_uses*
+//#UC END# *4AAFCFB0014Bimpl_uses*
+//#UC START# *4AF32F3102BE_4AAFCFB0014Bexec_impl*
+ CCaption := aData.WindowCaption;
+ GetSaveDialog.FileName := l3PStr(aData.FileName);
+ GetSaveDialog.FilterIndex := 1;
+ if aData.IsPicture then
+ begin
+  l3IStream2Stream(aData.Data, l_Stream);
+  f_Info := aData.Description;
+  try
+   ieIO.LoadFromStream(l_Stream);
+  finally
+   FreeAndNil(l_Stream);
+  end;//try..finally
+ end;//aData.IsPicture
+ PostMessage(Handle, CM_AFTER_INIT, 0, 0);
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=271749118&focusedCommentId=290954110&#comment-290954110
+//#UC END# *4AF32F3102BE_4AAFCFB0014Bexec_impl*
+//#UC START# *4AF32F3102BE_4AAFCFB0014Bexec_var*
+var
+ l_Stream: TStream;
+//#UC END# *4AF32F3102BE_4AAFCFB0014Bexec_var*
+//#UC START# *4C8775950053_4AAFCFB0014B_impl*
+ with ieViewer do
+ begin
+  AutoFit := True;
+  f_Scale := Round(Zoom);
+ end;
+//#UC END# *4C8775950053_4AAFCFB0014B_impl*
+//#UC START# *4C8775950053_4AAFCFB0014B_var*
+//#UC END# *4C8775950053_4AAFCFB0014B_var*
+//#UC START# *4C8775AA017A_4AAFCFB0014B_impl*
+ Result := Scale < f_ValueMap.MaxValue;
+//#UC END# *4C8775AA017A_4AAFCFB0014B_impl*
+//#UC START# *4C8775AA017A_4AAFCFB0014B_var*
+//#UC END# *4C8775AA017A_4AAFCFB0014B_var*
+//#UC START# *4C8775D301F7_4AAFCFB0014B_impl*
+ Result := Scale > f_ValueMap.MinValue;
+//#UC END# *4C8775D301F7_4AAFCFB0014B_impl*
+//#UC START# *4C8775D301F7_4AAFCFB0014B_var*
+//#UC END# *4C8775D301F7_4AAFCFB0014B_var*
+//#UC START# *4C8775F60070_4AAFCFB0014B_impl*
+ ieViewer.AutoFit := False;
+ for I := Low(FixedScales) to High(FixedScales) do
+  if FixedScales[I] > Scale then
+  begin
+   Scale := FixedScales[I];
+   Break;
+  end;
+//#UC END# *4C8775F60070_4AAFCFB0014B_impl*
+//#UC START# *4C8775F60070_4AAFCFB0014B_var*
+var
+ I: Integer;
+//#UC END# *4C8775F60070_4AAFCFB0014B_var*
+//#UC START# *4C87761302DC_4AAFCFB0014B_impl*
+ ieViewer.AutoFit := False;
+ for I := High(FixedScales) downto Low(FixedScales) do
+  if FixedScales[I] < Scale then
+  begin
+   Scale := FixedScales[I];
+   Break;
+  end;
+//#UC END# *4C87761302DC_4AAFCFB0014B_impl*
+//#UC START# *4C87761302DC_4AAFCFB0014B_var*
+var
+ I: Integer;
+//#UC END# *4C87761302DC_4AAFCFB0014B_var*
+//#UC START# *4C87765001CE_4AAFCFB0014Bget_impl*
+ Result := f_Scale;
+// Result := Integer(GetLongint(pi_Document_ImageScale, dv_Document_ImageScale));
+//#UC END# *4C87765001CE_4AAFCFB0014Bget_impl*
+//#UC START# *4C87765001CE_4AAFCFB0014Bget_var*
+//#UC END# *4C87765001CE_4AAFCFB0014Bget_var*
+//#UC START# *4C87765001CE_4AAFCFB0014Bset_impl*
+ if aValue < 1 then
+  FitInWindow
+ else
+ begin
+  f_Scale := aValue;
+  ieViewer.AutoFit := False;
+  ieViewer.Zoom := f_Scale;
+ end;
+// PutLongint(pi_Document_ImageScale, Longint(aPercentage));
+ {Image.Align := alNone;
+ Image.Width  := (Image.Picture.Width  * f_Scale) div 100;
+ Image.Height := (Image.Picture.Height * f_Scale) div 100;
+ }
+//#UC END# *4C87765001CE_4AAFCFB0014Bset_impl*
+//#UC START# *4C87765001CE_4AAFCFB0014Bset_var*
+//#UC END# *4C87765001CE_4AAFCFB0014Bset_var*
+//#UC START# *4F7C65380244_4AAFCFB0014B_impl*
+ if ieViewer.CanFocus then
+ begin
+  ieViewer.SetFocus;
+ end;
+//#UC END# *4F7C65380244_4AAFCFB0014B_impl*
+//#UC START# *4F7C65380244_4AAFCFB0014B_var*
+//#UC END# *4F7C65380244_4AAFCFB0014B_var*
+//#UC START# *5245B8BC031D_4AAFCFB0014B_impl*
+ Result := SaveDialog;
+//#UC END# *5245B8BC031D_4AAFCFB0014B_impl*
+//#UC START# *5245B8BC031D_4AAFCFB0014B_var*
+//#UC END# *5245B8BC031D_4AAFCFB0014B_var*
+//#UC START# *52493BD40232_4AAFCFB0014B_impl*
+ if not ieViewer.IEBitmap.VclBitmap.Empty then
+ begin
+  f_InitViewer := True;
+  l_Value := afw.Settings.LoadString(piDocumentPictureScale, dvDocumentPictureScale);
+  if l3Same(l_Value, cvDocumentPictureScaleFit) then
+   FitInWindow
+  else
+   Scale := StrToInt(l3Str(l_Value));
+ end;//not ieViewer.IEBitmap.VclBitmap.Empty
+//#UC END# *52493BD40232_4AAFCFB0014B_impl*
+//#UC START# *52493BD40232_4AAFCFB0014B_var*
+var
+ l_Value : Il3CString;
+//#UC END# *52493BD40232_4AAFCFB0014B_var*
+//#UC START# *52494EE802F8_52494F8A0055_impl*
+ Result := f_Caption;
+//#UC END# *52494EE802F8_52494F8A0055_impl*
+//#UC START# *52494EE802F8_52494F8A0055_var*
+//#UC END# *52494EE802F8_52494F8A0055_var*
+//#UC START# *52494EF50330_52494F8A0055_impl*
+ Result := f_Bitmap;
+//#UC END# *52494EF50330_52494F8A0055_impl*
+//#UC START# *52494EF50330_52494F8A0055_var*
+//#UC END# *52494EF50330_52494F8A0055_var*
+//#UC START# *52494F19039C_52494F8A0055_impl*
+ Result := f_Scale;
+//#UC END# *52494F19039C_52494F8A0055_impl*
+//#UC START# *52494F19039C_52494F8A0055_var*
+//#UC END# *52494F19039C_52494F8A0055_var*
+//#UC START# *52494F2E0141_52494F8A0055_impl*
+ Result := f_FileName;
+//#UC END# *52494F2E0141_52494F8A0055_impl*
+//#UC START# *52494F2E0141_52494F8A0055_var*
+//#UC END# *52494F2E0141_52494F8A0055_var*
+//#UC START# *52494F3D0323_52494F8A0055_impl*
+ Result := f_InitialDir;
+//#UC END# *52494F3D0323_52494F8A0055_impl*
+//#UC START# *52494F3D0323_52494F8A0055_var*
+//#UC END# *52494F3D0323_52494F8A0055_var*
+//#UC START# *52494F4F0135_52494F8A0055_impl*
+ Result := f_Info;
+//#UC END# *52494F4F0135_52494F8A0055_impl*
+//#UC START# *52494F4F0135_52494F8A0055_var*
+//#UC END# *52494F4F0135_52494F8A0055_var*
+//#UC START# *524951840150_52494F8A0055_impl*
+ inherited Create;
+ f_Caption := aCaption;
+ f_Bitmap := Graphics.TBitmap.Create;
+ f_Scale := aScale;
+ f_Bitmap.Assign(aBitmap);
+ f_FileName := aFileName;
+ f_InitialDir := aInitialDir;
+ f_Info := aInfo;
+//#UC END# *524951840150_52494F8A0055_impl*
+//#UC START# *524951840150_52494F8A0055_var*
+//#UC END# *524951840150_52494F8A0055_var*
+//#UC START# *52496599037C*
+ DefGIF_LZWDECOMPFUNC:= GIFLZWDecompress;
+ DefGIF_LZWCOMPFUNC:= GIFLZWCompress;
+//#UC END# *52496599037C*
+//#UC START# *543E3AA801D0_4AAFCFB0014B_impl*
+ Result := nsTabIconIndex(titMain);
+//#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
+//#UC START# *543E3AA801D0_4AAFCFB0014B_var*
+//#UC END# *543E3AA801D0_4AAFCFB0014B_var*

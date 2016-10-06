@@ -1,0 +1,29 @@
+//#UC START# *54E1908B0336_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\destFontTable.pas
+//#UC END# *54E1908B0336_ext:ParentFileName
+//#UC START# *54E194240104_54E1908B0336get_impl*
+ Result := nil;
+ for i := 0 to Hi do
+ begin
+  if TddFontEntry(Items[I]).Number = anIndex then
+  begin;
+   Result := TddFontEntry(Items[I]);
+   Break;
+  end;
+ end;
+//#UC END# *54E194240104_54E1908B0336get_impl*
+//#UC START# *54E194240104_54E1908B0336get_var*
+var
+ i: Integer;
+//#UC END# *54E194240104_54E1908B0336get_var*
+//#UC START# *54E194A303CE_54E1908B0336get_impl*
+ l_F := Fonts[anIndex];
+ if l_F = nil then
+  Result := ''
+ else
+  Result := l_F.AsString;
+//#UC END# *54E194A303CE_54E1908B0336get_impl*
+//#UC START# *54E194A303CE_54E1908B0336get_var*
+var
+ l_F: TddFontEntry;
+//#UC END# *54E194A303CE_54E1908B0336get_var*

@@ -1,0 +1,81 @@
+//#UC START# *5217273F000F_5230390C00FC_impl*
+ inherited Create(aAlias, aCaption, aDefaultValue, aMasterItem);
+ f_Value.Kind := dd_vkString;
+//#UC END# *5217273F000F_5230390C00FC_impl*
+//#UC START# *5217273F000F_5230390C00FC_var*
+//#UC END# *5217273F000F_5230390C00FC_var*
+//#UC START# *52172B72014C_5230390C00FC_impl*
+ StringValue := UnMaskCRLF(l3Str(aStorage.ReadString(Alias, DefaultValue.AsString)));
+//#UC END# *52172B72014C_5230390C00FC_impl*
+//#UC START# *52172B72014C_5230390C00FC_var*
+//#UC END# *52172B72014C_5230390C00FC_var*
+//#UC START# *52172CA801E3_5230390C00FC_impl*
+ aStorage.WriteString(Alias, MaskCRLF(Value.AsString));
+//#UC END# *52172CA801E3_5230390C00FC_impl*
+//#UC START# *52172CA801E3_5230390C00FC_var*
+//#UC END# *52172CA801E3_5230390C00FC_var*
+//#UC START# *521761BB03DE_5230390C00FC_impl*
+ Result := TMemo.Create(aParent);
+ Result.Parent := aParent;
+ Result.Top := aTop;
+ Result.Left := aLeft;
+ Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+ TMemo(Result).OnChange := DoOnChange;
+//#UC END# *521761BB03DE_5230390C00FC_impl*
+//#UC START# *521761BB03DE_5230390C00FC_var*
+//#UC END# *521761BB03DE_5230390C00FC_var*
+//#UC START# *521B053F03C3_5230390C00FC_impl*
+ l_Memo := TMemo.Create(aParent);
+ try
+  l_Memo.Parent := aParent;
+  Result := l_Memo.Height;
+ finally
+  l_Memo.Free;
+ end;
+//#UC END# *521B053F03C3_5230390C00FC_impl*
+//#UC START# *521B053F03C3_5230390C00FC_var*
+var
+ l_Memo: TMemo;
+//#UC END# *521B053F03C3_5230390C00FC_var*
+//#UC START# *521B058801FD_5230390C00FC_impl*
+ StringValue := (Control as TMemo).Lines.Text;
+//#UC END# *521B058801FD_5230390C00FC_impl*
+//#UC START# *521B058801FD_5230390C00FC_var*
+//#UC END# *521B058801FD_5230390C00FC_var*
+//#UC START# *521B061A0387_5230390C00FC_impl*
+ Result := 250;
+//#UC END# *521B061A0387_5230390C00FC_impl*
+//#UC START# *521B061A0387_5230390C00FC_var*
+//#UC END# *521B061A0387_5230390C00FC_var*
+//#UC START# *521B07030052_5230390C00FC_impl*
+ if aDefault then
+  (Control as TMemo).Text := DefaultValue.AsString
+ else
+  (Control as TMemo).Text := StringValue;
+//#UC END# *521B07030052_5230390C00FC_impl*
+//#UC START# *521B07030052_5230390C00FC_var*
+//#UC END# *521B07030052_5230390C00FC_var*
+//#UC START# *5230390C00FC_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas
+//#UC END# *5230390C00FC_ext:ParentFileName
+//#UC START# *5230411D0123_5230390C00FC_impl*
+ l3FillChar(l_Default, SizeOf(l_Default), 0);
+ l_Default.Kind := dd_vkString;
+ l_Default.AsString := aDefault;
+ Create(aAlias, aCaption, l_Default, aMasterItem);
+//#UC END# *5230411D0123_5230390C00FC_impl*
+//#UC START# *5230411D0123_5230390C00FC_var*
+var
+ l_Default: TddConfigValue;
+//#UC END# *5230411D0123_5230390C00FC_var*
+//#UC START# *52304145029D_5230390C00FC_impl*
+ Changed := True;
+//#UC END# *52304145029D_5230390C00FC_impl*
+//#UC START# *52304145029D_5230390C00FC_var*
+//#UC END# *52304145029D_5230390C00FC_var*
+//#UC START# *552BB745031E_5230390C00FC_impl*
+ if aControl is TMemo then
+  TMemo(aControl).ReadOnly := ReadOnly;
+//#UC END# *552BB745031E_5230390C00FC_impl*
+//#UC START# *552BB745031E_5230390C00FC_var*
+//#UC END# *552BB745031E_5230390C00FC_var*

@@ -1,0 +1,240 @@
+//#UC START# *478CF34E02CE_522EDF570036_impl*
+ if Source is TddSimpleListDataAdapter then
+ begin
+  f_DataConfig.Assign(TddSimpleListDataAdapter(Source).DataConfig);
+  f_Items.Clear;
+  for I := 0 to TddSimpleListDataAdapter(Source).f_Items.Hi do
+  begin
+   l_Item:= (TddSimpleListDataAdapter(Source).f_Items.Items[I] As TddBaseConfigItem).Clone;
+   try
+    f_Items.Add(l_Item);
+   finally
+    l3Free(l_Item);
+   end;
+  end;
+  Alias:= TddSimpleListDataAdapter(Source).Alias;
+ end
+ else
+  inherited;
+//#UC END# *478CF34E02CE_522EDF570036_impl*
+//#UC START# *478CF34E02CE_522EDF570036_var*
+var
+ I: Integer;
+ l_Item: TddBaseConfigItem;
+//#UC END# *478CF34E02CE_522EDF570036_var*
+//#UC START# *479731C50290_522EDF570036_impl*
+ inherited;
+ l3Free(f_Items);
+ l3Free(f_DataConfig);
+//#UC END# *479731C50290_522EDF570036_impl*
+//#UC START# *479731C50290_522EDF570036_var*
+//#UC END# *479731C50290_522EDF570036_var*
+//#UC START# *522EDF570036_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas
+//#UC END# *522EDF570036_ext:ParentFileName
+//#UC START# *522EDF8F0390_522EDF570036set_impl*
+ inherited;
+ for I := 0 to f_Items.Hi do
+  TddAppConfigNode(Objects[I]).Alias := Format('%sI%d', [Alias, i]);
+//#UC END# *522EDF8F0390_522EDF570036set_impl*
+//#UC START# *522EDF8F0390_522EDF570036set_var*
+var
+ I: Integer; 
+//#UC END# *522EDF8F0390_522EDF570036set_var*
+//#UC START# *522EDFF601C6_522EDF570036get_impl*
+ Result := f_Items.Count;
+//#UC END# *522EDFF601C6_522EDF570036get_impl*
+//#UC START# *522EDFF601C6_522EDF570036get_var*
+//#UC END# *522EDFF601C6_522EDF570036get_var*
+//#UC START# *522EE02F00FF_522EDF570036get_impl*
+ Result := f_Items[anIndex];
+//#UC END# *522EE02F00FF_522EDF570036get_impl*
+//#UC START# *522EE02F00FF_522EDF570036get_var*
+//#UC END# *522EE02F00FF_522EDF570036get_var*
+//#UC START# *522EE0530101_522EDF570036get_impl*
+ Result := TddAppConfigNode(f_Items.Items[anIndex]).Caption;
+//#UC END# *522EE0530101_522EDF570036get_impl*
+//#UC START# *522EE0530101_522EDF570036get_var*
+//#UC END# *522EE0530101_522EDF570036get_var*
+//#UC START# *522EE0A00116_522EDF570036_impl*
+ for I := 0 to Pred(Count) do
+  TddAppConfigNode(Objects[I]).Changed := aValue;
+//#UC END# *522EE0A00116_522EDF570036_impl*
+//#UC START# *522EE0A00116_522EDF570036_var*
+var
+ I: Integer;
+//#UC END# *522EE0A00116_522EDF570036_var*
+//#UC START# *522EE0DF0080_522EDF570036_impl*
+ Result := Self;
+//#UC END# *522EE0DF0080_522EDF570036_impl*
+//#UC START# *522EE0DF0080_522EDF570036_var*
+//#UC END# *522EE0DF0080_522EDF570036_var*
+//#UC START# *522EE0FB0163_522EDF570036_impl*
+ Result := True;
+ f_EditItems.Delete(anIndex);
+//#UC END# *522EE0FB0163_522EDF570036_impl*
+//#UC START# *522EE0FB0163_522EDF570036_var*
+//#UC END# *522EE0FB0163_522EDF570036_var*
+//#UC START# *522EE19901B6_522EDF570036_impl*
+ if anIndex < 0 then
+  // Новый элемент
+  l_Node:= MakeItem
+ else
+  l_Node:= TddAppConfigNode(f_EditItems.Items[anIndex]);
+ Result:= ExecuteNodeDialog(l_Node);
+ if Result then
+ begin
+  l_Node.Caption:= l_Node.Items[0].StringValue;
+  if anIndex < 0 then
+   f_EditItems.Add(l_Node);
+ end;
+ if anIndex < 0 then
+  l3Free(l_Node);
+//#UC END# *522EE19901B6_522EDF570036_impl*
+//#UC START# *522EE19901B6_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+ l_Alias: AnsiString;
+//#UC END# *522EE19901B6_522EDF570036_var*
+//#UC START# *522EE1B9018D_522EDF570036_impl*
+ l_Count := aStorage.ReadInteger(anAlias + '.Count', 0);
+ for I := 0 to Pred(l_Count) do
+ begin
+  l_Node := MakeItem;
+  try
+   l_Node.Load(aStorage);
+   if l_Node.AsString['Caption'] <> '' then
+    l_Node.Caption := l_Node.AsString['Caption'];
+   f_Items.Add(l_Node);
+  finally
+   l3Free(l_Node);
+  end;
+ end;
+//#UC END# *522EE1B9018D_522EDF570036_impl*
+//#UC START# *522EE1B9018D_522EDF570036_var*
+var
+ l_Count, I: Integer;
+ l_Node: TddAppConfigNode;
+//#UC END# *522EE1B9018D_522EDF570036_var*
+//#UC START# *522EE1D7016D_522EDF570036_impl*
+ aStorage.WriteInteger(anAlias + '.Count', f_Items.Count);
+ for I := 0 to f_Items.Hi do
+  IddConfigNode(TddAppConfigNode(Objects[I])).SaveData(aStorage);
+//#UC END# *522EE1D7016D_522EDF570036_impl*
+//#UC START# *522EE1D7016D_522EDF570036_var*
+var
+ I: Integer;
+//#UC END# *522EE1D7016D_522EDF570036_var*
+//#UC START# *522EE27A017F_522EDF570036set_impl*
+ l3Free(f_DataConfig);
+ f_DataConfig:= aValue;
+//#UC END# *522EE27A017F_522EDF570036set_impl*
+//#UC START# *522EE27A017F_522EDF570036set_var*
+//#UC END# *522EE27A017F_522EDF570036set_var*
+//#UC START# *522EE2F603A2_522EDF570036get_impl*
+ if InRange(anIndex, 0, Pred(Count)) then
+  Result := TddAppConfigNode(Objects[anIndex]).ItemByAlias[anAlias].Value
+ else
+  raise EListError.CreateFmt('Отсутствует элемент с индексом %d в списке из %d элементов', [anIndex, Count]);
+//#UC END# *522EE2F603A2_522EDF570036get_impl*
+//#UC START# *522EE2F603A2_522EDF570036get_var*
+//#UC END# *522EE2F603A2_522EDF570036get_var*
+//#UC START# *522EE2F603A2_522EDF570036set_impl*
+//#UC END# *522EE2F603A2_522EDF570036set_impl*
+//#UC START# *522EE2F603A2_522EDF570036set_var*
+//#UC END# *522EE2F603A2_522EDF570036set_var*
+//#UC START# *522EE4200381_522EDF570036_impl*
+ l_Alias := Alias + 'I' + IntToStr(f_Items.Count);
+ Result := DataConfig.Clone;
+ Result.Alias := l_Alias;
+//#UC END# *522EE4200381_522EDF570036_impl*
+//#UC START# *522EE4200381_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+ l_Alias: AnsiString;
+//#UC END# *522EE4200381_522EDF570036_var*
+//#UC START# *522EE43E0110_522EDF570036_impl*
+ Create;
+ f_DataConfig.Alias:= anAlias;
+//#UC END# *522EE43E0110_522EDF570036_impl*
+//#UC START# *522EE43E0110_522EDF570036_var*
+//#UC END# *522EE43E0110_522EDF570036_var*
+//#UC START# *5301EC5A006A_522EDF570036_impl*
+ inherited Create;
+ f_Items := Tl3ProtoPersistentRefList.Make;
+ f_DataConfig := TddAppConfigNode.Create('Adapter', 'Новый элемент');
+ f_DataConfig.AddItem(TddStringConfigItem.Create('Caption', 'Название', ddEmptyValue))
+//#UC END# *5301EC5A006A_522EDF570036_impl*
+//#UC START# *5301EC5A006A_522EDF570036_var*
+//#UC END# *5301EC5A006A_522EDF570036_var*
+//#UC START# *56D93DBD039D_522EDF570036_impl*
+ f_Items.Clear;
+//#UC END# *56D93DBD039D_522EDF570036_impl*
+//#UC START# *56D93DBD039D_522EDF570036_var*
+//#UC END# *56D93DBD039D_522EDF570036_var*
+//#UC START# *57A05EC4018F_522EDF570036_impl*
+ l_Node:= MakeItem;
+ try
+  Result:= f_Items.Add(l_Node);
+ finally
+  l3Free(l_Node);
+ end;
+//#UC END# *57A05EC4018F_522EDF570036_impl*
+//#UC START# *57A05EC4018F_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+//#UC END# *57A05EC4018F_522EDF570036_var*
+//#UC START# *57A316CA0116_522EDF570036_impl*
+ f_EditItems := Tl3ProtoPersistentRefList.Make;
+ for l_IDX := 0 to Count - 1 do
+ begin
+  l_Item := TddAppConfigNode(Objects[l_IDX]).Clone;
+  try
+   f_EditItems.Add(l_Item);
+  finally
+   FreeAndNil(l_Item);
+  end;
+ end;
+//#UC END# *57A316CA0116_522EDF570036_impl*
+//#UC START# *57A316CA0116_522EDF570036_var*
+var
+ l_IDX: Integer;
+ l_Item: TddAppConfigNode;
+//#UC END# *57A316CA0116_522EDF570036_var*
+//#UC START# *57A316E00019_522EDF570036_impl*
+ FreeAndNil(f_EditItems);
+//#UC END# *57A316E00019_522EDF570036_impl*
+//#UC START# *57A316E00019_522EDF570036_var*
+//#UC END# *57A316E00019_522EDF570036_var*
+//#UC START# *57A316F503DF_522EDF570036_impl*
+ f_Items.Clear;
+ for l_IDX := 0 to EditCount - 1 do
+ begin
+  l_Item := TddAppConfigNode(EditObjects[l_IDX]).Clone;
+  try
+   f_Items.Add(l_Item);
+  finally
+   FreeAndNil(l_Item);
+  end;
+ end;
+//#UC END# *57A316F503DF_522EDF570036_impl*
+//#UC START# *57A316F503DF_522EDF570036_var*
+var
+ l_IDX: Integer;
+ l_Item: TddAppConfigNode;
+//#UC END# *57A316F503DF_522EDF570036_var*
+//#UC START# *57A438DA0057_522EDF570036get_impl*
+ Result := f_EditItems.Count;
+//#UC END# *57A438DA0057_522EDF570036get_impl*
+//#UC START# *57A438DA0057_522EDF570036get_var*
+//#UC END# *57A438DA0057_522EDF570036get_var*
+//#UC START# *57A439130358_522EDF570036get_impl*
+ Result := f_EditItems[anIndex];
+//#UC END# *57A439130358_522EDF570036get_impl*
+//#UC START# *57A439130358_522EDF570036get_var*
+//#UC END# *57A439130358_522EDF570036get_var*
+//#UC START# *57A4394A01DA_522EDF570036get_impl*
+ Result := TddAppConfigNode(f_EditItems.Items[anIndex]).Caption;
+//#UC END# *57A4394A01DA_522EDF570036get_impl*
+//#UC START# *57A4394A01DA_522EDF570036get_var*
+//#UC END# *57A4394A01DA_522EDF570036get_var*

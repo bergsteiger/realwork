@@ -1,0 +1,27 @@
+//#UC START# *4F4CB81200CA_503C650202E5_impl*
+ l_X := 0;
+ l_Y := 0;
+ if aCtx.rEngine.IsTopInt then
+  l_Y := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задана координата Y.');
+ if aCtx.rEngine.IsTopInt then
+  l_X := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задана координата X.');
+ l_SPoint.Init(l_X, l_Y);
+ l_Point := anEditor.Canvas.DP2LP(l_SPoint);
+ aCtx.rEngine.PushInt(l_Point.Y);
+ aCtx.rEngine.PushInt(l_Point.X);
+//#UC END# *4F4CB81200CA_503C650202E5_impl*
+//#UC START# *4F4CB81200CA_503C650202E5_var*
+var
+ l_X, l_Y : Integer;
+ l_SPoint : Tl3SPoint;
+ l_Point  : Tl3Point;
+//#UC END# *4F4CB81200CA_503C650202E5_var*
+//#UC START# *503C650202E5_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas
+//#UC END# *503C650202E5_ext:FileName
+//#UC START# *503C650202E5impl_uses*
+//#UC END# *503C650202E5impl_uses*

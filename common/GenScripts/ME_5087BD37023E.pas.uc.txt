@@ -1,0 +1,259 @@
+//#UC START# *479731C50290_5087BD37023E_impl*
+ f_DataSource := 0;
+ FreeAndNil(f_RefreshStack);
+ f_Factory := nil;
+ f_Container := nil;
+ FreeAndNil(f_Forms);
+ TvcmFormSetContainerRegistry.Instance.UnregisterFormSet(Self);
+ inherited;
+//#UC END# *479731C50290_5087BD37023E_impl*
+//#UC START# *479731C50290_5087BD37023E_var*
+//#UC END# *479731C50290_5087BD37023E_var*
+//#UC START# *4995750900DB_5087BD37023E_impl*
+ Assert(pm_GetDataSource <> nil, 'FormSetDataSource undefined!');
+ if Assigned(f_Factory) then
+  if pm_GetCanRefresh then
+   f_Factory.Refresh(vcmMakeRefreshParams(aParams, pm_GetDataSource, Self))
+  else
+   RefreshStack.Add(aParams);
+//#UC END# *4995750900DB_5087BD37023E_impl*
+//#UC START# *4995750900DB_5087BD37023E_var*
+//#UC END# *4995750900DB_5087BD37023E_var*
+//#UC START# *4995752D00BE_5087BD37023E_impl*
+ if Assigned(f_Factory) then
+  f_Factory.SaveHistory(pm_GetContainer, false);
+//#UC END# *4995752D00BE_5087BD37023E_impl*
+//#UC START# *4995752D00BE_5087BD37023E_var*
+//#UC END# *4995752D00BE_5087BD37023E_var*
+//#UC START# *499575D60157_5087BD37023E_impl*
+ Result := pm_GetFactory.IsMainInFormSet(aForm);
+//#UC END# *499575D60157_5087BD37023E_impl*
+//#UC START# *499575D60157_5087BD37023E_var*
+//#UC END# *499575D60157_5087BD37023E_var*
+//#UC START# *499575E601E5_5087BD37023E_impl*
+ Result := nil;
+ for l_Index := 0 to Pred(Get_EntitiesCount) do
+  if Supports(Get_Entity(l_Index), IvcmEntityForm, l_Form) AND
+     pm_GetFactory.IsDefaultStatusForm(l_Form) then
+  begin
+   Result := l_Form;
+   break;
+  end;//Supports..
+//#UC END# *499575E601E5_5087BD37023E_impl*
+//#UC START# *499575E601E5_5087BD37023E_var*
+var
+ l_Index : Integer;
+ l_Form  : IvcmEntityForm;
+//#UC END# *499575E601E5_5087BD37023E_var*
+//#UC START# *499575F40009_5087BD37023E_impl*
+ f_CanRefresh := False;
+ TvcmFormSetContainerRegistry.Instance.UnregisterFormSet(Self);
+//#UC END# *499575F40009_5087BD37023E_impl*
+//#UC START# *499575F40009_5087BD37023E_var*
+//#UC END# *499575F40009_5087BD37023E_var*
+//#UC START# *499575FF0015_5087BD37023E_impl*
+ TvcmFormSetContainerRegistry.Instance.RegisterFormSet(Self, pm_GetContainer);
+ f_CanRefresh := True;
+ pm_GetDataSource.PushFromHistory;
+//#UC END# *499575FF0015_5087BD37023E_impl*
+//#UC START# *499575FF0015_5087BD37023E_var*
+//#UC END# *499575FF0015_5087BD37023E_var*
+//#UC START# *4995761C018F_5087BD37023Eget_impl*
+ Result := IvcmContainer(f_Container);
+//#UC END# *4995761C018F_5087BD37023Eget_impl*
+//#UC START# *4995761C018F_5087BD37023Eget_var*
+//#UC END# *4995761C018F_5087BD37023Eget_var*
+//#UC START# *4995761C018F_5087BD37023Eset_impl*
+ f_Container := Pointer(aValue);
+ TvcmFormSetContainerRegistry.Instance.RegisterFormSet(Self, aValue);
+//#UC END# *4995761C018F_5087BD37023Eset_impl*
+//#UC START# *4995761C018F_5087BD37023Eset_var*
+//#UC END# *4995761C018F_5087BD37023Eset_var*
+//#UC START# *4995762F039E_5087BD37023Eget_impl*
+ Result := f_Factory;
+//#UC END# *4995762F039E_5087BD37023Eget_impl*
+//#UC START# *4995762F039E_5087BD37023Eget_var*
+//#UC END# *4995762F039E_5087BD37023Eget_var*
+//#UC START# *4995762F039E_5087BD37023Eset_impl*
+ f_Factory := aValue;
+//#UC END# *4995762F039E_5087BD37023Eset_impl*
+//#UC START# *4995762F039E_5087BD37023Eset_var*
+//#UC END# *4995762F039E_5087BD37023Eset_var*
+//#UC START# *4995764602B6_5087BD37023Eget_impl*
+ Result := f_CanRefresh;
+//#UC END# *4995764602B6_5087BD37023Eget_impl*
+//#UC START# *4995764602B6_5087BD37023Eget_var*
+//#UC END# *4995764602B6_5087BD37023Eget_var*
+//#UC START# *49957658008F_5087BD37023Eget_impl*
+ Result := IvcmFormSetDataSource(f_DataSource);
+//#UC END# *49957658008F_5087BD37023Eget_impl*
+//#UC START# *49957658008F_5087BD37023Eget_var*
+//#UC END# *49957658008F_5087BD37023Eget_var*
+//#UC START# *49957658008F_5087BD37023Eset_impl*
+ Assert(f_DataSource = 0, 'FormSetDataSource already exists!');
+ f_DataSource := Integer(aValue);
+//#UC END# *49957658008F_5087BD37023Eset_impl*
+//#UC START# *49957658008F_5087BD37023Eset_var*
+//#UC END# *49957658008F_5087BD37023Eset_var*
+//#UC START# *5087BD37023E_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\vcmFormSet.pas
+//#UC END# *5087BD37023E_ext:FileName
+//#UC START# *5087BD37023Eimpl_uses*
+//#UC END# *5087BD37023Eimpl_uses*
+//#UC START# *5286081A00D0_5087BD37023Eget_impl*
+ if f_RefreshStack = nil then
+  f_RefreshStack := TvcmFormSetRefreshDataParamsList.Make;
+ Result := f_RefreshStack;
+//#UC END# *5286081A00D0_5087BD37023Eget_impl*
+//#UC START# *5286081A00D0_5087BD37023Eget_var*
+//#UC END# *5286081A00D0_5087BD37023Eget_var*
+//#UC START# *5286089601AD_5087BD37023E_impl*
+ l_Class := Create(aContainer, aFactory);
+ try
+  Result := l_Class;
+ finally
+  FreeAndNil(l_Class);
+ end;//try..finally
+//#UC END# *5286089601AD_5087BD37023E_impl*
+//#UC START# *5286089601AD_5087BD37023E_var*
+var
+ l_Class : TvcmFormSet;
+//#UC END# *5286089601AD_5087BD37023E_var*
+//#UC START# *528609A20025_5087BD37023E_impl*
+ inherited Create;
+ f_Container := Pointer(aContainer);
+ f_Factory   := aFactory;
+ f_CanRefresh := True;
+ TvcmFormSetContainerRegistry.Instance.RegisterFormSet(Self, aContainer);
+//#UC END# *528609A20025_5087BD37023E_impl*
+//#UC START# *528609A20025_5087BD37023E_var*
+//#UC END# *528609A20025_5087BD37023E_var*
+//#UC START# *528B259002B0_5087BD37023Eget_impl*
+ if (f_Forms = nil) then
+  f_Forms := TvcmFormSetFormList.Create;
+ Result := f_Forms;
+//#UC END# *528B259002B0_5087BD37023Eget_impl*
+//#UC START# *528B259002B0_5087BD37023Eget_var*
+//#UC END# *528B259002B0_5087BD37023Eget_var*
+//#UC START# *528DA6D00396_5087BD37023E_impl*
+ Assert(aFormList <> nil);
+ Forms.Assign(aFormList);
+ FormListAssigned;
+//#UC END# *528DA6D00396_5087BD37023E_impl*
+//#UC START# *528DA6D00396_5087BD37023E_var*
+//#UC END# *528DA6D00396_5087BD37023E_var*
+//#UC START# *528DAD93029F_5087BD37023E_impl*
+ Result := Forms.NeedMakeDS[aFormDescr];
+//#UC END# *528DAD93029F_5087BD37023E_impl*
+//#UC START# *528DAD93029F_5087BD37023E_var*
+//#UC END# *528DAD93029F_5087BD37023E_var*
+//#UC START# *528DB1F80281_5087BD37023E_impl*
+ Forms.NeedMakeDS[aFormDescr] := aNeedMakeDS;
+//#UC END# *528DB1F80281_5087BD37023E_impl*
+//#UC START# *528DB1F80281_5087BD37023E_var*
+//#UC END# *528DB1F80281_5087BD37023E_var*
+//#UC START# *529D991A02D3_5087BD37023E_impl*
+ Result := Supports(Self, aGUID, theObj);
+//#UC END# *529D991A02D3_5087BD37023E_impl*
+//#UC START# *529D991A02D3_5087BD37023E_var*
+//#UC END# *529D991A02D3_5087BD37023E_var*
+//#UC START# *52A56B30012F_5087BD37023E_impl*
+ SetFormNeedMakeDS(aForm.KeyInFormSet, vcm_nmNo);
+//#UC END# *52A56B30012F_5087BD37023E_impl*
+//#UC START# *52A56B30012F_5087BD37023E_var*
+//#UC END# *52A56B30012F_5087BD37023E_var*
+//#UC START# *52E8E6420272_5087BD37023E_impl*
+ Forms.SetIfNeedMakeNo(aFormDescr, aNeedmake);
+//#UC END# *52E8E6420272_5087BD37023E_impl*
+//#UC START# *52E8E6420272_5087BD37023E_var*
+//#UC END# *52E8E6420272_5087BD37023E_var*
+//#UC START# *52EF7041000D_5087BD37023E_impl*
+ Assert(aFormList <> nil);
+ aFormList.Assign(Forms);
+//#UC END# *52EF7041000D_5087BD37023E_impl*
+//#UC START# *52EF7041000D_5087BD37023E_var*
+//#UC END# *52EF7041000D_5087BD37023E_var*
+//#UC START# *53034BFF0015_5087BD37023E_impl*
+ //
+//#UC END# *53034BFF0015_5087BD37023E_impl*
+//#UC START# *53034BFF0015_5087BD37023E_var*
+//#UC END# *53034BFF0015_5087BD37023E_var*
+//#UC START# *53B3B3C60264_5087BD37023Eget_impl*
+ if (f_DataSource <> 0) then
+  Result := pm_GetDataSource.FormSetImageIndex
+ else
+  Result := -1;
+//#UC END# *53B3B3C60264_5087BD37023Eget_impl*
+//#UC START# *53B3B3C60264_5087BD37023Eget_var*
+//#UC END# *53B3B3C60264_5087BD37023Eget_var*
+//#UC START# *54B350C10230_5087BD37023Eget_impl*
+ Result := DoGetFormSetCaption;
+//#UC END# *54B350C10230_5087BD37023Eget_impl*
+//#UC START# *54B350C10230_5087BD37023Eget_var*
+//#UC END# *54B350C10230_5087BD37023Eget_var*
+//#UC START# *54B350DD005E_5087BD37023Eget_impl*
+ Result := DoGetFormSetTabCaption;
+//#UC END# *54B350DD005E_5087BD37023Eget_impl*
+//#UC START# *54B350DD005E_5087BD37023Eget_var*
+//#UC END# *54B350DD005E_5087BD37023Eget_var*
+//#UC START# *54B350EC00E5_5087BD37023Eget_impl*
+ Result := DoGetFormSetTabHint;
+//#UC END# *54B350EC00E5_5087BD37023Eget_impl*
+//#UC START# *54B350EC00E5_5087BD37023Eget_var*
+//#UC END# *54B350EC00E5_5087BD37023Eget_var*
+//#UC START# *54B352340122_5087BD37023E_impl*
+ Result := pm_GetFactory.MakeFormSetCaption(pm_GetDataSource);
+//#UC END# *54B352340122_5087BD37023E_impl*
+//#UC START# *54B352340122_5087BD37023E_var*
+//#UC END# *54B352340122_5087BD37023E_var*
+//#UC START# *54B3525201F6_5087BD37023E_impl*
+ Result := pm_GetFactory.MakeFormSetTabCaption(pm_GetDataSource);
+ if (Result = nil) and
+    (f_DataSource <> 0) then
+  Result := IvcmFormSetDataSource(f_DataSource).TabCaption;
+//#UC END# *54B3525201F6_5087BD37023E_impl*
+//#UC START# *54B3525201F6_5087BD37023E_var*
+//#UC END# *54B3525201F6_5087BD37023E_var*
+//#UC START# *54B3526E020F_5087BD37023E_impl*
+ Result := pm_GetFactory.MakeFormSetTabHint(pm_GetDataSource);
+ if (Result = nil) and
+    (f_DataSource <> 0) then
+  Result := IvcmFormSetDataSource(f_DataSource).TabHint;
+//#UC END# *54B3526E020F_5087BD37023E_impl*
+//#UC START# *54B3526E020F_5087BD37023E_var*
+//#UC END# *54B3526E020F_5087BD37023E_var*
+//#UC START# *555B21DA0384_5087BD37023E_impl*
+ Result := pm_GetFactory.CloneFormSet(Self, aContainer);
+//#UC END# *555B21DA0384_5087BD37023E_impl*
+//#UC START# *555B21DA0384_5087BD37023E_var*
+//#UC END# *555B21DA0384_5087BD37023E_var*
+//#UC START# *555D5CF4019C_5087BD37023Eget_impl*
+ Result := DoGetCanBeCloned;
+//#UC END# *555D5CF4019C_5087BD37023Eget_impl*
+//#UC START# *555D5CF4019C_5087BD37023Eget_var*
+//#UC END# *555D5CF4019C_5087BD37023Eget_var*
+//#UC START# *555D6A1000F5_5087BD37023E_impl*
+ Result := f_Factory.CanCloneFormSet(Self);
+//#UC END# *555D6A1000F5_5087BD37023E_impl*
+//#UC START# *555D6A1000F5_5087BD37023E_var*
+//#UC END# *555D6A1000F5_5087BD37023E_var*
+//#UC START# *55E012ED0134_5087BD37023Eget_impl*
+ Result := DoGetCanBeSavedToHistory;
+//#UC END# *55E012ED0134_5087BD37023Eget_impl*
+//#UC START# *55E012ED0134_5087BD37023Eget_var*
+//#UC END# *55E012ED0134_5087BD37023Eget_var*
+//#UC START# *55E019130227_5087BD37023E_impl*
+ Result := f_Factory.CanSaveFormSetToHistory(Self);
+//#UC END# *55E019130227_5087BD37023E_impl*
+//#UC START# *55E019130227_5087BD37023E_var*
+//#UC END# *55E019130227_5087BD37023E_var*
+//#UC START# *57EB9AFB026D_5087BD37023Eget_impl*
+ Result := DoGetCanBeMain;
+//#UC END# *57EB9AFB026D_5087BD37023Eget_impl*
+//#UC START# *57EB9AFB026D_5087BD37023Eget_var*
+//#UC END# *57EB9AFB026D_5087BD37023Eget_var*
+//#UC START# *57EB9D32008D_5087BD37023E_impl*
+ Result := pm_GetFactory.CanFormsetBeMain;
+//#UC END# *57EB9D32008D_5087BD37023E_impl*
+//#UC START# *57EB9D32008D_5087BD37023E_var*
+//#UC END# *57EB9D32008D_5087BD37023E_var*

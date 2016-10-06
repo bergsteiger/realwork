@@ -53,6 +53,7 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , ArchiUserRequestManager
  , arDocAttributesMixer
+ , daDataProvider
  //#UC START# *57CFC14E01DFimpl_uses*
  //#UC END# *57CFC14E01DFimpl_uses*
 ;
@@ -72,6 +73,7 @@ begin
  inherited Create;
 
  f_Message := TcsUploadDocStream.Create;
+ f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.IsObjTopic := anIsObjTopic;
  f_Message.DocFamily := aFamily;
  f_Message.DocID := anID;

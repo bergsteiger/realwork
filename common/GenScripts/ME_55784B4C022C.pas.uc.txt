@@ -1,0 +1,49 @@
+//#UC START# *55784B4C022C_ext:FileName
+w:\common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas
+//#UC END# *55784B4C022C_ext:FileName
+//#UC START# *55784B4C022Cimpl_uses*
+//#UC END# *55784B4C022Cimpl_uses*
+//#UC START# *55784B710001_55784B4C022C_impl*
+ l_S1 := Tl3InterfacedString.Create;
+ try
+  Check(l_S1.RefCount = 1);
+  DoTest(l_S1);
+  Check(l_S1.RefCount = 1);
+ finally
+  FreeAndNil(l_S1);
+ end;//try..finally
+ l_S2 := TtestCConstDelphiString.Create;
+ try
+  Check(l_S2.RefCount = 1);
+  DoTest(l_S2);
+  Check(l_S2.RefCount = 1);
+ finally
+  FreeAndNil(l_S2);
+ end;//try..finally
+//#UC END# *55784B710001_55784B4C022C_impl*
+//#UC START# *55784B710001_55784B4C022C_var*
+
+ procedure DoTest(const aStr: Il3CString);
+ var
+  l_L : TtfwParserTokenList;
+ begin//DoTest
+  l_L := TtfwParserTokenList.Create;
+  try
+   l_L.Add(TtfwParserToken_C(aStr, l3_ttString));
+   l_L.Add(TtfwParserToken_C(aStr, l3_ttString));
+   l_L.Delete(0);
+   l_L.Delete(0);
+
+   l_L.Add(TtfwParserToken_C(aStr, l3_ttString));
+   l_L.Add(TtfwParserToken_C(aStr, l3_ttString));
+   l_L.Delete(0);
+   l_L.Delete(0);
+  finally
+   FreeAndNil(l_L);
+  end;//try..finally
+ end;//DoTest
+
+var
+ l_S1 : Tl3InterfacedString;
+ l_S2 : TtestCConstDelphiString;
+//#UC END# *55784B710001_55784B4C022C_var*

@@ -1,0 +1,310 @@
+//#UC START# *4836D4650177_4D88BFEA013A_impl*
+ if TypeID.IsKindOf(k2_typTable) then
+  if (f_AACStyle < 0) then
+  begin
+   if (f_InAACBlock = 0) then
+    EndRowAndTable
+   else
+    if f_InTable = 0 then
+    begin
+     EndRow;
+     CheckWhatOpen(True);
+    end // if f_InTable = 0 then
+    else
+     Inc(f_InTable);
+  end // if (f_AACStyle < 0) then
+  else
+   f_WhatClosed := ev_pcNone
+ else
+  if TypeID.IsKindOf(k2_typBlock) then
+  begin
+   f_CurrBlockStyle := 0;
+   if (f_AACStyle < 0) and (f_InAACBlock = 0) then
+    EndRowAndTable;
+  end;  
+ inherited;
+//#UC END# *4836D4650177_4D88BFEA013A_impl*
+//#UC START# *4836D4650177_4D88BFEA013A_var*
+//#UC END# *4836D4650177_4D88BFEA013A_var*
+//#UC START# *4836D49800CA_4D88BFEA013A_impl*
+ inherited;
+ f_AACStyle := 0;
+ f_InAACBlock := 0;
+ f_CurrBlockStyle := 0;
+ f_InTable := 0;
+ f_WhatClosed := ev_pcNone;
+ f_WhatOpen := ev_wnoNone;
+ def_inchSBSWidth := def_inchSBSWidth;
+//#UC END# *4836D49800CA_4D88BFEA013A_impl*
+//#UC START# *4836D49800CA_4D88BFEA013A_var*
+//#UC END# *4836D49800CA_4D88BFEA013A_var*
+//#UC START# *4836D4C20059_4D88BFEA013A_impl*
+ if f_AACStyle < 0 then
+ begin
+  if CurrentType.IsKindOf(k2_typDocument) then
+   EndRowAndTable;
+  if (f_InAACBlock = 0) and (f_WhatOpen = ev_wnoRow) then
+   if CurrentType.IsKindOf(k2_typContentsElement) or CurrentType.IsKindOf(k2_typTableCell) then
+    EndRowAndTable;
+  if CurrentType.IsKindOf(k2_typTable) then
+  begin
+   if f_InTable = 1 then
+    EndRow;
+   Dec(f_InTable);
+  end; // if CurrentType.IsKindOf(k2_typTable) then
+  if CurrentType.IsKindOf(k2_typBlock) then
+  begin
+   if (f_InAACBlock > 0) then
+    if (f_CurrBlockStyle < 0) then
+     Dec(f_InAACBlock)
+    else
+     f_CurrBlockStyle := f_AACStyle;
+   if (f_InAACBlock = 0) and (f_AACStyle < 0) then
+   begin
+    if f_WhatOpen = ev_wnoNone then
+    begin
+     f_AACStyle := 0;
+     Assert(False, 'ѕустой стильный блок!');
+    end // if f_WhatOpen = ev_wnoNone then
+    else
+     EndRowAndTable;
+   end; // if f_InAACBlock = 0 then
+  end; // if CurrentType.IsKindOf(k2_typBlock) then
+ end; // if f_AACStyle > 0 then
+ if CurrentType.IsKindOf(k2_typTable) then
+  f_WhatClosed := ev_pcNone;
+ inherited;
+//#UC END# *4836D4C20059_4D88BFEA013A_impl*
+//#UC START# *4836D4C20059_4D88BFEA013A_var*
+//#UC END# *4836D4C20059_4D88BFEA013A_var*
+//#UC START# *4836D52400D9_4D88BFEA013A_impl*
+ inherited;
+ if (AtomIndex = k2_tiStyle) and CurrentType.IsKindOf(k2_typBlock) and not CurrentType.IsKindOf(k2_typDocument) then
+  if evAACStyle(Value.AsInteger) then
+  begin
+   f_CurrBlockStyle := Value.AsInteger;
+   f_AACStyle := Value.AsInteger;
+   Inc(f_InAACBlock);
+  end // if (AtomIndex = k2_tiStyle) and CurrentType.IsKindOf(k2_typBlock) and EvAACStyle(Value.AsInteger) then
+  else
+   if f_AACStyle < 0 then
+    Inc(f_InAACBlock);      
+//#UC END# *4836D52400D9_4D88BFEA013A_impl*
+//#UC START# *4836D52400D9_4D88BFEA013A_var*
+//#UC END# *4836D52400D9_4D88BFEA013A_var*
+//#UC START# *49E4883E0176_4D88BFEA013A_impl*
+ lp_CheckAACStyle;
+ inherited;
+//#UC END# *49E4883E0176_4D88BFEA013A_impl*
+//#UC START# *49E4883E0176_4D88BFEA013A_var*
+const
+ cnDefaultStyleLeafPara = ev_saNormalTable;
+
+ procedure lp_StartAACStyle;
+ begin
+  f_AACStyle := aLeaf.IntA[k2_tiStyle];
+  CheckWhatOpen(False);
+  aLeaf.IntW[k2_tiStyle, nil] := cnDefaultStyleLeafPara;
+ end;
+
+ function lp_CheckContentsName: Boolean;
+ var
+  l_Type: Tl3Type;
+ begin
+  Result := False;
+  l_Type := TopType[2];
+  if (l_Type <> nil) and l_Type.IsKindOf(k2_typContentsElement) then
+   Result := aLeaf.IntA[k2_tiStyle] = ev_saTxtHeader1; 
+ end;
+
+ function lp_CheckAACStyle: Boolean;
+ var
+  l_Style: Integer;
+ begin                                                   
+  Result := f_AACStyle < 0;
+  if Result then
+  begin
+   l_Style := aLeaf.IntA[k2_tiStyle];
+   if EvAACStyle(l_Style) then
+   begin
+    if l_Style = f_AACStyle then
+     aLeaf.IntW[k2_tiStyle, nil] := cnDefaultStyleLeafPara
+    else
+     begin
+      EndRowAndTable;
+      lp_StartAACStyle;
+     end;
+   end // if EvAACStyle(l_Style) then
+   else
+    if f_InAACBlock = 0 then
+     EndRowAndTable
+    else
+     if not lp_CheckContentsName then
+      CheckWhatOpen(False);
+  end // if f_AACStyle then
+  else
+   if EvAACStyle(aLeaf.IntA[k2_tiStyle]) then
+   begin
+    Result := True;
+    lp_StartAACStyle;
+   end // if EvAACStyle(aLeaf.IntA[k2_tiStyle]) then
+   else
+    f_WhatClosed := ev_pcNone;
+ end;
+
+//#UC END# *49E4883E0176_4D88BFEA013A_var*
+//#UC START# *4D88BFEA013A_ext:FileName
+w:\common\components\gui\Garant\Everest\evCommentDecorator.pas
+//#UC END# *4D88BFEA013A_ext:FileName
+//#UC START# *4D88BFEA013Aimpl_uses*
+//#UC END# *4D88BFEA013Aimpl_uses*
+//#UC START# *53B27F3E0397_4D88BFEA013A_impl*
+ Generator.StartChild(k2_typTable);
+ Generator.AddIntegerAtom(k2_tiStyle, f_AACStyle);
+ f_WhatOpen := ev_wnoTable;
+//#UC END# *53B27F3E0397_4D88BFEA013A_impl*
+//#UC START# *53B27F3E0397_4D88BFEA013A_var*
+//#UC END# *53B27F3E0397_4D88BFEA013A_var*
+//#UC START# *53B27F93031A_4D88BFEA013A_impl*
+ Generator.StartDefaultChild;
+ try
+  Generator.StartDefaultChild;
+  try
+   Generator.AddIntegerAtom(k2_tiWidth, def_inchSBSWidth);
+   Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+   l_Stream := evdStyles_Res.Style2Stream(f_AACStyle);
+   if l_Stream <> nil then
+    try
+     Generator.StartChild(k2_typBitmapPara);
+     try
+      Generator.AddStreamAtom(k2_tiData, l_Stream);
+     finally
+      Generator.Finish;
+     end;//try..finally
+    finally
+     FreeAndNil(l_Stream);
+    end;
+  finally
+   Generator.Finish;
+  end;
+ finally
+  Generator.Finish;
+ end;
+//#UC END# *53B27F93031A_4D88BFEA013A_impl*
+//#UC START# *53B27F93031A_4D88BFEA013A_var*
+var
+ l_Stream: Tl3MemoryStream;
+//#UC END# *53B27F93031A_4D88BFEA013A_var*
+//#UC START# *53B27FD8022F_4D88BFEA013A_impl*
+ Generator.StartDefaultChild;
+ try
+  Generator.StartDefaultChild;
+  try
+   Generator.AddIntegerAtom(k2_tiWidth, def_inchSBSWidth);
+   Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+   Generator.StartDefaultChild;
+   try
+    Generator.AddStringAtom(k2_tiText, '');
+   finally
+    Generator.Finish;
+   end;
+  finally
+   Generator.Finish;
+  end;
+ finally
+  Generator.Finish;
+ end;
+//#UC END# *53B27FD8022F_4D88BFEA013A_impl*
+//#UC START# *53B27FD8022F_4D88BFEA013A_var*
+//#UC END# *53B27FD8022F_4D88BFEA013A_var*
+//#UC START# *53B280110031_4D88BFEA013A_impl*
+ Generator.StartDefaultChild; // ќткрываем строку с текстом AAC
+ l_Width := def_inchSBSWidth;
+ Generator.StartDefaultChild; // ќткрывам €чейку с шириной левого отступа
+ Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+ Generator.AddIntegerAtom(k2_tiWidth, cnDefIndentValue);
+ Generator.Finish;
+ Dec(l_Width, 2 * cnDefIndentValue);
+ Generator.StartDefaultChild; // ќткрываем €чейку с текстом јј—
+ Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+ Generator.AddIntegerAtom(k2_tiWidth, l_Width);
+ f_WhatOpen := ev_wnoRow;
+//#UC END# *53B280110031_4D88BFEA013A_impl*
+//#UC START# *53B280110031_4D88BFEA013A_var*
+var
+ l_Width: Integer;
+//#UC END# *53B280110031_4D88BFEA013A_var*
+//#UC START# *53B280490098_4D88BFEA013A_impl*
+ Generator.StartDefaultChild; // ќткрываем строку с текстом AAC
+ l_Width := def_inchSBSWidth;
+ Inc(f_InTable);
+ Generator.StartDefaultChild; // ќткрывам €чейку с шириной левого отступа
+ Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+ Generator.AddIntegerAtom(k2_tiWidth, cnDefIndentValue);
+ Generator.Finish;
+ Dec(l_Width, cnDefIndentValue);
+ Generator.StartDefaultChild; // ќткрываем €чейку с текстом јј—
+ Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+ Generator.AddIntegerAtom(k2_tiWidth, l_Width);
+ f_WhatOpen := ev_wnoRow;
+//#UC END# *53B280490098_4D88BFEA013A_impl*
+//#UC START# *53B280490098_4D88BFEA013A_var*
+var
+ l_Width: Integer;
+//#UC END# *53B280490098_4D88BFEA013A_var*
+//#UC START# *53B280860287_4D88BFEA013A_impl*
+ StartAACTable;
+ if f_WhatClosed = ev_pcAACTable then
+  f_WhatClosed := ev_pcNone
+ else
+  AddSpaceRow;
+ if f_AACStyle <> ev_saFormulaInAAC then
+  AddHeaderRow;
+ StartAACRow;
+//#UC END# *53B280860287_4D88BFEA013A_impl*
+//#UC START# *53B280860287_4D88BFEA013A_var*
+//#UC END# *53B280860287_4D88BFEA013A_var*
+//#UC START# *53B282200211_4D88BFEA013A_impl*
+ if f_WhatOpen <> ev_wnoRow then Exit;
+ Generator.Finish; // «акрываем €чейку с текстом јј—
+ if f_InTable = 0 then
+ begin
+  Generator.StartDefaultChild; // ќткрываем €чейку с шириной правого отступа
+  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
+  Generator.AddIntegerAtom(k2_tiWidth, cnDefIndentValue);
+  Generator.Finish;
+ end; // if f_InTable = 0 then
+ Generator.Finish; // «акрывем строку таблицы
+ f_WhatOpen := ev_wnoTable;
+//#UC END# *53B282200211_4D88BFEA013A_impl*
+//#UC START# *53B282200211_4D88BFEA013A_var*
+//#UC END# *53B282200211_4D88BFEA013A_var*
+//#UC START# *53B2824F0246_4D88BFEA013A_impl*
+ if f_WhatOpen = ev_wnoRow then EndRow;
+ lp_EndTable;
+ f_WhatClosed := ev_pcAACTable;
+//#UC END# *53B2824F0246_4D88BFEA013A_impl*
+//#UC START# *53B2824F0246_4D88BFEA013A_var*
+
+ procedure lp_EndTable;
+ begin
+  AddSpaceRow;
+  if f_InAACBlock = 0 then
+   f_AACStyle := 0;
+  Generator.Finish;
+  f_WhatOpen := ev_wnoNone;
+ end;
+
+//#UC END# *53B2824F0246_4D88BFEA013A_var*
+//#UC START# *53B282B3010A_4D88BFEA013A_impl*
+ if f_WhatOpen = ev_wnoNone then
+  StartAACStyle
+ else
+  if f_WhatOpen = ev_wnoTable then
+   if aForTable then
+    StartAACRow4Table
+   else
+    StartAACRow;
+//#UC END# *53B282B3010A_4D88BFEA013A_impl*
+//#UC START# *53B282B3010A_4D88BFEA013A_var*
+//#UC END# *53B282B3010A_4D88BFEA013A_var*

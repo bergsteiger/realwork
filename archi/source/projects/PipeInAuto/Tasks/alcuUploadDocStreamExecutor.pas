@@ -106,7 +106,7 @@ begin
   l_Reply.ErrorMessage := '';
   try
    l_Reply.IsSuccess := False;
-   l_Task := TalcuUploadDocRequest.Create(usServerService);
+   l_Task := TalcuUploadDocRequest.Create(l_Message.UserID);
    try
     l_Task.Message := l_Message;
     l_Task.Reply := l_Reply;

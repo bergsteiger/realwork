@@ -1,0 +1,37 @@
+//#UC START# *479731C50290_4909E1DD038F_impl*
+ inherited;
+ // Нативный рут от дерева надо отпускать _после_ отпускания нашего рута (дальнего
+ // потомка этого нативного рута
+ // ЦК25433
+ f_RootInfoNode := nil;
+//#UC END# *479731C50290_4909E1DD038F_impl*
+//#UC START# *479731C50290_4909E1DD038F_var*
+//#UC END# *479731C50290_4909E1DD038F_var*
+//#UC START# *48FF458602EC_4909E1DD038F_impl*
+ inherited CreateFiltered(aNewRoot, aSource, aFilters);
+ if aSource is TnsAttrBranchStruct then
+  f_RootInfoNode := TnsAttrBranchStruct(aSource).f_RootInfoNode;
+//#UC END# *48FF458602EC_4909E1DD038F_impl*
+//#UC START# *48FF458602EC_4909E1DD038F_var*
+//#UC END# *48FF458602EC_4909E1DD038F_var*
+//#UC START# *48FF4C3A00C4_4909E1DD038F_impl*
+ Result := False;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=122650660
+//#UC END# *48FF4C3A00C4_4909E1DD038F_impl*
+//#UC START# *48FF4C3A00C4_4909E1DD038F_var*
+//#UC END# *48FF4C3A00C4_4909E1DD038F_var*
+//#UC START# *4909E0C00304_4909E1DD038Fget_impl*
+ Result := f_RootInfoNode;
+//#UC END# *4909E0C00304_4909E1DD038Fget_impl*
+//#UC START# *4909E0C00304_4909E1DD038Fget_var*
+//#UC END# *4909E0C00304_4909E1DD038Fget_var*
+//#UC START# *4909E0C00304_4909E1DD038Fset_impl*
+ f_RootInfoNode := aValue;
+//#UC END# *4909E0C00304_4909E1DD038Fset_impl*
+//#UC START# *4909E0C00304_4909E1DD038Fset_var*
+//#UC END# *4909E0C00304_4909E1DD038Fset_var*
+//#UC START# *4909E1DD038F_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttrBranchStruct.pas
+//#UC END# *4909E1DD038F_ext:FileName
+//#UC START# *4909E1DD038Fimpl_uses*
+//#UC END# *4909E1DD038Fimpl_uses*

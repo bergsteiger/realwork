@@ -55,6 +55,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsMessage
  {$IfEnd} // NOT Defined(Nemesis)
+ , daDataProvider
  //#UC START# *57EE4A3201F3impl_uses*
  //#UC END# *57EE4A3201F3impl_uses*
 ;
@@ -69,6 +70,7 @@ begin
  inherited Create(aFamilyID, anOperation, aDocsList);
  f_Reply := nil;
  f_Message := TcsMultiOperation.Create;
+ f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.FamilyID := FamilyID;
  f_Message.Operation := Operation;
  dtCopyValuesSabToList(aDocsList, f_Message.DocIDList);

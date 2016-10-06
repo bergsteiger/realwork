@@ -33,6 +33,14 @@ type
   , ddUp
  );//TvtDropDirection
 
+ TvtResizeDirection = (
+  rdRight
+  , rdBottom
+  , rdTop
+  , rdBottomRight
+  , rdTopRight
+ );//TvtResizeDirection
+
  //#UC START# *57E125C801C4ci*
  //#UC END# *57E125C801C4ci*
  _l3Unknown_Parent_ = TScrollingWinControl;
@@ -43,14 +51,25 @@ type
   private
    f_Done: Boolean;
    f_Canvas: TCanvas;
+   f_ResizeDirection: TvtResizeDirection;
+   f_Resize: Boolean;
+   f_ResizePoint: TPoint;
+    {* Точка окна, за которую схватили мышью для изменения размеров }
+   f_InitialBounds: TRect;
+    {* Положение окна перед началом процесса изменения размеров }
    f_DropDirection: TvtDropDirection;
    f_AllowResize: Boolean;
    f_IsBorderNearOwnerVisible: Boolean;
   private
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
-   procedure WMPaint(var Message: TWMPaint); message WM_PAINT;
-   procedure WMNCPaint(var Message: TWMNCPaint); message WM_NCPAINT;
-   procedure WMNCHitTest(var Message: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMNCCalcSize(var Msg: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMNCPaint(var Msg: TWMNCPaint); message WM_NCPAINT;
+   procedure WMNCHitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMMouseMove(var Msg: TWMMouseMove); message WM_MOUSEMOVE;
+   procedure WMPaint(var Msg: TWMPaint); message WM_PAINT;
+   procedure WMNCLButtonDown(var Msg: TWMNCLButtonDown); message WM_NCLBUTTONDOWN;
+   procedure WMNCMouseMove(var Msg: TWMNCMouseMove); message WM_NCMOUSEMOVE;
+   procedure WMNCLButtonUp(var Msg: TWMNCLButtonUp); message WM_NCLBUTTONUP;
+   procedure WMMouseActivate(var Msg: TWMMouseActivate); message WM_MOUSEACTIVATE;
   protected
    procedure pm_SetAllowResize(aValue: Boolean);
    function GetOwnerRect: TRect; virtual;
@@ -65,6 +84,12 @@ type
    function GetOwnerHandle: THandle; virtual;
    procedure CloseUp;
    procedure Paint; virtual;
+   procedure BeginResize(aResizeDirection: TvtResizeDirection;
+    X: Integer;
+    Y: Integer); virtual;
+   procedure ProcessResize(X: Integer;
+    Y: Integer); virtual;
+   procedure FinishResize; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCL)}
@@ -97,9 +122,9 @@ type
     read f_IsBorderNearOwnerVisible
     write f_IsBorderNearOwnerVisible;
  //#UC START# *57E125C801C4publ*
-   property AutoSize;
-   property BorderWidth;
-   property Constraints;
+    property AutoSize;
+    property BorderWidth;
+    property Constraints;
  //#UC END# *57E125C801C4publ*
  end;//TvtAbstractDropDownWindow
 
@@ -116,7 +141,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57E125C801C4impl_uses*
- , l3MinMax
+   , l3MinMax
  //#UC END# *57E125C801C4impl_uses*
 ;
 
@@ -192,10 +217,14 @@ var
  l_Msg: TMsg;
  l_H,
  l_OwnerHandle: THandle;
- l_Pt: TPoint;
+ l_Pt,
+ l_PtGlobal: TPoint;
+ l_HT: Integer;
+ l_NCMsg: Cardinal;
 //#UC END# *57E24E360013_57E125C801C4_var*
 begin
 //#UC START# *57E24E360013_57E125C801C4_impl*
+ f_Resize := False;
  RecreateWnd;
  AdjustPosition;
  l_OwnerHandle := GetOwnerHandle;
@@ -206,8 +235,9 @@ begin
   while GetMessage(l_Msg, 0, 0, 0) do
   begin
    l_H := GetActiveWindow;
-   if (l_H <> l_OwnerHandle) and not IsChild(l_H, l_OwnerHandle) or (GetCapture <> l_OwnerHandle) then
-    Break;
+   if (l_H <> l_OwnerHandle) then
+    if not IsChild(l_H, l_OwnerHandle) or ((GetCapture <> l_OwnerHandle) and (GetCapture <> Handle)) then
+     Break;
 
    case l_Msg.Message of
     WM_MOUSEMOVE,
@@ -221,12 +251,32 @@ begin
     WM_MBUTTONUP,
     WM_MBUTTONDBLCLK:
      begin
-      l_Pt.x := LOWORD(LongWord(l_Msg.lParam));
-      l_Pt.y := HIWORD(LongWord(l_Msg.lParam));
+      l_Pt.x := SmallInt(LOWORD(LongWord(l_Msg.lParam)));
+      l_Pt.y := SmallInt(HIWORD(LongWord(l_Msg.lParam)));
       MapWindowPoints(l_Msg.hwnd, Handle, l_Pt, 1);
-      l_Msg.lParam := MAKELPARAM(Word(l_Pt.x), Word(l_Pt.y));
+      l_PtGlobal := l_Pt;
+      MapWindowPoints(Handle, GetDesktopWindow, l_PtGlobal, 1);
+      l_Msg.lParam := MakeLParam(Word(l_Pt.x), Word(l_Pt.y));
       l_Msg.hwnd := Handle;
+      l_HT := Perform(WM_NCHITTEST, 0, LongInt(PointToSmallPoint(l_PtGlobal)));
+      case l_Msg.Message of
+       WM_MOUSEMOVE: l_NCMsg := WM_NCMOUSEMOVE;
+       WM_LBUTTONDOWN: l_NCMsg := WM_NCLBUTTONDOWN;
+       WM_LBUTTONUP: l_NCMsg := WM_NCLBUTTONUP;
+       WM_LBUTTONDBLCLK: l_NCMsg := WM_NCLBUTTONDBLCLK;
+       WM_RBUTTONDOWN: l_NCMsg := WM_NCRBUTTONDOWN;
+       WM_RBUTTONUP: l_NCMsg := WM_NCRBUTTONUP;
+       WM_RBUTTONDBLCLK: l_NCMsg := WM_NCRBUTTONDBLCLK;
+       WM_MBUTTONDOWN: l_NCMsg := WM_NCMBUTTONDOWN;
+       WM_MBUTTONUP: l_NCMsg := WM_NCMBUTTONUP;
+       WM_MBUTTONDBLCLK: l_NCMsg := WM_NCMBUTTONDBLCLK;
+      else
+       Assert(False);
+       l_NCMsg := 0;
+      end;
+      Perform(l_NCMsg, l_HT, l_Msg.lParam);
      end;
+
     WM_NCMOUSEMOVE,
     WM_NCLBUTTONDOWN,
     WM_NCLBUTTONUP,
@@ -257,7 +307,7 @@ begin
   ReleaseCapture;
   ShowWindow(Handle, SW_HIDE);
  end;
- 
+
  if (l_Msg.Message = WM_QUIT) then
   PostQuitMessage(l_Msg.wParam);
 //#UC END# *57E24E360013_57E125C801C4_impl*
@@ -315,13 +365,83 @@ begin
 //#UC END# *57E53C6D0303_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.Paint
 
-procedure TvtAbstractDropDownWindow.WMNCCalcSize(var Message: TWMNCCalcSize);
+procedure TvtAbstractDropDownWindow.BeginResize(aResizeDirection: TvtResizeDirection;
+ X: Integer;
+ Y: Integer);
+//#UC START# *57ED30620029_57E125C801C4_var*
+//#UC END# *57ED30620029_57E125C801C4_var*
+begin
+//#UC START# *57ED30620029_57E125C801C4_impl*
+ SetCapture(GetOwnerHandle);
+ f_ResizePoint := Point(X, Y);
+ f_ResizeDirection := aResizeDirection;
+ f_Resize := True;
+ f_InitialBounds := BoundsRect;
+//#UC END# *57ED30620029_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.BeginResize
+
+procedure TvtAbstractDropDownWindow.ProcessResize(X: Integer;
+ Y: Integer);
+//#UC START# *57EE6C32020D_57E125C801C4_var*
+var
+ B: TRect;
+//#UC END# *57EE6C32020D_57E125C801C4_var*
+begin
+//#UC START# *57EE6C32020D_57E125C801C4_impl*
+ if f_Resize then
+ begin
+  B := BoundsRect;
+  case f_ResizeDirection of
+   rdRight: B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+   rdBottom: B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+   rdTop:
+    begin
+     B.Top := Y - f_ResizePoint.Y;
+     if B.Top < B.Bottom - Constraints.MaxHeight then
+      B.Top := B.Bottom - Constraints.MaxHeight;
+     if B.Top > B.Bottom - Constraints.MinHeight then
+      B.Top := B.Bottom - Constraints.MinHeight;
+    end;
+   rdBottomRight:
+    begin
+     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+    end;
+   rdTopRight:
+    begin
+     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Top := Y - f_ResizePoint.Y;
+     if B.Top < B.Bottom - Constraints.MaxHeight then
+      B.Top := B.Bottom - Constraints.MaxHeight;
+     if B.Top > B.Bottom - Constraints.MinHeight then
+      B.Top := B.Bottom - Constraints.MinHeight;
+    end;
+  end;
+  BoundsRect := B;
+ end;
+//#UC END# *57EE6C32020D_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.ProcessResize
+
+procedure TvtAbstractDropDownWindow.FinishResize;
+//#UC START# *57EE6CDD00B2_57E125C801C4_var*
+//#UC END# *57EE6CDD00B2_57E125C801C4_var*
+begin
+//#UC START# *57EE6CDD00B2_57E125C801C4_impl*
+ if f_Resize then
+ begin
+  f_Resize := False;
+  SetCapture(GetOwnerHandle);
+ end;
+//#UC END# *57EE6CDD00B2_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.FinishResize
+
+procedure TvtAbstractDropDownWindow.WMNCCalcSize(var Msg: TWMNCCalcSize);
 //#UC START# *57E25F5E0233_57E125C801C4_var*
 //#UC END# *57E25F5E0233_57E125C801C4_var*
 begin
 //#UC START# *57E25F5E0233_57E125C801C4_impl*
  //inherited;
- with Message.CalcSize_Params^ do
+ with Msg.CalcSize_Params^ do
  begin
   InflateRect(rgrc[0], -BorderWidth, 0);
   if f_IsBorderNearOwnerVisible then // все границы видно: просто уменьшаем клиентскую область
@@ -335,24 +455,7 @@ begin
 //#UC END# *57E25F5E0233_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.WMNCCalcSize
 
-procedure TvtAbstractDropDownWindow.WMPaint(var Message: TWMPaint);
-//#UC START# *57E53C0803A3_57E125C801C4_var*
-var
- ps: TPaintStruct;
- dc: HDC;
-//#UC END# *57E53C0803A3_57E125C801C4_var*
-begin
-//#UC START# *57E53C0803A3_57E125C801C4_impl*
- dc := BeginPaint(Handle, ps);
- try
-  PaintWindow(dc);
- finally
-  EndPaint(Handle, ps);
- end;
-//#UC END# *57E53C0803A3_57E125C801C4_impl*
-end;//TvtAbstractDropDownWindow.WMPaint
-
-procedure TvtAbstractDropDownWindow.WMNCPaint(var Message: TWMNCPaint);
+procedure TvtAbstractDropDownWindow.WMNCPaint(var Msg: TWMNCPaint);
 //#UC START# *57E55FCD0311_57E125C801C4_var*
 //#UC END# *57E55FCD0311_57E125C801C4_var*
 begin
@@ -361,14 +464,14 @@ begin
 //#UC END# *57E55FCD0311_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.WMNCPaint
 
-procedure TvtAbstractDropDownWindow.WMNCHitTest(var Message: TWMNCHitTest);
+procedure TvtAbstractDropDownWindow.WMNCHitTest(var Msg: TWMNCHitTest);
 //#UC START# *57E8C60B0281_57E125C801C4_var*
  function lp_IsTop(X, Y: Integer): Boolean;
  begin
   if (f_DropDirection = ddDown) then
-   Result := f_IsBorderNearOwnerVisible and (Y < BorderWidth)
+   Result := f_IsBorderNearOwnerVisible and (Y <= BorderWidth)
   else
-   Result := (Y < BorderWidth);
+   Result := (Y <= BorderWidth);
  end;
 
  function lp_IsBottom(X, Y: Integer): Boolean;
@@ -381,7 +484,7 @@ procedure TvtAbstractDropDownWindow.WMNCHitTest(var Message: TWMNCHitTest);
 
  function lp_IsLeft(X, Y: Integer): Boolean;
  begin
-  Result := (X < BorderWidth);
+  Result := (X <= BorderWidth);
  end;
 
  function lp_IsRight(X, Y: Integer): Boolean;
@@ -390,72 +493,185 @@ procedure TvtAbstractDropDownWindow.WMNCHitTest(var Message: TWMNCHitTest);
  end;
 
 var
- X, Y: Integer;
+ Dx, Dy: Integer;
+
+ function lp_IsTopRight(X, Y: Integer): Boolean;
+ begin
+  Result := (lp_IsTop(X, Y) and (X >= Width - Dx)) or
+            (lp_IsRight(X, Y) and (Y <= Dy));
+ end;
+
+ function lp_IsBottomRight(X, Y: Integer): Boolean;
+ begin
+  Result := (lp_IsBottom(X, Y) and (X >= Width - Dx)) or
+            (lp_IsRight(X, Y) and (Y >= Height - Dy));
+ end;
+
+var
+ X, Y, R: Integer;
+ P: TPoint;
+ H: THandle;
 //#UC END# *57E8C60B0281_57E125C801C4_var*
 begin
 //#UC START# *57E8C60B0281_57E125C801C4_impl*
  inherited;
- 
- if BorderWidth = 0 then
+
+ Dx := GetSystemMetrics(SM_CXVSCROLL);
+ Dy := GetSystemMetrics(SM_CYHSCROLL);
+
+ if not PtInRect(BoundsRect, Point(Msg.XPos, Msg.YPos)) then
  begin
-  Message.Result := HTCLIENT;
+  Msg.Result := HTNOWHERE;
   Exit;
  end;
 
- X := Message.XPos - Left;
- Y := Message.YPos - Top;
+ if BorderWidth = 0 then
+ begin
+  Msg.Result := HTCLIENT;
+  Exit;
+ end;
+
+ X := Msg.XPos - Left;
+ Y := Msg.YPos - Top;
 
  if not f_AllowResize then
  begin
   if lp_IsTop(X, Y) or lp_IsBottom(X, Y) or lp_IsLeft(X, Y) or lp_IsRight(X, Y) then
-   Message.Result := HTBORDER
+   Msg.Result := HTBORDER
   else
-   Message.Result := HTCLIENT;
+   Msg.Result := HTCLIENT;
+  Perform(WM_SETCURSOR, WPARAM(Handle), MakeLParam(Msg.Result, WM_SETCURSOR));
   Exit;
  end;
 
+ Msg.Result := HTTRANSPARENT;
+
  if (f_DropDirection = ddUp) then
+  if lp_IsTopRight(X, Y) then
+   Msg.Result := HTTOPRIGHT
+  else
   if lp_IsTop(X, Y) then
-   if lp_IsRight(X, Y) then
-    Message.Result := HTTOPRIGHT
-   else
-    Message.Result := HTTOP
+   Msg.Result := HTTOP
   else
   if lp_IsBottom(X, Y) then
    if lp_IsRight(X, Y) then
-    Message.Result := HTRIGHT
+    Msg.Result := HTRIGHT
    else
-    Message.Result := HTBORDER
+    Msg.Result := HTBORDER
   else
   if lp_IsRight(X, Y) then
-   Message.Result := HTRIGHT
+   Msg.Result := HTRIGHT
   else
   if lp_IsLeft(X, Y) then
-   Message.Result := HTBORDER
+   Msg.Result := HTBORDER
   else
-   Message.Result := HTCLIENT
+   Msg.Result := HTCLIENT
  else //(f_DropDirection = ddDown)
-  if lp_IsTop(X, Y) then
-   if lp_IsRight(X, Y) then
-    Message.Result := HTRIGHT
-   else
-    Message.Result := HTBORDER
-  else
-  if lp_IsBottom(X, Y) then
-   if lp_IsRight(X, Y) then
-    Message.Result := HTBOTTOMRIGHT
-   else
-    Message.Result := HTBOTTOM
-  else
+ if lp_IsTop(X, Y) then
   if lp_IsRight(X, Y) then
-   Message.Result := HTRIGHT
+   Msg.Result := HTRIGHT
   else
-  if lp_IsLeft(X, Y) then
-   Message.Result := HTBORDER
-  else
-   Message.Result := HTCLIENT;
+   Msg.Result := HTBORDER
+ else
+ if lp_IsBottomRight(X, Y) then
+  Msg.Result := HTBOTTOMRIGHT
+ else
+ if lp_IsBottom(X, Y) then
+  Msg.Result := HTBOTTOM
+ else
+ if lp_IsRight(X, Y) then
+  Msg.Result := HTRIGHT
+ else
+ if lp_IsLeft(X, Y) then
+  Msg.Result := HTBORDER
+ else
+  Msg.Result := HTCLIENT;
+
+ Perform(WM_SETCURSOR, WPARAM(Handle), MakeLParam(Msg.Result, WM_SETCURSOR));
 //#UC END# *57E8C60B0281_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.WMNCHitTest
+
+procedure TvtAbstractDropDownWindow.WMMouseMove(var Msg: TWMMouseMove);
+//#UC START# *57ED160D00F8_57E125C801C4_var*
+var
+ P: TPoint;
+//#UC END# *57ED160D00F8_57E125C801C4_var*
+begin
+//#UC START# *57ED160D00F8_57E125C801C4_impl*
+ inherited;
+ P := Point(Msg.XPos, Msg.YPos);
+ MapWindowPoints(Handle, GetDesktopWindow, P, 1);
+ if not PtInRect(BoundsRect, P) then
+ begin
+  Cursor := crDefault;
+  Windows.SetCursor(Screen.Cursors[crDefault]);
+ end;
+//#UC END# *57ED160D00F8_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMMouseMove
+
+procedure TvtAbstractDropDownWindow.WMPaint(var Msg: TWMPaint);
+//#UC START# *57ED16320366_57E125C801C4_var*
+var
+ ps: TPaintStruct;
+ dc: HDC;
+//#UC END# *57ED16320366_57E125C801C4_var*
+begin
+//#UC START# *57ED16320366_57E125C801C4_impl*
+ dc := BeginPaint(Handle, ps);
+ try
+  PaintWindow(dc);
+ finally
+  EndPaint(Handle, ps);
+ end;
+//#UC END# *57ED16320366_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMPaint
+
+procedure TvtAbstractDropDownWindow.WMNCLButtonDown(var Msg: TWMNCLButtonDown);
+//#UC START# *57ED30370037_57E125C801C4_var*
+var
+ rd: TvtResizeDirection;
+//#UC END# *57ED30370037_57E125C801C4_var*
+begin
+//#UC START# *57ED30370037_57E125C801C4_impl*
+ case Msg.HitTest of
+  HTRIGHT: rd := rdRight;
+  HTBOTTOM: rd := rdBottom;
+  HTTOP: rd := rdTop;
+  HTBOTTOMRIGHT: rd := rdBottomRight;
+  HTTOPRIGHT: rd := rdTopRight;
+ else
+  Exit;
+ end;
+ BeginResize(rd, Msg.XCursor, Msg.YCursor);
+//#UC END# *57ED30370037_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMNCLButtonDown
+
+procedure TvtAbstractDropDownWindow.WMNCMouseMove(var Msg: TWMNCMouseMove);
+//#UC START# *57ED3384013B_57E125C801C4_var*
+//#UC END# *57ED3384013B_57E125C801C4_var*
+begin
+//#UC START# *57ED3384013B_57E125C801C4_impl*
+ ProcessResize(Msg.XCursor + Left, Msg.YCursor + Top);
+//#UC END# *57ED3384013B_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMNCMouseMove
+
+procedure TvtAbstractDropDownWindow.WMNCLButtonUp(var Msg: TWMNCLButtonUp);
+//#UC START# *57EE706D00A3_57E125C801C4_var*
+//#UC END# *57EE706D00A3_57E125C801C4_var*
+begin
+//#UC START# *57EE706D00A3_57E125C801C4_impl*
+ FinishResize;
+//#UC END# *57EE706D00A3_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMNCLButtonUp
+
+procedure TvtAbstractDropDownWindow.WMMouseActivate(var Msg: TWMMouseActivate);
+//#UC START# *57F23AD70393_57E125C801C4_var*
+//#UC END# *57F23AD70393_57E125C801C4_var*
+begin
+//#UC START# *57F23AD70393_57E125C801C4_impl*
+ Msg.Result := MA_NOACTIVATE;
+//#UC END# *57F23AD70393_57E125C801C4_impl*
+end;//TvtAbstractDropDownWindow.WMMouseActivate
 
 procedure TvtAbstractDropDownWindow.Cleanup;
  {* Функция очистки полей объекта. }
@@ -476,6 +692,7 @@ begin
  inherited Create(aOwner);
  AutoSize := True;
  f_IsBorderNearOwnerVisible := False;
+ f_Resize := False;
  f_Canvas := TControlCanvas.Create;
  TControlCanvas(f_Canvas).Control := Self;
 //#UC END# *47D1602000C6_57E125C801C4_impl*
@@ -486,11 +703,7 @@ procedure TvtAbstractDropDownWindow.WndProc(var Message: TMessage);
 //#UC END# *47E136A80191_57E125C801C4_var*
 begin
 //#UC START# *47E136A80191_57E125C801C4_impl*
- case Message.Msg of
-  WM_MOUSEACTIVATE: Message.Result := MA_NOACTIVATE;
- else
-  inherited;
- end;
+ inherited;
 //#UC END# *47E136A80191_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.WndProc
 
@@ -520,7 +733,7 @@ procedure TvtAbstractDropDownWindow.CreateParams(var Params: TCreateParams);
 begin
 //#UC START# *48C7925A02E5_57E125C801C4_impl*
  inherited;
- Params.Style := WS_POPUP;
+ Params.Style := (Params.Style and not WS_CHILD) or WS_POPUP;
  Params.ExStyle := WS_EX_TOOLWINDOW or WS_EX_WINDOWEDGE or WS_EX_TOPMOST;
  Params.WindowClass.Style := Params.WindowClass.Style or CS_DROPSHADOW;
  Params.WndParent := GetDesktopWindow;

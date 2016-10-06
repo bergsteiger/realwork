@@ -90,7 +90,8 @@ type
                 cs_ttDownloadDoc,
                 cs_ttUploadDoc,
                 cs_ttMultiModifyDocs,
-                cs_ttMultiClearAttributes
+                cs_ttMultiClearAttributes,
+                cs_ttMultiOperation
                 );
 
  TCsNotificationType = (ntEmpty,

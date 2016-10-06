@@ -1,0 +1,29 @@
+//#UC START# *52BC2B9401F3_53B24E23037A_impl*
+ inherited;
+ if (f_TaggedData <> nil) then
+  f_TaggedData.Owner := nil;
+ FreeAndNil(f_TaggedData);
+//#UC END# *52BC2B9401F3_53B24E23037A_impl*
+//#UC START# *52BC2B9401F3_53B24E23037A_var*
+//#UC END# *52BC2B9401F3_53B24E23037A_var*
+//#UC START# *53AC02B602E3_53B24E23037A_impl*
+ inherited;
+ Assert(f_TaggedData = nil);
+ GetTaggedDataType.MakeTag.AsObject.SetRef(f_TaggedData);
+ if (f_TaggedData <> nil) then
+  f_TaggedData.Owner := Self;
+//#UC END# *53AC02B602E3_53B24E23037A_impl*
+//#UC START# *53AC02B602E3_53B24E23037A_var*
+//#UC END# *53AC02B602E3_53B24E23037A_var*
+//#UC START# *53B24E23037A_ext:FileName
+w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas
+//#UC END# *53B24E23037A_ext:FileName
+//#UC START# *53BFF56D0348_53B24E23037A_impl*
+ if (f_TaggedData <> nil) then
+  f_TaggedData.Owner := nil;
+ aData.SetRef(f_TaggedData);
+ if (f_TaggedData <> nil) then
+  f_TaggedData.Owner := Self;
+//#UC END# *53BFF56D0348_53B24E23037A_impl*
+//#UC START# *53BFF56D0348_53B24E23037A_var*
+//#UC END# *53BFF56D0348_53B24E23037A_var*

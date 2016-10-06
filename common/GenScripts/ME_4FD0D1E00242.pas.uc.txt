@@ -1,0 +1,41 @@
+//#UC START# *48089F3701B4_4FD0D1E00242_impl*
+  inherited;
+  with f_ParamList do
+    Add( ParamType.Create(PN_IS_EMULATE_OPENING, 'Эмулировать ли открытие объекта?', 'true') );
+//#UC END# *48089F3701B4_4FD0D1E00242_impl*
+//#UC START# *48089F3701B4_4FD0D1E00242_var*
+//#UC END# *48089F3701B4_4FD0D1E00242_var*
+//#UC START# *48089F460352_4FD0D1E00242_impl*
+  f_IsEmulateOpening := Parameters[PN_IS_EMULATE_OPENING].AsBool;
+  //
+  inherited;
+//#UC END# *48089F460352_4FD0D1E00242_impl*
+//#UC START# *48089F460352_4FD0D1E00242_var*
+//#UC END# *48089F460352_4FD0D1E00242_var*
+//#UC START# *4FCF8EE001D4_4FD0D1E00242_impl*
+  inherited;
+  //
+
+  try
+    aFoldersNode.Open(l_Object);
+  except
+    on ECanNotFindData do
+    begin
+      Logger.Info('Не открывается объект типа %d с именем "%s"',
+        [aFoldersNode.GetObjectType, TatNodeHelper.GetCaption(aFoldersNode)]);
+      Exit;
+    end;
+  end;
+  //
+  if (l_Object <> nil) then
+    OnFoldersObject(l_Object as _ObjectType_)
+  else
+    Raise Exception.Create('Не могу получить объект из папки!');
+//#UC END# *4FCF8EE001D4_4FD0D1E00242_impl*
+//#UC START# *4FCF8EE001D4_4FD0D1E00242_var*
+  var
+    l_Object : IUnknown;
+//#UC END# *4FCF8EE001D4_4FD0D1E00242_var*
+//#UC START# *4FD0D1E00242_ext:FileName
+w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas
+//#UC END# *4FD0D1E00242_ext:FileName

@@ -1,0 +1,36 @@
+//#UC START# *4DB9BB43017B_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas
+//#UC END# *4DB9BB43017B_ext:FileName
+//#UC START# *4DB9BB43017Bimpl_uses*
+//#UC END# *4DB9BB43017Bimpl_uses*
+//#UC START# *4DB9BBD6024F_4DB9BB43017B_impl*
+ if aWord.IsImmediate(aContext) then
+ //if aWord.IsRunner(aContext) then
+ begin
+  CompilerAssert((aWord.Key = nil) OR (aWord.Key = Self.Key), 'Неверное имя запускаемого слова', aContext);
+  aWord.Key := Self.Key;
+  // - чтобы легче было опознавать слова по их Runner'ам
+  try
+   aWord.DoIt(aContext);
+  finally
+   aWord.Key := nil;
+  end;//try..finally
+ end//aWord.IsRunner
+ else
+ begin
+  CompilerAssert(aContext.rCompiler <> nil, 'Нет кода для компиляции', aContext);
+  aContext.rCompiler.AddCodePart(aWord, aContext, tfw_sniNo);
+ end;//aWord.IsRunner
+//#UC END# *4DB9BBD6024F_4DB9BB43017B_impl*
+//#UC START# *4DB9BBD6024F_4DB9BB43017B_var*
+//#UC END# *4DB9BBD6024F_4DB9BB43017B_var*
+//#UC START# *4F3AB3600008_4DB9BB43017B_impl*
+ Result := true;
+//#UC END# *4F3AB3600008_4DB9BB43017B_impl*
+//#UC START# *4F3AB3600008_4DB9BB43017B_var*
+//#UC END# *4F3AB3600008_4DB9BB43017B_var*
+//#UC START# *5512949D0048_4DB9BB43017B_impl*
+ RunnerError(ClassName + '.DoRun не реализован', aCtx);
+//#UC END# *5512949D0048_4DB9BB43017B_impl*
+//#UC START# *5512949D0048_4DB9BB43017B_var*
+//#UC END# *5512949D0048_4DB9BB43017B_var*

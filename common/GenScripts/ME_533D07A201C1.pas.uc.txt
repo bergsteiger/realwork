@@ -1,0 +1,70 @@
+//#UC START# *47D1602000C6_533D07A201C1_impl*
+ inherited Create(aOwner);
+ f_Theme := HTHEME(0);
+ DoubleBuffered := True;
+//#UC END# *47D1602000C6_533D07A201C1_impl*
+//#UC START# *47D1602000C6_533D07A201C1_var*
+//#UC END# *47D1602000C6_533D07A201C1_var*
+//#UC START# *4CC841540158_533D07A201C1_impl*
+ if (f_Theme <> 0) then
+  CloseThemeData(f_Theme);
+ inherited;
+//#UC END# *4CC841540158_533D07A201C1_impl*
+//#UC START# *4CC841540158_533D07A201C1_var*
+//#UC END# *4CC841540158_533D07A201C1_var*
+//#UC START# *5028A60300AD_533D07A201C1_impl*
+ l_PaintParams := GetPaintParams;
+ // Окно может быть неактивным. Кнопку для него нужно рисовать с отдельным флагом
+ // BS_INACTIVE, если на нее не наведена мышь и если кнопка не нажата
+ if (State = cbsNormal) and (not ParentForm.Active) then
+  l_PaintParams.rStateID := BS_INACTIVE;
+ Windows.GetClientRect(Handle, l_Rect);
+ // кнопки на XP, Vista и W7 имеют скругления - под ними не должно быть серого фона,
+ // нарисуем родительский фон (фон заголовка окна)
+ if IsThemeBackgroundPartiallyTransparent(Theme, l_PaintParams.rPartID,
+  l_PaintParams.rStateID) then
+  DrawThemeParentBackground(Handle, Canvas.Handle, @l_Rect);
+ DrawThemeBackground(Theme, Canvas.Handle, l_PaintParams.rPartID, l_PaintParams.rStateID,
+  l_Rect, nil);
+//#UC END# *5028A60300AD_533D07A201C1_impl*
+//#UC START# *5028A60300AD_533D07A201C1_var*
+const
+ BS_INACTIVE = 5; // недокументированный флаг для рисования неактивной кнопки
+                  // в заголовке окна
+var
+ l_PaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
+ l_Rect: TRect;
+//#UC END# *5028A60300AD_533D07A201C1_var*
+//#UC START# *533D07A201C1_ext:FileName
+w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas
+//#UC END# *533D07A201C1_ext:FileName
+//#UC START# *533D07A201C1impl_uses*
+//#UC END# *533D07A201C1impl_uses*
+//#UC START# *533D08600262_533D07A201C1_impl*
+ inherited;
+ // Тема изменилась. Нужно закрыть старые данные темы, получить новые
+ // и отрисоваться
+ if (f_Theme <> 0) then
+ begin
+  CloseThemeData(f_Theme);
+  f_Theme := 0;
+ end;
+ if IsAppThemed then
+  Invalidate;
+//#UC END# *533D08600262_533D07A201C1_impl*
+//#UC START# *533D08600262_533D07A201C1_var*
+//#UC END# *533D08600262_533D07A201C1_var*
+//#UC START# *533D09010204_533D07A201C1get_impl*
+ if (f_Theme = 0) then
+  f_Theme := OpenThemeData(Handle, cWndClassName);
+ Result := f_Theme;
+//#UC END# *533D09010204_533D07A201C1get_impl*
+//#UC START# *533D09010204_533D07A201C1get_var*
+const
+ cWndClassName: PWideChar = 'WINDOW';
+//#UC END# *533D09010204_533D07A201C1get_var*
+//#UC START# *533D091902B8_533D07A201C1_impl*
+ l3FillChar(Result, SizeOf(Result), 0);
+//#UC END# *533D091902B8_533D07A201C1_impl*
+//#UC START# *533D091902B8_533D07A201C1_var*
+//#UC END# *533D091902B8_533D07A201C1_var*

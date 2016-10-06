@@ -1,0 +1,116 @@
+//#UC START# *4C52B34E0125_4C88D233003Eexec_impl*
+ if not Ask(qr_RestoreDefaultValuesPageSetup) then
+  Exit;
+ f_PageSetup.Load(True); 
+ ToGUIColontituls;
+ ToGUIMargins;
+ with f_PageSetup do
+  Self.SetPageFormat(Orientation);
+//#UC END# *4C52B34E0125_4C88D233003Eexec_impl*
+//#UC START# *4C52B34E0125_4C88D233003Eexec_var*
+//#UC END# *4C52B34E0125_4C88D233003Eexec_var*
+//#UC START# *4C52B34E0125_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_PageSetup.Modified or f_PageSetup.IsDifferFromDefault;
+//#UC END# *4C52B34E0125_4C88D233003Etest_impl*
+//#UC START# *4C52B34E0125_4C88D233003Etest_var*
+//#UC END# *4C52B34E0125_4C88D233003Etest_var*
+//#UC START# *4C52B36B01B3_4C88D233003Eexec_impl*
+ if not Ask(qr_SaveAsDefaultValuesPageSetup) then
+  Exit;
+ Save(True);
+//#UC END# *4C52B36B01B3_4C88D233003Eexec_impl*
+//#UC START# *4C52B36B01B3_4C88D233003Eexec_var*
+//#UC END# *4C52B36B01B3_4C88D233003Eexec_var*
+//#UC START# *4C52B36B01B3_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not f_PageSetup.IsPredefined and (f_PageSetup.Modified or f_PageSetup.IsDifferFromDefault);
+//#UC END# *4C52B36B01B3_4C88D233003Etest_impl*
+//#UC START# *4C52B36B01B3_4C88D233003Etest_var*
+//#UC END# *4C52B36B01B3_4C88D233003Etest_var*
+//#UC START# *4C762A1501FC_4C88D233003Eexec_impl*
+ Save;
+ ModalResult := mrOk;
+//#UC END# *4C762A1501FC_4C88D233003Eexec_impl*
+//#UC START# *4C762A1501FC_4C88D233003Eexec_var*
+//#UC END# *4C762A1501FC_4C88D233003Eexec_var*
+//#UC START# *4C762A1501FC_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_PageSetup.Modified;
+//#UC END# *4C762A1501FC_4C88D233003Etest_impl*
+//#UC START# *4C762A1501FC_4C88D233003Etest_var*
+//#UC END# *4C762A1501FC_4C88D233003Etest_var*
+//#UC START# *4C762C910358_4C88D233003Eexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762C910358_4C88D233003Eexec_impl*
+//#UC START# *4C762C910358_4C88D233003Eexec_var*
+//#UC END# *4C762C910358_4C88D233003Eexec_var*
+//#UC START# *4C88D233003E_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetupOptions_Form.pas
+//#UC END# *4C88D233003E_ext:FileName
+//#UC START# *4C88D233003Eimpl_uses*
+//#UC END# *4C88D233003Eimpl_uses*
+//#UC START# *4C88D40C0029_4C88D233003Eexec_impl*
+ MacroAdd(SAppTitle);
+//#UC END# *4C88D40C0029_4C88D233003Eexec_impl*
+//#UC START# *4C88D40C0029_4C88D233003Eexec_var*
+//#UC END# *4C88D40C0029_4C88D233003Eexec_var*
+//#UC START# *4C88D42001C2_4C88D233003Eexec_impl*
+ MacroAdd(SDocName);
+//#UC END# *4C88D42001C2_4C88D233003Eexec_impl*
+//#UC START# *4C88D42001C2_4C88D233003Eexec_var*
+//#UC END# *4C88D42001C2_4C88D233003Eexec_var*
+//#UC START# *4C88D43300C7_4C88D233003Eexec_impl*
+ MacroAdd(SDocFullName);
+//#UC END# *4C88D43300C7_4C88D233003Eexec_impl*
+//#UC START# *4C88D43300C7_4C88D233003Eexec_var*
+//#UC END# *4C88D43300C7_4C88D233003Eexec_var*
+//#UC START# *4C88D44401B5_4C88D233003Eexec_impl*
+ MacroAdd(SDocRedactionDate);
+//#UC END# *4C88D44401B5_4C88D233003Eexec_impl*
+//#UC START# *4C88D44401B5_4C88D233003Eexec_var*
+//#UC END# *4C88D44401B5_4C88D233003Eexec_var*
+//#UC START# *4C88D46203BD_4C88D233003Eexec_impl*
+ MacroAdd(SDocCurrentPage);
+//#UC END# *4C88D46203BD_4C88D233003Eexec_impl*
+//#UC START# *4C88D46203BD_4C88D233003Eexec_var*
+//#UC END# *4C88D46203BD_4C88D233003Eexec_var*
+//#UC START# *4C88D4770266_4C88D233003Eexec_impl*
+ MacroAdd(SDocPagesCount);
+//#UC END# *4C88D4770266_4C88D233003Eexec_impl*
+//#UC START# *4C88D4770266_4C88D233003Eexec_var*
+//#UC END# *4C88D4770266_4C88D233003Eexec_var*
+//#UC START# *4C88D48B0325_4C88D233003Eexec_impl*
+ MacroAdd(SCurrentDate);
+//#UC END# *4C88D48B0325_4C88D233003Eexec_impl*
+//#UC START# *4C88D48B0325_4C88D233003Eexec_var*
+//#UC END# *4C88D48B0325_4C88D233003Eexec_var*
+//#UC START# *4C88D4A6032C_4C88D233003Eexec_impl*
+ MacroAdd(SCurrentTime);
+//#UC END# *4C88D4A6032C_4C88D233003Eexec_impl*
+//#UC START# *4C88D4A6032C_4C88D233003Eexec_var*
+//#UC END# *4C88D4A6032C_4C88D233003Eexec_var*
+//#UC START# *4C88D4BF0213_4C88D233003Eexec_impl*
+ MacroAdd(SInternalNumber);
+//#UC END# *4C88D4BF0213_4C88D233003Eexec_impl*
+//#UC START# *4C88D4BF0213_4C88D233003Eexec_var*
+//#UC END# *4C88D4BF0213_4C88D233003Eexec_var*
+//#UC START# *4C88D4BF0213_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4C88D4BF0213_4C88D233003Etest_impl*
+//#UC START# *4C88D4BF0213_4C88D233003Etest_var*
+//#UC END# *4C88D4BF0213_4C88D233003Etest_var*
+//#UC START# *4C88D4D202BA_4C88D233003Eexec_impl*
+ MacroAdd(SDataSize);
+//#UC END# *4C88D4D202BA_4C88D233003Eexec_impl*
+//#UC START# *4C88D4D202BA_4C88D233003Eexec_var*
+//#UC END# *4C88D4D202BA_4C88D233003Eexec_var*
+//#UC START# *4C88D4E8007C_4C88D233003Eexec_impl*
+ MacroAdd(SFilePosition);
+//#UC END# *4C88D4E8007C_4C88D233003Eexec_impl*
+//#UC START# *4C88D4E8007C_4C88D233003Eexec_var*
+//#UC END# *4C88D4E8007C_4C88D233003Eexec_var*
+//#UC START# *4C88D4E8007C_4C88D233003Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4C88D4E8007C_4C88D233003Etest_impl*
+//#UC START# *4C88D4E8007C_4C88D233003Etest_var*
+//#UC END# *4C88D4E8007C_4C88D233003Etest_var*

@@ -1,0 +1,355 @@
+//#UC START# *479731C50290_4AB7A3210135_impl*
+ Tl3ListenersManager.Remove(Self as Il3Listener);
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
+ vcmFree(f_qhBaseSearch.rH);
+ inherited;
+//#UC END# *479731C50290_4AB7A3210135_impl*
+//#UC START# *479731C50290_4AB7A3210135_var*
+//#UC END# *479731C50290_4AB7A3210135_var*
+//#UC START# *47A042E100E2_4AB7A3210135_impl*
+ inherited;
+ hfBaseSearch.StyleId := evd_saColorSelectionForBaseSearch;
+ hfBaseSearch.Images := dmStdRes.LargeImageList;
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
+ LoadQueryHistory;
+ {$IfOpt D+}
+ //CardTextLabel.DrawSpecial := true;
+ {$EndIf}
+ CardTextLabel.TabStop := False;
+ CardTextLabel.Color := clWhite;
+ CardTextLabel.AllowRubberTables := nev_rtmFitToWindow;
+ CardTextLabel.WebStyle := true;
+ CardTextLabel.TextSource.DocumentContainer.ReadFrom(Tl3StringStream.Make(l3PCharLen(vcmCStr(str_BaseSearchQueryLabel))));
+//#UC END# *47A042E100E2_4AB7A3210135_impl*
+//#UC START# *47A042E100E2_4AB7A3210135_var*
+//#UC END# *47A042E100E2_4AB7A3210135_var*
+//#UC START# *47EA4E9002C6_4AB7A3210135_impl*
+ inherited;
+ LoadQueryHistory;
+//#UC END# *47EA4E9002C6_4AB7A3210135_impl*
+//#UC START# *47EA4E9002C6_4AB7A3210135_var*
+//#UC END# *47EA4E9002C6_4AB7A3210135_var*
+//#UC START# *496B4C41023E_4AB7A3210135_impl*
+ Result := True;
+//#UC END# *496B4C41023E_4AB7A3210135_impl*
+//#UC START# *496B4C41023E_4AB7A3210135_var*
+//#UC END# *496B4C41023E_4AB7A3210135_var*
+//#UC START# *496B4C500246_4AB7A3210135_impl*
+ Result := Dispatcher.History.CanBack;
+//#UC END# *496B4C500246_4AB7A3210135_impl*
+//#UC START# *496B4C500246_4AB7A3210135_var*
+//#UC END# *496B4C500246_4AB7A3210135_var*
+//#UC START# *496B4CA000B6_4AB7A3210135_impl*
+ Result := False;
+ Dispatcher.History.Back;
+//#UC END# *496B4CA000B6_4AB7A3210135_impl*
+//#UC START# *496B4CA000B6_4AB7A3210135_var*
+//#UC END# *496B4CA000B6_4AB7A3210135_var*
+//#UC START# *496B4CD9005F_4AB7A3210135_impl*
+ Result := True;
+//#UC END# *496B4CD9005F_4AB7A3210135_impl*
+//#UC START# *496B4CD9005F_4AB7A3210135_var*
+//#UC END# *496B4CD9005F_4AB7A3210135_var*
+//#UC START# *496B4CE30132_4AB7A3210135_impl*
+ Result := False;
+//#UC END# *496B4CE30132_4AB7A3210135_impl*
+//#UC START# *496B4CE30132_4AB7A3210135_var*
+//#UC END# *496B4CE30132_4AB7A3210135_var*
+//#UC START# *496B4CED0306_4AB7A3210135_impl*
+ Result := True;
+//#UC END# *496B4CED0306_4AB7A3210135_impl*
+//#UC START# *496B4CED0306_4AB7A3210135_var*
+//#UC END# *496B4CED0306_4AB7A3210135_var*
+//#UC START# *4A83AA610299_4AB7A3210135_impl*
+ LoadQueryHistory;
+//#UC END# *4A83AA610299_4AB7A3210135_impl*
+//#UC START# *4A83AA610299_4AB7A3210135_var*
+//#UC END# *4A83AA610299_4AB7A3210135_var*
+//#UC START# *4A8AD47D0357_4AB7A3210135exec_impl*
+ l_QueryProcessor := QueryProcessor;
+ if Assigned(l_QueryProcessor) then
+  try
+   l_QueryProcessor.RequestFind;
+  except
+   on ETryToFindEmptyContext do
+    Ask(inf_SimpleMainMenuSearchCondition);
+  end;//try..except
+//#UC END# *4A8AD47D0357_4AB7A3210135exec_impl*
+//#UC START# *4A8AD47D0357_4AB7A3210135exec_var*
+var
+ l_QueryProcessor: InsBaseSearchQueryDataProcessor;
+//#UC END# *4A8AD47D0357_4AB7A3210135exec_var*
+//#UC START# *4A8E8F2E0195_4AB7A3210135_impl*
+ inherited
+ Width := 679;
+ Height := 470;
+ Caption := str_BaseSearch.AsStr;
+ OnLoadState := vcmEntityFormLoadState;
+ OnSaveState := vcmEntityFormSaveState;
+
+ with pnlMain do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  Color := clWhite;
+ end;
+
+ with lrBaseSearch do
+ begin
+  Align := alClient;
+  AutoRowHeight := False;
+  BorderStyle := bsNone;
+  IntegralHeight := False;
+  ProtectColor.BackColor := clRed;
+  ProtectColor.TextColor := clWhite;
+  SelectColor.BackColor := clHighlight;
+  SelectColor.TextColor := clHighlightText;
+  SelectNonFocusColor.BackColor := $00F9F8FA;
+  SelectNonFocusColor.TextColor := clBtnText;
+  UseTabStops := True;
+  MultiStrokeItem := True;
+  ViewOptions := [voShowInterRowSpace];
+  ActionElementMode := l3_amSingleClick;
+  StyleId := -32;
+  OnGetStrItem := lrBaseSearchGetStrItem;
+  OnGetItemFont := lrBaseSearchGetItemFont;
+  OnGetItemCursor := lrBaseSearchGetItemCursor;
+  OnActionElement := lrBaseSearchActionElement;
+ end;
+
+ with hfBaseSearch do
+ begin
+  Align := alClient;
+  Caption := str_QueryHistory.AsStr;
+  ButtonCloseImage := 1;
+  ButtonImageList := dmMainMenuNew.ilSmallIcons;
+  ButtonOpenImage := 0;
+  ClientControl := lrBaseSearch;
+  ClientIndent := 20;
+  HeaderImage := 73;
+  LeftHeaderIndent := 20;
+  LeftImageIndent := 10;
+  Options := [];
+  TopHeaderIndent := 15;
+  TabOrder := 0;
+  StyleId := -33;
+  SettingId := 'sthfBaseSearch';
+  Height := 70{lrBaseSearch.Height};
+  Width := pnlMain.Width;
+ end;
+
+ with CardTextLabel do
+ begin
+  Cursor := crArrow;
+  Height := 71;
+  IsStaticText := True;
+  ScrollStyle := ssNone;
+  OnGetHotSpotInfo := CardTextLabelGetHotSpotInfo;
+  OnMouseAction := CardTextLabelMouseAction;
+  TextSource.OnGetControlItemImg := CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg;
+  DisableMouseWheelProcessing := True;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=294584542
+  OnResize := CardTextLabelResize;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=518759939
+ end;
+ BuildGrid;
+ ArrangeGrid;
+ RecalcGrid;
+//#UC END# *4A8E8F2E0195_4AB7A3210135_impl*
+//#UC START# *4A8E8F2E0195_4AB7A3210135_var*
+//#UC END# *4A8E8F2E0195_4AB7A3210135_var*
+//#UC START# *4AB7A3210135_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchCard_Form.pas
+//#UC END# *4AB7A3210135_ext:FileName
+//#UC START# *4AB7A3210135impl_uses*
+ , Base_Operations_F1Services_Contracts
+//#UC END# *4AB7A3210135impl_uses*
+//#UC START# *4ACA17770179_4AB7A3210135_impl*
+ Result := False;
+//#UC END# *4ACA17770179_4AB7A3210135_impl*
+//#UC START# *4ACA17770179_4AB7A3210135_var*
+//#UC END# *4ACA17770179_4AB7A3210135_var*
+//#UC START# *4ACA195801CB_4AB7A3210135get_impl*
+ Result.rContainer := Container;
+ Result.rZone := vcm_ztChild;
+//#UC END# *4ACA195801CB_4AB7A3210135get_impl*
+//#UC START# *4ACA195801CB_4AB7A3210135get_var*
+//#UC END# *4ACA195801CB_4AB7A3210135get_var*
+//#UC START# *4AD6EAA3034A_4AB7A3210135get_impl*
+ Result := nil; 
+//#UC END# *4AD6EAA3034A_4AB7A3210135get_impl*
+//#UC START# *4AD6EAA3034A_4AB7A3210135get_var*
+//#UC END# *4AD6EAA3034A_4AB7A3210135get_var*
+//#UC START# *4F1D607E0027_4AB7A3210135get_impl*
+ Result := false;
+//#UC END# *4F1D607E0027_4AB7A3210135get_impl*
+//#UC START# *4F1D607E0027_4AB7A3210135get_var*
+//#UC END# *4F1D607E0027_4AB7A3210135get_var*
+//#UC START# *4F79CF9200A0_4AB7A3210135_impl*
+ if (Msg.Message = WM_SIZE) and (Msg.wParam = SIZE_RESTORED) then
+  if (Msg.Hwnd = lp_TopHwnd) then
+   RecalcGrid;
+//#UC END# *4F79CF9200A0_4AB7A3210135_impl*
+//#UC START# *4F79CF9200A0_4AB7A3210135_var*
+ function lp_TopHwnd: THandle;
+ var
+  C: TWinControl;
+ begin
+  C := Self;
+  while Assigned(C.Parent) do
+   C := C.Parent;
+  Result := C.Handle;
+ end;
+//#UC END# *4F79CF9200A0_4AB7A3210135_var*
+//#UC START# *4F7C65380244_4AB7A3210135_impl*
+ inherited;
+ Tl3ListenersManager.Add(Self as Il3Listener);
+//#UC END# *4F7C65380244_4AB7A3210135_impl*
+//#UC START# *4F7C65380244_4AB7A3210135_var*
+//#UC END# *4F7C65380244_4AB7A3210135_var*
+//#UC START# *51237AB402B9_4AB7A3210135_impl*
+ if not Assigned(f_qhBaseSearch.rH) then
+  f_qhBaseSearch.rH := TnsQueryHistory.Create(cContextHistoryItems, QT_BASE_SEARCH);
+ f_qhBaseSearch.rH.LoadQueries;
+ lp_SetTotal(lrBaseSearch, f_qhBaseSearch);
+//#UC END# *51237AB402B9_4AB7A3210135_impl*
+//#UC START# *51237AB402B9_4AB7A3210135_var*
+  procedure lp_SetTotal(const aLister       : TnscLister;
+                        const aQueryHistory : TQHRec);
+  begin//lp_SetTotal
+   with aLister do
+   begin
+    if aQueryHistory.rH.Count = 0 then
+     Total := 1
+    else
+     Total := aQueryHistory.rH.Count;
+    // Нужен потому, что Total может не измениться, но вместо одного запроса,
+    // появится надпись "Запросов нет", поэтому нужно перерисоваться
+    // (CQ: OIT500021901):
+    Invalidate;
+   end;//with aLister
+  end;//lp_SetTotal
+//#UC END# *51237AB402B9_4AB7A3210135_var*
+//#UC START# *51237AFE01D0_4AB7A3210135_impl*
+ Supports(NativeMainForm, InsBaseSearchQueryDataProcessor, Result);
+//#UC END# *51237AFE01D0_4AB7A3210135_impl*
+//#UC START# *51237AFE01D0_4AB7A3210135_var*
+//#UC END# *51237AFE01D0_4AB7A3210135_var*
+//#UC START# *51237E59012E_4AB7A3210135_impl*
+ if (aIndex <> -1) and (f_qhBaseSearch.rH.Count > 0) then
+  Result := crHandPoint
+ else
+  Result := crDefault;
+//#UC END# *51237E59012E_4AB7A3210135_impl*
+//#UC START# *51237E59012E_4AB7A3210135_var*
+//#UC END# *51237E59012E_4AB7A3210135_var*
+//#UC START# *51237E6503D6_4AB7A3210135_impl*
+ with aFont do
+  ForeColor := c_MainMenuColor;
+ if (Index mod 2 = 0) then
+  aFont.BackColor := c_mmSecondItemColor
+ else
+  aFont.BackColor := c_mmTreeColor;
+//#UC END# *51237E6503D6_4AB7A3210135_impl*
+//#UC START# *51237E6503D6_4AB7A3210135_var*
+//#UC END# *51237E6503D6_4AB7A3210135_var*
+//#UC START# *51237E7003BF_4AB7A3210135_impl*
+ ItemString := nsMakeQueryStr(f_qhBaseSearch, Index);
+//#UC END# *51237E7003BF_4AB7A3210135_impl*
+//#UC START# *51237E7003BF_4AB7A3210135_var*
+//#UC END# *51237E7003BF_4AB7A3210135_var*
+//#UC START# *51237E8901DC_4AB7A3210135_impl*
+ l_QueryProcessor := QueryProcessor;
+ if (f_qhBaseSearch.rH.Count > 0) and
+   Supports(f_qhBaseSearch.rH[Index], IQuery, l_Query) and
+   Assigned(l_QueryProcessor) then
+  l_QueryProcessor.SetDataFromQuery(l_Query);
+//#UC END# *51237E8901DC_4AB7A3210135_impl*
+//#UC START# *51237E8901DC_4AB7A3210135_var*
+var
+ l_Query : IQuery;
+ l_QueryProcessor: InsBaseSearchQueryDataProcessor;
+//#UC END# *51237E8901DC_4AB7A3210135_var*
+//#UC START# *51237ED3031C_4AB7A3210135_impl*
+ LoadQueryHistory;
+//#UC END# *51237ED3031C_4AB7A3210135_impl*
+//#UC START# *51237ED3031C_4AB7A3210135_var*
+//#UC END# *51237ED3031C_4AB7A3210135_var*
+//#UC START# *51237EDB0222_4AB7A3210135_impl*
+ if (aStateType = vcm_stContent) then
+ begin
+  l_Fake := TvcmBase.Create;
+  try
+   Supports(l_Fake, IvcmBase, aState);
+  finally
+   vcmFree(l_Fake);
+  end;//try..finally
+ end;//aStateType = vcm_stContent
+//#UC END# *51237EDB0222_4AB7A3210135_impl*
+//#UC START# *51237EDB0222_4AB7A3210135_var*
+var
+ l_Fake: TvcmBase;
+//#UC END# *51237EDB0222_4AB7A3210135_var*
+//#UC START# *51237F970395_4AB7A3210135_impl*
+ theImageInfo.rImageList := vtMakeImageListWrapper(nsSearchRes.ImageList);
+ theImageInfo.rFirstIndex := 0;
+ if aControl.rControl.AsObject.QT(InevPara, l_Para) then
+ begin
+  if (l_Para.OwnerObj.PID = 1) then
+   theImageInfo.rFirstIndex := 3;
+ end;//aControl.QT(InevPara, l_Para)
+//#UC END# *51237F970395_4AB7A3210135_impl*
+//#UC START# *51237F970395_4AB7A3210135_var*
+var
+ l_Para : InevPara;
+//#UC END# *51237F970395_4AB7A3210135_var*
+//#UC START# *51237FB70279_4AB7A3210135_impl*
+ Result := true;
+ NeedAsyncLoop := false;
+//#UC END# *51237FB70279_4AB7A3210135_impl*
+//#UC START# *51237FB70279_4AB7A3210135_var*
+//#UC END# *51237FB70279_4AB7A3210135_var*
+//#UC START# *5123803503BC_4AB7A3210135_impl*
+ theInfo.rHint := nil;
+ theInfo.rCursor := ev_csArrow;
+//#UC END# *5123803503BC_4AB7A3210135_impl*
+//#UC START# *5123803503BC_4AB7A3210135_var*
+//#UC END# *5123803503BC_4AB7A3210135_var*
+//#UC START# *530496230291_4AB7A3210135_impl*
+ Result := pnlMain;
+//#UC END# *530496230291_4AB7A3210135_impl*
+//#UC START# *530496230291_4AB7A3210135_var*
+//#UC END# *530496230291_4AB7A3210135_var*
+//#UC START# *530496BF0361_4AB7A3210135_impl*
+ Result := TnscArrangeGrid.Make(false, true);
+ with Result do
+ begin
+  AddColumn;
+  AddRow;
+  AddRow;
+  Cell[0, 0] := TnscFixedHeightControlCell.Make(CardTextLabel);
+  Cell[1, 0] := TnscHideFieldCell.Make(hfBaseSearch, true);
+ end;
+//#UC END# *530496BF0361_4AB7A3210135_impl*
+//#UC START# *530496BF0361_4AB7A3210135_var*
+//#UC END# *530496BF0361_4AB7A3210135_var*
+//#UC START# *5304972201A1_4AB7A3210135_impl*
+ if (aGrid <> nil) then
+ begin
+  Realign;
+  with aGrid do
+  begin
+   Cell[0, 0].MinHeight := CardTextLabel.Height;
+   Cell[1, 0].MinHeight := hfBaseSearch.Height;
+  end;//with aGrid
+  aGrid.Recalc;
+  ArrangeGrid;
+ end;//aGrid <> nil
+//#UC END# *5304972201A1_4AB7A3210135_impl*
+//#UC START# *5304972201A1_4AB7A3210135_var*
+//#UC END# *5304972201A1_4AB7A3210135_var*
+//#UC START# *530D96990038_4AB7A3210135_impl*
+ RecalcGrid;
+//#UC END# *530D96990038_4AB7A3210135_impl*
+//#UC START# *530D96990038_4AB7A3210135_var*
+//#UC END# *530D96990038_4AB7A3210135_var*

@@ -28,6 +28,9 @@ type
   public
    function GetMEImage(const anElement: ImsmModelElement;
     var aImages: TCustomImageList): Integer;
+   function GetMEImageByPropName(const anElement: ImsmModelElement;
+    const aPropName: AnsiString;
+    var aImages: TCustomImageList): Integer;
    class function Instance: TmsmMEImages;
     {* Метод получения экземпляра синглетона TmsmMEImages }
    class function Exists: Boolean;
@@ -63,13 +66,26 @@ function TmsmMEImages.GetMEImage(const anElement: ImsmModelElement;
 //#UC END# *57D90AA201F1_57EB966601BF_var*
 begin
 //#UC START# *57D90AA201F1_57EB966601BF_impl*
- //aImages := nil;
+ Result := GetMEImageByPropName(anElement, '', aImages);
+//#UC END# *57D90AA201F1_57EB966601BF_impl*
+end;//TmsmMEImages.GetMEImage
+
+function TmsmMEImages.GetMEImageByPropName(const anElement: ImsmModelElement;
+ const aPropName: AnsiString;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *57F3D9A4007A_57EB966601BF_var*
+//#UC END# *57F3D9A4007A_57EB966601BF_var*
+begin
+//#UC START# *57F3D9A4007A_57EB966601BF_impl*
  if (anElement = nil) then
   Result := -1
  else
-  Result := TmsmImages.Instance.GetImage(anElement.StringProp['msm:View:ImageFileName'], aImages);
-//#UC END# *57D90AA201F1_57EB966601BF_impl*
-end;//TmsmMEImages.GetMEImage
+ if (aPropName = '') then
+  Result := TmsmImages.Instance.GetImage(anElement.StringProp['msm:View:ImageFileName'], aImages)
+ else
+  Result := TmsmImages.Instance.GetImage(anElement.StringProp[aPropName], aImages);
+//#UC END# *57F3D9A4007A_57EB966601BF_impl*
+end;//TmsmMEImages.GetMEImageByPropName
 
 class function TmsmMEImages.Instance: TmsmMEImages;
  {* Метод получения экземпляра синглетона TmsmMEImages }

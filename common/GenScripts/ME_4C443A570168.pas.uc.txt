@@ -1,0 +1,237 @@
+//#UC START# *47D1602000C6_4C443A570168_impl*
+ inherited;
+{$If defined(Monitorings) or defined(Admin)}
+  with dmStdRes.MenuManager.GetItemByName('enEdit') do
+  begin
+   with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opFindContext')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+   with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opFindNext')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+   with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opFindPrev')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+  end;
+{$IfEnd defined(Monitorings) or defined(Admin)}
+
+//#UC END# *47D1602000C6_4C443A570168_impl*
+//#UC START# *47D1602000C6_4C443A570168_var*
+//#UC END# *47D1602000C6_4C443A570168_var*
+//#UC START# *494F89C30197_4C443A570168exec_impl*
+ if (aParams.Control = AttributeTree) then
+ begin
+  with AttributeTree do
+  begin
+   if (TreeStruct.SelectCount > 1) then
+   begin
+    DropSelectedOperation;
+   end//TreeStruct.SelectCount > 1
+   else
+   if Supports(GetCurrentNode, INodeBase, l_Current) then
+   begin
+    FormLogicOperation(l_Current, loNone);
+    if Current + 1 < TreeStruct.CountView then
+     Current := Current + 1;
+   end//Supports(GetCurrentNode, INodeBase, l_Current)
+   else
+    Exit;
+   Invalidate;
+   InvalidateOtherTree;
+  end;//with AttributeTree
+ end//aParams.Control = AttributeTree
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_4C443A570168exec_impl*
+//#UC START# *494F89C30197_4C443A570168exec_var*
+var
+ l_Current: INodeBase;
+//#UC END# *494F89C30197_4C443A570168exec_var*
+//#UC START# *494F89C30197_4C443A570168getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4C443A570168getstate_impl*
+//#UC START# *494F89C30197_4C443A570168getstate_var*
+//#UC END# *494F89C30197_4C443A570168getstate_var*
+//#UC START# *494F89C30197_4C443A570168test_impl*
+ if (aParams.Control = AttributeTree) then
+  aParams.Op.Flag[vcm_ofVisible] := False
+ else
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *494F89C30197_4C443A570168test_impl*
+//#UC START# *494F89C30197_4C443A570168test_var*
+//#UC END# *494F89C30197_4C443A570168test_var*
+//#UC START# *4951284902BD_4C443A570168exec_impl*
+ if aParams.Control <> AttributeTree then
+  aParams.CallControl;
+//#UC END# *4951284902BD_4C443A570168exec_impl*
+//#UC START# *4951284902BD_4C443A570168exec_var*
+//#UC END# *4951284902BD_4C443A570168exec_var*
+//#UC START# *4951284902BD_4C443A570168test_impl*
+ if aParams.Control = AttributeTree then
+  aParams.Op.Flag[vcm_ofEnabled] := False
+ else
+ if not aParams.CallControl then
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4951284902BD_4C443A570168test_impl*
+//#UC START# *4951284902BD_4C443A570168test_var*
+//#UC END# *4951284902BD_4C443A570168test_var*
+//#UC START# *4A97EBE702F8_4C443A570168exec_impl*
+ (* закроем форму, или начнём поиск *)
+ if Assigned(Aggregate) then
+  Aggregate.Operation(opcode_Result_OkExt);
+//#UC END# *4A97EBE702F8_4C443A570168exec_impl*
+//#UC START# *4A97EBE702F8_4C443A570168exec_var*
+//#UC END# *4A97EBE702F8_4C443A570168exec_var*
+//#UC START# *4A97EBE702F8_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4A97EBE702F8_4C443A570168test_impl*
+//#UC START# *4A97EBE702F8_4C443A570168test_var*
+//#UC END# *4A97EBE702F8_4C443A570168test_var*
+//#UC START# *4AFAFB4602D9_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(l_Node, loOr);
+ end
+ else
+  if f_OrState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loOr);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4AFAFB4602D9_4C443A570168exec_impl*
+//#UC START# *4AFAFB4602D9_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB4602D9_4C443A570168exec_var*
+//#UC START# *4AFAFB4602D9_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loOr);
+ LogicOperationTest(aParams, loOr);
+//#UC END# *4AFAFB4602D9_4C443A570168test_impl*
+//#UC START# *4AFAFB4602D9_4C443A570168test_var*
+//#UC END# *4AFAFB4602D9_4C443A570168test_var*
+//#UC START# *4AFAFB5800B9_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(l_Node, loAnd);
+ end
+ else
+  if f_AndState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loAnd);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4AFAFB5800B9_4C443A570168exec_impl*
+//#UC START# *4AFAFB5800B9_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB5800B9_4C443A570168exec_var*
+//#UC START# *4AFAFB5800B9_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loAnd);
+ LogicOperationTest(aParams, loAnd);
+//#UC END# *4AFAFB5800B9_4C443A570168test_impl*
+//#UC START# *4AFAFB5800B9_4C443A570168test_var*
+//#UC END# *4AFAFB5800B9_4C443A570168test_var*
+//#UC START# *4AFAFB7002B5_4C443A570168exec_impl*
+ if (AttributeTree.TreeStruct.SelectCount <= 1) and
+    (AttributeTree.Current >= 0) then
+ begin
+  if Supports(AttributeTree.GetCurrentNode, INodeBase, l_Node) then
+   FormLogicOperation(AttributeTree.GetCurrentNode as INodeBase, loNot);
+ end
+ else
+  if f_NotState then
+   DropSelectedOperation
+  else
+   ChangeOperationOnSelected(loNot);
+ AttributeTree.Invalidate;
+ InvalidateOtherTree; 
+//#UC END# *4AFAFB7002B5_4C443A570168exec_impl*
+//#UC START# *4AFAFB7002B5_4C443A570168exec_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4AFAFB7002B5_4C443A570168exec_var*
+//#UC START# *4AFAFB7002B5_4C443A570168test_impl*
+ //LOToolbarTest(aParams, loNot);
+ LogicOperationTest(aParams, loNot);
+//#UC END# *4AFAFB7002B5_4C443A570168test_impl*
+//#UC START# *4AFAFB7002B5_4C443A570168test_var*
+//#UC END# *4AFAFB7002B5_4C443A570168test_var*
+//#UC START# *4BDAF7880236_4C443A570168test_impl*
+ if UserType = astFirstLevel then
+  aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4BDAF7880236_4C443A570168test_impl*
+//#UC START# *4BDAF7880236_4C443A570168test_var*
+//#UC END# *4BDAF7880236_4C443A570168test_var*
+//#UC START# *4BDAF7A2005C_4C443A570168test_impl*
+ if UserType = astFirstLevel then
+  aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4BDAF7A2005C_4C443A570168test_impl*
+//#UC START# *4BDAF7A2005C_4C443A570168test_var*
+//#UC END# *4BDAF7A2005C_4C443A570168test_var*
+//#UC START# *4C443A570168_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas
+//#UC END# *4C443A570168_ext:FileName
+//#UC START# *4C443A570168impl_uses*
+ , OfficeLike_ResultEx_Controls
+//#UC END# *4C443A570168impl_uses*
+//#UC START# *4C44444E0066_4C443A570168exec_impl*
+ with AttributeTree do
+ begin
+  if (TreeStruct.SelectCount > 1) then
+  begin
+   ChangeOperationOnSelected(loOr);
+  end//TreeStruct.SelectCount > 1
+  else
+  if Supports(GetCurrentNode, INodeBase, l_Current) then
+  begin
+   l_OldOp := GetLogicOperation(l_Current);
+   if (l_OldOp = loNone) then
+   begin
+    if not l_Current.HasFilteredChildren then
+     SetLogicOperation(l_Current, loOr);
+    NotifyOperationChange(l_Current, l_OldOp, loOr);
+   end;//l_OldOp = loNone
+   if Current + 1 < TreeStruct.CountView then
+    Current := Current + 1;
+  end//Supports(GetCurrentNode, INodeBase, l_Current)
+  else
+   Exit;
+  Invalidate;
+  InvalidateOtherTree;
+ end;//with AttributeTree
+//#UC END# *4C44444E0066_4C443A570168exec_impl*
+//#UC START# *4C44444E0066_4C443A570168exec_var*
+var
+ l_Current: INodeBase;
+ l_OldOp: TLogicOperation;
+//#UC END# *4C44444E0066_4C443A570168exec_var*
+//#UC START# *4C44444E0066_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C44444E0066_4C443A570168test_impl*
+//#UC START# *4C44444E0066_4C443A570168test_var*
+//#UC END# *4C44444E0066_4C443A570168test_var*
+//#UC START# *4C4445300216_4C443A570168exec_impl*
+ DropSelectedOperation;
+ AttributeTree.Invalidate;
+ InvalidateOtherTree;
+//#UC END# *4C4445300216_4C443A570168exec_impl*
+//#UC START# *4C4445300216_4C443A570168exec_var*
+//#UC END# *4C4445300216_4C443A570168exec_var*
+//#UC START# *4C4445300216_4C443A570168test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := AttributeTree.TreeStruct.SelectCount >= 1;
+//#UC END# *4C4445300216_4C443A570168test_impl*
+//#UC START# *4C4445300216_4C443A570168test_var*
+//#UC END# *4C4445300216_4C443A570168test_var*
+//#UC START# *4F88607901F5_4C443A570168_impl*
+ // Это нужно для того, чтобы в логических операциях вызывались OnContextTest
+ Result := True;
+ // Отдавать нужно обязательно так, поэтому что IInterface может умереть не
+ // зависимо от IvcmEntityForm
+ theTarget := (Self.as_IvcmEntityForm);
+//#UC END# *4F88607901F5_4C443A570168_impl*
+//#UC START# *4F88607901F5_4C443A570168_var*
+//#UC END# *4F88607901F5_4C443A570168_var*

@@ -1,0 +1,30 @@
+//#UC START# *4C288BAA0058_4C31CC59002B_impl*
+ l_Searcher := TevRegExpMultipartSearcher.Create;
+ try
+  l_Searcher.Options := Options;
+  //l_Searcher.Multiblock := True;
+  l_Searcher.Text := '$$';
+  Result := l_Searcher;
+ finally
+  FreeAndNil(l_Searcher);
+ end;//try..finally
+//#UC END# *4C288BAA0058_4C31CC59002B_impl*
+//#UC START# *4C288BAA0058_4C31CC59002B_var*
+var
+ l_Searcher : TevRegExpMultipartSearcher;
+//#UC END# *4C288BAA0058_4C31CC59002B_var*
+//#UC START# *4C288BFC002C_4C31CC59002B_impl*
+ Result := TevTextReplacer.Make(#13#10, Options);
+//#UC END# *4C288BFC002C_4C31CC59002B_impl*
+//#UC START# *4C288BFC002C_4C31CC59002B_var*
+//#UC END# *4C288BFC002C_4C31CC59002B_var*
+//#UC START# *4C288CC60231_4C31CC59002B_impl*
+ Result := [ev_soGlobal, ev_soReplace, ev_soReplaceAll];
+//#UC END# *4C288CC60231_4C31CC59002B_impl*
+//#UC START# *4C288CC60231_4C31CC59002B_var*
+//#UC END# *4C288CC60231_4C31CC59002B_var*
+//#UC START# *4C31CC59002B_ext:FileName
+w:\common\components\gui\Garant\Daily\TwoEmptyParaForOneReplacerTest.pas
+//#UC END# *4C31CC59002B_ext:FileName
+//#UC START# *4C31CC59002Bimpl_uses*
+//#UC END# *4C31CC59002Bimpl_uses*

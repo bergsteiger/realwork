@@ -1,0 +1,28 @@
+//#UC START# *535F5A0E0098_ext:FileName
+w:\archi\source\projects\Archi\Editor\arSubImplementation.pas
+//#UC END# *535F5A0E0098_ext:FileName
+//#UC START# *535F5A0E0098impl_uses*
+//#UC END# *535F5A0E0098impl_uses*
+//#UC START# *535F5A7D00BB_535F5A0E0098_impl*
+ Result := inherited DoGetFlags(aTag, aFlag);
+ if aTag.IsKindOf(k2_typBlock) then
+  l_Tag := aTag
+ else
+  l_Tag := aTag.rAtomEx([k2_tiSubs,
+                         k2_tiChildren, k2_tiHandle, LayerID,
+                         k2_tiChildren, k2_tiHandle, ID]);
+ l_Childs := l_Tag.Attr[k2_tiKeyWords];
+ if l_Childs.IsValid and (l_Childs.ChildrenCount > 0) then
+  l3SetBit(Result, sfbitKeyWords);
+ l_Childs := l_Tag.Attr[k2_tiClasses];
+ if l_Childs.IsValid and (l_Childs.ChildrenCount > 0) then
+  l3SetBit(Result, sfbitTreeNodes);
+ l_Childs := l_Tag.Attr[k2_tiTypes];
+ if l_Childs.IsValid and (l_Childs.ChildrenCount > 0) then
+  l3SetBit(Result, sfbitDocType);
+//#UC END# *535F5A7D00BB_535F5A0E0098_impl*
+//#UC START# *535F5A7D00BB_535F5A0E0098_var*
+var
+ l_Tag    : Tl3Variant;
+ l_Childs : Tl3Variant;
+//#UC END# *535F5A7D00BB_535F5A0E0098_var*

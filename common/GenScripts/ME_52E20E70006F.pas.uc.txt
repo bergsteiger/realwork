@@ -1,0 +1,17 @@
+//#UC START# *52E20E70006F_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas
+//#UC END# *52E20E70006F_ext:FileName
+//#UC START# *52E20E70006Fimpl_uses*
+//#UC END# *52E20E70006Fimpl_uses*
+//#UC START# *52E20FD6017C_52E20E70006F_impl*
+ l_FileName := ChangeFileExt(aCtx.rStreamFactory.Filename, csBMPExt);
+ l_FileName := ExtractFileName(l_FileName);
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+ aControl.Bitmap.SaveToFile(l_FileName);
+//#UC END# *52E20FD6017C_52E20E70006F_impl*
+//#UC START# *52E20FD6017C_52E20E70006F_var*
+const
+ csBMPExt = '.bmp';
+var
+ l_FileName: AnsiString;
+//#UC END# *52E20FD6017C_52E20E70006F_var*

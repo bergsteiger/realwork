@@ -1,0 +1,62 @@
+//#UC START# *4A9D19450248_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\fsDiction.pas
+//#UC END# *4A9D19450248_ext:FileName
+//#UC START# *4A9D19450248impl_uses*
+//#UC END# *4A9D19450248impl_uses*
+//#UC START# *4D776BFF024FNeedMake_impl*
+   aNew := l_UseCase.dsTranslate[aSubUserType];
+//#UC END# *4D776BFF024FNeedMake_impl*
+//#UC START# *54B352A903E5_4A9D19450248_impl*
+ l_TabCaption := DoMakeFormSetTabCaption(aDataSource);
+ Result := l3Cat([str_DictionFormSetCaptionPrefix.AsCStr, l3CStr(' : '), l_TabCaption]);
+//#UC END# *54B352A903E5_4A9D19450248_impl*
+//#UC START# *54B352A903E5_4A9D19450248_var*
+var
+ l_TabCaption: IvcmCString;
+//#UC END# *54B352A903E5_4A9D19450248_var*
+//#UC START# *54B352D401E5_4A9D19450248_impl*
+ if Supports(aDataSource, IsdsDiction, l_sds) and
+    (l_sds.DocInfo <> nil) and
+    (l_sds.DocInfo.Doc <> nil) then
+  Result := nsGetDocumentName(l_sds.DocInfo.Doc)
+ else
+  Result := nil;
+//#UC END# *54B352D401E5_4A9D19450248_impl*
+//#UC START# *54B352D401E5_4A9D19450248_var*
+var
+ l_sds: IsdsDiction;
+//#UC END# *54B352D401E5_4A9D19450248_var*
+//#UC START# *54B352FB03A1_4A9D19450248_impl*
+ Result := DoMakeFormSetCaption(aDataSource);
+//#UC END# *54B352FB03A1_4A9D19450248_impl*
+//#UC START# *54B352FB03A1_4A9D19450248_var*
+//#UC END# *54B352FB03A1_4A9D19450248_var*
+//#UC START# *616F19145E64_4A9D19450248_impl*
+ if Supports(aDataSource, IsdsDiction, l_SDS) then
+  aCaption := bsLanguageCaption(l_SDS.DefaultLanguage);
+//#UC END# *616F19145E64_4A9D19450248_impl*
+//#UC START# *616F19145E64_4A9D19450248_var*
+var
+ l_SDS: IsdsDiction;
+//#UC END# *616F19145E64_4A9D19450248_var*
+//#UC START# *C82B5B254974_4A9D19450248_impl*
+ if Supports(aDataSource, IsdsDiction, l_SDS) then
+  aImageIndex := bsLanguageImage(l_SDS.DefaultLanguage);
+//#UC END# *C82B5B254974_4A9D19450248_impl*
+//#UC START# *C82B5B254974_4A9D19450248_var*
+var
+ l_SDS: IsdsDiction;
+//#UC END# *C82B5B254974_4A9D19450248_var*
+//#UC START# *CF6948E21F14_4A9D19450248_impl*
+ aCount := 0;
+ if Supports(aDataSource, IsdsDiction, l_SDS) then
+ try
+  aCount := l_SDS.TranslationForms;
+ finally
+  l_SDS := nil;
+ end;//try..finally
+//#UC END# *CF6948E21F14_4A9D19450248_impl*
+//#UC START# *CF6948E21F14_4A9D19450248_var*
+var
+ l_SDS: IsdsDiction;
+//#UC END# *CF6948E21F14_4A9D19450248_var*

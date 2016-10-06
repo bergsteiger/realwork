@@ -1,0 +1,23 @@
+//#UC START# *514BFA8902C0_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResizeEX.pas
+//#UC END# *514BFA8902C0_ext:FileName
+//#UC START# *514BFA8902C0impl_uses*
+//#UC END# *514BFA8902C0impl_uses*
+//#UC START# *514BFC55039E_514BFA8902C0_impl*
+ if aCtx.rEngine.IsTopInt then
+ begin
+  l_Count := aCtx.rEngine.PopInt;
+  for i := 0 to l_Count do
+  begin
+   aMap := aMap.Outer as InevMap;
+   aCursor := aCursor.ParentPoint;
+  end; // for i := 0 to l_Count do
+ end // if aCtx.rEngine.IsTopInt then
+ else
+  Assert(False, 'Не задан уровень блока!');
+//#UC END# *514BFC55039E_514BFA8902C0_impl*
+//#UC START# *514BFC55039E_514BFA8902C0_var*
+var
+ i      : Integer;
+ l_Count: Integer;
+//#UC END# *514BFC55039E_514BFA8902C0_var*

@@ -1,0 +1,231 @@
+//#UC START# *479731C50290_4936CB1B0022_impl*
+ inherited;
+//#UC END# *479731C50290_4936CB1B0022_impl*
+//#UC START# *479731C50290_4936CB1B0022_var*
+//#UC END# *479731C50290_4936CB1B0022_var*
+//#UC START# *47F3778403D9_4936CB1B0022_impl*
+ Result := TdDiction.Make;
+//#UC END# *47F3778403D9_4936CB1B0022_impl*
+//#UC START# *47F3778403D9_4936CB1B0022_var*
+//#UC END# *47F3778403D9_4936CB1B0022_var*
+//#UC START# *47F37DF001FE_4936CB1B0022_impl*
+ inherited;
+ LoadLanguages(SetData.DocInfo.Doc);
+//#UC END# *47F37DF001FE_4936CB1B0022_impl*
+//#UC START# *47F37DF001FE_4936CB1B0022_var*
+//#UC END# *47F37DF001FE_4936CB1B0022_var*
+//#UC START# *4925B1EC0100_4936CB1B0022_impl*
+ Result := TdsDictionDocument.Make(Self, DocumentData);
+//#UC END# *4925B1EC0100_4936CB1B0022_impl*
+//#UC START# *4925B1EC0100_4936CB1B0022_var*
+//#UC END# *4925B1EC0100_4936CB1B0022_var*
+//#UC START# *4925B9370022_4936CB1B0022_impl*
+ Result := inherited DoChangeDocument(aDoc);
+ if Supports(aDoc, IdeDiction, l_deDiction) then
+  pm_GetdsDiction.ContextMap := l_deDiction.ContextMap;
+ SetData.IsShowLiteratureList := False;
+//#UC END# *4925B9370022_4936CB1B0022_impl*
+//#UC START# *4925B9370022_4936CB1B0022_var*
+var
+ l_deDiction: IdeDiction;
+//#UC END# *4925B9370022_4936CB1B0022_var*
+//#UC START# *4925BE3E0260_4936CB1B0022_impl*
+ Result := inherited DoMakeGotoPointData(aDocument, aRefType, aPos);
+ if (aDocument.GetDocType = DT_EXPLANATORY) and Assigned(Result) then
+ try
+  lDS := pm_GetdsDiction;
+  if (lDS <> nil) then
+  begin
+   Result := MakeDocInfo(Result);
+   lDE := Result as IdeDiction;
+   lDE.DictLanguage := lDS.Language;
+   lDE.ContextMap := lDS.ContextMap;
+  end;
+ finally
+  lDS := nil;
+  lDE := nil;
+ end{try..finally}
+//#UC END# *4925BE3E0260_4936CB1B0022_impl*
+//#UC START# *4925BE3E0260_4936CB1B0022_var*
+var
+ lDS: IdsDiction;
+ lDE: IdeDiction;
+//#UC END# *4925BE3E0260_4936CB1B0022_var*
+//#UC START# *49368311029E_4936CB1B0022_impl*
+ if nsOpenDocumentByNumber(c_LiteratureListForDictionary, l_Document) then
+ try
+  ChangeDocument(TdeDocInfo.Make(l_Document));
+  SetData.IsShowLiteratureList := True;
+ finally
+  l_Document := nil;
+ end;{try..finally}
+//#UC END# *49368311029E_4936CB1B0022_impl*
+//#UC START# *49368311029E_4936CB1B0022_var*
+var
+ l_Document: IDocument;
+//#UC END# *49368311029E_4936CB1B0022_var*
+//#UC START# *49368336033D_4936CB1B0022_impl*
+ Result := SetData.IsShowLiteratureList;
+//#UC END# *49368336033D_4936CB1B0022_impl*
+//#UC START# *49368336033D_4936CB1B0022_var*
+//#UC END# *49368336033D_4936CB1B0022_var*
+//#UC START# *4936835F01D2_4936CB1B0022get_impl*
+ Result := SetData.refTranslationCount;
+//#UC END# *4936835F01D2_4936CB1B0022get_impl*
+//#UC START# *4936835F01D2_4936CB1B0022get_var*
+//#UC END# *4936835F01D2_4936CB1B0022get_var*
+//#UC START# *4936837F0304_4936CB1B0022get_impl*
+ Result := DefDataAdapter.DocDefaultLang;
+//#UC END# *4936837F0304_4936CB1B0022get_impl*
+//#UC START# *4936837F0304_4936CB1B0022get_var*
+//#UC END# *4936837F0304_4936CB1B0022get_var*
+//#UC START# *4936B89C037F_4936CB1B0022_impl*
+ if not Supports(aSource, IdeDiction, Result) then
+  Result := TdeDiction.Convert(aSource, pm_GetDefaultLanguage);
+//#UC END# *4936B89C037F_4936CB1B0022_impl*
+//#UC START# *4936B89C037F_4936CB1B0022_var*
+//#UC END# *4936B89C037F_4936CB1B0022_var*
+//#UC START# *4936B8B600F2_4936CB1B0022_impl*
+ inherited;
+ LoadLanguages(aDoc.Doc);
+//#UC END# *4936B8B600F2_4936CB1B0022_impl*
+//#UC START# *4936B8B600F2_4936CB1B0022_var*
+//#UC END# *4936B8B600F2_4936CB1B0022_var*
+//#UC START# *4936B8C20119_4936CB1B0022_impl*
+ inherited;
+ ClearTranslators;
+//#UC END# *4936B8C20119_4936CB1B0022_impl*
+//#UC START# *4936B8C20119_4936CB1B0022_var*
+//#UC END# *4936B8C20119_4936CB1B0022_var*
+//#UC START# *4936BA0D0286_4936CB1B0022_impl*
+ Result := TdsDiction.Make(Self, MakeDocInfo(pm_GetDocInfo).Clone As IdeDiction);
+//#UC END# *4936BA0D0286_4936CB1B0022_impl*
+//#UC START# *4936BA0D0286_4936CB1B0022_var*
+//#UC END# *4936BA0D0286_4936CB1B0022_var*
+//#UC START# *4936C62102DD_4936CB1B0022get_impl*
+ Result := nil;
+ // Перечислымый тип языка
+ l_Lang := TbsLanguage(aLanguageId);
+ // Перевод для языка присутствует
+ if (l_Lang <> DefDataAdapter.DocDefaultLang) and (l_Lang in SetData.Languages) then
+ begin
+  // Нужно создать
+  with SetData.refTranslation[aLanguageId] do
+  begin
+   if IsEmpty then
+    Referred := NewDSDocument(l_Lang);
+   // Вернем Referred
+   Result := Referred As IdsDictionDocument;
+  end;//with SetData.refTranslation[aLanguageId] do
+ end;//if (l_Lang <> DefDataAdapter.DocDefaultLang)
+//#UC END# *4936C62102DD_4936CB1B0022get_impl*
+//#UC START# *4936C62102DD_4936CB1B0022get_var*
+var
+ l_Lang: TbsLanguage;
+//#UC END# *4936C62102DD_4936CB1B0022get_var*
+//#UC START# *4936CB1B0022_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Diction\sdsDiction.pas
+//#UC END# *4936CB1B0022_ext:FileName
+//#UC START# *4936CB1B0022impl_uses*
+//#UC END# *4936CB1B0022impl_uses*
+//#UC START# *4936CD5100A6_4936CB1B0022_impl*
+ l_Languages := [];
+ if Assigned(aDocument) then
+ begin
+  aDocument.GetTextLanguages(l_List);
+  try
+   Assert(l_List <> nil);
+   if (l_List = nil) then
+    Include(l_Languages, LG_RUSSIAN)
+   else
+    for l_Index := 0 to Pred(l_List.Count) do
+     Include(l_Languages, l_List[l_Index]);
+  finally
+   l_List := nil;
+  end;{try..finally}
+ end;//if Assigned(aDocument) then
+ SetData.Languages := l_Languages;
+ if Supports(InitialUseCaseData, IdeDiction, l_deDiction) then
+ try
+  SetData.CurrentLanguage := l_deDiction.DictLanguage;
+ finally
+  l_deDiction := nil;
+ end;
+//#UC END# *4936CD5100A6_4936CB1B0022_impl*
+//#UC START# *4936CD5100A6_4936CB1B0022_var*
+var
+ l_List      : ILanguagesList;
+ l_Index     : Integer;
+ l_Languages : TbsLanguages;
+ l_deDiction: IdeDiction;
+//#UC END# *4936CD5100A6_4936CB1B0022_var*
+//#UC START# *4936CD8700C8_4936CB1B0022_impl*
+ for l_Index := 0 to Pred(pm_GetTranslationForms) do
+  SetData.refTranslation[l_Index].Clear;
+//#UC END# *4936CD8700C8_4936CB1B0022_impl*
+//#UC START# *4936CD8700C8_4936CB1B0022_var*
+var
+ l_Index: Integer;
+//#UC END# *4936CD8700C8_4936CB1B0022_var*
+//#UC START# *4936CDB00318_4936CB1B0022_impl*
+ l_DocInfo := pm_GetDocInfo.Clone;
+ l_DocInfo.CorrectLanguage(aLanguage);
+ Result := TdsDictionDocument.Make(Self, l_DocInfo) as IdsDictionDocument;
+//#UC END# *4936CDB00318_4936CB1B0022_impl*
+//#UC START# *4936CDB00318_4936CB1B0022_var*
+var
+ l_DocInfo: IdeDocInfo;
+//#UC END# *4936CDB00318_4936CB1B0022_var*
+//#UC START# *4A60B23E00C3_4936CB1B0022_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+  if IID.EQ(IdDiction) then
+  begin
+   IdDiction(Obj) := SetData;
+   Result.SetOK;
+  end;//if IID.EQ(IdDiction) then
+//#UC END# *4A60B23E00C3_4936CB1B0022_impl*
+//#UC START# *4A60B23E00C3_4936CB1B0022_var*
+//#UC END# *4A60B23E00C3_4936CB1B0022_var*
+//#UC START# *52D3C29C008E_4936CB1B0022get_impl*
+ Result := nil;
+ l_dsDiction := pm_GetdsDiction;
+ if (l_dsDiction <> nil) then
+  Result := l_dsDiction.ContextMap;
+//#UC END# *52D3C29C008E_4936CB1B0022get_impl*
+//#UC START# *52D3C29C008E_4936CB1B0022get_var*
+var
+ l_dsDiction: IdsDiction;
+//#UC END# *52D3C29C008E_4936CB1B0022get_var*
+//#UC START# *52D8D3B9012D_4936CB1B0022get_impl*
+ Result := nil;
+ if Supports(pm_GetdsContents, IdsDiction, l_ds) then
+ try
+  Result := l_ds;
+ finally
+  l_ds := nil;
+ end;
+//#UC END# *52D8D3B9012D_4936CB1B0022get_impl*
+//#UC START# *52D8D3B9012D_4936CB1B0022get_var*
+var
+ l_ds: IdsDiction;
+//#UC END# *52D8D3B9012D_4936CB1B0022get_var*
+//#UC START# *53B3BF9C00EF_4936CB1B0022_impl*
+ Result := nsTabIconIndex(titDictionary);
+//#UC END# *53B3BF9C00EF_4936CB1B0022_impl*
+//#UC START# *53B3BF9C00EF_4936CB1B0022_var*
+//#UC END# *53B3BF9C00EF_4936CB1B0022_var*
+//#UC START# *55C1DD070354_4936CB1B0022_impl*
+ Result := MakeDocInfo(pm_GetDocInfo).Clone;
+ if Supports(Result, IdeDiction, l_Diction) then
+ try
+  l_Diction.DictLanguage := pm_GetDsDiction.Language;
+ finally
+  l_Diction := nil;
+ end;
+// Result.DictLanguage := pm_GetDsDiction.Language; 
+//#UC END# *55C1DD070354_4936CB1B0022_impl*
+//#UC START# *55C1DD070354_4936CB1B0022_var*
+var
+ l_Diction: IdeDiction;
+//#UC END# *55C1DD070354_4936CB1B0022_var*

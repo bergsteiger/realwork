@@ -1,0 +1,86 @@
+//#UC START# *574C0E84031E_ext:FileName
+w:\archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas
+//#UC END# *574C0E84031E_ext:FileName
+//#UC START# *574C0E84031Eci*
+//#UC END# *574C0E84031Eci*
+//#UC START# *574C0E84031Ecit*
+//#UC END# *574C0E84031Ecit*
+//#UC START# *574C0E84031Eimpl*
+//#UC END# *574C0E84031Eimpl*
+//#UC START# *574C0E84031Eimpl_uses*
+ , IdHTTP
+//#UC END# *574C0E84031Eimpl_uses*
+//#UC START# *574C0E84031Eintf_uses*
+//#UC END# *574C0E84031Eintf_uses*
+//#UC START# *574C0E84031Epubl*
+//#UC END# *574C0E84031Epubl*
+//#UC START# *574C37390202_574C0E84031E_impl*
+ inherited Create;
+ Assert(Assigned(aSync));
+ f_Sync := aSync;
+//#UC END# *574C37390202_574C0E84031E_impl*
+//#UC START# *574C37390202_574C0E84031E_var*
+//#UC END# *574C37390202_574C0E84031E_var*
+//#UC START# *574C38C2015A_574C0E84031E_impl*
+ try
+  BeforeSync;
+  l_Stream := Tl3MemoryStream.Create;
+  try
+   PrepareData(l_Stream);
+   PostToGardoc(l_Stream);
+   AfterSuccessfulSync;
+  finally
+   FreeAndNil(l_Stream);
+  end;
+ except
+  on E: Exception do
+  begin
+   l3System.Msg2Log('ОШИБКА '+GetTitle+': '+E.Message);
+   l3System.Exception2Log(E);
+  end;
+ end;
+//#UC END# *574C38C2015A_574C0E84031E_impl*
+//#UC START# *574C38C2015A_574C0E84031E_var*
+var
+ l_Stream: TStream;
+//#UC END# *574C38C2015A_574C0E84031E_var*
+//#UC START# *574C39080008_574C0E84031E_impl*
+ {$IFDEF MDPSYNCTEST}
+ l_FS := Tl3FileStream.Create('c:\temp\'+ClassName+'.dat', l3_fmWrite);
+ try
+  aStream.Seek(0, soBeginning);
+  l_FS.CopyFrom(aStream, aStream.Size);
+ finally
+  FreeAndNil(l_FS);
+ end;
+ {$ELSE}
+ l_HTTP := TIdHTTP.Create;
+ try
+  if f_Sync.UseProxy then
+  begin
+   // настраиваем тут прокси
+   with l_HTTP.ProxyParams do
+   begin
+    ProxyServer := f_Sync.ProxyServer;
+    ProxyPort   := f_Sync.ProxyPort;
+    ProxyUsername := f_Sync.ProxyLogin;
+    ProxyPassword := f_Sync.ProxyPassword;
+    BasicAuthentication := True;
+   end;
+  end;
+  aStream.Seek(0, soBeginning);
+  l_HTTP.Post(f_Sync.SyncURL, aStream);
+ finally
+  FreeAndNil(l_HTTP);
+ end;
+ {$ENDIF}
+//#UC END# *574C39080008_574C0E84031E_impl*
+//#UC START# *574C39080008_574C0E84031E_var*
+{$IFDEF MDPSYNCTEST}
+var
+ l_FS: Tl3FileStream;
+{$ELSE}
+var
+ l_HTTP: TIdHTTP;
+{$ENDIF}
+//#UC END# *574C39080008_574C0E84031E_var*

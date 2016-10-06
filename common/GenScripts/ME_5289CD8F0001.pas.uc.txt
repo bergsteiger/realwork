@@ -1,0 +1,79 @@
+//#UC START# *47A750E70096_5289CD8F0001_impl*
+ // В EQ сравниваем по ключам и rNeedMake, поэтому два Item'a с разными
+ // rNeedMake могли бы добавиться - проверяем здесь по ключу
+ if (GetFormIndex(anItem.rKey) = -1) then
+  Result := inherited Add(anItem)
+ else
+  Assert(False);         
+//#UC END# *47A750E70096_5289CD8F0001_impl*
+//#UC START# *47A750E70096_5289CD8F0001_var*
+//#UC END# *47A750E70096_5289CD8F0001_var*
+//#UC START# *47B2C42A0163_5289CD8F0001_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_5289CD8F0001_impl*
+//#UC START# *47B2C42A0163_5289CD8F0001_var*
+//#UC END# *47B2C42A0163_5289CD8F0001_var*
+//#UC START# *47B9866E034D_5289CD8F0001_impl*
+ inherited;
+ Duplicates := l3_dupError;
+ Sorted := true;
+//#UC END# *47B9866E034D_5289CD8F0001_impl*
+//#UC START# *47B9866E034D_5289CD8F0001_var*
+//#UC END# *47B9866E034D_5289CD8F0001_var*
+//#UC START# *47B99D4503A2_5289CD8F0001_impl*
+ Result := CI.rA.Compare(CI.rB^);
+//#UC END# *47B99D4503A2_5289CD8F0001_impl*
+//#UC START# *47B99D4503A2_5289CD8F0001_var*
+//#UC END# *47B99D4503A2_5289CD8F0001_var*
+//#UC START# *5289CD8F0001_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas
+//#UC END# *5289CD8F0001_ext:ParentFileName
+//#UC START# *528DB25B023B_5289CD8F0001get_impl*
+ Result := vcm_nmNo;
+ l_ItemIndex := GetFormIndex(Index);
+ if (l_ItemIndex <> -1) then
+  Result := Items[l_ItemIndex].rNeedMake;
+//#UC END# *528DB25B023B_5289CD8F0001get_impl*
+//#UC START# *528DB25B023B_5289CD8F0001get_var*
+var
+ l_ItemIndex: Integer;
+//#UC END# *528DB25B023B_5289CD8F0001get_var*
+//#UC START# *528DB25B023B_5289CD8F0001set_impl*
+ l_ItemIndex := GetFormIndex(Index);
+ if (l_ItemIndex <> -1) then
+ begin
+  l_Item := Items[l_ItemIndex];
+  l_Item.rNeedMake := aValue;
+  Items[l_ItemIndex] := l_Item;
+  Assert(Items[l_ItemIndex].rNeedMake = aValue);
+ end;
+//#UC END# *528DB25B023B_5289CD8F0001set_impl*
+//#UC START# *528DB25B023B_5289CD8F0001set_var*
+var
+ l_ItemIndex: Integer;
+ l_Item: TvcmFormSetFormItem;
+//#UC END# *528DB25B023B_5289CD8F0001set_var*
+//#UC START# *528DB44C02D7_5289CD8F0001_impl*
+ Result := -1;
+ IterateAllF(l3L2IA(@lp_FindItem));
+//#UC END# *528DB44C02D7_5289CD8F0001_impl*
+//#UC START# *528DB44C02D7_5289CD8F0001_var*
+
+ function lp_FindItem(P: PItemType; Index: Integer): Boolean;
+ begin
+  if (P^.rKey.EQ(aFormDescr)) then
+  begin
+   GetFormIndex := Index;
+   Result := False;
+  end//if (P^.rKey.EQ(aFormDescr))
+  else
+   Result := True;
+ end;//lp_FindItem
+
+//#UC END# *528DB44C02D7_5289CD8F0001_var*
+//#UC START# *529845780295_5289CD8F0001_impl*
+ if pm_GetNeedMakeDS(aForm) = vcm_nmNo then
+  pm_SetNeedMakeDS(aForm, aValue);
+//#UC END# *529845780295_5289CD8F0001_impl*
+//#UC START# *529845780295_5289CD8F0001_var*
+//#UC END# *529845780295_5289CD8F0001_var*

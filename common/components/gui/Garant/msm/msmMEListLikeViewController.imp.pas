@@ -49,7 +49,7 @@ function _msmMEListLikeViewController_.DoGetItemImage(Sender: TObject;
 //#UC END# *57D9022D0322_57C977AE0264_var*
 begin
 //#UC START# *57D9022D0322_57C977AE0264_impl*
- Result := TmsmMEImages.Instance.GetMEImage(Self.Model.List[Index], aImages);
+ Result := TmsmMEImages.Instance.GetMEImageByPropName(Self.Model.List[Index], Self.InitContext.rImageNameProp, aImages);
 //#UC END# *57D9022D0322_57C977AE0264_impl*
 end;//_msmMEListLikeViewController_.DoGetItemImage
 

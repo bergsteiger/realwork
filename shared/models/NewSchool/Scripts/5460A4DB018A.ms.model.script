@@ -155,6 +155,54 @@ ME ME_5464B52F02D5
 
 ENDME // ME_5464B52F02D5 WaitForReply
 
+ME ME_57F374A702F3
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_57F374A702F3 aHelper
+
+ME ME_57F3749202B7
+ MEPROP UID '57F3749202B7'
+ MEPROP Name 'RegisterHelper'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5464B4730055 // IncsTransporter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F374A702F3 // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_57F3749202B7 RegisterHelper
+
+ME ME_57F374B20275
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_57F374B20275 aHelper
+
+ME ME_57F374AC00AA
+ MEPROP UID '57F374AC00AA'
+ MEPROP Name 'UnregisterHelper'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5464B4730055 // IncsTransporter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F374B20275 // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_57F374AC00AA UnregisterHelper
+
 ME ME_5464B4730055
  MEPROP UID '5464B4730055'
  MEPROP GUID 'CE5512DA-5FA9-423C-A266-65F24CF2501C'
@@ -176,6 +224,8 @@ ME ME_5464B4730055
  MELIST Operations
    Seq: ( HWL ME_5464B4E900DA // Send
  HWL ME_5464B52F02D5 // WaitForReply
+ HWL ME_57F3749202B7 // RegisterHelper
+ HWL ME_57F374AC00AA // UnregisterHelper
  )
  ; // Operations
  UP extprop:rc:SelfName 'ncsTransporter'
@@ -522,6 +572,18 @@ ME ME_548FEF4F002E_ME_5465A598039E
  UP "pm" false
 ENDME // ME_548FEF4F002E_ME_5465A598039E SessionID
 
+ME ME_57F3749202B7_ME_5465A598039E
+ MELINK Original HWL ME_57F3749202B7 // RegisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F3749202B7_ME_5465A598039E RegisterHelper
+
+ME ME_57F374AC00AA_ME_5465A598039E
+ MELINK Original HWL ME_57F374AC00AA // UnregisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F374AC00AA_ME_5465A598039E UnregisterHelper
+
 %%InheritedBy ME_5464B4730055 ME_5465A598039E
 
 ME ME_5465A598039E
@@ -551,6 +613,8 @@ ME ME_5465A598039E
  ME_546608F101DE_ME_5465A598039E // ClientID
  ME_5486B96A0025_ME_5465A598039E // Processing
  ME_548FEF4F002E_ME_5465A598039E // SessionID
+ ME_57F3749202B7_ME_5465A598039E // RegisterHelper
+ ME_57F374AC00AA_ME_5465A598039E // UnregisterHelper
  )
  ; // Implemented
  UP extprop:rc:SelfName 'ncsClientTransporter'
@@ -692,6 +756,18 @@ ME ME_548FEF4F002E_ME_5465A5AB0324
  UP "pm" false
 ENDME // ME_548FEF4F002E_ME_5465A5AB0324 SessionID
 
+ME ME_57F3749202B7_ME_5465A5AB0324
+ MELINK Original HWL ME_57F3749202B7 // RegisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F3749202B7_ME_5465A5AB0324 RegisterHelper
+
+ME ME_57F374AC00AA_ME_5465A5AB0324
+ MELINK Original HWL ME_57F374AC00AA // UnregisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F374AC00AA_ME_5465A5AB0324 UnregisterHelper
+
 %%InheritedBy ME_5464B4730055 ME_5465A5AB0324
 
 ME ME_5465A5AB0324
@@ -726,6 +802,8 @@ ME ME_5465A5AB0324
  ME_546608F101DE_ME_5465A5AB0324 // ClientID
  ME_5486B96A0025_ME_5465A5AB0324 // Processing
  ME_548FEF4F002E_ME_5465A5AB0324 // SessionID
+ ME_57F3749202B7_ME_5465A5AB0324 // RegisterHelper
+ ME_57F374AC00AA_ME_5465A5AB0324 // UnregisterHelper
  )
  ; // Implemented
  UP extprop:rc:SelfName 'ncsServerTransporter'

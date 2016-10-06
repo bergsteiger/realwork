@@ -1,0 +1,41 @@
+//#UC START# *479731C50290_56C6DB730289_impl*
+ f_HTQuery := nil;
+ f_PGQuery := nil;
+ inherited;
+//#UC END# *479731C50290_56C6DB730289_impl*
+//#UC START# *479731C50290_56C6DB730289_var*
+//#UC END# *479731C50290_56C6DB730289_var*
+//#UC START# *56010A7801F2_56C6DB730289_impl*
+ Result := TcaResultSet.Make(SelectFields, f_HTQuery.OpenResultSet(Unidirectional), f_PGQuery.OpenResultSet(Unidirectional));
+//#UC END# *56010A7801F2_56C6DB730289_impl*
+//#UC START# *56010A7801F2_56C6DB730289_var*
+//#UC END# *56010A7801F2_56C6DB730289_var*
+//#UC START# *566A892A0191_56C6DB730289_impl*
+ f_HTQuery.Prepare;
+ f_PGQuery.Prepare;
+//#UC END# *566A892A0191_56C6DB730289_impl*
+//#UC START# *566A892A0191_56C6DB730289_var*
+//#UC END# *566A892A0191_56C6DB730289_var*
+//#UC START# *566A893B03C7_56C6DB730289_impl*
+ f_HTQuery.UnPrepare;
+ f_PGQuery.UnPrepare;
+//#UC END# *566A893B03C7_56C6DB730289_impl*
+//#UC START# *566A893B03C7_56C6DB730289_var*
+//#UC END# *566A893B03C7_56C6DB730289_var*
+//#UC START# *56C6DB730289_ext:FileName
+w:\common\components\rtl\Garant\ComboAccess\caTabledQuery.pas
+//#UC END# *56C6DB730289_ext:FileName
+//#UC START# *56C6DB730289impl_uses*
+//#UC END# *56C6DB730289impl_uses*
+//#UC START# *56C6DC070160_56C6DB730289_impl*
+ inherited Create(aFactory, aDataConverter, aFromClause);
+ f_HTQuery := aHTQuery;
+ f_PGQuery := aPGQuery;
+//#UC END# *56C6DC070160_56C6DB730289_impl*
+//#UC START# *56C6DC070160_56C6DB730289_var*
+//#UC END# *56C6DC070160_56C6DB730289_var*
+//#UC START# *56E120F00095_56C6DB730289_impl*
+ Result := TcaParam.Make((f_HTQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc), (f_PGQuery as IdaComboAccessQueryHelper).AddParam(aParamDesc));
+//#UC END# *56E120F00095_56C6DB730289_impl*
+//#UC START# *56E120F00095_56C6DB730289_var*
+//#UC END# *56E120F00095_56C6DB730289_var*

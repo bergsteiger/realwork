@@ -1,0 +1,205 @@
+//#UC START# *47D1602000C6_4F9000EA02E5_impl*
+ inherited;
+ {$IfDef XE}
+ afwHackControlFont(Self);
+ ZoneType := vcm_ztModal;
+ {$EndIf XE}
+//#UC END# *47D1602000C6_4F9000EA02E5_impl*
+//#UC START# *47D1602000C6_4F9000EA02E5_var*
+//#UC END# *47D1602000C6_4F9000EA02E5_var*
+//#UC START# *47E136A80191_4F9000EA02E5_impl*
+ if (not(csDesigning in ComponentState) and (GetWindowLong(Application.Handle, GWL_EXSTYLE) and not(WS_EX_TOOLWINDOW) <> 0)) then
+ begin
+  if (IsActivateAppMessage and HasFormModalState) then
+  begin
+   Message.Result := 0;
+   PostMessage(Handle, WM_REACTIVATE_FORM, 0, 0);
+   Exit;
+  end
+  else
+   if IsSetCursorByLeftButtonMessage then
+   begin
+    with Screen do
+     if (ActiveForm <> nil) then
+      with ActiveForm do
+       if (Handle <> HWND(0)) then
+       begin
+        PostMessage(Handle, WM_REACTIVATE_FORM, 0, 0);
+        Message.Result := 0;
+        Exit;
+       end;
+   end
+   else
+    if IsReactivateFormMessage then
+    begin
+     Message.Result := 0;
+     SetActiveWindow(Handle);
+     Exit;
+    end;
+ end;
+ //
+ inherited;
+//#UC END# *47E136A80191_4F9000EA02E5_impl*
+//#UC START# *47E136A80191_4F9000EA02E5_var*
+const
+ WM_REACTIVATE_FORM = WM_USER+$0900;
+ //
+ function IsActivateAppMessage: Boolean;
+ begin
+  Result := ((Message.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Message).Active);
+ end;
+ function IsReactivateFormMessage: Boolean;
+ begin
+  Result := ((Message.Msg = WM_REACTIVATE_FORM) and (GetActiveWindow <> Handle));
+ end;
+ //
+ function IsSetCursorByLeftButtonMessage: Boolean;
+ begin
+  Result := ((Message.Msg = WM_SETCURSOR) and (Message.LParamHi = WM_LBUTTONDOWN) and not(IsWindowEnabled(Handle)));
+ end;
+ //
+//#UC END# *47E136A80191_4F9000EA02E5_var*
+//#UC START# *48C7925A02E5_4F9000EA02E5_impl*
+ inherited;
+ if (GetWindowLong(Application.Handle, GWL_EXSTYLE) and not(WS_EX_TOOLWINDOW) <> 0) then
+  Params.WndParent := f_WndParent;
+ if f_NeedShowInTaskBar then
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+//#UC END# *48C7925A02E5_4F9000EA02E5_impl*
+//#UC START# *48C7925A02E5_4F9000EA02E5_var*
+//#UC END# *48C7925A02E5_4F9000EA02E5_var*
+//#UC START# *4B321D1301DD_4F9000EA02E5_impl*
+ inherited;
+ l_Mon := Screen.MonitorFromWindow(f_WndParent);
+ l_Left := l_Mon.Left + (l_Mon.Width - Width) div 2;
+ l_Top := l_Mon.Top + (l_Mon.Height - Height) div 2;
+ SetWindowPos(Handle, 0, l_Left, l_Top, 0, 0, SWP_NOSIZE or SWP_NOZORDER or SWP_NOACTIVATE);
+ SetForegroundWindow(Handle);
+//#UC END# *4B321D1301DD_4F9000EA02E5_impl*
+//#UC START# *4B321D1301DD_4F9000EA02E5_var*
+var
+ l_Mon: TMonitor;
+ l_Left, l_Top: Integer;
+//#UC END# *4B321D1301DD_4F9000EA02E5_var*
+//#UC START# *4F9000EA02E5_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas
+//#UC END# *4F9000EA02E5_ext:ParentFileName
+//#UC START# *4F9007B20376_4F9000EA02E5_impl*
+ inherited;
+ afwHackControlFont(Self);
+ ZoneType := vcm_ztModal;
+//#UC END# *4F9007B20376_4F9000EA02E5_impl*
+//#UC START# *4F9007B20376_4F9000EA02E5_var*
+//#UC END# *4F9007B20376_4F9000EA02E5_var*
+//#UC START# *4F9007D9001B_4F9000EA02E5_impl*
+ f_WndParent := aWndParent;
+ if (f_WndParent = HWnd(0)) then
+  f_WndParent := GetActiveWindow;
+ //
+ {$IfDef XE}
+ CreateNew(AOwner);
+ {$Else  XE}
+ CreateNew(AOwner, Dummy);
+ {$EndIf XE}
+//#UC END# *4F9007D9001B_4F9000EA02E5_impl*
+//#UC START# *4F9007D9001B_4F9000EA02E5_var*
+//#UC END# *4F9007D9001B_4F9000EA02E5_var*
+//#UC START# *4F90082D0015_4F9000EA02E5_impl*
+ if Assigned(f_CloseTimer) then
+  FreeAndNil(f_CloseTimer);
+
+ if aCloseInterval > 0 then
+ begin
+  f_CloseTimer := TTimer.Create(Self);
+  f_CloseTimer.Interval := 1000;
+  f_CloseInterval := aCloseInterval;
+  f_CloseTimer.OnTimer := evntOnCloseTimer;
+  UpdateAutoCloseButton;
+ end;
+//#UC END# *4F90082D0015_4F9000EA02E5_impl*
+//#UC START# *4F90082D0015_4F9000EA02E5_var*
+//#UC END# *4F90082D0015_4F9000EA02E5_var*
+//#UC START# *4F9008560068_4F9000EA02E5_impl*
+ f_AutoCloseButton := Value;
+ f_AutoCloseCaption := Value.Caption;
+ if f_CloseInterval > 0 then
+  UpdateAutoCloseButton; 
+//#UC END# *4F9008560068_4F9000EA02E5_impl*
+//#UC START# *4F9008560068_4F9000EA02E5_var*
+//#UC END# *4F9008560068_4F9000EA02E5_var*
+//#UC START# *4F9016AC027C_4F9000EA02E5_impl*
+ Application.HelpContext(HelpContext);
+//#UC END# *4F9016AC027C_4F9000EA02E5_impl*
+//#UC START# *4F9016AC027C_4F9000EA02E5_var*
+//#UC END# *4F9016AC027C_4F9000EA02E5_var*
+//#UC START# *4F901822022E_4F9000EA02E5_impl*
+ Dec(f_CloseInterval);
+ UpdateAutoCloseButton;
+ if f_CloseInterval <= 0 then
+  ModalResult := vtGetDlgBtnResult(f_DefaultButton);
+//#UC END# *4F901822022E_4F9000EA02E5_impl*
+//#UC START# *4F901822022E_4F9000EA02E5_var*
+//#UC END# *4F901822022E_4F9000EA02E5_var*
+//#UC START# *4F90183A00D5_4F9000EA02E5_impl*
+ ModalResult := vtGetDlgBtnResult(f_DefaultButton);
+//#UC END# *4F90183A00D5_4F9000EA02E5_impl*
+//#UC START# *4F90183A00D5_4F9000EA02E5_var*
+//#UC END# *4F90183A00D5_4F9000EA02E5_var*
+//#UC START# *4F90186F0386_4F9000EA02E5_impl*
+ if (f_AutoCloseButton <> nil) then
+ begin
+  f_AutoCloseButton.Caption := f_AutoCloseCaption;
+  if f_CloseInterval > 0 then
+   f_AutoCloseButton.Caption := f_AutoCloseButton.Caption + ' (' + IntToStr(f_CloseInterval) + ')';
+ end;
+//#UC END# *4F90186F0386_4F9000EA02E5_impl*
+//#UC START# *4F90186F0386_4F9000EA02E5_var*
+//#UC END# *4F90186F0386_4F9000EA02E5_var*
+//#UC START# *4F914AE901C1_4F9000EA02E5_impl*
+ if aControl.rControl.AsObject.IsKindOf(k2_typCloak) then
+ begin
+  theImageInfo.rImageList := vtMakeImageListWrapper(vtResources.EditorImages);
+  theImageInfo.rFirstIndex := -1;
+  theImageInfo.rLastIndex := 0;
+ end;//aControl.InheritsFrom(k2_idCloak)
+//#UC END# *4F914AE901C1_4F9000EA02E5_impl*
+//#UC START# *4F914AE901C1_4F9000EA02E5_var*
+//#UC END# *4F914AE901C1_4F9000EA02E5_var*
+//#UC START# *4F914B470122_4F9000EA02E5_impl*
+ Self.Height := Self.Height - anOldHeight + aNewHeight;
+//#UC END# *4F914B470122_4F9000EA02E5_impl*
+//#UC START# *4F914B470122_4F9000EA02E5_var*
+//#UC END# *4F914B470122_4F9000EA02E5_var*
+//#UC START# *520B42AF0115_4F9000EA02E5_impl*
+ afw.ProcessMessages;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=566102125
+ Result := inherited ShowModal;
+//#UC END# *520B42AF0115_4F9000EA02E5_impl*
+//#UC START# *520B42AF0115_4F9000EA02E5_var*
+//#UC END# *520B42AF0115_4F9000EA02E5_var*
+//#UC START# *54507466026E_4F9000EA02E5get_impl*
+ Result := f_NeedShowInTaskBar;
+//#UC END# *54507466026E_4F9000EA02E5get_impl*
+//#UC START# *54507466026E_4F9000EA02E5get_var*
+//#UC END# *54507466026E_4F9000EA02E5get_var*
+//#UC START# *54507466026E_4F9000EA02E5set_impl*
+ if (aValue <> f_NeedShowInTaskBar) then
+ begin
+  f_NeedShowInTaskBar := aValue;
+  l_ExStyle := GetWindowLong(Handle, GWL_EXSTYLE);
+  if f_NeedShowInTaskBar then
+  begin
+   if ((l_ExStyle and WS_EX_APPWINDOW) = 0) then
+    SetWindowLong(Handle, GWL_EXSTYLE, l_ExStyle or WS_EX_APPWINDOW);
+  end
+  else
+  begin
+   if ((l_ExStyle and WS_EX_APPWINDOW) <> 0) then
+    SetWindowLong(Handle, GWL_EXSTYLE, l_ExStyle and not WS_EX_APPWINDOW);
+  end;
+ end;
+//#UC END# *54507466026E_4F9000EA02E5set_impl*
+//#UC START# *54507466026E_4F9000EA02E5set_var*
+var
+ l_ExStyle: LongInt;
+//#UC END# *54507466026E_4F9000EA02E5set_var*

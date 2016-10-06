@@ -1,0 +1,31 @@
+//#UC START# *491C264C02C2_491D5BE30111_impl*
+ Result := true;
+//#UC END# *491C264C02C2_491D5BE30111_impl*
+//#UC START# *491C264C02C2_491D5BE30111_var*
+//#UC END# *491C264C02C2_491D5BE30111_var*
+//#UC START# *491D58670154_491D5BE30111_impl*
+ if (ucc_Diction <> nil) then
+  ucc_Diction.OpenLiteratureList;
+//#UC END# *491D58670154_491D5BE30111_impl*
+//#UC START# *491D58670154_491D5BE30111_var*
+//#UC END# *491D58670154_491D5BE30111_var*
+//#UC START# *491D58890177_491D5BE30111get_impl*
+ Result := Assigned(DocInfo) and
+  (DocInfo.Language = DefDataAdapter.DocDefaultLang);
+//#UC END# *491D58890177_491D5BE30111get_impl*
+//#UC START# *491D58890177_491D5BE30111get_var*
+//#UC END# *491D58890177_491D5BE30111get_var*
+//#UC START# *491D5BE30111_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas
+//#UC END# *491D5BE30111_ext:FileName
+//#UC START# *491D5BE30111impl_uses*
+//#UC END# *491D5BE30111impl_uses*
+//#UC START# *4C6AB38800F3_491D5BE30111_impl*
+ if (DocInfo.Doc.GetInternalId + c_InternalDocShift =
+      c_LiteratureListForDictionary) then
+  Result := TnsF1DocumentContainer.Make(DocInfo)
+ else
+  Result := TnsDictionDocumentContainer.Make(DocInfo);
+//#UC END# *4C6AB38800F3_491D5BE30111_impl*
+//#UC START# *4C6AB38800F3_491D5BE30111_var*
+//#UC END# *4C6AB38800F3_491D5BE30111_var*

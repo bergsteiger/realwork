@@ -1,0 +1,23 @@
+UNIT joinWithLambded.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+ARRAY FUNCTION .joinWithLambded>
+  ARRAY IN anArrayToJoin
+  ^ IN anArrayToIterate
+  ^ IN aLambda
+  
+ anArrayToJoin 
+ anArrayToIterate DO .for> ( 
+  IN aChild 
+  VAR l_Other
+  ( aChild aLambda DO ) >>> l_Other
+  if ( l_Other .IsNotNil ) then
+  begin
+   .join> l_Other
+  end // ( l_Other .IsNotNil )
+ )
+ >>> Result
+; // .joinWithLambded>

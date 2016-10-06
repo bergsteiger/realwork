@@ -1,0 +1,278 @@
+//#UC START# *46837AD603C1_46839C340218get_impl*
+ Result := f_EditorReq;
+//#UC END# *46837AD603C1_46839C340218get_impl*
+//#UC START# *46837AD603C1_46839C340218get_var*
+//#UC END# *46837AD603C1_46839C340218get_var*
+//#UC START# *46837B020021_46839C340218get_impl*
+ Result := f_EditorReq.ReqCaption;
+//#UC END# *46837B020021_46839C340218get_impl*
+//#UC START# *46837B020021_46839C340218get_var*
+//#UC END# *46837B020021_46839C340218get_var*
+//#UC START# *46837B1D02AB_46839C340218get_impl*
+ Result := f_EditorReq.ReqName;
+//#UC END# *46837B1D02AB_46839C340218get_impl*
+//#UC START# *46837B1D02AB_46839C340218get_var*
+//#UC END# *46837B1D02AB_46839C340218get_var*
+//#UC START# *46839C340218_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas
+//#UC END# *46839C340218_ext:ParentFileName
+//#UC START# *479731C50290_46839C340218_impl*
+ f_EditorReq := nil;
+ f_MgrSearch := nil;
+ inherited;
+//#UC END# *479731C50290_46839C340218_impl*
+//#UC START# *479731C50290_46839C340218_var*
+//#UC END# *479731C50290_46839C340218_var*
+//#UC START# *4CD0181A0355_46839C340218get_impl*
+ Result := f_EditorReq.Para.AsObject.BoolA[k2_tiModified];
+//#UC END# *4CD0181A0355_46839C340218get_impl*
+//#UC START# *4CD0181A0355_46839C340218get_var*
+//#UC END# *4CD0181A0355_46839C340218get_var*
+//#UC START# *4CD0181A0355_46839C340218set_impl*
+ with f_EditorReq.Para do
+  if (AsObject.BoolA[k2_tiModified] <> aValue) then
+  begin
+   AsObject.BoolA[k2_tiModified] := aValue;
+   if Assigned(f_MgrSearch) then
+    f_MgrSearch.ModifiedChanged(aValue);
+  end;//BoolA[k2_tiModified] <> Value
+//#UC END# *4CD0181A0355_46839C340218set_impl*
+//#UC START# *4CD0181A0355_46839C340218set_var*
+//#UC END# *4CD0181A0355_46839C340218set_var*
+//#UC START# *5232E86900DB_46839C340218get_impl*
+ Result := pm_GetMulti;
+//#UC END# *5232E86900DB_46839C340218get_impl*
+//#UC START# *5232E86900DB_46839C340218get_var*
+//#UC END# *5232E86900DB_46839C340218get_var*
+//#UC START# *5232E8A0007B_46839C340218_impl*
+ Result := GetCanAdd;
+//#UC END# *5232E8A0007B_46839C340218_impl*
+//#UC START# *5232E8A0007B_46839C340218_var*
+//#UC END# *5232E8A0007B_46839C340218_var*
+//#UC START# *5232E8C7000B_46839C340218_impl*
+ Result := GetCanOpenTree;
+//#UC END# *5232E8C7000B_46839C340218_impl*
+//#UC START# *5232E8C7000B_46839C340218_var*
+//#UC END# *5232E8C7000B_46839C340218_var*
+//#UC START# *5232E8F20155_46839C340218_impl*
+ Result := DoGetReqAsString(aSeparator);
+//#UC END# *5232E8F20155_46839C340218_impl*
+//#UC START# *5232E8F20155_46839C340218_var*
+//#UC END# *5232E8F20155_46839C340218_var*
+//#UC START# *5232E907013E_46839C340218_impl*
+ DeleteEmptyValues;
+ if IsSet then
+  SaveReq;
+ Set_Modified(False);
+//#UC END# *5232E907013E_46839C340218_impl*
+//#UC START# *5232E907013E_46839C340218_var*
+//#UC END# *5232E907013E_46839C340218_var*
+//#UC START# *5232E92800F6_46839C340218_impl*
+ DoLoad;
+//#UC END# *5232E92800F6_46839C340218_impl*
+//#UC START# *5232E92800F6_46839C340218_var*
+//#UC END# *5232E92800F6_46839C340218_var*
+//#UC START# *5232E9410043_46839C340218_impl*
+ DoCheckAttr;
+//#UC END# *5232E9410043_46839C340218_impl*
+//#UC START# *5232E9410043_46839C340218_var*
+//#UC END# *5232E9410043_46839C340218_var*
+//#UC START# *5232E94C01DD_46839C340218_impl*
+ DoReqClear;
+//#UC END# *5232E94C01DD_46839C340218_impl*
+//#UC START# *5232E94C01DD_46839C340218_var*
+//#UC END# *5232E94C01DD_46839C340218_var*
+//#UC START# *5232E95400B8_46839C340218_impl*
+ DoOpenSelectWindow;
+//#UC END# *5232E95400B8_46839C340218_impl*
+//#UC START# *5232E95400B8_46839C340218_var*
+//#UC END# *5232E95400B8_46839C340218_var*
+//#UC START# *5232E98101D5_46839C340218_impl*
+ Result := evIsSomeFieldFilled(f_EditorReq, aElseDefaultValue);
+//#UC END# *5232E98101D5_46839C340218_impl*
+//#UC START# *5232E98101D5_46839C340218_var*
+//#UC END# *5232E98101D5_46839C340218_var*
+//#UC START# *5232E9CB024E_46839C340218_impl*
+ DoMakeFieldValue;
+//#UC END# *5232E9CB024E_46839C340218_impl*
+//#UC START# *5232E9CB024E_46839C340218_var*
+//#UC END# *5232E9CB024E_46839C340218_var*
+//#UC START# *54E5C23D016C_46839C340218get_impl*
+ if not Supports(f_EditorReq, IevComboReq, l_EdComboReq) then
+  Assert(False);
+ Result := l_EdComboReq.IsMulti;
+//#UC END# *54E5C23D016C_46839C340218get_impl*
+//#UC START# *54E5C23D016C_46839C340218get_var*
+var
+ l_EdComboReq: IevComboReq;
+//#UC END# *54E5C23D016C_46839C340218get_var*
+//#UC START# *54E5C2970015_46839C340218_impl*
+ Result := False;
+//#UC END# *54E5C2970015_46839C340218_impl*
+//#UC START# *54E5C2970015_46839C340218_var*
+//#UC END# *54E5C2970015_46839C340218_var*
+//#UC START# *54E5C2C801EC_46839C340218_impl*
+ Result := False;
+//#UC END# *54E5C2C801EC_46839C340218_impl*
+//#UC START# *54E5C2C801EC_46839C340218_var*
+//#UC END# *54E5C2C801EC_46839C340218_var*
+//#UC START# *54E5C312006A_46839C340218_impl*
+ Result := nil;
+//#UC END# *54E5C312006A_46839C340218_impl*
+//#UC START# *54E5C312006A_46839C340218_var*
+//#UC END# *54E5C312006A_46839C340218_var*
+//#UC START# *54E5C6020026_46839C340218_impl*
+//#UC END# *54E5C6020026_46839C340218_impl*
+//#UC START# *54E5C6020026_46839C340218_var*
+//#UC END# *54E5C6020026_46839C340218_var*
+//#UC START# *54E5C6B2036C_46839C340218_impl*
+//#UC END# *54E5C6B2036C_46839C340218_impl*
+//#UC START# *54E5C6B2036C_46839C340218_var*
+//#UC END# *54E5C6B2036C_46839C340218_var*
+//#UC START# *54E5C719014A_46839C340218_impl*
+//#UC END# *54E5C719014A_46839C340218_impl*
+//#UC START# *54E5C719014A_46839C340218_var*
+//#UC END# *54E5C719014A_46839C340218_var*
+//#UC START# *54E5C744010C_46839C340218_impl*
+ if f_EditorReq.IsRequired and not IsSet(False) then
+  raise EqaRequiredValue.CreateFmt(Get_EditorReq.FirstField,
+                                   vcmConstString(str_RequiredValue),
+                                              [nsEStr(Get_EditorReq.ReqCaption)]);
+//#UC END# *54E5C744010C_46839C340218_impl*
+//#UC START# *54E5C744010C_46839C340218_var*
+//#UC END# *54E5C744010C_46839C340218_var*
+//#UC START# *54E5C772012F_46839C340218_impl*
+//#UC END# *54E5C772012F_46839C340218_impl*
+//#UC START# *54E5C772012F_46839C340218_var*
+//#UC END# *54E5C772012F_46839C340218_var*
+//#UC START# *54E5C80B0342_46839C340218_impl*
+ if l3SomeOf(Get_TagName, cSrc) then
+ begin
+  l_CR := f_MgrSearch.ChangableReq;
+  if (l_CR <> nil) then
+   l_CR.MakeFieldValue;
+ end;//l3Same(Get_TagName, cSrc)
+//#UC END# *54E5C80B0342_46839C340218_impl*
+//#UC START# *54E5C80B0342_46839C340218_var*
+var
+ l_CR: IqaReq;
+//#UC END# *54E5C80B0342_46839C340218_var*
+//#UC START# *54E5C83801F9_46839C340218_impl*
+ Result := CheckFromControl(l_Exception, l_Message, l_Control);
+//#UC END# *54E5C83801F9_46839C340218_impl*
+//#UC START# *54E5C83801F9_46839C340218_var*
+var
+ l_Exception: EaqExceptionClass;
+ l_Message: AnsiString;
+ l_Control: IevEditorControlField;
+//#UC END# *54E5C83801F9_46839C340218_var*
+//#UC START# *54E5C85002FA_46839C340218_impl*
+ {$ifndef Admin}
+ if Get_Modified then
+  MakeChangedReq;
+ {$endif}
+//#UC END# *54E5C85002FA_46839C340218_impl*
+//#UC START# *54E5C85002FA_46839C340218_var*
+//#UC END# *54E5C85002FA_46839C340218_var*
+//#UC START# *54E5C8690080_46839C340218_impl*
+ Result := True;
+//#UC END# *54E5C8690080_46839C340218_impl*
+//#UC START# *54E5C8690080_46839C340218_var*
+//#UC END# *54E5C8690080_46839C340218_var*
+//#UC START# *54E5C89F0045_46839C340218_impl*
+ Result := not IsSet(True);
+//#UC END# *54E5C89F0045_46839C340218_impl*
+//#UC START# *54E5C89F0045_46839C340218_var*
+//#UC END# *54E5C89F0045_46839C340218_var*
+//#UC START# *54E5C8B6016B_46839C340218_impl*
+ if f_EditorReq.FieldsCount > 0 then
+  for l_Index := f_EditorReq.FieldsCount - 1 downto 0 do
+   if Supports(f_EditorReq.Fields[l_Index], IevEditorFieldWithTree, l_ComboField) and
+      l_ComboField.IsFieldEmpty then
+    f_EditorReq.DeleteField(nil, f_EditorReq.Fields[l_Index]);
+//#UC END# *54E5C8B6016B_46839C340218_impl*
+//#UC START# *54E5C8B6016B_46839C340218_var*
+var
+ l_Index: Integer;
+ l_ComboField: IevEditorFieldWithTree;
+//#UC END# *54E5C8B6016B_46839C340218_var*
+//#UC START# *54E5D1420183_46839C340218_impl*
+ ReqClear;
+ Set_Modified(True);
+//#UC END# *54E5D1420183_46839C340218_impl*
+//#UC START# *54E5D1420183_46839C340218_var*
+//#UC END# *54E5D1420183_46839C340218_var*
+//#UC START# *54E5D16303C7_46839C340218_impl*
+ inherited Create;
+ f_MgrSearch := aMgrSearch;
+ f_EditorReq := aEditorReq;
+//#UC END# *54E5D16303C7_46839C340218_impl*
+//#UC START# *54E5D16303C7_46839C340218_var*
+//#UC END# *54E5D16303C7_46839C340218_var*
+//#UC START# *54E5D18A0342_46839C340218_impl*
+ if (aEditorReq <> nil) then
+  l_CType := aEditorReq.FirstField.ControlType
+ else
+  l_CType := ev_ctCombo;
+ case l_CType of
+  ev_ctEdit:
+   l_ReqClass := TqaReqStr;
+  ev_ctEmailEdit:
+   l_ReqClass := TqaReqEMail;
+  ev_ctMemoEdit:
+   l_ReqClass := TqaReqMemo;
+  ev_ctCombo:
+  begin
+   if Supports(aEditorReq, IevComboReq, l_EdReq) then
+   begin
+    if l_EdReq.IsContext then
+     l_ReqClass := TqaReqContext
+    else
+    if aEditorReq.Para.AsObject.BoolA[k2_tiNumList] then
+     l_ReqClass := TqaReqNum
+    else
+     l_ReqClass := TqaReqAttribute;
+   end//Supports(aEditorReq, IevComboReq, l_EdReq)
+   else
+    l_ReqClass := TqaReqAttribute;
+  end;//ev_ctCombo
+  ev_ctCalEdit:
+   l_ReqClass := TqaReqDate;
+  ev_ctPhoneEdit:
+   l_ReqClass := TqaReqPhone;
+  else
+   l_ReqClass := nil;
+ end;//case l_CType
+ Assert(Assigned(l_ReqClass), caUnsuppotedAttributeType);
+ l_Req := l_ReqClass.Create(aMgrSearch, aEditorReq);
+ try
+  Result := l_Req;
+ finally
+  l3Free(l_Req);
+ end;//try..finally 
+//#UC END# *54E5D18A0342_46839C340218_impl*
+//#UC START# *54E5D18A0342_46839C340218_var*
+var
+ l_Req: TqaReq;
+ l_CType: TevControlType;
+ l_ReqClass: TqaReqClass;
+ l_EdReq: IevComboReq;
+//#UC END# *54E5D18A0342_46839C340218_var*
+//#UC START# *54E5D1D5002A_46839C340218_impl*
+ aExceptionClass := nil;
+ aMessage := '';
+ aControl := nil;
+ Result := True;
+//#UC END# *54E5D1D5002A_46839C340218_impl*
+//#UC START# *54E5D1D5002A_46839C340218_var*
+//#UC END# *54E5D1D5002A_46839C340218_var*
+//#UC START# *5554953A023D_46839C340218_impl*
+ Result := DoGetReqAsStrings;
+//#UC END# *5554953A023D_46839C340218_impl*
+//#UC START# *5554953A023D_46839C340218_var*
+//#UC END# *5554953A023D_46839C340218_var*
+//#UC START# *555495740306_46839C340218_impl*
+ Result := nil;
+//#UC END# *555495740306_46839C340218_impl*
+//#UC START# *555495740306_46839C340218_var*
+//#UC END# *555495740306_46839C340218_var*

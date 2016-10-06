@@ -1,0 +1,28 @@
+//#UC START# *37BE60CD03ED_4979DA14019A_impl*
+ if op_Document_AttributesCanBeClosed.Call(Aggregate) then
+  SafeClose
+ else
+  op_Switcher_SetFirstPageActive.Call(Container);
+//#UC END# *37BE60CD03ED_4979DA14019A_impl*
+//#UC START# *37BE60CD03ED_4979DA14019A_var*
+//#UC END# *37BE60CD03ED_4979DA14019A_var*
+//#UC START# *4979DA14019A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimAttributes_Form.pas
+//#UC END# *4979DA14019A_ext:FileName
+//#UC START# *4979DA14019Aimpl_uses*
+//#UC END# *4979DA14019Aimpl_uses*
+//#UC START# *497F16AC015A_4979DA14019A_impl*
+ if (sdsBaseDocument <> nil) then
+  TnsViewDocumentAttributesEvent.Log(sdsBaseDocument.DocInfo.Doc);
+//#UC END# *497F16AC015A_4979DA14019A_impl*
+//#UC START# *497F16AC015A_4979DA14019A_var*
+//#UC END# *497F16AC015A_4979DA14019A_var*
+//#UC START# *4B150D310061_4B150CFE01CB_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aDoc);
+ GetLogger.AddEvent(LE_VIEW_DOCUMENT_ATTRIBUTES, l_Data);
+//#UC END# *4B150D310061_4B150CFE01CB_impl*
+//#UC START# *4B150D310061_4B150CFE01CB_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B150D310061_4B150CFE01CB_var*

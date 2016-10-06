@@ -17,6 +17,7 @@ uses
  , DynamicDocListUnit
  , bsTypes
  , l3TreeInterfaces
+ , FiltersUnit
 ;
 
 type
@@ -28,6 +29,7 @@ type
    f_AllDocumentsFiltered: Boolean;
    f_NeedApplyPermanentFilters: Boolean;
    f_IsChanged: Boolean;
+   f_ActiveFilters: IFiltersFromQuery;
    f_TimeMachineOff: Boolean;
    f_WhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
    f_SearchInfo: IdeSearchInfo;
@@ -40,6 +42,7 @@ type
    function pm_GetAllDocumentsFiltered: Boolean;
    function pm_GetNeedApplyPermanentFilters: Boolean;
    function pm_GetIsChanged: Boolean;
+   function pm_GetActiveFilters: IFiltersFromQuery;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -76,6 +79,7 @@ implementation
 uses
  l3ImplUses
  //#UC START# *47F33E9E03C8impl_uses*
+ , DataAdapter
  //#UC END# *47F33E9E03C8impl_uses*
 ;
 
@@ -100,6 +104,7 @@ begin
  f_AllDocumentsFiltered := aAllDocumentsFiltered;
  f_NeedApplyPermanentFilters := aNeedApplyPermanentFilters;
  f_IsChanged := aIsChanged;
+ f_ActiveFilters := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery; 
 //#UC END# *4B1F76940201_47F33E9E03C8_impl*
 end;//TdeList.Create
 
@@ -193,6 +198,15 @@ begin
  Result := f_IsChanged;
 //#UC END# *569DDAE500DD_47F33E9E03C8get_impl*
 end;//TdeList.pm_GetIsChanged
+
+function TdeList.pm_GetActiveFilters: IFiltersFromQuery;
+//#UC START# *57EE27F30169_47F33E9E03C8get_var*
+//#UC END# *57EE27F30169_47F33E9E03C8get_var*
+begin
+//#UC START# *57EE27F30169_47F33E9E03C8get_impl*
+ Result := f_ActiveFilters;
+//#UC END# *57EE27F30169_47F33E9E03C8get_impl*
+end;//TdeList.pm_GetActiveFilters
 
 procedure TdeList.Cleanup;
  {* Функция очистки полей объекта. }

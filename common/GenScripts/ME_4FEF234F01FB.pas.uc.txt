@@ -1,0 +1,17 @@
+//#UC START# *4E808E8B01BB_4FEF234F01FB_impl*
+ l_Control := aCard.GetControl;
+ if Supports(l_Control, IevEditorControl, l_C) then
+  aCtx.rEngine.PushString(l_C.Req.ReqName)
+ else
+  RunnerError('Текущее поле не найдено', aCtx);
+//#UC END# *4E808E8B01BB_4FEF234F01FB_impl*
+//#UC START# *4E808E8B01BB_4FEF234F01FB_var*
+var
+ l_Control: IevCustomEditorControl;
+ l_C: IevEditorControl;
+//#UC END# *4E808E8B01BB_4FEF234F01FB_var*
+//#UC START# *4FEF234F01FB_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetFocus.pas
+//#UC END# *4FEF234F01FB_ext:FileName
+//#UC START# *4FEF234F01FBimpl_uses*
+//#UC END# *4FEF234F01FBimpl_uses*

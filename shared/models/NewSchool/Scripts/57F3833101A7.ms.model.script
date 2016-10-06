@@ -1,0 +1,227 @@
+// ncsTrafficCounter 57F3833101A7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57F3833101A7
+%%Inner ME_57F3833101A7
+
+FORWARD ME_57F3833101A7
+
+FORWARD ME_57F3829802BA
+
+ME ME_57F382B203A9
+ MEPROP UID '57F382B203A9'
+ MEPROP Name 'BytesProcessed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57F3829802BA // IncsTrafficCounter
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP "pm" false
+
+ENDME // ME_57F382B203A9 BytesProcessed
+
+ME ME_57F382CC017D
+ MEPROP UID '57F382CC017D'
+ MEPROP Name 'Reset'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F3829802BA // IncsTrafficCounter
+ ;
+
+ENDME // ME_57F382CC017D Reset
+
+ME ME_57F383010290
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_57F383010290 aDelta
+
+ME ME_57F382DC01D1
+ MEPROP UID '57F382DC01D1'
+ MEPROP Name 'DoProgress'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F3829802BA // IncsTrafficCounter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F383010290 // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_57F382DC01D1 DoProgress
+
+ME ME_57F3829802BA
+ MEPROP UID '57F3829802BA'
+ MEPROP GUID 'A75CEBEC-F0A7-4C0F-9464-84EDD9E2013E'
+ MEPROP Name 'IncsTrafficCounter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57F3833101A7 // ncsTrafficCounter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57F382B203A9 // BytesProcessed
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57F382CC017D // Reset
+ HWL ME_57F382DC01D1 // DoProgress
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ncsTrafficCounter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57F3829802BA IncsTrafficCounter
+
+FORWARD ME_57F3830802F2
+
+ME ME_57F3839803DE
+ MEPROP UID '57F3839803DE'
+ MEPROP Name 'f_Counter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F3830802F2 // TncsTrafficCounter
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_57F3839803DE f_Counter
+
+ME ME_57F383A802EA
+ MEPROP UID '57F383A802EA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F3830802F2 // TncsTrafficCounter
+ ;
+
+ENDME // ME_57F383A802EA Create
+
+%%ImplementedBy ME_57F3829802BA ME_57F383C00321
+
+%%InheritedBy ME_57F383A802EA ME_57F383C00321
+
+ME ME_57F383C00321
+ MEPROP UID '57F383C00321'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F3830802F2 // TncsTrafficCounter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F383A802EA // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57F3829802BA // IncsTrafficCounter
+ )
+ ; // Implements
+
+ENDME // ME_57F383C00321 Make
+
+ME ME_57F382B203A9_ME_57F3830802F2
+ MELINK Original HWL ME_57F382B203A9 // BytesProcessed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57F382B203A9_ME_57F3830802F2 BytesProcessed
+
+ME ME_57F382CC017D_ME_57F3830802F2
+ MELINK Original HWL ME_57F382CC017D // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F382CC017D_ME_57F3830802F2 Reset
+
+ME ME_57F382DC01D1_ME_57F3830802F2
+ MELINK Original HWL ME_57F382DC01D1 // DoProgress
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F382DC01D1_ME_57F3830802F2 DoProgress
+
+%%ImplementedBy ME_57F3829802BA ME_57F3830802F2
+
+%%InheritedBy ME_49E7754802A9 ME_57F3830802F2
+
+ME ME_57F3830802F2
+ MEPROP UID '57F3830802F2'
+ MEPROP Name 'TncsTrafficCounter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57F3833101A7 // ncsTrafficCounter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_57F3829802BA // IncsTrafficCounter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57F3839803DE // f_Counter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57F383A802EA // Create
+ HWL ME_57F383C00321 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57F382B203A9_ME_57F3830802F2 // BytesProcessed
+ ME_57F382CC017D_ME_57F3830802F2 // Reset
+ ME_57F382DC01D1_ME_57F3830802F2 // DoProgress
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ncsTrafficCounter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57F3830802F2 TncsTrafficCounter
+
+ME ME_57F3833101A7
+ MEPROP UID '57F3833101A7'
+ MEPROP Name 'ncsTrafficCounter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_546457E203C0' '546457E203C0.ms.model.script' // ResultDelivery
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57F3829802BA // IncsTrafficCounter
+ HWL ME_57F3830802F2 // TncsTrafficCounter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTrafficCounter.pas'
+
+ENDME // ME_57F3833101A7 ncsTrafficCounter

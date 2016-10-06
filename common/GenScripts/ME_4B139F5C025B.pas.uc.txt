@@ -1,0 +1,48 @@
+//#UC START# *479731C50290_4B139F5C025B_impl*
+ Notify;
+ FreeAndNil(f_List);
+ inherited Cleanup;
+//#UC END# *479731C50290_4B139F5C025B_impl*
+//#UC START# *479731C50290_4B139F5C025B_var*
+//#UC END# *479731C50290_4B139F5C025B_var*
+//#UC START# *4B139E6B00C1_4B139F5C025B_impl*
+ f_List.Add(aEvent);
+//#UC END# *4B139E6B00C1_4B139F5C025B_impl*
+//#UC START# *4B139E6B00C1_4B139F5C025B_var*
+//#UC END# *4B139E6B00C1_4B139F5C025B_var*
+//#UC START# *4B139E860009_4B139F5C025B_impl*
+ if HoursBetween(f_CacheWasWritten, Now) >= c_emFreqWriteInHours then
+ begin
+  Notify;
+  f_CacheWasWritten := Now;
+ end;
+//#UC END# *4B139E860009_4B139F5C025B_impl*
+//#UC START# *4B139E860009_4B139F5C025B_var*
+const
+ c_emFreqWriteInHours = 1;
+//#UC END# *4B139E860009_4B139F5C025B_var*
+//#UC START# *4B139F5C025B_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas
+//#UC END# *4B139F5C025B_ext:FileName
+//#UC START# *4B139F5C025Bimpl_uses*
+//#UC END# *4B139F5C025Bimpl_uses*
+//#UC START# *4B139F9D008C_4B139F5C025B_impl*
+ for l_IDX := 0 to f_List.Count - 1 do
+  f_List[l_IDX].FireLog;
+//#UC END# *4B139F9D008C_4B139F5C025B_impl*
+//#UC START# *4B139F9D008C_4B139F5C025B_var*
+var
+ l_IDX: Integer;
+//#UC END# *4B139F9D008C_4B139F5C025B_var*
+//#UC START# *4B139FDA0182_4B139F5C025B_impl*
+ inherited Create;
+ f_CacheWasWritten := Now;
+ f_List := TInsDefferedEventList.MakeSorted;
+//#UC END# *4B139FDA0182_4B139F5C025B_impl*
+//#UC START# *4B139FDA0182_4B139F5C025B_var*
+//#UC END# *4B139FDA0182_4B139F5C025B_var*
+//#UC START# *56D435B2018B_4B139F5C025B_impl*
+ Notify;
+//#UC END# *56D435B2018B_4B139F5C025B_impl*
+//#UC START# *56D435B2018B_4B139F5C025B_var*
+//#UC END# *56D435B2018B_4B139F5C025B_var*

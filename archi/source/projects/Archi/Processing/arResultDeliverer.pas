@@ -19,6 +19,9 @@ uses
  , ncsMessageInterfaces
  {$IfEnd} // NOT Defined(Nemesis)
  , arResultDeliveryInterfaces
+ {$If NOT Defined(Nemesis)}
+ , ncsTrafficCounter
+ {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 type
@@ -28,6 +31,7 @@ type
    f_Transporter: IncsClientTransporter;
    f_Listener: Pointer;
     {* Weak IarResultDelivererListner }
+   f_Counter: IncsTrafficCounter;
    f_ServerHost: AnsiString;
    f_ServerPort: Integer;
   private
@@ -149,82 +153,96 @@ var
  l_Message: TncsCorrectFolder;
  l_ResultMsg: TncsDeliveryResult;
  l_TryCount: Integer;
-
+ l_Watch: Tl3STopWatch;
+ l_ReceiveTime: Double;
 const
  cMaxTryCount = 10;
  cTryDelay = 1000;
 //#UC END# *5465FDD1009D_545C749003C2_var*
 begin
 //#UC START# *5465FDD1009D_545C749003C2_impl*
- Result := False;
- Listener.CheckTaskExistance(aTaskID);
- l_ResultMsg := TncsDeliveryResult.Create;
+ l_ReceiveTime := 0;
+ l_Watch.Reset;
+ l_Watch.Start;
  try
-  l_ResultMsg.TaskID := aTaskID;
-
-  l_Deliverer := TarOneTaskDeliverer.Create(f_Transporter, aTaskID);
+  Result := False;
+  Listener.CheckTaskExistance(aTaskID);
+  l_ResultMsg := TncsDeliveryResult.Create;
   try
-   l_TryCount := 0;
-   repeat
-    l_ResultMsg.ResultKind := l_Deliverer.Execute;
-    inc(l_TryCount);
-    if (l_ResultMsg.ResultKind = ncs_rkRetry) and (l_TryCount < cMaxTryCount) then
-    begin
-     l3System.Msg2Log('Не удается записать доставку, попытка номер %d', [l_TryCount + 1]);
-     Sleep(cTryDelay);
-    end;
-   until (l_ResultMsg.ResultKind <> ncs_rkRetry) or (l_TryCount = cMaxTryCount);
-   case l_ResultMsg.ResultKind of
-    ncs_rkOk:
+   l_ResultMsg.TaskID := aTaskID;
+
+   l_Deliverer := TarOneTaskDeliverer.Create(f_Transporter, aTaskID);
+   try
+    l_TryCount := 0;
+    repeat
+     l_ResultMsg.ResultKind := l_Deliverer.Execute;
+//     l_ReceiveTime := l_ReceiveTime + l_Deliverer.ReseiveTime;
+     inc(l_TryCount);
+     if (l_ResultMsg.ResultKind = ncs_rkRetry) and (l_TryCount < cMaxTryCount) then
      begin
-      Listener.RequestSendMessage(Format('Результаты экспорта помещены в папку %s', [l_Deliverer.TargetFolder]));
-      Result := True;
+      l3System.Msg2Log('Не удается записать доставку, попытка номер %d', [l_TryCount + 1]);
+      Sleep(cTryDelay);
      end;
-    ncs_rkFail:
-     begin
-      if f_Transporter.Processing then
-       Listener.RequestSendMessage(Format('Не удалось доставить результаты экспорта в папку %s', [l_Deliverer.TargetFolder]));
-      Result := False;
-     end;
-    ncs_rkRetry:
-     begin
-      l_Folder := l_Deliverer.TargetFolder;
-      if Listener.RequestNewFolder(l_Folder) then
+    until (l_ResultMsg.ResultKind <> ncs_rkRetry) or (l_TryCount = cMaxTryCount);
+    case l_ResultMsg.ResultKind of
+     ncs_rkOk:
       begin
-       l_Message := TncsCorrectFolder.Create;
-       try
-        l_Message.TaskID := aTaskID;
-        l_Message.NewFolder := l_Folder;
-        f_Transporter.Send(l_Message);
-       finally
-        FreeAndNil(l_Message);
-       end;
-       Listener.ChangeResultFolder(aTaskID, l_Folder);
-       RequestDelivery;
-      end
-      else
-      begin
-       l_ResultMsg.ResultKind := ncs_rkFail;
-       Listener.RequestSendMessage(Format('Не удалось доставить результаты экспорта в папку %s', [l_Deliverer.TargetFolder]));
+       Listener.RequestSendMessage(Format('Результаты экспорта помещены в папку %s', [l_Deliverer.TargetFolder]));
+       Result := True;
       end;
-      Result := True;
-     end;
-    ncs_rkEmpty:
-     begin
-      Listener.RequestSendMessage('Результаты экспорта не найдены. Все экспортируемые документы оказались пустыми');
-      Result := True;
-     end;
-    else
-     Assert(False);
+     ncs_rkFail:
+      begin
+       if f_Transporter.Processing then
+        Listener.RequestSendMessage(Format('Не удалось доставить результаты экспорта в папку %s', [l_Deliverer.TargetFolder]));
+       Result := False;
+      end;
+     ncs_rkRetry:
+      begin
+       l_Folder := l_Deliverer.TargetFolder;
+       if Listener.RequestNewFolder(l_Folder) then
+       begin
+        l_Message := TncsCorrectFolder.Create;
+        try
+         l_Message.TaskID := aTaskID;
+         l_Message.NewFolder := l_Folder;
+         f_Transporter.Send(l_Message);
+        finally
+         FreeAndNil(l_Message);
+        end;
+        Listener.ChangeResultFolder(aTaskID, l_Folder);
+        RequestDelivery;
+       end
+       else
+       begin
+        l_ResultMsg.ResultKind := ncs_rkFail;
+        Listener.RequestSendMessage(Format('Не удалось доставить результаты экспорта в папку %s', [l_Deliverer.TargetFolder]));
+       end;
+       Result := True;
+      end;
+     ncs_rkEmpty:
+      begin
+       Listener.RequestSendMessage('Результаты экспорта не найдены. Все экспортируемые документы оказались пустыми');
+       Result := True;
+      end;
+     else
+      Assert(False);
+    end;
+    if f_Transporter.Processing then
+     f_Transporter.Send(l_ResultMsg);
+   finally
+    FreeAndNil(l_Deliverer);
    end;
-   if f_Transporter.Processing then
-    f_Transporter.Send(l_ResultMsg);
   finally
-   FreeAndNil(l_Deliverer);
+   FreeAndNil(l_ResultMsg);
   end;
  finally
-  FreeAndNil(l_ResultMsg);
+  l_Watch.Stop;
  end;
+ l3System.Msg2Log('Доставка задачи %s завершена', [aTaskID]);
+ l3System.Msg2Log('  - общее время %s ms', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
+ l3System.Msg2Log('    - прием %s ms', [FormatFloat('#,###.000', l_ReceiveTime * 1000)]);
+ l3System.Msg2Log('    - объем %s kb', [FormatFloat('#,###.000', f_Counter.BytesProcessed / 1024)]);
+// l3System.Msg2Log('    - скорость приема %s kb/s', [FormatFloat('#,###.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)]);
 //#UC END# *5465FDD1009D_545C749003C2_impl*
 end;//TarResultDeliverer.ReceiveTaskResult
 
@@ -289,6 +307,7 @@ var
  l_TaskListReply: TncsGetReadyToDeliveryTasksReply;
  l_IDX: Integer;
  l_Watch: Tl3StopWatch;
+ l_TotalSize: Int64;
 //#UC END# *4911B69E037D_545C749003C2_var*
 begin
 //#UC START# *4911B69E037D_545C749003C2_impl*
@@ -303,7 +322,7 @@ begin
  g_SaveControl.ReSet;
  g_WriteFile.ReSet;
 
-
+ l_TotalSize := 0;
  l_Watch.Start;
  try
   try
@@ -332,8 +351,10 @@ begin
        begin
         if not f_Transporter.Processing then
          Exit;
+        f_Counter.Reset;
         if not ReceiveTaskResult(l_TaskListReply.TasksIDList[l_IDX]) then
          Exit;
+        l_TotalSize := l_TotalSize + f_Counter.BytesProcessed;
        end;
        l3InterlockedExchangeAdd(f_RequestCounter, -l_OldValue);
       end;
@@ -359,18 +380,20 @@ begin
  finally
   l_Watch.Stop;
  end;
- l3System.Msg2Log('Затраченное время %s ms', [FormatFloat('0,###.000', l_Watch.Time * 1000)]);
-
+ l3System.Msg2Log('Доставка завершена');
+ l3System.Msg2Log('  - общее время %s ms', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
+ l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,###.000', l_TotalSize / 1024)]);
+ l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,###.000', l_TotalSize / 1024 / l_Watch.Time)]);
 {$IFDEF ncsProfile}
- l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('0,###.000', g_SaveMessage.Time * 1000)]);
- l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('0,###.000', g_SendMessage.Time * 1000)]);
- l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('0,###.000', g_LoadMessage.Time * 1000)]);
- l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('0,###.000', g_ReveiveMessage.Time * 1000)]);
- l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('0,###.000', g_WaitFile.Time * 1000)]);
- l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('0,###.000', g_ReceivePartFile.Time * 1000)]);
- l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('0,###.000', g_WriteFile.Time * 1000)]);
- l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('0,###.000', g_SaveControl.Time * 1000)]);
- l3System.Msg2Log('TOTAL = %s', [FormatFloat('0,###.000', l_Watch.Time * 1000)]);
+ l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,###.000', g_SaveMessage.Time * 1000)]);
+ l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,###.000', g_SendMessage.Time * 1000)]);
+ l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,###.000', g_LoadMessage.Time * 1000)]);
+ l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,###.000', g_ReveiveMessage.Time * 1000)]);
+ l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,###.000', g_WaitFile.Time * 1000)]);
+ l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('#,###.000', g_ReceivePartFile.Time * 1000)]);
+ l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,###.000', g_WriteFile.Time * 1000)]);
+ l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('#,###.000', g_SaveControl.Time * 1000)]);
+ l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
 {$ENDIF ncsProfile}
 //#UC END# *4911B69E037D_545C749003C2_impl*
 end;//TarResultDeliverer.DoExecute
@@ -381,6 +404,8 @@ procedure TarResultDeliverer.Cleanup;
 //#UC END# *479731C50290_545C749003C2_var*
 begin
 //#UC START# *479731C50290_545C749003C2_impl*
+ f_Transporter.UnregisterHelper(f_Counter);
+ f_Counter := nil;
  f_Listener := nil;
  f_Transporter := nil;
  inherited;
@@ -393,11 +418,13 @@ procedure TarResultDeliverer.InitFields;
 begin
 //#UC START# *47A042E100E2_545C749003C2_impl*
  inherited;
+ f_Counter := TncsTrafficCounter.Make;
 {$IFDEF csSynchroTransport}
  f_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuExportResultProcessing);
 {$ELSE csSynchroTransport}
  f_Transporter := TncsCompatibilityClientTransporter.Make(qtalcuExportResultProcessing);
 {$ENDIF csSynchroTransport}
+ f_Transporter.RegisterHelper(f_Counter);
  ncsFileTransferReg.ncsClientRegister;
 //#UC END# *47A042E100E2_545C749003C2_impl*
 end;//TarResultDeliverer.InitFields

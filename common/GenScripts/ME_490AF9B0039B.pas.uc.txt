@@ -1,0 +1,64 @@
+//#UC START# *479731C50290_490AF9B0039B_impl*
+ f_AdapterNode := nil;
+ inherited;
+//#UC END# *479731C50290_490AF9B0039B_impl*
+//#UC START# *479731C50290_490AF9B0039B_var*
+//#UC END# *479731C50290_490AF9B0039B_var*
+//#UC START# *47A869BB02DE_490AF9B0039B_impl*
+ if (f_AdapterNode <> nil) then
+  f_AdapterNode.GetCaption(l_Str)
+ else
+  l_Str := nil;
+ Result := nsWStr(l_Str);
+//#UC END# *47A869BB02DE_490AF9B0039B_impl*
+//#UC START# *47A869BB02DE_490AF9B0039B_var*
+var
+ l_Str: IString;
+//#UC END# *47A869BB02DE_490AF9B0039B_var*
+//#UC START# *490AF9B0039B_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas
+//#UC END# *490AF9B0039B_ext:FileName
+//#UC START# *490AF9B0039Bimpl_uses*
+//#UC END# *490AF9B0039Bimpl_uses*
+//#UC START# *4A60B23E00C3_490AF9B0039B_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+ begin
+  if (f_AdapterNode = nil) then
+   Result.SetNOINTERFACE
+  else
+   Result := Tl3HResult_C(f_AdapterNode.QueryInterface(IID.IID, Obj));
+ end;//l3IFail(Result)
+//#UC END# *4A60B23E00C3_490AF9B0039B_impl*
+//#UC START# *4A60B23E00C3_490AF9B0039B_var*
+//#UC END# *4A60B23E00C3_490AF9B0039B_var*
+//#UC START# *4AE058130153_490AF9B0039B_impl*
+ inherited Create;
+ f_AdapterNode := aNode;
+//#UC END# *4AE058130153_490AF9B0039B_impl*
+//#UC START# *4AE058130153_490AF9B0039B_var*
+//#UC END# *4AE058130153_490AF9B0039B_var*
+//#UC START# *54C78D4603D6_490AF9B0039B_impl*
+ if (f_AdapterNode = nil) then
+  Result := 0
+ else
+  Result := f_AdapterNode.GetLevel; 
+//#UC END# *54C78D4603D6_490AF9B0039B_impl*
+//#UC START# *54C78D4603D6_490AF9B0039B_var*
+//#UC END# *54C78D4603D6_490AF9B0039B_var*
+//#UC START# *54C78D9201B9_490AF9B0039B_impl*
+ Result := l3IEQ(Self, aNode);
+ if not Result then 
+ begin
+  if Supports(aNode, INodeBase, l_AdapterNode) then
+   try
+    Result := l_AdapterNode.IsSameNode(f_AdapterNode);
+   finally
+    l_AdapterNode := nil;
+   end;//try..finally
+ end;//not Result
+//#UC END# *54C78D9201B9_490AF9B0039B_impl*
+//#UC START# *54C78D9201B9_490AF9B0039B_var*
+var
+ l_AdapterNode: INodeBase;
+//#UC END# *54C78D9201B9_490AF9B0039B_var*

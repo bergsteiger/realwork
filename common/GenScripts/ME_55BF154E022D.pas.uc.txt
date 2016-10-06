@@ -1,0 +1,363 @@
+//#UC START# *55BF154E022D_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfo.pas
+//#UC END# *55BF154E022D_ext:ParentFileName
+//#UC START# *55BF15F300FE_55BF154E022D_impl*
+ {$IfNDef seTypeCheck}
+ if (aTypeInfo <> nil) then
+ begin
+  if (aTypeInfo.Kind = tkClass) then
+  begin
+   Result.rTypeInfo := TypeInfo(TObject);
+   Exit;
+  end//aTypeInfo.Kind = tkObject
+ end;//aTypeInfo <> nil
+ {$EndIf  seTypeCheck}
+ Result.rTypeInfo := aTypeInfo;
+ Result.rClass := nil;
+//#UC END# *55BF15F300FE_55BF154E022D_impl*
+//#UC START# *55BF15F300FE_55BF154E022D_var*
+//#UC END# *55BF15F300FE_55BF154E022D_var*
+//#UC START# *55BF161202B0_55BF154E022D_impl*
+ if Empty then
+ begin
+  if anOther.Empty then
+   Result := 0
+  else
+   Result := -1;
+ end//Empty
+ else
+ if (Self.rTypeInfo <> nil) then
+ begin
+  if (anOther.rTypeInfo = nil) then
+   Result := Integer(Self.rTypeInfo) - Integer(anOther.rClass)
+  else
+   Result := Integer(Self.rTypeInfo) - Integer(anOther.rTypeInfo);
+ end//Self.rTypeInfo <> nil
+ else
+ begin
+  if (anOther.rClass = nil) then
+   Result := Integer(Self.rClass) - Integer(anOther.rTypeInfo)
+  else
+   Result := Integer(Self.rClass) - Integer(anOther.rClass);
+ end;//Self.rTypeInfo <> nil
+//#UC END# *55BF161202B0_55BF154E022D_impl*
+//#UC START# *55BF161202B0_55BF154E022D_var*
+//#UC END# *55BF161202B0_55BF154E022D_var*
+//#UC START# *55BF29550294_55BF154E022D_impl*
+ Case aType of
+  tfw_vtVoid:
+   Result.rTypeInfo := @tfw_tiVoid;
+  tfw_vtInt:
+   Result.rTypeInfo := TypeInfo(Integer);
+  tfw_vtBool:
+   Result.rTypeInfo := TypeInfo(Boolean);
+  tfw_vtStr:
+   Result.rTypeInfo := TypeInfo(AnsiString);
+  tfw_vtObj:
+   Result.rTypeInfo := TypeInfo(TObject);
+  tfw_vtList:
+   Result.rTypeInfo := TypeInfo(ItfwValueList);
+  tfw_vtIntf:
+   Result.rTypeInfo := TypeInfo(IUnknown);
+  tfw_vtNil:
+   Result.rTypeInfo := @tfw_tiNil;
+  tfw_vtFile:
+   Result.rTypeInfo := TypeInfo(ItfwFile);
+  tfw_vtChar:
+   Result.rTypeInfo := TypeInfo(AnsiChar);
+(*  tfw_vtWStr:
+   Result.rTypeInfo := @tfw_tiWString;*)
+(*  tfw_vtBracket:
+   Result.rTypeInfo := @tfw_tiBracket;*)
+  tfw_vtClass:
+   Result.rTypeInfo := @tfw_tiClassRef;
+  else
+   Assert(false);
+ end;//Case aType
+//#UC END# *55BF29550294_55BF154E022D_impl*
+//#UC START# *55BF29550294_55BF154E022D_var*
+//#UC END# *55BF29550294_55BF154E022D_var*
+//#UC START# *55BF5E34013D_55BF154E022D_impl*
+ if Empty then
+  Result := nil
+ else
+ if (rClass <> nil) then
+ begin
+  if (rClass = TObject) then
+   Result := TtfwCStringFactory.C('OBJECT')
+  else
+   Result := TtfwCStringFactory.C(rClass.ClassName);
+ end//rClass <> nil
+ else
+ begin
+  Case rTypeInfo.Kind of
+   tkInterface:
+   begin
+    l_TD := GetTypeData(rTypeInfo);
+    Assert(l_TD <> nil);
+    if (ifHasGuid in l_TD.IntfFlags) then
+    begin
+     if IsEqualGUID(l_TD.GUID, ItfwFile) then
+      Result := TtfwCStringFactory.C('FILE')
+     else
+     if IsEqualGUID(l_TD.GUID, ItfwValueList) then
+      Result := TtfwCStringFactory.C('ARRAY')
+     else
+     if IsEqualGUID(l_TD.GUID, IUnknown) then
+      Result := TtfwCStringFactory.C('INTERFACE')
+     else
+      Result := TtfwCStringFactory.C(rTypeInfo.Name);
+    end//ifHasGuid in l_TD.IntfFlags
+    else
+     Result := TtfwCStringFactory.C(rTypeInfo.Name);
+   end;//tkInterface
+   tkClass:
+   begin
+    l_TD := GetTypeData(rTypeInfo);
+    Assert(l_TD <> nil);
+    if (l_TD.ClassType = TObject) then
+     Result := TtfwCStringFactory.C('OBJECT')
+    else
+     Result := TtfwCStringFactory.C(rTypeInfo.Name);
+   end;//tkClass
+   tkInteger:
+   begin
+    Result := TtfwCStringFactory.C(rTypeInfo.Name);
+    if l3Same(Result, 'Integer', true) then
+     Result := TtfwCStringFactory.C('INTEGER');
+   end;//tkInteger
+   else
+   begin
+    Result := TtfwCStringFactory.C(rTypeInfo.Name);
+    if l3Same(Result, 'Char', true) then
+     Result := TtfwCStringFactory.C('CHAR')
+    else
+    if l3Same(Result, 'String', true) then
+     Result := TtfwCStringFactory.C('STRING')
+    else
+    if l3Same(Result, 'AnsiString', true) then
+     Result := TtfwCStringFactory.C('STRING')
+    else
+    if l3Same(Result, 'Boolean', true) then
+     Result := TtfwCStringFactory.C('BOOLEAN')
+    ;
+   end;//else
+  end//Case rTypeInfo.Kind
+ end;//rTypeInfo.Empty
+//#UC END# *55BF5E34013D_55BF154E022D_impl*
+//#UC START# *55BF5E34013D_55BF154E022D_var*
+var
+ l_TD : PTypeData;
+//#UC END# *55BF5E34013D_55BF154E022D_var*
+//#UC START# *55BF5E720257_55BF154E022D_impl*
+ if Empty then
+  Result := false
+ else
+  Case aValue.rType of
+   tfw_vtNil:
+   begin
+    if (rTypeInfo = nil) then
+     Result := true
+    else
+     Case rTypeInfo.Kind of
+      tkUnknown:
+      begin
+       if (rTypeInfo = @tfw_tiClassRef) then
+        Result := true
+       else
+       if (rTypeInfo = @tfw_tiNil) then
+        Result := true
+       else
+       begin
+        Result := false;
+        Assert(false);
+       end;//else
+      end;//tkUnknown
+      tkInterface,
+      tkString,
+      tkLString,
+      tkClass:
+       Result := true;
+      else
+       Result := false;
+     end;//Case rTypeInfo.Kind
+   end;//tfw_vtNil
+   else
+    if (rClass <> nil) then
+    begin
+     if (aValue.rType <> tfw_vtObj) then
+      Result := false
+     else
+     begin
+      l_O := aValue.AsObject;
+      if (l_O = nil) then
+       Result := true
+      else
+       Result := l_O.InheritsFrom(rClass);
+     end;//aValue.rType <> tfw_vtObj
+    end//rClass <> nil
+    else
+    Case rTypeInfo.Kind of
+     tkUnknown:
+     begin
+      if (rTypeInfo = @tfw_tiWString) then
+      begin
+       if (aValue.rType = tfw_vtStr) {OR (aValue.rType = tfw_vtWStr)} then
+        Result := true
+       else
+        Result := Self.Compare(TtfwTypeInfo_C(aValue.rType)) = 0;
+      end//rTypeInfo = @tfw_tiWString
+      else
+      begin
+       Result := Self.Compare(TtfwTypeInfo_C(aValue.rType)) = 0;
+       Assert(Result);
+      end;//rTypeInfo = @tfw_tiWString
+     end;//tkUnknown
+     tkClass:
+     begin
+      if (aValue.rType <> tfw_vtObj) then
+       Result := false
+      else
+      begin
+       Result := Self.Compare(TtfwTypeInfo_C(aValue.rType)) = 0;
+       if not Result then
+       begin
+        l_O := aValue.AsObject;
+        if (l_O = nil) then
+         Result := true
+        else
+        begin
+         l_TD := GetTypeData(rTypeInfo);
+         Assert(l_TD <> nil);
+         Result := l_O.InheritsFrom(l_TD.ClassType);
+        end;//l_O = nil
+       end;//not Result
+      end;//aValue.rType
+     end;//tkClass
+     else
+      Result := Self.Compare(TtfwTypeInfo_C(aValue.rType)) = 0;
+    end;//Case rTypeInfo.Kind
+  end;//Case aValue.rType
+//#UC END# *55BF5E720257_55BF154E022D_impl*
+//#UC START# *55BF5E720257_55BF154E022D_var*
+var
+ l_TD : PTypeData;
+ l_O : TObject;
+//#UC END# *55BF5E720257_55BF154E022D_var*
+//#UC START# *55C0C954038A_55BF154E022D_impl*
+ if Empty then
+  Result := TtfwStackValue_E
+ else
+ if (rClass <> nil) then
+  Result := TtfwStackValue_NULL
+ else
+  Case rTypeInfo.Kind of
+   tkUnknown:
+   begin
+    if (rTypeInfo = @tfw_tiClassRef) then
+     Result := TtfwStackValue_NULL
+    else
+    if (rTypeInfo = @tfw_tiWString) then
+     Result := TtfwStackValue_NULL
+    else
+    begin
+     Result := TtfwStackValue_E;
+     Assert(false);
+    end;//else
+   end;//tkUnknown
+   tkInteger:
+    Result := TtfwStackValue_C(0);
+   tkChar:
+    Result := TtfwStackValue_C(#0);
+   tkEnumeration:
+    Result := TtfwStackValue_C(0);
+   //tkFloat,
+   tkString:
+    Result := TtfwCStringFactoryEx.ViewOf('');
+   //tkSet,
+   tkClass:
+    Result := TtfwStackValue_NULL;
+   //tkMethod,
+   //tkWChar,
+   tkLString:
+    Result := TtfwCStringFactoryEx.ViewOf('');
+   //tkWString,
+   //tkVariant,
+   //tkArray,
+   //tkRecord,
+   tkInterface:
+    Result := TtfwStackValue_NULL;
+   //tkDynArray:
+   else
+   begin
+    Result := TtfwStackValue_E;
+    Assert(false);
+   end;//else
+  end;//Case rTypeInfo.Kind
+//#UC END# *55C0C954038A_55BF154E022D_impl*
+//#UC START# *55C0C954038A_55BF154E022D_var*
+//#UC END# *55C0C954038A_55BF154E022D_var*
+//#UC START# *55C1EB170084_55BF154E022D_impl*
+ Result := (rTypeInfo = nil) AND (rClass = nil); 
+//#UC END# *55C1EB170084_55BF154E022D_impl*
+//#UC START# *55C1EB170084_55BF154E022D_var*
+//#UC END# *55C1EB170084_55BF154E022D_var*
+//#UC START# *55C4A74F01B0_55BF154E022D_impl*
+ Result.rTypeInfo := nil;
+ Result.rClass := aClass;
+//#UC END# *55C4A74F01B0_55BF154E022D_impl*
+//#UC START# *55C4A74F01B0_55BF154E022D_var*
+//#UC END# *55C4A74F01B0_55BF154E022D_var*
+//#UC START# *55C4A777013F_55BF154E022D_impl*
+ Result.rTypeInfo := nil;
+ Result.rClass := nil;
+//#UC END# *55C4A777013F_55BF154E022D_impl*
+//#UC START# *55C4A777013F_55BF154E022D_var*
+//#UC END# *55C4A777013F_55BF154E022D_var*
+//#UC START# *560D195202AC_55BF154E022D_impl*
+ Result := Compare(anOther) = 0;
+ if not Result then
+ begin
+  if (Self.rTypeInfo <> nil) then
+  begin
+   if (anOther.rTypeInfo <> nil) then
+   begin
+    Case Self.rTypeInfo.Kind of
+     tkUnknown:
+      Result := (Self.rTypeInfo = @tfw_tiStruct);
+     tkClass:
+     begin
+      Case anOther.rTypeInfo.Kind of
+       tkClass:
+       begin
+        l_TDS := GetTypeData(Self.rTypeInfo);
+        Assert(l_TDS <> nil);
+        l_TDO := GetTypeData(anOther.rTypeInfo);
+        Assert(l_TDO <> nil);
+
+        Result := l_TDO.ClassType.InheritsFrom(l_TDS.ClassType);
+       end;//tkClass
+      end;//Case anOther.rTypeInfo.Kind
+     end;//tkClass
+     tkLString:
+     begin
+      Case anOther.rTypeInfo.Kind of
+       tkUnknown:
+        Result := (anOther.rTypeInfo = @tfw_tiString);
+       tkLString:
+        Result := true;
+      end;//Case anOther.rTypeInfo.Kind
+     end;//tkLString
+     tkEnumeration:
+      Result := (anOther.rTypeInfo.Kind = tkInteger);
+      // - когда доделаю типизирование значений на стеке - это надо будет убрать 
+    end;//Case Self.rTypeInfo.Kind
+   end;//anOther.rTypeInfo <> nil
+  end;//Self.rTypeInfo <> nil
+ end;//not Result
+//#UC END# *560D195202AC_55BF154E022D_impl*
+//#UC START# *560D195202AC_55BF154E022D_var*
+var
+ l_TDS : PTypeData;
+ l_TDO : PTypeData;
+//#UC END# *560D195202AC_55BF154E022D_var*

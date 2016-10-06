@@ -1,0 +1,71 @@
+//#UC START# *479731C50290_49DF6D3F02F9_impl*
+ f_Y := 0;
+ inherited;
+//#UC END# *479731C50290_49DF6D3F02F9_impl*
+//#UC START# *479731C50290_49DF6D3F02F9_var*
+//#UC END# *479731C50290_49DF6D3F02F9_var*
+//#UC START# *49DE3CD8004F_49DF6D3F02F9_impl*
+ inherited;
+ if (aPoint <> nil) then
+  f_Y := aPoint.AsLeaf.PaintOffsetY(aView, ObjMap(aView));
+//#UC END# *49DE3CD8004F_49DF6D3F02F9_impl*
+//#UC START# *49DE3CD8004F_49DF6D3F02F9_var*
+//#UC END# *49DE3CD8004F_49DF6D3F02F9_var*
+//#UC START# *49DF6D3F02F9_ext:FileName
+w:\common\components\gui\Garant\Everest\evSolidParaCursor.pas
+//#UC END# *49DF6D3F02F9_ext:FileName
+//#UC START# *49DF6D3F02F9impl_uses*
+//#UC END# *49DF6D3F02F9impl_uses*
+//#UC START# *49DF6F2F0190_49DF6D3F02F9_impl*
+ Result := f_Y;
+//#UC END# *49DF6F2F0190_49DF6D3F02F9_impl*
+//#UC START# *49DF6F2F0190_49DF6D3F02F9_var*
+//#UC END# *49DF6F2F0190_49DF6D3F02F9_var*
+//#UC START# *49DF703901BA_49DF6D3F02F9_impl*
+ inherited;
+ f_Y := aPoint.Y - aMap.Bounds.Top;
+//#UC END# *49DF703901BA_49DF6D3F02F9_impl*
+//#UC START# *49DF703901BA_49DF6D3F02F9_var*
+//#UC END# *49DF703901BA_49DF6D3F02F9_var*
+//#UC START# *49E2F8F80062_49DF6D3F02F9_impl*
+ if (Value = ev_cpBottom) then
+  Value := ev_cpAtEnd;
+ inherited DoSetEntryPointPrim(Value, Context);
+//#UC END# *49E2F8F80062_49DF6D3F02F9_impl*
+//#UC START# *49E2F8F80062_49DF6D3F02F9_var*
+//#UC END# *49E2F8F80062_49DF6D3F02F9_var*
+//#UC START# *49E34DFB0259_49DF6D3F02F9_impl*
+ if (Position = ev_cpAtEnd) then
+  Result := true
+ else
+ begin
+  l_Map := ObjMap(aView);
+  Result := (l_Map <> nil) and (f_Y >= l_Map.Height - nev.LineScrollDelta.Y);
+ end;//Position = ev_cpAtEnd
+//#UC END# *49E34DFB0259_49DF6D3F02F9_impl*
+//#UC START# *49E34DFB0259_49DF6D3F02F9_var*
+var
+ l_Map : TnevFormatInfoPrim;
+//#UC END# *49E34DFB0259_49DF6D3F02F9_var*
+//#UC START# *49E34EDF0207_49DF6D3F02F9_impl*
+ Result := f_Y div nev.LineScrollDelta.Y;
+//#UC END# *49E34EDF0207_49DF6D3F02F9_impl*
+//#UC START# *49E34EDF0207_49DF6D3F02F9_var*
+//#UC END# *49E34EDF0207_49DF6D3F02F9_var*
+//#UC START# *4AA785540310_49DF6D3F02F9_impl*
+ Result := inherited DoDiff(aView, aPoint, aMap);
+ if (Result <> 0) and aPoint.AtEnd(aView) and GetAtEnd(aView) then // http://mdp.garant.ru/pages/viewpage.action?pageId=382406560
+  Result := 0;
+//#UC END# *4AA785540310_49DF6D3F02F9_impl*
+//#UC START# *4AA785540310_49DF6D3F02F9_var*
+//#UC END# *4AA785540310_49DF6D3F02F9_var*
+//#UC START# *4B1D0E1A0256_49DF6D3F02F9_impl*
+ Result := f_Y;
+//#UC END# *4B1D0E1A0256_49DF6D3F02F9_impl*
+//#UC START# *4B1D0E1A0256_49DF6D3F02F9_var*
+//#UC END# *4B1D0E1A0256_49DF6D3F02F9_var*
+//#UC START# *4B1D0E3A00F7_49DF6D3F02F9_impl*
+ f_Y := aValue;
+//#UC END# *4B1D0E3A00F7_49DF6D3F02F9_impl*
+//#UC START# *4B1D0E3A00F7_49DF6D3F02F9_var*
+//#UC END# *4B1D0E3A00F7_49DF6D3F02F9_var*

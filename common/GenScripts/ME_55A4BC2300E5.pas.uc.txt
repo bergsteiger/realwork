@@ -1,0 +1,168 @@
+//#UC START# *479731C50290_55A4BC2300E5_impl*
+ FreeAndNil(f_FormCache);
+ inherited;
+//#UC END# *479731C50290_55A4BC2300E5_impl*
+//#UC START# *479731C50290_55A4BC2300E5_var*
+//#UC END# *479731C50290_55A4BC2300E5_var*
+//#UC START# *55A4BB09012B_55A4BC2300E5_impl*
+ l_List := TvcmIEntityFormList.Create;
+ try
+  l_ContainerForm := aContainer.AsForm.VCLWinControl;
+  l_MainForm := aContainer.AsForm;
+  lp_SaveOwned(l_ContainerForm);
+  lp_SaveDocked(l_ContainerForm);
+  for l_Index := 0 to Pred(l_List.Count) do
+  begin
+   l_Form := IvcmEntityForm(l_List.Items[l_Index]);
+   f_Items.Add(MakeItem(aFormSet, aContainer, l_Form));
+   if l_Form.IsActiveInParent then
+   begin
+    f_ActiveFormZoneType := l_Form.ZoneType;
+    f_ActiveFormUserType := l_Form.UserType;
+    f_ActiveFormSubUserType := l_Form.SubUserType;
+    f_ActiveFormStored := True;
+   end;
+  end;
+ finally
+  FreeAndNil(l_List);
+ end;
+//#UC END# *55A4BB09012B_55A4BC2300E5_impl*
+//#UC START# *55A4BB09012B_55A4BC2300E5_var*
+var
+ l_List: TvcmIEntityFormList;
+ l_MainForm: IvcmEntityForm;
+
+ function lp_CheckForm(const aForm: IvcmEntityForm): Boolean;
+ begin
+  Result := (aForm.FormSet = nil) and
+   (aForm.Aggregate <> nil) and 
+   (not Supports(aForm.Aggregate, IvcmFormSet));
+ end;//lp_CheckForm
+
+ procedure lp_Save(aComponent: TComponent);
+ var
+  l_Form: IvcmEntityForm;
+ begin
+  if Supports(aComponent, IvcmEntityForm, l_Form) then
+  try
+   if (l_Form.NeedSaveToTabHistory) and
+      (l_List.IndexOf(l_Form) = -1) and
+      (not l3IEQ(l_Form, l_MainForm)) and
+      lp_CheckForm(l_Form) then
+    l_List.Add(l_Form);
+  finally
+   l_Form := nil;
+  end;
+ end;
+
+ procedure lp_SaveDocked(aControl: TControl);
+ var
+  l_Index: Integer;
+  l_Control: TWinControl;
+ begin
+  lp_Save(aControl);
+  if (aControl is TWinControl) then
+  begin
+   l_Control := TWinControl(aControl);
+   for l_Index := 0 to Pred(l_Control.ControlCount) do
+    lp_SaveDocked(l_Control.Controls[l_Index]);
+  end;
+ end;//procedure lp_SaveDocked
+
+ procedure lp_SaveOwned(aComponent: TComponent);
+ var
+  l_Index: Integer;
+ begin
+  lp_Save(aComponent);
+  for l_Index := 0 to Pred(aComponent.ComponentCount) do
+   lp_SaveOwned(TControl(aComponent.Components[l_Index]));
+ end;//procedure lp_SaveOwned
+
+var
+ l_ContainerForm: TWinControl;
+ l_Form: IvcmEntityForm;
+ l_Index: Integer;
+//#UC END# *55A4BB09012B_55A4BC2300E5_var*
+//#UC START# *55A4BB850020_55A4BC2300E5_impl*
+ Result := TvcmFormSetFormHistoryItem.Make(aForm);
+//#UC END# *55A4BB850020_55A4BC2300E5_impl*
+//#UC START# *55A4BB850020_55A4BC2300E5_var*
+//#UC END# *55A4BB850020_55A4BC2300E5_var*
+//#UC START# *55A4BC2300E5_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas
+//#UC END# *55A4BC2300E5_ext:ParentFileName
+//#UC START# *55A4BCC1028B_55A4BC2300E5_impl*
+ f_FormCache := TvcmHistoryFormCache.Create;
+ inherited Create(nil, aContainer, aForClone);
+//#UC END# *55A4BCC1028B_55A4BC2300E5_impl*
+//#UC START# *55A4BCC1028B_55A4BC2300E5_var*
+//#UC END# *55A4BCC1028B_55A4BC2300E5_var*
+//#UC START# *55A4C21A006B_55A4BC2300E5_impl*
+ l_ActiveInParentForm := nil;
+ l_Aggregate := TvcmAggregate.Make;
+
+ for l_Index := 0 to Pred(f_Items.Count) do
+ begin
+  l_Form := nil;
+  l_FormItem := f_Items[l_Index];
+  l_Container := GetFormContainer(l_FormItem);
+
+  if (l_Container = nil) then
+   l_Container := aContainer;
+
+  if NeedMakeForm(l_FormItem, l_Container) then
+  begin
+   l_FormItem.MakeForm(l_Container, nil, l_Aggregate, l_Form);
+   DoLoadFormState(l_Form, l_FormItem);
+   f_FormCache.Add(TvcmHistoryFormCacheItem_C(l_Form, l_FormItem.GUID));
+  end
+  else
+  if l_Container.HasForm(l_FormItem.FormID, l_FormItem.ZoneType,
+   True, @l_Form) then
+   DoLoadFormState(l_Form, l_FormItem);
+
+ end;
+
+ if f_ActiveFormStored and
+  l_Container.NativeMainForm.HasForm(f_ActiveFormID, f_ActiveFormZoneType,
+  True, @l_ActiveInParentForm) then
+ begin 
+  l_ActiveInParentForm.SetActiveAndShowInParent;
+  f_ActiveFormStored := False;
+ end;
+ 
+ f_FormCache.Clear;
+//#UC END# *55A4C21A006B_55A4BC2300E5_impl*
+//#UC START# *55A4C21A006B_55A4BC2300E5_var*
+var
+ l_ActiveInParentForm: IvcmEntityForm;
+ l_Index: Integer;
+ l_FormItem: IvcmFormSetFormHistoryItem;
+ l_Form: IvcmEntityForm;
+ l_Aggregate: IvcmAggregate;
+ l_Container: IvcmContainer;
+//#UC END# *55A4C21A006B_55A4BC2300E5_var*
+//#UC START# *55C4923D0196_55A4BC2300E5_impl*
+ l_FormGUID := aItem.GUID;
+ l_ContainerGUID := aItem.ContainerGUID;
+ l_ContainerForm := f_FormCache.FindForm(l_ContainerGUID);
+ if (l_ContainerForm <> nil) then
+  Result := l_ContainerForm.AsContainer
+ else
+  Result := nil;
+//#UC END# *55C4923D0196_55A4BC2300E5_impl*
+//#UC START# *55C4923D0196_55A4BC2300E5_var*
+var
+ l_Index: Integer;
+ l_FormGUID: TGUID;
+ l_ContainerGUID: TGUID;
+ l_ContainerForm: IvcmEntityForm;
+//#UC END# *55C4923D0196_55A4BC2300E5_var*
+//#UC START# *55FFA8C202CD_55A4BC2300E5_impl*
+ Result := (not aContainer.NativeMainForm.HasForm(anItem.FormID, anItem.ZoneType,
+  True, @l_Form));
+//#UC END# *55FFA8C202CD_55A4BC2300E5_impl*
+//#UC START# *55FFA8C202CD_55A4BC2300E5_var*
+var
+ l_Form: IvcmEntityForm;
+//#UC END# *55FFA8C202CD_55A4BC2300E5_var*

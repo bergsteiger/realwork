@@ -11,14 +11,14 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , ncsMessage
+ , csPersonificatedMessage
  , evdTasksHelpers
  , l3MarshalledTypes
  , k2Base
 ;
 
 type
- TcsDownloadDocStream = class(TncsMessage)
+ TcsDownloadDocStream = class(TcsPersonificatedMessage)
   protected
    function pm_GetDocID: Integer;
    procedure pm_SetDocID(aValue: Integer);

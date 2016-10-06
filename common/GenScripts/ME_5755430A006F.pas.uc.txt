@@ -1,0 +1,43 @@
+//#UC START# *479731C50290_5755430A006F_impl*
+ f_Field := nil;
+ inherited;
+//#UC END# *479731C50290_5755430A006F_impl*
+//#UC START# *479731C50290_5755430A006F_var*
+//#UC END# *479731C50290_5755430A006F_var*
+//#UC START# *555352070022_5755430A006Fget_impl*
+ Result := f_Alias;
+//#UC END# *555352070022_5755430A006Fget_impl*
+//#UC START# *555352070022_5755430A006Fget_var*
+//#UC END# *555352070022_5755430A006Fget_var*
+//#UC START# *5608E5A4025F_5755430A006F_impl*
+ Result := Format('%s(%s) as %s', [cMap[f_Operation], f_Field.BuildSQLValue(False), f_Alias]);
+//#UC END# *5608E5A4025F_5755430A006F_impl*
+//#UC START# *5608E5A4025F_5755430A006F_var*
+const
+ cMap: array[TdaAggregateOperation] of String = (
+  'COUNT', //da_aopCount
+  'MIN', //da_aopMin
+  'MAX', //da_aopMax
+  'AVG', //da_aopAverage
+  'SUM' //da_aopSum
+ );
+//#UC END# *5608E5A4025F_5755430A006F_var*
+//#UC START# *5755430A006F_ext:FileName
+w:\common\components\rtl\Garant\DA\daAggregateField.pas
+//#UC END# *5755430A006F_ext:FileName
+//#UC START# *5755430A006Fimpl_uses*
+//#UC END# *5755430A006Fimpl_uses*
+//#UC START# *5755433A00FF_5755430A006F_impl*
+ inherited Create;
+ Assert(anAlias <> '');
+ f_Operation := anOperation;
+ f_Field := aField;
+ F_Alias := anAlias;
+//#UC END# *5755433A00FF_5755430A006F_impl*
+//#UC START# *5755433A00FF_5755430A006F_var*
+//#UC END# *5755433A00FF_5755430A006F_var*
+//#UC START# *5756AC9B0213_5755430A006F_impl*
+ f_Field.IterateTables(anAction);
+//#UC END# *5756AC9B0213_5755430A006F_impl*
+//#UC START# *5756AC9B0213_5755430A006F_var*
+//#UC END# *5756AC9B0213_5755430A006F_var*

@@ -1,0 +1,29 @@
+//#UC START# *4FF2EABA02D7_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAAC.pas
+//#UC END# *4FF2EABA02D7_ext:FileName
+//#UC START# *4FF2EABA02D7impl_uses*
+//#UC END# *4FF2EABA02D7impl_uses*
+//#UC START# *54B352A903E5_4FF2EABA02D7_impl*
+ l_TabCaption := DoMakeFormSetTabCaption(aDataSource);
+ Result := l3Cat([str_fsAACCaption.AsCStr, l3CStr(' : '), l_TabCaption]);
+//#UC END# *54B352A903E5_4FF2EABA02D7_impl*
+//#UC START# *54B352A903E5_4FF2EABA02D7_var*
+var
+ l_TabCaption: IvcmCString;
+//#UC END# *54B352A903E5_4FF2EABA02D7_var*
+//#UC START# *54B352D401E5_4FF2EABA02D7_impl*
+ if Supports(aDataSource, IsdsAAC, l_sds) and
+    (l_sds.Left <> nil) then
+  Result := l_sds.Left.GetDocumentName
+ else
+  Result := nil;
+//#UC END# *54B352D401E5_4FF2EABA02D7_impl*
+//#UC START# *54B352D401E5_4FF2EABA02D7_var*
+var
+ l_sds: IsdsAAC;
+//#UC END# *54B352D401E5_4FF2EABA02D7_var*
+//#UC START# *54B352FB03A1_4FF2EABA02D7_impl*
+ Result := DoMakeFormSetCaption(aDataSource);
+//#UC END# *54B352FB03A1_4FF2EABA02D7_impl*
+//#UC START# *54B352FB03A1_4FF2EABA02D7_var*
+//#UC END# *54B352FB03A1_4FF2EABA02D7_var*

@@ -1,0 +1,90 @@
+//#UC START# *4B2A52070264_ext:FileName
+w:\common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas
+//#UC END# *4B2A52070264_ext:FileName
+//#UC START# *4B2A52070264impl_uses*
+//#UC END# *4B2A52070264impl_uses*
+//#UC START# *4B2A528E03BB_4B2A52070264_impl*
+ l_F := FilerForInput(cNSRCFileIn);
+ try
+  l_F.CodePage := CP_ANSI;
+  l_O := FilerForOutput;
+  try
+   l_F.Open;
+   try
+    l_O.Open;
+    try
+     StartTimer;
+     try
+      while not l_F.EOF do
+      begin
+       with l_F.ReadLn do
+        l_O.Write(S, SLen);
+       if not l_F.EOF then
+        l_O.OutEOL;
+      end;//while not l_F.EOF
+     finally
+      StopTimer('Copy');
+     end;//try..finally
+    finally
+     l_O.Close;
+    end;//try..finally
+   finally
+    l_F.Close;
+   end;//try..finally
+  finally
+   FreeAndNil(l_O);
+  end;//try..finally
+ finally
+  FreeAndNil(l_F);
+ end;//try..finally
+
+ CheckOutputWithInput(cNSRCFileIn);
+//#UC END# *4B2A528E03BB_4B2A52070264_impl*
+//#UC START# *4B2A528E03BB_4B2A52070264_var*
+var
+ l_F : Tl3CustomFiler;
+ l_O : Tl3CustomFiler;
+//#UC END# *4B2A528E03BB_4B2A52070264_var*
+//#UC START# *4B337B58013E_4B2A52070264_impl*
+ l_F := FilerForInput(cBadTextUnicode);
+ try
+  l_F.CodePage := CP_Unicode;
+  l_O := FilerForOutput;
+  try
+   l_O.CodePage := CP_Unicode;
+   l_F.Open;
+   try
+    l_O.Open;
+    try
+     StartTimer;
+     try
+      while not l_F.EOF do
+      begin
+       with l_F.ReadLn do
+        l_O.Write(S, SLen * 2);
+       if not l_F.EOF then
+        l_O.OutEOL;
+      end;//while not l_F.EOF
+     finally
+      StopTimer('Copy');
+     end;//try..finally
+    finally
+     l_O.Close;
+    end;//try..finally
+   finally
+    l_F.Close;
+  end;//try..finally
+  finally
+   FreeAndNil(l_O);
+  end;//try..finally
+ finally
+  FreeAndNil(l_F);
+ end;//try..finally
+
+ CheckOutputWithInput(cBadTextUnicode);
+//#UC END# *4B337B58013E_4B2A52070264_impl*
+//#UC START# *4B337B58013E_4B2A52070264_var*
+var
+ l_F : Tl3CustomFiler;
+ l_O : Tl3CustomFiler;
+//#UC END# *4B337B58013E_4B2A52070264_var*

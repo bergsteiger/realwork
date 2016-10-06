@@ -1,0 +1,31 @@
+//#UC START# *504F22BD0284_ext:FileName
+w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas
+//#UC END# *504F22BD0284_ext:FileName
+//#UC START# *504F313903B0_504F22BD0284_impl*
+  Result := nil;
+  for i := 0 to BITS_IN_TYPE-1 do
+  begin
+    l_Flag := (_BitMaskType_(1) shl i) AND aMask;
+    if l_Flag <> 0 then
+    begin
+      SetLength(Result, Length(Result)+1);
+      Result[High(Result)] := SecondToFirst(l_Flag); // если флаг неизвестен, то будет исключение
+    end;
+  end;
+//#UC END# *504F313903B0_504F22BD0284_impl*
+//#UC START# *504F313903B0_504F22BD0284_var*
+  const
+    BITS_IN_TYPE = 8*SizeOf(_BitMaskType_);
+  var
+    i : Integer;
+    l_Flag :  _BitMaskType_;
+//#UC END# *504F313903B0_504F22BD0284_var*
+//#UC START# *504F319402B1_504F22BD0284_impl*
+  Result := 0;
+  for i := Low(aValues) to High(aValues) do
+    Result := Result OR FirstToSecond(aValues[i]);
+//#UC END# *504F319402B1_504F22BD0284_impl*
+//#UC START# *504F319402B1_504F22BD0284_var*
+  var
+    i : Integer;
+//#UC END# *504F319402B1_504F22BD0284_var*

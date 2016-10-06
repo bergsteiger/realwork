@@ -1,0 +1,135 @@
+//#UC START# *468361010204_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTreeStruct.pas
+//#UC END# *468361010204_ext:FileName
+//#UC START# *468361010204impl_uses*
+//#UC END# *468361010204impl_uses*
+//#UC START# *479731C50290_468361010204_impl*
+ f_BeenReseted := rtsNone;
+ f_InGetRoot := False;
+ inherited;
+//#UC END# *479731C50290_468361010204_impl*
+//#UC START# *479731C50290_468361010204_var*
+//#UC END# *479731C50290_468361010204_var*
+//#UC START# *47EA4E9002C6_468361010204_impl*
+ inherited;
+ Changing;
+ try
+  if (f_Root <> nil) then
+  begin
+   BeforeReset;
+   Root := nil;
+  end;//f_Root <> nil
+ finally
+  Changed;
+ end;//try..finally
+ NotifyUpdated;
+//#UC END# *47EA4E9002C6_468361010204_impl*
+//#UC START# *47EA4E9002C6_468361010204_var*
+//#UC END# *47EA4E9002C6_468361010204_var*
+//#UC START# *48FDA14302AE_468361010204_impl*
+ FinishDataUpdate;
+ inherited;
+//#UC END# *48FDA14302AE_468361010204_impl*
+//#UC START# *48FDA14302AE_468361010204_var*
+//#UC END# *48FDA14302AE_468361010204_var*
+//#UC START# *48FDD9D901BB_468361010204get_impl*
+ if f_InGetRoot then
+ begin
+  Result := nil;
+  exit;
+ end;//f_InGetRoot
+ if (f_BeenReseted <> rtsNone) and
+    (f_Root = nil) then
+ begin
+  MakeResettedSimpleRoot;
+  Result := inherited pm_GetRoot;
+ end//f_BeenReseted <> rtsNone
+ else
+  Result := inherited pm_GetRoot;
+//#UC END# *48FDD9D901BB_468361010204get_impl*
+//#UC START# *48FDD9D901BB_468361010204get_var*
+//#UC END# *48FDD9D901BB_468361010204get_var*
+//#UC START# *48FDD9D901BB_468361010204set_impl*
+ inherited;
+//#UC END# *48FDD9D901BB_468361010204set_impl*
+//#UC START# *48FDD9D901BB_468361010204set_var*
+//#UC END# *48FDD9D901BB_468361010204set_var*
+//#UC START# *48FF5A9002CC_468361010204_impl*
+ if (f_BeenReseted <> rtsNone) and
+    (f_Root = nil) then
+  MakeResettedSimpleRoot;
+ Result := inherited DoMakeFiltered(aFilters, aCurrentNode, aSyncIndex, aAutoOpen, CalcPartialContext);
+//#UC END# *48FF5A9002CC_468361010204_impl*
+//#UC START# *48FF5A9002CC_468361010204_var*
+//#UC END# *48FF5A9002CC_468361010204_var*
+//#UC START# *48FF64E700E5_468361010204_impl*
+ if f_Root <> nil then
+  f_BeenReseted := rtsRoot
+ else
+  f_BeenReseted := rtsNone;
+ Filters.SetContext(nil);  
+ RequestClearAndTurnOff;
+//#UC END# *48FF64E700E5_468361010204_impl*
+//#UC START# *48FF64E700E5_468361010204_var*
+//#UC END# *48FF64E700E5_468361010204_var*
+//#UC START# *48FF667E00CF_468361010204_impl*
+ if (NotifiedObjList <> nil) and (NotifiedObjList.Count > 0) then
+  for l_Index := 0 to Pred(NotifiedObjList.Count) do
+  begin
+   l_Item := NotifiedObjList.Items[l_Index];
+   if Supports(l_Item, InsTreeDataListener, l_Listener) and
+     (l_Item = l_Listener) then
+    l_Listener.Updated;
+  end;//for l_Index := 0
+//#UC END# *48FF667E00CF_468361010204_impl*
+//#UC START# *48FF667E00CF_468361010204_var*
+var
+ l_Index    : Integer;
+ l_Listener : InsTreeDataListener;
+ l_Item     : IUnknown;
+//#UC END# *48FF667E00CF_468361010204_var*
+//#UC START# *48FF66900153_468361010204_impl*
+  f_InGetRoot := True;
+  Changing;
+  try
+   try
+    //l_NewRoot := ReAqurieUnfilteredRoot;
+    l_NewRoot := ReAqurieUnfilteredRootForMakeResettedSimpleRoot;
+    //  ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238
+
+    l_NewRoot := GetFilteredRoot(l_NewRoot, Filters, nil, l_Sync, True, False, False);
+    if Assigned(l_NewRoot) then
+     MakeRootNode(l_NewRoot);
+   except
+    on ECannotFindData do
+     // - сюда попадаем например когда толковый словарь пропал
+     Root := nil;
+   end;//try..except
+  finally
+   f_InGetRoot := False;
+   f_BeenReseted := rtsNone;
+   try
+    Changed;
+   except
+    // - сюда попадаем например когда толковый словарь пропал
+    on EDoChangedAlreadyDone do
+     raise;
+    on E : Exception do
+    begin
+     l3System.Exception2Log(E);
+    end;//on E : Exception
+    else
+     ; 
+   end;//try..except
+  end;//try..finally
+//#UC END# *48FF66900153_468361010204_impl*
+//#UC START# *48FF66900153_468361010204_var*
+var
+ l_NewRoot: INodeBase;
+ l_Sync: Integer;
+//#UC END# *48FF66900153_468361010204_var*
+//#UC START# *4F1D334C0371_468361010204_impl*
+ Result := ReAqurieUnfilteredRoot;
+//#UC END# *4F1D334C0371_468361010204_impl*
+//#UC START# *4F1D334C0371_468361010204_var*
+//#UC END# *4F1D334C0371_468361010204_var*

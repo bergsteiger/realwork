@@ -1,0 +1,37 @@
+//#UC START# *47A042E100E2_491C3E97009F_impl*
+ inherited;
+ f_ShowingStatus := ucc_Consultation.bsConsultation.Status;
+//#UC END# *47A042E100E2_491C3E97009F_impl*
+//#UC START# *47A042E100E2_491C3E97009F_var*
+//#UC END# *47A042E100E2_491C3E97009F_var*
+//#UC START# *491C3E97009F_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultation.pas
+//#UC END# *491C3E97009F_ext:FileName
+//#UC START# *491C3E97009Fimpl_uses*
+//#UC END# *491C3E97009Fimpl_uses*
+//#UC START# *491C3FAA009D_491C3E97009Fget_impl*
+ Result := f_ShowingStatus;
+//#UC END# *491C3FAA009D_491C3E97009Fget_impl*
+//#UC START# *491C3FAA009D_491C3E97009Fget_var*
+//#UC END# *491C3FAA009D_491C3E97009Fget_var*
+//#UC START# *4A60B23E00C3_491C3E97009F_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail and (ucc_Consultation.bsConsultation <> nil) then
+  if IID.EQ(IConsultation) then
+  begin
+   Assert(false, 'Ну и кому такой запрос IConsultation понадобился? Пользуйтесь ucc_Consultation.bsConsultation.Data');
+   IConsultation(Obj) := ucc_Consultation.bsConsultation.Data;
+   if (IConsultation(Obj) <> nil) then
+    Result.SetOk;
+  end;//IID.EQ(IConsultation)
+//#UC END# *4A60B23E00C3_491C3E97009F_impl*
+//#UC START# *4A60B23E00C3_491C3E97009F_var*
+//#UC END# *4A60B23E00C3_491C3E97009F_var*
+//#UC START# *4C6AB38800F3_491C3E97009F_impl*
+(* if (Consultation.Status * c_bsShowQueryForConsultations <> []) then
+  Result := inherited MakeContainer
+ else*)
+  Result := TnsConsultationDocumentContainerNew.Make(DocInfo, ucc_Consultation.bsConsultation.Data);
+//#UC END# *4C6AB38800F3_491C3E97009F_impl*
+//#UC START# *4C6AB38800F3_491C3E97009F_var*
+//#UC END# *4C6AB38800F3_491C3E97009F_var*

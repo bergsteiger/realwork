@@ -15,6 +15,7 @@ uses
  , ncsMessageInterfaces
  , CsCommon
  , csIdIOHandlerAbstractAdapter
+ , l3InterfacePtrList
  , ncsMessage
  , Windows
 ;
@@ -24,6 +25,7 @@ type
   private
    f_ClientID: TCsClientId;
    f_Connected: Boolean;
+   f_Helpers: Tl3InterfacePtrList;
    f_IntSessionID: AnsiString;
    f_IOHandler: TcsIdIOHandlerAbstractAdapter;
   protected
@@ -43,10 +45,16 @@ type
    procedure Set_ClientID(aValue: TCsClientId);
    function Get_Processing: Boolean;
    function Get_SessionID: AnsiString;
+   procedure RegisterHelper(const aHelper: IUnknown);
+   procedure UnregisterHelper(const aHelper: IUnknown);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
+  public
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
   protected
    property IntSessionID: AnsiString
     read f_IntSessionID
@@ -338,6 +346,44 @@ begin
 //#UC END# *548FEF4F002E_54E333CD0130get_impl*
 end;//TncsSynchroTransporter.Get_SessionID
 
+procedure TncsSynchroTransporter.RegisterHelper(const aHelper: IUnknown);
+//#UC START# *57F3749202B7_54E333CD0130_var*
+//#UC END# *57F3749202B7_54E333CD0130_var*
+begin
+//#UC START# *57F3749202B7_54E333CD0130_impl*
+ f_Helpers.Add(aHelper);
+//#UC END# *57F3749202B7_54E333CD0130_impl*
+end;//TncsSynchroTransporter.RegisterHelper
+
+procedure TncsSynchroTransporter.UnregisterHelper(const aHelper: IUnknown);
+//#UC START# *57F374AC00AA_54E333CD0130_var*
+//#UC END# *57F374AC00AA_54E333CD0130_var*
+begin
+//#UC START# *57F374AC00AA_54E333CD0130_impl*
+ f_Helpers.Remove(aHelper);
+//#UC END# *57F374AC00AA_54E333CD0130_impl*
+end;//TncsSynchroTransporter.UnregisterHelper
+
+function TncsSynchroTransporter.QueryInterface(const IID: TGUID;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+//#UC START# *47913CBF0265_54E333CD0130_var*
+var
+ l_IDX: Integer;
+//#UC END# *47913CBF0265_54E333CD0130_var*
+begin
+//#UC START# *47913CBF0265_54E333CD0130_impl*
+ Result := inherited QueryInterface(IID, Obj);
+ if Result <> S_Ok then
+  for l_IDX := 0 to f_Helpers.Count - 1 do
+  begin
+   Result := f_Helpers[l_IDX].QueryInterface(IID, Obj);
+   if Result = S_Ok then
+    Break;
+  end;
+//#UC END# *47913CBF0265_54E333CD0130_impl*
+end;//TncsSynchroTransporter.QueryInterface
+
 procedure TncsSynchroTransporter.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54E333CD0130_var*
@@ -347,6 +393,7 @@ begin
  StopProcessing;
 
  IOHandler := nil;
+ FreeAndNil(f_Helpers);
  inherited;
 //#UC END# *479731C50290_54E333CD0130_impl*
 end;//TncsSynchroTransporter.Cleanup
@@ -357,7 +404,7 @@ procedure TncsSynchroTransporter.InitFields;
 begin
 //#UC START# *47A042E100E2_54E333CD0130_impl*
  inherited;
-// !!! Needs to be implemented !!!
+ f_Helpers := Tl3InterfacePtrList.Make;
 //#UC END# *47A042E100E2_54E333CD0130_impl*
 end;//TncsSynchroTransporter.InitFields
 

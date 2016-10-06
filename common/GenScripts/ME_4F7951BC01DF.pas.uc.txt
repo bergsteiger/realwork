@@ -1,0 +1,61 @@
+//#UC START# *479731C50290_4F7951BC01DF_impl*
+ Tl3ListenersManager.RemoveMouseListener(Self);
+ Tl3ListenersManager.RemoveWndProcRetListener(Self);
+ inherited;
+//#UC END# *479731C50290_4F7951BC01DF_impl*
+//#UC START# *479731C50290_4F7951BC01DF_var*
+//#UC END# *479731C50290_4F7951BC01DF_var*
+//#UC START# *47A042E100E2_4F7951BC01DF_impl*
+ inherited;
+ Tl3ListenersManager.AddMouseListener(Self);
+ Tl3ListenersManager.AddWndProcRetListener(Self);
+//#UC END# *47A042E100E2_4F7951BC01DF_impl*
+//#UC START# *47A042E100E2_4F7951BC01DF_var*
+//#UC END# *47A042E100E2_4F7951BC01DF_var*
+//#UC START# *4F7951BC01DF_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsHooks.pas
+//#UC END# *4F7951BC01DF_ext:ParentFileName
+//#UC START# *4F79540E0255*
+ TnsHooks.Instance;
+//#UC END# *4F79540E0255*
+//#UC START# *4F79CEDF005A_4F7951BC01DF_impl*
+ if (aMouseMessage = WM_RBUTTONDOWN) or (aMouseMessage = WM_RBUTTONUP) then
+ begin
+  GetClassName(aHookStruct.hwnd, l_ClassName, SizeOf(l_ClassName));
+  for l_Index := Low(c_ServerNames) to High(c_ServerNames) do
+   if (StrComp(@l_ClassName[0], PChar(c_ServerNames[l_Index])) = 0) then
+   begin
+    theResult.Result := HC_SKIP;
+    theResult.Handled := True;
+   end;//StrComp(@l_ClassName[0], PChar(c_ServerNames[l_Index])) = 0
+ end;//(aMouseMessage = WM_RBUTTONDOWN) or (aMouseMessage = WM_RBUTTONUP)
+//#UC END# *4F79CEDF005A_4F7951BC01DF_impl*
+//#UC START# *4F79CEDF005A_4F7951BC01DF_var*
+const
+ c_ServerNames: array [1..1] of string = ('Internet Explorer_Server');
+var
+ l_ClassName: array [0..255] of Char;
+ l_Index: Integer;
+//#UC END# *4F79CEDF005A_4F7951BC01DF_var*
+//#UC START# *4F79CF9200A0_4F7951BC01DF_impl*
+ try
+  if ((Msg.Message = WM_QUERYENDSESSION) and
+      LongBool(Msg.lResult) and
+      (Msg.hwnd = Application.Handle)) then
+   try
+    try
+     g_ShowFinalSplash := False; // блокируем показ финального сплеша
+     GlobalCrashCleanup;
+    finally
+     GlobalDone;
+    end;//try..finally
+   finally
+    TerminateProcess(GetCurrentProcess, 255);
+   end;//try..finally
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+//#UC END# *4F79CF9200A0_4F7951BC01DF_impl*
+//#UC START# *4F79CF9200A0_4F7951BC01DF_var*
+//#UC END# *4F79CF9200A0_4F7951BC01DF_var*

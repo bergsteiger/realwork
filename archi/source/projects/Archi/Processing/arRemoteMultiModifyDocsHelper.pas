@@ -62,9 +62,10 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsMessage
  {$IfEnd} // NOT Defined(Nemesis)
+ , daDataProvider
  //#UC START# *57E3A9690059impl_uses*
  //#UC END# *57E3A9690059impl_uses*
-;
+, daInterfaces;
 
 constructor TarRemoteMultiModifyDocsHelper.Create(OperType: TOperActionType;
  aFamily: TdaFamilyID;
@@ -77,6 +78,7 @@ begin
  inherited Create(aFamily, anAnouncedDate);
  f_Reply := nil;
  f_Message := TcsMultiModifyDocs.Create;
+ f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.FamilyID := aFamily;
  f_Message.ActionType := OperType;
  f_Message.AnouncedDate := anAnouncedDate;

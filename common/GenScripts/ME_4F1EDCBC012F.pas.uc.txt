@@ -1,0 +1,56 @@
+//#UC START# *47A042E100E2_4F1EDCBC012F_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_4F1EDCBC012F_impl*
+//#UC START# *47A042E100E2_4F1EDCBC012F_var*
+//#UC END# *47A042E100E2_4F1EDCBC012F_var*
+//#UC START# *47B07CF403D0_4F1EDCBC012F_impl*
+ Result := (A.rMainForm = B.rMainForm);
+//#UC END# *47B07CF403D0_4F1EDCBC012F_impl*
+//#UC START# *47B07CF403D0_4F1EDCBC012F_var*
+//#UC END# *47B07CF403D0_4F1EDCBC012F_var*
+//#UC START# *47B2C42A0163_4F1EDCBC012F_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_4F1EDCBC012F_impl*
+//#UC START# *47B2C42A0163_4F1EDCBC012F_var*
+//#UC END# *47B2C42A0163_4F1EDCBC012F_var*
+//#UC START# *47B99D4503A2_4F1EDCBC012F_impl*
+ Result := Integer(CI.rA.rMainForm) - Integer(CI.rB.rMainForm);
+//#UC END# *47B99D4503A2_4F1EDCBC012F_impl*
+//#UC START# *47B99D4503A2_4F1EDCBC012F_var*
+//#UC END# *47B99D4503A2_4F1EDCBC012F_var*
+//#UC START# *4F1EDCBC012F_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormGUIDFromMainFormList.pas
+//#UC END# *4F1EDCBC012F_ext:FileName
+//#UC START# *4F1EDCBC012Fimpl_uses*
+//#UC END# *4F1EDCBC012Fimpl_uses*
+//#UC START# *4F1EDD7B0180_4F1EDD2901A2_impl*
+ Result.rMainForm := aMainForm;
+ Result.rGUID := aGUID;
+//#UC END# *4F1EDD7B0180_4F1EDD2901A2_impl*
+//#UC START# *4F1EDD7B0180_4F1EDD2901A2_var*
+//#UC END# *4F1EDD7B0180_4F1EDD2901A2_var*
+//#UC START# *4F1EDDA3036D_4F1EDD2901A2_impl*
+ SysUtils.CreateGUID(l_GUID);
+ Result := TvcmFormGUIDFromMainFormRec_C(aMainForm, l_GUID);
+//#UC END# *4F1EDDA3036D_4F1EDD2901A2_impl*
+//#UC START# *4F1EDDA3036D_4F1EDD2901A2_var*
+var
+ l_GUID : TGUID;
+//#UC END# *4F1EDDA3036D_4F1EDD2901A2_var*
+//#UC START# *4F1EDDBF01BF_4F1EDCBC012F_impl*
+ l_Item.rMainForm := aForm.NativeMainForm.AsForm.VCLWinControl As TvcmMainForm;
+ if FindData(l_Item, l_Index) then
+  theGUID := Items[l_Index].rGUID
+ else
+ begin
+  SysUtils.CreateGUID(l_Item.rGUID);
+  theGUID := l_Item.rGUID;
+  Add(l_Item);
+ end;//FindData(l_Item, l_Index)
+//#UC END# *4F1EDDBF01BF_4F1EDCBC012F_impl*
+//#UC START# *4F1EDDBF01BF_4F1EDCBC012F_var*
+var
+ l_Index : Integer;
+ l_Item  : TvcmFormGUIDFromMainFormRec;
+//#UC END# *4F1EDDBF01BF_4F1EDCBC012F_var*

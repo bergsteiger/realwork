@@ -1,0 +1,119 @@
+//#UC START# *479731C50290_4ADDE158034A_impl*
+ Items := nil;
+ inherited;
+//#UC END# *479731C50290_4ADDE158034A_impl*
+//#UC START# *479731C50290_4ADDE158034A_var*
+//#UC END# *479731C50290_4ADDE158034A_var*
+//#UC START# *4ADDE158034A_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas
+//#UC END# *4ADDE158034A_ext:ParentFileName
+//#UC START# *54C8E22F0223_4ADDE158034A_impl*
+ Changing;
+ try
+  Il3Node(Self).Notify(ntChildClear, Self);
+  Items := nil;
+ finally
+  Changed;
+ end;
+//#UC END# *54C8E22F0223_4ADDE158034A_impl*
+//#UC START# *54C8E22F0223_4ADDE158034A_var*
+//#UC END# *54C8E22F0223_4ADDE158034A_var*
+//#UC START# *54CBBE4F02F4_4ADDE158034Aget_impl*
+ Result := Items[aIndex];
+//#UC END# *54CBBE4F02F4_4ADDE158034Aget_impl*
+//#UC START# *54CBBE4F02F4_4ADDE158034Aget_var*
+//#UC END# *54CBBE4F02F4_4ADDE158034Aget_var*
+//#UC START# *54CBBE4F02F4_4ADDE158034Aset_impl*
+ Items[aIndex] := Tl3PCharLen(aValue);
+//#UC END# *54CBBE4F02F4_4ADDE158034Aset_impl*
+//#UC START# *54CBBE4F02F4_4ADDE158034Aset_var*
+//#UC END# *54CBBE4F02F4_4ADDE158034Aset_var*
+//#UC START# *54CBBE830320_4ADDE158034Aget_impl*
+ Result := Integer(Items.Handle[aIndex]);
+//#UC END# *54CBBE830320_4ADDE158034Aget_impl*
+//#UC START# *54CBBE830320_4ADDE158034Aget_var*
+//#UC END# *54CBBE830320_4ADDE158034Aget_var*
+//#UC START# *54CBBE830320_4ADDE158034Aset_impl*
+ Items.Handle[aIndex] := aValue;
+//#UC END# *54CBBE830320_4ADDE158034Aset_impl*
+//#UC START# *54CBBE830320_4ADDE158034Aset_var*
+//#UC END# *54CBBE830320_4ADDE158034Aset_var*
+//#UC START# *54CBBEAD001E_4ADDE158034Aget_impl*
+ Result := 0;
+//#UC END# *54CBBEAD001E_4ADDE158034Aget_impl*
+//#UC START# *54CBBEAD001E_4ADDE158034Aget_var*
+//#UC END# *54CBBEAD001E_4ADDE158034Aget_var*
+//#UC START# *54CBBEAD001E_4ADDE158034Aset_impl*
+//#UC END# *54CBBEAD001E_4ADDE158034Aset_impl*
+//#UC START# *54CBBEAD001E_4ADDE158034Aset_var*
+//#UC END# *54CBBEAD001E_4ADDE158034Aset_var*
+//#UC START# *54CBBF2003C3_4ADDE158034A_impl*
+ if f_Items <> nil then
+  Result := f_Items.Count
+ else
+  Result := 0;
+//#UC END# *54CBBF2003C3_4ADDE158034A_impl*
+//#UC START# *54CBBF2003C3_4ADDE158034A_var*
+//#UC END# *54CBBF2003C3_4ADDE158034A_var*
+//#UC START# *54CBBF3C0184_4ADDE158034A_impl*
+ Items.Delete(aIndex);
+//#UC END# *54CBBF3C0184_4ADDE158034A_impl*
+//#UC START# *54CBBF3C0184_4ADDE158034A_var*
+//#UC END# *54CBBF3C0184_4ADDE158034A_var*
+//#UC START# *54CBBFDF025B_4ADDE158034A_impl*
+ Result := Tl3ListItemNode.Create;
+//#UC END# *54CBBFDF025B_4ADDE158034A_impl*
+//#UC START# *54CBBFDF025B_4ADDE158034A_var*
+//#UC END# *54CBBFDF025B_4ADDE158034A_var*
+//#UC START# *54CBC0240017_4ADDE158034A_impl*
+//#UC END# *54CBC0240017_4ADDE158034A_impl*
+//#UC START# *54CBC0240017_4ADDE158034A_var*
+//#UC END# *54CBC0240017_4ADDE158034A_var*
+//#UC START# *54CF91550398_4ADDE158034Aget_impl*
+ Result := f_Items;
+//#UC END# *54CF91550398_4ADDE158034Aget_impl*
+//#UC START# *54CF91550398_4ADDE158034Aget_var*
+//#UC END# *54CF91550398_4ADDE158034Aget_var*
+//#UC START# *54CF91550398_4ADDE158034Aset_impl*
+ if f_Items = aValue then
+  Exit;
+ Changing;
+ try
+  if f_Items <> nil then
+  begin
+   Il3Node(Self).Notify(ntChildClear, Self);
+   with (f_Items as Il3ChangeNotifier) do
+   begin
+    Unsubscribe(Il3ItemNotifyRecipient(Self));
+    Unsubscribe(Il3ChangeRecipient(Self));
+   end;
+  end;
+
+  f_Items := aValue;
+
+  if f_Items <> nil then
+  begin
+   with (f_Items as Il3ChangeNotifier) do
+   begin
+    Subscribe(Il3ItemNotifyRecipient(Self));
+    Subscribe(Il3ChangeRecipient(Self));
+   end;
+   IncAllChildrenCount(f_Items.Count - ChildCount);
+   Il3Node(Self).Notify(ntChildInsert, Self);
+  end;
+ finally
+  Changed;
+ end;
+//#UC END# *54CF91550398_4ADDE158034Aset_impl*
+//#UC START# *54CF91550398_4ADDE158034Aset_var*
+//#UC END# *54CF91550398_4ADDE158034Aset_var*
+//#UC START# *54CF91B400ED_4ADDE158034A_impl*
+ Changed;
+//#UC END# *54CF91B400ED_4ADDE158034A_impl*
+//#UC START# *54CF91B400ED_4ADDE158034A_var*
+//#UC END# *54CF91B400ED_4ADDE158034A_var*
+//#UC START# *54CF91C20055_4ADDE158034A_impl*
+ Changing;
+//#UC END# *54CF91C20055_4ADDE158034A_impl*
+//#UC START# *54CF91C20055_4ADDE158034A_var*
+//#UC END# *54CF91C20055_4ADDE158034A_var*

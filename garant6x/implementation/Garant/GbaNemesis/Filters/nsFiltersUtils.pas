@@ -42,6 +42,11 @@ function CatFilters(const aFirstFilterList: IFiltersFromQuery;
  const aSecondFilterList: IFiltersFromQuery): IFiltersFromQuery;
 procedure RemoveFilter(const aFilters: IFiltersFromQuery;
  const aFilterToRemove: IFilterFromQuery);
+function CopyFilters(const aSource: IFiltersFromQuery): IFiltersFromQuery;
+procedure AssignFilters(const aSource: IFiltersFromQuery;
+ const aDestination: IFiltersFromQuery);
+function SameFilters(const aFirst: IFiltersFromQuery;
+ const aSecond: IFiltersFromQuery): Boolean;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -88,7 +93,8 @@ function CatFilters(const aFirstFilterList: IFiltersFromQuery;
   l_Enum := TnsFiltersEnumerator.Make(aFilters);
   try
    while l_Enum.MoveNext do
-    Result.Add(l_Enum.Current);
+    if not HasFilter(Result, l_Enum.Current) then
+     Result.Add(l_Enum.Current);
   finally
    l_Enum := nil;
   end;
@@ -98,8 +104,10 @@ function CatFilters(const aFirstFilterList: IFiltersFromQuery;
 begin
 //#UC START# *5644419601AD_56443D8E031A_impl*
  Result := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
- lp_AddFilters(aFirstFilterList);
- lp_AddFilters(aSecondFilterList);
+ if (aFirstFilterList <> nil) then
+  lp_AddFilters(aFirstFilterList);
+ if (aSecondFilterList <> nil) then
+  lp_AddFilters(aSecondFilterList);
 //#UC END# *5644419601AD_56443D8E031A_impl*
 end;//CatFilters
 
@@ -123,6 +131,61 @@ begin
  end;//while l_Index < f_ActiveFilters.Count
 //#UC END# *5644424602DA_56443D8E031A_impl*
 end;//RemoveFilter
+
+function CopyFilters(const aSource: IFiltersFromQuery): IFiltersFromQuery;
+//#UC START# *57EE319603DC_56443D8E031A_var*
+//#UC END# *57EE319603DC_56443D8E031A_var*
+begin
+//#UC START# *57EE319603DC_56443D8E031A_impl*
+ Result := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
+ AssignFilters(aSource, Result);
+//#UC END# *57EE319603DC_56443D8E031A_impl*
+end;//CopyFilters
+
+procedure AssignFilters(const aSource: IFiltersFromQuery;
+ const aDestination: IFiltersFromQuery);
+//#UC START# *57EE36080188_56443D8E031A_var*
+var
+ l_Enum: InsFiltersEnumerator;
+//#UC END# *57EE36080188_56443D8E031A_var*
+begin
+//#UC START# *57EE36080188_56443D8E031A_impl*
+ Assert(aSource <> nil);
+ Assert(aDestination <> nil);
+ l_Enum := TnsFiltersEnumerator.Make(aSource);
+ try
+  while l_Enum.MoveNext do
+   aDestination.Add(l_Enum.Current);
+ finally
+  l_Enum := nil;
+ end;
+//#UC END# *57EE36080188_56443D8E031A_impl*
+end;//AssignFilters
+
+function SameFilters(const aFirst: IFiltersFromQuery;
+ const aSecond: IFiltersFromQuery): Boolean;
+//#UC START# *57F229B60026_56443D8E031A_var*
+var
+ l_Index: Integer;
+ l_Filter: IFilterFromQuery;
+//#UC END# *57F229B60026_56443D8E031A_var*
+begin
+//#UC START# *57F229B60026_56443D8E031A_impl*
+ Result := (aSecond.Count = aFirst.Count);
+ if (not Result) then
+  for l_Index := 0 to Pred(aFirst.Count) do
+  begin
+   aFirst.pm_GetItem(l_Index, l_Filter);
+   try
+    Result := HasFilter(aSecond, l_Filter);
+    if (not Result) then
+     Exit;
+   finally
+    l_Filter := nil;
+   end;
+  end;
+//#UC END# *57F229B60026_56443D8E031A_impl*
+end;//SameFilters
 
 constructor TnsFiltersEnumerator.Create(const aFilters: IFiltersFromQuery);
 //#UC START# *56443E9B03A4_56443E71039A_var*

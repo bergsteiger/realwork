@@ -132,14 +132,14 @@ begin
    f_Progressor.ProcessUpdate(piCurrent, 0, 'Передача файлов');
   if not f_Transporter.Processing then
   begin
-   l3System.Msg2Log('Обшика доставки - обрыв связи');
+   l3System.Msg2Log('Ошибка доставки - обрыв связи');
    Exit;
   end;
   for l_IDX := 0 to f_Data.Count - 1 do
   begin
    if not f_Transporter.Processing then
    begin
-    l3System.Msg2Log('Обшика доставки - обрыв связи');
+    l3System.Msg2Log('Ошибка доставки - обрыв связи');
     Exit;
    end;
    if not f_Data[l_IDX].DoProcess(f_Progressor) then

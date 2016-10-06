@@ -1,0 +1,28 @@
+//#UC START# *47B2C42A0163_544F977F036B_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_544F977F036B_impl*
+//#UC START# *47B2C42A0163_544F977F036B_var*
+//#UC END# *47B2C42A0163_544F977F036B_var*
+//#UC START# *47B99D4503A2_544F977F036B_impl*
+ Assert(False);
+
+
+{ if CI.rA.Priority > CI.rB.Priority then
+  Result := 1
+ else
+  if CI.rA.Priority < CI.rB.Priority then
+   Result := -1
+  else}
+   Result := Sign(CI.rA.TimeStamp - CI.rB.TimeStamp);
+ if Result = 0 then
+   Result := Sign(Ord(CI.rB.Kind) - Ord(CI.rA.Kind));
+ if Result = 0 then
+  Result := AnsiCompareText(CI.rA.MessageID, CI.rB.MessageID);
+//#UC END# *47B99D4503A2_544F977F036B_impl*
+//#UC START# *47B99D4503A2_544F977F036B_var*
+//#UC END# *47B99D4503A2_544F977F036B_var*
+//#UC START# *544F977F036B_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsPriorityMessageList.pas
+//#UC END# *544F977F036B_ext:FileName
+//#UC START# *544F977F036Bimpl_uses*
+//#UC END# *544F977F036Bimpl_uses*

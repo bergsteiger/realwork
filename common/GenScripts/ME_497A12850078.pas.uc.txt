@@ -1,0 +1,393 @@
+//#UC START# *497469C90140_497A12850078_impl*
+ inherited;
+ if (dsEditions <> nil) then
+ begin
+  StartLocalPositionning;
+  try
+   RedactionTree.CTree.RootNode := dsEditions.GetEditionsRoot;
+   SetCurentEdition;
+  finally
+   try
+    Invalidate;
+   finally
+    FinishLocalPositionning;
+   end;//try..finally
+  end;//try..finally
+
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=328860502
+  if IsModalForm and (Document <> nil) then
+    TnsViewDocumentEditionListEvent.Log(Document);
+ end;//dsEditions <> nil
+ if RedactionTree.HandleAllocated then
+  PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *497469C90140_497A12850078_impl*
+//#UC START# *497469C90140_497A12850078_var*
+//#UC END# *497469C90140_497A12850078_var*
+//#UC START# *497A12850078_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactions_Form.pas
+//#UC END# *497A12850078_ext:FileName
+//#UC START# *497A12850078impl_uses*
+//#UC END# *497A12850078impl_uses*
+//#UC START# *497F16AC015A_497A12850078_impl*
+ if (sdsBaseDocument <> nil) then
+  TnsViewDocumentEditionListEvent.Log(sdsBaseDocument.DocInfo.Doc);
+//#UC END# *497F16AC015A_497A12850078_impl*
+//#UC START# *497F16AC015A_497A12850078_var*
+//#UC END# *497F16AC015A_497A12850078_var*
+//#UC START# *49803F5503AA_497A12850078_impl*
+ inherited;
+ if not IsModalForm then
+  UpdateStatusInfo;
+//#UC END# *49803F5503AA_497A12850078_impl*
+//#UC START# *49803F5503AA_497A12850078_var*
+//#UC END# *49803F5503AA_497A12850078_var*
+//#UC START# *4A7B029201C0_497A12850078get_impl*
+ Supports(RedactionTree.TreeView.Tree.Root, IDocument, Result);
+//#UC END# *4A7B029201C0_497A12850078get_impl*
+//#UC START# *4A7B029201C0_497A12850078get_var*
+//#UC END# *4A7B029201C0_497A12850078get_var*
+//#UC START# *4A7FCEA9025D_497A12850078_impl*
+ Result := Op_Document_GetParaForPositionning.Call(Aggregate);
+//#UC END# *4A7FCEA9025D_497A12850078_impl*
+//#UC START# *4A7FCEA9025D_497A12850078_var*
+//#UC END# *4A7FCEA9025D_497A12850078_var*
+//#UC START# *4A8931130363_497A12850078_impl*
+ Result := false;
+//#UC END# *4A8931130363_497A12850078_impl*
+//#UC START# *4A8931130363_497A12850078_var*
+//#UC END# *4A8931130363_497A12850078_var*
+//#UC START# *4A8E8F2E0195_497A12850078_impl*
+ inherited;
+ ActiveControl := RedactionTree;
+(* RedactionTree.Left := 0;
+ RedactionTree.Top := 0;
+ RedactionTree.Width := 246;
+ RedactionTree.Height := 444;*)
+ RedactionTree.Align := alClient;
+ RedactionTree.BorderStyle := bsNone;
+ RedactionTree.TabOrder := 0;
+ RedactionTree.MultiStrokeItem := True;
+ RedactionTree.ActionElementMode := l3_amSingleClick;
+ RedactionTree.ViewOptions := [voShowInterRowSpace, voShowIcons, voShowExpandable, voShowLines, voShowOpenChip];
+ RedactionTree.SettingId := 'stidRedactionTree';
+ RedactionTree.NeedStatus := True;
+ // begin http://mdp.garant.ru/pages/viewpage.action?pageId=232098711
+ RedactionTree.SelfDrawNodes := true;
+ RedactionTree.IsShowLines := false;
+ RedactionTree.ShowOpenChip := false;
+ RedactionTree.OnLMouseDown := Self.RedactionTreeLMouseDown;
+ RedactionTree.OnGetItemStyle := Self.DoGetItemStyle;
+ RedactionTree.ViewOptions := RedactionTree.ViewOptions + [voDoNotShowFocusRect];
+ RedactionTree.OnGetItemImageVertOffset := Self.DoGetItemImageVertOffset;
+ // end http://mdp.garant.ru/pages/viewpage.action?pageId=232098711
+ RedactionTree.OnGetItemImage := Self.RedactionTreeGetItemImage;
+ RedactionTree.OnCurrentChanged := Self.RedactionTreeCurrentChanged;
+ RedactionTree.OnMakeTreeSource := Self.RedactionTreeMakeTreeSource;
+ RedactionTree.OnBeforeWake := Self.RedactionTreeBeforeWake;
+ RedactionTree.OnAfterWake := Self.RedactionTreeAfterWake;
+ RedactionTree.OnSelectCountChanged := Self.RedactionTreeSelectCountChanged;
+ RedactionTree.OnFormatStatusInfo := Self.RedactionTreeFormatStatusInfo;
+ RedactionTree.OnToggleSelection := Self.RedactionTreeToggleSelection;
+//#UC END# *4A8E8F2E0195_497A12850078_impl*
+//#UC START# *4A8E8F2E0195_497A12850078_var*
+//#UC END# *4A8E8F2E0195_497A12850078_var*
+//#UC START# *4A8EE08403B3_497A12850078exec_impl*
+ if Supports(RedactionTree.TreeView.Tree.Root, InsDocument, l_RootDocument) then
+ begin
+  l_RootDocument.Document := aDocument;
+  SetCurentEdition;
+ end;//Supports(RedactionTree.TreeView.Tree.Root, InsDocument, l_RootDocument)
+//#UC END# *4A8EE08403B3_497A12850078exec_impl*
+//#UC START# *4A8EE08403B3_497A12850078exec_var*
+var
+ l_RootDocument: InsDocument;
+//#UC END# *4A8EE08403B3_497A12850078exec_var*
+//#UC START# *4A97E78202FC_497A12850078_impl*
+ inherited;
+ if (aParent <> nil) then
+  if RedactionTree.HandleAllocated then
+   PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *4A97E78202FC_497A12850078_impl*
+//#UC START# *4A97E78202FC_497A12850078_var*
+//#UC END# *4A97E78202FC_497A12850078_var*
+//#UC START# *4B0D11FB00CC_4B0D11B20334_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aDoc);
+ GetLogger.AddEvent(LE_VIEW_DOCUMENT_EDITION_LIST, l_Data);
+//#UC END# *4B0D11FB00CC_4B0D11B20334_impl*
+//#UC START# *4B0D11FB00CC_4B0D11B20334_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B0D11FB00CC_4B0D11B20334_var*
+//#UC START# *4EC3B6680086_497A12850078_impl*
+ RedactionTree.HitTest(Point(X, Y), l_Index, l_ItemPart);
+ if  (l_ItemPart = ihtIcon) then
+ begin
+  l_Node := RedactionTree.GetNode(l_Index);
+  try
+   if Supports(l_Node, InsEditionNode, l_ENode) then
+    try
+     l_ENode.ChangeCheckTypeViaClick(RedactionTree.TreeStruct);
+    finally
+     l_ENode := nil;
+    end;//try..finally
+  finally
+   l_Node := nil;
+  end;//try..finally
+ end;//l_ItemPart = ihtIcon
+//#UC END# *4EC3B6680086_497A12850078_impl*
+//#UC START# *4EC3B6680086_497A12850078_var*
+var
+ l_Index    : Integer;
+ l_ItemPart : Byte;
+ l_Node     : Il3SimpleNode;
+ l_ENode    : InsEditionNode;
+//#UC END# *4EC3B6680086_497A12850078_var*
+//#UC START# *4EC3C2FF00AC_497A12850078_impl*
+ if (Document <> nil) then
+ begin
+  Document.GetCurrentState(l_State);
+  try
+   l3FillChar(l_Info, SizeOf(l_Info), 0);
+   l_State.GetCurrentRedaction(l_Info);
+   l_PrevCurrent := RedactionTree.GetCurrentNode;
+   RedactionTree.Wake;
+   // - иначе FindEditionOnID может и не отработать, т.к. дерево типа может "спать"
+   //   и ничего не итерировать.
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=318374263&focusedCommentId=320738444&#comment-320738444
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=318374263
+   l_CurNode := FindEditionOnID(l_Info.rId);
+   if (l_CurNode <> nil) then
+   begin
+    StartLocalPositionning;
+    try
+     RedactionTree.GotoOnNode(l_CurNode);
+     if Supports(l_CurNode, InsEditionNode, l_ENode) then
+      try
+       if not l_CurNode.IsSame(l_PrevCurrent) then
+        l_ENode.TryMarkAsMain(RedactionTree.TreeStruct);
+      finally
+       l_ENode := nil;
+      end;//try..finally
+    finally
+     FinishLocalPositionning;
+    end;//try..finally
+   end;//l_CurNode <> nil
+  finally
+   l_State := nil;
+  end;//try..finally
+ end;//Document <> nil
+//#UC END# *4EC3C2FF00AC_497A12850078_impl*
+//#UC START# *4EC3C2FF00AC_497A12850078_var*
+
+ function FindEditionOnID(aRedactionID: TRedactionID): Il3SimpleNode;
+
+  function FindNode(const anIntf: Il3SimpleNode): Boolean;
+  var
+   l_EditionNode : InsEditionNode;
+  begin//FindNode
+   Result := Supports(anIntf, InsEditionNode, l_EditionNode) and
+             l_EditionNode.IsSameID(aRedactionID);
+   l_EditionNode := nil;
+  end;//FindNode
+
+ begin//FindEditionOnID
+  Result := RedactionTree.TreeStruct.SimpleIterateF(l3L2SNA(@FindNode), imCheckResult);
+ end;//FindEditionOnID
+
+var
+ l_State   : IDocumentState;
+ l_PrevCurrent : Il3SimpleNode;
+ l_CurNode : Il3SimpleNode;
+ l_Info    : TRedactionInfo;
+ l_ENode   : InsEditionNode;
+//#UC END# *4EC3C2FF00AC_497A12850078_var*
+//#UC START# *4EC3C50601B5_497A12850078_impl*
+ Inc(f_LocalPositioning);
+//#UC END# *4EC3C50601B5_497A12850078_impl*
+//#UC START# *4EC3C50601B5_497A12850078_var*
+//#UC END# *4EC3C50601B5_497A12850078_var*
+//#UC START# *4EC3C51F015E_497A12850078_impl*
+ if f_LocalPositioning > 0 then
+  Dec(f_LocalPositioning)
+ else
+  Assert(False, 'Несбалансированны скобки локального позиционирования');
+//#UC END# *4EC3C51F015E_497A12850078_impl*
+//#UC START# *4EC3C51F015E_497A12850078_var*
+//#UC END# *4EC3C51F015E_497A12850078_var*
+//#UC START# *4EC3D7BA0247_497A12850078_impl*
+ Result := f_LocalPositioning > 0;
+//#UC END# *4EC3D7BA0247_497A12850078_impl*
+//#UC START# *4EC3D7BA0247_497A12850078_var*
+//#UC END# *4EC3D7BA0247_497A12850078_var*
+//#UC START# *4EC3D92302F3_497A12850078_impl*
+ if (Index >= 0) then
+  Result := NsCalcEditionImageIndex(RedactionTree.GetNode(Index), aImages, true)
+ else
+  Result := -1;
+//#UC END# *4EC3D92302F3_497A12850078_impl*
+//#UC START# *4EC3D92302F3_497A12850078_var*
+//#UC END# *4EC3D92302F3_497A12850078_var*
+//#UC START# *4EC3D9E50143_497A12850078_impl*
+ if not IsLocalPositionning and (aNewCurrent <> -1) then
+ begin
+  l_CurNode := RedactionTree.GetNode(aNewCurrent);
+  try
+   if (l_CurNode <> nil) then
+    Op_Redactions_RedactionOnID.Call(Aggregate, (l_CurNode as InsEditionNode).EditionID);
+  finally
+   l_CurNode := nil;
+  end;//try..finally
+ end;//not IsLocalPositionning and (NewCurrent <> -1)
+ if not IsModalForm then
+  UpdateStatusInfo;
+//#UC END# *4EC3D9E50143_497A12850078_impl*
+//#UC START# *4EC3D9E50143_497A12850078_var*
+var
+ l_CurNode : Il3SimpleNode;
+//#UC END# *4EC3D9E50143_497A12850078_var*
+//#UC START# *4EC3DA48035A_497A12850078_impl*
+ theTree := TnsEditionTree.Make;
+//#UC END# *4EC3DA48035A_497A12850078_impl*
+//#UC START# *4EC3DA48035A_497A12850078_var*
+//#UC END# *4EC3DA48035A_497A12850078_var*
+//#UC START# *4EC3DAB000EF_497A12850078_impl*
+ StartLocalPositionning;
+//#UC END# *4EC3DAB000EF_497A12850078_impl*
+//#UC START# *4EC3DAB000EF_497A12850078_var*
+//#UC END# *4EC3DAB000EF_497A12850078_var*
+//#UC START# *4EC3DAD30269_497A12850078_impl*
+ if aWakeResult then
+  SetCurentEdition;
+  
+ FinishLocalPositionning;
+//#UC END# *4EC3DAD30269_497A12850078_impl*
+//#UC START# *4EC3DAD30269_497A12850078_var*
+//#UC END# *4EC3DAD30269_497A12850078_var*
+//#UC START# *4EC3DB680251_497A12850078_impl*
+ //Info := vcmFmt(str_EditionsStatusInfoFormat, [aCurrent, aCount]);
+ Info := nil;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=310675841
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=310675841&focusedCommentId=336661788#comment-336661788
+//#UC END# *4EC3DB680251_497A12850078_impl*
+//#UC START# *4EC3DB680251_497A12850078_var*
+//#UC END# *4EC3DB680251_497A12850078_var*
+//#UC START# *4EC3DC35019A_497A12850078_impl*
+ if not IsModalForm then
+  UpdateStatusInfo;
+//#UC END# *4EC3DC35019A_497A12850078_impl*
+//#UC START# *4EC3DC35019A_497A12850078_var*
+//#UC END# *4EC3DC35019A_497A12850078_var*
+//#UC START# *4EC4CDDB023C_497A12850078exec_impl*
+ if GetDocumentsForCompare(l_Left, l_Right) then
+ begin
+  if IsModalForm then
+   ModalResult := mrCancel;
+  TEditionsService.Instance.MakeCompareEditions(l_Left, l_Right, RedactionCurrentPara);
+ end;//GetDocumentsForCompare(l_Left, l_Right)
+//#UC END# *4EC4CDDB023C_497A12850078exec_impl*
+//#UC START# *4EC4CDDB023C_497A12850078exec_var*
+var
+ l_Left, l_Right : IDocument;
+//#UC END# *4EC4CDDB023C_497A12850078exec_var*
+//#UC START# *4EC4CDDB023C_497A12850078test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.ReadyForCompare;
+//#UC END# *4EC4CDDB023C_497A12850078test_impl*
+//#UC START# *4EC4CDDB023C_497A12850078test_var*
+//#UC END# *4EC4CDDB023C_497A12850078test_var*
+//#UC START# *4EC4CE180122_497A12850078exec_impl*
+ if GetDocumentsForCompare(l_Left, l_Right) then
+ begin
+  if IsModalForm then
+   ModalResult := mrCancel;
+  TChangesBetweenEditionsService.Instance.ViewChangedFragments(l_Left, l_Right);
+ end;//GetDocumentsForCompare(l_Left, l_Right)
+//#UC END# *4EC4CE180122_497A12850078exec_impl*
+//#UC START# *4EC4CE180122_497A12850078exec_var*
+var
+ l_Left, l_Right : IDocument;
+//#UC END# *4EC4CE180122_497A12850078exec_var*
+//#UC START# *4EC4CE180122_497A12850078test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Self.ReadyForCompare;
+//#UC END# *4EC4CE180122_497A12850078test_impl*
+//#UC START# *4EC4CE180122_497A12850078test_var*
+//#UC END# *4EC4CE180122_497A12850078test_var*
+//#UC START# *4EC4D3B0024F_497A12850078_impl*
+ Result := false;
+ if Supports(RedactionTree.GetCurrentNode, InsEditionNode, l_Node) then
+  try
+   Result := l_Node.ReadyForCompare(RedactionTree.TreeStruct);
+  finally
+   l_Node := nil;
+  end;//try..finally
+//#UC END# *4EC4D3B0024F_497A12850078_impl*
+//#UC START# *4EC4D3B0024F_497A12850078_var*
+var
+ l_Node : InsEditionNode;
+//#UC END# *4EC4D3B0024F_497A12850078_var*
+//#UC START# *4EC4F4B20346_497A12850078_impl*
+ Result := false;
+ if Supports(RedactionTree.GetCurrentNode, InsEditionNode, l_Node) then
+  try
+   l_Node.GetDocumentsForCompare(RedactionTree.TreeStruct, aLeft, aRight);
+   Result := (aLeft <> nil) AND (aRight <> nil);
+  finally
+   l_Node := nil;
+  end;//try..finally
+//#UC END# *4EC4F4B20346_497A12850078_impl*
+//#UC START# *4EC4F4B20346_497A12850078_var*
+var
+ l_Node : InsEditionNode;
+//#UC END# *4EC4F4B20346_497A12850078_var*
+//#UC START# *4EC502E20378_497A12850078_impl*
+ Result := false;
+ l_Node := RedactionTree.GetNode(anIndex);
+ try
+  if Supports(l_Node, InsEditionNode, l_ENode) then
+   try
+    l_ENode.ChangeCheckTypeViaClick(RedactionTree.TreeStruct);
+   finally
+    l_ENode := nil;
+   end;//try..finally
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *4EC502E20378_497A12850078_impl*
+//#UC START# *4EC502E20378_497A12850078_var*
+var
+ l_Node  : Il3SimpleNode;
+ l_ENode : InsEditionNode;
+//#UC END# *4EC502E20378_497A12850078_var*
+//#UC START# *4ED4D56603CA_497A12850078_impl*
+ //aVJustify := vt_vjBottom;
+ // - выравниваем иконку вниз
+//#UC END# *4ED4D56603CA_497A12850078_impl*
+//#UC START# *4ED4D56603CA_497A12850078_var*
+//#UC END# *4ED4D56603CA_497A12850078_var*
+//#UC START# *4ED613000183_497A12850078_impl*
+ if Supports(RedactionTree.GetNode(aItemIndex), Il3TagRef, l_Tag) then
+  try
+   if l_Tag.AsObject.IsKindOf(k2_typNodeGroup) then
+    theImageVertOffset := l3CrtIC.LP2DP(l3PointY(evDocumentPartMargin * 2 + evDocumentPartMargin div 2)).Y + 3{2};
+    // - конечно надо тут брать из параграфа что-то типа Spacing,
+    //   но туда - далеко пока тянуться, посему - пока костыль
+    //theImageVertOffset := 20;
+  finally
+   l_Tag := nil;
+  end;//try..finally
+//#UC END# *4ED613000183_497A12850078_impl*
+//#UC START# *4ED613000183_497A12850078_var*
+var
+ l_Tag : Il3TagRef;
+//#UC END# *4ED613000183_497A12850078_var*
+//#UC START# *4EF354C8018B_497A12850078_impl*
+ Result := not IsModalForm;
+//#UC END# *4EF354C8018B_497A12850078_impl*
+//#UC START# *4EF354C8018B_497A12850078_var*
+//#UC END# *4EF354C8018B_497A12850078_var*
+//#UC START# *E2975B7BD13F_497A12850078_impl*
+ afw.Settings.SaveBoolean(pi_Document_Sheets_Redactions, False);
+ SafeClose;
+//#UC END# *E2975B7BD13F_497A12850078_impl*
+//#UC START# *E2975B7BD13F_497A12850078_var*
+//#UC END# *E2975B7BD13F_497A12850078_var*

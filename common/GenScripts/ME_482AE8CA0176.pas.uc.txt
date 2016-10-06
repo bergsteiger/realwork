@@ -1,0 +1,23 @@
+//#UC START# *482AE8CA0176_ext:FileName
+w:\common\components\gui\Garant\Everest\ctButtonEdit.pas
+//#UC END# *482AE8CA0176_ext:FileName
+//#UC START# *482AE8CA0176impl_uses*
+//#UC END# *482AE8CA0176impl_uses*
+//#UC START# *482AE97A02F7_482AE8CA0176get_impl*
+ Result := CText;
+//#UC END# *482AE97A02F7_482AE8CA0176get_impl*
+//#UC START# *482AE97A02F7_482AE8CA0176get_var*
+//#UC END# *482AE97A02F7_482AE8CA0176get_var*
+//#UC START# *482AE97A02F7_482AE8CA0176set_impl*
+ Inc(FRestrictOnTextChange);
+ try
+  if not l3Same(aValue, CText) then
+   CText := aValue;
+ finally
+  Dec(FRestrictOnTextChange);
+ end;//try..finally
+
+ AdjustWidth; // Костыль к K278854646
+//#UC END# *482AE97A02F7_482AE8CA0176set_impl*
+//#UC START# *482AE97A02F7_482AE8CA0176set_var*
+//#UC END# *482AE97A02F7_482AE8CA0176set_var*

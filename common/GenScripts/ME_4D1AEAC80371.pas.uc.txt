@@ -1,0 +1,69 @@
+//#UC START# *47B1E5230151_4D1AEAC80371_impl*
+ Result := TTestNameString;
+//#UC END# *47B1E5230151_4D1AEAC80371_impl*
+//#UC START# *47B1E5230151_4D1AEAC80371_var*
+//#UC END# *47B1E5230151_4D1AEAC80371_var*
+//#UC START# *4D1AEAC80371_ext:FileName
+w:\common\components\rtl\Garant\DUnitTuning\TestNameList.pas
+//#UC END# *4D1AEAC80371_ext:FileName
+//#UC START# *4D1AEAC80371impl_uses*
+//#UC END# *4D1AEAC80371impl_uses*
+//#UC START# *5245135701C4_4D1AEAC80371_impl*
+ if TTestNameList.Exists then
+  case aOperation of
+   lo_Clear: TTestNameList.Instance.Clear;
+   lo_AND, lo_NOT: begin
+    l_NewList := Create;
+    l_TempList := Create;
+    try
+     l_TempList.LoadFromFile(aFileName);
+     l_TempList.IterateAllF(l3L2IA(@lp_CheckData));
+     if aOperation = lo_NOT then
+      g_TTestNameList.IterateAllF(l3L2IA(@lp_AddData));
+     TTestNameListFree;
+     g_TTestNameList := l_NewList;
+    finally
+     l3Free(l_TempList);
+    end;
+    Exit;
+   end;
+  end;
+ TTestNameList.Instance.LoadFromFile(aFileName);
+//#UC END# *5245135701C4_4D1AEAC80371_impl*
+//#UC START# *5245135701C4_4D1AEAC80371_var*
+var
+ l_NewList : TTestNameList;
+
+ function lp_CheckData(aWord: Pointer; anIndex: Integer): Boolean;
+ var
+  l_Index : Integer;
+ begin
+  Result := True;
+  if not Tl3PrimString(aWord^).Empty then
+   if g_TTestNameList.FindData(Tl3PrimString(aWord^).AsWStr, l_Index) then
+    if aOperation = lo_AND then
+     l_NewList.Add(Tl3PrimString(aWord^).AsWStr)
+    else
+     g_TTestNameList.Delete(l_Index)
+   else
+    if aOperation = lo_NOT then
+     l_NewList.Add(Tl3PrimString(aWord^).AsWStr);
+ end;
+
+ function lp_AddData(aWord: Pointer; anIndex: Integer): Boolean;
+ var
+  l_Index : Integer;
+ begin
+  Result := True;
+  l_NewList.Add(Tl3PrimString(aWord^).AsWStr);
+ end;
+
+var
+ l_TempList: TTestNameList;
+//#UC END# *5245135701C4_4D1AEAC80371_var*
+//#UC START# *525CFBC20231_4D1AEAC80371_impl*
+ if Exists then
+  TTestNameList.Instance.Clear;
+//#UC END# *525CFBC20231_4D1AEAC80371_impl*
+//#UC START# *525CFBC20231_4D1AEAC80371_var*
+//#UC END# *525CFBC20231_4D1AEAC80371_var*

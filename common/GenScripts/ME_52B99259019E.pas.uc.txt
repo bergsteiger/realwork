@@ -1,0 +1,116 @@
+//#UC START# *47D1602000C6_52B99259019E_impl*
+ inherited;
+ ControlStyle := ControlStyle + [csNoDesignVisible];
+ TabStop := True;
+ DrawFocusRect := True;
+ ShowBorder := False;
+ Font.Charset := RUSSIAN_CHARSET;
+//#UC END# *47D1602000C6_52B99259019E_impl*
+//#UC START# *47D1602000C6_52B99259019E_var*
+//#UC END# *47D1602000C6_52B99259019E_var*
+//#UC START# *4F884378016A_52B99259019E_impl*
+ inherited;
+ if (Operation = opRemove) and (AComponent is TControl) then
+  TnpControlsList.Instance.DeleteControl(TControl(AComponent));
+//#UC END# *4F884378016A_52B99259019E_impl*
+//#UC START# *4F884378016A_52B99259019E_var*
+//#UC END# *4F884378016A_52B99259019E_var*
+//#UC START# *4F8851380274_52B99259019E_impl*
+ if not f_Navigator.Float then
+  TnpControlsList.Instance.AddControl(f_Navigator, Source.Control);
+ inherited;
+//#UC END# *4F8851380274_52B99259019E_impl*
+//#UC START# *4F8851380274_52B99259019E_var*
+//#UC END# *4F8851380274_52B99259019E_var*
+//#UC START# *52B99259019E_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtNavigator.pas
+//#UC END# *52B99259019E_ext:ParentFileName
+//#UC START# *52B9A6A80336_52B99259019E_impl*
+ inherited GetSiteInfo(Client, InfluenceRect, MousePos, CanDock);
+ if CanDock then
+  if Assigned(f_Navigator.OnGetSiteInfo) then
+   f_Navigator.OnGetSiteInfo(Self, Client, InfluenceRect, MousePos, CanDock);
+//#UC END# *52B9A6A80336_52B99259019E_impl*
+//#UC START# *52B9A6A80336_52B99259019E_var*
+//#UC END# *52B9A6A80336_52B99259019E_var*
+//#UC START# *52B9A7B2027D_52B99259019E_impl*
+ inherited;
+ if Assigned(f_Navigator) then
+  if Assigned(f_Navigator.Parent) then
+    (* Проверяем parent, потому что иначе при отстыковке закладки при попытке
+       получить Handle получим исключение что parent не определен. *)
+   DoNotifyControls(f_Navigator, CM_npTabPositionChanged, 0, 0);
+//#UC END# *52B9A7B2027D_52B99259019E_impl*
+//#UC START# *52B9A7B2027D_52B99259019E_var*
+//#UC END# *52B9A7B2027D_52B99259019E_var*
+//#UC START# *52B9A85201C2_52B99259019E_impl*
+ if (f_Navigator.State = nsNormal) and (PageCount = 1) then
+  f_Navigator.State := nsMinimized
+ else 
+  inherited;
+//#UC END# *52B9A85201C2_52B99259019E_impl*
+//#UC START# *52B9A85201C2_52B99259019E_var*
+//#UC END# *52B9A85201C2_52B99259019E_var*
+//#UC START# *52B9A8F00082_52B99259019E_impl*
+ Result := False;
+ l_Controller := GetDefController;
+ if Assigned(l_Controller) then
+  with l_Controller.EntryCommands do
+   if TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut then
+   begin
+    Msg.Result := 0;  {indicate that this message was processed}
+    Result := True;
+   end;//TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut
+//#UC END# *52B9A8F00082_52B99259019E_impl*
+//#UC START# *52B9A8F00082_52B99259019E_var*
+var
+ l_Controller: TOvcController;
+//#UC END# *52B9A8F00082_52B99259019E_var*
+//#UC START# *52B9AAC50136_52B99259019E_impl*
+ inherited;
+ case Message.NotifyRec.ClientMsg of
+  CM_VISIBLECHANGED:
+   if Boolean(Message.NotifyRec.MsgWParam) then
+    if f_Navigator.Float then
+    { Если при создании плавающего навигатора в OnPageControlUnDock подают
+      Client.Visible, то FMgrState(True) не вызывается, навигатор не отображается.
+      Когда клиента показывают, то показываем и навигатор. }
+     f_Navigator.f_FloatNavigator.Visible := True;
+    else
+     f_Navigator.InitDockDrop;
+ end;//case Message.NotifyRec.ClientMsg
+//#UC END# *52B9AAC50136_52B99259019E_impl*
+//#UC START# *52B9AAC50136_52B99259019E_var*
+//#UC END# *52B9AAC50136_52B99259019E_var*
+//#UC START# *52B9AB590246_52B99259019E_impl*
+ inherited;
+ Message.ResultLo := 1;
+ // если закладка свернута, то она не активна
+ Message.ResultHi := Integer((ActivePage = TElTabSheet(Message.WParam)) and (f_Navigator.State = nsNormal));
+//#UC END# *52B9AB590246_52B99259019E_impl*
+//#UC START# *52B9AB590246_52B99259019E_var*
+//#UC END# *52B9AB590246_52B99259019E_var*
+//#UC START# *52B9ABE70151_52B99259019E_impl*
+ inherited;
+ if f_Navigator.State <> nsNormal then
+  f_Navigator.State := nsNormal;
+//#UC END# *52B9ABE70151_52B99259019E_impl*
+//#UC START# *52B9ABE70151_52B99259019E_var*
+//#UC END# *52B9ABE70151_52B99259019E_var*
+//#UC START# *52B9AC2801E0_52B99259019E_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52B9AC2801E0_52B99259019E_impl*
+//#UC START# *52B9AC2801E0_52B99259019E_var*
+//#UC END# *52B9AC2801E0_52B99259019E_var*
+//#UC START# *52B9AC3F01E2_52B99259019E_impl*
+ if not IsHandledShortcut(Msg) then
+  inherited;
+//#UC END# *52B9AC3F01E2_52B99259019E_impl*
+//#UC START# *52B9AC3F01E2_52B99259019E_var*
+//#UC END# *52B9AC3F01E2_52B99259019E_var*
+//#UC START# *52B9ACA10057_52B99259019E_impl*
+ Message.Result := 1;
+//#UC END# *52B9ACA10057_52B99259019E_impl*
+//#UC START# *52B9ACA10057_52B99259019E_var*
+//#UC END# *52B9ACA10057_52B99259019E_var*

@@ -1,0 +1,290 @@
+//#UC START# *4A92C1380380_579F7FDF01C3_Impl_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
+//#UC END# *4A92C1380380_579F7FDF01C3_Impl_ext:ParentFileName
+//#UC START# *4A93F1F200B0_4A92C1380380_impl*
+ Result := TefProgressIndicator.Make(aProgress, aCaption, aMaxCount);
+ try
+  Assert((Result <> nil) AND (Result.VCLWinControl <> nil));
+  Result.VCLWinControl.Repaint;
+  // иначе не отрисовывается кнопка на форме прогресс бара
+  {$IfDef InsiderTest}
+  Inc((Result.VCLWinControl As TvcmEntityForm).g_AllowModal);
+  try
+  {$EndIf InsiderTest}
+   Result.ShowModal;
+   afw.ProcessMessages; //http://mdp.garant.ru/pages/viewpage.action?pageId=564992569
+  {$IfDef InsiderTest}
+  finally
+   Dec((Result.VCLWinControl As TvcmEntityForm).g_AllowModal);
+  end;//try..finally
+  {$EndIf InsiderTest}
+ except
+  Result := nil;
+ end;//try..except
+//#UC END# *4A93F1F200B0_4A92C1380380_impl*
+//#UC START# *4A93F1F200B0_4A92C1380380_var*
+//#UC END# *4A93F1F200B0_4A92C1380380_var*
+//#UC START# *4AAFCA2D03D0_4A92C1380380_impl*
+ Assert(aContainer <> nil);
+ aContainer.HasForm(fm_en_Navigator.rFormID, vcm_ztNavigator, true, @l_Form);
+ if (l_Form <> nil) then
+  l_Form.SafeClose;
+//#UC END# *4AAFCA2D03D0_4A92C1380380_impl*
+//#UC START# *4AAFCA2D03D0_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAFCA2D03D0_4A92C1380380_var*
+//#UC START# *4AAFCCD00301_4A92C1380380_impl*
+ Assert(aContainer <> nil);
+ aContainer.HasForm(fm_en_TasksPanel.rFormID, vcm_ztNavigator, true, @l_Form);
+ if (l_Form <> nil) then
+  l_Form.SafeClose;
+//#UC END# *4AAFCCD00301_4A92C1380380_impl*
+//#UC START# *4AAFCCD00301_4A92C1380380_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4AAFCCD00301_4A92C1380380_var*
+//#UC START# *4ABB68C603CE_4A92C1380380_impl*
+ l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
+ try
+  if l_PageSetup.LoadPageFormatFromPrinter then
+   if l_PageSetup.Modified then
+    l_PageSetup.SavePageFormatToSettings;
+ finally
+  l_PageSetup := nil;
+ end;//try..finally
+//#UC END# *4ABB68C603CE_4A92C1380380_impl*
+//#UC START# *4ABB68C603CE_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
+//#UC END# *4ABB68C603CE_4A92C1380380_var*
+//#UC START# *4ABB691803C2_4A92C1380380_impl*
+ l_PageSetup := TnsPageSetup.Make(nil, aPrinter);
+ try
+  l_PageSetup.SaveToPrinter;
+ finally
+  l_PageSetup := nil;
+ end;//try..finally
+//#UC END# *4ABB691803C2_4A92C1380380_impl*
+//#UC START# *4ABB691803C2_4A92C1380380_var*
+var
+ l_PageSetup : InsPageSettingsInfo;
+//#UC END# *4ABB691803C2_4A92C1380380_var*
+//#UC START# *4ABB6F5D0397_4A92C1380380_impl*
+ TefAbout.Make(vcmMakeParams);
+//#UC END# *4ABB6F5D0397_4A92C1380380_impl*
+//#UC START# *4ABB6F5D0397_4A92C1380380_var*
+//#UC END# *4ABB6F5D0397_4A92C1380380_var*
+//#UC START# *4ABB74D80287_4A92C1380380_impl*
+ op_PrintParams_UpdatePrinter.Broadcast;
+//#UC END# *4ABB74D80287_4A92C1380380_impl*
+//#UC START# *4ABB74D80287_4A92C1380380_var*
+//#UC END# *4ABB74D80287_4A92C1380380_var*
+//#UC START# *4ABB8D6B0041_4A92C1380380_impl*
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_LAW_NAVIGATOR_FOLDER);
+ if (l_Node <> nil) then
+ begin
+  l_Node.GetFirstChild(l_Child);
+  if l_Child <> nil then
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+                            l_Node,
+                            nil,
+                            true,
+                            nil,
+                            CheckContainer(aContainer));
+ end;//l_Node <> nil
+//#UC END# *4ABB8D6B0041_4A92C1380380_impl*
+//#UC START# *4ABB8D6B0041_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
+//#UC END# *4ABB8D6B0041_4A92C1380380_var*
+//#UC START# *4ABBA74F03DA_4A92C1380380_impl*
+ l_Node := TPrimF1CommonModule.GetMenuTypedItem(NM_BUSINESS_INFO_FOLDER);
+ if (l_Node <> nil) then
+ begin
+  l_Node.GetFirstChild(l_Child);
+  while (l_Child <> nil) do
+  begin
+   if (TNavigatorMenuItemType(l_Child.GetType) = NM_NEW_DOCS) then
+    break;
+   l_Child.GetNext(l_Node);
+   l_Child := l_Node;
+  end;//l_Child <> nil
+  if (l_Child <> nil) then
+   TRubricatorOpenService.Instance.OpenRubricator(TnsNewCachableNode.Make(l_Child),
+                            l_Node,
+                            nil,
+                            true,
+                            nil,
+                            CheckContainer(aContainer));
+ end;//l_Node <> nil
+//#UC END# *4ABBA74F03DA_4A92C1380380_impl*
+//#UC START# *4ABBA74F03DA_4A92C1380380_var*
+var
+ l_Node : INodeBase;
+ l_Child : INodeBase;
+//#UC END# *4ABBA74F03DA_4A92C1380380_var*
+//#UC START# *4ABCA68B0155_4A92C1380380_impl*
+ vcmDispatcher.FormDispatcher.Lock;
+ try
+  if CheckContainer(aContainer).NativeMainForm.HasForm(fm_efRubricator.rFormID,
+                                                       vcm_ztParent,
+                                                       True,
+                                                       @l_RubList) then
+  begin
+   l_Aggregate := l_RubList.Aggregate;
+   if (l_Aggregate = nil) then
+   begin
+    l_RubList.MakeAggregate;
+    l_Aggregate := l_RubList.Aggregate;
+   end;//l_Aggregate = nil
+   l_Params := vcmSetAggregate(l_Aggregate,
+                               vcmMakeParams(l_Aggregate,
+                                         CheckContainer(aContainer)));   
+  end//CheckContainer(aContainer).NativeMainForm.HasForm..
+  else
+   l_Params := vcmCheckAggregate(vcmMakeParams(anAggregate,
+                                           CheckContainer(aContainer)));
+  l_Navigator := Ten_Navigator.MakeSingleChild(l_Params.Container.NativeMainForm,
+                                               l_Params,
+                                               vcm_ztNavigator);
+  afw.ProcessMessages;
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
+  l_Navigator.SetActiveInParent;
+ finally
+  vcmDispatcher.FormDispatcher.UnLock;
+ end;//try..finally
+ op_Rubricator_Synchronize.Call(l_RubList);
+//#UC END# *4ABCA68B0155_4A92C1380380_impl*
+//#UC START# *4ABCA68B0155_4A92C1380380_var*
+var
+ l_Aggregate : IvcmAggregate;
+ l_RubList : IvcmEntityForm;
+ l_Params : IvcmMakeParams;
+ l_Navigator : IvcmEntityForm;
+//#UC END# *4ABCA68B0155_4A92C1380380_var*
+//#UC START# *4AC1000A0176_4A92C1380380_impl*
+ {$If not (defined(Monitorings) or defined(Admin))}
+ // заменяем Make --> MakeSingleChild
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=342864296&focusedCommentId=342868675#comment-342868675
+ Ten_TasksPanel.MakeSingleChild(CheckContainer(aContainer), vcmMakeParams(nil,
+                               CheckContainer(aContainer)),
+                     vcm_ztNavigator,
+                     Ord(tpMain));
+ {$IfEnd not (defined(Monitorings) or defined(Admin))}
+//#UC END# *4AC1000A0176_4A92C1380380_impl*
+//#UC START# *4AC1000A0176_4A92C1380380_var*
+//#UC END# *4AC1000A0176_4A92C1380380_var*
+//#UC START# *4AC1F3770062_4A92C1380380_impl*
+ Assert(IsCurEditionActual(aDocument),'Can''t flag unactual redation');
+ if Supports(aDocument, IControllable, l_Controllable) then
+ try
+  AddToControl(l_Controllable);
+ finally
+  l_Controllable := nil;
+ end;//Supports(aDoc, IControllable, l_Controllable)
+//#UC END# *4AC1F3770062_4A92C1380380_impl*
+//#UC START# *4AC1F3770062_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F3770062_4A92C1380380_var*
+//#UC START# *4AC1F3A700BE_4A92C1380380_impl*
+ if Assigned(aControllable) and aControllable.GetCanSetToControl then
+ begin
+  aControllable.SetControlled(True);
+  TControlledObjectService.Instance.AddControlledObject(aControllable);
+ end;//Assigned(aControllable) and aControllable.GetCanSetToControl
+//#UC END# *4AC1F3A700BE_4A92C1380380_impl*
+//#UC START# *4AC1F3A700BE_4A92C1380380_var*
+//#UC END# *4AC1F3A700BE_4A92C1380380_var*
+//#UC START# *4AC1F3D702D2_4A92C1380380_impl*
+ if Supports(aDocument, IControllable, l_Controllable) then
+ try
+  DeleteFromControl(l_Controllable);
+ finally
+  l_Controllable := nil;
+ end;//Supports(aDoc, IControllable, l_Controllable)
+//#UC END# *4AC1F3D702D2_4A92C1380380_impl*
+//#UC START# *4AC1F3D702D2_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F3D702D2_4A92C1380380_var*
+//#UC START# *4AC1F40900DE_4A92C1380380_impl*
+ if Assigned(aControllable) then
+ begin
+  aControllable.SetControlled(False);
+  TControlledObjectService.Instance.DeleteControlledObject(aControllable);
+ end;//Assigned(aControllable)
+//#UC END# *4AC1F40900DE_4A92C1380380_impl*
+//#UC START# *4AC1F40900DE_4A92C1380380_var*
+//#UC END# *4AC1F40900DE_4A92C1380380_var*
+//#UC START# *4AC1F483035F_4A92C1380380_impl*
+ Result := False;
+ if Supports(aDoc, IControllable, l_Controllable) then
+ try
+  Result := l_Controllable.GetControlled;
+ finally
+  l_Controllable := nil;
+ end;
+//#UC END# *4AC1F483035F_4A92C1380380_impl*
+//#UC START# *4AC1F483035F_4A92C1380380_var*
+var
+ l_Controllable : IControllable;
+//#UC END# *4AC1F483035F_4A92C1380380_var*
+//#UC START# *4AC1F6E802E5_4A92C1380380_impl*
+  Result := True;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=296096137&focusedCommentId=326777595#comment-326777595 
+  if (aState <> nil) and (not DefDataAdapter.InTerminateProcess) then
+   try
+    Result := aState.IsActual;
+   except
+    on ECorbaException do
+    ;
+   end;//try..except
+//#UC END# *4AC1F6E802E5_4A92C1380380_impl*
+//#UC START# *4AC1F6E802E5_4A92C1380380_var*
+//#UC END# *4AC1F6E802E5_4A92C1380380_var*
+//#UC START# *4AC1F71B0366_4A92C1380380_impl*
+ Result := True;
+ if (aDocument <> nil) then
+ begin
+  aDocument.GetCurrentState(l_State);
+  try
+   Result := IsCurEditionActual(l_State);
+  finally
+   l_State := nil;
+  end;//try..finally
+ end;//aDocument <> nil
+//#UC END# *4AC1F71B0366_4A92C1380380_impl*
+//#UC START# *4AC1F71B0366_4A92C1380380_var*
+var
+ l_State : IDocumentState;
+//#UC END# *4AC1F71B0366_4A92C1380380_var*
+//#UC START# *4AC203EB01AE_4A92C1380380_impl*
+ Result := cNullDate;
+ if (aDocument <> nil) then
+ begin
+  aDocument.GetCurrentState(l_State);
+  try
+   if (l_State <> nil) then
+   begin
+    l3FillChar(l_Info, SizeOf(l_Info));
+    l_State.GetCurrentRedaction(l_Info);
+    Result := l_Info.rTimeMachineDate;
+   end;//l_State <> nil
+  finally
+   l_State := nil;
+  end;//try..finally
+ end;//aDocument <> nil
+//#UC END# *4AC203EB01AE_4A92C1380380_impl*
+//#UC START# *4AC203EB01AE_4A92C1380380_var*
+var
+ l_State : IDocumentState;
+ l_Info : TRedactionInfo;
+//#UC END# *4AC203EB01AE_4A92C1380380_var*
+//#UC START# *4B2624ED010D_4A92C1380380_impl*
+ Result := Ten_TurnOffTimeMachine.Make(anIntf);
+//#UC END# *4B2624ED010D_4A92C1380380_impl*
+//#UC START# *4B2624ED010D_4A92C1380380_var*
+//#UC END# *4B2624ED010D_4A92C1380380_var*

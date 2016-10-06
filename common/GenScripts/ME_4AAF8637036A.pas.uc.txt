@@ -1,0 +1,26 @@
+//#UC START# *479731C50290_4AAF8637036A_impl*
+ f_PageSetup := nil;
+ inherited;
+//#UC END# *479731C50290_4AAF8637036A_impl*
+//#UC START# *479731C50290_4AAF8637036A_var*
+//#UC END# *479731C50290_4AAF8637036A_var*
+//#UC START# *4AAF8637036A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_Form.pas
+//#UC END# *4AAF8637036A_ext:FileName
+//#UC START# *4AAF8637036Aimpl_uses*
+//#UC END# *4AAF8637036Aimpl_uses*
+//#UC START# *4AC607B7039E_4AAF8637036A_impl*
+   f_CurrentColontitul := -1;
+   // получим редактируемую конфигурацию
+   if (aData <> nil) then
+    f_PageSetup := aData
+   else
+    f_PageSetup := TnsPageSetup.Make;
+   // активная конфигурация не может отсутствовать
+   Assert(Assigned(f_PageSetup));
+   f_DisableControls := False;
+   ReadPageFormats;
+   PreviewGroupBox.Parent := SettingsPageControl.ActivePage;
+   SetColontitulComboBoxItemIndex(0);
+   ToGUIMargins;
+//#UC END# *4AC607B7039E_4AAF8637036A_impl*

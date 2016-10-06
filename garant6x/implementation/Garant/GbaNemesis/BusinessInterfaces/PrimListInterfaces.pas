@@ -16,6 +16,7 @@ uses
  , l3TreeInterfaces
  , bsTypes
  , PrimPrimListInterfaces
+ , FiltersUnit
 ;
 
 type

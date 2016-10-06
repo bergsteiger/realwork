@@ -1,0 +1,17 @@
+//#UC START# *55E40ECA011A_55E55065035D_impl*
+ with TvcmFormSetContainerRegistry.Instance.Map do
+  ForEachF(L2TvcmFormSetContainerMapIteratorForEachFAction(@lp_DoAddItem), aContainer);
+//#UC END# *55E40ECA011A_55E55065035D_impl*
+//#UC START# *55E40ECA011A_55E55065035D_var*
+
+ function lp_DoAddItem(const aFormSet: IvcmFormSet): Boolean;
+ begin
+  f_FormSetItems.Add(TvcmFormSetHistoryItem.Make(aFormSet, aContainer,
+   aForClone));
+  Result := True;
+ end;//lp_DoAddItem
+
+//#UC END# *55E40ECA011A_55E55065035D_var*
+//#UC START# *55E55065035D_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas
+//#UC END# *55E55065035D_ext:ParentFileName

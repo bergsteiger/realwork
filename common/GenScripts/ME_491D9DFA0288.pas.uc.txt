@@ -1,0 +1,87 @@
+//#UC START# *479731C50290_491D9DFA0288_impl*
+  Unregister;
+  FreeAndNil(f_Mutex);
+  FreeAndNil(f_ContinueEvent);
+  FreeAndNil(f_SharedBuf);
+  inherited;
+//#UC END# *479731C50290_491D9DFA0288_impl*
+//#UC START# *479731C50290_491D9DFA0288_var*
+//#UC END# *479731C50290_491D9DFA0288_var*
+//#UC START# *491D9DFA0288_ext:FileName
+w:\quality\test\garant6x\AdapterTest\CoreObjects\atSynchroPoint.pas
+//#UC END# *491D9DFA0288_ext:FileName
+//#UC START# *491D9DFA0288impl_uses*
+//#UC END# *491D9DFA0288impl_uses*
+//#UC START# *491DA1A60030_491D9DFA0288_impl*
+  inherited Create;
+  //
+  f_Mutex := TatNamedMutex.Create(aName);
+  f_ContinueEvent := TEvent.Create(nil, true, false, '{DE90ACF0-3AB6-4004-B9BF-24A328D271A4}_' +aName);
+  // хранилище для данных синхронизации
+  f_SharedBuf := TatSharedBuffer.Create(aName, SizeOf(TSyncData));
+  f_SyncData := f_SharedBuf.Value;
+  // регистрируемся в точке синхронизации
+  Register;
+//#UC END# *491DA1A60030_491D9DFA0288_impl*
+//#UC START# *491DA1A60030_491D9DFA0288_var*
+//#UC END# *491DA1A60030_491D9DFA0288_var*
+//#UC START# *491DA82B01A2_491D9DFA0288_impl*
+  if f_Mutex.Acquire then
+    try
+      // увеличиваем количество ждущих на единицу (самого себй)
+      Assert(f_SyncData.Waiting >= 0, 'invalid f_SyncData.Waiting');
+      Inc(f_SyncData.Waiting);
+      // проверяем, синхронизировались ли
+      ContinueIfSynchronized;
+    finally
+      f_Mutex.Release;
+    end;
+  // ждем синхонизации
+  Result := f_ContinueEvent.WaitFor(aTimeOut) = wrSignaled;
+  // если не дождались то убираем себя из списка ждущих
+  if NOT Result then
+    if f_Mutex.Acquire then
+      try
+        if (f_SyncData.Waiting > 0) then
+          Dec(f_SyncData.Waiting);
+      finally
+        f_Mutex.Release;
+      end;
+//#UC END# *491DA82B01A2_491D9DFA0288_impl*
+//#UC START# *491DA82B01A2_491D9DFA0288_var*
+//#UC END# *491DA82B01A2_491D9DFA0288_var*
+//#UC START# *491DAE930239_491D9DFA0288_impl*
+  if f_Mutex.Acquire then
+    try
+      Inc(f_SyncData.Total);
+    finally
+      f_Mutex.Release;
+    end;
+//#UC END# *491DAE930239_491D9DFA0288_impl*
+//#UC START# *491DAE930239_491D9DFA0288_var*
+//#UC END# *491DAE930239_491D9DFA0288_var*
+//#UC START# *491DAE9E02BF_491D9DFA0288_impl*
+  if f_Mutex.Acquire then
+    try
+      Dec(f_SyncData.Total);
+      // а теперь проверяем, может все ждали только нас, в этом случае надо отпустить всех
+      ContinueIfSynchronized;
+    finally
+      f_Mutex.Release;
+    end;
+//#UC END# *491DAE9E02BF_491D9DFA0288_impl*
+//#UC START# *491DAE9E02BF_491D9DFA0288_var*
+//#UC END# *491DAE9E02BF_491D9DFA0288_var*
+//#UC START# *491DB4E001EF_491D9DFA0288_impl*
+  Assert(f_SyncData.Waiting <= f_SyncData.Total, 'f_SyncData.Waiting > f_SyncData.Total !');
+  Result := f_SyncData.Waiting = f_SyncData.Total;
+  if Result then
+  begin // если больше некого ждать
+    f_ContinueEvent.SetEvent; // то поднимаем event
+    f_SyncData.Waiting := 0; // и обнуляем число ждущих
+  end
+  else if (f_ContinueEvent.WaitFor(0) = wrSignaled) then
+    f_ContinueEvent.ResetEvent; // если есть кого ждать и event не сброшен, то сбрасываем
+//#UC END# *491DB4E001EF_491D9DFA0288_impl*
+//#UC START# *491DB4E001EF_491D9DFA0288_var*
+//#UC END# *491DB4E001EF_491D9DFA0288_var*

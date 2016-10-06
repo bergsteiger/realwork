@@ -1,0 +1,16 @@
+//#UC START# *4B6C39F4013F_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserListHelper.pas
+//#UC END# *4B6C39F4013F_ext:ParentFileName
+//#UC START# *4B6C3A240321_4B6C39F4013F_impl*
+  if Supports(aNode, IProfileNode, l_ProfileNode) AND IsAdd(l_ProfileNode) then
+  begin
+    l_Length := Length(ArrOfUID);
+    SetLength(ArrOfUID, l_Length+1);
+    ArrOfUID[l_Length] := l_ProfileNode.GetUid;
+  end;
+//#UC END# *4B6C3A240321_4B6C39F4013F_impl*
+//#UC START# *4B6C3A240321_4B6C39F4013F_var*
+  var
+    l_ProfileNode : IProfileNode;
+    l_Length : Integer;
+//#UC END# *4B6C3A240321_4B6C39F4013F_var*

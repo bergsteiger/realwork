@@ -1,0 +1,42 @@
+//#UC START# *53959AE3018D_5395C8DC03A7_impl*
+ Assert(Assigned(aProc));
+ f_Synchronizer.BeginWrite;
+ try
+  l_ProcWithId := ListItemBy(aQueryId);
+  if l_ProcWithId <> nil then
+  begin
+   l_ProcWithId.Proc := aProc;
+   l3System.Msg2Log('Переопределение обработчика для %s', [GetEnumName(TypeInfo(TcsQueryID), ord(aQueryID))]);
+  end//l_ProcWithId <> nil
+  else
+  begin
+   l_ProcWithId := TCsProcWithId.Create(aQueryId, aProc);
+   try
+    f_List.Add(l_ProcWithId);
+   finally
+    FreeAndNil(l_ProcWithId);
+   end;//try.f.inally
+  end;//l_ProcWithId <> nil
+ finally
+  f_Synchronizer.EndWrite;
+ end;//try..finally
+//#UC END# *53959AE3018D_5395C8DC03A7_impl*
+//#UC START# *53959AE3018D_5395C8DC03A7_var*
+var
+ l_ProcWithId: TCsProcWithId;
+//#UC END# *53959AE3018D_5395C8DC03A7_var*
+//#UC START# *5395C8DC03A7_ext:FileName
+w:\common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas
+//#UC END# *5395C8DC03A7_ext:FileName
+//#UC START# *5395C8DC03A7impl_uses*
+//#UC END# *5395C8DC03A7impl_uses*
+//#UC START# *53BFBB81029F_5395C8DC03A7_impl*
+ f_Synchronizer.BeginWrite;
+ try
+  f_List.Clear;
+ finally
+  f_Synchronizer.EndWrite;
+ end;//try..finally
+//#UC END# *53BFBB81029F_5395C8DC03A7_impl*
+//#UC START# *53BFBB81029F_5395C8DC03A7_var*
+//#UC END# *53BFBB81029F_5395C8DC03A7_var*

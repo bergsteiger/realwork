@@ -1,0 +1,80 @@
+//#UC START# *469C68EC0226_ext:FileName
+w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas
+//#UC END# *469C68EC0226_ext:FileName
+//#UC START# *48F3504301B7_469C68EC0226_impl*
+ inherited;
+ l_FileName := ChangeFileExt(CreateFileName, '.rtf');
+ l_Generator := TevRTFObjectGenerator.Create;
+ try
+  l_Filer := Tl3DOSFiler.Make(l_FileName, l3_fmWrite, true);
+  try
+   l_Generator.Filer := l_Filer;
+   with l_Generator do
+   begin
+    Start;
+    try
+     StartChild(k2_typDocument);
+     try
+      StartChild(k2_typTextPara);
+      try
+       AddStringAtom(k2_tiText, GetCaptions);
+       aNames.Add(l_FileName);
+      finally
+       Finish;
+      end;//try..finally
+     finally
+      Finish; {-закрываем }
+     end;//try..finally
+    finally
+     Finish; {-закрываем документ}
+    end;//try..finally
+   end;//with l_Generator
+  finally
+   l3Free(l_Filer);
+  end;//try..finally
+ finally
+  l3Free(l_Generator);
+ end;//try..finally
+//#UC END# *48F3504301B7_469C68EC0226_impl*
+//#UC START# *48F3504301B7_469C68EC0226_var*
+var
+ l_Generator  : TevRTFObjectGenerator;
+ l_Filer      : Tl3CustomFiler;
+ l_FileName   : String;
+//#UC END# *48F3504301B7_469C68EC0226_var*
+//#UC START# *48F4B33501DE_469C68EC0226_impl*
+ Result := l3CatFormatArray(inherited GetFormats,
+                            [CF_HDROP]);
+//#UC END# *48F4B33501DE_469C68EC0226_impl*
+//#UC START# *48F4B33501DE_469C68EC0226_var*
+//#UC END# *48F4B33501DE_469C68EC0226_var*
+//#UC START# *48F4B9F4010C_469C68EC0226_impl*
+ if Supports(Data, Il3SimpleNode, l_SNode) then
+  try
+   Result := l_SNode.Text;
+  finally
+   l_SNode := nil;
+  end//try..finally
+ else
+  l3AssignNil(Result);
+//#UC END# *48F4B9F4010C_469C68EC0226_impl*
+//#UC START# *48F4B9F4010C_469C68EC0226_var*
+var
+ l_SNode : Il3SimpleNode;
+//#UC END# *48F4B9F4010C_469C68EC0226_var*
+//#UC START# *48F4BA0E0261_469C68EC0226_impl*
+ Windows.GetTempPath(MAX_PATH, l_Path);
+ Windows.GetTempFileName(l_Path, 'l3DO', 0, l_Name);
+ Result := l_Name;
+//#UC END# *48F4BA0E0261_469C68EC0226_impl*
+//#UC START# *48F4BA0E0261_469C68EC0226_var*
+var
+  l_Name : array [0..MAX_PATH] of Char;
+  l_Path : array [0..MAX_PATH] of Char;
+//#UC END# *48F4BA0E0261_469C68EC0226_var*
+//#UC START# *4CDD4F46039D_469C68EC0226_impl*
+ inherited Create(aData);
+ SetDragBitmap(aBitmap);
+//#UC END# *4CDD4F46039D_469C68EC0226_impl*
+//#UC START# *4CDD4F46039D_469C68EC0226_var*
+//#UC END# *4CDD4F46039D_469C68EC0226_var*

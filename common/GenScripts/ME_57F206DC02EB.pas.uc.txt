@@ -1,0 +1,66 @@
+//#UC START# *479731C50290_57F206DC02EB_impl*
+ FreeAndNil(f_Message);
+ FreeAndNil(f_Reply);
+ inherited;
+//#UC END# *479731C50290_57F206DC02EB_impl*
+//#UC START# *479731C50290_57F206DC02EB_var*
+//#UC END# *479731C50290_57F206DC02EB_var*
+//#UC START# *53A2EEE90097_57F206DC02EB_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ try
+  try
+   l_Sab := MakeValueSet(DocumentServer.FileTbl, fID_Fld, f_Message.DocIDList);
+   try
+    l_Helper := TarDirectMultiOperationHelper.Create(f_Message.FamilyID, f_Message.Operation, l_Sab);
+   finally
+    l_Sab := nil;
+   end;
+   try
+    l_Helper.ModifyDocs;
+   finally
+    FreeAndNil(l_Helper);
+   end;
+   f_Reply.ErrorMessage := '';
+   f_Reply.IsSuccess := True;
+  except
+   on E: Exception do
+   begin
+    f_Reply.ErrorMessage := E.Message;
+    f_Reply.IsSuccess := False;
+    l3System.Exception2Log(E);
+   end;
+  end;
+ finally
+  l_Counter.Stop;
+  SignalReady;
+  l3System.Msg2Log('Remote multioperation (%s) exec - %s', [GetEnumName(TypeInfo(TarMultiOperation), Ord(f_Message.Operation)), FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+ end;
+//#UC END# *53A2EEE90097_57F206DC02EB_impl*
+//#UC START# *53A2EEE90097_57F206DC02EB_var*
+var
+ l_Helper: TarDirectMultiOperationHelper;
+ l_Counter: Tl3StopWatch;
+ l_Sab: ISab;
+//#UC END# *53A2EEE90097_57F206DC02EB_var*
+//#UC START# *57C4135700F7_57F206DC02EB_impl*
+ f_Reply.ErrorMessage := 'Операция прервана';
+ SignalReady;
+//#UC END# *57C4135700F7_57F206DC02EB_impl*
+//#UC START# *57C4135700F7_57F206DC02EB_var*
+//#UC END# *57C4135700F7_57F206DC02EB_var*
+//#UC START# *57F206DC02EB_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationRequest.pas
+//#UC END# *57F206DC02EB_ext:FileName
+//#UC START# *57F206DC02EBimpl_uses*
+//#UC END# *57F206DC02EBimpl_uses*
+//#UC START# *57F207570275_57F206DC02EBset_impl*
+ aValue.SetRefTo(f_Message);
+//#UC END# *57F207570275_57F206DC02EBset_impl*
+//#UC START# *57F207570275_57F206DC02EBset_var*
+//#UC END# *57F207570275_57F206DC02EBset_var*
+//#UC START# *57F20770026C_57F206DC02EBset_impl*
+ aValue.SetRefTo(f_Reply);
+//#UC END# *57F20770026C_57F206DC02EBset_impl*
+//#UC START# *57F20770026C_57F206DC02EBset_var*
+//#UC END# *57F20770026C_57F206DC02EBset_var*

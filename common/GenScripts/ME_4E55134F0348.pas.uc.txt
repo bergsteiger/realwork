@@ -1,0 +1,36 @@
+//#UC START# *47B9BAFD01F4_4E55134F0348_impl*
+ Result := anItem.rID - aData;
+//#UC END# *47B9BAFD01F4_4E55134F0348_impl*
+//#UC START# *47B9BAFD01F4_4E55134F0348_var*
+//#UC END# *47B9BAFD01F4_4E55134F0348_var*
+//#UC START# *4E55134F0348_ext:FileName
+w:\common\components\gui\Garant\Everest\evStandardStylesList.pas
+//#UC END# *4E55134F0348_ext:FileName
+//#UC START# *4E55134F0348impl_uses*
+//#UC END# *4E55134F0348impl_uses*
+//#UC START# *4E551B9F0203_4E55134F0348_impl*
+ if FindData(anID, l_Index) then
+  Result := ItemSlot(l_Index)^.rValue[aJust, aVis, aFixed]
+ else
+  Result := nil;
+//#UC END# *4E551B9F0203_4E55134F0348_impl*
+//#UC START# *4E551B9F0203_4E55134F0348_var*
+var
+ l_Index : Integer;
+//#UC END# *4E551B9F0203_4E55134F0348_var*
+//#UC START# *4E551BCF0180_4E55134F0348_impl*
+ if FindData(anID, l_Index) then
+  ItemSlot(l_Index)^.rValue[aJust, aVis, aFixed] := aStyle
+ else
+ begin
+  l3FillChar(l_Item, SizeOf(l_Item));
+  l_Item.rID := anID;
+  l_Item.rValue[aJust, aVis, aFixed] := aStyle;
+  DirectInsert(l_Index, l_Item);
+ end;//FindData(anID, l_Index)
+//#UC END# *4E551BCF0180_4E55134F0348_impl*
+//#UC START# *4E551BCF0180_4E55134F0348_var*
+var
+ l_Item : TevStandardStylesCacheItem;
+ l_Index : Integer;
+//#UC END# *4E551BCF0180_4E55134F0348_var*

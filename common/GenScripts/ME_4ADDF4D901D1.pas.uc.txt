@@ -1,0 +1,120 @@
+//#UC START# *479731C50290_4ADDF4D901D1_impl*
+ f_Bookmark := nil;
+ f_DocName := nil;
+ inherited;
+//#UC END# *479731C50290_4ADDF4D901D1_impl*
+//#UC START# *479731C50290_4ADDF4D901D1_var*
+//#UC END# *479731C50290_4ADDF4D901D1_var*
+//#UC START# *4A60B23E00C3_4ADDF4D901D1_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+ begin
+  if (f_Bookmark = nil) then
+   Result.SetNOINTERFACE
+  else
+   Result := Tl3HResult_C(f_Bookmark.QueryInterface(IID.IID, Obj));
+ end;
+//#UC END# *4A60B23E00C3_4ADDF4D901D1_impl*
+//#UC START# *4A60B23E00C3_4ADDF4D901D1_var*
+//#UC END# *4A60B23E00C3_4ADDF4D901D1_var*
+//#UC START# *4A8BAAA50229_4ADDF4D901D1get_impl*
+ Result := nil;
+ // Фиктивный узел
+ if not Assigned(f_Bookmark) then
+  Exit;
+ // Получим имя документа
+ if not Assigned(f_DocName) then
+ begin
+  // Document
+  try
+   f_Bookmark.GetFullName(l_Str);
+   f_DocName := nsCStr(l_Str);
+  except
+   // Документа нет
+   on ECanNotFindData do begin end;
+  end;
+  // DocName
+ end;//not Assigned(f_Document)
+ Result := f_DocName;
+//#UC END# *4A8BAAA50229_4ADDF4D901D1get_impl*
+//#UC START# *4A8BAAA50229_4ADDF4D901D1get_var*
+var
+ l_Str : IString;
+//#UC END# *4A8BAAA50229_4ADDF4D901D1get_var*
+//#UC START# *4A8BAACC02D5_4ADDF4D901D1get_impl*
+ Result := f_Bookmark;
+//#UC END# *4A8BAACC02D5_4ADDF4D901D1get_impl*
+//#UC START# *4A8BAACC02D5_4ADDF4D901D1get_var*
+//#UC END# *4A8BAACC02D5_4ADDF4D901D1get_var*
+//#UC START# *4ADDF4D901D1_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\nsJournalBookmarkNode.pas
+//#UC END# *4ADDF4D901D1_ext:FileName
+//#UC START# *4ADDF4D901D1impl_uses*
+//#UC END# *4ADDF4D901D1impl_uses*
+//#UC START# *4ADF23C202CF_4ADDF4D901D1_impl*
+ inherited Create;
+ if not Assigned(aBookmark) then
+  Exit;
+ f_Bookmark := aBookmark;
+ lp_MakeText;
+ lp_MakeComment;
+//#UC END# *4ADF23C202CF_4ADDF4D901D1_impl*
+//#UC START# *4ADF23C202CF_4ADDF4D901D1_var*
+
+ procedure lp_MakeText;
+ const
+  c_MaxLenght = 170;
+  c_Suffix    = ' ...';
+ var
+  l_Index   : Integer;
+  l_Str     : IString;
+ begin
+  // Показывать полное имя:
+  if aFullDocName then
+  begin
+   Get_DocName;
+    // - инициализация поля f_DocName;
+   with f_DocName.AsWStr do
+    if SLen > c_MaxLenght then
+    begin
+     // Обрезаем размер текста до c_MaxLenght, по ближайшему к 170 символу
+     // пробелу:
+     for l_Index := Pred(c_MaxLenght) downto 0 do
+      if l3Compare(S[l_Index], ' ') = 0 then
+      begin
+       l3SetLen(f_DocName, l_Index);
+       Break;
+      end;//if l3Compare(S[l_Index], ' ') = 0 then
+     // Добавим троеточие:
+     f_DocName := l3Cat(f_DocName, c_Suffix);
+    end;//if SLen > c_MaxLenght then
+   // Установим название:
+   pm_SetName(f_DocName.AsWStr);
+  end//if aFullDocName then
+  else
+  // Показывать короткое имя:
+  begin
+   // Name
+   f_Bookmark.GetName(l_Str);
+   try
+    pm_SetName(nsWStr(l_Str));
+   finally
+    l_Str := nil;
+   end;//try..finally
+  end;//if aFullDocName then
+ end;//lp_MakeText;
+
+ procedure lp_MakeComment;
+ var
+  l_Str : IString;
+ begin
+  // Comment
+  f_Bookmark.GetFullName(l_Str);
+  try
+   pm_SetComment(nsWStr(l_Str));
+  finally
+   l_Str := nil;
+  end;//try..finally
+ end;//lp_MakeComment
+
+//#UC END# *4ADF23C202CF_4ADDF4D901D1_var*

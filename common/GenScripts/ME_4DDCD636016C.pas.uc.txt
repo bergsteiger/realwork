@@ -1,0 +1,233 @@
+//#UC START# *496B4C41023E_4DDCD636016C_impl*
+ Result := False;
+//#UC END# *496B4C41023E_4DDCD636016C_impl*
+//#UC START# *496B4C41023E_4DDCD636016C_var*
+//#UC END# *496B4C41023E_4DDCD636016C_var*
+//#UC START# *496B4C500246_4DDCD636016C_impl*
+ Result := True;
+//#UC END# *496B4C500246_4DDCD636016C_impl*
+//#UC START# *496B4C500246_4DDCD636016C_var*
+//#UC END# *496B4C500246_4DDCD636016C_var*
+//#UC START# *496B4CA000B6_4DDCD636016C_impl*
+ Result := True;
+//#UC END# *496B4CA000B6_4DDCD636016C_impl*
+//#UC START# *496B4CA000B6_4DDCD636016C_var*
+//#UC END# *496B4CA000B6_4DDCD636016C_var*
+//#UC START# *496B4CD9005F_4DDCD636016C_impl*
+ Result := False;
+//#UC END# *496B4CD9005F_4DDCD636016C_impl*
+//#UC START# *496B4CD9005F_4DDCD636016C_var*
+//#UC END# *496B4CD9005F_4DDCD636016C_var*
+//#UC START# *496B4CE30132_4DDCD636016C_impl*
+ Result := False;
+//#UC END# *496B4CE30132_4DDCD636016C_impl*
+//#UC START# *496B4CE30132_4DDCD636016C_var*
+//#UC END# *496B4CE30132_4DDCD636016C_var*
+//#UC START# *496B4CED0306_4DDCD636016C_impl*
+ Result := False;
+//#UC END# *496B4CED0306_4DDCD636016C_impl*
+//#UC START# *496B4CED0306_4DDCD636016C_var*
+//#UC END# *496B4CED0306_4DDCD636016C_var*
+//#UC START# *4A7C0E1A005C_4DDCD636016C_impl*
+ Result := TextSource.HasDocument;
+//#UC END# *4A7C0E1A005C_4DDCD636016C_impl*
+//#UC START# *4A7C0E1A005C_4DDCD636016C_var*
+//#UC END# *4A7C0E1A005C_4DDCD636016C_var*
+//#UC START# *4A7FCEA9025D_4DDCD636016C_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4A7FCEA9025D_4DDCD636016C_impl*
+//#UC START# *4A7FCEA9025D_4DDCD636016C_var*
+//#UC END# *4A7FCEA9025D_4DDCD636016C_var*
+//#UC START# *4A8164E801AE_4DDCD636016C_impl*
+ Case aPointType of
+  dptSub :
+  begin
+   l_Sub := TextSource.DocumentContainer.SubList.Sub[aPointID];
+   if (l_Sub <> nil) and
+      l_Sub.Exists then
+    l_Sub.Select(Text.Selection);
+  end;//dptSub
+  else
+   Assert(false);
+ end;//Case aPointType
+//#UC END# *4A8164E801AE_4DDCD636016C_impl*
+//#UC START# *4A8164E801AE_4DDCD636016C_var*
+var
+ l_Sub : IevSub;
+//#UC END# *4A8164E801AE_4DDCD636016C_var*
+//#UC START# *4A8168BB0217_4DDCD636016C_impl*
+ Result := ViewArea.RightEdition;
+//#UC END# *4A8168BB0217_4DDCD636016C_impl*
+//#UC START# *4A8168BB0217_4DDCD636016C_var*
+//#UC END# *4A8168BB0217_4DDCD636016C_var*
+//#UC START# *4A82BC390036_4DDCD636016Cget_impl*
+ Result := Text;
+//#UC END# *4A82BC390036_4DDCD636016Cget_impl*
+//#UC START# *4A82BC390036_4DDCD636016Cget_var*
+//#UC END# *4A82BC390036_4DDCD636016Cget_var*
+//#UC START# *4A8931130363_4DDCD636016C_impl*
+ Result := false;
+//#UC END# *4A8931130363_4DDCD636016C_impl*
+//#UC START# *4A8931130363_4DDCD636016C_var*
+//#UC END# *4A8931130363_4DDCD636016C_var*
+//#UC START# *4A8A9DB0001A_4DDCD636016C_impl*
+ Result := false;
+//#UC END# *4A8A9DB0001A_4DDCD636016C_impl*
+//#UC START# *4A8A9DB0001A_4DDCD636016C_var*
+//#UC END# *4A8A9DB0001A_4DDCD636016C_var*
+//#UC START# *4A8AAD450084_4DDCD636016Cget_impl*
+ Result := Text;
+//#UC END# *4A8AAD450084_4DDCD636016Cget_impl*
+//#UC START# *4A8AAD450084_4DDCD636016Cget_var*
+//#UC END# *4A8AAD450084_4DDCD636016Cget_var*
+//#UC START# *4A8E5E4702C6_4DDCD636016C_impl*
+ with aList do
+ begin
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_CompareEditions, True, str_CompareRedactionOperationCaption, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeSDefaultCaption(opcode_Redactions_OpenRedactionListFrmAct, true, false, 2000, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Edition_ReturnToDocument, True, str_ReturnToDocumentOperationCaption, true, false, 2000, nsc_ttkNone));
+ end;//with aList
+//#UC END# *4A8E5E4702C6_4DDCD636016C_impl*
+//#UC START# *4A8E5E4702C6_4DDCD636016C_var*
+//#UC END# *4A8E5E4702C6_4DDCD636016C_var*
+//#UC START# *4A8E8F2E0195_4DDCD636016C_impl*
+ inherited;
+ with TextSource do
+ begin
+  OnMakeDocumentContainer := Self.MakeDocumentContainer;
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=460265789
+  OnDocumentChanged := TextSourceDocumentChanged;
+  //OnDocumentChanged := Self.DocumentTextChanged;
+ end;
+ with Text do
+ begin
+  //ProvideOperationTypes := ProvideOperationTypes - [potPrint];
+  Align := alClient;
+  ShowComments := true;
+  ShowVersionComments := true;
+//  ShowComments := false;
+//  ShowVersionComments := false;
+  ShowUserComments := false;
+  ShowTechComments := false;
+  //OnVScroll := Self.VScroll;
+  //OnParaChange := Self.ParaChange;
+  {$IfOpt D+}
+  ShowDocumentParts := true;
+  {$EndIf}
+  AllowRubberTables := nev_rtmFitToWindow;
+  IsStaticText := true;
+ end;//with Text
+//#UC END# *4A8E8F2E0195_4DDCD636016C_impl*
+//#UC START# *4A8E8F2E0195_4DDCD636016C_var*
+//#UC END# *4A8E8F2E0195_4DDCD636016C_var*
+//#UC START# *4ACA195801CB_4DDCD636016Cget_impl*
+ Result.rContainer := nil;
+ Result.rZone := vcm_ztAny;
+//#UC END# *4ACA195801CB_4DDCD636016Cget_impl*
+//#UC START# *4ACA195801CB_4DDCD636016Cget_var*
+//#UC END# *4ACA195801CB_4DDCD636016Cget_var*
+//#UC START# *4AD6EAA3034A_4DDCD636016Cget_impl*
+ Result := Self;
+//#UC END# *4AD6EAA3034A_4DDCD636016Cget_impl*
+//#UC START# *4AD6EAA3034A_4DDCD636016Cget_var*
+//#UC END# *4AD6EAA3034A_4DDCD636016Cget_var*
+//#UC START# *4AE1B48A0120_4DDCD636016C_impl*
+ Result := ViewArea.RightEdition;
+//#UC END# *4AE1B48A0120_4DDCD636016C_impl*
+//#UC START# *4AE1B48A0120_4DDCD636016C_var*
+//#UC END# *4AE1B48A0120_4DDCD636016C_var*
+//#UC START# *4AE1C7A8016C_4DDCD636016Cget_impl*
+ Result := TextSource.HasDocument;
+//#UC END# *4AE1C7A8016C_4DDCD636016Cget_impl*
+//#UC START# *4AE1C7A8016C_4DDCD636016Cget_var*
+//#UC END# *4AE1C7A8016C_4DDCD636016Cget_var*
+//#UC START# *4AE1C9890311_4DDCD636016C_impl*
+ Result := false;
+//#UC END# *4AE1C9890311_4DDCD636016C_impl*
+//#UC START# *4AE1C9890311_4DDCD636016C_var*
+//#UC END# *4AE1C9890311_4DDCD636016C_var*
+//#UC START# *4AE9D38A02DA_4DDCD636016Cexec_impl*
+ GotoPoint(aPointID, aPointType);
+ Result := true;
+//#UC END# *4AE9D38A02DA_4DDCD636016Cexec_impl*
+//#UC START# *4AE9D38A02DA_4DDCD636016Cexec_var*
+//#UC END# *4AE9D38A02DA_4DDCD636016Cexec_var*
+//#UC START# *4B1E37CE00C1_4DDCD636016Cexec_impl*
+ TDocumentService.Instance.OpenDocument(TdeDocInfo.Make(Document,
+                                        TbsDocPos_P(GetParaForPositionning)),
+                        nil);
+//#UC END# *4B1E37CE00C1_4DDCD636016Cexec_impl*
+//#UC START# *4B1E37CE00C1_4DDCD636016Cexec_var*
+//#UC END# *4B1E37CE00C1_4DDCD636016Cexec_var*
+//#UC START# *4B1E37CE00C1_4DDCD636016Ctest_impl*
+ // - ничего не делаем
+//#UC END# *4B1E37CE00C1_4DDCD636016Ctest_impl*
+//#UC START# *4B1E37CE00C1_4DDCD636016Ctest_var*
+//#UC END# *4B1E37CE00C1_4DDCD636016Ctest_var*
+//#UC START# *4B4EF0A200BD_4DDCD636016C_impl*
+ Result := ViewArea.RightEdition;
+//#UC END# *4B4EF0A200BD_4DDCD636016C_impl*
+//#UC START# *4B4EF0A200BD_4DDCD636016C_var*
+//#UC END# *4B4EF0A200BD_4DDCD636016C_var*
+//#UC START# *4B4EF0D2016A_4DDCD636016C_impl*
+ Result := False;
+//#UC END# *4B4EF0D2016A_4DDCD636016C_impl*
+//#UC START# *4B4EF0D2016A_4DDCD636016C_var*
+//#UC END# *4B4EF0D2016A_4DDCD636016C_var*
+//#UC START# *4B506F4D0196_4DDCD636016Cexec_impl*
+ Result := GetParaForPositionning;
+//#UC END# *4B506F4D0196_4DDCD636016Cexec_impl*
+//#UC START# *4B506F4D0196_4DDCD636016Cexec_var*
+//#UC END# *4B506F4D0196_4DDCD636016Cexec_var*
+//#UC START# *4B506F4D0196_4DDCD636016Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := true;
+//#UC END# *4B506F4D0196_4DDCD636016Ctest_impl*
+//#UC START# *4B506F4D0196_4DDCD636016Ctest_var*
+//#UC END# *4B506F4D0196_4DDCD636016Ctest_var*
+//#UC START# *4DDCD636016C_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas
+//#UC END# *4DDCD636016C_ext:FileName
+//#UC START# *4DDCD636016Cimpl_uses*
+//#UC END# *4DDCD636016Cimpl_uses*
+//#UC START# *4DDD07AA02FD_4DDCD636016C_impl*
+ aMade := ViewArea.DocumentContainer;
+//#UC END# *4DDD07AA02FD_4DDCD636016C_impl*
+//#UC START# *4DDD07AA02FD_4DDCD636016C_var*
+//#UC END# *4DDD07AA02FD_4DDCD636016C_var*
+//#UC START# *4E8B2F9B02AF_4DDCD636016C_impl*
+ Result := ViewArea.RightEdition;
+//#UC END# *4E8B2F9B02AF_4DDCD636016C_impl*
+//#UC START# *4E8B2F9B02AF_4DDCD636016C_var*
+//#UC END# *4E8B2F9B02AF_4DDCD636016C_var*
+//#UC START# *4F1D607E0027_4DDCD636016Cget_impl*
+ Result := false;
+ // - тут вообще говоря зависит от того - локальный поиск или глобальный
+//#UC END# *4F1D607E0027_4DDCD636016Cget_impl*
+//#UC START# *4F1D607E0027_4DDCD636016Cget_var*
+//#UC END# *4F1D607E0027_4DDCD636016Cget_var*
+//#UC START# *4F2BEF740060_4DDCD636016C_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=333548940
+ Result := -1;
+ l_LeftEdition := ViewArea.LeftEdition;
+ Assert(l_LeftEdition <> nil);
+ if (l_LeftEdition <> nil) then
+ begin
+  l_LeftEdition.GetCurrentState(l_LeftState);
+  Result := l_LeftState.Redaction;
+ end;//l_LeftEdition <> nil
+//#UC END# *4F2BEF740060_4DDCD636016C_impl*
+//#UC START# *4F2BEF740060_4DDCD636016C_var*
+var
+ l_LeftState : IDocumentState;
+ l_LeftEdition : IDocument;
+//#UC END# *4F2BEF740060_4DDCD636016C_var*
+//#UC START# *5228246A01D9_4DDCD636016C_impl*
+ TBaseSearchService.Instance.CheckBaseSearchDataReady(NativeMainForm);
+//#UC END# *5228246A01D9_4DDCD636016C_impl*
+//#UC START# *5228246A01D9_4DDCD636016C_var*
+//#UC END# *5228246A01D9_4DDCD636016C_var*
+//#UC START# *53A303BE03A8_4DDCD636016C_impl*
+ Assert(False, '513615258');
+//#UC END# *53A303BE03A8_4DDCD636016C_impl*
+//#UC START# *53A303BE03A8_4DDCD636016C_var*
+//#UC END# *53A303BE03A8_4DDCD636016C_var*

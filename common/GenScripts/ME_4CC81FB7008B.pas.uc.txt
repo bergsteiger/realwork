@@ -1,0 +1,69 @@
+//#UC START# *479731C50290_4CC81FB7008B_impl*
+ ClearRegion;
+ FreeAndNil(f_Reg);
+ inherited;
+//#UC END# *479731C50290_4CC81FB7008B_impl*
+//#UC START# *479731C50290_4CC81FB7008B_var*
+//#UC END# *479731C50290_4CC81FB7008B_var*
+//#UC START# *4CC81FB7008B_ext:FileName
+w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas
+//#UC END# *4CC81FB7008B_ext:FileName
+//#UC START# *4CC8414403B8_4CC81FB7008B_impl*
+ inherited;
+ UpdateRegion;
+//#UC END# *4CC8414403B8_4CC81FB7008B_impl*
+//#UC START# *4CC8414403B8_4CC81FB7008B_var*
+//#UC END# *4CC8414403B8_4CC81FB7008B_var*
+//#UC START# *4CC841540158_4CC81FB7008B_impl*
+ ClearRegion;
+ inherited;
+//#UC END# *4CC841540158_4CC81FB7008B_impl*
+//#UC START# *4CC841540158_4CC81FB7008B_var*
+//#UC END# *4CC841540158_4CC81FB7008B_var*
+//#UC START# *4CC8417A0288_4CC81FB7008B_impl*
+ inherited;
+ UpdateRegion;
+//#UC END# *4CC8417A0288_4CC81FB7008B_impl*
+//#UC START# *4CC8417A0288_4CC81FB7008B_var*
+//#UC END# *4CC8417A0288_4CC81FB7008B_var*
+//#UC START# *4CC8471A035A_4CC81FB7008B_impl*
+ ClearRegion;
+ if (f_Reg = nil) then
+  f_Reg := Tl3Region.Create
+ else
+  f_Reg.FreeRgn;
+ if (Width > 0) AND (Height > 0) AND Visible then
+ begin
+  if HandleAllocated then
+  begin
+   TuneRegion(f_Reg);
+   if not f_Reg.Empty then
+    SetWindowRgn(Handle, f_Reg.Rgn, true);
+  end;//HandleAllocated
+ end;//Visible
+//#UC END# *4CC8471A035A_4CC81FB7008B_impl*
+//#UC START# *4CC8471A035A_4CC81FB7008B_var*
+//#UC END# *4CC8471A035A_4CC81FB7008B_var*
+//#UC START# *4CC84762022A_4CC81FB7008B_impl*
+ if HandleAllocated then
+  SetWindowRgn(Handle, 0, false);
+//#UC END# *4CC84762022A_4CC81FB7008B_impl*
+//#UC START# *4CC84762022A_4CC81FB7008B_var*
+//#UC END# *4CC84762022A_4CC81FB7008B_var*
+//#UC START# *4CC847800383_4CC81FB7008B_impl*
+ // - ничего не делаем, полагаемся на потомков
+//#UC END# *4CC847800383_4CC81FB7008B_impl*
+//#UC START# *4CC847800383_4CC81FB7008B_var*
+//#UC END# *4CC847800383_4CC81FB7008B_var*
+//#UC START# *4CC8658C017B_4CC81FB7008B_impl*
+ inherited;
+ //UpdateRegion;
+//#UC END# *4CC8658C017B_4CC81FB7008B_impl*
+//#UC START# *4CC8658C017B_4CC81FB7008B_var*
+//#UC END# *4CC8658C017B_4CC81FB7008B_var*
+//#UC START# *4CC867FC01B3_4CC81FB7008B_impl*
+ inherited;
+ UpdateRegion;
+//#UC END# *4CC867FC01B3_4CC81FB7008B_impl*
+//#UC START# *4CC867FC01B3_4CC81FB7008B_var*
+//#UC END# *4CC867FC01B3_4CC81FB7008B_var*

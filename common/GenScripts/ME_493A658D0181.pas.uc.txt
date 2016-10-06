@@ -1,0 +1,108 @@
+//#UC START# *47F3778403D9_493A658D0181_impl*
+ Result := TdMedicFirmList.Make;
+ Result.dsFirmListRef.NeedMake := vcm_nmYes;
+ Result.dsSynchroViewRef.NeedMake := vcm_nmYes;
+//#UC END# *47F3778403D9_493A658D0181_impl*
+//#UC START# *47F3778403D9_493A658D0181_var*
+//#UC END# *47F3778403D9_493A658D0181_var*
+//#UC START# *47FDDACC0101_493A658D0181_impl*
+ SetData.dsAttributesRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_MedicFirmList_SynchroView_Attributes);
+//#UC END# *47FDDACC0101_493A658D0181_impl*
+//#UC START# *47FDDACC0101_493A658D0181_var*
+//#UC END# *47FDDACC0101_493A658D0181_var*
+//#UC START# *47FE03AE0225_493A658D0181_impl*
+ Result := (SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_Attributes) AND
+           inherited NeedMakeDSAttributes;
+//#UC END# *47FE03AE0225_493A658D0181_impl*
+//#UC START# *47FE03AE0225_493A658D0181_var*
+//#UC END# *47FE03AE0225_493A658D0181_var*
+//#UC START# *493964C6039A_493A658D0181_impl*
+ Result := (SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_DrugList) and
+           inherited NeedMakeDrugList;
+//#UC END# *493964C6039A_493A658D0181_impl*
+//#UC START# *493964C6039A_493A658D0181_var*
+//#UC END# *493964C6039A_493A658D0181_var*
+//#UC START# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_impl*
+ if (aSynchroForm <> SetData.MedicFirmList_SynchroView_Form) then
+ begin
+  ClearAllDS;
+  SetData.MedicFirmList_SynchroView_Form := aSynchroForm;
+  Refresh;
+ end;//aSynchroForm <> SetData.MedicFirmList_SynchroView_Form
+//#UC END# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_impl*
+//#UC START# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_var*
+//#UC END# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_var*
+//#UC START# *493A658D0181_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmList.pas
+//#UC END# *493A658D0181_ext:FileName
+//#UC START# *493A658D0181impl_uses*
+//#UC END# *493A658D0181impl_uses*
+//#UC START# *493D1BE601B1_493A658D0181_impl*
+ Result := (SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_Document) AND
+           inherited NeedMakeDocument;
+//#UC END# *493D1BE601B1_493A658D0181_impl*
+//#UC START# *493D1BE601B1_493A658D0181_var*
+//#UC END# *493D1BE601B1_493A658D0181_var*
+//#UC START# *500D3DC401D9_493A658D0181area_impl*
+ l_deMedicFirmList := nil;
+ Supports(InitialUseCaseData, IdeMedicFirmList, l_deMedicFirmList);
+ Result := TdsMedicFirmList.Make(Self, l_deMedicFirmList);
+//#UC END# *500D3DC401D9_493A658D0181area_impl*
+//#UC START# *500D3DC401D9_493A658D0181area_var*
+var
+ l_deMedicFirmList: IdeMedicFirmList;
+//#UC END# *500D3DC401D9_493A658D0181area_var*
+//#UC START# *500D3DC401D9_493A658D0181get_need*
+     AND (NeedMake <> vcm_nmNo)   
+  // - условие создания ViewArea
+//#UC END# *500D3DC401D9_493A658D0181get_need*
+//#UC START# *500D3DC401D9_493A658D0181get_var*
+//#UC END# *500D3DC401D9_493A658D0181get_var*
+//#UC START# *500D3E05033F_493A658D0181area_impl*
+ Result := TdsMedicFirmSynchroView.Make(Self);
+//#UC END# *500D3E05033F_493A658D0181area_impl*
+//#UC START# *500D3E05033F_493A658D0181area_var*
+//#UC END# *500D3E05033F_493A658D0181area_var*
+//#UC START# *500D3E05033F_493A658D0181get_need*
+  // - условие создания ViewArea
+//#UC END# *500D3E05033F_493A658D0181get_need*
+//#UC START# *500D3E05033F_493A658D0181get_var*
+//#UC END# *500D3E05033F_493A658D0181get_var*
+//#UC START# *547039B70620_493A658D0181_impl*
+ inherited OpenAttributes;
+//#UC END# *547039B70620_493A658D0181_impl*
+//#UC START# *547039B70620_493A658D0181_var*
+//#UC END# *547039B70620_493A658D0181_var*
+//#UC START# *55C1DD070354_493A658D0181_impl*
+ Result := pm_GetDsFirmList.MakeNewDocInfo;
+//#UC END# *55C1DD070354_493A658D0181_impl*
+//#UC START# *55C1DD070354_493A658D0181_var*
+//#UC END# *55C1DD070354_493A658D0181_var*
+//#UC START# *5D132F53CBB1_493A658D0181get_impl*
+ Result := SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_Attributes;
+//#UC END# *5D132F53CBB1_493A658D0181get_impl*
+//#UC START# *5D132F53CBB1_493A658D0181get_var*
+//#UC END# *5D132F53CBB1_493A658D0181get_var*
+//#UC START# *A5A4F8CABF20_493A658D0181get_impl*
+ Result := SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_Document;
+//#UC END# *A5A4F8CABF20_493A658D0181get_impl*
+//#UC START# *A5A4F8CABF20_493A658D0181get_var*
+//#UC END# *A5A4F8CABF20_493A658D0181get_var*
+//#UC START# *BF9026B194BB_493A658D0181_impl*
+ SetData.dsDrugListRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_MedicFirmList_SynchroView_DrugList);
+//#UC END# *BF9026B194BB_493A658D0181_impl*
+//#UC START# *BF9026B194BB_493A658D0181_var*
+//#UC END# *BF9026B194BB_493A658D0181_var*
+//#UC START# *C88FE4927F04_493A658D0181get_impl*
+ Result := SetData.MedicFirmList_SynchroView_Form = sva_MedicFirmList_SynchroView_DrugList;
+//#UC END# *C88FE4927F04_493A658D0181get_impl*
+//#UC START# *C88FE4927F04_493A658D0181get_var*
+//#UC END# *C88FE4927F04_493A658D0181get_var*
+//#UC START# *E0B72D4BE61F_493A658D0181_impl*
+ SetData.dsDocumentRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_MedicFirmList_SynchroView_Document);
+//#UC END# *E0B72D4BE61F_493A658D0181_impl*
+//#UC START# *E0B72D4BE61F_493A658D0181_var*
+//#UC END# *E0B72D4BE61F_493A658D0181_var*

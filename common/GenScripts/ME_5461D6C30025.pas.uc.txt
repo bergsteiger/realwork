@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_5461D6C30025_impl*
+ AbortWait;
+ FreeAndNil(f_Event);
+ FreeAndNil(f_Reply);
+ FreeAndNil(f_Message);
+ inherited;
+//#UC END# *479731C50290_5461D6C30025_impl*
+//#UC START# *479731C50290_5461D6C30025_var*
+//#UC END# *479731C50290_5461D6C30025_var*
+//#UC START# *5461D6C30025_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsReplyDescription.pas
+//#UC END# *5461D6C30025_ext:FileName
+//#UC START# *5461D6C30025impl_uses*
+//#UC END# *5461D6C30025impl_uses*
+//#UC START# *5461D8CE0020_5461D6C30025_impl*
+ inherited Create;
+ aMessage.SetRefTo(f_Message)
+//#UC END# *5461D8CE0020_5461D6C30025_impl*
+//#UC START# *5461D8CE0020_5461D6C30025_var*
+//#UC END# *5461D8CE0020_5461D6C30025_var*
+//#UC START# *5461D977016B_5461D6C30025set_impl*
+ Assert(f_Reply = nil);
+ aValue.SetRefTo(f_Reply);
+ if Assigned(f_Event) then
+  f_Event.SetEvent;
+//#UC END# *5461D977016B_5461D6C30025set_impl*
+//#UC START# *5461D977016B_5461D6C30025set_var*
+//#UC END# *5461D977016B_5461D6C30025set_var*
+//#UC START# *5463220800C9_5461D6C30025_impl*
+ if f_Event = nil then
+  f_Event := TEvent.Create(nil, True, False, l3CreateStringGUID);
+//#UC END# *5463220800C9_5461D6C30025_impl*
+//#UC START# *5463220800C9_5461D6C30025_var*
+//#UC END# *5463220800C9_5461D6C30025_var*
+//#UC START# *546335030341_5461D6C30025_impl*
+ if Assigned(Reply) then
+ begin
+  Result := True;
+ end
+ else
+ begin
+  RequestEvent;
+  Result := f_Event.WaitFor(aTimeout) = wrSignaled;
+ end;
+//#UC END# *546335030341_5461D6C30025_impl*
+//#UC START# *546335030341_5461D6C30025_var*
+//#UC END# *546335030341_5461D6C30025_var*
+//#UC START# *5464AAB30031_5461D6C30025_impl*
+ FreeAndNil(f_Reply);
+ if Assigned(f_Event) then
+  f_Event.SetEvent;
+//#UC END# *5464AAB30031_5461D6C30025_impl*
+//#UC START# *5464AAB30031_5461D6C30025_var*
+//#UC END# *5464AAB30031_5461D6C30025_var*

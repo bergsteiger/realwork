@@ -1,0 +1,42 @@
+//#UC START# *47A042E100E2_57AB39D10325_impl*
+ inherited;
+ //Sorted := true;
+ //Duplicates := l3_dupError;
+//#UC END# *47A042E100E2_57AB39D10325_impl*
+//#UC START# *47A042E100E2_57AB39D10325_var*
+//#UC END# *47A042E100E2_57AB39D10325_var*
+//#UC START# *47B9BAFD01F4_57AB39D10325_impl*
+ if (anItem.MainWord = aData) then
+  Result := 0
+ else
+  Result := l3ComparePointers(anItem.MainWord.GetRefForCompare, aData.GetRefForCompare);
+//#UC END# *47B9BAFD01F4_57AB39D10325_impl*
+//#UC START# *47B9BAFD01F4_57AB39D10325_var*
+//#UC END# *47B9BAFD01F4_57AB39D10325_var*
+//#UC START# *57AB39D10325_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelElementFactory.pas
+//#UC END# *57AB39D10325_ext:FileName
+//#UC START# *57AB39D10325impl_uses*
+ , l3String
+//#UC END# *57AB39D10325impl_uses*
+//#UC START# *57AB3A620365_57AB39D10325_impl*
+ l_Inst := Instance;
+ if l_Inst.FindData(aWord, l_Index) then
+  Result := l_Inst.Items[l_Index]
+ else
+ begin
+  l_E := TmsmModelElement.Create(aWord);
+  try
+   l_Inst.Insert(l_Index, l_E);
+   Result := l_E;
+  finally
+   FreeAndNil(l_E);
+  end;//try..finally
+ end;//Self.FindData(l_E, l_Index)
+//#UC END# *57AB3A620365_57AB39D10325_impl*
+//#UC START# *57AB3A620365_57AB39D10325_var*
+var
+ l_E : TmsmModelElement;
+ l_Index : Integer;
+ l_Inst : TmsmModelElementFactory;
+//#UC END# *57AB3A620365_57AB39D10325_var*

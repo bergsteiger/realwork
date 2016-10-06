@@ -1,0 +1,76 @@
+//#UC START# *4909EF6E0361_490AE59703A6_impl*
+ // Root
+ Result := CreateNode(nil) as Il3RootNode;
+ // ѕокажем закладки
+ try
+  l_List := TWorkJournalService.Instance.MakeWorkJournal.MakeBookMarkHistory(f_ForInpharm, MaxCount);
+  l_AddDoc := False;
+  if Assigned(l_List) then
+   for l_Index := 0 to Pred(l_List.Count) do
+   begin
+    l_List.pm_GetItem(l_Index, l_Item);
+     // ѕри замене одной базы на другую, если в новой отсутствуют
+    if Assigned(l_Item) then
+     begin
+      l_AddDoc := True;
+     Result.InsertChild(CreateNode(l_Item));
+    end;
+     end;
+  // Ќи одного документа не получена, создадим фиктивный узел "ƒокументов нет"
+  if not l_AddDoc then
+   lp_CreateFakeNode;
+ except
+  // документов нет
+  on ECanNotFindData do
+   lp_CreateFakeNode;
+ end;//try..except
+//#UC END# *4909EF6E0361_490AE59703A6_impl*
+//#UC START# *4909EF6E0361_490AE59703A6_var*
+
+ procedure lp_CreateFakeNode;
+ var
+  l_Node  : Il3Node;
+ begin
+  l_Node := CreateNode(nil);
+  try
+   l_Node.Text := vcmCStr(str_lrDocumentAbsent).AsWStr;
+   Result.InsertChild(l_Node);
+  finally
+   l_Node := nil;
+  end;//try..finally
+ end;//lp_CreateFakeNode
+
+var
+ l_List   : IJournalBookmarkList;
+ l_Index  : Integer;
+ l_AddDoc : Boolean;
+ l_Item   : IJournalBookMark;
+//#UC END# *4909EF6E0361_490AE59703A6_var*
+//#UC START# *490AE59703A6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Common\nsLastOpenDocTree.pas
+//#UC END# *490AE59703A6_ext:FileName
+//#UC START# *490AE59703A6ci*
+//#UC END# *490AE59703A6ci*
+//#UC START# *490AE59703A6cit*
+//#UC END# *490AE59703A6cit*
+//#UC START# *490AE59703A6impl*
+//#UC END# *490AE59703A6impl*
+//#UC START# *490AE59703A6impl_uses*
+ , Base_Operations_F1Services_Contracts
+//#UC END# *490AE59703A6impl_uses*
+//#UC START# *490AE59703A6intf_uses*
+//#UC END# *490AE59703A6intf_uses*
+//#UC START# *490AE59703A6publ*
+//#UC END# *490AE59703A6publ*
+//#UC START# *490AE5F60009_490AE59703A6_impl*
+ Result := TnsJournalBookmarkNode.Make(aBookmark, f_FullDocName);
+//#UC END# *490AE5F60009_490AE59703A6_impl*
+//#UC START# *490AE5F60009_490AE59703A6_var*
+//#UC END# *490AE5F60009_490AE59703A6_var*
+//#UC START# *490AE8170294_490AE59703A6_impl*
+ inherited Create(aMaxCount);
+ f_FullDocName := aFullDocName;
+ f_ForInpharm := aForInpharm;
+//#UC END# *490AE8170294_490AE59703A6_impl*
+//#UC START# *490AE8170294_490AE59703A6_var*
+//#UC END# *490AE8170294_490AE59703A6_var*

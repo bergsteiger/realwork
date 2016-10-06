@@ -1,0 +1,50 @@
+//#UC START# *4CA5D0430096_4E1C016B0011_impl*
+ Result := DoOpenLog(aView);
+//#UC END# *4CA5D0430096_4E1C016B0011_impl*
+//#UC START# *4CA5D0430096_4E1C016B0011_var*
+//#UC END# *4CA5D0430096_4E1C016B0011_var*
+//#UC START# *4CA5D0540033_4E1C016B0011_impl*
+ DoCloseLog(aLogName);
+//#UC END# *4CA5D0540033_4E1C016B0011_impl*
+//#UC START# *4CA5D0540033_4E1C016B0011_var*
+//#UC END# *4CA5D0540033_4E1C016B0011_var*
+//#UC START# *4CACAF4F008D_4E1C016B0011_impl*
+ Result := false;
+ if (f_Editor <> nil) then
+  if Supports(aView, InevControlView, l_CV) then
+   try
+    l_C := l_CV.Control;
+    Result := (l_CV.Control <> nil) AND l_C.IsA(f_Editor);
+   finally
+    l_CV := nil;
+   end;//try..finally
+//#UC END# *4CACAF4F008D_4E1C016B0011_impl*
+//#UC START# *4CACAF4F008D_4E1C016B0011_var*
+var
+ l_CV : InevControlView;
+ l_C : InevControl;
+//#UC END# *4CACAF4F008D_4E1C016B0011_var*
+//#UC START# *4E1C016B0011_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas
+//#UC END# *4E1C016B0011_ext:FileName
+//#UC START# *4E1C02500330_4E1C016B0011_impl*
+ f_Editor := aText;
+ DoRepaint(f_Editor);
+ try
+  TnevShapesPaintedSpy.Instance.SetLogger(Self);
+  try
+   aText.View.ClearShapes;
+  finally
+   TnevShapesPaintedSpy.Instance.RemoveLogger(Self);
+  end;//try..finally
+ finally
+  f_Editor := nil;
+ end;//try..finally
+//#UC END# *4E1C02500330_4E1C016B0011_impl*
+//#UC START# *4E1C02500330_4E1C016B0011_var*
+//#UC END# *4E1C02500330_4E1C016B0011_var*
+//#UC START# *4EB100CE0160_4E1C016B0011_impl*
+ aText.Repaint;
+//#UC END# *4EB100CE0160_4E1C016B0011_impl*
+//#UC START# *4EB100CE0160_4E1C016B0011_var*
+//#UC END# *4EB100CE0160_4E1C016B0011_var*

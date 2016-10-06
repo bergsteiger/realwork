@@ -1,0 +1,27 @@
+//#UC START# *4E1C0C6C026C_50D456F10356_impl*
+ Result := f_OutputFileName;
+//#UC END# *4E1C0C6C026C_50D456F10356_impl*
+//#UC START# *4E1C0C6C026C_50D456F10356_var*
+//#UC END# *4E1C0C6C026C_50D456F10356_var*
+//#UC START# *4E1C0C8C0007_50D456F10356_impl*
+ f_ScriptCaller.CheckWithEtalon(aLogName, #0);
+//#UC END# *4E1C0C8C0007_50D456F10356_impl*
+//#UC START# *4E1C0C8C0007_50D456F10356_var*
+//#UC END# *4E1C0C8C0007_50D456F10356_var*
+//#UC START# *50D456F10356_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas
+//#UC END# *50D456F10356_ext:FileName
+//#UC START# *50F3D8DF034F_50D456F10356_impl*
+ f_OutputFileName := ChangeFileExt(ExtractFileName(aCtx.rStreamFactory.Filename), '.shapes');
+ RunnerAssert(AnsiStartsStr('TK', f_OutputFileName), 'Имя файла должно начинаться с TK', aCtx);
+ Delete(f_OutputFileName, 1, 2);
+ f_OutputFileName := aCtx.rCaller.ResolveOutputFilePath(f_OutputFileName);
+ f_ScriptCaller := aCtx.rCaller;
+ try
+  SaveDrawing(anEditor);
+ finally
+  f_ScriptCaller := nil;
+ end;//try..finally
+//#UC END# *50F3D8DF034F_50D456F10356_impl*
+//#UC START# *50F3D8DF034F_50D456F10356_var*
+//#UC END# *50F3D8DF034F_50D456F10356_var*

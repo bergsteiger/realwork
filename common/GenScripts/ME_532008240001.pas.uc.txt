@@ -1,0 +1,120 @@
+//#UC START# *532008240001_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas
+//#UC END# *532008240001_ext:FileName
+//#UC START# *532008240001impl_uses*
+//#UC END# *532008240001impl_uses*
+//#UC START# *5320084E020E_532008240001_impl*
+ CheckSave(false, false);
+//#UC END# *5320084E020E_532008240001_impl*
+//#UC START# *5320084E020E_532008240001_var*
+//#UC END# *5320084E020E_532008240001_var*
+//#UC START# *5320086A0278_532008240001_impl*
+ DoCheckLoad(false, false);
+//#UC END# *5320086A0278_532008240001_impl*
+//#UC START# *5320086A0278_532008240001_var*
+//#UC END# *5320086A0278_532008240001_var*
+//#UC START# *537382BA038D_532008240001_impl*
+ l_RootTaskFolder := ddAppConfiguration.AsString['RootTaskFolder'];
+ PureDir(l_RootTaskFolder);
+ Result := CreateTask(defaultUser);
+ Result.TaskFolder := l_RootTaskFolder;
+ l_Fake := Result.Description;
+ InitTask(Result);
+//#UC END# *537382BA038D_532008240001_impl*
+//#UC START# *537382BA038D_532008240001_var*
+const
+ defaultUser = 65000;
+var
+ l_RootTaskFolder : String; 
+ l_Fake : String;
+//#UC END# *537382BA038D_532008240001_var*
+//#UC START# *537383380115_532008240001_impl*
+ CheckSave(true, false);
+//#UC END# *537383380115_532008240001_impl*
+//#UC START# *537383380115_532008240001_var*
+//#UC END# *537383380115_532008240001_var*
+//#UC START# *5373834C015D_532008240001_impl*
+ StartTimer;
+ try
+  l_Task := MakeTask;
+  try
+   SaveTask(l_Task, aPiped, aAsEVD);
+  finally
+   FreeAndNil(l_Task);
+  end;//try..finally
+ finally
+  StopTimer;
+ end;//try..finally
+//#UC END# *5373834C015D_532008240001_impl*
+//#UC START# *5373834C015D_532008240001_var*
+var
+ l_Task: TddTaskItem;
+//#UC END# *5373834C015D_532008240001_var*
+//#UC START# *5374A4480241_532008240001_impl*
+ l_Task := MakeTask;
+ try
+  if aAsEVD then
+   l_FileNameEtalon := 'CheckSaveToEVD'
+  else
+   l_FileNameEtalon := 'DoIt';
+  if aPiped then
+   l_FileNameEtalon := l_FileNameEtalon + 'Piped'; 
+  l_FileNameEtalon := ClassName + '_' + l_FileNameEtalon + '.out' + EtalonSuffix + '.out';
+  StartTimer;
+  try
+   l_File := FilerForInput(l_FileNameEtalon);
+   try
+    l_File.Open;
+    try
+     l_File.Stream.Seek(0, 0);
+     if aAsEVD then
+      l_Task.LoadFromEVD(l_File.Stream, aPiped)
+     else
+      l_Task.LoadFrom(l_File.Stream, aPiped);
+    finally
+     l_File.Close;
+    end;//try..finally
+   finally
+    FreeAndNil(l_File);
+   end;//try..finally
+   SaveTask(l_Task, aPiped, aAsEVD);
+  finally
+   StopTimer;
+  end;//try..finally
+ finally
+  FreeAndNil(l_Task);
+ end;//try..finally
+//#UC END# *5374A4480241_532008240001_impl*
+//#UC START# *5374A4480241_532008240001_var*
+var
+ l_Task: TddTaskItem;
+ l_File: Tl3CustomDosFiler;
+ l_FileNameEtalon: string;
+//#UC END# *5374A4480241_532008240001_var*
+//#UC START# *5374A4750344_532008240001_impl*
+ DoCheckLoad(true, false);
+//#UC END# *5374A4750344_532008240001_impl*
+//#UC START# *5374A4750344_532008240001_var*
+//#UC END# *5374A4750344_532008240001_var*
+//#UC START# *5388508D03DE_532008240001_impl*
+ Result := TaskClass.Create(aUserID, defaultDateTime);
+//#UC END# *5388508D03DE_532008240001_impl*
+//#UC START# *5388508D03DE_532008240001_var*
+const
+ defaultDateTime = SomeFixedDate;
+//#UC END# *5388508D03DE_532008240001_var*
+//#UC START# *53AC2B1D0102_532008240001_impl*
+ CheckSave(false, true);
+//#UC END# *53AC2B1D0102_532008240001_impl*
+//#UC START# *53AC2B1D0102_532008240001_var*
+//#UC END# *53AC2B1D0102_532008240001_var*
+//#UC START# *53B5768B002F_532008240001_impl*
+ DoCheckLoad(false, true);
+//#UC END# *53B5768B002F_532008240001_impl*
+//#UC START# *53B5768B002F_532008240001_var*
+//#UC END# *53B5768B002F_532008240001_var*
+//#UC START# *53C0122C003B_532008240001_impl*
+ CheckSave(true, true);
+//#UC END# *53C0122C003B_532008240001_impl*
+//#UC START# *53C0122C003B_532008240001_var*
+//#UC END# *53C0122C003B_532008240001_var*

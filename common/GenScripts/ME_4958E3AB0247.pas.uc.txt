@@ -1,0 +1,1316 @@
+//#UC START# *479731C50290_4958E3AB0247_impl*
+ {$If not Defined(Admin) and not Defined(Monitorings)}
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
+ {$IfEnd}
+ FreeAndNil(f_QueryHistory);
+ f_SearchState := nil;
+ f_LastQueryIndex := 0;
+ inherited;
+//#UC END# *479731C50290_4958E3AB0247_impl*
+//#UC START# *479731C50290_4958E3AB0247_var*
+//#UC END# *479731C50290_4958E3AB0247_var*
+//#UC START# *47D1602000C6_4958E3AB0247_impl*
+ inherited;
+{$If defined(Monitorings) or defined(Admin)}
+  with TvcmBaseOperationsCollectionItem(dmStdRes.MenuManager.GetItemByName('enFilters')
+   .Operations.FindItemByName('opFiltersListOpen')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+  with dmStdRes.MenuManager.GetItemByName('enFile') do
+  begin
+   with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opSaveToFolder')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+   with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opLoadFromFolder')) do
+    Options := Options - [vcm_ooShowInMainMenu];
+  end;
+{$IfEnd defined(Monitorings) or defined(Admin)}
+//#UC END# *47D1602000C6_4958E3AB0247_impl*
+//#UC START# *47D1602000C6_4958E3AB0247_var*
+//#UC END# *47D1602000C6_4958E3AB0247_var*
+//#UC START# *47EA4E9002C6_4958E3AB0247_impl*
+ if not IsAcceptable(True) then
+ begin
+  if vcmDispatcher.History.CanBack then
+   vcmDispatcher.History.Back(True);
+ end;
+//#UC END# *47EA4E9002C6_4958E3AB0247_impl*
+//#UC START# *47EA4E9002C6_4958E3AB0247_var*
+//#UC END# *47EA4E9002C6_4958E3AB0247_var*
+//#UC START# *47EA8B9601FE_4958E3AB0247_impl*
+ inherited;
+ UserSettingsChanged;
+//#UC END# *47EA8B9601FE_4958E3AB0247_impl*
+//#UC START# *47EA8B9601FE_4958E3AB0247_var*
+//#UC END# *47EA8B9601FE_4958E3AB0247_var*
+//#UC START# *4958BE910345_4958E3AB0247_impl*
+ inherited;
+ if not IsDictionLike AND not IsBaseSearchLike then
+  if lp_NeedExchangeForm then
+  begin
+   // Изменяем вид КЗ
+   case UserType of
+    slqtAttribute:
+     TQueryOpenService.Instance.OpenQuery(lg_qtAttribute, lp_Query, nil);
+    slqtKW, slqtOldKW:
+     TQueryOpenService.Instance.OpenQuery(lg_qtKeyWord, lp_Query, nil);
+   end;//case UserType
+  end;//not (UserType = slqtPublishSource)..
+//#UC END# *4958BE910345_4958E3AB0247_impl*
+//#UC START# *4958BE910345_4958E3AB0247_var*
+
+ function lp_NeedExchangeForm: Boolean;
+ begin
+  Result := (UserType <> slqtPublishSource) and
+            ((l3Same(afw.Settings.LoadString(pi_Search_SituationType,
+                               dv_Search_SituationType),
+                               li_NewSearch_SituationType)) and
+             (UserType = slqtOldKW )) or
+            ((l3Same(afw.Settings.LoadString(pi_Search_SituationType,
+                               dv_Search_SituationType),
+                               li_OldSearch_SituationType)) and
+             (UserType = slqtKW ))
+ end;//lp_NeedExchangeForm
+
+ function lp_Query: IQuery;
+ var
+  l_QueryParams: TnsQueryInfo;
+ begin
+  l_QueryParams := Op_SearchParameters_GetQuery.Call(Aggregate);
+  if not l_QueryParams.rHasErrors then
+   Result := l_QueryParams.rQuery
+  else
+   Result := nil;
+ end;//lp_Query
+
+//#UC END# *4958BE910345_4958E3AB0247_var*
+//#UC START# *4958E3AB0247_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoad_Form.pas
+//#UC END# *4958E3AB0247_ext:FileName
+//#UC START# *4958E3AB0247impl_uses*
+ , Base_Operations_F1Services_Contracts
+ , F1_Application_Template_Services
+//#UC END# *4958E3AB0247impl_uses*
+//#UC START# *496B4FAA02FA_4958E3AB0247_impl*
+ if Supports(NativeMainForm, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.SearchResultEmpty(TryFullList);
+//#UC END# *496B4FAA02FA_4958E3AB0247_impl*
+//#UC START# *496B4FAA02FA_4958E3AB0247_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FAA02FA_4958E3AB0247_var*
+//#UC START# *496B4FC70065_4958E3AB0247_impl*
+ op_SearchParameter_ClearMistakes.Call(Aggregate);
+ if Supports(NativeMainForm, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.SearchResultExists;
+//#UC END# *496B4FC70065_4958E3AB0247_impl*
+//#UC START# *496B4FC70065_4958E3AB0247_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FC70065_4958E3AB0247_var*
+//#UC START# *496B4FD20320_4958E3AB0247_impl*
+ if Supports(NativeMainForm, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.AnotherSearchSuccessed;
+//#UC END# *496B4FD20320_4958E3AB0247_impl*
+//#UC START# *496B4FD20320_4958E3AB0247_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *496B4FD20320_4958E3AB0247_var*
+//#UC START# *49803F5503AA_4958E3AB0247_impl*
+ inherited;
+ {$If not Defined(Admin) and not Defined(Monitorings)}
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
+ {$IfEnd}
+ if not IsDictionLike then
+ begin
+  LoadQueryHistory;
+  if (UserType = slqtFilters) then
+   CCaption := str_FilterCaption.AsCStr;
+ end;//not IsDictionLike
+//#UC END# *49803F5503AA_4958E3AB0247_impl*
+//#UC START# *49803F5503AA_4958E3AB0247_var*
+//#UC END# *49803F5503AA_4958E3AB0247_var*
+//#UC START# *49807428008C_4958E3AB0247_impl*
+ Result := true;
+ if (aStateType = vcm_stContent) then
+  if not Supports(aState, InsSearchTypeState, f_SearchState) then
+   Assert(False);
+//#UC END# *49807428008C_4958E3AB0247_impl*
+//#UC START# *49807428008C_4958E3AB0247_var*
+//#UC END# *49807428008C_4958E3AB0247_var*
+//#UC START# *49885D540232_4958E3AB0247exec_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ l_QueryIsEmpty := False;
+
+ l_CurOpsIndex := aParams.ItemIndex;
+
+ if (l_CurOpsIndex >= 0) and (Aggregate <> nil) then
+ begin
+  if Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+  begin
+   l_QueryIsEmpty := True;
+   if (UserType <> slqtLegislationReview) and
+     not Ask(qr_QueryIsEmpty) then Exit;
+  end;//Op_SearchParameters_IsQueryEmpty.Call(Aggregate)
+  // Получаем заполненный Query из КЗ
+  l_QueryParams := Op_SearchParameters_GetQuery.Call(Aggregate);
+  if not l_QueryParams.rHasErrors then
+   begin
+    l_QueryType := AdapterQueryToBusinessQuery(l_QueryParams.rQuery.GetType);
+    // Для Обзора законодательства запрещаем сохранение пустой КЗ
+    if (l_QueryType = lg_qtLegislationReview) and
+       l_QueryIsEmpty then
+    begin
+     Say(inf_QueryIsEmptyCantSave);
+     exit;
+    end;//l_QueryType = lg_qtLegislationReview
+    if Supports(l_QueryParams.rQuery, IEntityBase, l_EntityBase) then
+    try
+     if l_EntityBase.GetIsSaved then
+      case l_CurOpsIndex of
+       1 :
+       begin
+        l_CurName := nsGetQueryName(l_QueryParams.rQuery);
+        if Ask(qr_QueryWasSavedEx, [l_CurName]) then
+         try
+          /////////////////////////////////////////
+          // исключаем http://mdp.garant.ru/pages/viewpage.action?pageId=321985983
+          // -Бесконечную рекурсию часом никогда не получим?
+          // -Нет, это в нормальном поведении невозможно, когда список до сохранения был НЕпустой, а потом тут (см. строку ниже) станет пустым
+          if (l_CurOpsIndex >= 0) and (Aggregate <> nil) and (not l_QueryIsEmpty) and Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+          begin
+           File_SaveToFolder_Execute(aParams);
+           Exit;
+          end;
+          /////////////////////////////////////////
+          l_EntityBase.SaveTo(nil, l_EntityStorage);
+         except
+          on EAccessDenied do
+           Say(err_SaveReadOnlyQuery);
+          on ECanNotSave do
+           Say(err_CannotSave, [l_CurName]);
+          on ENotSaved do
+           Say(err_NotSaved);
+         end;//try..except
+       end;//1
+       0, 2 :
+        {$IFDEF Monitorings}
+        Assert(false);
+        {$Else  Monitorings}
+        TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
+                           MakeFilterInfo,
+                           fetQuery,
+                           l_EntityBase,
+                           True);
+        {$EndIF  Monitorings}
+       else
+        Assert(false);
+      end//case l_CurOpsIndex
+     else
+     begin
+      // Сохраняем Query в папку
+      {$IFDEF Monitorings}
+      Assert(false);
+      {$Else  Monitorings}
+      TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
+                         MakeFilterInfo,
+                         fetQuery,
+                         l_EntityBase,
+                         false);
+      {$EndIF Monitorings}
+     end;//l_EntityBase.GetIsSaved
+    finally
+     l_EntityBase := nil;
+    end;//try..finally
+   end;//not l_QueryParams.rHasErrors
+ end//l_CurOpsIndex >= 0
+ else
+  aParams.DoneStatus := vcm_dsInvalidParams;
+  // - это нужно, чтобы вызывалось по ShortCut'у
+//#UC END# *49885D540232_4958E3AB0247exec_impl*
+//#UC START# *49885D540232_4958E3AB0247exec_var*
+var
+ l_CurOpsIndex   : Integer;
+ l_CurName       : Il3CString;
+ l_QueryIsEmpty  : Boolean;
+ l_EntityBase    : IEntityBase;
+ l_EntityStorage : IEntityStorage;
+ l_QueryType     : TlgQueryType;
+ l_QueryParams   : TnsQueryInfo;
+//#UC END# *49885D540232_4958E3AB0247exec_var*
+//#UC START# *49885D540232_4958E3AB0247test_impl*
+ if not HideOpForPostingOrder(aParams) and Assigned(Aggregate) then
+  with aParams.Op.SubItems do
+  begin
+   Clear;
+   if Op_SearchParameters_IsQuerySaved.Call(Aggregate) then
+   begin
+    Add(vcmCStr(str_SaveLoadOverride));
+    Add(vcmCStr(str_SaveLoadSaveAs));
+   end;//TSearchParameter_IsQuerySaved_Op.Call(Aggregate)
+  end;//with aParams.Op.SubItems
+//#UC END# *49885D540232_4958E3AB0247test_impl*
+//#UC START# *49885D540232_4958E3AB0247test_var*
+//#UC END# *49885D540232_4958E3AB0247test_var*
+//#UC START# *49885D59018D_4958E3AB0247exec_impl*
+ // Выбор Query из папки
+ {$IFDEF Monitorings}
+ Assert(false);
+ {$Else  Monitorings}
+ TFoldersService.Instance.LoadOpen(Self.As_IvcmEntityForm, MakeFilterInfo);
+ {$EndIF Monitorings}
+//#UC END# *49885D59018D_4958E3AB0247exec_impl*
+//#UC START# *49885D59018D_4958E3AB0247exec_var*
+//#UC END# *49885D59018D_4958E3AB0247exec_var*
+//#UC START# *49885D59018D_4958E3AB0247test_impl*
+ HideOpForPostingOrder(aParams);
+//#UC END# *49885D59018D_4958E3AB0247test_impl*
+//#UC START# *49885D59018D_4958E3AB0247test_var*
+//#UC END# *49885D59018D_4958E3AB0247test_var*
+//#UC START# *49895A2102E8_4958E3AB0247exec_impl*
+ Result := true;
+ if Supports(aNode, INode, l_FolderNode) then
+  try
+   l_FolderNode.Open(l_BaseEntity);
+   try
+    if Supports(l_BaseEntity, IQuery, l_Query) then
+     try
+      l_QueryType := l_Query.GetType;
+      if nsIsQueryTypeCompatibleToQueryFormType(l_QueryType,
+                                                UserType) then
+      begin
+       {$If not defined(Monitorings)}
+       TnsLoadQueryEvent.Log(l_Query);
+       {$IfEnd}
+       // Передаем Query в КЗ для заполнения
+       op_SearchParameters_SetQuery.Call(Aggregate, l_Query);
+      end
+      else
+      begin
+       Assert(CurUserType <> nil);
+       Say(inf_WrongQueryType, [vcmCStr(cQueryType[l_QueryType]^),
+                                CurUserType.Caption]);
+       Result := false;
+      end;//nsIsQueryTypeCompatibleToQueryFormType
+     finally
+      l_Query := nil;
+     end;//try..finally
+   finally
+    l_BaseEntity := nil;
+   end;//try..finally
+  finally
+   l_FolderNode := nil;
+  end;//try..finally
+//#UC END# *49895A2102E8_4958E3AB0247exec_impl*
+//#UC START# *49895A2102E8_4958E3AB0247exec_var*
+const
+ cQueryType: array [TQueryType] of PvcmStringID =
+                      (@str_qtKeyWord,
+                       @str_qtAttribute,
+                       //@str_qtOldAttribute,
+                       //@str_qtOldFilter,
+                       @str_qtPublishSource,
+                       @str_qtComments,
+                       @str_qtReview,
+                       @str_qtMailList,
+                       @str_qtRubricator,
+                       @str_Empty,
+                       @str_qtConsultation,
+                       @str_Empty,
+                       @str_qtBaseSearch,
+                       @str_qtInpharmSearch);
+var
+ l_FolderNode : INode;
+ l_BaseEntity : IUnknown;
+ l_Query      : IQuery;
+ l_QueryType  : TQueryType;
+//#UC END# *49895A2102E8_4958E3AB0247exec_var*
+//#UC START# *4A83AA610299_4958E3AB0247_impl*
+ if not IsDictionLike then
+  LoadQueryHistory;
+//#UC END# *4A83AA610299_4958E3AB0247_impl*
+//#UC START# *4A83AA610299_4958E3AB0247_var*
+//#UC END# *4A83AA610299_4958E3AB0247_var*
+//#UC START# *4A8AD47D0357_4958E3AB0247exec_impl*
+ if IsOkBtn then
+ begin
+  {$If defined(Monitorings) or defined(Admin)}
+  Assert(false);
+  {$Else}
+  FillQueryAndSearch;
+  LoadQueryHistory;
+  {$IfEnd}
+ end//IsOkBtn
+ else 
+  enResultopSaveExecute(aParams);
+//#UC END# *4A8AD47D0357_4958E3AB0247exec_impl*
+//#UC START# *4A8AD47D0357_4958E3AB0247exec_var*
+//#UC END# *4A8AD47D0357_4958E3AB0247exec_var*
+//#UC START# *4A8AD47D0357_4958E3AB0247getstate_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ l_UserType := UserType;
+ if (l_UserType = slqtConsult) then
+  State := st_user_Result_OkExt_Consult
+ else
+ {$if not defined(Monitorings)}
+ if (l_UserType = slqtPostingOrder) then
+  State := st_user_Result_OkExt_SaveAndSend
+ else
+ {$ifend}
+ if IsOkBtn then
+  State := st_user_Result_OkExt_Search
+ else
+  State := st_user_Result_OkExt_Save;
+//#UC END# *4A8AD47D0357_4958E3AB0247getstate_impl*
+//#UC START# *4A8AD47D0357_4958E3AB0247getstate_var*
+var
+ l_UserType: TvcmUserType;
+//#UC END# *4A8AD47D0357_4958E3AB0247getstate_var*
+//#UC START# *4A8AD47D0357_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD47D0357_4958E3AB0247test_impl*
+//#UC START# *4A8AD47D0357_4958E3AB0247test_var*
+//#UC END# *4A8AD47D0357_4958E3AB0247test_var*
+//#UC START# *4A8E8F2E0195_4958E3AB0247_impl*
+ inherited;
+ pnHeader.Align := alTop;
+ pnHeader.Height := 60;
+ pnHeader.BevelOuter := bvNone;
+ pnHeader.TabOrder := 1;
+ pnHeader.OnResize := HeaderResize;
+ pnHeader.PopupMenu := TPopupMenu.Create(pnHeader);
+ // - делаем фиктивное пустое меню
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278844700&focusedCommentId=294585427&#comment-294585427
+ NotifyUserTypeSet;
+ lbHeader.EndEllipsis := true;
+ lbHeader.Font.Name := 'Arial';
+ lbHeader.Font.Size := 30;
+ lbHeader.Font.Style := [fsBold];
+ lbHeader.Font.Color := cGarant2011GradientEndColor;
+ lbHeader.Action := TAction.Create(lbHeader);
+ lbHeader.Action.OnUpdate := UpdateLabel;
+ // При размере шрифт 150% высота lbHeader может быть больше, чем высота
+ // pnHeader, тогда lbHeader.Top уходит вверх за границы панели
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=449678181
+ if ((lbHeader.Height + 6) > pnHeader.Height) then
+  pnHeader.Height := pnHeader.Height + ((lbHeader.Height + 6) - pnHeader.Height);
+ lbHeader.Top := (pnHeader.Height - lbHeader.Height) - 6;
+ lbHeader.PopupMenu := pnHeader.PopupMenu;
+ // - делаем фиктивное пустое меню
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278844700&focusedCommentId=294585427&#comment-294585427
+ pbHeader.Left := c_ControlBorder * 4;
+ pbHeader.Width := 34;
+ pbHeader.Height := 34;
+(* pbHeader.Width := 48;
+ pbHeader.Height := 48;*)
+ pbHeader.Top := (pnHeader.Height -  pbHeader.Height) div 2 + 5;
+ pbHeader.OnPaint := pbHeaderPaint;
+ pbHeader.PopupMenu := pnHeader.PopupMenu;
+ // - делаем фиктивное пустое меню
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278844700&focusedCommentId=294585427&#comment-294585427
+ lbHeader.Left := pbHeader.Left + pbHeader.Width + c_ControlBorder * 3;
+//#UC END# *4A8E8F2E0195_4958E3AB0247_impl*
+//#UC START# *4A8E8F2E0195_4958E3AB0247_var*
+//#UC END# *4A8E8F2E0195_4958E3AB0247_var*
+//#UC START# *4AC5D61E0284_4958E3AB0247exec_impl*
+ if ZoneType = vcm_ztManualModal then
+  ModalResult := mrCancel
+ else
+  vcmDispatcher.History.Back;
+//#UC END# *4AC5D61E0284_4958E3AB0247exec_impl*
+//#UC START# *4AC5D61E0284_4958E3AB0247exec_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247exec_var*
+//#UC START# *4AC5D61E0284_4958E3AB0247getstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4958E3AB0247getstate_impl*
+//#UC START# *4AC5D61E0284_4958E3AB0247getstate_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247getstate_var*
+//#UC START# *4AC5D61E0284_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4958E3AB0247test_impl*
+//#UC START# *4AC5D61E0284_4958E3AB0247test_var*
+//#UC END# *4AC5D61E0284_4958E3AB0247test_var*
+//#UC START# *4AE89F6E02E3_4958E3AB0247_impl*
+ Result := False;
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ case UserType of
+  slqtAttribute,
+  slqtLegislationReview,
+  slqtPostingOrder,
+  slqtConsult,
+  slqtInpharmSearch :
+   Result := True;
+  slqtFilters:
+   Result := HasForm(fm_enQueryCard.rFormID);
+ end;//case UserType of
+//#UC END# *4AE89F6E02E3_4958E3AB0247_impl*
+//#UC START# *4AE89F6E02E3_4958E3AB0247_var*
+//#UC END# *4AE89F6E02E3_4958E3AB0247_var*
+//#UC START# *4AE8A0E10254_4958E3AB0247exec_impl*
+ if not aNotClearRange then
+ begin
+  with SearchState do
+  begin
+   if List <> nil then
+    SearchType := stAllBase
+   else
+    SearchType := stNone;
+  end;//SearchState
+ end;//not aNotClearRange
+ if (Aggregate <> nil) then
+ begin
+  op_SearchParameters_ClearQuery.Call(Aggregate);
+  Op_List_SetNewContent.Call(Aggregate);
+   // - загрузим фильтры по умолчанию.
+ end;//Aggregate <> nil
+//#UC END# *4AE8A0E10254_4958E3AB0247exec_impl*
+//#UC START# *4AE8A0E10254_4958E3AB0247exec_var*
+//#UC END# *4AE8A0E10254_4958E3AB0247exec_var*
+//#UC START# *4AE96F6C0191_4958E3AB0247exec_impl*
+ if (aList <> nil) then
+ begin
+  SearchState.List := aList;
+  if aInList then
+   SearchState.SearchType := stInList
+  else
+   SearchState.SearchType := stAllBase;
+ end//aList <> nil
+ else
+ begin
+  SearchState.List := nil;
+  SearchState.SearchType := stNone; {stAllBaseOnly;}
+ end;//aList <> nil
+//#UC END# *4AE96F6C0191_4958E3AB0247exec_impl*
+//#UC START# *4AE96F6C0191_4958E3AB0247exec_var*
+//#UC END# *4AE96F6C0191_4958E3AB0247exec_var*
+//#UC START# *4AE9C89601E6_4958E3AB0247_impl*
+ if IsDictionLike then
+ begin
+  Result := bs_ltNone;
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ if UserType = slqtInpharmSearch then
+  Result := bs_ltDrug
+ else
+  Result := bs_ltDocument;
+//#UC END# *4AE9C89601E6_4958E3AB0247_impl*
+//#UC START# *4AE9C89601E6_4958E3AB0247_var*
+//#UC END# *4AE9C89601E6_4958E3AB0247_var*
+//#UC START# *4AEF0BF70306_4958E3AB0247exec_impl*
+ Result := true;
+//#UC END# *4AEF0BF70306_4958E3AB0247exec_impl*
+//#UC START# *4AEF0BF70306_4958E3AB0247exec_var*
+//#UC END# *4AEF0BF70306_4958E3AB0247exec_var*
+//#UC START# *4AEF0D1A01C3_4958E3AB0247exec_impl*
+ Result := true;
+//#UC END# *4AEF0D1A01C3_4958E3AB0247exec_impl*
+//#UC START# *4AEF0D1A01C3_4958E3AB0247exec_var*
+//#UC END# *4AEF0D1A01C3_4958E3AB0247exec_var*
+//#UC START# *4AF2AA2100CF_4958E3AB0247exec_impl*
+ if (SearchState.SearchType = stInList) and
+    (SearchState.List <> nil) then
+  Result := SearchState.List
+ else
+  Result := nil;
+//#UC END# *4AF2AA2100CF_4958E3AB0247exec_impl*
+//#UC START# *4AF2AA2100CF_4958E3AB0247exec_var*
+//#UC END# *4AF2AA2100CF_4958E3AB0247exec_var*
+//#UC START# *4AF80DB80383_4958E3AB0247exec_impl*
+ // - ничего не делаем
+//#UC END# *4AF80DB80383_4958E3AB0247exec_impl*
+//#UC START# *4AF80DB80383_4958E3AB0247exec_var*
+//#UC END# *4AF80DB80383_4958E3AB0247exec_var*
+//#UC START# *4AF810230307_4958E3AB0247exec_impl*
+ // - ничего не делаем
+ Result := True;
+//#UC END# *4AF810230307_4958E3AB0247exec_impl*
+//#UC START# *4AF810230307_4958E3AB0247exec_var*
+//#UC END# *4AF810230307_4958E3AB0247exec_var*
+//#UC START# *4B138FE70017_4B138FD2022C_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aQuery);
+ GetLogger.AddEvent(LE_LOAD_QUERY, l_Data);
+//#UC END# *4B138FE70017_4B138FD2022C_impl*
+//#UC START# *4B138FE70017_4B138FD2022C_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B138FE70017_4B138FD2022C_var*
+//#UC START# *4B4F49900003_4958E3AB0247_impl*
+ Result := true;
+ if (aStateType = vcm_stContent) then
+  theState := SearchState as IvcmBase;
+//#UC END# *4B4F49900003_4958E3AB0247_impl*
+//#UC START# *4B4F49900003_4958E3AB0247_var*
+//#UC END# *4B4F49900003_4958E3AB0247_var*
+//#UC START# *4C04AFC8015D_4958E3AB0247_impl*
+ if Supports(NativeMainForm, InsBaseSearchResultProcessor, l_Processor) then
+  l_Processor.AnotherSearchCancelled;
+//#UC END# *4C04AFC8015D_4958E3AB0247_impl*
+//#UC START# *4C04AFC8015D_4958E3AB0247_var*
+var
+ l_Processor: InsBaseSearchResultProcessor;
+//#UC END# *4C04AFC8015D_4958E3AB0247_var*
+//#UC START# *4C2DFEE000BA_4958E3AB0247exec_impl*
+ Query_ClearAll_Execute(false);
+//#UC END# *4C2DFEE000BA_4958E3AB0247exec_impl*
+//#UC START# *4C2DFEE000BA_4958E3AB0247exec_var*
+//#UC END# *4C2DFEE000BA_4958E3AB0247exec_var*
+//#UC START# *4C2DFEE000BA_4958E3AB0247test_impl*
+ // - ничего не делаем
+//#UC END# *4C2DFEE000BA_4958E3AB0247test_impl*
+//#UC START# *4C2DFEE000BA_4958E3AB0247test_var*
+//#UC END# *4C2DFEE000BA_4958E3AB0247test_var*
+//#UC START# *4C3180320290_4958E3AB0247_impl*
+ if not IsDictionLike AND (UserType = slqtPostingOrder) then
+ // Т.к. операция попадает в главное меню, то по-другому ее убрать нельзя
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  Result := True;
+ end//UserType = slqtPostingOrder
+ else
+  Result := False;
+//#UC END# *4C3180320290_4958E3AB0247_impl*
+//#UC START# *4C3180320290_4958E3AB0247_var*
+//#UC END# *4C3180320290_4958E3AB0247_var*
+//#UC START# *4C3184C400C5_4958E3AB0247_impl*
+ if IsDictionLike then
+ begin
+  Result := nil;
+  Assert(false);
+ end//IsDictionLike
+ else
+ begin
+  case UserType of
+   slqtFilters:
+   begin
+    //l_FilterType := ffFilter;
+    l_FilterType := ffQuery;
+    Assert(false);
+   end;//slqtFilters
+   else
+    l_FilterType := ffQuery;
+  end;//case UserType
+  Result := TnsFolderFilterInfo.Make(l_FilterType,
+                                     nsListTypeToFilterFor(ListType));
+ end;//IsDictionLike
+//#UC END# *4C3184C400C5_4958E3AB0247_impl*
+//#UC START# *4C3184C400C5_4958E3AB0247_var*
+var
+ l_FilterType: TnsFolderFilter;
+//#UC END# *4C3184C400C5_4958E3AB0247_var*
+//#UC START# *4C3193B60045_4958E3AB0247_impl*
+ {$If defined(Monitorings) or defined(Admin)}
+ Result := false;
+ {$Else}
+ if IsDictionLike then
+ begin
+  Result := false;
+  Assert(false);
+ end//IsDictionLike
+ else
+ begin
+  l_UserType := UserType;
+  Result := not ((l_UserType = slqtFilters) or (l_UserType = slqtPostingOrder));
+ end;//IsDictionLike
+ {$IfEnd}
+//#UC END# *4C3193B60045_4958E3AB0247_impl*
+//#UC START# *4C3193B60045_4958E3AB0247_var*
+{$If defined(Monitorings) or defined(Admin)}
+{$Else}
+var
+ l_UserType: TvcmUserType;
+{$IfEnd} 
+//#UC END# *4C3193B60045_4958E3AB0247_var*
+//#UC START# *4C3195370120_4958E3AB0247_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ QueryHistory.Clear;
+ f_LastQueryIndex := 0;
+ case UserType of
+   slqtAttribute: l_HistoryType := QT_ATTRIBUTE;
+   slqtKW,
+   slqtOldKW : l_HistoryType := QT_KEYWORD;
+   slqtPublishSource : l_HistoryType := QT_PUBLISHED_SOURCE;
+   slqtLegislationReview : l_HistoryType := QT_REVIEW;
+   slqtInpharmSearch : l_HistoryType := QT_PHARM_SEARCH;
+  else
+   exit; // История для фильтров не ведется
+ end;
+ l_HistoryCount := cRecentlyOpenQueriesCount;
+ try
+  defDataAdapter.NativeAdapter.MakeUserJournal.GetQueryHistory(l_HistoryType, l_HistoryCount,
+   l_QueryHistory);
+  if (l_QueryHistory <> nil) then
+   try
+    l_HistoryCount := l_QueryHistory.Count;
+    if (l_HistoryCount > 0) then
+     for I := 0 to Pred(l_HistoryCount) do
+     begin
+      l_QueryHistory.pm_GetItem(I, l_Query);
+      try
+       l_QueryName := nsGetQueryName(l_Query);
+       if l3IsNil(l_QueryName) then
+       begin
+        l_QueryName := nsCreateQueryName(l_Query);
+        l_Query.SetName(nsIStr(l_QueryName));
+       end;//l3IsNil(l_QueryName)
+       l_Item := Tl3DataIntfString.Make(l_QueryName, l_Query);
+       try
+        QueryHistory.Add(l_Item);
+       finally
+        FreeAndNil(l_Item);
+       end;//try..finally
+      finally
+       l_Query := nil;
+      end;//try..finally
+     end;//for I
+   finally
+    l_QueryHistory := nil;
+   end;//try..finally
+ except
+  // в истории запросов нет
+  on ECanNotFindData do
+ end;//try..except
+//#UC END# *4C3195370120_4958E3AB0247_impl*
+//#UC START# *4C3195370120_4958E3AB0247_var*
+var
+ l_HistoryType  : TQueryType;
+ l_QueryHistory : IQueryList;
+ I,
+ l_HistoryCount : LongInt;
+ l_Query        : IQuery;
+ l_QueryName    : Il3CString;
+ l_Item         : Tl3DataIntfString;
+const
+ cRecentlyOpenQueriesCount = 5;
+//#UC END# *4C3195370120_4958E3AB0247_var*
+//#UC START# *4C3195EA025F_4958E3AB0247_impl*
+ if IsDictionLike then
+ begin
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ // Получаем заполненный Query из КЗ
+ if (Aggregate <> nil) then
+ begin
+  if UserType in [slqtPublishSource, slqtOldKW, slqtKW] then
+   Op_AttributeTree_AddNodeIfEmpty.Call(Aggregate);
+
+  l_QueryParams := Op_SearchParameters_GetQuery.Call(Aggregate);
+  if not l_QueryParams.rHasErrors then
+  begin
+   l_QueryType := AdapterQueryToBusinessQuery(l_QueryParams.rQuery.GetType);
+   // Для Обзора законодательства запрещаем поиск по пустой КЗ
+   if (l_QueryType = lg_qtLegislationReview) then
+   begin
+    if Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+    begin
+     Say(inf_QueryIsEmptyCantBuild);
+     exit;
+    end;//Op_SearchParameters_IsQueryEmpty.Call(Aggregate)
+   end;//l_QueryType = lg_qtLegislationReview
+
+   if not DefDataAdapter.IsInternal then
+    if (l_QueryType = lg_qtAttribute) and Op_SearchParameters_IsQueryEmpty.Call(Aggregate) then
+    begin
+     vcmAsk(str_QueryIsEmptyMessage, []);
+     Exit;
+    end;
+
+   if (l_QueryType = lg_qtSendConsultation) then
+   begin
+    if not defDataAdapter.ConsultationManager.CheckConsultingAvailable then
+    begin
+     Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+     op_SearchParameter_QueryNotSaved.Call(Aggregate);
+    end
+    else
+    begin
+     try
+      {$If not Defined(Admin) and not Defined(Monitorings)}
+      TnsSendRequestToLegalAdviceEvent.Log;
+      {$IfEnd}
+      l_QueryParams.rQuery.SendQuery;
+      Say(inf_ConsultationSuccessSend);
+      op_SearchParameters_ClearQuery.Call(Aggregate);
+     except
+      on ENoConnection do
+       begin
+        Say(war_NoConnectionOnSend, [defDataAdapter.GetDealerInfo]);
+        op_SearchParameter_QueryNotSaved.Call(Aggregate);
+       end;
+      on ENoSubscription do
+       begin
+        Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+        op_SearchParameter_QueryNotSaved.Call(Aggregate);
+       end;
+     end;
+    end;
+   end//if (l_QueryType = lg_qtSendConsultation) then
+   else
+   begin
+    l_ListData := Op_Query_GetList.Call(Self.As_IvcmEntityForm);
+    try
+     if (l_ListData <> nil) then
+      l_List := l_ListData.List
+     else
+      l_List := nil;
+    finally
+     l_ListData := nil;
+    end;//try..finally
+    try
+     if not l_QueryParams.rAskFilters then
+     begin
+      if (l_QueryParams.rFilter <> nil) then
+      begin
+       l_FiltersIntf := defDataAdapter.NativeAdapter.MakeFiltersFromQuery;
+       l_FiltersIntf.Add(l_QueryParams.rFilter);
+       lp_Search(l_QueryParams.rQuery,
+                 l_FiltersIntf,
+                 l_List);
+      end//l_QueryParams.rNode <> nil
+      else
+       lp_Search(l_QueryParams.rQuery,
+                 nil,
+                 l_List);
+     end//not l_QueryParams.rAskFilters
+     else
+      lp_Search(l_QueryParams.rQuery,
+                op_Filters_GetSelected.Call(Aggregate),
+                l_List);
+    finally
+     l_List := nil;
+    end;//try..finally
+   end;//l_QueryType = lg_qtSendConsultation
+  end;//not l_QueryParams.rHasErrors
+ end;//Aggregate <> nil
+//#UC END# *4C3195EA025F_4958E3AB0247_impl*
+//#UC START# *4C3195EA025F_4958E3AB0247_var*
+
+ procedure lp_Search(const aQuery   : IQuery;
+                     const aFilters : IFiltersFromQuery = nil;
+                     const aList    : IDynList = nil);
+
+   function GetPermanentFilters(aListType: TbsListType): IFiltersFromQuery;
+   var
+    l_Filters: IFiltersFromQuery;
+    I: Integer;
+    l_Filter: IFilterFromQuery;
+   begin
+    Result := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
+    case aListType of
+     bs_ltDocument: DefDataAdapter.NativeAdapter.MakeFiltersManager.GetLegalFilters(l_Filters);
+     bs_ltDrug: DefDataAdapter.NativeAdapter.MakeFiltersManager.GetPharmFilters(l_Filters);
+    end;
+    for I := 0 to l_Filters.Count - 1 do
+    begin
+     l_Filters.pm_GetItem(I, l_Filter);
+     if l_Filter.GetPermanent then
+      Result.Add(l_Filter);
+    end;
+   end;
+
+ var
+  l_Filters: IFiltersFromQuery;
+ begin
+  {$If not (defined(Monitorings) or defined(Admin))}
+  // Для Обзора изменений законодательства фильтры не применяются
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=363584635
+  if (aQuery.GetType <> QT_REVIEW) then
+  begin
+   if aFilters <> nil then
+    l_Filters := aFilters
+   else
+    l_Filters := GetPermanentFilters(ListType);//defDataAdapter.FiltersContainer(ListType).PermanentFilters;
+  end;
+  {$ELSE Monitorings}
+  l_Filters := aFilters;
+  {$IfEnd not (defined(Monitorings) or defined(Admin))}
+  nsSearch(aQuery,
+           l_Filters,
+           bsBuildFullList(aList),
+           Self);
+ end;//lp_Search
+
+var
+ l_ListData     : IdeList;
+ l_List         : IDynList;
+ l_FiltersIntf  : IFiltersFromQuery;
+ l_QueryType    : TlgQueryType;
+ l_QueryParams  : TnsQueryInfo;
+//#UC END# *4C3195EA025F_4958E3AB0247_var*
+//#UC START# *4C31965803C6_4958E3AB0247_impl*
+ if UserType = slqtPostingOrder then
+ begin
+  if TnsPostingsTreeSingle.Instance.SaveOrCreateQuery then
+  begin
+   op_SearchParameter_QuerySaved.Call(Aggregate);
+   {$IFNDEF Monitorings}
+   defDataAdapter.PrimeManager.SaveAndSendToOnlineServer;
+   vcmAsk(str_WellDone, []);
+   {$ENDIF Monitorings}
+  end;
+ end
+{$IFNDEF Monitorings}
+ else
+ // Получаем заполненный Query из КЗ
+ if (Aggregate <> nil) then
+ begin
+  // Для Заказа рассылки запрещаем сохранение пустой КЗ
+  l_Params := Op_SearchParameters_GetQuery.Call(Aggregate);
+  if not l_Params.rHasErrors then
+  begin
+   if Supports(l_Params.rQuery, IEntityBase, l_CurEntity) then
+    try
+     if l_CurEntity.GetIsSaved then
+     begin
+      // Сообщение для фильтра
+      if l_Params.rQuery.IsFilterQuery OR l_Params.rIsQueryForFilter then
+       l_IsSave := Ask(qr_FilterWasSaved, [nsGetQueryName(l_Params.rQuery)])
+      // Сообщение для запроса
+      else
+       l_IsSave := Ask(qr_QueryWasSaved);
+      // Пользователь захотел перезаписать
+      if l_IsSave then
+      begin
+       try
+        l_CurEntity.SaveTo(nil, l_EntityStorage);
+       except
+        on EAccessDenied do
+        begin
+         l_Desision := Ask(qr_SaveAsReadOnlyFilter);
+         if l_Desision then
+          SaveQuery(l_Params.rQuery, l_Params.rIsQueryForFilter, True);
+         Exit;
+        end;//on EAccessDenied
+        on ECanNotSave do
+        begin
+         Say(err_CannotSave, [nsGetQueryName(l_Params.rQuery)]);
+         Exit;
+        end;//on ECanNotSave
+        on ENotSaved do
+        begin
+         Say(err_NotSaved);
+         Exit;
+        end;//on ENotSaved
+       end;//try..except
+       if (ZoneType = vcm_ztManualModal) then
+        ModalResult := mrOk;
+      end//l_IsSave
+      else
+        SaveQuery(l_Params.rQuery, l_Params.rIsQueryForFilter, True);
+     end//l_CurEntity.GetIsSaved
+     else
+      // Сохраняем Query в папку
+      SaveQuery(l_Params.rQuery, l_Params.rIsQueryForFilter, false);
+    finally
+     l_CurEntity := nil;
+    end//try..finally
+  end;//not l_Params.rHasErrors
+ end//Aggregate <> nil
+{$ENDIF Monitorings}
+ ;
+//#UC END# *4C31965803C6_4958E3AB0247_impl*
+//#UC START# *4C31965803C6_4958E3AB0247_var*
+
+{$IFNDEF Monitorings}
+ procedure SaveQuery(const aQuery   : IQuery;
+                     aIsFilterQuery : Boolean;
+                     SaveAs         : Boolean);
+ var
+  l_Result: Boolean;
+ begin//
+  if not aQuery.IsFilterQuery AND not aIsFilterQuery then
+  begin
+   l_Result := false;
+   Assert(false);
+   // - интересно - как же и куда тогда фильтры сохранять
+(*   l_Result := TFoldersService.Instance.SaveOpen(Self.As_IvcmEntityForm,
+                         MakeFilterInfo,
+                         fetFilter,
+                         aQuery,
+                         SaveAs) = mrOk*)
+  end                       
+  else
+   l_Result := TFiltersService.Instance.CreateFilter(aQuery) = mrOk;
+  if l_Result AND (ZoneType = vcm_ztManualModal) then
+   ModalResult := mrOk;
+ end;//SaveQuery
+
+var
+ l_Params: TnsQueryInfo;
+ l_CurEntity: IEntityBase;
+ l_IsSave: Boolean;
+ l_Desision: Boolean;
+ l_EntityStorage: IEntityStorage;
+{$ENDIF Monitorings}
+//#UC END# *4C31965803C6_4958E3AB0247_var*
+//#UC START# *4C319872011D_4958E3AB0247get_impl*
+ if f_QueryHistory = nil then
+  f_QueryHistory := TvcmItems.Create;
+ Result := f_QueryHistory;
+//#UC END# *4C319872011D_4958E3AB0247get_impl*
+//#UC START# *4C319872011D_4958E3AB0247get_var*
+//#UC END# *4C319872011D_4958E3AB0247get_var*
+//#UC START# *4C319C8D03C3_4C319C7A00C0_impl*
+ GetLogger.AddEvent(LE_SEND_REQUEST_TO_LEGAL_ADVISE, MakeParamsList);
+//#UC END# *4C319C8D03C3_4C319C7A00C0_impl*
+//#UC START# *4C319C8D03C3_4C319C7A00C0_var*
+//#UC END# *4C319C8D03C3_4C319C7A00C0_var*
+//#UC START# *4C31A2B4020F_4C31A29B00A3_impl*
+ GetLogger.AddEvent(LE_LOAD_QUERY_FROM_HISTORY, MakeParamsList);
+//#UC END# *4C31A2B4020F_4C31A29B00A3_impl*
+//#UC START# *4C31A2B4020F_4C31A29B00A3_var*
+//#UC END# *4C31A2B4020F_4C31A29B00A3_var*
+//#UC START# *4C31A4EC023F_4958E3AB0247exec_impl*
+ l_Index := aParams.ItemIndex;
+ if (l_Index = 0) then
+ begin
+  l_Index := f_LastQueryIndex;
+  Inc(f_LastQueryIndex);
+  if (f_LastQueryIndex >= QueryHistory.Count) then
+   f_LastQueryIndex := 0;
+ end//l_Index = 0
+ else
+  Dec(l_Index);
+ if Supports(QueryHistory.Items[l_Index], IQuery, l_OldQuery) then
+  try
+   l_OldQuery.Clone(l_NewQuery);
+   try
+    // Передаем Query в КЗ для заполнения
+    op_SearchParameters_SetQuery.Call(Aggregate, l_NewQuery);
+    {$If not Defined(Admin) and not Defined(Monitorings)}
+    TnsLoadQueryFromHistoryEvent.Log;
+    {$IfEnd}
+   finally
+    l_NewQuery := nil;
+   end;//try..finally
+  finally
+   l_OldQuery := nil;
+  end;//try..finally
+//#UC END# *4C31A4EC023F_4958E3AB0247exec_impl*
+//#UC START# *4C31A4EC023F_4958E3AB0247exec_var*
+var
+ l_Index    : Integer;
+ l_NewQuery : IQuery;
+ l_OldQuery : IQuery;
+//#UC END# *4C31A4EC023F_4958E3AB0247exec_var*
+//#UC START# *4C31A4EC023F_4958E3AB0247test_impl*
+ if QueryHistory.Count > 0 then
+ begin
+  aParams.Op.Flag[vcm_ofEnabled] := True;
+  aParams.Op.SubItems := QueryHistory;
+ end//if QueryHistory.Count > 0 then
+ else
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C31A4EC023F_4958E3AB0247test_impl*
+//#UC START# *4C31A4EC023F_4958E3AB0247test_var*
+//#UC END# *4C31A4EC023F_4958E3AB0247test_var*
+//#UC START# *4C31A68800FA_4958E3AB0247exec_impl*
+ if l3Same(aParams.SelectedString, vcmCStr(str_CurListSearch)) then
+  SearchState.SearchType := stInList
+ else
+  SearchState.SearchType := stAllBase;
+//#UC END# *4C31A68800FA_4958E3AB0247exec_impl*
+//#UC START# *4C31A68800FA_4958E3AB0247exec_var*
+//#UC END# *4C31A68800FA_4958E3AB0247exec_var*
+//#UC START# *4C31A68800FA_4958E3AB0247test_impl*
+ case SearchState.SearchType of
+  stNone :
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := False;
+     aParams.Op.SelectedString := lp_AllSearchCaption;
+     aParams.Op.SubNodes := nil;
+    end;//stNone
+//  stAllBaseOnly : aParams.Op.Flag[vcm_ofVisible] := False;
+  stAllBase, stInList :
+    begin
+     aParams.Op.Flag[vcm_ofEnabled] := True;
+     l_Strings := aParams.Op.SubItems;
+     if (l_Strings <> nil) and
+        (l_Strings.Count = 0) then
+     begin
+      l_Strings.Clear;
+      l_Strings.Add(lp_AllSearchCaption);
+      l_Strings.Add(vcmCStr(str_CurListSearch));
+     end;
+     case SearchState.SearchType of
+      stAllBase:
+       aParams.Op.SelectedString := lp_AllSearchCaption;
+      stInList:
+       aParams.Op.SelectedString := vcmCStr(str_CurListSearch);
+     end;
+    end//l_Strings <> nil..
+ end;//case SearchState.SearchType
+//#UC END# *4C31A68800FA_4958E3AB0247test_impl*
+//#UC START# *4C31A68800FA_4958E3AB0247test_var*
+
+  function lp_AllSearchCaption: IvcmCString;
+  begin
+   case ListType of
+    bs_ltDocument:
+     Result := vcmCStr(str_AllDocumentSearch);
+    bs_ltDrug:
+     Result := vcmCStr(str_AllDrugSearch);
+    else
+    begin
+     Result := nil;
+     Assert(False);
+    end;//else
+   end;//case ListType of
+  end;//lp_AllSearchCaption
+
+var
+ l_Strings : IvcmStrings;
+//#UC END# *4C31A68800FA_4958E3AB0247test_var*
+//#UC START# *4C31AA0F017A_4958E3AB0247get_impl*
+ if (f_SearchState = nil) then
+  f_SearchState := TnsSearchTypeState.Make;
+ Result := f_SearchState;
+//#UC END# *4C31AA0F017A_4958E3AB0247get_impl*
+//#UC START# *4C31AA0F017A_4958E3AB0247get_var*
+//#UC END# *4C31AA0F017A_4958E3AB0247get_var*
+//#UC START# *4C31B48D03BB_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmExecuteParams);
+//#UC END# *4C31B48D03BB_4958E3AB0247exec_impl*
+//#UC START# *4C31B48D03BB_4958E3AB0247exec_var*
+//#UC END# *4C31B48D03BB_4958E3AB0247exec_var*
+//#UC START# *4C31B48D03BB_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicOr, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B48D03BB_4958E3AB0247test_impl*
+//#UC START# *4C31B48D03BB_4958E3AB0247test_var*
+//#UC END# *4C31B48D03BB_4958E3AB0247test_var*
+//#UC START# *4C31B4990225_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmExecuteParams);
+//#UC END# *4C31B4990225_4958E3AB0247exec_impl*
+//#UC START# *4C31B4990225_4958E3AB0247exec_var*
+//#UC END# *4C31B4990225_4958E3AB0247exec_var*
+//#UC START# *4C31B4990225_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicAnd, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B4990225_4958E3AB0247test_impl*
+//#UC START# *4C31B4990225_4958E3AB0247test_var*
+//#UC END# *4C31B4990225_4958E3AB0247test_var*
+//#UC START# *4C31B4A90088_4958E3AB0247exec_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmExecuteParams);
+//#UC END# *4C31B4A90088_4958E3AB0247exec_impl*
+//#UC START# *4C31B4A90088_4958E3AB0247exec_var*
+//#UC END# *4C31B4A90088_4958E3AB0247exec_var*
+//#UC START# *4C31B4A90088_4958E3AB0247test_impl*
+ vcmDispatcher.EntityOperation(opcode_Attribute_LogicNot, aParams As IvcmTestParams);
+ // На контейнере кнопка всегда видна
+ aParams.Op.Flag[vcm_ofVisible] := True;
+//#UC END# *4C31B4A90088_4958E3AB0247test_impl*
+//#UC START# *4C31B4A90088_4958E3AB0247test_var*
+//#UC END# *4C31B4A90088_4958E3AB0247test_var*
+//#UC START# *4C81191003E5_4958E3AB0247exec_impl*
+ {$IFDEF Monitorings}
+ Assert(false);
+ {$Else  Monitorings}
+ if (DataSource = nil) then
+  TFiltersService.Instance.OldSchoolFiltersOpen(Aggregate, nil, Self)
+ else
+  TFiltersService.Instance.FiltersOpen(Self.Filters);
+ {$EndIF Monitorings}
+//#UC END# *4C81191003E5_4958E3AB0247exec_impl*
+//#UC START# *4C81191003E5_4958E3AB0247exec_var*
+//#UC END# *4C81191003E5_4958E3AB0247exec_var*
+//#UC START# *4C81191003E5_4958E3AB0247test_impl*
+ HideOpForPostingOrder(aParams);
+//#UC END# *4C81191003E5_4958E3AB0247test_impl*
+//#UC START# *4C81191003E5_4958E3AB0247test_var*
+//#UC END# *4C81191003E5_4958E3AB0247test_var*
+//#UC START# *4D7131F40095_4958E3AB0247_impl*
+ l_Str := MakeCaption;
+ (aSender As TAction).Caption := l3Str(l_Str);
+ (aSender As TAction).Enabled := true;
+ if (pnHeader.Width - lbHeader.Left < lbHeader.Width) then
+  TvtLabelHack(lbHeader).AdjustBounds;
+ {$If not defined(Admin) AND not defined(Monitorings)}
+ UpdateChromeLikeTab;
+ UpdateChromeLikeTabCaption(l_Str);
+ {$IfEnd}
+//#UC END# *4D7131F40095_4958E3AB0247_impl*
+//#UC START# *4D7131F40095_4958E3AB0247_var*
+
+ function NotEmptySuffix(const aSt: String; const aSep : String): String;
+ begin//NotEmptySuffix
+  Result := Trim(ev_psSuffix(aSt, aSep));
+  if (Result = '') then
+   Result := aSt;
+ end;//NotEmptySuffix
+
+var
+ l_Str: IvcmCString;
+//#UC END# *4D7131F40095_4958E3AB0247_var*
+//#UC START# *4D722A0903AC_4958E3AB0247_impl*
+ if (CurUserType <> nil) AND (CurUserType.ImageIndex >= 0) then
+  with (aSender as TPaintBox) do
+   dmStdRes.LargeImageList.Draw(Canvas,
+                                Width - c_LargeSizeIcon,
+                                (Height - c_LargeSizeIcon) div 2 + 2,
+                                CurUserType.ImageIndex);
+//#UC END# *4D722A0903AC_4958E3AB0247_impl*
+//#UC START# *4D722A0903AC_4958E3AB0247_var*
+//#UC END# *4D722A0903AC_4958E3AB0247_var*
+//#UC START# *4D78E2BB0211_4958E3AB0247_impl*
+ inherited;
+ if IsDictionLike then
+ begin
+  ParentZone.Align := alClient;
+  ParentZone.Color := clWhite;
+  pnHeader.Color := clWhite;
+  pnHeader.BevelOuter := bvSpace;
+ end//IsDictionLike
+ else
+ begin
+  ParentZone.Align := alClient;
+  ParentZone.Color := cGarant2011BackColor;
+  pnHeader.Color := cGarant2011BackColor;
+  pnHeader.BevelOuter := bvNone;
+ end;//IsDictionLike
+//#UC END# *4D78E2BB0211_4958E3AB0247_impl*
+//#UC START# *4D78E2BB0211_4958E3AB0247_var*
+//#UC END# *4D78E2BB0211_4958E3AB0247_var*
+//#UC START# *4D7FA1E40348_4958E3AB0247_impl*
+ TvtLabelHack(lbHeader).AdjustBounds;
+//#UC END# *4D7FA1E40348_4958E3AB0247_impl*
+//#UC START# *4D7FA1E40348_4958E3AB0247_var*
+//#UC END# *4D7FA1E40348_4958E3AB0247_var*
+//#UC START# *4F5DB2320323_4958E3AB0247_impl*
+ Result := false;
+//#UC END# *4F5DB2320323_4958E3AB0247_impl*
+//#UC START# *4F5DB2320323_4958E3AB0247_var*
+//#UC END# *4F5DB2320323_4958E3AB0247_var*
+//#UC START# *4F5E079B0368_4958E3AB0247_impl*
+ if IsDictionLike then
+ begin
+  Result := false;
+  Assert(false);
+  Exit;
+ end;//IsDictionLike
+ case aFormType of
+  slqtAttribute:
+   Result := aQueryType in [QT_ATTRIBUTE];
+  slqtKW:
+   Result := aQueryType = QT_KEYWORD;
+  slqtOldKW:
+   Result := aQueryType = QT_KEYWORD;
+  slqtPublishSource:
+   Result := aQueryType = QT_PUBLISHED_SOURCE;
+  slqtLegislationReview:
+   Result := aQueryType = QT_REVIEW;
+  slqtPostingOrder:
+   Result := aQueryType = QT_MAIL_LIST;
+  slqtInpharmSearch:
+   Result := aQueryType = QT_PHARM_SEARCH;
+  else
+   Result := False;
+ end;//case aFormType
+//#UC END# *4F5E079B0368_4958E3AB0247_impl*
+//#UC START# *4F5E079B0368_4958E3AB0247_var*
+//#UC END# *4F5E079B0368_4958E3AB0247_var*
+//#UC START# *4F99403A00A5_4958E3AB0247exec_impl*
+ Result := ListType;
+//#UC END# *4F99403A00A5_4958E3AB0247exec_impl*
+//#UC START# *4F99403A00A5_4958E3AB0247exec_var*
+//#UC END# *4F99403A00A5_4958E3AB0247exec_var*
+//#UC START# *502289FB008D_4958E3AB0247_impl*
+ Result := false;
+//#UC END# *502289FB008D_4958E3AB0247_impl*
+//#UC START# *502289FB008D_4958E3AB0247_var*
+//#UC END# *502289FB008D_4958E3AB0247_var*
+//#UC START# *53B649F600A3_4958E3AB0247_impl*
+ case UserType of
+  slqtAttribute:
+   l_TabIconType := titAttributeSearch;
+  slqtKW, slqtOldKW:
+   l_TabIconType := titSituationSearch;
+  slqtPublishSource:
+   l_TabIconType := titPublishSourceSearch;
+  slqtLegislationReview:
+   l_TabIconType := titLegislationReviewSearch;
+  slqtInpharmSearch:
+   l_TabIconType := titDrugSearch;
+  slqtConsult:
+   l_TabIconType := titLawSupportOnline;
+  else
+   l_TabIconType := titMain;
+ end;
+ Result := nsTabIconIndex(l_TabIconType);
+//#UC END# *53B649F600A3_4958E3AB0247_impl*
+//#UC START# *53B649F600A3_4958E3AB0247_var*
+var
+ l_TabIconType: TnsTabIconType;
+//#UC END# *53B649F600A3_4958E3AB0247_var*
+//#UC START# *53F1C6EF02C9_4958E3AB0247_impl*
+ Result := MakeCaption;
+//#UC END# *53F1C6EF02C9_4958E3AB0247_impl*
+//#UC START# *53F1C6EF02C9_4958E3AB0247_var*
+//#UC END# *53F1C6EF02C9_4958E3AB0247_var*
+//#UC START# *53F32421018A_4958E3AB0247_impl*
+ if IsDictionLike then
+  l_S := CurUserType.Caption
+ else
+ if (UserType = slqtFilters) then
+  l_S := str_FilterCaption.AsStr
+ else
+ begin
+  l_S := l3Str(NativeMainForm.AsForm.Caption);
+  if ANSIEndsStr(cMagic1, l_S) then
+   l_S := ''
+  else
+  begin
+   l_S := NotEmptySuffix(l_S, cMagic1);
+   l_S := NotEmptySuffix(l_S, cMagic2);
+  end;//ANSIEndsStr(cMagic1, l_S)
+ end;//IsDictionLike
+ Result := l3CStr(l_S);
+//#UC END# *53F32421018A_4958E3AB0247_impl*
+//#UC START# *53F32421018A_4958E3AB0247_var*
+
+ function NotEmptySuffix(const aSt: String; const aSep : String): String;
+ begin//NotEmptySuffix
+  Result := Trim(ev_psSuffix(aSt, aSep));
+  if (Result = '') then
+   Result := aSt;
+ end;//NotEmptySuffix
+
+const
+ cMagic1 = ' - ';
+ cMagic2 = ' : ';
+var
+ l_S : String;
+//#UC END# *53F32421018A_4958E3AB0247_var*
+//#UC START# *55127A5401DE_4958E3AB0247_impl*
+ case UserType of
+  slqtPostingOrder:
+   if aDataUpdate then
+    Result := defDataAdapter.Monitoring.IsExist
+   else
+    Result := defDataAdapter.Monitoring.IsExist and not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch);
+  slqtPublishSource: Result := defDataAdapter.IsExists_PublishSourceTag;
+  slqtInpharmSearch: Result := defDataAdapter.IsInpharmExists;
+ else
+  Result := True;
+ end;
+//#UC END# *55127A5401DE_4958E3AB0247_impl*
+//#UC START# *55127A5401DE_4958E3AB0247_var*
+//#UC END# *55127A5401DE_4958E3AB0247_var*

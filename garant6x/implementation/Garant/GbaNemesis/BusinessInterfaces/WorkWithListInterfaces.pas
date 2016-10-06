@@ -25,6 +25,7 @@ uses
  , DocInfoInterfaces
  , BaseDocumentWithAttributesInterfaces
  , PrimPrimListInterfaces
+ , FiltersUnit
  , DocumentInterfaces
  , ExternalObjectUnit
  , nsTypes

@@ -1,0 +1,356 @@
+//#UC START# *47EA4E9002C6_4C6A955F00D6_impl*
+ inherited;
+ Document := nil;
+//#UC END# *47EA4E9002C6_4C6A955F00D6_impl*
+//#UC START# *47EA4E9002C6_4C6A955F00D6_var*
+//#UC END# *47EA4E9002C6_4C6A955F00D6_var*
+//#UC START# *47F1024C0150_4C6A955F00D6_impl*
+ if Supports(aDocumentContainer, IdeDocInfo, lDocInfo) then
+ try
+  lDocInfo.Pos := f_DocumentInfo.Pos;
+ finally
+  lDocInfo := nil;
+ end;//try..finally
+ Result := inherited ReplaceContainerInOwner(aDocumentContainer);
+//#UC END# *47F1024C0150_4C6A955F00D6_impl*
+//#UC START# *47F1024C0150_4C6A955F00D6_var*
+var
+ lDocInfo: IdeDocInfo;
+//#UC END# *47F1024C0150_4C6A955F00D6_var*
+//#UC START# *47F10C6E0240_4C6A955F00D6_impl*
+ Result := HasDocument AND Assigned(f_DocumentInfo.Doc);
+//#UC END# *47F10C6E0240_4C6A955F00D6_impl*
+//#UC START# *47F10C6E0240_4C6A955F00D6_var*
+//#UC END# *47F10C6E0240_4C6A955F00D6_var*
+//#UC START# *47F1112A0183_4C6A955F00D6_impl*
+ Result := inherited MakeDocumentPreview(aKey, aMacroReplacer, aRange);
+ if Assigned(f_DocumentInfo.Doc) AND Supports(Result, InsEventHolder, l_Event) then
+  l_Event.SetEvent(TnsDocumentPrintEvent.Make(f_DocumentInfo.Doc, Assigned(aRange)));
+//#UC END# *47F1112A0183_4C6A955F00D6_impl*
+//#UC START# *47F1112A0183_4C6A955F00D6_var*
+var
+ l_Event: InsEventHolder;
+//#UC END# *47F1112A0183_4C6A955F00D6_var*
+//#UC START# *47F111500241_4C6A955F00D6_impl*
+ Result := inherited MakeInfoPreview(aKey, aMacroReplacer);
+ if Assigned(f_DocumentInfo.Doc) AND f_DocumentInfo.Doc.HasRelatedDoc AND
+    Supports(Result, InsEventHolder, l_Event) then
+ begin
+  f_DocumentInfo.Doc.GetRelatedDoc(l_Rel);
+  l_Event.SetEvent(TnsDocumentPrintEvent.Make(l_Rel, False));
+ end;
+//#UC END# *47F111500241_4C6A955F00D6_impl*
+//#UC START# *47F111500241_4C6A955F00D6_var*
+var
+ l_Event: InsEventHolder;
+ l_Rel : IDocument;
+//#UC END# *47F111500241_4C6A955F00D6_var*
+//#UC START# *47F279E9037A_4C6A955F00D6_impl*
+ Result := inherited GetIsSame(aContainer);
+ if not Result AND Assigned(f_DocumentInfo.Doc) then
+ begin
+  if Supports(aContainer, IDocument, l_Doc) then
+   Result := f_DocumentInfo.Doc.IsSameView(l_Doc);
+ end;//not Result AND Assigned(f_DocumentInfo.Doc)
+//#UC END# *47F279E9037A_4C6A955F00D6_impl*
+//#UC START# *47F279E9037A_4C6A955F00D6_var*
+var
+ l_Doc : IDocument;
+//#UC END# *47F279E9037A_4C6A955F00D6_var*
+//#UC START# *47F279FE02A1_4C6A955F00D6_impl*
+ Result := inherited GetIsSameText(aContainer);
+ if not Result AND Assigned(f_DocumentInfo.Doc) then
+ begin
+  if Supports(aContainer, IDocument, l_Doc) then
+   Result := f_DocumentInfo.Doc.IsSameRedaction(l_Doc);
+ end;//not Result AND Assigned(f_DocumentInfo.Doc)
+//#UC END# *47F279FE02A1_4C6A955F00D6_impl*
+//#UC START# *47F279FE02A1_4C6A955F00D6_var*
+var
+ l_Doc : IDocument;
+//#UC END# *47F279FE02A1_4C6A955F00D6_var*
+//#UC START# *47F27A1103B9_4C6A955F00D6_impl*
+ Result := inherited GetIsSameText(aTextSource);
+ if not Result AND Assigned(f_DocumentInfo.Doc) AND
+    Supports(aTextSource, IBookmark, l_Bookmark) then
+  try
+   Result := f_DocumentInfo.Doc.IsMyBookmark(l_Bookmark);
+  finally
+   l_BookMark := nil;
+  end;//try..finally
+//#UC END# *47F27A1103B9_4C6A955F00D6_impl*
+//#UC START# *47F27A1103B9_4C6A955F00D6_var*
+var
+ l_Bookmark : IBookMark;
+//#UC END# *47F27A1103B9_4C6A955F00D6_var*
+//#UC START# *47F35CAC00E4_4C6A955F00D6_impl*
+ Result := TnsHAFPainter;
+//#UC END# *47F35CAC00E4_4C6A955F00D6_impl*
+//#UC START# *47F35CAC00E4_4C6A955F00D6_var*
+//#UC END# *47F35CAC00E4_4C6A955F00D6_var*
+//#UC START# *47F35CBA00C1_4C6A955F00D6_impl*
+ Result := TnsDocumentPreview;
+//#UC END# *47F35CBA00C1_4C6A955F00D6_impl*
+//#UC START# *47F35CBA00C1_4C6A955F00D6_var*
+//#UC END# *47F35CBA00C1_4C6A955F00D6_var*
+//#UC START# *47F35CD9002F_4C6A955F00D6_impl*
+ if Assigned(f_DocumentInfo.Doc) AND f_DocumentInfo.Doc.HasRelatedDoc then
+ begin
+  f_DocumentInfo.Doc.GetRelatedDoc(l_Rel);
+  try
+   Result := TnsIDocumentDataObject.Make(l_Rel);
+  finally
+   l_Rel := nil;
+  end;//try..finally
+ end//Assigned(f_DocumentInfo.Doc) AND f_DocumentInfo.Doc.HasRelatedDoc
+ else
+  Result := nil;
+//#UC END# *47F35CD9002F_4C6A955F00D6_impl*
+//#UC START# *47F35CD9002F_4C6A955F00D6_var*
+var
+ l_Rel : IDocument;
+//#UC END# *47F35CD9002F_4C6A955F00D6_var*
+//#UC START# *4A60B23E00C3_4C6A955F00D6_impl*
+ if IID.EQ(IdeDocInfo) then
+ begin
+  if (f_DocumentInfo = nil) then
+   Result.SetNoInterface
+  else
+  begin
+   Result.SetOk;
+   IdeDocInfo(Obj) := f_DocumentInfo;
+  end;//f_DocumentInfo = nil
+ end//IID.EQ(IdeDocInfo)
+ else
+ if IID.EQ(IDocument) then
+ begin
+  if (f_DocumentInfo = nil) OR (f_DocumentInfo.Doc = nil) then
+   Result.SetNoInterface
+  else
+  begin
+   Result.SetOk;
+   IDocument(Obj) := f_DocumentInfo.Doc;
+  end;//f_DocumentInfo.Doc = nil
+ end//IID.EQ(IDocument)
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_4C6A955F00D6_impl*
+//#UC START# *4A60B23E00C3_4C6A955F00D6_var*
+//#UC END# *4A60B23E00C3_4C6A955F00D6_var*
+//#UC START# *4B1FBF87020C_4C6A955F00D6_impl*
+ if Assigned(aDocInfo) then
+ begin
+  f_DocumentInfo := aDocInfo;
+  NeedProcessMessages := true;
+ end//Assigned(aDocInfo)
+ else
+  f_DocumentInfo := TdeDocInfo.Make;
+//#UC END# *4B1FBF87020C_4C6A955F00D6_impl*
+//#UC START# *4B1FBF87020C_4C6A955F00D6_var*
+//#UC END# *4B1FBF87020C_4C6A955F00D6_var*
+//#UC START# *4B1FBFB301BF_4C6A955F00D6_impl*
+ inherited Create;
+ AfterCreate(aDocInfo);
+//#UC END# *4B1FBFB301BF_4C6A955F00D6_impl*
+//#UC START# *4B1FBFB301BF_4C6A955F00D6_var*
+//#UC END# *4B1FBFB301BF_4C6A955F00D6_var*
+//#UC START# *4C6A955F00D6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas
+//#UC END# *4C6A955F00D6_ext:FileName
+//#UC START# *4D2F0B29034E_4C6A955F00D6_impl*
+ inherited;
+(* if (aParaID = 0) then
+ begin
+  if not Document.QT(InevObject, l_O) then
+   Assert(false);
+  l_P := l_O.MakePoint.ToBottomChild(nil);
+  if l_P.Obj.IsKindOf(k2_typLeafPara) then
+   aParaID := l_P.Obj.IntA[k2_tiHandle];
+ end;//aParaID = 0*)
+ //if (aParaID <> 0) then
+  Case aLayerID of
+   Ord(ev_sbtBookmark):
+   // - тут надо синхронизоваться со списком закладок
+   begin
+    if (f_Bookmarks = nil) then
+     f_Bookmarks := defDataAdapter.NativeAdapter.MakeBookmarkList;
+    for l_Index := 0 to Pred(f_Bookmarks.Count) do
+    begin
+     f_Bookmarks.pm_GetItem(l_Index, l_BM);
+     if (l_BM.rParaID = aParaID) AND (l_BM.rEid = aSubID) then
+      Exit;
+      // - может быть тут надо бедет ещё подкорректировать имя закладки, если ГК найдёт сценарий
+    end;//for l_Index
+    l_BM.rParaId := aParaID;
+    l_BM.rEid := aSubID;
+    l_BM.rName := nsIStr(aSubName);
+    f_Bookmarks.Add(l_BM);
+    SendTOCCreatedNotify;
+   end;//aLayerID = ev_sbtBookmark
+   Ord(ev_sbtMark):
+   begin
+    if (aParaID = 0) then
+     Exit;
+    if (f_Comments = nil) then
+    begin
+      try
+       f_DocumentInfo.Doc.GetCommentsParaList(f_Comments);
+      except
+       f_Comments := nil;
+      end;//try..except
+     if (f_Comments = nil) then
+      f_Comments := defDataAdapter.NativeAdapter.MakeCommentsParaList;
+    end;
+    for l_Index := 0 to Pred(f_Comments.Count) do
+     if (f_Comments.Items[l_Index] = aParaID) then
+      Exit;
+    f_Comments.Add(aParaID);
+    SendTOCCreatedNotify;
+   end;//ev_sbtMark
+  end;//Case aLayerID
+//#UC END# *4D2F0B29034E_4C6A955F00D6_impl*
+//#UC START# *4D2F0B29034E_4C6A955F00D6_var*
+var
+ l_BM : TBookmark2;
+ l_Index : Integer;
+(* l_O : InevObject;
+ l_P : InevBasePoint;*)
+//#UC END# *4D2F0B29034E_4C6A955F00D6_var*
+//#UC START# *4D2F11DC0208_4C6A955F00D6get_impl*
+ if (f_Bookmarks = nil) then
+ begin
+  try
+   f_DocumentInfo.Doc.GetBookmarkList(f_Bookmarks);
+  except
+   f_Bookmarks := nil;
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900317#comment-264900317
+  end;//try..except
+  if (f_Bookmarks <> nil) then
+   for l_Index := 0 to Pred(f_Bookmarks.Count) do
+   begin
+    f_Bookmarks.pm_GetItem(l_Index, l_BM);
+    if (l_BM.rParaID = 0) then
+    begin
+     if (l_Para = nil) then
+     begin
+      if not Document.QT(InevObject, l_O) then
+       Assert(false);
+      l_P := l_O.MakePoint.ToBottomChild(nil);
+      l_Para := l_P.Obj^;
+      if l_Para.AsObject.IsKindOf(k2_typLeafPara) then
+      begin
+       if (l_Para.AsObject.IntA[k2_tiHandle] = 0) then
+        l_Para := evFindNumberedPara(l_Para);
+      end//l_Para.IsKindOf(k2_typLeafPara)
+      else
+       break;
+      if (l_Para = nil) OR not l_Para.AsObject.IsValid then
+       break;
+     end;//l_Para = nil
+     l_BM.rParaID := l_Para.AsObject.IntA[k2_tiHandle];
+     Assert(l_BM.rParaID <> 0);
+     l_Sub := l_Para.AsObject.cAtomEx([k2_tiSubs,
+                              k2_tiChildren, k2_tiHandle, Ord(ev_sbtBookmark),
+                              k2_tiChildren, k2_tiHandle, {l_BM.rParaID}Integer(l_BM.rEId)], nil);
+     l_S := TnsTagString.Create(l_BM.rName);
+     try
+      l_Sub.AttrW[k2_tiShortName, nil] := l_S;
+     finally
+      FreeAndNil(l_S);
+     end;//try..finally
+     l_Sub.IntA[k2_tiFlags] := 4;
+     // - чтобы флажок нарисовался
+     RealizeSub(Ord(ev_sbtBookmark), l_Sub.AsObject, l_Para.AsObject);
+     f_Bookmarks.pm_SetItem(l_Index, l_BM);
+    end;//l_BM.rParaID = 0
+   end;//for l_Index
+ end;//f_Bookmarks = nil
+ Result := f_Bookmarks;
+//#UC END# *4D2F11DC0208_4C6A955F00D6get_impl*
+//#UC START# *4D2F11DC0208_4C6A955F00D6get_var*
+var
+ l_BM    : TBookmark2;
+ l_Index : Integer;
+ l_Sub   : Tl3Variant;
+ l_S     : TnsTagString;
+ l_O     : InevObject;
+ l_P     : InevBasePoint;
+ l_Para  : InevObject;
+//#UC END# *4D2F11DC0208_4C6A955F00D6get_var*
+//#UC START# *4D2F11EA019F_4C6A955F00D6get_impl*
+ if (f_Comments = nil) then
+  try
+   f_DocumentInfo.Doc.GetCommentsParaList(f_Comments);
+  except
+   f_Comments := nil;
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900335&#comment-264900335
+  end;//try..except
+ Result := f_Comments;
+//#UC END# *4D2F11EA019F_4C6A955F00D6get_impl*
+//#UC START# *4D2F11EA019F_4C6A955F00D6get_var*
+//#UC END# *4D2F11EA019F_4C6A955F00D6get_var*
+//#UC START# *4D2F11FA00E6_4C6A955F00D6get_impl*
+ if (f_ExternalObjects = nil) then
+  try
+   f_DocumentInfo.Doc.GetExternalObjectDataList(f_ExternalObjects);
+  except
+   f_ExternalObjects := nil;
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=264897751&focusedCommentId=264900359&#comment-264900359
+  end;//try..ecept
+ Result := f_ExternalObjects; 
+//#UC END# *4D2F11FA00E6_4C6A955F00D6get_impl*
+//#UC START# *4D2F11FA00E6_4C6A955F00D6get_var*
+//#UC END# *4D2F11FA00E6_4C6A955F00D6get_var*
+//#UC START# *4D3071570355_4C6A955F00D6_impl*
+ inherited;
+ Case aLayerID of
+  Ord(ev_sbtBookmark):
+  // - тут надо синхронизоваться со списком закладок
+  begin
+   if (f_Bookmarks <> nil) then
+   begin
+    l_Index := 0;
+    while (l_Index < f_Bookmarks.Count) do
+    begin
+     f_Bookmarks.pm_GetItem(l_Index, l_BM);
+     if (l_BM.rParaId = aParaID) then
+     begin
+      f_Bookmarks.Delete(l_Index);
+      SendTOCCreatedNotify;
+      Exit;
+     end//l_BM.rParaId = aParaID
+     else
+      Inc(l_Index);
+    end;//while (l_Index < f_Bookmarks.Count)
+   end;//f_Bookmarks <> nil
+  end;//ev_sbtBookmark
+  Ord(ev_sbtMark):
+  begin
+   if (f_Comments <> nil) then
+   begin
+    l_Index := 0;
+    while (l_Index < f_Comments.Count) do
+    begin
+     if (f_Comments.Items[l_Index] = aParaID) then
+     begin
+      f_Comments.Delete(l_Index);
+      SendTOCCreatedNotify;
+      Exit;
+     end//f_Comments.Items[l_Index] = aParaID
+     else
+      Inc(l_Index);
+    end;//while (l_Index < f_Bookmarks.Count)
+   end;//f_Comments <> nil
+  end;//ev_sbtMark
+ end;//Case aLayerID
+//#UC END# *4D3071570355_4C6A955F00D6_impl*
+//#UC START# *4D3071570355_4C6A955F00D6_var*
+var
+ l_Index : Integer;
+ l_BM : TBookmark2;
+//#UC END# *4D3071570355_4C6A955F00D6_var*
+//#UC START# *4DF9D63B0360_4C6A955F00D6get_impl*
+ Result := f_DocumentInfo;
+//#UC END# *4DF9D63B0360_4C6A955F00D6get_impl*
+//#UC START# *4DF9D63B0360_4C6A955F00D6get_var*
+//#UC END# *4DF9D63B0360_4C6A955F00D6get_var*

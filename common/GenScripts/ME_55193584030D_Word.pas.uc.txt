@@ -1,0 +1,20 @@
+//#UC START# *55193584030D_55193584030D_Word_impl*
+ Case aA.rType of
+  tfw_vtInt:
+   Result := aA.AsInt > aB.AsInt;
+  tfw_vtBool:
+   Result := aA.AsBoolean > aB.AsBoolean;
+  tfw_vtStr:
+   Result := l3Compare(l3PCharLen(aA.AsString), l3PCharLen(aB.AsString)) > 0;
+  else
+  begin
+   Result := false;
+   BadValueType(aA.rType, aCtx);
+  end;//else
+ end;//Case aA.rType
+//#UC END# *55193584030D_55193584030D_Word_impl*
+//#UC START# *55193584030D_55193584030D_Word_var*
+//#UC END# *55193584030D_55193584030D_Word_var*
+//#UC START# *55193584030D_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\BasicsPack.pas
+//#UC END# *55193584030D_Word_ext:ParentFileName

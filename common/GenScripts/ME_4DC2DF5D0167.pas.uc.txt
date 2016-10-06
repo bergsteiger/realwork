@@ -1,0 +1,44 @@
+//#UC START# *4DAEEDE10285_4DC2DF5D0167_impl*
+ l_F := TtfwFileStreamFactory.Create(f_FileName);
+ try
+  try
+   DoFiler(l_F, aCtx);
+  finally
+   l_F.CloseStream;
+  end;//try..finally
+ finally
+  FreeAndNil(l_F);
+ end;//try..finally
+//#UC END# *4DAEEDE10285_4DC2DF5D0167_impl*
+//#UC START# *4DAEEDE10285_4DC2DF5D0167_var*
+var
+ l_F : TtfwFileStreamFactory;
+//#UC END# *4DAEEDE10285_4DC2DF5D0167_var*
+//#UC START# *4DB6C99F026E_4DC2DF5D0167_impl*
+ Result := nil;
+ //Assert(false);
+//#UC END# *4DB6C99F026E_4DC2DF5D0167_impl*
+//#UC START# *4DB6C99F026E_4DC2DF5D0167_var*
+//#UC END# *4DB6C99F026E_4DC2DF5D0167_var*
+//#UC START# *4DB6F2760023_4DC2DF5D0167_impl*
+ try
+  inherited;
+ except
+  on E : Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+//#UC END# *4DB6F2760023_4DC2DF5D0167_impl*
+//#UC START# *4DB6F2760023_4DC2DF5D0167_var*
+//#UC END# *4DB6F2760023_4DC2DF5D0167_var*
+//#UC START# *4DC2DF5D0167_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwIncluded.pas
+//#UC END# *4DC2DF5D0167_ext:FileName
+//#UC START# *4DC2DF5D0167impl_uses*
+//#UC END# *4DC2DF5D0167impl_uses*
+//#UC START# *4DC2E00703AA_4DC2DF5D0167_impl*
+ Assert(aFileName <> '');
+ inherited Create;
+ f_FileName := aFileName;
+//#UC END# *4DC2E00703AA_4DC2DF5D0167_impl*
+//#UC START# *4DC2E00703AA_4DC2DF5D0167_var*
+//#UC END# *4DC2E00703AA_4DC2DF5D0167_var*

@@ -116,6 +116,8 @@ CONST cnNewMessage -32
 CONST cnNewTiffTypeDocObj -33
 CONST cnOpenFromBase -34
 CONST cnAddToViborka -35
+CONST cnNewRTFObjTopic -36
+CONST cnNewXLSObjTopic -37
 
 STRING VAR glNameDoc
 
@@ -275,6 +277,14 @@ PROCEDURE "Добавить в выборку документ"
 PROCEDURE "Открывать" INTEGER IN aDocID
 	aDocID >>> glNumDoc
 	"Открывать документ из базы"
+;
+
+PROCEDURE "Создание объектного топика из RTF"
+	cnNewRTFObjTopic >>> g_ActionWithDocument	
+;
+
+PROCEDURE "Создание объектного топика из XLS"
+	cnNewXLSObjTopic >>> g_ActionWithDocument	
 ;
 
 // ---------------------- Действия по очистке базы -------------------
@@ -1202,6 +1212,13 @@ PROCEDURE "Тестирование изображения редактора с спецсимволами и WebStyle"
     "Стандартные размеры, Спецсимволы, WebStyle"
     "Изображение текущего контрола"
 ;
+
+PROCEDURE "Широкая форма, спецсимволы, блоки, изображение редактора"
+	"Размеры для отрисовки с широкой формой"
+	"Работа на вкладке 'Текст' с блоками"
+	"Изображение текущего контрола"
+;
+
 
 INTEGER VAR g_BeforeTest_Prev // Действия до теста
 INTEGER VAR g_ActionWithDocument_Prev

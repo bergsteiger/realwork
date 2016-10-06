@@ -1,0 +1,145 @@
+//#UC START# *479731C50290_57A9F5170275_impl*
+ inherited;
+//#UC END# *479731C50290_57A9F5170275_impl*
+//#UC START# *479731C50290_57A9F5170275_var*
+//#UC END# *479731C50290_57A9F5170275_var*
+//#UC START# *57A9F5170275_ext:FileName
+w:\common\components\gui\Garant\msm\msmModelElement.pas
+//#UC END# *57A9F5170275_ext:FileName
+//#UC START# *57A9F5170275impl_uses*
+ , SysUtils
+ , l3InterfacesMisc
+ , l3String
+//#UC END# *57A9F5170275impl_uses*
+//#UC START# *57AA0B890200_57A9F5170275get_impl*
+ Result := Get_ElementProp('Parent');
+//#UC END# *57AA0B890200_57A9F5170275get_impl*
+//#UC START# *57AA0B890200_57A9F5170275get_var*
+//#UC END# *57AA0B890200_57A9F5170275get_var*
+//#UC START# *57AC39AE0181_57A9F5170275_impl*
+ if (anOther = nil) then
+  Result := false
+ else
+ begin
+  Result := l3IEQ(Self, anOther);
+  if not Result then
+   Result := (Self.MainWord.GetRefForCompare = anOther.MainWord.GetRefForCompare);
+ end;//anOther = nil
+//#UC END# *57AC39AE0181_57A9F5170275_impl*
+//#UC START# *57AC39AE0181_57A9F5170275_var*
+//#UC END# *57AC39AE0181_57A9F5170275_var*
+//#UC START# *57ACABF800A3_57A9F5170275_impl*
+ inherited Create(aMainWord);
+//#UC END# *57ACABF800A3_57A9F5170275_impl*
+//#UC START# *57ACABF800A3_57A9F5170275_var*
+//#UC END# *57ACABF800A3_57A9F5170275_var*
+//#UC START# *57B2F55702DE_57A9F5170275get_impl*
+ Result := TmsmModelElementList.Make(TmsmModelElementView_C(Self, aName));
+//#UC END# *57B2F55702DE_57A9F5170275get_impl*
+//#UC START# *57B2F55702DE_57A9F5170275get_var*
+//#UC END# *57B2F55702DE_57A9F5170275get_var*
+//#UC START# *57B301FD025C_57A9F5170275get_impl*
+ if (aName = 'NameInModel') then
+  Result := Get_Name
+ else
+  Result := TmsmModelElementMethodCaller.CallAndGetString(MainWord, aName);
+//#UC END# *57B301FD025C_57A9F5170275get_impl*
+//#UC START# *57B301FD025C_57A9F5170275get_var*
+//#UC END# *57B301FD025C_57A9F5170275get_var*
+//#UC START# *57B47A88013F_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetInt(MainWord, aName);
+//#UC END# *57B47A88013F_57A9F5170275get_impl*
+//#UC START# *57B47A88013F_57A9F5170275get_var*
+//#UC END# *57B47A88013F_57A9F5170275get_var*
+//#UC START# *57B47A88013F_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallIntSetter(MainWord, aName, aValue);
+//#UC END# *57B47A88013F_57A9F5170275set_impl*
+//#UC START# *57B47A88013F_57A9F5170275set_var*
+//#UC END# *57B47A88013F_57A9F5170275set_var*
+//#UC START# *57B47AB0030F_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetBool(MainWord, aName);
+//#UC END# *57B47AB0030F_57A9F5170275get_impl*
+//#UC START# *57B47AB0030F_57A9F5170275get_var*
+//#UC END# *57B47AB0030F_57A9F5170275get_var*
+//#UC START# *57B5E9BE022F_57A9F5170275get_impl*
+ Result := MakeFromObj(TmsmModelElementMethodCaller.CallAndGetObj(MainWord, aName));
+//#UC END# *57B5E9BE022F_57A9F5170275get_impl*
+//#UC START# *57B5E9BE022F_57A9F5170275get_var*
+//#UC END# *57B5E9BE022F_57A9F5170275get_var*
+//#UC START# *57C3E90C0177_57A9F5170275get_impl*
+ Result := MainWord;
+//#UC END# *57C3E90C0177_57A9F5170275get_impl*
+//#UC START# *57C3E90C0177_57A9F5170275get_var*
+//#UC END# *57C3E90C0177_57A9F5170275get_var*
+//#UC START# *57D1435E002F_57A9F5170275_impl*
+ Result := Get_BoolProp('IsView');
+//#UC END# *57D1435E002F_57A9F5170275_impl*
+//#UC START# *57D1435E002F_57A9F5170275_var*
+//#UC END# *57D1435E002F_57A9F5170275_var*
+//#UC START# *57E30E3802C5_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetList(MainWord, aName);
+//#UC END# *57E30E3802C5_57A9F5170275get_impl*
+//#UC START# *57E30E3802C5_57A9F5170275get_var*
+//#UC END# *57E30E3802C5_57A9F5170275get_var*
+//#UC START# *57E30F7201EF_57A9F5170275_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
+  Result := TmsmModelElementFactory.Make(aWord);
+//#UC END# *57E30F7201EF_57A9F5170275_impl*
+//#UC START# *57E30F7201EF_57A9F5170275_var*
+//#UC END# *57E30F7201EF_57A9F5170275_var*
+//#UC START# *57E30F9F0205_57A9F5170275_impl*
+ if (anObject = nil) then
+  Result := nil
+ else 
+  Result := MakeFromWord(anObject As TtfwWord);
+//#UC END# *57E30F9F0205_57A9F5170275_impl*
+//#UC START# *57E30F9F0205_57A9F5170275_var*
+//#UC END# *57E30F9F0205_57A9F5170275_var*
+//#UC START# *57E30FCD03DF_57A9F5170275_impl*
+ Result := MakeFromObj(aValue.AsObject);
+//#UC END# *57E30FCD03DF_57A9F5170275_impl*
+//#UC START# *57E30FCD03DF_57A9F5170275_var*
+//#UC END# *57E30FCD03DF_57A9F5170275_var*
+//#UC START# *57E3F150013E_57A9F5170275_impl*
+ if (anOther = nil) then
+  Result := false
+ else
+ begin
+  Result := l3IEQ(Self, anOther);
+  if not Result then
+   Result := (Self.MainWord.GetRefForCompare = anOther.MainWord.GetRefForCompare);
+  if not Result then
+   Result := Self.Get_ElementProp('Viewed').IsSameElement(anOther.ElementProp['Viewed']);
+ end;//anOther = nil
+//#UC END# *57E3F150013E_57A9F5170275_impl*
+//#UC START# *57E3F150013E_57A9F5170275_var*
+//#UC END# *57E3F150013E_57A9F5170275_var*
+//#UC START# *57E3F1660281_57A9F5170275_impl*
+ Result := Get_BoolProp('IsViewLink');
+//#UC END# *57E3F1660281_57A9F5170275_impl*
+//#UC START# *57E3F1660281_57A9F5170275_var*
+//#UC END# *57E3F1660281_57A9F5170275_var*
+//#UC START# *57E3F2E600D8_57A9F5170275_impl*
+ Result := TmsmModelElementMethodCaller.Call(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
+//#UC END# *57E3F2E600D8_57A9F5170275_impl*
+//#UC START# *57E3F2E600D8_57A9F5170275_var*
+
+ function tfwCatValueArray(const A: array of TtfwStackValue;
+                           const B: array of TtfwStackValue): TtfwStackValuesArray;
+ var
+  l_ALen  : Integer;
+  l_BLen  : Integer;
+  l_Index : Integer;
+ begin//tfwCatValueArray
+  l_ALen := Succ(High(A));
+  l_BLen := Succ(High(B));
+  SetLength(Result, l_ALen + l_BLen);
+  for l_Index := 0 to Pred(l_ALen) do
+   Result[l_Index] := A[l_Index];
+  for l_Index := 0 to Pred(l_BLen) do
+   Result[l_ALen + l_Index] := B[l_Index];
+ end;//tfwCatValueArray
+ 
+//#UC END# *57E3F2E600D8_57A9F5170275_var*

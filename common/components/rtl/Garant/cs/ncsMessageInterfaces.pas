@@ -31,6 +31,8 @@ type
   function WaitForReply(aMessage: TncsMessage;
    var theReply: TncsMessage;
    aTimeOut: LongWord = Windows.INFINITE): Boolean;
+  procedure RegisterHelper(const aHelper: IUnknown);
+  procedure UnregisterHelper(const aHelper: IUnknown);
   property Connected: Boolean
    read Get_Connected;
    {* Есть физический коннект }

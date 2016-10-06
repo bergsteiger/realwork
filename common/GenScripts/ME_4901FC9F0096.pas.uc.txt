@@ -1,0 +1,48 @@
+//#UC START# *479731C50290_4901FC9F0096_impl*
+ f_Leaf := nil;
+ f_PromptForDoc := nil;
+ inherited;
+//#UC END# *479731C50290_4901FC9F0096_impl*
+//#UC START# *479731C50290_4901FC9F0096_var*
+//#UC END# *479731C50290_4901FC9F0096_var*
+//#UC START# *48FF4F47010F_4901FC9F0096_impl*
+ inherited Create(aSource);
+ if Supports(aSource, InsBaseSearchPromptFilters, l_Filter) then
+ begin
+  if Assigned(l_Filter.Leaf) then
+   f_Leaf := TnsCutToLeafFilter.Make(l_Filter.Leaf.LeafCount);
+  if Assigned(l_Filter.ForDoc) then
+   f_PromptForDoc := TnsPromptForDocFilter.Make(l_Filter.ForDoc.InternalDocNumber);
+ end;
+//#UC END# *48FF4F47010F_4901FC9F0096_impl*
+//#UC START# *48FF4F47010F_4901FC9F0096_var*
+var
+ l_Filter: InsBaseSearchPromptFilters;
+//#UC END# *48FF4F47010F_4901FC9F0096_var*
+//#UC START# *4901F76E0360_4901FC9F0096get_impl*
+ Result := f_Leaf;
+//#UC END# *4901F76E0360_4901FC9F0096get_impl*
+//#UC START# *4901F76E0360_4901FC9F0096get_var*
+//#UC END# *4901F76E0360_4901FC9F0096get_var*
+//#UC START# *4901F789034B_4901FC9F0096_impl*
+ f_Leaf := aFilter;
+ Result := Self;
+//#UC END# *4901F789034B_4901FC9F0096_impl*
+//#UC START# *4901F789034B_4901FC9F0096_var*
+//#UC END# *4901F789034B_4901FC9F0096_var*
+//#UC START# *4901FC9F0096_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptFilters.pas
+//#UC END# *4901FC9F0096_ext:FileName
+//#UC START# *4901FC9F0096impl_uses*
+//#UC END# *4901FC9F0096impl_uses*
+//#UC START# *4AA4D5710363_4901FC9F0096get_impl*
+ Result := f_PromptForDoc;
+//#UC END# *4AA4D5710363_4901FC9F0096get_impl*
+//#UC START# *4AA4D5710363_4901FC9F0096get_var*
+//#UC END# *4AA4D5710363_4901FC9F0096get_var*
+//#UC START# *4AA4D7930085_4901FC9F0096_impl*
+ f_PromptForDoc := aFilter;
+ Result := Self;
+//#UC END# *4AA4D7930085_4901FC9F0096_impl*
+//#UC START# *4AA4D7930085_4901FC9F0096_var*
+//#UC END# *4AA4D7930085_4901FC9F0096_var*

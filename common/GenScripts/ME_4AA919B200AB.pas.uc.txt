@@ -1,0 +1,207 @@
+//#UC START# *4AA919B200AB_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas
+//#UC END# *4AA919B200AB_ext:FileName
+//#UC START# *4AA919B200ABimpl_uses*
+ , StdRes
+//#UC END# *4AA919B200ABimpl_uses*
+//#UC START# *4AA9304801B8_4AA919B200AB_impl*
+ // Создание базового контейнера для КЗ
+ l_Container := TCommonSearchService.Instance.MakeSaveLoadForm(vcmMakeParams(anAggregate, aContainer),
+                                           vcm_ztParent,
+                                           True,
+                                           Ord(slqtPostingOrder));
+ // Создание конкретной карточки запроса
+ vcmDispatcher.FormDispatcher.Lock;
+ try
+  Result := TCommonSearchService.Instance.MakeQueryCardForm(false,
+                                        vcmMakeParams(l_Container.Aggregate,
+                                                  l_Container.AsContainer),
+                                        vcm_ztParent,
+                                        True,
+                                        Ord(utqcPostingOrder));
+  // Загрузим запрос если подали
+  if (l_Container.Aggregate <> nil) then
+  begin
+   if (aQuery <> nil) then
+    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, aQuery)
+   else
+   begin
+    Op_Query_ClearAll.Call(l_Container.Aggregate, true);
+    op_SearchParameters_SetQuery.Call(l_Container.Aggregate, nil);
+   end;//aQuery <> nil
+  end;//l_Container.Aggregate <> nil
+ finally
+  vcmDispatcher.FormDispatcher.Unlock;
+ end;//try..finally
+//#UC END# *4AA9304801B8_4AA919B200AB_impl*
+//#UC START# *4AA9304801B8_4AA919B200AB_var*
+//#UC END# *4AA9304801B8_4AA919B200AB_var*
+//#UC START# *4AA93C87000C_4AA919B200AB_impl*
+ l_Form := nil;
+ l_Cont := CheckContainer(aContainer);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=589529193
+ l_Cont.HasForm(fm_enPostingsList.rFormID, vcm_ztNavigator, True, @l_Form);
+ Assert(l_Form <> nil);
+ if (l_Form <> nil) then
+  Result := TCommonPostModule.OpenPostingOrderForm(l_Form.Aggregate, l_Cont, aQuery)
+ else
+  Result := TCommonPostModule.OpenPostingOrderForm(nil, l_Cont, aQuery);
+//#UC END# *4AA93C87000C_4AA919B200AB_impl*
+//#UC START# *4AA93C87000C_4AA919B200AB_var*
+var
+ l_Form : IvcmEntityForm;
+ l_Cont : IvcmContainer;
+//#UC END# *4AA93C87000C_4AA919B200AB_var*
+//#UC START# *4AAF935E01A7_4AA919B200AB_impl*
+  // сохранение XML на стороне сервера приложений
+  TnsPostingsTreeSingle.Instance.SaveXMLForServer;
+  // сохранение XML на стороне клиента
+  if TnsPostingsTreeSingle.Instance.HasChildren then
+  begin
+   l_PathName := l3PStr(TnsPostingsTreeSingle.Instance.LastCatalog);
+   with dmStdRes do
+   begin
+    repeat
+     Application.HookMainWindow(TCommonPostModule.MessageHook);
+     try
+      l_Result := SelectDirectory(vcmConstString(str_ChooseSaveSettingsFolder),
+        '', l_PathName);
+     finally
+      Application.UnhookMainWindow(TCommonPostModule.MessageHook);
+     end; 
+     l_MayExit := not l_Result; //Пользователь отказался от выбора - выходим
+     if not l_MayExit then //Решил сохраниться, но это не так просто. :-)
+     begin
+      l_MayExit := DirectoryExists(l_PathName);
+      if not l_MayExit then
+      begin
+       vcmSay(war_WrongCatalogSelect, [l_PathName]);
+       l_PathName := '';
+      end;
+     end;
+    until l_MayExit;
+    if l_Result then
+    begin
+     if l_PathName[Length(l_PathName)] = '\' then
+      Delete(l_PathName, Length(l_PathName), 1);
+     try
+      DefDataAdapter.PrimeManager.SaveMailDeliveryTask(nsAStr(l_PathName));
+      TnsPostingsTreeSingle.Instance.LastCatalog := nsCStr(l_PathName);
+     except
+      on EUnknownExportError do
+       vcmSay(err_ErrorWhileSavePostings);
+     end;//try..except
+    end;//l_Result
+   end;//with dmStdRes
+  end;//TnsPostingsTreeSingle.Instance.HasChildren
+  TnsPostingsTreeSingle.Instance.DataChanged := False;
+//#UC END# *4AAF935E01A7_4AA919B200AB_impl*
+//#UC START# *4AAF935E01A7_4AA919B200AB_var*
+var
+ l_PathName : AnsiString;
+ l_Result : Boolean;
+ l_MayExit : Boolean;
+//#UC END# *4AAF935E01A7_4AA919B200AB_var*
+//#UC START# *4AAF94F8009A_4AA919B200AB_impl*
+ Result := False;
+ if (Msg.Msg = WM_ACTIVATEAPP) and TWMActivateApp(Msg).Active then
+  EnumWindows(@FindSelectDialog, LongInt(@Msg));
+//#UC END# *4AAF94F8009A_4AA919B200AB_impl*
+//#UC START# *4AAF94F8009A_4AA919B200AB_var*
+//#UC END# *4AAF94F8009A_4AA919B200AB_var*
+//#UC START# *4AAF9E650070_4AA919B200AB_impl*
+ if (vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer).HasForm(fm_efPreviewForm.rFormID) and
+  vcmDispatcher.History.HasInPreviousStep(fm_enQueryCard.rFormID) then
+   vcmDispatcher.History.Back;
+//#UC END# *4AAF9E650070_4AA919B200AB_impl*
+//#UC START# *4AAF9E650070_4AA919B200AB_var*
+//#UC END# *4AAF9E650070_4AA919B200AB_var*
+//#UC START# *4AAFA0B10356_4AA919B200AB_impl*
+ vcmDispatcher.FormDispatcher.Lock;
+ try
+  Result := TenPostingsList.MakeSingleChild(aContainer.NativeMainForm,
+                                             vcmMakeParams(anAggregate, aContainer, aOwner),
+                                             vcm_ztNavigator);
+  if anActive then
+   Result.SetActiveInParent;
+ finally
+  vcmDispatcher.FormDispatcher.UnLock;
+ end;//try..finally      
+//#UC END# *4AAFA0B10356_4AA919B200AB_impl*
+//#UC START# *4AAFA0B10356_4AA919B200AB_var*
+//#UC END# *4AAFA0B10356_4AA919B200AB_var*
+//#UC START# *4AAFA52603B7_4AA919B200AB_impl*
+  if not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch) then
+  begin
+   if Assigned(aContainer) then
+    l_Cont := aContainer
+   else
+    l_Cont := lp_CreateContainer;
+
+   l_Aggregate := vcmCheckAggregate(vcmMakeParams, False).Aggregate;
+   // Карточка
+   l_Owner := TCommonPostModule.OpenPostingOrderForm(l_Aggregate, l_Cont, nil).VCLWinControl;
+   // Ленты
+   TCommonPostModule.OpenPostingOrderList(l_Aggregate, l_Cont, True, l_Owner);
+  end//not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch)
+  else
+   Op_SearchSupport_ActivatePostingsListForm.Broadcast; 
+//#UC END# *4AAFA52603B7_4AA919B200AB_impl*
+//#UC START# *4AAFA52603B7_4AA919B200AB_var*
+ function lp_CreateContainer: IvcmContainer;
+ var
+  l_IsEmpty: Boolean;
+  l_ContainedForm: IvcmContainedForm;
+ begin
+  Result := CheckContainer(nil);
+  l_IsEmpty := False;
+  if Supports(Result.AsForm.VCLWinControl, IvcmContainedForm, l_ContainedForm) then
+  try
+   l_IsEmpty := l_ContainedForm.IsEmpty;
+  finally
+   l_ContainedForm := nil;
+  end;
+  {$If not defined(NoTabs)}
+  if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs then
+   if aNewTab and (not l_IsEmpty) then
+    Result := nsOpenNewWindowTabbed(Result, vcm_okInNewTab)
+   else
+    Result := nsOpenNewWindowTabbed(Result, vcm_okInCurrentTab);
+  {$ifend}
+ end;
+
+var
+ l_Owner: TComponent;
+ l_Cont: IvcmContainer;
+ l_Aggregate : IvcmAggregate;
+//#UC END# *4AAFA52603B7_4AA919B200AB_var*
+//#UC START# *4B71840A00D2_4AA919B200AB_impl*
+  CheckHistory;
+  with TnsPostingsTreeSingle.Instance do
+  begin
+   if (MgrSearch <> nil) and MgrSearch.Modified and vcmAsk(qr_SavePosting) then
+    SaveOrCreateQuery;
+  end;//with TnsPostingsTreeSingle.Instance do
+  SavePostingList;
+//#UC END# *4B71840A00D2_4AA919B200AB_impl*
+//#UC START# *4B71840A00D2_4AA919B200AB_var*
+//#UC END# *4B71840A00D2_4AA919B200AB_var*
+//#UC START# *4B7184370035_4AA919B200AB_impl*
+  Result := TnsPostingsTreeSingle.Instance.Root.HasChild;
+//#UC END# *4B7184370035_4AA919B200AB_impl*
+//#UC START# *4B7184370035_4AA919B200AB_var*
+//#UC END# *4B7184370035_4AA919B200AB_var*
+//#UC START# *4B71847503BF_4AA919B200ABexec_impl*
+ TCommonPostService.Instance.SavePostList;
+//#UC END# *4B71847503BF_4AA919B200ABexec_impl*
+//#UC START# *4B71847503BF_4AA919B200ABexec_var*
+//#UC END# *4B71847503BF_4AA919B200ABexec_var*
+//#UC START# *4B71847503BF_4AA919B200ABtest_impl*
+ {$if defined(Monitorings)}
+ aParams.Op.Flag[vcm_ofEnabled] := TCommonPostService.Instance.CanSavePostList;
+ {$else}
+ aParams.Op.Flag[vcm_ofVisible] := False;
+ {$ifend}
+//#UC END# *4B71847503BF_4AA919B200ABtest_impl*
+//#UC START# *4B71847503BF_4AA919B200ABtest_var*
+//#UC END# *4B71847503BF_4AA919B200ABtest_var*

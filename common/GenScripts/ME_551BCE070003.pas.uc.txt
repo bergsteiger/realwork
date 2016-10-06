@@ -1,0 +1,50 @@
+//#UC START# *551BCE070003_ext:ParentFileName
+w:\common\components\rtl\external\VGScene\vg_services.pas
+//#UC END# *551BCE070003_ext:ParentFileName
+//#UC START# *D4A861440DBF_551BCE070003_impl*
+ if aShortInfo then
+ begin
+  if Assigned(anObject) and (anObject is TvgVisualObject) then
+  begin
+   l_VO := TvgVisualObject(anObject);
+   lp_AddInfo(Result, 'name', l_VO.Name, True);
+   if l_VO is TvgTextControl then
+    lp_AddInfo(Result, 'text', TvgTextControl(l_VO).Text);
+   lp_AddInfo(Result, 'class', l_VO.ClassName);
+   if Assigned(l_VO.Owner) then
+    lp_AddInfo(Result, 'Owner', lp_FormatLinkToObject(l_VO.Owner), True);
+   if Assigned(l_VO.Parent) then
+    lp_AddInfo(Result, 'Parent', lp_FormatLinkToObject(l_VO.Parent), True);
+  end;
+ end
+ else
+  Result := L3FormatRTTIInfo(anObject, True, anObjectPropFound, Tl3HugeMessageDlgWithWikiHelper.Instance.CanUseWiki);
+//#UC END# *D4A861440DBF_551BCE070003_impl*
+//#UC START# *D4A861440DBF_551BCE070003_var*
+ procedure lp_AddInfo(var theInfo: AnsiString;
+  const aCaption: AnsiString;
+  const aValue: AnsiString;
+  aNewLine: Boolean = False);
+ begin
+  if Length(aValue) > 0 then
+  begin
+   if Length(theInfo) > 0 then
+    if aNewLine
+     then theInfo := theInfo + #13#10
+     else theInfo := theInfo + ', ';
+   theInfo := theInfo + aCaption + ':' + aValue;
+  end;
+ end;
+
+ function lp_FormatLinkToObject(anObject: TObject): AnsiString;
+ begin
+  Result := '$' + IntToHex(Integer(anObject), 8);
+  if Assigned(anObjectPropFound) then
+   anObjectPropFound(anObject, Result)
+  else
+   Result := Tl3HugeMessageDlgWithWikiHelper.Instance.FormatLink(Result, IntToStr(Integer(anObject)));
+ end;
+ 
+var
+ l_VO: TvgVisualObject;
+//#UC END# *D4A861440DBF_551BCE070003_var*

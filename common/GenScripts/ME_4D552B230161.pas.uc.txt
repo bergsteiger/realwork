@@ -1,0 +1,32 @@
+//#UC START# *47B07CF403D0_4D552B230161_impl*
+ Result := (A = B);
+//#UC END# *47B07CF403D0_4D552B230161_impl*
+//#UC START# *47B07CF403D0_4D552B230161_var*
+//#UC END# *47B07CF403D0_4D552B230161_var*
+//#UC START# *47B2C42A0163_4D552B230161_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_4D552B230161_impl*
+//#UC START# *47B2C42A0163_4D552B230161_var*
+//#UC END# *47B2C42A0163_4D552B230161_var*
+//#UC START# *47B99D4503A2_4D552B230161_impl*
+ Assert(Assigned(f_CurrentComparer));
+ Result := f_CurrentComparer(CI.rA^, CI.rB^);
+//#UC END# *47B99D4503A2_4D552B230161_impl*
+//#UC START# *47B99D4503A2_4D552B230161_var*
+//#UC END# *47B99D4503A2_4D552B230161_var*
+//#UC START# *4D552B230161_ext:FileName
+w:\common\components\rtl\external\VGScene\vgSortableObjectList.pas
+//#UC END# *4D552B230161_ext:FileName
+//#UC START# *4D552B230161impl_uses*
+//#UC END# *4D552B230161impl_uses*
+//#UC START# *4D552BB90144_4D552B230161_impl*
+ Assert(not Assigned(f_CurrentComparer));
+ f_CurrentComparer := aComparer;
+ try
+  inherited Sort;
+ finally
+  f_CurrentComparer := nil;
+ end;//try..finaly
+//#UC END# *4D552BB90144_4D552B230161_impl*
+//#UC START# *4D552BB90144_4D552B230161_var*
+//#UC END# *4D552BB90144_4D552B230161_var*

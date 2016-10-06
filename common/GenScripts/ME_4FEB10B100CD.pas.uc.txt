@@ -1,0 +1,105 @@
+//#UC START# *48077504027E_4FEB10B100CD_impl*
+  if (f_ReadHandle <> INVALID_HANDLE_VALUE) then
+    CloseHandle(f_ReadHandle);
+  if (f_WriteHandle <> INVALID_HANDLE_VALUE) then
+    CloseHandle(f_WriteHandle);
+  inherited;
+//#UC END# *48077504027E_4FEB10B100CD_impl*
+//#UC START# *48077504027E_4FEB10B100CD_var*
+//#UC END# *48077504027E_4FEB10B100CD_var*
+//#UC START# *49F057120234_4FEB10B100CD_impl*
+  if f_ReadHandle <> INVALID_HANDLE_VALUE then // если мы первые и единственные кто открыли файл
+  begin
+    Initialize;
+    //
+    CloseHandle(f_ReadHandle);
+    f_ReadHandle := INVALID_HANDLE_VALUE;
+    while NOT OpenForRead() do Sleep(WAIT_TIME);
+    CloseHandle(f_WriteHandle);
+    f_WriteHandle := INVALID_HANDLE_VALUE;
+  end
+  else
+    while NOT OpenForRead() do Sleep(WAIT_TIME);
+//#UC END# *49F057120234_4FEB10B100CD_impl*
+//#UC START# *49F057120234_4FEB10B100CD_var*
+  const
+    WAIT_TIME = 100;
+//#UC END# *49F057120234_4FEB10B100CD_var*
+//#UC START# *4FEB10B100CD_ext:FileName
+w:\quality\test\garant6x\AdapterTest\CoreObjects\atLockFile.pas
+//#UC END# *4FEB10B100CD_ext:FileName
+//#UC START# *4FEB10B100CDimpl_uses*
+//#UC END# *4FEB10B100CDimpl_uses*
+//#UC START# *4FEB10EA02B3_4FEB10B100CD_impl*
+  inherited Create;
+  f_FileName := aFileName;
+  f_LocksCount := 0;
+  f_WriteHandle := INVALID_HANDLE_VALUE;
+  f_ReadHandle := INVALID_HANDLE_VALUE;
+  //
+  f_ReadHandle := OpenFile(GENERIC_READ, FILE_SHARE_WRITE); // можно открыть только первому
+  if f_ReadHandle <> INVALID_HANDLE_VALUE then
+  begin
+    f_WriteHandle := OpenFile(GENERIC_WRITE, FILE_SHARE_READ);
+    if f_WriteHandle = INVALID_HANDLE_VALUE then
+    begin
+      CloseHandle(f_ReadHandle);
+      f_ReadHandle := INVALID_HANDLE_VALUE;
+    end;
+  end;
+//#UC END# *4FEB10EA02B3_4FEB10B100CD_impl*
+//#UC START# *4FEB10EA02B3_4FEB10B100CD_var*
+//#UC END# *4FEB10EA02B3_4FEB10B100CD_var*
+//#UC START# *4FEB10FD01E9_4FEB10B100CD_impl*
+  Result := f_WriteHandle <> INVALID_HANDLE_VALUE;
+  if (NOT Result) then
+  begin
+    l_DeadLine := IncMilliSecond(Time, aTimeOut);
+    repeat
+      f_WriteHandle := OpenFile(GENERIC_WRITE, FILE_SHARE_READ);
+      Result := f_WriteHandle <> INVALID_HANDLE_VALUE;
+      if NOT Result then Sleep(WAIT_TIME);
+    until Result OR (aTimeOut = 0) OR ((aTimeOut <> INFINITE) AND (Time > l_DeadLine));
+  end;
+  if Result then Inc(f_LocksCount);
+//#UC END# *4FEB10FD01E9_4FEB10B100CD_impl*
+//#UC START# *4FEB10FD01E9_4FEB10B100CD_var*
+  const
+    WAIT_TIME = 100;
+  var
+    l_DeadLine : TDateTime;
+//#UC END# *4FEB10FD01E9_4FEB10B100CD_var*
+//#UC START# *4FEB117E0197_4FEB10B100CD_impl*
+  if (f_LocksCount = 1) AND (f_WriteHandle <> INVALID_HANDLE_VALUE) then
+  begin
+    CloseHandle(f_WriteHandle);
+    f_WriteHandle := INVALID_HANDLE_VALUE;
+  end;
+  Dec(f_LocksCount);
+//#UC END# *4FEB117E0197_4FEB10B100CD_impl*
+//#UC START# *4FEB117E0197_4FEB10B100CD_var*
+//#UC END# *4FEB117E0197_4FEB10B100CD_var*
+//#UC START# *4FEB11FB009A_4FEB10B100CD_impl*
+  //
+//#UC END# *4FEB11FB009A_4FEB10B100CD_impl*
+//#UC START# *4FEB11FB009A_4FEB10B100CD_var*
+//#UC END# *4FEB11FB009A_4FEB10B100CD_var*
+//#UC START# *4FEB12AF03A1_4FEB10B100CD_impl*
+  f_ReadHandle := OpenFile(GENERIC_READ, FILE_SHARE_READ or FILE_SHARE_WRITE);
+  Result := f_ReadHandle <> INVALID_HANDLE_VALUE;
+//#UC END# *4FEB12AF03A1_4FEB10B100CD_impl*
+//#UC START# *4FEB12AF03A1_4FEB10B100CD_var*
+//#UC END# *4FEB12AF03A1_4FEB10B100CD_var*
+//#UC START# *4FEB12C50271_4FEB10B100CD_impl*
+  Result := CreateFile(
+    PAnsiChar(f_FileName),
+    aAccessMode,
+    aShareMode,
+    nil,
+    OPEN_ALWAYS,
+    FILE_ATTRIBUTE_NORMAL,
+    0
+  );
+//#UC END# *4FEB12C50271_4FEB10B100CD_impl*
+//#UC START# *4FEB12C50271_4FEB10B100CD_var*
+//#UC END# *4FEB12C50271_4FEB10B100CD_var*

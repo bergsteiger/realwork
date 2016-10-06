@@ -1,0 +1,84 @@
+//#UC START# *479731C50290_53A2A70E0369_impl*
+ FreeAndNil(f_ControlStrings);
+ inherited;
+//#UC END# *479731C50290_53A2A70E0369_impl*
+//#UC START# *479731C50290_53A2A70E0369_var*
+//#UC END# *479731C50290_53A2A70E0369_var*
+//#UC START# *521761BB03DE_53A2A70E0369_impl*
+ Result := inherited ConstructControl(aLeft, aMaxLeft, aTop, aParent);
+ TRadioGroup(Control).Caption := Caption;
+ with Result do
+ begin
+  Parent := aParent as TWinControl;
+  Left := aLeft;
+  Top := aTop;
+  l_Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+  if (aParent is TScrollBox) then
+   Dec(l_Width, c_ScrollBarWidth); /// l_Width никому не нужен?
+  Height := ControlHeight(aParent);
+ end;
+//#UC END# *521761BB03DE_53A2A70E0369_impl*
+//#UC START# *521761BB03DE_53A2A70E0369_var*
+var
+ l_Width: Integer;
+//#UC END# *521761BB03DE_53A2A70E0369_var*
+//#UC START# *521B053F03C3_53A2A70E0369_impl*
+ if (ValueMap <> nil) then
+  l_Count := ValueMap.MapSize
+ else
+  l_Count := f_MapValues.Count;
+
+ Result := GetCanvas(aParent).TextHeight('A');
+ Inc(Result, (l_Count + 2) * Result);
+
+//#UC END# *521B053F03C3_53A2A70E0369_impl*
+//#UC START# *521B053F03C3_53A2A70E0369_var*
+var
+ l_Count: Integer;
+ l_RadioButton: TRadioButton;
+ l_RadioGroup: TRadioGroup;
+ l_Index: Integer;
+ l_HeaderHeight: Integer;
+ l_ItemsHeight: Integer;
+//#UC END# *521B053F03C3_53A2A70E0369_var*
+//#UC START# *52245D1400E9_53A2A70E0369_impl*
+ Result := f_ControlStrings;
+//#UC END# *52245D1400E9_53A2A70E0369_impl*
+//#UC START# *52245D1400E9_53A2A70E0369_var*
+//#UC END# *52245D1400E9_53A2A70E0369_var*
+//#UC START# *53A299B303CB_53A2A70E0369get_impl*
+ Result := TRadioGroup;
+//#UC END# *53A299B303CB_53A2A70E0369get_impl*
+//#UC START# *53A299B303CB_53A2A70E0369get_var*
+//#UC END# *53A299B303CB_53A2A70E0369get_var*
+//#UC START# *53A29D68029C_53A2A70E0369get_impl*
+ Result := TRadioGroup(Control).ItemIndex;
+//#UC END# *53A29D68029C_53A2A70E0369get_impl*
+//#UC START# *53A29D68029C_53A2A70E0369get_var*
+//#UC END# *53A29D68029C_53A2A70E0369get_var*
+//#UC START# *53A29D68029C_53A2A70E0369set_impl*
+ TRadioGroup(Control).ItemIndex := aValue;
+//#UC END# *53A29D68029C_53A2A70E0369set_impl*
+//#UC START# *53A29D68029C_53A2A70E0369set_var*
+//#UC END# *53A29D68029C_53A2A70E0369set_var*
+//#UC START# *53A2A16C0369_53A2A70E0369_impl*
+ TRadioGroup(Control).OnClick := DoOnChange;
+//#UC END# *53A2A16C0369_53A2A70E0369_impl*
+//#UC START# *53A2A16C0369_53A2A70E0369_var*
+//#UC END# *53A2A16C0369_53A2A70E0369_var*
+//#UC START# *53A2A70E0369_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas
+//#UC END# *53A2A70E0369_ext:ParentFileName
+//#UC START# *53A3BE140327_53A2A70E0369get_impl*
+ if (f_ControlStrings = nil) then
+  f_ControlStrings := Tl3Strings.Create;
+ f_ControlStrings.Assign(TRadioGroup(Control).Items);
+ Result := f_ControlStrings as Il3StringsEx;
+//#UC END# *53A3BE140327_53A2A70E0369get_impl*
+//#UC START# *53A3BE140327_53A2A70E0369get_var*
+//#UC END# *53A3BE140327_53A2A70E0369get_var*
+//#UC START# *53A3D16C014B_53A2A70E0369_impl*
+ TRadioGroup(Control).Items.Assign(aStrings.Items);
+//#UC END# *53A3D16C014B_53A2A70E0369_impl*
+//#UC START# *53A3D16C014B_53A2A70E0369_var*
+//#UC END# *53A3D16C014B_53A2A70E0369_var*

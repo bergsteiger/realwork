@@ -1,0 +1,41 @@
+//#UC START# *57D2A771002F_57EE6E97018D_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ l_Message := aContext.rMessage as TcsMultiOperation;
+ l_Reply := TcsMultiOperationReply.Create(l_Message);
+ try
+  l_Reply.IsSuccess := False;
+  l_Reply.ErrorMessage := '';
+  try
+   l_Reply.IsSuccess := False;
+   l_Task := TalcuMultiOperationRequest.Create(l_Message.UserID);
+   try
+    l_Task.Message := l_Message;
+    l_Task.Reply := l_Reply;
+    IncomingList.Push(l_Task);
+    SpeedupRequest;
+    l_Task.WaitForReady;
+   finally
+    FreeAndNil(l_Task);
+   end;
+  finally
+   aContext.rTransporter.Send(l_Reply);
+  end;
+ finally
+  FreeAndNil(l_Reply);
+ end;
+ l_Counter.Stop;
+ l3System.Msg2Log('Remote multioperation (%s) wait - %s', [GetEnumName(TypeInfo(TarMultiOperation), Ord(l_Message.Operation)), FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+//#UC END# *57D2A771002F_57EE6E97018D_impl*
+//#UC START# *57D2A771002F_57EE6E97018D_var*
+var
+ l_Message: TcsMultiOperation;
+ l_Reply: TcsMultiOperationReply;
+ l_Task: TalcuMultiOperationRequest;
+ l_Counter: Tl3StopWatch;
+//#UC END# *57D2A771002F_57EE6E97018D_var*
+//#UC START# *57EE6E97018D_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationExecutor.pas
+//#UC END# *57EE6E97018D_ext:FileName
+//#UC START# *57EE6E97018Dimpl_uses*
+//#UC END# *57EE6E97018Dimpl_uses*

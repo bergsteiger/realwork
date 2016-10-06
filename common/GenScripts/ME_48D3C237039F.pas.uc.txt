@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_48D3C237039F_impl*
+ f_DescControl := nil;
+ inherited;
+//#UC END# *479731C50290_48D3C237039F_impl*
+//#UC START# *479731C50290_48D3C237039F_var*
+//#UC END# *479731C50290_48D3C237039F_var*
+//#UC START# *47CD5DF301FE_48D3C237039Fget_impl*
+ Para.AsObject.Attr[k2_tiReqID].QI(Il3CString, Result);
+//#UC END# *47CD5DF301FE_48D3C237039Fget_impl*
+//#UC START# *47CD5DF301FE_48D3C237039Fget_var*
+//#UC END# *47CD5DF301FE_48D3C237039Fget_var*
+//#UC START# *47CD5E1C00AE_48D3C237039Fget_impl*
+ Result := f_DescControl.Collapsed;
+//#UC END# *47CD5E1C00AE_48D3C237039Fget_impl*
+//#UC START# *47CD5E1C00AE_48D3C237039Fget_var*
+//#UC END# *47CD5E1C00AE_48D3C237039Fget_var*
+//#UC START# *47CD5E1C00AE_48D3C237039Fset_impl*
+ f_DescControl.Collapsed := aValue;
+//#UC END# *47CD5E1C00AE_48D3C237039Fset_impl*
+//#UC START# *47CD5E1C00AE_48D3C237039Fset_var*
+//#UC END# *47CD5E1C00AE_48D3C237039Fset_var*
+//#UC START# *47CFE07602FE_48D3C237039F_impl*
+ inherited Create(aPara);
+ InitModel;
+//#UC END# *47CFE07602FE_48D3C237039F_impl*
+//#UC START# *47CFE07602FE_48D3C237039F_var*
+//#UC END# *47CFE07602FE_48D3C237039F_var*
+//#UC START# *48D3C237039F_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evDescriptionReq.pas
+//#UC END# *48D3C237039F_ext:FileName
+//#UC START# *48D3C237039Fimpl_uses*
+//#UC END# *48D3C237039Fimpl_uses*
+//#UC START# *48D3C2C7018E_48D3C237039F_impl*
+ with Para do
+  if AsObject.IsValid then
+  begin
+   Assert(TevReqKind(AsObject.IntA[k2_tiReqKind]) = ev_rkDescription);
+   AsList.IterateParaF(nevL2PIA(@GetChildControl));
+  end;
+//#UC END# *48D3C2C7018E_48D3C237039F_impl*
+//#UC START# *48D3C2C7018E_48D3C237039F_var*
+
+ function GetChildControl(const aChild: InevPara; Index: Integer): Boolean;
+ begin
+  Result := (f_DescControl = nil);
+  if Result then
+  begin
+   with aChild.AsList[0] do
+    if AsObject.IsKindOf(k2_typControlPara) then
+     AsObject.QT(IevCommonControl,f_DescControl);
+  end;//Result
+ end;//GetChildLine
+
+//#UC END# *48D3C2C7018E_48D3C237039F_var*

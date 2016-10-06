@@ -92,6 +92,31 @@ ME ME_57BACF5E010C
 
 ENDME // ME_57BACF5E010C vcm_Form_ManualUpdateActions
 
+ME ME_57F3663F000E
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_57F3663F000E aForm
+
+ME ME_57F365EB014D
+ MEPROP UID '57F365EB014D'
+ MEPROP Name 'vcm_Form_ReloadToolbars'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F3663F000E // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_57F365EB014D vcm_Form_ReloadToolbars
+
 ME ME_54DCB3050025
  MEPROP Class class_Dependency
  MELINK Stereotype st_injects::Dependency ;
@@ -130,6 +155,7 @@ ME ME_54DCB28C0273
  ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57BACF5E010C // vcm_Form_ManualUpdateActions
+ HWL ME_57F365EB014D // vcm_Form_ReloadToolbars
  )
  ; // Operations
  MELIST Dependencies

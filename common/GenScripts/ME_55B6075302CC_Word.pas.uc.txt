@@ -1,0 +1,31 @@
+//#UC START# *55B6075302CC_55B6075302CC_Word_impl*
+ if not DirectoryExists(aDirName) then
+ begin
+  Assert(False, Format('Директория %s не существует', [aDirName]));
+  Exit;
+ end; // if not DirectoryExists(aDirName) then
+ l_FindResult := FindFirst(ConcatDirName(aDirName, aFileMask),
+                           faAnyFile,
+                           l_SearchRec);
+ try
+  while (l_FindResult = 0) do
+  begin
+   if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+   begin
+    aCtx.rEngine.PushString(ConcatDirName(aDirName, l_SearchRec.Name));
+    aProc.DoIt(aCtx);
+   end; // if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+   l_FindResult := FindNext(l_SearchRec);
+  end; // while l_FindResult = 0 do
+ finally
+  SysUtils.FindClose(l_SearchRec);
+ end;//try..finally
+//#UC END# *55B6075302CC_55B6075302CC_Word_impl*
+//#UC START# *55B6075302CC_55B6075302CC_Word_var*
+var
+ l_SearchRec  : TSearchRec;
+ l_FindResult : Integer;
+//#UC END# *55B6075302CC_55B6075302CC_Word_var*
+//#UC START# *55B6075302CC_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas
+//#UC END# *55B6075302CC_Word_ext:ParentFileName

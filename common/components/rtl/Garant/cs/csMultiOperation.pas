@@ -11,14 +11,14 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , ncsMessage
+ , csPersonificatedMessage
  , evdTasksHelpers
  , l3MarshalledTypes
  , k2Base
 ;
 
 type
- TcsMultiOperation = class(TncsMessage)
+ TcsMultiOperation = class(TcsPersonificatedMessage)
   protected
    function pm_GetFamilyID: Integer;
    procedure pm_SetFamilyID(aValue: Integer);

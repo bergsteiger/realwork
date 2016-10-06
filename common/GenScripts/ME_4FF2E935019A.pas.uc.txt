@@ -1,0 +1,113 @@
+//#UC START# *4A8E8F2E0195_4FF2E935019A_impl*
+ with pnBack do
+ begin
+  BevelOuter := bvNone;
+ end;
+ with pnLeftEx do
+ begin
+  Width := Self.ClientWidth div 2;
+  SizeableSides := [szRight];
+  SplitterBevel := bvRaised;
+  TabOrder := 0;
+  Align := alLeft;
+  BevelOuter := bvNone;
+  Constraints.MinWidth := 200;
+  OuterConstraints.MinWidth := 200;
+ end;
+ with scrLeft do
+  Align := sbalRight;
+ with pnLeftForScroll do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+ with pnLeft do
+ begin
+  TabOrder := 0;
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;//with pnLeft
+ with pnlLeftTop do
+ begin
+  Align := alTop;   // http://mdp.garant.ru/pages/viewpage.action?pageId=388860126
+  Height := 50; // http://mdp.garant.ru/pages/viewpage.action?pageId=602009846
+  Color := cAACContentsBackColor;
+  BevelOuter := bvNone;
+ end;
+ with pnRightEx do
+ begin
+  Width := Self.ClientWidth div 2;
+  TabOrder := 1;
+  Align := alClient;
+  BevelOuter := bvNone;
+  //Constraints.MinWidth := 200;
+ end;
+ with scrRight do
+  Align := sbalRight;
+ with pnRightForScroll do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+ with pnRight do
+ begin
+  Width := Self.ClientWidth div 2;
+  TabOrder := 0;
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;//with pnRight
+ with pnlRightTop do
+ begin
+  Align := alTop;   // http://mdp.garant.ru/pages/viewpage.action?pageId=388860126
+  Height := 30; // http://mdp.garant.ru/pages/viewpage.action?pageId=602009846&focusedCommentId=605156996#comment-605156996
+  Color := $00FFFFFF; // clWhite
+  BevelOuter := bvNone;
+ end;
+ Self.ActiveControl := pnRight;
+ inherited;
+//#UC END# *4A8E8F2E0195_4FF2E935019A_impl*
+//#UC START# *4A8E8F2E0195_4FF2E935019A_var*
+//#UC END# *4A8E8F2E0195_4FF2E935019A_var*
+//#UC START# *4FF2E935019A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_Form.pas
+//#UC END# *4FF2E935019A_ext:FileName
+//#UC START# *4FF2E935019Aimpl_uses*
+//#UC END# *4FF2E935019Aimpl_uses*
+//#UC START# *5005237D0210_4FF2E935019Aexec_impl*
+ Result := DoGetVScrollBar(aLeft);
+//#UC END# *5005237D0210_4FF2E935019Aexec_impl*
+//#UC START# *5005237D0210_4FF2E935019Aexec_var*
+//#UC END# *5005237D0210_4FF2E935019Aexec_var*
+//#UC START# *5006ED2300F9_4FF2E935019Aexec_impl*
+ DoSetJumpTo(aJumpTo);
+//#UC END# *5006ED2300F9_4FF2E935019Aexec_impl*
+//#UC START# *5006ED2300F9_4FF2E935019Aexec_var*
+//#UC END# *5006ED2300F9_4FF2E935019Aexec_var*
+//#UC START# *503CE2E2021B_4FF2E935019A_impl*
+ if aLeft then
+  Result := scrLeft
+ else
+  Result := scrRight;
+//#UC END# *503CE2E2021B_4FF2E935019A_impl*
+//#UC START# *503CE2E2021B_4FF2E935019A_var*
+//#UC END# *503CE2E2021B_4FF2E935019A_var*
+//#UC START# *503CE3500038_4FF2E935019A_impl*
+ Assert(False, 'Мы сюда не должны были прийти');
+//#UC END# *503CE3500038_4FF2E935019A_impl*
+//#UC START# *503CE3500038_4FF2E935019A_var*
+//#UC END# *503CE3500038_4FF2E935019A_var*
+//#UC START# *53F1C6EF02C9_4FF2E935019A_impl*
+ Result := f_TabCaption;
+//#UC END# *53F1C6EF02C9_4FF2E935019A_impl*
+//#UC START# *53F1C6EF02C9_4FF2E935019A_var*
+//#UC END# *53F1C6EF02C9_4FF2E935019A_var*
+//#UC START# *542A6DA20026_4FF2E935019A_impl*
+ f_TabCaption := aTabCaption;
+ NotifyContainerCaptionChanged;
+ // - Костыли
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=565492823
+//#UC END# *542A6DA20026_4FF2E935019A_impl*
+//#UC START# *542A6DA20026_4FF2E935019A_var*
+var
+ l_Caption: IvcmCString;
+//#UC END# *542A6DA20026_4FF2E935019A_var*

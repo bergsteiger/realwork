@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_52D3E2EE0244_impl*
+ //l_V := TtfwThreadVar.Instance.Check(Self, @f_Value);
+ //Finalize(l_V^);
+ //l3FillChar(l_V^, SizeOf(l_V^));
+ Finalize(f_Value);
+ l3FillChar(f_Value, SizeOf(f_Value));
+ f_TypeInfo := nil;
+ inherited;
+//#UC END# *479731C50290_52D3E2EE0244_impl*
+//#UC START# *479731C50290_52D3E2EE0244_var*
+//var
+// l_V : PtfwStackValue;
+//#UC END# *479731C50290_52D3E2EE0244_var*
+//#UC START# *4DAEEDE10285_52D3E2EE0244_impl*
+ TtfwThreadVar.Instance.PushValue(Self, @f_Value, aCtx);
+//#UC END# *4DAEEDE10285_52D3E2EE0244_impl*
+//#UC START# *4DAEEDE10285_52D3E2EE0244_var*
+//#UC END# *4DAEEDE10285_52D3E2EE0244_var*
+//#UC START# *52CFC11603C8_52D3E2EE0244get_impl*
+ if (f_TypeInfo = nil) then
+  Result := TtfwWordInfoE.Instance
+ else
+  Result := f_TypeInfo;
+//#UC END# *52CFC11603C8_52D3E2EE0244get_impl*
+//#UC START# *52CFC11603C8_52D3E2EE0244get_var*
+//#UC END# *52CFC11603C8_52D3E2EE0244get_var*
+//#UC START# *52D00B00031A_52D3E2EE0244_impl*
+ TtfwThreadVar.Instance.SetValue(Self, @f_Value, aValue);
+//#UC END# *52D00B00031A_52D3E2EE0244_impl*
+//#UC START# *52D00B00031A_52D3E2EE0244_var*
+//#UC END# *52D00B00031A_52D3E2EE0244_var*
+//#UC START# *52D399A00173_52D3E2EE0244_impl*
+ Result := TtfwThreadVar.Instance.GetValue(Self, @f_Value);
+//#UC END# *52D399A00173_52D3E2EE0244_impl*
+//#UC START# *52D399A00173_52D3E2EE0244_var*
+//#UC END# *52D399A00173_52D3E2EE0244_var*
+//#UC START# *52D399D40140_52D3E2EE0244_impl*
+ Result := true;
+//#UC END# *52D399D40140_52D3E2EE0244_impl*
+//#UC START# *52D399D40140_52D3E2EE0244_var*
+//#UC END# *52D399D40140_52D3E2EE0244_var*
+//#UC START# *52D3E2EE0244_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas
+//#UC END# *52D3E2EE0244_ext:FileName
+//#UC START# *52EA6A2C0111_52D3E2EE0244_impl*
+ f_TypeInfo := aValue.Clone;
+//#UC END# *52EA6A2C0111_52D3E2EE0244_impl*
+//#UC START# *52EA6A2C0111_52D3E2EE0244_var*
+//#UC END# *52EA6A2C0111_52D3E2EE0244_var*
+//#UC START# *559A470F0288_52D3E2EE0244_impl*
+ Result := true;
+//#UC END# *559A470F0288_52D3E2EE0244_impl*
+//#UC START# *559A470F0288_52D3E2EE0244_var*
+//#UC END# *559A470F0288_52D3E2EE0244_var*

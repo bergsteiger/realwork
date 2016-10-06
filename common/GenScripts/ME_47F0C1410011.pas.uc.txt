@@ -1,0 +1,185 @@
+//#UC START# *479731C50290_47F0C1410011_impl*
+ FreeAndNil(f_UpdateCurrentTimer);
+ pm_SetSimpleTree(nil);
+ inherited;
+//#UC END# *479731C50290_47F0C1410011_impl*
+//#UC START# *479731C50290_47F0C1410011_var*
+//#UC END# *479731C50290_47F0C1410011_var*
+//#UC START# *47F0C1410011_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas
+//#UC END# *47F0C1410011_ext:FileName
+//#UC START# *47F0C1BF0314_47F0C1410011_impl*
+
+//#UC END# *47F0C1BF0314_47F0C1410011_impl*
+//#UC START# *47F0C1BF0314_47F0C1410011_var*
+//#UC END# *47F0C1BF0314_47F0C1410011_var*
+//#UC START# *47F465F80149_47F0C1410011_impl*
+ Result := vtMakeImageListWrapper(vtStdResources.Images);
+//#UC END# *47F465F80149_47F0C1410011_impl*
+//#UC START# *47F465F80149_47F0C1410011_var*
+//#UC END# *47F465F80149_47F0C1410011_var*
+//#UC START# *47FC718400FA_47F0C1410011_impl*
+ if (aOld <> nil) then
+  aOld.Unsubscribe(InsDropListener(Self));
+ f_SimpleTree := aNew;
+ if (aNew <> nil) then
+  aNew.Subscribe(InsDropListener(Self));
+//#UC END# *47FC718400FA_47F0C1410011_impl*
+//#UC START# *47FC718400FA_47F0C1410011_var*
+//#UC END# *47FC718400FA_47F0C1410011_var*
+//#UC START# *48FEE96D03AD_47F0C1410011_impl*
+  DoDataDropped;
+//#UC END# *48FEE96D03AD_47F0C1410011_impl*
+//#UC START# *48FEE96D03AD_47F0C1410011_var*
+//#UC END# *48FEE96D03AD_47F0C1410011_var*
+//#UC START# *491476B001D3_47F0C1410011_impl*
+ l_ST := pm_GetSimpleTree;
+ if Assigned(l_ST) and Assigned(l_ST.RootNode) then
+  Result := l3CStr(l_ST.RootNode)
+ else
+  Result := nil;
+//#UC END# *491476B001D3_47F0C1410011_impl*
+//#UC START# *491476B001D3_47F0C1410011_var*
+var
+ l_ST : Il3SimpleTree;
+//#UC END# *491476B001D3_47F0C1410011_var*
+//#UC START# *491DD57603A3_47F0C1410011get_impl*
+ Result := MakeImageList;
+//#UC END# *491DD57603A3_47F0C1410011get_impl*
+//#UC START# *491DD57603A3_47F0C1410011get_var*
+//#UC END# *491DD57603A3_47F0C1410011get_var*
+//#UC START# *491DD5A10199_47F0C1410011get_impl*
+ if not Assigned(f_SimpleTree) then
+ begin
+  pm_SetSimpleTree(MakeSimpleTree);
+  f_IsFirstMake := False;
+ end;//if not Assigned(f_SimpleTree) then
+ Result := f_SimpleTree;
+//#UC END# *491DD5A10199_47F0C1410011get_impl*
+//#UC START# *491DD5A10199_47F0C1410011get_var*
+//#UC END# *491DD5A10199_47F0C1410011get_var*
+//#UC START# *491DD5A10199_47F0C1410011set_impl*
+ l_Old := f_SimpleTree;
+  // - нужно увеличить счетчик ссылок, чтобы не получилось, что f_SimpleTree
+  //   в процессе обработки отпустили, а кто либо продолжит работу с "const aOld";
+ try
+  UpdateSimpleTree(l_Old, aValue);
+ finally
+  l_Old := nil;
+ end;//try..finally
+//#UC END# *491DD5A10199_47F0C1410011set_impl*
+//#UC START# *491DD5A10199_47F0C1410011set_var*
+var
+ l_Old: Il3SimpleTree;
+//#UC END# *491DD5A10199_47F0C1410011set_var*
+//#UC START# *491DD5C90095_47F0C1410011_impl*
+ lp_UpdateMovingCurrent;
+ if not aUpdateWithDelay then
+ begin
+  MovingFinished;
+  Exit;
+ end;//if not aUpdateWithDelay then
+ if UpdateCurrentTimer.Enabled then
+  Exit
+ else
+  if (GetTickCount - ChangeCurrentTime < ns_UpdateTime) then
+   UpdateCurrentTimer.Enabled := True
+  else
+   MovingFinished;
+//#UC END# *491DD5C90095_47F0C1410011_impl*
+//#UC START# *491DD5C90095_47F0C1410011_var*
+
+ procedure lp_UpdateMovingCurrent;
+ var
+  l_Node           : INodeBase;
+  l_UnfilteredNode : INodeBase;
+ begin
+  if Assigned(aNode) then
+  begin
+   if Supports(aNode, INodeBase, l_Node) then
+   try
+    // При фильтрации, View дерева может умереть раньше чем, узел этого View, с
+    // которым после умирания работать будет нельзя, поэтому получаем
+    // нефильтрованный вариант узла (CQ: OIT5-28558):
+    l_Node.GetUnfilteredNode(l_UnfilteredNode);
+    try
+     MovingCurrent := TnsNewCachableNode.Make(l_UnfilteredNode);
+    finally
+     l_UnfilteredNode := nil;
+    end;//try..finally
+   finally
+    l_Node := nil;
+   end//try..finally
+   else
+    Assert(False);
+  end
+  else
+   MovingCurrent := nil;
+ end;//lp_UpdateMovingCurrent
+
+//#UC END# *491DD5C90095_47F0C1410011_var*
+//#UC START# *492140830112_47F0C1410011_impl*
+ if MovingCurrent = PrevMovingCurrent then
+ begin
+  UpdateCurrentTimer.Enabled := False;
+  MovingFinished;
+ end
+ else
+  PrevMovingCurrent := MovingCurrent;
+//#UC END# *492140830112_47F0C1410011_impl*
+//#UC START# *492140830112_47F0C1410011_var*
+//#UC END# *492140830112_47F0C1410011_var*
+//#UC START# *49214097027A_47F0C1410011_impl*
+ ChangeCurrentTime := GetTickCount;
+ l_ST := pm_GetSimpleTree;
+ // Разворачиваем обратно ноду (если можем) K-122667444 
+ if Assigned(l_ST) and Supports(l_ST.RootNode, INodeBase, l_Root) and
+    Supports(MovingCurrent, INodeBase, l_Node) then
+ begin
+  l_Root.FindNode(l_Node, l_NewCurrent);
+  Current := TnsNewCachableNode.Make(l_NewCurrent);
+ end
+ else
+  Current := MovingCurrent;
+ DoCurrentChanged(Current);
+ ChangeCurrentTime := GetTickCount;
+//#UC END# *49214097027A_47F0C1410011_impl*
+//#UC START# *49214097027A_47F0C1410011_var*
+var
+ l_Node: INodeBase;
+ l_Root: INodeBase;
+ l_NewCurrent : INodeBase;
+ l_ST         : Il3SimpleTree;
+//#UC END# *49214097027A_47F0C1410011_var*
+//#UC START# *492152570031_47F0C1410011get_impl*
+ if f_UpdateCurrentTimer = nil then
+ begin
+  f_UpdateCurrentTimer := TTimer.Create(nil);
+  with f_UpdateCurrentTimer do
+  begin
+   Enabled := False;
+   OnTimer := OnUpdateCurrent;
+   Interval := ns_UpdateTime;
+  end;//with f_UpdateCurrentTimer do
+ end;//if f_UpdateCurrentTimer = nil then
+ Result := f_UpdateCurrentTimer;
+//#UC END# *492152570031_47F0C1410011get_impl*
+//#UC START# *492152570031_47F0C1410011get_var*
+//#UC END# *492152570031_47F0C1410011get_var*
+//#UC START# *49215CE702B9_47F0C1410011_impl*
+ 
+//#UC END# *49215CE702B9_47F0C1410011_impl*
+//#UC START# *49215CE702B9_47F0C1410011_var*
+//#UC END# *49215CE702B9_47F0C1410011_var*
+//#UC START# *492BF7900310_47F0C1410011_impl*
+ inherited;
+ f_IsFirstMake := True;
+//#UC END# *492BF7900310_47F0C1410011_impl*
+//#UC START# *492BF7900310_47F0C1410011_var*
+//#UC END# *492BF7900310_47F0C1410011_var*
+//#UC START# *4978163E03A0_47F0C1410011_impl*
+ pm_SetSimpleTree(nil);
+ Result := pm_GetSimpleTree;
+//#UC END# *4978163E03A0_47F0C1410011_impl*
+//#UC START# *4978163E03A0_47F0C1410011_var*
+//#UC END# *4978163E03A0_47F0C1410011_var*

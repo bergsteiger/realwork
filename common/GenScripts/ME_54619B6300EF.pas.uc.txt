@@ -1,0 +1,39 @@
+//#UC START# *54619A0C00D4_54619B6300EFget_impl*
+ if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs then
+ begin
+  l_ActiveContainer := TvcmTabbedContainerFormDispatcher.Instance.ActiveContainer;
+  if (l_ActiveContainer <> nil) then
+   Result := l_ActiveContainer.GetInnerEntityForm
+  else
+   Result := nil;
+ end
+ else
+ begin
+  l_MainForm := afw.Application.CurrentMainForm;
+  if (l_MainForm <> nil) then
+  try
+   Supports(l_MainForm, IvcmEntityForm, Result);
+  finally
+   l_MainForm := nil;
+  end;//try..finally end;
+ end;
+//#UC END# *54619A0C00D4_54619B6300EFget_impl*
+//#UC START# *54619A0C00D4_54619B6300EFget_var*
+var
+ l_ActiveContainer: TvcmTabbedContainerForm;
+ l_MainForm: IafwMainForm;
+//#UC END# *54619A0C00D4_54619B6300EFget_var*
+//#UC START# *54619A290279_54619B6300EFget_impl*
+ l_CurrentEntityForm := pm_GetCurrentMainForm;
+ if (l_CurrentEntityForm <> nil) then
+  Result := l_CurrentEntityForm.AsContainer
+ else
+  Result := nil;
+//#UC END# *54619A290279_54619B6300EFget_impl*
+//#UC START# *54619A290279_54619B6300EFget_var*
+var
+ l_CurrentEntityForm: IvcmEntityForm;
+//#UC END# *54619A290279_54619B6300EFget_var*
+//#UC START# *54619B6300EF_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcher.pas
+//#UC END# *54619B6300EF_ext:ParentFileName

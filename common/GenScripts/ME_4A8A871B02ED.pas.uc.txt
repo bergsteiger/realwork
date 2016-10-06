@@ -1,0 +1,105 @@
+//#UC START# *47A042E100E2_4A8A871B02ED_impl*
+ inherited;
+ AutoSelect := false;
+//#UC END# *47A042E100E2_4A8A871B02ED_impl*
+//#UC START# *47A042E100E2_4A8A871B02ED_var*
+//#UC END# *47A042E100E2_4A8A871B02ED_var*
+//#UC START# *482BFCBF01F0_4A8A871B02ED_impl*
+ l_Op := StartOp(ev_msgInsertPara);
+ try
+  if not ValidateInsertionPoint then
+   Result := true
+  else
+   Result := inherited DoBreakPara(aDrawLines, anOp);
+ finally
+  l_Op := nil;
+ end;//try..finally
+//#UC END# *482BFCBF01F0_4A8A871B02ED_impl*
+//#UC START# *482BFCBF01F0_4A8A871B02ED_var*
+var
+ l_Op : InevOp;
+//#UC END# *482BFCBF01F0_4A8A871B02ED_var*
+//#UC START# *482D9D1701E0_4A8A871B02ED_impl*
+ Result := TnscCustomChatMemoTextSource;
+//#UC END# *482D9D1701E0_4A8A871B02ED_impl*
+//#UC START# *482D9D1701E0_4A8A871B02ED_var*
+//#UC END# *482D9D1701E0_4A8A871B02ED_var*
+//#UC START# *48735C4A03C3_4A8A871B02ED_impl*
+ Result := inherited DefineProvideOperations - [potPrint, potTable, potFontStyle];
+//#UC END# *48735C4A03C3_4A8A871B02ED_impl*
+//#UC START# *48735C4A03C3_4A8A871B02ED_var*
+//#UC END# *48735C4A03C3_4A8A871B02ED_var*
+//#UC START# *48C7C1A2010C_4A8A871B02ED_impl*
+ ValidateInsertionPoint;
+ Result := inherited Paste;
+//#UC END# *48C7C1A2010C_4A8A871B02ED_impl*
+//#UC START# *48C7C1A2010C_4A8A871B02ED_var*
+//#UC END# *48C7C1A2010C_4A8A871B02ED_var*
+//#UC START# *4A8A871B02ED_ext:FileName
+w:\common\components\gui\Garant\Nemesis\nscCustomChatMemo.pas
+//#UC END# *4A8A871B02ED_ext:FileName
+//#UC START# *4A8A871B02EDimpl_uses*
+//#UC END# *4A8A871B02EDimpl_uses*
+//#UC START# *4A8C083300C3_4A8A871B02ED_impl*
+ Result := true;
+//#UC END# *4A8C083300C3_4A8A871B02ED_impl*
+//#UC START# *4A8C083300C3_4A8A871B02ED_var*
+//#UC END# *4A8C083300C3_4A8A871B02ED_var*
+//#UC START# *4A8C12F70348_4A8A871B02ED_impl*
+ Result := true;
+ if IsInF1Doc(l_Doc) then
+ begin
+  l_Op := StartOp;
+  try
+   l_Point := l_Doc.MakePoint;
+   l_Point.Move(View, ev_ocBottomRight, l_Op);
+   l_Point := l_Point.PointToParent;
+   l_Point.Move(View, ev_ocParaDown, l_Op);
+   InevSelection(Selection).SelectPoint(l_Point.PointToParentByLevel(MaxInt), false);
+   if IsInF1Doc(l_Doc) then
+   // - попали в ещё один документ
+   begin
+    l_Doc.OwnerPara.Modify.InsertDefaultPara(l_Doc.PID, l_Op);
+    Selection.Cursor.Move(View, ev_ocParaUp, l_Op);
+   end;//IsInF1Doc(l_Doc)
+   with Selection.Cursor.MostInner do
+    if Obj.AsObject.IsKindOf(k2_typTextPara) AND
+       not evHasText(Obj^.AsObject) then
+     Result := false;  
+  finally
+   l_Op := nil;
+  end;//try..finally
+ end;//evInPara(Selection.Cursor.MostInner.Obj^, k2_idDocument, l_Doc)
+//#UC END# *4A8C12F70348_4A8A871B02ED_impl*
+//#UC START# *4A8C12F70348_4A8A871B02ED_var*
+//#UC END# *4A8C12F70348_4A8A871B02ED_var*
+//#UC START# *4A8C16790143_4A8A871B02ED_impl*
+ Result := false;
+ if evInPara(aPara.AsObject, k2_typDocument, l_Doc) then
+ begin
+  if l_Doc.Owner.IsKindOf(k2_typPara) AND
+     (l_Doc.rLong(k2_tiExternalHandle, -1) > 0) then
+  begin
+   if not l_Doc.QT(InevPara, theDoc) then
+    Assert(false);
+   Result := true;
+  end;//not l_Doc.Owner.IneritsFrom(k2_idPara)..
+ end;//evInPara(aPara, k2_idDocument, l_Doc)
+//#UC END# *4A8C16790143_4A8A871B02ED_impl*
+//#UC START# *4A8C16790143_4A8A871B02ED_var*
+//#UC END# *4A8C16790143_4A8A871B02ED_var*
+//#UC START# *4A8C24130193_4A8A871B02ED_impl*
+ Result := IsParaInF1Doc(aPara.AsObject, l_Doc);
+ if Result then
+  if NeedDeleteIfReadOnly then
+   l_Doc.Edit.Delete(false, StartOp(ev_msgDeletePara));
+//#UC END# *4A8C24130193_4A8A871B02ED_impl*
+//#UC START# *4A8C24130193_4A8A871B02ED_var*
+var
+ l_Doc : InevPara;
+//#UC END# *4A8C24130193_4A8A871B02ED_var*
+//#UC START# *4A8C249D02F4_4A8A871B02ED_impl*
+ Result := IsParaInF1Doc(Selection.Cursor.MostInner.Obj^.AsObject, theDoc);
+//#UC END# *4A8C249D02F4_4A8A871B02ED_impl*
+//#UC START# *4A8C249D02F4_4A8A871B02ED_var*
+//#UC END# *4A8C249D02F4_4A8A871B02ED_var*

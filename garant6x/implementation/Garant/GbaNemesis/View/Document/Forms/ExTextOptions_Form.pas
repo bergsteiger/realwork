@@ -255,6 +255,7 @@ uses
  l3ImplUses
  , DataAdapter
  , SysUtils
+ , nsHyperLinkProcessor
  , evCustomEditor
  {$If Defined(Nemesis)}
  , eePara

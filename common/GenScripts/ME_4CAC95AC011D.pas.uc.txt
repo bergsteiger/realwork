@@ -1,0 +1,21 @@
+//#UC START# *4CAC95AC011D_ext:FileName
+w:\common\components\rtl\Garant\TestForTFW\K235868845.pas
+//#UC END# *4CAC95AC011D_ext:FileName
+//#UC START# *4CAC95AC011Dimpl_uses*
+//#UC END# *4CAC95AC011Dimpl_uses*
+//#UC START# *4CAC95F60396_4CAC95AC011D_impl*
+ l_N := FileForOutput;
+ AssignFile(l_F, l_N);
+ Rewrite(l_F);
+ try
+  System.WriteLn(l_F, 'Специально, чтобы сравнение не прошло');
+ finally
+  CloseFile(l_F);
+ end;//try..finally
+ CheckOutputWithInput(KPage + EtalonSuffix + '.fake');
+//#UC END# *4CAC95F60396_4CAC95AC011D_impl*
+//#UC START# *4CAC95F60396_4CAC95AC011D_var*
+var
+ l_N : String;
+ l_F : Text;
+//#UC END# *4CAC95F60396_4CAC95AC011D_var*

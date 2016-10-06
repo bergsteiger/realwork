@@ -1,0 +1,39 @@
+//#UC START# *47541E17024E_ext:FileName
+w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas
+//#UC END# *47541E17024E_ext:FileName
+//#UC START# *47541E17024Eci*
+ {$Define _UnknownIsBaseComponent}
+//#UC END# *47541E17024Eci*
+//#UC START# *47541E17024Ecit*
+//#UC END# *47541E17024Ecit*
+//#UC START# *47541E17024Eimpl*
+//#UC END# *47541E17024Eimpl*
+//#UC START# *47541E17024Eimpl_uses*
+//#UC END# *47541E17024Eimpl_uses*
+//#UC START# *47541E17024Eintf_uses*
+//#UC END# *47541E17024Eintf_uses*
+//#UC START# *47541E17024Epubl*
+//#UC END# *47541E17024Epubl*
+//#UC START# *47D16038003C_47541E17024E_impl*
+ Pointer(Obj) := nil;
+ Result.SetNOINTERFACE;
+//#UC END# *47D16038003C_47541E17024E_impl*
+//#UC START# *47D16038003C_47541E17024E_var*
+//#UC END# *47D16038003C_47541E17024E_var*
+//#UC START# *47D160620295_47541E17024E_impl*
+ Result := inherited QueryInterface(IID, Obj);
+ if l3IFail(Result) then
+ begin
+  l_Res := COMQueryInterface(Tl3GUID_C(IID), Obj);
+  Result := l_Res.Res
+ end;//l3IFail(Result)
+//#UC END# *47D160620295_47541E17024E_impl*
+//#UC START# *47D160620295_47541E17024E_var*
+var
+ l_Res : Tl3HResult;
+//#UC END# *47D160620295_47541E17024E_var*
+//#UC START# *47D16214006E_47541E17024E_impl*
+ Create(nil);
+//#UC END# *47D16214006E_47541E17024E_impl*
+//#UC START# *47D16214006E_47541E17024E_var*
+//#UC END# *47D16214006E_47541E17024E_var*

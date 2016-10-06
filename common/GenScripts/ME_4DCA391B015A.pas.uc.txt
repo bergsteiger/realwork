@@ -1,0 +1,61 @@
+//#UC START# *4DCA391B015A_ext:ParentFileName
+w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas
+//#UC END# *4DCA391B015A_ext:ParentFileName
+//#UC START# *4FACDFA2002E_4DCA391B015A_impl*
+ f_RowList.Clear;
+ f_Row := TddTableRow.Create(nil);
+ try
+  for l_Line := 0 to Pred(f_Lines.Count) do
+  begin
+   f_CurLine := l_Line;
+   l_Text := Tl3String(f_Lines.Items[l_Line]);
+   if l_Text.Empty then
+   begin
+    { может быть по пустой строке добавлять новую строку в таблицу? }
+   end
+   else
+   begin
+    f_Row.AddCellAndPara;
+    with f_Row.LastCell do
+    begin
+     Props.CellOffset := CalcTextLen(l_Text);
+     LastTextPara.AddText(l_Text);
+    end; // with f_Row.LastCell do
+   end;
+  end; // for l_Line
+  f_RowList.Add(f_Row);
+ finally
+  l3Free(f_Row);
+ end; // try..finally
+ l_CellCount := 0;
+ for i := 0 to Pred(f_RowList.Count) do
+  l_CellCount := Max(l_CellCount, TddTableRow(f_RowList.Items[i]).CellCount);
+ f_CellCount := l_CellCount;
+//#UC END# *4FACDFA2002E_4DCA391B015A_impl*
+//#UC START# *4FACDFA2002E_4DCA391B015A_var*
+var
+ i           : Integer;
+ l_Text      : Tl3String;
+ l_Line      : Integer;
+ l_CellCount : Integer;
+//#UC END# *4FACDFA2002E_4DCA391B015A_var*
+//#UC START# *4FACEEC102E8_4DCA391B015A_impl*
+ Result := 0;
+ l_Pos := 0;
+ l_OldPos := 0;
+ while l_Pos <> -1 do
+ begin
+  l_Pos := aText.FindChar(l_OldPos, cc_SoftEnter);
+  if l_Pos <> -1 then
+  begin
+   Result := Max(Result, l_Pos - l_OldPos);
+   l_OldPos := l_Pos+1;
+  end // if l_Pos <> -1 then
+  else
+   Result := Max(Result, aText.Len-l_OldPos);
+ end; // while l_Pos <> -1 do
+//#UC END# *4FACEEC102E8_4DCA391B015A_impl*
+//#UC START# *4FACEEC102E8_4DCA391B015A_var*
+var
+ l_Pos, l_OldPos: Integer;
+//#UC END# *4FACEEC102E8_4DCA391B015A_var*

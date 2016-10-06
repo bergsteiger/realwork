@@ -1,0 +1,49 @@
+//#UC START# *47724E930100_4906D40F0363_impl*
+ Result := wpAtBeginWord;
+//#UC END# *47724E930100_4906D40F0363_impl*
+//#UC START# *47724E930100_4906D40F0363_var*
+//#UC END# *47724E930100_4906D40F0363_var*
+//#UC START# *47724E9D014D_4906D40F0363_impl*
+ Result := woAnyOrder;
+//#UC END# *47724E9D014D_4906D40F0363_impl*
+//#UC START# *47724E9D014D_4906D40F0363_var*
+//#UC END# *47724E9D014D_4906D40F0363_var*
+//#UC START# *47724EA70354_4906D40F0363_impl*
+ Result := tldAllLevels;
+//#UC END# *47724EA70354_4906D40F0363_impl*
+//#UC START# *47724EA70354_4906D40F0363_var*
+//#UC END# *47724EA70354_4906D40F0363_var*
+//#UC START# *47724F120028_4906D40F0363_impl*
+ if (f_Subscribers = nil) then
+  f_Subscribers := TIl3ContextFilterParamsNotifierPtrList.Make;
+ if f_Subscribers.IndexOf(aSubscriber) = -1 then
+  f_Subscribers.Add(aSubscriber);
+//#UC END# *47724F120028_4906D40F0363_impl*
+//#UC START# *47724F120028_4906D40F0363_var*
+//#UC END# *47724F120028_4906D40F0363_var*
+//#UC START# *47724F1E0180_4906D40F0363_impl*
+ if (f_Subscribers <> nil) then
+  f_Subscribers.Remove(aSubscriber);
+//#UC END# *47724F1E0180_4906D40F0363_impl*
+//#UC START# *47724F1E0180_4906D40F0363_var*
+//#UC END# *47724F1E0180_4906D40F0363_var*
+//#UC START# *479731C50290_4906D40F0363_impl*
+ FreeAndNil(f_Subscribers);
+ inherited;
+//#UC END# *479731C50290_4906D40F0363_impl*
+//#UC START# *479731C50290_4906D40F0363_var*
+//#UC END# *479731C50290_4906D40F0363_var*
+//#UC START# *4906D40F0363_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\nsPromptContextFilterParams.pas
+//#UC END# *4906D40F0363_ext:FileName
+//#UC START# *4906D40F0363impl_uses*
+//#UC END# *4906D40F0363impl_uses*
+//#UC START# *49089FF80356_4906D40F0363_impl*
+ if (f_Subscribers <> nil) then
+  for l_Index := 0 to Pred(f_Subscribers.Count) do
+   f_Subscribers[l_Index].ParamsChanged;
+//#UC END# *49089FF80356_4906D40F0363_impl*
+//#UC START# *49089FF80356_4906D40F0363_var*
+var
+ l_Index : Integer;
+//#UC END# *49089FF80356_4906D40F0363_var*

@@ -88,6 +88,7 @@ uses
  , msmParentedViewController
  , msmModelElement
  , msmConcreteModels
+ , msmListOwnerShowAsListBinding
  //#UC END# *57D2DF7E00CEimpl_uses*
 ;
 
@@ -188,7 +189,8 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
 var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
-(* l_AllWords : ImsmListModel;*)
+ l_AllWords : ImsmListModel;
+ l_AllowedElements : ImsmListModel;
  l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 begin
@@ -278,18 +280,6 @@ begin
     aUseCase.FloatingNavigator
    )
   );
-  
-(*  l_AllWords := TmsmLoadedWordsListModel.Make;
-  AddController(
-   AddReadonlyListOperations(
-    DisableActionElementEvent
-    (
-     TmsmListViewController.Make(l_AllWords, aFloatingZone)
-    )
-    , l_AllWords
-   )
-  );
-  Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));*)
 
   AddController(
    AddReadonlyListOperations(
@@ -300,6 +290,40 @@ begin
     , aUseCase.FoundElements
    )
   );
+
+  if false then
+  begin
+   l_AllWords := TmsmLoadedWordsListModel.Make;
+   AddController(
+    AddReadonlyListOperations(
+     DisableActionElementEvent
+     (
+      TmsmListViewController.Make(l_AllWords, aFloatingZone)
+     )
+     , l_AllWords
+    )
+   );
+   Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
+  end;//false
+  
+  if true then
+  begin
+   Assert(aUseCase.Drawing.List <> nil);
+   l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
+   l_ListContext := TmsmListViewtInitContext_C;
+   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+   AddController(
+    AddReadonlyListOperations(
+     DisableActionElementEvent
+     (
+      TmsmListViewController.Make(l_AllowedElements, aFloatingZone, l_ListContext)
+     )
+     , l_AllowedElements
+    )
+   );
+   Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
+   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
+  end;//true
  end;//aFloatingZone <> nil
 
  if (aTopZone <> nil) then

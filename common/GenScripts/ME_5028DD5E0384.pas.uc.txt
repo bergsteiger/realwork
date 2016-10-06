@@ -1,0 +1,215 @@
+//#UC START# *479731C50290_5028DD5E0384_impl*
+ if TvcmToolbarDockListManager.Exists then
+  TvcmToolbarDockListManager.Instance.DockList.Remove(Self);
+ if Assigned(g_MenuManager) and (g_MenuManager is TvcmCustomMenuManager) then
+  TvcmCustomMenuManager(g_MenuManager).CleanupSaveDockList(Self);
+ inherited;
+//#UC END# *479731C50290_5028DD5E0384_impl*
+//#UC START# *479731C50290_5028DD5E0384_var*
+//#UC END# *479731C50290_5028DD5E0384_var*
+//#UC START# *49930330017B_5028DD5E0384get_impl*
+ if f_DockPanel <> nil then
+  Result := f_DockPanel.Width
+ else
+  Result := Width;
+//#UC END# *49930330017B_5028DD5E0384get_impl*
+//#UC START# *49930330017B_5028DD5E0384get_var*
+//#UC END# *49930330017B_5028DD5E0384get_var*
+//#UC START# *4993033E03CC_5028DD5E0384get_impl*
+ if f_DockPanel <> nil then
+  Result := f_DockPanel.Height
+ else
+  Result := Height;
+//#UC END# *4993033E03CC_5028DD5E0384get_impl*
+//#UC START# *4993033E03CC_5028DD5E0384get_var*
+//#UC END# *4993033E03CC_5028DD5E0384get_var*
+//#UC START# *4993035101C9_5028DD5E0384get_impl*
+ Result := f_Pos;
+//#UC END# *4993035101C9_5028DD5E0384get_impl*
+//#UC START# *4993035101C9_5028DD5E0384get_var*
+//#UC END# *4993035101C9_5028DD5E0384get_var*
+//#UC START# *4F2A599E0283_5028DD5E0384_impl*
+ // Ќе двигаемс€ внутри панели:
+ if DockPanel <> nil then
+ begin
+  ALeft:=0;
+  ATop:=0;
+  f_DockPanel.SetDockBounds(ALeft, ATop, AWidth, AHeight);
+ end;//if Assigned(f_DockPanel) then begin
+ inherited SetBounds(ALeft, ATop, AWidth, AHeight);
+//#UC END# *4F2A599E0283_5028DD5E0384_impl*
+//#UC START# *4F2A599E0283_5028DD5E0384_var*
+//#UC END# *4F2A599E0283_5028DD5E0384_var*
+//#UC START# *5028A60300AD_5028DD5E0384_impl*
+ inherited;
+//#UC END# *5028A60300AD_5028DD5E0384_impl*
+//#UC START# *5028A60300AD_5028DD5E0384_var*
+//#UC END# *5028A60300AD_5028DD5E0384_var*
+//#UC START# *5028DD25024B_5028DD5E0384_impl*
+ if SizeGripValid then
+  Result := GetSystemMetrics(SM_CYHSCROLL)
+ else
+  Result := inherited SizeGripWidth;
+//#UC END# *5028DD25024B_5028DD5E0384_impl*
+//#UC START# *5028DD25024B_5028DD5E0384_var*
+//#UC END# *5028DD25024B_5028DD5E0384_var*
+//#UC START# *5028DD5E0384_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas
+//#UC END# *5028DD5E0384_ext:ParentFileName
+//#UC START# *5028DE76021E_5028DD5E0384_impl*
+ if (aMaximizedLink <> nil) or (aOpenLink <> nil) or (aCloseLink <> nil) then
+ begin
+  BeginUpdate;
+  try
+   with DockPanel do
+   begin
+    CreateCloseBtn(aCloseLink);
+     // - обработчик дл€ кнопки «ј –џ“№
+    CreateMaximizedBtn(aMaximizedLink);
+     // - обработчик дл€ кнопки –ј«¬≈–Ќ”“№
+    CreateOpenBtn(aOpenLink);
+     // - обработчик дл€ кнопки ќ“ –џ“№
+   end;//with DockPanel do
+  finally
+   EndUpdate;
+  end;//try..finally
+ end;//(aMaximizedLink <> nil) or (aOpenLink <> nil) or (aCloseLink <> nil)
+//#UC END# *5028DE76021E_5028DD5E0384_impl*
+//#UC START# *5028DE76021E_5028DD5E0384_var*
+//#UC END# *5028DE76021E_5028DD5E0384_var*
+//#UC START# *502912550218_5028DD5E0384_impl*
+ BeginUpdate;
+ try
+  AllowDrag := not aFasten;
+ finally
+  EndUpdate;
+ end;
+//#UC END# *502912550218_5028DD5E0384_impl*
+//#UC START# *502912550218_5028DD5E0384_var*
+//#UC END# *502912550218_5028DD5E0384_var*
+//#UC START# *502912730225_5028DD5E0384_impl*
+ l_Owner := anOwner As TWinControl;
+ l_DockPanel := TvcmDockPanel.Create(l_Owner);
+ with l_DockPanel do
+ begin
+  Parent := l_Owner;
+  TabOrder := cTabOrder[aPos];
+  Align := cAlign[aPos];
+ end;//with l_DockPanel
+ Result := Create(anOwner);
+ Result.Name := aName;
+ l_DockPanel.ToolbarDock := Result;
+ Result.DockPanel := l_DockPanel;
+ Result.DockGroup := Integer(l_Owner);
+ Result.DockGroupEnable := true;
+ l_Owner.DisableAlign;
+ try
+  with Result do
+  begin
+   Align := alNone;
+   l_AllowGripSize := aPos = vcm_tbpBottom;
+   if l_AllowGripSize then
+   begin
+    if anOwner is TCustomForm then
+     l_AllowGripSize := TCustomForm(anOwner).BorderStyle in [bsSizeable, bsSizeToolWin];
+//    if anOwner is TvcmEntityForm then
+//     l_AllowGripSize := l_AllowGripSize and (TvcmEntityForm(anOwner).ZoneType in (vcm_NotContainedForm - [vcm_ztFloating]));
+   end;
+   f_AllowGripSize := l_AllowGripSize;
+   Case aPos of
+    vcm_tbpBottom: 
+    begin
+     Position := dpBottom;
+     Height := 2;
+    end;//vcm_tbpBottom
+    vcm_tbpRight: 
+    begin
+     Position := dpRight;
+     Width := 2;
+    end;//vcm_tbpRight
+    vcm_tbpTop: 
+    begin
+     Position := dpTop;
+    end;
+    vcm_tbpLeft: 
+    begin
+     Position := dpLeft;
+    end;
+   end;//Case l_Index
+   Align := cAlign[aPos];
+   f_Pos := aPos;
+  end;//with Result
+ finally
+  l_Owner.EnableAlign;
+ end;//try..finally
+ Assert(Result.DockPanel <> nil);
+  // - панель должна€ всегда создаватьс€, она увеличивает размеры модальных и
+  //   диалоговых форм дл€ размещени€ панели инструментов.
+//#UC END# *502912730225_5028DD5E0384_impl*
+//#UC START# *502912730225_5028DD5E0384_var*
+const
+ cAlign: array [TvcmEffectiveToolBarPos] of TAlign = (alTop, alBottom, alLeft, alRight);
+ cTabOrder: array [TvcmEffectiveToolBarPos] of Integer = (0, 4, 1, 3);
+var
+ l_Owner: TWinControl;
+ l_AllowGripSize: Boolean;
+ l_DockPanel: TvcmDockPanel;
+//#UC END# *502912730225_5028DD5E0384_var*
+//#UC START# *502912E4004F_5028DD5E0384_impl*
+ Result := f_AllowGripSize;
+//#UC END# *502912E4004F_5028DD5E0384_impl*
+//#UC START# *502912E4004F_5028DD5E0384_var*
+//#UC END# *502912E4004F_5028DD5E0384_var*
+//#UC START# *502913210162_5028DD5E0384_impl*
+ inherited;
+//#UC END# *502913210162_5028DD5E0384_impl*
+//#UC START# *502913210162_5028DD5E0384_var*
+//#UC END# *502913210162_5028DD5E0384_var*
+//#UC START# *5029133D01B2_5028DD5E0384_impl*
+ inherited;
+ if SizeGripValid then
+  Dec(Message.CalcSize_Params^.rgrc[0].Right, SizeGripWidth);
+//#UC END# *5029133D01B2_5028DD5E0384_impl*
+//#UC START# *5029133D01B2_5028DD5E0384_var*
+//#UC END# *5029133D01B2_5028DD5E0384_var*
+//#UC START# *502913B0004C_5028DD5E0384_impl*
+ inherited;
+ if SizeGripValid then
+ begin
+  GetWindowRect(Handle, R);
+  OffsetRect(R, -R.Left, -R.Top);
+  R.Left := R.Right - SizeGripWidth;                   
+  DC := GetWindowDC(Handle);
+  try
+   Inc(R.Top);
+{$IfDef Nemesis}
+   AwfDrawSizeGrip(DC, R, cGarant2011BackColor);
+{$ENDIF Nemesis}
+  finally
+   ReleaseDC(Handle, DC);
+  end;//try..finally
+ end;//SizeGripValid
+//#UC END# *502913B0004C_5028DD5E0384_impl*
+//#UC START# *502913B0004C_5028DD5E0384_var*
+var
+  R: TRect;
+  DC: HDC;
+//#UC END# *502913B0004C_5028DD5E0384_var*
+//#UC START# *502913DA02DA_5028DD5E0384_impl*
+ inherited;
+ if SizeGripValid then
+ begin
+  R := BoundsRect;
+  OffsetRect(R, -Left, -Top);
+  InflateRect(R, -1, 0);
+  R.Top := R.Bottom - GetSystemMetrics(SM_CYHSCROLL);
+  R.Left := R.Right - GetSystemMetrics(SM_CXVSCROLL);
+  Dec(R.Bottom, GetSystemMetrics(SM_CYEDGE));
+  if PtInRect(R, ScreenToClient(SmallPointToPoint(Msg.Pos))) then
+   Msg.Result := HTBOTTOMRIGHT;
+ end;
+//#UC END# *502913DA02DA_5028DD5E0384_impl*
+//#UC START# *502913DA02DA_5028DD5E0384_var*
+var
+ R: TRect;
+//#UC END# *502913DA02DA_5028DD5E0384_var*

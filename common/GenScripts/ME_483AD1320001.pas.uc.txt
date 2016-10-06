@@ -1,0 +1,49 @@
+//#UC START# *47A6FEE600FC_483AD1320001_impl*
+  Result := true;
+//#UC END# *47A6FEE600FC_483AD1320001_impl*
+//#UC START# *47A6FEE600FC_483AD1320001_var*
+//#UC END# *47A6FEE600FC_483AD1320001_var*
+//#UC START# *483AD1320001_ext:ParentFileName
+w:\quality\test\garant6x\AdapterTest\SearchHelpers\atQueryExecutor.pas
+//#UC END# *483AD1320001_ext:ParentFileName
+//#UC START# *483AD15D03AA_483AD1320001_impl*
+  inherited Create;
+  //
+  Assert(aQuery <> nil, 'aQuery <> nil');
+  f_Query := aQuery;
+//#UC END# *483AD15D03AA_483AD1320001_impl*
+//#UC START# *483AD15D03AA_483AD1320001_var*
+//#UC END# *483AD15D03AA_483AD1320001_var*
+//#UC START# *483AD178007E_483AD1320001_impl*
+  l_ProgressIndicator := TatProgressIndicator.Make;
+  // запускаем выполнение запроса
+  try
+    f_Query.Execute(aFiltrateList, l_ProgressIndicator as IProgressIndicatorForSearch, l_CancelSearch);
+  except
+    on ex : Exception do
+    begin
+      Logger.Exception(ex, 'Исключение во время выполнения Query.Execute');
+      Raise;
+    end;
+    else
+      Raise;
+  end;
+  if NOT Assigned(l_CancelSearch) then
+    Logger.Warning('l_CancelSearch не присвоен после вызова Query.Execute');
+  // ждем окончания выполнения
+  l_ProgressIndicator.WaitForFinish;
+  // и возвращаем результат
+  Result := l_ProgressIndicator.SearchResult;
+//#UC END# *483AD178007E_483AD1320001_impl*
+//#UC START# *483AD178007E_483AD1320001_var*
+  var
+    l_ProgressIndicator : IatProgressIndicator;
+    l_CancelSearch : ICancelSearch;
+//#UC END# *483AD178007E_483AD1320001_var*
+//#UC START# *5000565C019C_483AD1320001_impl*
+  f_Query := nil;
+  //
+  inherited;
+//#UC END# *5000565C019C_483AD1320001_impl*
+//#UC START# *5000565C019C_483AD1320001_var*
+//#UC END# *5000565C019C_483AD1320001_var*

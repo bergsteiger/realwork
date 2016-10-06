@@ -499,6 +499,20 @@ ME ME_569DE68B007B
 
 ENDME // ME_569DE68B007B f_IsChanged
 
+ME ME_57EE2B5002C8
+ MEPROP UID '57EE2B5002C8'
+ MEPROP Name 'f_ActiveFilters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F33E9E03C8 // TdeList
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_57EE2B5002C8 f_ActiveFilters
+
 FORWARD ME_4B1F76940201
 
 ME ME_569DDB8D032B
@@ -809,6 +823,13 @@ ME ME_569DDAE500DD_ME_47F33E9E03C8
  UP "pm" true
 ENDME // ME_569DDAE500DD_ME_47F33E9E03C8 IsChanged
 
+ME ME_57EE27F30169_ME_47F33E9E03C8
+ MELINK Original WL 'ME_57EE27F30169' '4B1D3D250382.ms.model.script' // ActiveFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_57EE27F30169_ME_47F33E9E03C8 ActiveFilters
+
 ME ME_479731C50290_ME_47F33E9E03C8
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -847,6 +868,7 @@ ME ME_47F33E9E03C8
  HWL ME_560BCF3702D2 // f_AllDocumentsFiltered
  HWL ME_56248FC602C9 // f_NeedApplyPermanentFilters
  HWL ME_569DE68B007B // f_IsChanged
+ HWL ME_57EE2B5002C8 // f_ActiveFilters
  )
  ; // Attributes
  MELIST Operations
@@ -863,6 +885,7 @@ ME ME_47F33E9E03C8
  ME_560BC82C0143_ME_47F33E9E03C8 // AllDocumentsFiltered
  ME_562485D00025_ME_47F33E9E03C8 // NeedApplyPermanentFilters
  ME_569DDAE500DD_ME_47F33E9E03C8 // IsChanged
+ ME_57EE27F30169_ME_47F33E9E03C8 // ActiveFilters
  )
  ; // Implemented
  MELIST Overridden
@@ -1594,6 +1617,7 @@ ME ME_491DCA2C00A9
  WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
  WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
  WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
  WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces

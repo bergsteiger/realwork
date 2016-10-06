@@ -1,0 +1,165 @@
+//#UC START# *46A480790259_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3Interfaces.pas
+//#UC END# *46A480790259_ext:ParentFileName
+//#UC START# *46A480790259ci*
+//#UC END# *46A480790259ci*
+//#UC START# *46A480790259impl*
+// start object Tl3_Point
+
+procedure Tl3_Point.Init(aX, aY: Tl3Inch);
+  {-инициализирует точку}
+begin
+ P.X := aX;
+ P.Y := aY;
+end;
+
+function Tl3_Point.IsNull: Boolean;
+  {-}
+begin
+ Result := (P.X = 0) AND (P.Y = 0);
+end;
+
+function Tl3_Point.Add(const Pt: Tl3_Point): Tl3_Point;
+  {-складывает Self с P}
+begin
+ Result.P.X := P.X + Pt.P.X;
+ Result.P.Y := P.Y + Pt.P.Y;
+end;
+
+function Tl3_Point.Sub(const Pt: Tl3_Point): Tl3_Point;
+  {-вычитает P из Self и возвращает полученное значение}
+begin
+ Result.P.X := P.X - Pt.P.X;
+ Result.P.Y := P.Y - Pt.P.Y;
+end;
+
+function Tl3_Point.Mul(const Pt: Tl3_Point): Tl3_Point;
+  {-умножает Self на P и возвращает полученное значение}
+begin
+ Result.Init(P.X * Pt.P.X, P.Y * Pt.P.Y);
+end;
+
+function Tl3_Point.Divide(const Pt: Tl3_Point): Tl3_Point;
+begin
+ Result.Init(P.X div Pt.P.X, P.Y div Pt.P.Y);
+end;
+
+function Tl3_Point.EQ(const Pt: Tl3_Point): Boolean;
+  {-проверяет равенство двух точек}
+begin
+ Result := (P.X = Pt.P.X) AND (P.Y = Pt.P.Y);
+end;
+
+function Tl3_Point.Neg: Tl3_Point;
+  {-возвращает точку отраженную через начало координат}
+begin
+ Result.Init(-P.X, -P.Y);
+end;
+
+function Tl3_Point.e(aVert: Boolean): Tl3_Point;
+  {-}
+begin
+ Result.P.bPt[aVert] := P.bPt[aVert];
+ Result.P.bPt[not aVert] := 0;
+end;
+  
+function Tl3_Point.eX: Tl3_Point;
+  {-возвращает вектор параллельный оси X "длиной" Self.X}
+begin
+ Result.Init(P.X, 0);
+end;
+
+function Tl3_Point.e_X: Tl3_Point;
+  {-возвращает вектор параллельный оси X "длиной" -Self.X}
+begin
+ Result.Init(-P.X, 0);
+end;
+
+function Tl3_Point.eY: Tl3_Point;
+  {-возвращает вектор параллельный оси X "длиной" Self.Y}
+begin
+ Result.Init(0, P.Y);
+end;
+
+function Tl3_Point.e_Y: Tl3_Point;
+  {-возвращает вектор параллельный оси X "длиной" -Self.Y}
+begin
+ Result.Init(0, -P.Y);
+end;
+
+function evZoom(Zoom: Integer; Value: Integer): Integer;
+begin
+ if (Zoom <> 100) then
+  Result := l3MulDiv(Value, Zoom, 100)
+ else
+  Result := Value;
+end;
+
+function evDezoom(Zoom: Integer; Value: Integer): Integer;
+begin
+ if (Zoom <> 100) AND (Zoom > 0) then
+  Result := l3MulDiv(Value, 100, Zoom)
+ else
+  Result := Value;
+end;
+
+function Tl3_Point.Zoom(Z: Integer): Tl3_Point;
+  {-увеличивает координаты вектора на Z % и возвращает Result}
+begin
+ Result.Init(evZoom(Z, P.X), evZoom(Z, P.Y));
+end;
+
+function Tl3_Point.Dezoom(Z: Integer): Tl3_Point;
+  {-уменьшает координаты вектора на Z % и возвращает Result}
+begin
+ Result.Init(evDezoom(Z, P.X), evDezoom(Z, P.Y));
+end;
+
+procedure Tl3_Point.MakeZoom(Z: Integer);
+  {-увеличивает координаты вектора на Z %}
+begin
+ P.X := evZoom(Z, P.X);
+ P.Y := evZoom(Z, P.Y);
+end;
+//#UC END# *46A480790259impl*
+//#UC START# *46A480790259publ*
+    public
+    // public methods
+      procedure Init(aX, aY: Tl3Inch);
+        {* - инициализирует точку. }
+      function  IsNull: Boolean;
+        {-}
+      function Add(const Pt: Tl3_Point): Tl3_Point;
+        {* - складывает Self с P и возвращает полученное значение. }
+      function Sub(const Pt: Tl3_Point): Tl3_Point;
+        {* - вычитает P из Self и возвращает полученное значение. }
+      function Mul(const Pt: Tl3_Point): Tl3_Point;
+        {* - умножает Self на P и возвращает полученное значение. }
+      function Divide(const Pt: Tl3_Point): Tl3_Point;
+      function EQ(const Pt: Tl3_Point): Boolean;
+        {* - проверяет равенство двух точек. }
+      function Neg: Tl3_Point;
+        {* - возвращает точку отраженную через начало координат. }
+      function e(aVert: Boolean): Tl3_Point;
+        {-}
+      function eX: Tl3_Point;
+        {* - возвращает вектор параллельный оси X "длиной" Self.X. }
+      function e_X: Tl3_Point;
+        {* - возвращает вектор параллельный оси X "длиной" -Self.X. }
+      function eY: Tl3_Point;
+        {* - возвращает вектор параллельный оси Y "длиной" Self.Y. }
+      function e_Y: Tl3_Point;
+        {* - возвращает вектор параллельный оси Y "длиной" -Self.Y. }
+      function Zoom(Z: Integer): Tl3_Point;
+        {* - увеличивает координаты вектора на Z % и возвращает Result. }
+      function Dezoom(Z: Integer): Tl3_Point;
+        {* - уменьшает координаты вектора на Z % и возвращает Result. }
+      procedure MakeZoom(Z: Integer);
+        {* - увеличивает координаты вектора на Z %. }
+//#UC END# *46A480790259publ*
+//#UC START# *47E0FA3E03CA_46A480790259_impl*
+ Result.X := aX;
+ Result.Y := aY;
+//#UC END# *47E0FA3E03CA_46A480790259_impl*
+//#UC START# *47E0FA3E03CA_46A480790259_var*
+//#UC END# *47E0FA3E03CA_46A480790259_var*

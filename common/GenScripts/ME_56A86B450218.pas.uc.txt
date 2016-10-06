@@ -1,0 +1,85 @@
+//#UC START# *479731C50290_56A86B450218_impl*
+ FreeAndNil(f_HTParams);
+ FreeAndNil(f_PGParams);
+ inherited;
+//#UC END# *479731C50290_56A86B450218_impl*
+//#UC START# *479731C50290_56A86B450218_var*
+//#UC END# *479731C50290_56A86B450218_var*
+//#UC START# *55195AE803E0_56A86B450218_impl*
+ SaveToAlienParams;
+ inherited;
+ HTParams.ChangeBasePath(aPath);
+ PGParams.ChangeBasePath(aPath);
+ LoadFromAlienParams;
+//#UC END# *55195AE803E0_56A86B450218_impl*
+//#UC START# *55195AE803E0_56A86B450218_var*
+//#UC END# *55195AE803E0_56A86B450218_var*
+//#UC START# *553A37E902C9_56A86B450218_impl*
+ inherited;
+ if aParams is TcaDataProviderParams then
+ begin
+  SaveToAlienParams;
+  HTParams.AssignParams(TcaDataProviderParams(aParams).HTParams);
+  PGParams.AssignParams(TcaDataProviderParams(aParams).PGParams);
+  LoadFromAlienParams;
+ end;
+//#UC END# *553A37E902C9_56A86B450218_impl*
+//#UC START# *553A37E902C9_56A86B450218_var*
+//#UC END# *553A37E902C9_56A86B450218_var*
+//#UC START# *56A86B450218_ext:FileName
+w:\common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas
+//#UC END# *56A86B450218_ext:FileName
+//#UC START# *56A86B450218impl_uses*
+//#UC END# *56A86B450218impl_uses*
+//#UC START# *56B9C44F02BE_56A86B450218_impl*
+ inherited Create;
+ aHTParams.SetRefTo(f_HTParams);
+ aPGParams.SetRefTo(f_PGParams);
+//#UC END# *56B9C44F02BE_56A86B450218_impl*
+//#UC START# *56B9C44F02BE_56A86B450218_var*
+//#UC END# *56B9C44F02BE_56A86B450218_var*
+//#UC START# *56B9D5D8017F_56A86B450218_impl*
+ Login := f_HTParams.Login;
+ Password := f_HTParams.Password;
+ DocStoragePath := f_HTParams.DocStoragePath;
+ DocImagePath := f_HTParams.DocImagePath;
+ HomeDirPath := f_HTParams.HomeDirPath;
+ DocBaseVersion := f_HTParams.DocBaseVersion;
+ AdminBaseVersion := f_HTParams.AdminBaseVersion;
+ UserID := f_HTParams.UserID;
+
+ StationName := f_HTParams.StationName;
+ TablePath := f_HTParams.TablePath;
+ LockPath := f_HTParams.LockPath;
+ TmpDirPath := f_HTParams.TmpDirPath;
+
+ DataServerHostName := f_PGParams.DataServerHostName;
+ DataServerPort := f_PGParams.DataServerPort;
+//#UC END# *56B9D5D8017F_56A86B450218_impl*
+//#UC START# *56B9D5D8017F_56A86B450218_var*
+//#UC END# *56B9D5D8017F_56A86B450218_var*
+//#UC START# *56B9E3810358_56A86B450218_impl*
+ lp_SaveCommon(f_HTParams);
+ lp_SaveCommon(f_PGParams);
+
+ f_HTParams.StationName := StationName;
+ f_HTParams.TablePath := TablePath;
+ f_HTParams.LockPath := LockPath;
+ f_HTParams.TmpDirPath := TmpDirPath;
+
+ f_PGParams.DataServerHostName := DataServerHostName;
+ f_PGParams.DataServerPort := DataServerPort;
+//#UC END# *56B9E3810358_56A86B450218_impl*
+//#UC START# *56B9E3810358_56A86B450218_var*
+ procedure lp_SaveCommon(const aTarget: TdaDataProviderParams);
+ begin
+  aTarget.Login := Login;
+  aTarget.Password := Password;
+  aTarget.DocStoragePath := DocStoragePath;
+  aTarget.DocImagePath := DocImagePath;
+  aTarget.HomeDirPath := HomeDirPath;
+  aTarget.DocBaseVersion := DocBaseVersion;
+  aTarget.AdminBaseVersion := AdminBaseVersion;
+  aTarget.UserID := UserID;
+ end;
+//#UC END# *56B9E3810358_56A86B450218_var*

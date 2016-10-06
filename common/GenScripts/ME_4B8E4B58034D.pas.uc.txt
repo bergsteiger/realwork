@@ -1,0 +1,57 @@
+//#UC START# *4B8E4B58034D_ext:FileName
+w:\common\components\gui\Garant\VT\vtDateEditRes.pas
+//#UC END# *4B8E4B58034D_ext:FileName
+//#UC START# *4B8E4B58034Dimpl_uses*
+//#UC END# *4B8E4B58034Dimpl_uses*
+//#UC START# *5562E2F802BD_4B8E4B58034D_impl*
+ NonClientMetrics.cbSize := SizeOf(NonClientMetrics);
+ if SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, @NonClientMetrics, 0) then
+  AFont.Handle := CreateFontIndirect(NonClientMetrics.lfMessageFont)
+ else
+ with AFont do
+ begin
+  Color := clWindowText;
+  Name := 'MS Sans Serif';
+  Size := 8;
+  Style := [];
+ end;//with AFont
+ AFont.Size := 10;
+//#UC END# *5562E2F802BD_4B8E4B58034D_impl*
+//#UC START# *5562E2F802BD_4B8E4B58034D_var*
+var
+  NonClientMetrics: TNonClientMetrics;
+//#UC END# *5562E2F802BD_4B8E4B58034D_var*
+//#UC START# *55647167004A_4B8E4B58034D_impl*
+ Result := imap_vt_MonthsCaptions[aMonth];
+//#UC END# *55647167004A_4B8E4B58034D_impl*
+//#UC START# *55647167004A_4B8E4B58034D_var*
+const
+ imap_vt_MonthsCaptions : array[TvtMonths] of Pl3StringIDEx = (
+  @str_vtJanuary,
+  @str_vtFebruary,
+  @str_vtMarch, 
+  @str_vtApril, 
+  @str_vtMay, 
+  @str_vtJune, 
+  @str_vtJuly, 
+  @str_vtAugust, 
+  @str_vtSeptember, 
+  @str_vtOctober, 
+  @str_vtNovember, 
+  @str_vtDecember);
+//#UC END# *55647167004A_4B8E4B58034D_var*
+//#UC START# *5567136300AE_4B8E4B58034D_impl*
+ Result := imap_vt_WeekDaysCaptions[aDay];
+//#UC END# *5567136300AE_4B8E4B58034D_impl*
+//#UC START# *5567136300AE_4B8E4B58034D_var*
+const
+  imap_vt_WeekDaysCaptions: array[TStDayType] of Pl3StringIDEx = (
+   @str_vtSunday,
+   @str_vtMonday,
+   @str_vtTuesday,
+   @str_vtWednesday,
+   @str_vtThursday,
+   @str_vtFriday,
+   @str_vtSaturday
+  );
+//#UC END# *5567136300AE_4B8E4B58034D_var*

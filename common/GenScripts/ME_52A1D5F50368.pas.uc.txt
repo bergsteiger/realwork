@@ -1,0 +1,84 @@
+//#UC START# *479731C50290_52A1D5F50368_impl*
+ vcmFree(f_Managers);
+ vcmFree(f_Operations);
+ inherited;
+//#UC END# *479731C50290_52A1D5F50368_impl*
+//#UC START# *479731C50290_52A1D5F50368_var*
+//#UC END# *479731C50290_52A1D5F50368_var*
+//#UC START# *52A1D5F50368_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas
+//#UC END# *52A1D5F50368_ext:ParentFileName
+//#UC START# *52A1E4770365_52A1D5F50368_impl*
+ inherited Create;
+ f_Managers := TvcmOperationManagers.Create;
+ f_Operations := TvcmFormActivateOperations.Create;
+//#UC END# *52A1E4770365_52A1D5F50368_impl*
+//#UC START# *52A1E4770365_52A1D5F50368_var*
+//#UC END# *52A1E4770365_52A1D5F50368_var*
+//#UC START# *52A1E48D0308_52A1D5F50368_impl*
+ l_Entities := (aForm.VCLWinControl as TvcmEntityForm).Entities.Entities;
+ { Сущности формы }
+ for I := 0 to Pred(l_Entities.Count) do
+ begin
+  l_Entity := TvcmBaseEntitiesCollectionItem(l_Entities.Items[I]);
+  { Операции сущности }
+  for J := 0 to Pred(l_Entity.Operations.Count) do
+   { Зарегистируем операцию }
+   RegOperation(TvcmBaseOperationsCollectionItem(l_Entity.Operations.Items[J]), aForm);
+ end;
+//#UC END# *52A1E48D0308_52A1D5F50368_impl*
+//#UC START# *52A1E48D0308_52A1D5F50368_var*
+var
+ I, J : Integer;
+ l_Entities : TvcmBaseEntitiesCollection;
+ l_Entity : TvcmBaseEntitiesCollectionItem;
+//#UC END# *52A1E48D0308_52A1D5F50368_var*
+//#UC START# *52A1E4AA035B_52A1D5F50368_impl*
+ f_Managers.Delete(aForm);
+//#UC END# *52A1E4AA035B_52A1D5F50368_impl*
+//#UC START# *52A1E4AA035B_52A1D5F50368_var*
+//#UC END# *52A1E4AA035B_52A1D5F50368_var*
+//#UC START# *52A1E4DC01BE_52A1D5F50368_impl*
+ l_ModuleDef := aModule.ModuleDef;
+ { Зарегистрируем операции модуля }
+ if Assigned(l_ModuleDef) then
+  for l_Index := 0 to Pred(l_ModuleDef.Operations.Count) do
+   RegOperation(TvcmBaseOperationsCollectionItem(l_ModuleDef.Operations.
+    Items[l_Index]), nil);
+//#UC END# *52A1E4DC01BE_52A1D5F50368_impl*
+//#UC START# *52A1E4DC01BE_52A1D5F50368_var*
+var
+ l_Index : Integer;
+ l_ModuleDef : TvcmCustomModuleDef;
+//#UC END# *52A1E4DC01BE_52A1D5F50368_var*
+//#UC START# *52A1E4FC035C_52A1D5F50368_impl*
+ {$IfNDef DesignTimeLibrary}
+ { Определим заявлена ли эта операция на управление формой }
+ l_Form := f_Operations.GetFormActivate(aOperation);
+ { Создаем менеджера }
+ if Assigned(l_Form) then
+ begin
+  l_Mgr := TvcmOperationManager.Create(aForm, l_Form, aOperation);
+  try
+   f_Managers.Add(l_Mgr);
+  finally
+   vcmFree(l_Mgr);
+  end;//l_Mgr := TvcmOperationManager.
+ end;//Assigned(l_Form)
+ {$EndIf DesignTimeLibrary}
+//#UC END# *52A1E4FC035C_52A1D5F50368_impl*
+//#UC START# *52A1E4FC035C_52A1D5F50368_var*
+var
+ l_Form : TvcmFormActivate;
+ l_Mgr : TvcmOperationManager;
+//#UC END# *52A1E4FC035C_52A1D5F50368_var*
+//#UC START# *52A6FB31009B_52A1D5F50368get_impl*
+ Result := f_Managers[anIndex];
+//#UC END# *52A6FB31009B_52A1D5F50368get_impl*
+//#UC START# *52A6FB31009B_52A1D5F50368get_var*
+//#UC END# *52A6FB31009B_52A1D5F50368get_var*
+//#UC START# *52A6FB4F0160_52A1D5F50368get_impl*
+ Result := f_Managers.Count;
+//#UC END# *52A6FB4F0160_52A1D5F50368get_impl*
+//#UC START# *52A6FB4F0160_52A1D5F50368get_var*
+//#UC END# *52A6FB4F0160_52A1D5F50368get_var*

@@ -1,0 +1,97 @@
+//#UC START# *479731C50290_544A0A21036B_impl*
+ TncsServerTransporterPtrPool.Instance.UnRegister(Self);
+ inherited;
+//#UC END# *479731C50290_544A0A21036B_impl*
+//#UC START# *479731C50290_544A0A21036B_var*
+//#UC END# *479731C50290_544A0A21036B_var*
+//#UC START# *544A0A21036B_ext:FileName
+w:\common\components\rtl\Garant\cs\ncsServerTransporter.pas
+//#UC END# *544A0A21036B_ext:FileName
+//#UC START# *544A0A21036Bimpl_uses*
+//#UC END# *544A0A21036Bimpl_uses*
+//#UC START# *545335BF0283_544A0A21036B_impl*
+ if IsMainSocket then
+  StartProcessing;
+ try
+  ReceiveThread.WaitFor;
+ finally
+  if IsMainSocket then
+   StopProcessing(True)
+  else
+   while Get_Connected do
+    {wait};  
+ end;
+//#UC END# *545335BF0283_544A0A21036B_impl*
+//#UC START# *545335BF0283_544A0A21036B_var*
+//#UC END# *545335BF0283_544A0A21036B_var*
+//#UC START# *5459D46D01FE_544A0A21036B_impl*
+ StopProcessing(True);
+//#UC END# *5459D46D01FE_544A0A21036B_impl*
+//#UC START# *5459D46D01FE_544A0A21036B_var*
+//#UC END# *5459D46D01FE_544A0A21036B_var*
+//#UC START# *5459E3150030_544A0A21036Bget_impl*
+ Result := (IOHandlers[ncs_skReceive] = nil) or not IOHandlers[ncs_skReceive].Connected or
+   (ReceiveThread = nil) or ReceiveThread.Terminated or
+   (SendThread = nil) or SendThread.Terminated;
+//#UC END# *5459E3150030_544A0A21036Bget_impl*
+//#UC START# *5459E3150030_544A0A21036Bget_var*
+//#UC END# *5459E3150030_544A0A21036Bget_var*
+//#UC START# *5465A67802C1_544A0A21036B_impl*
+ inherited Create;
+ IOHandlers[ncs_skReceive] := anIOHandler;
+ intSessionID := aSessionID;
+ TncsServerTransporterPtrPool.Instance.Register(Self);
+//#UC END# *5465A67802C1_544A0A21036B_impl*
+//#UC START# *5465A67802C1_544A0A21036B_var*
+//#UC END# *5465A67802C1_544A0A21036B_var*
+//#UC START# *5477033C03D0_544A0A21036B_impl*
+// Do nothing;
+//#UC END# *5477033C03D0_544A0A21036B_impl*
+//#UC START# *5477033C03D0_544A0A21036B_var*
+//#UC END# *5477033C03D0_544A0A21036B_var*
+//#UC START# *549175C4030A_544A0A21036B_impl*
+ Result := ncs_skReceive;
+//#UC END# *549175C4030A_544A0A21036B_impl*
+//#UC START# *549175C4030A_544A0A21036B_var*
+//#UC END# *549175C4030A_544A0A21036B_var*
+//#UC START# *549180E701E0_544A0A21036B_impl*
+ IOHandlers[ncs_skSend] := aHandler;
+//#UC END# *549180E701E0_544A0A21036B_impl*
+//#UC START# *549180E701E0_544A0A21036B_var*
+//#UC END# *549180E701E0_544A0A21036B_var*
+//#UC START# *549195670058_544A0A21036B_impl*
+ l_Kind := TncsSocketKind(anIOHandler.ReadInteger);
+ l_SessionID := anIOHandler.ReadLn;
+ case l_Kind of
+  ncs_skSend:
+   begin
+    Result := IntMake(anIOHandler, l_SessionID);
+    anIOHandler.WriteInteger(104);
+    anIOHandler.WriteBufferFlush;
+    IsMainSocket := True;
+   end;
+  ncs_skReceive:
+   begin
+    Result := TncsServerTransporterPtrPool.Instance.FindTransporter(l_SessionID);
+    Assert(Assigned(Result));
+    Result.RegisterSendBackHandler(anIOHandler);
+    anIOHandler.WriteInteger(104);
+    anIOHandler.WriteBufferFlush;
+    IsMainSocket := False;
+   end;
+ end;
+ l_ID := anIOHandler.ReadInteger;
+ Assert(l_ID = 105);
+//#UC END# *549195670058_544A0A21036B_impl*
+//#UC START# *549195670058_544A0A21036B_var*
+var
+ l_Kind: TncsSocketKind;
+ l_SessionID: AnsiString;
+ l_ID: Integer;
+//#UC END# *549195670058_544A0A21036B_var*
+//#UC START# *5492C5F703AA_544A0A21036B_impl*
+ IOHandlers[HandShakeKind].WriteInteger(106);
+ IOHandlers[HandShakeKind].WriteBufferFlush;
+//#UC END# *5492C5F703AA_544A0A21036B_impl*
+//#UC START# *5492C5F703AA_544A0A21036B_var*
+//#UC END# *5492C5F703AA_544A0A21036B_var*

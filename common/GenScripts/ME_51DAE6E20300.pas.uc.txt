@@ -1,0 +1,25 @@
+//#UC START# *51DAE6E20300_ext:FileName
+w:\common\components\SandBox\MemorySizeTest.pas
+//#UC END# *51DAE6E20300_ext:FileName
+//#UC START# *51DAE6E20300impl_uses*
+//#UC END# *51DAE6E20300impl_uses*
+//#UC START# *51DAE7030012_51DAE6E20300_impl*
+ for l_Index := 1 to 4 * 1024 do
+ begin
+  l_Size := l_Index * 2;
+  System.GetMem(l_P, l_Size);
+  try
+   l_RealSize := l3MemorySize(l_P);
+   Check(l_RealSize >= l_Size, Format('Выделяли %d. Выделилось %d.', [l_Size, l_RealSize]));
+  finally
+   System.FreeMem(l_P);
+  end;//try..finally
+ end;//form l_Index
+//#UC END# *51DAE7030012_51DAE6E20300_impl*
+//#UC START# *51DAE7030012_51DAE6E20300_var*
+var
+ l_Index : Integer;
+ l_Size  : Integer;
+ l_RealSize : Integer;
+ l_P     : Pointer;
+//#UC END# *51DAE7030012_51DAE6E20300_var*

@@ -1,0 +1,27 @@
+//#UC START# *5568411F01E1_46780DA40383_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas
+//#UC END# *5568411F01E1_46780DA40383_Word_ext:ParentFileName
+//#UC START# *5568411F01E1_5568411F01E1_46780DA40383_Word_impl*
+ l_S1 := l3PCharLen(aDelims);
+ l_S2 := l3PCharLen(aString);
+ if l3IsNil(l_S1) then
+  Result := true
+  // - любая строка содержит символы из пустого множества, считаем так
+ else
+ if (l_S1.SLen = 1) then
+  Result := l3CharSetPresent(l_S2, [l_S1.S[0]])
+ else
+ begin
+  l_C := [];
+  for l_Index := 0 to Pred(l_S1.SLen) do
+   l_C := l_C + [l_S1.S[l_Index]];
+  Result := l3CharSetPresent(l_S2, l_C);
+ end;//l_S1.SLen = 1
+//#UC END# *5568411F01E1_5568411F01E1_46780DA40383_Word_impl*
+//#UC START# *5568411F01E1_5568411F01E1_46780DA40383_Word_var*
+var
+ l_S1 : Tl3WString;
+ l_S2 : Tl3WString;
+ l_C : TChars;
+ l_Index : Integer;
+//#UC END# *5568411F01E1_5568411F01E1_46780DA40383_Word_var*

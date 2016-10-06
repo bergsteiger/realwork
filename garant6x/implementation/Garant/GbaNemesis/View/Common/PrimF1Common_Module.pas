@@ -128,6 +128,7 @@ uses
  , StdRes
  , StartUnit
  , Search_Services
+ , afwInterfaces
  //#UC END# *4A92C1380380impl_uses*
 ;
 
@@ -868,9 +869,10 @@ procedure TPrimF1CommonModule.opOpenIntranetTest(const aParams: IvcmTestParamsPr
 //#UC END# *4BD162890088_4A92C1380380test_var*
 begin
 //#UC START# *4BD162890088_4A92C1380380test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := (defDataAdapter.RevisionCheckEnabled and
-                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
-                                   or DefDataAdapter.CommonInterfaces.IsEarlyInstalled;
+ aParams.Op.Flag[vcm_ofEnabled] := (afw.Application.LocaleInfo.Language = afw_lngRussian) and (
+          (defDataAdapter.RevisionCheckEnabled and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+          or DefDataAdapter.CommonInterfaces.IsEarlyInstalled
+         );
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4BD162890088_4A92C1380380test_impl*
 end;//TPrimF1CommonModule.opOpenIntranetTest

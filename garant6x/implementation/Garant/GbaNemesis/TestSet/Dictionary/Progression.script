@@ -7286,3 +7286,28 @@ PROCEDURE "Убедиться, что находимся не в начале СР"
 
 WordAlias "Убедиться, что находимся не в начале ОИД" "Убедиться, что находимся не в начале СР"
 
+VOID WORDWORKER "Вытащить кнопку 'Правовой навигатор' на тулбар главного окна и выполнить"
+ TRY
+  True 'opOpenRubricator' 'mo_Common' 'tbnsMainWindowTop' 'utMainWindow' vcm:ToolbarButton:SetVisible
+  "Текущая активная вкладка" vcm:Form:ManualUpdateActions 
+  ( WordToWork DO ) 
+ FINALLY
+  False 'opOpenRubricator' 'mo_Common' 'tbnsMainWindowTop' 'utMainWindow' vcm:ToolbarButton:SetVisible
+  "Текущая активная вкладка" vcm:Form:ManualUpdateActions 
+ END
+;
+
+OBJECT FUNCTION "Комбобокс 'Правовой навигатор'"
+ "Найти контрол {(контрол::bt_mo_Common_opOpenRubricator)} на форме {("Текущая активная вкладка")}" =: Result
+ Result "Объект существует?" ?ASSURE 'Не нашли комбобокс' 
+;
+
+VOID WORDWORKER "Дублировать вторую вкладку и выполнить"
+ "Переключиться на первую вкладку"
+ "##Запомнить текущую вкладку и выполнить" (
+  "Дублировать вторую вкладку"
+  WordToWork DO
+ )
+;
+
+

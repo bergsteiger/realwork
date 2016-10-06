@@ -1,0 +1,78 @@
+//#UC START# *473D8F8602AE_4CB586140150get_impl*
+{$IF not Defined(Archi) and not Defined(EverestLite)}
+ {$IfDef nsTest}
+ Assert(not OldBehaviourForK235875079);
+ {$EndIf nsTest}
+{$IfEnd}//{$IF not Defined(Archi) and not Defined(EverestLite)} 
+ with f_Document.Attr[k2_tiParas] do
+  Result := l3Rect(IntA[k2_tiLeftIndent],
+                   IntA[k2_tiSpaceBefore],
+                   IntA[k2_tiRightIndent],
+                   IntA[k2_tiSpaceAfter]);
+//#UC END# *473D8F8602AE_4CB586140150get_impl*
+//#UC START# *473D8F8602AE_4CB586140150get_var*
+//#UC END# *473D8F8602AE_4CB586140150get_var*
+//#UC START# *473D8F9202F2_4CB586140150get_impl*
+{$IF not Defined(Archi) and not Defined(EverestLite)}
+ {$IfDef nsTest}
+ Assert(not OldBehaviourForK235875079);
+ {$EndIf nsTest}
+{$IfEnd}//{$IF not Defined(Archi) and not Defined(EverestLite)}
+ Result := Tl3PageOrientation(f_Document.Attr[k2_tiParas].IntA[k2_tiOrientation]);
+//#UC END# *473D8F9202F2_4CB586140150get_impl*
+//#UC START# *473D8F9202F2_4CB586140150get_var*
+//#UC END# *473D8F9202F2_4CB586140150get_var*
+//#UC START# *479731C50290_4CB586140150_impl*
+ FreeAndNil(f_Document);
+ inherited;
+//#UC END# *479731C50290_4CB586140150_impl*
+//#UC START# *479731C50290_4CB586140150_var*
+//#UC END# *479731C50290_4CB586140150_var*
+//#UC START# *4CB586140150_ext:FileName
+w:\common\components\gui\Garant\Everest\nevDocumentProviderEx.pas
+//#UC END# *4CB586140150_ext:FileName
+//#UC START# *4CB586140150impl_uses*
+//#UC END# *4CB586140150impl_uses*
+//#UC START# *4CB586450301_4CB586140150_impl*
+ inherited Create(aStorable);
+ aDocument.SetRef(f_Document);
+//#UC END# *4CB586450301_4CB586140150_impl*
+//#UC START# *4CB586450301_4CB586140150_var*
+//#UC END# *4CB586450301_4CB586140150_var*
+//#UC START# *4CB589C80045_4CB586140150get_impl*
+ {$IfDef nsTest}
+{$IF not Defined(Archi) and not Defined(EverestLite)}
+ if OldBehaviourForK235875079 then
+  Result := false
+ else
+{$IfEnd}//{$IF not Defined(Archi) and not Defined(EverestLite)}
+  Result := true;
+ {$Else  nsTest}
+ Result := true;
+ {$EndIf nsTest}
+//#UC END# *4CB589C80045_4CB586140150get_impl*
+//#UC START# *4CB589C80045_4CB586140150get_var*
+//#UC END# *4CB589C80045_4CB586140150get_var*
+//#UC START# *4CB589F902EA_4CB586140150get_impl*
+ Result := f_Document;
+//#UC END# *4CB589F902EA_4CB586140150get_impl*
+//#UC START# *4CB589F902EA_4CB586140150get_var*
+//#UC END# *4CB589F902EA_4CB586140150get_var*
+//#UC START# *4D18832500B4_4CB586140150get_impl*
+{$IF not Defined(Archi) and not Defined(EverestLite)}
+ {$IfDef nsTest}
+ if OldBehaviourForK235875079 then
+  Result := nil
+ else
+ {$EndIf nsTest}
+{$IfEnd}//{$IF not Defined(Archi) and not Defined(EverestLite)}
+ begin
+  if (afw.Application <> nil) AND
+     (afw.Application.PrintManager <> nil) then
+   Result := afw.Application.PrintManager.PageSetup
+  else
+   Result := Self;
+ end;//OldBehaviourForK235875079
+//#UC END# *4D18832500B4_4CB586140150get_impl*
+//#UC START# *4D18832500B4_4CB586140150get_var*
+//#UC END# *4D18832500B4_4CB586140150get_var*

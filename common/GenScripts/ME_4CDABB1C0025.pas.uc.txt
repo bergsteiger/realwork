@@ -1,0 +1,33 @@
+//#UC START# *479731C50290_4CDABB1C0025_impl*
+ FreeAndNil(f_Bitmap);
+ inherited;
+//#UC END# *479731C50290_4CDABB1C0025_impl*
+//#UC START# *479731C50290_4CDABB1C0025_var*
+//#UC END# *479731C50290_4CDABB1C0025_var*
+//#UC START# *4CDABB1C0025_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas
+//#UC END# *4CDABB1C0025_ext:FileName
+//#UC START# *4CDACD8302DD_4CDABB1C0025get_impl*
+ if (f_Bitmap = nil) then
+ begin
+  f_Bitmap := Tl3Bitmap.Create;
+  f_Bitmap.PixelFormat := pf24bit;
+ end;//f_Bitmap = nil
+ l_Flash := FlashForPrint;
+ f_Bitmap.Width := l_Flash.Width;
+ f_Bitmap.Height := l_Flash.Height;
+ l_DC := f_Bitmap.Canvas.Handle;
+ SendMessage(l_Flash.Handle, WM_Paint, WParam(l_DC), 0);
+ Assert(l_Flash <> nil);
+ Result := f_Bitmap;
+//#UC END# *4CDACD8302DD_4CDABB1C0025get_impl*
+//#UC START# *4CDACD8302DD_4CDABB1C0025get_var*
+var
+ l_Flash : TvtShockwaveFlashEx;
+ l_DC    : hDC;
+//#UC END# *4CDACD8302DD_4CDABB1C0025get_var*
+//#UC START# *4CDAE15C035B_4CDABB1C0025_impl*
+ Result := 20;
+//#UC END# *4CDAE15C035B_4CDABB1C0025_impl*
+//#UC START# *4CDAE15C035B_4CDABB1C0025_var*
+//#UC END# *4CDAE15C035B_4CDABB1C0025_var*

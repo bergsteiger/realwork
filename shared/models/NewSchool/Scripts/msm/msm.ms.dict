@@ -572,55 +572,48 @@ INTEGER elem_func msm:View:BackColor
  >>> Result
 ; // msm:View:BackColor
 
-STRING elem_func msm:View:LabelName
-
- STRING elem_func StereotypeLabelName
-  Cached:
-  (
-   VAR l_Label
-   Self .GetUP "personal label" >>> l_Label
-   RULES
-    ( l_Label .NotIsNil )
-     l_Label
-    DEFAULT
-     begin 
-      Self .StereotypeInModel .GetUP "personal label" >>> l_Label
-      RULES
-       ( l_Label .NotIsNil )
-        l_Label
-       DEFAULT
-        begin
-         '' >>> l_Label
+STRING elem_func StereotypeLabelName
+ Cached:
+ (
+  VAR l_Label
+  Self .GetUP "personal label" >>> l_Label
+  RULES
+   ( l_Label .NotIsNil )
+    l_Label
+   DEFAULT
+    begin
+     '' >>> l_Label
+     RULES
+      ( Self IsString )
+       ()
+      DEFAULT
+       begin
+        Self .Inherits
+        .join> ( Self .Implements ) 
+        .for> (
+          IN anAncestor
+         VAR l_AncestorLabel 
+         anAncestor call.me >>> l_AncestorLabel
          RULES
-          ( Self IsString )
-           ()
-          DEFAULT
-           begin
-            Self .Inherited.Words .for> (
-              IN anAncestor
-             VAR l_AncestorLabel 
-             anAncestor call.me >>> l_AncestorLabel
-             RULES
-              ( l_AncestorLabel .NotIsNil )
-               ( 
-                l_AncestorLabel >>> l_Label
-                BREAK-ITERATOR
-               )
-             ; // RULES
-            ) // Self .Inherited.Words .for>
-           end // DEFAULT
+          ( l_AncestorLabel .NotIsNil )
+           ( 
+            l_AncestorLabel >>> l_Label
+            BREAK-ITERATOR
+           )
          ; // RULES
-         l_Label
-        end // DEFAULT
-      ; // RULES
-     end // DEFAULT
-   ; // RULES  
-  )
-  >>> Result
- ; // StereotypeLabelName
- 
+        ) // .for>
+       end // DEFAULT
+     ; // RULES
+     l_Label
+    end // DEFAULT 
+  ; // RULES  
+ )
+ >>> Result
+; // StereotypeLabelName
+
+STRING elem_func msm:View:LabelName
  VAR l_Label
- Self .Stereotype .StereotypeLabelName >>> l_Label
+ Self .Stereotype .StereotypeInModel .StereotypeLabelName >>> l_Label
  RULES
   ( l_Label .NotIsNil )
    l_Label
@@ -647,6 +640,41 @@ STRING elem_func msm:View:LabelName
 ; // msm:View:LabelName
 
 USES
+ joinWithLambded.ms.dict
+;
+
+elem_iterator StereotypeAllowedElements
+ RULES
+  ( Self .IsNil )
+   [empty]
+  DEFAULT
+   begin
+    Self .Dependencies
+    .filter> ( .IsStereotype st_include::Dependency )
+    .map> .Target
+    
+    if ( Self .GetUP "inherite constraints" false ?!= ) then
+    begin
+     .joinWithLambded> 
+     (
+      ( Self .Inherits ) 
+      .join> ( Self .Implements ) 
+     ) 
+     call.me
+    end // ( Self .GetUP "inherite constraints" false ?!= )
+   end // DEFAULT
+ ; // RULES
+ array:CopyWithoutDuplicates
+ >>> Result  
+; // StereotypeAllowedElements
+
+elem_iterator AllowedElements
+ Self .Stereotype .StereotypeInModel 
+ .StereotypeAllowedElements
+ >>> Result
+; // AllowedElements
+
+USES
  DictionaryByName.ms.dict
 ;
 
@@ -654,8 +682,9 @@ USES
  Out.ms.dict
 ;
 
-STRING elem_func msm:View:ImageFileName
- Self .msm:View:LabelName >>> Result
+STRING FUNCTION .LabelNameToImageFileName
+  STRING IN Self
+ Self >>> Result 
  if ( Result .NotIsNil ) then
  begin
   VAR l_Path
@@ -665,7 +694,19 @@ STRING elem_func msm:View:ImageFileName
   [ [ l_Path Result ] cPathSep strings:CatSep '.gif' ] strings:Cat >>> Result
   //[ 'W:\MDProcess\MDAGenerator\other\images\' Result '.gif' ] strings:Cat >>> Result
  end // ( Result .NotIsNil )
+; // .LabelNameToImageFileName
+
+STRING elem_func msm:View:ImageFileName
+ Self .msm:View:LabelName 
+ .LabelNameToImageFileName
+ >>> Result
 ; // msm:View:ImageFileName
+
+STRING elem_func msm:View:StereotypeImageFileName
+ Self .StereotypeLabelName
+ .LabelNameToImageFileName
+ >>> Result
+; // msm:View:StereotypeImageFileName
 
 BOOLEAN elem_func IsCategory
  Self .MDAClass class_Category ==

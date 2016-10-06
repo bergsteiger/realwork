@@ -1,0 +1,22 @@
+//#UC START# *4E1DD8400344_ext:FileName
+w:\common\components\gui\Garant\Everest\evDecorHyperlink.pas
+//#UC END# *4E1DD8400344_ext:FileName
+//#UC START# *4E1DD8400344impl_uses*
+//#UC END# *4E1DD8400344impl_uses*
+//#UC START# *4E1DD88E02EE_4E1DD8400344_impl*
+ Assert(aPara <> nil);
+ inherited Create(aLink);
+ f_Para := aPara;
+//#UC END# *4E1DD88E02EE_4E1DD8400344_impl*
+//#UC START# *4E1DD88E02EE_4E1DD8400344_var*
+//#UC END# *4E1DD88E02EE_4E1DD8400344_var*
+//#UC START# *4E1DDB7D0368_4E1DD8400344_impl*
+ Result := inherited DoFromDocumentExternalHandle;
+ if (Result <= 0) then
+  if evInPara(f_Para.AsObject, k2_typDocument, l_Doc) then
+   Result := l_Doc.rLong(k2_tiExternalHandle, -1);
+//#UC END# *4E1DDB7D0368_4E1DD8400344_impl*
+//#UC START# *4E1DDB7D0368_4E1DD8400344_var*
+var
+ l_Doc : Tl3Variant;
+//#UC END# *4E1DDB7D0368_4E1DD8400344_var*

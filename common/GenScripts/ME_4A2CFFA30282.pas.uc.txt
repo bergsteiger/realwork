@@ -1,0 +1,223 @@
+//#UC START# *479731C50290_4A2CFFA30282_impl*
+ FreeAndNil(f_Blocks);
+ inherited;
+//#UC END# *479731C50290_4A2CFFA30282_impl*
+//#UC START# *479731C50290_4A2CFFA30282_var*
+//#UC END# *479731C50290_4A2CFFA30282_var*
+//#UC START# *47B07CF403D0_4A2D03DC0068_impl*
+ Result := false;
+//#UC END# *47B07CF403D0_4A2D03DC0068_impl*
+//#UC START# *47B07CF403D0_4A2D03DC0068_var*
+//#UC END# *47B07CF403D0_4A2D03DC0068_var*
+//#UC START# *47B2C42A0163_4A2D03DC0068_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_4A2D03DC0068_impl*
+//#UC START# *47B2C42A0163_4A2D03DC0068_var*
+//#UC END# *47B2C42A0163_4A2D03DC0068_var*
+//#UC START# *47B99D4503A2_4A2D03DC0068_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_4A2D03DC0068_impl*
+//#UC START# *47B99D4503A2_4A2D03DC0068_var*
+//#UC END# *47B99D4503A2_4A2D03DC0068_var*
+//#UC START# *4836D4C20059_4A2CFFA30282_impl*
+ if CurrentType.IsKindOf(k2_typContentsElement) then
+  f_Blocks.Count := f_Blocks.Count - 1; 
+ inherited;
+//#UC END# *4836D4C20059_4A2CFFA30282_impl*
+//#UC START# *4836D4C20059_4A2CFFA30282_var*
+//#UC END# *4836D4C20059_4A2CFFA30282_var*
+//#UC START# *4A2CFFA30282_ext:FileName
+w:\common\components\gui\Garant\Everest\evdBlockNameAdder.pas
+//#UC END# *4A2CFFA30282_ext:FileName
+//#UC START# *4A2CFFA30282impl_uses*
+//#UC END# *4A2CFFA30282impl_uses*
+//#UC START# *4A2D1217037A_4A2CFFA30282_impl*
+ if TypeID.IsKindOf(k2_typTable) then
+  OutBlockNames(nil);
+ inherited;
+ if CurrentType.IsKindOf(k2_typContentsElement) then
+ begin
+  if (f_Blocks = nil) then
+   f_Blocks := TevdBlocks.Create;
+  f_Blocks.Add(TevdBlockInfo_T(TypeID));
+ end;//CurrentType.IsKindOf(k2_typContentsElement)
+//#UC END# *4A2D1217037A_4A2CFFA30282_impl*
+//#UC START# *4A2D1217037A_4A2CFFA30282_var*
+//#UC END# *4A2D1217037A_4A2CFFA30282_var*
+//#UC START# *4A2D14530087_4A2D046A01BE_impl*
+ Result.rName := aName;
+//#UC END# *4A2D14530087_4A2D046A01BE_impl*
+//#UC START# *4A2D14530087_4A2D046A01BE_var*
+//#UC END# *4A2D14530087_4A2D046A01BE_var*
+//#UC START# *4A2D1634025B_4A2CFFA30282_impl*
+ l_CT := CurrentType;
+ if (AtomIndex = k2_tiInContents) AND
+    l_CT.IsKindOf(k2_typContentsElement) then
+  SaveInContents
+ else 
+ if (AtomIndex = k2_tiHandle) AND
+    l_CT.IsKindOf(k2_typContentsElement) then
+  SaveBlockID
+ else 
+ if l_CT.IsKindOf(k2_typDocument) {AND (TopType[1] = nil) }then
+ begin
+  f_NeedDecorHeader := False;
+  if (AtomIndex = k2_tiName) then
+  begin
+   SaveDocInContents;
+   SaveName;
+  end;//AtomIndex = k2_tiName
+  if (AtomIndex = k2_tiStyle) and (VariantAsInteger(AtomIndex, Value) = ev_saLinkToPublication) then
+  // ^ - http://mdp.garant.ru/pages/viewpage.action?pageId=400195823
+  begin
+   AddIntegerAtom(AtomIndex, evd_saTxtNormalANSI);
+(*   l_NewValue.Kind := k2_vkInteger;
+   l_NewValue.AsInteger := evd_saTxtNormalANSI;
+   inherited DoAddAtomEx(AtomIndex, l_NewValue);*)
+   Exit;
+  end; // if (AtomIndex = k2_tiStyle) and (VariantAsInteger(AtomIndex, Value) = ev_saLinkToPublication) then
+ end//l_CT.IsKindOf(k2_typDocument)
+ else
+ if l_CT.IsKindOf(k2_typContentsElement) then
+  if (AtomIndex = k2_tiStyle) and (VariantAsInteger(AtomIndex, Value) = ev_saExpandedText) then
+   f_NeedDecorHeader := True
+  else
+   if (AtomIndex = k2_tiShortName) then
+    SaveName;
+ inherited;
+//#UC END# *4A2D1634025B_4A2CFFA30282_impl*
+//#UC START# *4A2D1634025B_4A2CFFA30282_var*
+
+ procedure SaveName;
+ var
+  l_String : Tl3CustomString;
+  l_Item   : TevdBlockInfo;
+ begin
+  l_String := VariantAsString(Value);
+  try
+   l_Item := f_Blocks.Last;
+   if (l_String = nil) then
+    l_Item.rName := nil
+   else
+   if not l3IOk(l_String.QueryInterface(Il3CString, l_Item.rName)) then
+    Assert(false);
+   f_Blocks.Last := l_Item;
+  finally
+   FreeAndNil(l_String);
+  end;//try..finally
+ end;
+
+ procedure SaveBlockID;
+ var
+  l_Item : TevdBlockInfo;
+ begin
+  l_Item := f_Blocks.Last;
+  l_Item.rBlockID := VariantAsInteger(AtomIndex, Value) ;
+  f_Blocks.Last := l_Item;
+ end;
+
+ procedure SaveInContentsPrim(aValue : Boolean);
+ var
+  l_Item : TevdBlockInfo;
+ begin
+  l_Item := f_Blocks.Last;
+  l_Item.rInContents := aValue;
+  f_Blocks.Last := l_Item;
+ end;
+
+ procedure SaveInContents;
+ begin
+  SaveInContentsPrim(VariantAsInteger(AtomIndex, Value) <> 0);
+ end;
+
+ procedure SaveDocInContents;
+ begin
+  SaveInContentsPrim(true);
+ end;
+
+var
+ l_CT       : Tk2Type;
+// l_NewValue : Tk2Variant;
+//#UC END# *4A2D1634025B_4A2CFFA30282_var*
+//#UC START# *4A2D263C02BE_4A2D046A01BE_impl*
+//#UC END# *4A2D263C02BE_4A2D046A01BE_impl*
+//#UC START# *4A2D263C02BE_4A2D046A01BE_var*
+//#UC END# *4A2D263C02BE_4A2D046A01BE_var*
+//#UC START# *4A2FE6E60214_4A2D046A01BE_impl*
+ Result.rBlockType := aType;
+//#UC END# *4A2FE6E60214_4A2D046A01BE_impl*
+//#UC START# *4A2FE6E60214_4A2D046A01BE_var*
+//#UC END# *4A2FE6E60214_4A2D046A01BE_var*
+//#UC START# *4CF513300102_4A2CFFA30282_impl*
+ for l_Index := 0 to f_Blocks.Hi do
+ begin
+  l_Item := f_Blocks[l_Index];
+  with l_Item do
+   if not rSaved then
+   begin
+    l_Item.rSaved := true;
+    f_Blocks[l_Index] := l_Item;
+    if not l3IsNil(rName) then
+     if rInContents then
+      if  (rBlockType = k2_typContentsElement) OR
+         rBlockType.IsKindOf(k2_typDocument) then
+       begin
+        if (l_Index = f_Blocks.Hi) then
+         // - обрабатываем самый вложенный блок
+         if (aLeaf <> nil) AND
+            l3Starts(l3PCharLen(rName), aLeaf.PCharLenA[k2_tiText]) then
+          // - типа такой текст уже есть в самом параграфе
+          continue;
+        if f_NeedDecorHeader then
+         Generator.StartChild(k2_typDecorTextPara)
+        else
+         Generator.StartChild(k2_typTextPara);
+        try
+         Generator.AddIntegerAtom(k2_tiStyle, ev_saTxtHeader1);
+         //Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itLeft));
+         Generator.AddStringAtom(k2_tiText, l3PCharLen(rName));
+         if (f_DocID <> 0) then
+         begin
+          f_WasSomeLink := true;
+          Generator.StartTag(k2_tiSegments);
+          try
+           Generator.StartChild(k2_typSegmentsLayer);
+           try
+            Generator.AddIntegerAtom(k2_tiHandle, Ord(ev_slHyperlinks));
+            Generator.StartChild(k2_typHyperlink);
+            try
+             Generator.AddIntegerAtom(k2_tiStart, 1);
+             Generator.AddIntegerAtom(k2_tiFinish, l3Len(rName));
+             Generator.StartChild(k2_typAddress);
+             try
+              Generator.AddIntegerAtom(k2_tiType, CI_REF);
+              Generator.AddIntegerAtom(k2_tiDocID, f_DocID);
+              if (rBlockID <> 0) then
+               Generator.AddIntegerAtom(k2_tiSubID, rBlockID);
+             finally
+              Generator.Finish;
+             end;//try..finally
+            finally
+             Generator.Finish;
+            end;//try..finally
+           finally
+            Generator.Finish;
+           end;//try..finally
+          finally
+           Generator.Finish;
+          end;//try..finally
+         end;//f_DocID <> 0
+        finally
+         Generator.Finish;
+        end;//try..finally
+       end;//not l3IsNil(rName)
+    end;//not rSaved
+ end;//for l_Index
+ inherited;
+//#UC END# *4CF513300102_4A2CFFA30282_impl*
+//#UC START# *4CF513300102_4A2CFFA30282_var*
+var
+ l_Item : TevdBlockInfo;
+ l_Index : Integer;
+//#UC END# *4CF513300102_4A2CFFA30282_var*

@@ -1,0 +1,43 @@
+//#UC START# *57AAF18F0065_ext:FileName
+w:\common\components\gui\Garant\msm\msmListViewController.pas
+//#UC END# *57AAF18F0065_ext:FileName
+//#UC START# *57AAF18F0065impl_uses*
+ , Graphics
+ , l3Base
+ , l3String
+ , msmModelElementNode
+ , msmElementViews
+//#UC END# *57AAF18F0065impl_uses*
+//#UC START# *57ADFB33027D_57AAF18F0065_impl*
+ inherited;
+ OwnView.OnGetTotal := Self.DoGetTotal;
+ OwnView.OnGetNode := Self.DoGetNode;
+//#UC END# *57ADFB33027D_57AAF18F0065_impl*
+//#UC START# *57ADFB33027D_57AAF18F0065_var*
+//#UC END# *57ADFB33027D_57AAF18F0065_var*
+//#UC START# *57B490B60385_57AAF18F0065_impl*
+ inherited;
+ theContext.rCaptionModel := Self.Model;
+//#UC END# *57B490B60385_57AAF18F0065_impl*
+//#UC START# *57B490B60385_57AAF18F0065_var*
+//#UC END# *57B490B60385_57AAF18F0065_var*
+//#UC START# *57B6C9A5037B_57AAF18F0065_impl*
+ inherited;
+ OwnView.CallDropDrawPoints;
+//#UC END# *57B6C9A5037B_57AAF18F0065_impl*
+//#UC START# *57B6C9A5037B_57AAF18F0065_var*
+//#UC END# *57B6C9A5037B_57AAF18F0065_var*
+//#UC START# *57E56BDF005B_57AAF18F0065_impl*
+ if (OwnView.Parent <> nil) then
+  if (Self.Model.List <> nil) then
+   OwnView.Total := Self.Model.List.Count;
+//#UC END# *57E56BDF005B_57AAF18F0065_impl*
+//#UC START# *57E56BDF005B_57AAF18F0065_var*
+//#UC END# *57E56BDF005B_57AAF18F0065_var*
+//#UC START# *57EAE5C500B3_57AAF18F0065_impl*
+ if (Self.Model = nil) then
+  Exit;
+ theNode := TmsmModelElementNode.Make(TmsmModelElementView_C(Self.Model.List[anIndex]), -1);
+//#UC END# *57EAE5C500B3_57AAF18F0065_impl*
+//#UC START# *57EAE5C500B3_57AAF18F0065_var*
+//#UC END# *57EAE5C500B3_57AAF18F0065_var*

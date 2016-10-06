@@ -1,0 +1,38 @@
+//#UC START# *4E81A119033D_4E81A1D3027D_impl*
+ f_Model.StartLongOperation;
+ try
+  for l_GroupIndex := 0 to Pred(f_Model.GroupCount) do
+  begin
+   l_Group := f_Model.QueryGroup[l_GroupIndex];
+   for l_ReqIndex := 0 to Pred(l_Group.ReqCount) do
+   begin
+    if not anAction(l_Group.Req[l_ReqIndex]) then
+     Exit;
+   end;//for l_ReqIndex
+  end;//for l_GroupIndex
+ finally
+  f_Model.EndLongOperation;
+ end;//try..finally
+//#UC END# *4E81A119033D_4E81A1D3027D_impl*
+//#UC START# *4E81A119033D_4E81A1D3027D_var*
+var
+ l_Group : IevQueryGroup;
+ l_GroupIndex : Integer;
+ l_ReqIndex   : Integer;
+//#UC END# *4E81A119033D_4E81A1D3027D_var*
+//#UC START# *4E81A1D3027D_ext:FileName
+w:\common\components\gui\Garant\Everest\evReqIterator.pas
+//#UC END# *4E81A1D3027D_ext:FileName
+//#UC START# *4E81A1D3027Dimpl_uses*
+//#UC END# *4E81A1D3027Dimpl_uses*
+//#UC START# *4E81A27A0202_4E81A1D3027D_impl*
+ inherited Create;
+ f_Model := aModel;
+//#UC END# *4E81A27A0202_4E81A1D3027D_impl*
+//#UC START# *4E81A27A0202_4E81A1D3027D_var*
+//#UC END# *4E81A27A0202_4E81A1D3027D_var*
+//#UC START# *4E820B680303_4E81A1D3027D_impl*
+ Create((anEditor.TextSource.DocumentContainer As InevQueryDocumentContainer).ModelNotify As IevQueryCard);
+//#UC END# *4E820B680303_4E81A1D3027D_impl*
+//#UC START# *4E820B680303_4E81A1D3027D_var*
+//#UC END# *4E820B680303_4E81A1D3027D_var*

@@ -1,0 +1,55 @@
+//#UC START# *479731C50290_48DBA80F01C8_impl*
+ l3Free(f_DataString);
+ inherited;
+//#UC END# *479731C50290_48DBA80F01C8_impl*
+//#UC START# *479731C50290_48DBA80F01C8_var*
+//#UC END# *479731C50290_48DBA80F01C8_var*
+//#UC START# *48DBA80F01C8_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evControlGenerator.pas
+//#UC END# *48DBA80F01C8_ext:FileName
+//#UC START# *48DBA80F01C8impl_uses*
+//#UC END# *48DBA80F01C8impl_uses*
+//#UC START# *48E4B7DA0313_48DBA80F01C8_impl*
+ if aChild.IsKindOf(k2_typTextPara) then
+ begin
+  if not f_FirstPara then
+  begin
+   if f_Multiline then
+    f_DataString.Append(cc_SoftEnter)
+   else
+    f_DataString.Append(cc_HardSpace);
+  end;
+  f_FirstPara := False;
+  if evHasText(aChild.AsObject) then
+   f_DataString.Append(aChild.PCharLenA[k2_tiText]);
+ end;
+//#UC END# *48E4B7DA0313_48DBA80F01C8_impl*
+//#UC START# *48E4B7DA0313_48DBA80F01C8_var*
+//#UC END# *48E4B7DA0313_48DBA80F01C8_var*
+//#UC START# *48E4B7E90296_48DBA80F01C8_impl*
+ Inherited;
+ f_DataString := Tl3InterfacedString.Create;
+ l_Para := Cursor.MostInner.Obj;
+ f_Multiline := l_Para.AsObject.IsKindOf(k2_typControlPara) and
+   (TevControlType(l_Para.AsObject.IntA[k2_tiType]) = ev_ctMemoEdit);
+ f_FirstPara := True;
+//#UC END# *48E4B7E90296_48DBA80F01C8_impl*
+//#UC START# *48E4B7E90296_48DBA80F01C8_var*
+var
+ l_Para: PInevObject;
+//#UC END# *48E4B7E90296_48DBA80F01C8_var*
+//#UC START# *48E4B7F403D6_48DBA80F01C8_impl*
+ EnableUndo;
+ if f_DataString.Len > 0 then
+  InsCursor.Text.Modify.InsertString(View, f_DataString, Context, True,
+   [misfDirect
+   , misfLockCursors]);
+ Inherited;
+//#UC END# *48E4B7F403D6_48DBA80F01C8_impl*
+//#UC START# *48E4B7F403D6_48DBA80F01C8_var*
+//#UC END# *48E4B7F403D6_48DBA80F01C8_var*
+//#UC START# *48E4B802032E_48DBA80F01C8_impl*
+ Result := False;
+//#UC END# *48E4B802032E_48DBA80F01C8_impl*
+//#UC START# *48E4B802032E_48DBA80F01C8_var*
+//#UC END# *48E4B802032E_48DBA80F01C8_var*

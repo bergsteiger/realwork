@@ -1,0 +1,65 @@
+//#UC START# *47A9A53001F6_ext:FileName
+w:\common\components\rtl\Garant\L3\l3ClassCacheEntry.pas
+//#UC END# *47A9A53001F6_ext:FileName
+//#UC START# *47A9A53001F6impl_uses*
+//#UC END# *47A9A53001F6impl_uses*
+//#UC START# *47B2C42A0163_47A9A53001F6_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_47A9A53001F6_impl*
+//#UC START# *47B2C42A0163_47A9A53001F6_var*
+//#UC END# *47B2C42A0163_47A9A53001F6_var*
+//#UC START# *47B5A114039E_47A9A53001F6_impl*
+ inherited Create;
+ {$If not defined(l3Items_NoSort)}
+ Sorted := false;
+ {$IfEnd} //not l3Items_NoSort
+//#UC END# *47B5A114039E_47A9A53001F6_impl*
+//#UC START# *47B5A114039E_47A9A53001F6_var*
+//#UC END# *47B5A114039E_47A9A53001F6_var*
+//#UC START# *47B5A13B0025_47A9A53001F6_impl*
+ Result := f_Count;
+ l_Cap := Capacity;
+ if (Result >= l_Cap) then
+  ReAllocList(ExpandSize(l_Cap + 1), Self);
+ { Make room for the inserted item. }
+ PPointer(ItemSlot(Result))^ := Item;
+ Inc(f_Count);
+//#UC END# *47B5A13B0025_47A9A53001F6_impl*
+//#UC START# *47B5A13B0025_47A9A53001F6_var*
+var
+ l_Ptr : PPointer;
+ l_Cap : Integer;
+//#UC END# *47B5A13B0025_47A9A53001F6_var*
+//#UC START# *47B5A15003B3_47A9A53001F6_impl*
+ if (f_Count = 0) then
+  Result := nil
+ else
+ begin
+  Dec(f_Count);
+  l_Pt := ItemSlot(f_Count);
+  Result := l_Pt^;
+  l_Pt^ := nil;
+ end;//f_Count = 0
+//#UC END# *47B5A15003B3_47A9A53001F6_impl*
+//#UC START# *47B5A15003B3_47A9A53001F6_var*
+var
+ l_Pt : PItemType;
+//#UC END# *47B5A15003B3_47A9A53001F6_var*
+//#UC START# *47B935AF0066_47A9A53001F6_impl*
+ aPlace := anItem;
+//#UC END# *47B935AF0066_47A9A53001F6_impl*
+//#UC START# *47B935AF0066_47A9A53001F6_var*
+//#UC END# *47B935AF0066_47A9A53001F6_var*
+//#UC START# *47B94A5C006E_47A9A53001F6_impl*
+ FreeAndNil(aPlace);
+//#UC END# *47B94A5C006E_47A9A53001F6_impl*
+//#UC START# *47B94A5C006E_47A9A53001F6_var*
+//#UC END# *47B94A5C006E_47A9A53001F6_var*
+//#UC START# *47B99D4503A2_47A9A53001F6_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ Result := Integer(CI.rA^) - Integer(CI.rB^);
+//#UC END# *47B99D4503A2_47A9A53001F6_impl*
+//#UC START# *47B99D4503A2_47A9A53001F6_var*
+//#UC END# *47B99D4503A2_47A9A53001F6_var*

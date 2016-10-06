@@ -1,0 +1,30 @@
+//#UC START# *545A1B76019B_ext:FileName
+w:\common\components\rtl\Garant\m3\m3NormalFormsManager.pas
+//#UC END# *545A1B76019B_ext:FileName
+//#UC START# *545A1B76019Bimpl_uses*
+//#UC END# *545A1B76019Bimpl_uses*
+//#UC START# *545A1BD80041_545A1B76019B_impl*
+ f_CanFreeBlocks := 0;
+ inherited Create({64} 1024 * 1024, 4);
+//#UC END# *545A1BD80041_545A1B76019B_impl*
+//#UC START# *545A1BD80041_545A1B76019B_var*
+//#UC END# *545A1BD80041_545A1B76019B_var*
+//#UC START# *545A2F6800D6_545A1B76019B_impl*
+ Result := (f_CanFreeBlocks <= 0) AND inherited CanFreeBlocks;
+//#UC END# *545A2F6800D6_545A1B76019B_impl*
+//#UC START# *545A2F6800D6_545A1B76019B_var*
+//#UC END# *545A2F6800D6_545A1B76019B_var*
+//#UC START# *545A301E038D_545A1B76019B_impl*
+ Inc(f_CanFreeBlocks);
+//#UC END# *545A301E038D_545A1B76019B_impl*
+//#UC START# *545A301E038D_545A1B76019B_var*
+//#UC END# *545A301E038D_545A1B76019B_var*
+//#UC START# *545A302902B2_545A1B76019B_impl*
+ Dec(f_CanFreeBlocks);
+ Assert(f_CanFreeBlocks >= 0);
+ if (f_CanFreeBlocks <= 0) then
+  if CanFreeBlocks then
+   FreeBlocks;
+//#UC END# *545A302902B2_545A1B76019B_impl*
+//#UC START# *545A302902B2_545A1B76019B_var*
+//#UC END# *545A302902B2_545A1B76019B_var*

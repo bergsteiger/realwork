@@ -1,0 +1,22 @@
+//#UC START# *5289CA7803D8_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas
+//#UC END# *5289CA7803D8_ext:ParentFileName
+//#UC START# *5289CD300046_5289CA7803D8_impl*
+ // Сравниваем ключи и значения, иначе не проходит присовение Item'ов
+ Result := (Self.rKey.EQ(anOther.rKey)) AND (Self.rNeedMake = anOther.rNeedMake);
+//#UC END# *5289CD300046_5289CA7803D8_impl*
+//#UC START# *5289CD300046_5289CA7803D8_var*
+//#UC END# *5289CD300046_5289CA7803D8_var*
+//#UC START# *5289CD3602F8_5289CA7803D8_impl*
+ Result := Self.rKey.Compare(anOther.rKey);
+ if (Result = 0) then
+  Result := Ord(Self.rNeedMake) - Ord(anOther.rNeedMake);
+//#UC END# *5289CD3602F8_5289CA7803D8_impl*
+//#UC START# *5289CD3602F8_5289CA7803D8_var*
+//#UC END# *5289CD3602F8_5289CA7803D8_var*
+//#UC START# *528B51C0030E_5289CA7803D8_impl*
+ Result.rKey := aKey;
+ Result.rNeedMake := aNeedMake;
+//#UC END# *528B51C0030E_5289CA7803D8_impl*
+//#UC START# *528B51C0030E_5289CA7803D8_var*
+//#UC END# *528B51C0030E_5289CA7803D8_var*

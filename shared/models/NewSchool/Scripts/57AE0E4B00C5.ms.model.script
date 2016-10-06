@@ -788,6 +788,71 @@ ME ME_57D90AA201F1
 
 ENDME // ME_57D90AA201F1 GetMEImage
 
+FORWARD ME_57F3D9A4007A
+
+ME ME_57F3D9C70227
+ MEPROP Name 'anElement'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_57F3D9C70227 anElement
+
+ME ME_57F3D9C70258
+ MEPROP Name 'aPropName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57F3D9C70258 aPropName
+
+ME ME_57F3D9C7027B
+ MEPROP Name 'aImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_57F3D9C7027B aImages
+
+ME ME_57F3D9BB03DD
+ MEPROP UID '57F3D9BB03DD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F3D9A4007A // GetMEImageByPropName
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F3D9C70227 // anElement
+ ME_57F3D9C70258 // aPropName
+ ME_57F3D9C7027B // aImages
+ )
+ ; // Parameters
+
+ENDME // ME_57F3D9BB03DD DoIt
+
+ME ME_57F3D9A4007A
+ MEPROP UID '57F3D9A4007A'
+ MEPROP Name 'GetMEImageByPropName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB966601BF // TmsmMEImages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F3D9BB03DD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F3D9A4007A GetMEImageByPropName
+
 ME ME_57EB99A402A5
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -816,6 +881,7 @@ ME ME_57EB966601BF
  ; // Inherits
  MELIST Operations
    Seq: ( HWL ME_57D90AA201F1 // GetMEImage
+ HWL ME_57F3D9A4007A // GetMEImageByPropName
  )
  ; // Operations
  MELIST Dependencies

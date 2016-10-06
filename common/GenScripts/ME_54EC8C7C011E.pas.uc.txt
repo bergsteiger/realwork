@@ -1,0 +1,112 @@
+//#UC START# *54EC8C7C011E_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas
+//#UC END# *54EC8C7C011E_ext:FileName
+//#UC START# *54EC8C7C011Eimpl_uses*
+//#UC END# *54EC8C7C011Eimpl_uses*
+//#UC START# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_impl*
+ aCombobox.DroppedDown := aValue;
+//#UC END# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_impl*
+//#UC START# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_var*
+//#UC END# *55B7A59500C7_55B7A59500C7_5049DA2A035D_Word_var*
+//#UC START# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_impl*
+ aComboTree.Dropped := aValue;
+//#UC END# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_impl*
+//#UC START# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_var*
+//#UC END# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_var*
+//#UC START# *55B7A5B502F8_55B7A5B502F8_5049DA2A035D_Word_impl*
+ Result := aCombobox.ItemIndex;
+//#UC END# *55B7A5B502F8_55B7A5B502F8_5049DA2A035D_Word_impl*
+//#UC START# *55B7A5B502F8_55B7A5B502F8_5049DA2A035D_Word_var*
+//#UC END# *55B7A5B502F8_55B7A5B502F8_5049DA2A035D_Word_var*
+//#UC START# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_impl*
+ if Assigned(aComboTree.ChoosenValue) then
+  Result := aComboTree.FindIndexOf(aComboTree.ChoosenValue)
+ else
+  Result := aComboTree.ItemIndex;
+//#UC END# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_impl*
+//#UC START# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_var*
+//#UC END# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_var*
+//#UC START# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_impl*
+ Result := aCombobox.Items.IndexOf(aString);
+//#UC END# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_impl*
+//#UC START# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_var*
+//#UC END# *55B7A5CD03A9_55B7A5CD03A9_5049DA2A035D_Word_var*
+//#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
+ Result := aComboTree.IndexOfText(aString);
+//#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
+//#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
+//#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
+//#UC START# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_impl*
+ TCustomComboBoxFriend(aCombobox).SelectItem(aString);
+//#UC END# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_impl*
+//#UC START# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_var*
+//#UC END# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_var*
+//#UC START# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
+ aComboTree.ItemIndex := aComboTree.IndexOfText(aString);
+//#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_impl*
+//#UC START# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_var*
+//#UC END# *55B7A5FB0027_55B7A5FB0027_55B780E60398_Word_var*
+//#UC START# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_impl*
+ aCombobox.ItemIndex := anIndex;
+ TCustomComboBoxFriend(aCombobox).Select;
+//#UC END# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_impl*
+//#UC START# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
+//#UC END# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
+//#UC START# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
+ //if (aComboTree is TvtComboBoxQS) then //561950536
+  aComboTree.ItemIndex := anIndex
+ {else
+ begin
+  l_Node := aComboTree.Tree.GetNode(anIndex);
+  aComboTree.Tree.GotoOnNode(l_Node);
+  aComboTree.ShowNode(l_Node, True);
+ end;//aComboTree is TvtComboBoxQS}
+//#UC END# *55B7A6200240_55B7A6200240_55B780E60398_Word_impl*
+//#UC START# *55B7A6200240_55B7A6200240_55B780E60398_Word_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *55B7A6200240_55B7A6200240_55B780E60398_Word_var*
+//#UC START# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_impl*
+ l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
+ l_S := ChangeFileExt(l_S, '.cmbx');
+ l_Filer := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
+ try
+  l_Filer.Open;
+  try
+   l_Count := aCombobox.Items.Count;
+   for I := 0 to l_Count - 1 do
+    l_Filer.WriteLn(aCombobox.Items[I]);
+  finally
+   l_Filer.Close;
+  end;
+ finally
+  FreeAndNil(l_Filer);
+ end;//try..finally
+//#UC END# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_impl*
+//#UC START# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_var*
+var
+ l_S: AnsiString;
+ l_Filer : Tl3CustomDosFiler;
+ I: Integer;
+ l_Count: Integer;
+//#UC END# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_var*
+//#UC START# *55B7A69E02F1_55B7A69E02F1_55B780E60398_Word_impl*
+ l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
+ l_S := ChangeFileExt(l_S, '.cmbx');
+ l_Filer := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
+ try
+  l_Filer.Open;
+  try
+   l_Filer.WriteLn(aComboTree.GetTextOfAllItems);
+  finally
+   l_Filer.Close;
+  end;
+ finally
+  FreeAndNil(l_Filer);
+ end;//try..finally
+//#UC END# *55B7A69E02F1_55B7A69E02F1_55B780E60398_Word_impl*
+//#UC START# *55B7A69E02F1_55B7A69E02F1_55B780E60398_Word_var*
+var
+ l_S: AnsiString;
+ l_Filer : Tl3CustomDosFiler;
+//#UC END# *55B7A69E02F1_55B7A69E02F1_55B780E60398_Word_var*

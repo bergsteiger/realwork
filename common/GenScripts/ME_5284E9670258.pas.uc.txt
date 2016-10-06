@@ -1,0 +1,29 @@
+//#UC START# *4DB9B446039A_5284E9670258_impl*
+ Result := 2;
+//#UC END# *4DB9B446039A_5284E9670258_impl*
+//#UC START# *4DB9B446039A_5284E9670258_var*
+//#UC END# *4DB9B446039A_5284E9670258_var*
+//#UC START# *4DBAEE0D028D_5284E9670258_impl*
+ Result := TkwTemporaryCompiledCode;
+//#UC END# *4DBAEE0D028D_5284E9670258_impl*
+//#UC START# *4DBAEE0D028D_5284E9670258_var*
+//#UC END# *4DBAEE0D028D_5284E9670258_var*
+//#UC START# *4DCBD67C0362_5284E9670258_impl*
+ RunnerError('Не должны сюда попадать', aCtx);
+ Result := nil;
+//#UC END# *4DCBD67C0362_5284E9670258_impl*
+//#UC START# *4DCBD67C0362_5284E9670258_var*
+//#UC END# *4DCBD67C0362_5284E9670258_var*
+//#UC START# *5284D8180211_5284E9670258_impl*
+ CompilerAssert((aRightParams.CodeCount = 2),
+                'Допустимо только два параметра после слова',
+                aContext);
+ Result := TkwCompiledIfElse.Create(aRightParams.GetCode(aContext)[0], aRightParams.GetCode(aContext)[1], nil, aContext);
+//#UC END# *5284D8180211_5284E9670258_impl*
+//#UC START# *5284D8180211_5284E9670258_var*
+//#UC END# *5284D8180211_5284E9670258_var*
+//#UC START# *5284E9670258_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\kwIfElse.pas
+//#UC END# *5284E9670258_ext:FileName
+//#UC START# *5284E9670258impl_uses*
+//#UC END# *5284E9670258impl_uses*

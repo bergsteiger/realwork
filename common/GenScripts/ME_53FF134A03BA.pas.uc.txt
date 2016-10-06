@@ -1,0 +1,121 @@
+//#UC START# *479731C50290_53FF134A03BA_impl*
+ FHeaderSize := 0;
+ FHeaderLocked := 0;
+ FHeaderLoaded := 0;
+ inherited;
+//#UC END# *479731C50290_53FF134A03BA_impl*
+//#UC START# *479731C50290_53FF134A03BA_var*
+//#UC END# *479731C50290_53FF134A03BA_var*
+//#UC START# *4FA27D5302C5_53FF134A03BA_impl*
+ if SUCCEEDED(theReturn) then
+ begin
+  if (anOrigin = soBeginning) then
+   LOffset := anOffset + Int64(FHeaderSize)
+  else
+  if (anOrigin = soEnd) then
+  begin
+   Assert(anOffset = 0, 'Если это всплывёт, то можно этот Assert временно закомментирровать');
+   LOffset := anOffset;
+  end//AOrigin = soEnd
+  else
+   LOffset := anOffset;
+  theResult := m2COMSeek(InnerStream, LOffset, Ord(anOrigin)) - Int64(FHeaderSize);
+ end;//SUCCEEDED(AReturn)
+//#UC END# *4FA27D5302C5_53FF134A03BA_impl*
+//#UC START# *4FA27D5302C5_53FF134A03BA_var*
+var
+ LOffset : Int64;
+//#UC END# *4FA27D5302C5_53FF134A03BA_var*
+//#UC START# *4FA27DCD02B4_53FF134A03BA_impl*
+ if SUCCEEDED(theReturn) then
+  theReturn := InnerStream.SetSize(aSize + Int64(FHeaderSize));
+//#UC END# *4FA27DCD02B4_53FF134A03BA_impl*
+//#UC START# *4FA27DCD02B4_53FF134A03BA_var*
+//#UC END# *4FA27DCD02B4_53FF134A03BA_var*
+//#UC START# *4FA27E100218_53FF134A03BA_impl*
+ if SUCCEEDED(theReturn) then
+  theReturn := InnerStream.LockRegion(Int64(FHeaderSize) + anOffset, aSize, aLockType);
+//#UC END# *4FA27E100218_53FF134A03BA_impl*
+//#UC START# *4FA27E100218_53FF134A03BA_var*
+//#UC END# *4FA27E100218_53FF134A03BA_var*
+//#UC START# *4FA27E4C0342_53FF134A03BA_impl*
+ if SUCCEEDED(theReturn) then
+  theReturn := InnerStream.UnlockRegion(Int64(FHeaderSize) + anOffset, aSize, aLockType);
+//#UC END# *4FA27E4C0342_53FF134A03BA_impl*
+//#UC START# *4FA27E4C0342_53FF134A03BA_var*
+//#UC END# *4FA27E4C0342_53FF134A03BA_var*
+//#UC START# *4FA2802E0231_53FF134A03BA_impl*
+ Result := {m2COMGetStatStgSize}m2COMGetSize(InnerStream) - Int64(FHeaderSize);
+//#UC END# *4FA2802E0231_53FF134A03BA_impl*
+//#UC START# *4FA2802E0231_53FF134A03BA_var*
+//#UC END# *4FA2802E0231_53FF134A03BA_var*
+//#UC START# *53FDFD1D0164_53FF134A03BA_impl*
+ LoadHeader;
+//#UC END# *53FDFD1D0164_53FF134A03BA_impl*
+//#UC START# *53FDFD1D0164_53FF134A03BA_var*
+//#UC END# *53FDFD1D0164_53FF134A03BA_var*
+//#UC START# *53FDFD34034B_53FF134A03BA_impl*
+ SaveHeader;
+//#UC END# *53FDFD34034B_53FF134A03BA_impl*
+//#UC START# *53FDFD34034B_53FF134A03BA_var*
+//#UC END# *53FDFD34034B_53FF134A03BA_var*
+//#UC START# *53FDFE220358_53FF134A03BA_impl*
+ Assert(FHeaderSize > CAnyGUIDLength);
+ if (FHeaderLocked = 0) then
+  DoLockHeader;
+ l3InterlockedIncrement(FHeaderLocked);
+//#UC END# *53FDFE220358_53FF134A03BA_impl*
+//#UC START# *53FDFE220358_53FF134A03BA_var*
+//#UC END# *53FDFE220358_53FF134A03BA_var*
+//#UC START# *53FDFE3802D0_53FF134A03BA_impl*
+ Assert(FHeaderSize > CAnyGUIDLength);
+ if (l3InterlockedDecrement(FHeaderLocked) = 0) then
+  DoUnlockHeader;
+//#UC END# *53FDFE3802D0_53FF134A03BA_impl*
+//#UC START# *53FDFE3802D0_53FF134A03BA_var*
+//#UC END# *53FDFE3802D0_53FF134A03BA_var*
+//#UC START# *53FF134A03BA_ext:FileName
+w:\common\components\rtl\Garant\m3\m3BaseHeaderStream.pas
+//#UC END# *53FF134A03BA_ext:FileName
+//#UC START# *53FF134A03BAimpl_uses*
+//#UC END# *53FF134A03BAimpl_uses*
+//#UC START# *53FF1F6901C5_53FF134A03BA_impl*
+ if (FHeaderLoaded = 0) then
+  if (InnerStream <> nil) AND (m2COMGetStatStgMode(InnerStream) AND STGM_WRITE = 0) then
+   // - мы не можем считать Header - значит он уже должен быть у нас
+  begin
+   LockHeader;
+   try
+    DoLoadHeader;
+   finally
+    UnlockHeader;
+   end;//try..finally
+  end;//_Stream <> nil..
+ l3InterlockedIncrement(FHeaderLoaded);
+//#UC END# *53FF1F6901C5_53FF134A03BA_impl*
+//#UC START# *53FF1F6901C5_53FF134A03BA_var*
+//#UC END# *53FF1F6901C5_53FF134A03BA_var*
+//#UC START# *53FF1F90030A_53FF134A03BA_impl*
+ if (l3InterlockedDecrement(FHeaderLoaded) = 0) then
+  if (InnerStream <> nil) AND not ReadOnly then
+  begin
+   LockHeader;
+   try
+    DoSaveHeader(aForceSave);
+   finally
+    UnlockHeader;
+   end;//try..finally
+  end;//FHeaderLoaded = 0..
+//#UC END# *53FF1F90030A_53FF134A03BA_impl*
+//#UC START# *53FF1F90030A_53FF134A03BA_var*
+//#UC END# *53FF1F90030A_53FF134A03BA_var*
+//#UC START# *540F07260255_53FF134A03BA_impl*
+ Result := m2COMTimeLock(InnerStream, CAnyGUIDLength, Int64(FHeaderSize) - CAnyGUIDLength);
+//#UC END# *540F07260255_53FF134A03BA_impl*
+//#UC START# *540F07260255_53FF134A03BA_var*
+//#UC END# *540F07260255_53FF134A03BA_var*
+//#UC START# *540F072F02B4_53FF134A03BA_impl*
+ Result := m2COMTimeUnlock(InnerStream, CAnyGUIDLength, Int64(FHeaderSize) - CAnyGUIDLength);
+//#UC END# *540F072F02B4_53FF134A03BA_impl*
+//#UC START# *540F072F02B4_53FF134A03BA_var*
+//#UC END# *540F072F02B4_53FF134A03BA_var*

@@ -1,0 +1,98 @@
+//#UC START# *48ECD68E0010_ext:FileName
+w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas
+//#UC END# *48ECD68E0010_ext:FileName
+//#UC START# *48ECD68E0010impl_uses*
+//#UC END# *48ECD68E0010impl_uses*
+//#UC START# *48ECE4420180_48ECD68E0010_impl*
+ if not (evd_sfChildrenOnly in aFlags) then
+ begin
+  if (Blocks <> nil) AND (Blocks.Count = 1) then
+   inherited
+  else
+  begin
+   l_Atom := GetRedirect;
+   l_Gen := TevdSegmentsLayerJoiner.Create;
+   try
+    l_Gen.Start;
+    try
+     l_Gen.StartChild(l_Atom.TagType);
+     try
+      with l_Atom.Attr[k2_tiText] do
+       if IsValid then
+        l_Text := AsObject As Tl3CustomString
+       else
+        l_Text := nil;
+      l_NText := Tl3_String.Create;
+      try
+       if l_Text.Empty then
+        Assert(false, 'По идее не может быть мультивыделения на пустом параграфе')
+       else
+        Blocks.IterateAllF(l3L2IA(@l_StoreSel));
+       l_Atom.AsObject.WriteTag(l_Gen, l3_spfAll, c_All);
+       if not l_NText.Empty then
+        l_Gen.AddStringAtom(k2_tiText, l_NText.AsWStr);
+      finally
+       l3Free(l_NText);
+      end;//try..finally
+     finally
+      l_Gen.Finish;
+     end;{try..finally}
+    finally
+     l_Gen.Finish;
+    end;//try..finally
+    G.StartChild(l_Atom.TagType);
+    try
+     l_Gen.Root.WriteTag(G);
+    finally
+     G.Finish;
+    end;//try..finally
+   finally
+    l3Free(l_Gen);
+   end;//try..finally
+  end;//f_Blocks <> nil
+ end;//not ChildrenOnly
+//#UC END# *48ECE4420180_48ECD68E0010_impl*
+//#UC START# *48ECE4420180_48ECD68E0010_var*
+
+const
+ c_All = [k2_tiText, k2_tiSegments, k2_tiSubs];
+ c_Segs = [Low(Byte)..High(Byte)] - [k2_tiSegments];
+
+var
+ l_Atom  : Tl3Variant;
+ l_NText : Tl3_String;
+ l_Text  : Tl3CustomString;
+ l_Gen   : TevdSegmentsLayerJoiner;
+
+  function l_StoreSel(aSel: PIUnknown; anIndex: Integer): Boolean;
+  var
+   l_B : TevPair;
+  begin//l_StoreSel
+   Result := true;
+   l_B := InevRange(aSel^).Borders;
+   if (l_B.Len > 0) then
+   begin
+    TevTextParaPartFilter.WriteAtom(l_Gen, l_Atom, l_B, l3_spfAll, c_Segs, l_NText.Len);
+    with l_NText do
+    begin
+     if (Len > 0) AND (Ch[Pred(Len)] <> cc_HardSpace) then
+      Append(cc_HardSpace);
+     Append(l3PCharLen(l_Text.St + l_B.rStart, l_B.Len, l_Text.CodePage));
+    end;//with l_NText
+   end;//l_BS < l_BF
+  end;//l_StoreSel
+
+//#UC END# *48ECE4420180_48ECD68E0010_var*
+//#UC START# *48EDB3B60265_48ECD68E0010get_impl*
+ if (Blocks = nil) then
+  Result := 0
+ else
+  Result := Blocks.Count;
+//#UC END# *48EDB3B60265_48ECD68E0010get_impl*
+//#UC START# *48EDB3B60265_48ECD68E0010get_var*
+//#UC END# *48EDB3B60265_48ECD68E0010get_var*
+//#UC START# *48EDB3C60280_48ECD68E0010get_impl*
+ Result := Blocks.Items[anIndex].Borders;
+//#UC END# *48EDB3C60280_48ECD68E0010get_impl*
+//#UC START# *48EDB3C60280_48ECD68E0010get_var*
+//#UC END# *48EDB3C60280_48ECD68E0010get_var*

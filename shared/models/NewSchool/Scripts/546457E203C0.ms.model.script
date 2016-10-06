@@ -19,6 +19,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_546457E203C0
 %%Inner ME_546457E203C0
 %%Inner ME_546457E203C0
+%%Inner ME_546457E203C0
 
 FORWARD ME_546457E203C0
 
@@ -268,6 +269,23 @@ ME ME_5472F63C0394
 
 ENDME // ME_5472F63C0394 cFilesExtensions
 
+ME ME_57F3A8E70118
+ MEPROP UID '57F3A8E70118'
+ MEPROP Name 'ReceiveTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57F3A8E70118 ReceiveTime
+
 ME ME_546F382B031E
  MEPROP UID '546F382B031E'
  MEPROP Name 'LocalDesc'
@@ -354,6 +372,20 @@ ME ME_5489482402E9
  ;
 
 ENDME // ME_5489482402E9 f_Progressor
+
+ME ME_57F3A8C9029F
+ MEPROP UID '57F3A8C9029F'
+ MEPROP Name 'f_Watch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57F3A8C9029F f_Watch
 
 FORWARD ME_546F389A0156
 
@@ -807,6 +839,16 @@ ME ME_5494061A03BD
 
 ENDME // ME_5494061A03BD 
 
+ME ME_57F3A88502FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
+ ;
+ MELINK Target WL 'ME_57F3829802BA' '57F3833101A7.ms.model.script' // IncsTrafficCounter
+ ;
+
+ENDME // ME_57F3A88502FD 
+
 ME ME_54607DDC0159_ME_546F3804032D
  MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
  ;
@@ -850,12 +892,14 @@ ME ME_546F3804032D
  )
  ; // Implements
  MELIST Attributes
-   Seq: ( HWL ME_546F382B031E // LocalDesc
+   Seq: ( HWL ME_57F3A8E70118 // ReceiveTime
+ HWL ME_546F382B031E // LocalDesc
  HWL ME_546F388103BF // f_Transporter
  HWL ME_546F38FE021D // f_LocalPath
  HWL ME_547588AA019E // f_TaskID
  HWL ME_5489456000B9 // f_Stream
  HWL ME_5489482402E9 // f_Progressor
+ HWL ME_57F3A8C9029F // f_Watch
  )
  ; // Attributes
  MELIST Operations
@@ -896,6 +940,7 @@ ME ME_546F3804032D
  ME_548940EC036A // TncsMessageExecutorFactory
  ME_548AC8E0026C // ncsProfile
  ME_5494061A03BD // l3System
+ ME_57F3A88502FD // IncsTrafficCounter
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
@@ -1556,6 +1601,7 @@ ME ME_546457E203C0
  HWL ME_547583540319 // TncsGetFilePartReply
  HWL ME_548940970391 // TncsPushFilePart
  HWL ME_549AA9CE0345 // TncsCorrectFolder
+ WL 'ME_57F3833101A7' '57F3833101A7.ms.model.script' // ncsTrafficCounter
  )
  ; // Children
  MELIST Depends

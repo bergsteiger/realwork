@@ -1,0 +1,42 @@
+//#UC START# *479731C50290_55E59111027A_impl*
+ FreeAndNil(f_Values);
+ inherited;
+//#UC END# *479731C50290_55E59111027A_impl*
+//#UC START# *479731C50290_55E59111027A_var*
+//#UC END# *479731C50290_55E59111027A_var*
+//#UC START# *47A6FEE600FC_55E59111027A_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_55E59111027A_impl*
+//#UC START# *47A6FEE600FC_55E59111027A_var*
+//#UC END# *47A6FEE600FC_55E59111027A_var*
+//#UC START# *4DAEEDE10285_55E59111027A_impl*
+ if (f_Values = nil) OR (f_Values.Count < f_Count) then
+ begin
+  if (f_Values = nil) then
+   f_Values := TtfwValueList.Create;
+  f_Values.Add(aCtx.rEngine.Pop); 
+ end;//(f_Values = nil) OR (f_Values.Count < f_Count)
+ if (f_Values.Count = f_Count) then
+ begin
+  //for l_Index := Pred(f_Values.Count) downto 0 do
+  for l_Index := 0 to Pred(f_Values.Count) do
+  begin
+   aCtx.rEngine.Push(f_Values.Items[l_Index]);
+  end;//for l_Index
+  WordToWork.DoIt(aCtx);
+  f_Values.Clear;
+ end;//f_Values.Count = f_Count
+//#UC END# *4DAEEDE10285_55E59111027A_impl*
+//#UC START# *4DAEEDE10285_55E59111027A_var*
+var
+ l_Index : Integer; 
+//#UC END# *4DAEEDE10285_55E59111027A_var*
+//#UC START# *55E59111027A_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\tfwSliceView.pas
+//#UC END# *55E59111027A_ext:ParentFileName
+//#UC START# *55E591790250_55E59111027A_impl*
+ inherited Create(aWord, nil, aCtx);
+ f_Count := aCount;
+//#UC END# *55E591790250_55E59111027A_impl*
+//#UC START# *55E591790250_55E59111027A_var*
+//#UC END# *55E591790250_55E59111027A_var*

@@ -1,0 +1,39 @@
+//#UC START# *479731C50290_57A9FEF503A3_impl*
+ FreeAndNil(f_Parameters);
+ Finalize(f_ResultValue);
+ inherited;
+//#UC END# *479731C50290_57A9FEF503A3_impl*
+//#UC START# *479731C50290_57A9FEF503A3_var*
+//#UC END# *479731C50290_57A9FEF503A3_var*
+//#UC START# *57A9E4F203B5_57A9FEF503A3_impl*
+ inherited;
+ if (aCtx.rEngine.ValuesCount > 0) then
+  f_ResultValue := aCtx.rEngine.Pop
+ else
+  f_ResultValue := TtfwStackValue_E;
+//#UC END# *57A9E4F203B5_57A9FEF503A3_impl*
+//#UC START# *57A9E4F203B5_57A9FEF503A3_var*
+//#UC END# *57A9E4F203B5_57A9FEF503A3_var*
+//#UC START# *57A9FED102C4_57A9FEF503A3_impl*
+ inherited;
+ if (f_Parameters <> nil) then
+  for l_Index := 0 to Pred(f_Parameters.Count) do
+    aCtx.rEngine.Push(f_Parameters[l_Index]);
+//#UC END# *57A9FED102C4_57A9FEF503A3_impl*
+//#UC START# *57A9FED102C4_57A9FEF503A3_var*
+var
+ l_Index : Integer;
+//#UC END# *57A9FED102C4_57A9FEF503A3_var*
+//#UC START# *57A9FEF503A3_ext:ParentFileName
+w:\common\components\gui\Garant\msm\msmModelElementMethodCaller.pas
+//#UC END# *57A9FEF503A3_ext:ParentFileName
+//#UC START# *57AA03740168_57A9FEF503A3_impl*
+ inherited Create;
+ f_Parameters := TtfwValueList.Create;
+ for l_Index := Low(aParameters) to High(aParameters) do
+  f_Parameters.Add(aParameters[l_Index]);
+//#UC END# *57AA03740168_57A9FEF503A3_impl*
+//#UC START# *57AA03740168_57A9FEF503A3_var*
+var
+ l_Index : Integer;
+//#UC END# *57AA03740168_57A9FEF503A3_var*

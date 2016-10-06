@@ -1,0 +1,28 @@
+//#UC START# *55B8E3B403B6_4952591E0263_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\FormsProcessingPack.pas
+//#UC END# *55B8E3B403B6_4952591E0263_Word_ext:ParentFileName
+//#UC START# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_impl*
+ Result := nil;
+ l_Component := aForm.FindComponent(aListName);
+ if (l_Component = nil) then
+ // Попробуем спросить у дочерних фреймов...
+ begin
+  for i := 0 to aForm.ControlCount - 1 do
+  begin
+   l_Control := aForm.Controls[i];
+   if (l_Control is TFrame) then
+   begin
+    l_Component := l_Control.FindComponent(aListName);
+    if (l_Component <> nil) then
+     Break;
+   end // if l_Control is TFrame then
+  end; // for i := 0 to aForm.ControlCount - 1 do
+ end; // if l_Component = nil then
+ Result := l_Component As TActionList;
+//#UC END# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_impl*
+//#UC START# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_var*
+var
+ l_Component : TComponent;
+ i : Integer;
+ l_Control : TControl;
+//#UC END# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_var*

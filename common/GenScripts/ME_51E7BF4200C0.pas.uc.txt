@@ -1,0 +1,90 @@
+//#UC START# *479731C50290_51E7BF4200C0_impl*
+ inherited;
+ f_SkipPicture := False;
+ f_EnablePictures := False;
+ f_ReadWMFIfExists := False;
+ f_IdenticalRowWidths := False;
+ f_MinPicWidth := ddDefMinimumPicWidth;
+ f_MinPicHeight := ddDefMinimumPicHeight;
+//#UC END# *479731C50290_51E7BF4200C0_impl*
+//#UC START# *479731C50290_51E7BF4200C0_var*
+//#UC END# *479731C50290_51E7BF4200C0_var*
+//#UC START# *47A042E100E2_51E7BF4200C0_impl*
+ f_SkipPicture := False;
+ f_EnablePictures := False;
+ f_ReadWMFIfExists := False;
+ f_IdenticalRowWidths := False;
+ f_MinPicWidth := ddDefMinimumPicWidth;
+ f_MinPicHeight := ddDefMinimumPicHeight;
+ inherited;
+//#UC END# *47A042E100E2_51E7BF4200C0_impl*
+//#UC START# *47A042E100E2_51E7BF4200C0_var*
+//#UC END# *47A042E100E2_51E7BF4200C0_var*
+//#UC START# *51E7BF4200C0_ext:FileName
+w:\common\components\rtl\Garant\dd\ddCustomRTFReader.pas
+//#UC END# *51E7BF4200C0_ext:FileName
+//#UC START# *51E7BF4200C0impl_uses*
+//#UC END# *51E7BF4200C0impl_uses*
+//#UC START# *51E7C1E90092_51E7BF4200C0_impl*
+ aWasRestart := False;
+ Result := nil;
+//#UC END# *51E7C1E90092_51E7BF4200C0_impl*
+//#UC START# *51E7C1E90092_51E7BF4200C0_var*
+//#UC END# *51E7C1E90092_51E7BF4200C0_var*
+//#UC START# *51E7CF130368_51E7BF4200C0_impl*
+ Result := 0;
+//#UC END# *51E7CF130368_51E7BF4200C0_impl*
+//#UC START# *51E7CF130368_51E7BF4200C0_var*
+//#UC END# *51E7CF130368_51E7BF4200C0_var*
+//#UC START# *51E7CF89008F_51E7BF4200C0_impl*
+ Result := nil;
+//#UC END# *51E7CF89008F_51E7BF4200C0_impl*
+//#UC START# *51E7CF89008F_51E7BF4200C0_var*
+//#UC END# *51E7CF89008F_51E7BF4200C0_var*
+//#UC START# *51E7CFC002AA_51E7BF4200C0_impl*
+ Result := nil;
+//#UC END# *51E7CFC002AA_51E7BF4200C0_impl*
+//#UC START# *51E7CFC002AA_51E7BF4200C0_var*
+//#UC END# *51E7CFC002AA_51E7BF4200C0_var*
+//#UC START# *54E32B7D034A_51E7BF4200C0_impl*
+ l_Format := aPicture.Format;
+ if not f_SkipPicture and (aPicture.Format > 0) and f_EnablePictures then
+  Result := rtf_psNo
+ else
+  if f_EnablePictures and f_SkipPicture then
+   if (l_Format = pictWMF) and f_ReadWMFIfExists then
+    Result := rtf_psWMF
+   else
+    Result := rtf_psYes
+  else
+   Result := rtf_psYes;
+//#UC END# *54E32B7D034A_51E7BF4200C0_impl*
+//#UC START# *54E32B7D034A_51E7BF4200C0_var*
+var
+ l_Format: Integer;
+//#UC END# *54E32B7D034A_51E7BF4200C0_var*
+//#UC START# *55012D100317_51E7BF4200C0_impl*
+ Inc(f_NextFootnoteNumber);
+//#UC END# *55012D100317_51E7BF4200C0_impl*
+//#UC START# *55012D100317_51E7BF4200C0_var*
+//#UC END# *55012D100317_51E7BF4200C0_var*
+//#UC START# *56023F490306_51E7BF4200C0set_impl*
+ f_MinPicWidth := aValue;
+//#UC END# *56023F490306_51E7BF4200C0set_impl*
+//#UC START# *56023F490306_51E7BF4200C0set_var*
+//#UC END# *56023F490306_51E7BF4200C0set_var*
+//#UC START# *56023F7A0028_51E7BF4200C0set_impl*
+ f_MinPicHeight := aValue;
+//#UC END# *56023F7A0028_51E7BF4200C0set_impl*
+//#UC START# *56023F7A0028_51E7BF4200C0set_var*
+//#UC END# *56023F7A0028_51E7BF4200C0set_var*
+//#UC START# *56162C9F01E8_51E7BF4200C0set_impl*
+ f_IdenticalRowWidths := aValue;
+//#UC END# *56162C9F01E8_51E7BF4200C0set_impl*
+//#UC START# *56162C9F01E8_51E7BF4200C0set_var*
+//#UC END# *56162C9F01E8_51E7BF4200C0set_var*
+//#UC START# *56A86CFB0055_51E7BF4200C0set_impl*
+ f_ReadURL := aValue;
+//#UC END# *56A86CFB0055_51E7BF4200C0set_impl*
+//#UC START# *56A86CFB0055_51E7BF4200C0set_var*
+//#UC END# *56A86CFB0055_51E7BF4200C0set_var*

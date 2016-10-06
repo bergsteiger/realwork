@@ -1,0 +1,299 @@
+//#UC START# *479731C50290_5629E343023B_impl*
+ f_PriorityCalculator := nil;
+ FreeAndNil(f_UserStatusChangedSubscriberList);
+ inherited;
+//#UC END# *479731C50290_5629E343023B_impl*
+//#UC START# *479731C50290_5629E343023B_var*
+//#UC END# *479731C50290_5629E343023B_var*
+//#UC START# *5628D14D0151_5629E343023B_impl*
+ l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
+ if l_Result then
+  Result := da_leOk
+ else
+ begin
+  if RequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
+   Result := da_leInsufficientRights
+  else
+   Result := da_leUserParamsWrong;
+ end;
+ theUserID := GlobalHTServer.xxxUserID;
+//#UC END# *5628D14D0151_5629E343023B_impl*
+//#UC START# *5628D14D0151_5629E343023B_var*
+var
+ l_Result: Boolean;
+//#UC END# *5628D14D0151_5629E343023B_var*
+//#UC START# *5629E343023B_ext:FileName
+w:\common\components\rtl\Garant\HT\htUserManager.pas
+//#UC END# *5629E343023B_ext:FileName
+//#UC START# *5629E343023Bimpl_uses*
+//#UC END# *5629E343023Bimpl_uses*
+//#UC START# *5629F0F901C8_5629E343023B_impl*
+ inherited Create;
+ f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
+//#UC END# *5629F0F901C8_5629E343023B_impl*
+//#UC START# *5629F0F901C8_5629E343023B_var*
+//#UC END# *5629F0F901C8_5629E343023B_var*
+//#UC START# *56EA993D0218_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxIsUserAdmin(anUserID);
+//#UC END# *56EA993D0218_5629E343023B_impl*
+//#UC START# *56EA993D0218_5629E343023B_var*
+//#UC END# *56EA993D0218_5629E343023B_var*
+//#UC START# *5715DEF20209_5629E343023Bget_impl*
+ Result := dt_User.xxxUserManager.xxxAllUsers;
+//#UC END# *5715DEF20209_5629E343023Bget_impl*
+//#UC START# *5715DEF20209_5629E343023Bget_var*
+//#UC END# *5715DEF20209_5629E343023Bget_var*
+//#UC START# *5715DF0D03C2_5629E343023Bget_impl*
+ Result := dt_User.xxxUserManager.xxxAllGroups;
+//#UC END# *5715DF0D03C2_5629E343023Bget_impl*
+//#UC START# *5715DF0D03C2_5629E343023Bget_var*
+//#UC END# *5715DF0D03C2_5629E343023Bget_var*
+//#UC START# *5718B5CF0399_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxGetUserName(anUserID);
+//#UC END# *5718B5CF0399_5629E343023B_impl*
+//#UC START# *5718B5CF0399_5629E343023B_var*
+//#UC END# *5718B5CF0399_5629E343023B_var*
+//#UC START# *571DCFB50217_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
+//#UC END# *571DCFB50217_5629E343023B_impl*
+//#UC START# *571DCFB50217_5629E343023B_var*
+//#UC END# *571DCFB50217_5629E343023B_var*
+//#UC START# *5721F5E60367_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxReSortUserList;
+//#UC END# *5721F5E60367_5629E343023B_impl*
+//#UC START# *5721F5E60367_5629E343023B_var*
+//#UC END# *5721F5E60367_5629E343023B_var*
+//#UC START# *5729C59E00D5_5629E343023Bget_impl*
+ Result := dt_User.xxxUserManager.xxxGetArchiUsersCount(Get_PriorityCalculator);
+//#UC END# *5729C59E00D5_5629E343023Bget_impl*
+//#UC START# *5729C59E00D5_5629E343023Bget_var*
+//#UC END# *5729C59E00D5_5629E343023Bget_var*
+//#UC START# *5729DD530330_5629E343023B_impl*
+ try
+  dt_User.xxxUserManager.xxxIterateArchiUsers(anAction);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *5729DD530330_5629E343023B_impl*
+//#UC START# *5729DD530330_5629E343023B_var*
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *5729DD530330_5629E343023B_var*
+//#UC START# *57358B940211_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxUserByID(Get_PriorityCalculator, aID);
+//#UC END# *57358B940211_5629E343023B_impl*
+//#UC START# *57358B940211_5629E343023B_var*
+//#UC END# *57358B940211_5629E343023B_var*
+//#UC START# *57358BCB0360_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxUserByLogin(Get_PriorityCalculator, aLogin);
+//#UC END# *57358BCB0360_5629E343023B_impl*
+//#UC START# *57358BCB0360_5629E343023B_var*
+//#UC END# *57358BCB0360_5629E343023B_var*
+//#UC START# *5735AE4D0017_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxUpdateUserInfo(Get_PriorityCalculator, aUserID, aIsGroup);
+//#UC END# *5735AE4D0017_5629E343023B_impl*
+//#UC START# *5735AE4D0017_5629E343023B_var*
+//#UC END# *5735AE4D0017_5629E343023B_var*
+//#UC START# *5735AE7F0071_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxmakeFullUsersList(Get_PriorityCalculator);
+//#UC END# *5735AE7F0071_5629E343023B_impl*
+//#UC START# *5735AE7F0071_5629E343023B_var*
+//#UC END# *5735AE7F0071_5629E343023B_var*
+//#UC START# *5735AECA0121_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxGetUserDisplayName(Get_PriorityCalculator, anID);
+//#UC END# *5735AECA0121_5629E343023B_impl*
+//#UC START# *5735AECA0121_5629E343023B_var*
+//#UC END# *5735AECA0121_5629E343023B_var*
+//#UC START# *5739732402E4_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxIsUserExists(anID);
+//#UC END# *5739732402E4_5629E343023B_impl*
+//#UC START# *5739732402E4_5629E343023B_var*
+//#UC END# *5739732402E4_5629E343023B_var*
+//#UC START# *5739832A00A2_5629E343023B_impl*
+ if f_UserStatusChangedSubscriberList.IndexOf(aSubscriber) = -1 then
+  f_UserStatusChangedSubscriberList.Add(aSubscriber);
+//#UC END# *5739832A00A2_5629E343023B_impl*
+//#UC START# *5739832A00A2_5629E343023B_var*
+//#UC END# *5739832A00A2_5629E343023B_var*
+//#UC START# *5739834700B2_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.Remove(aSubscriber);
+//#UC END# *5739834700B2_5629E343023B_impl*
+//#UC START# *5739834700B2_5629E343023B_var*
+//#UC END# *5739834700B2_5629E343023B_var*
+//#UC START# *5739835200CF_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.IterateAllF(l3L2IA(@DoIt));
+//#UC END# *5739835200CF_5629E343023B_impl*
+//#UC START# *5739835200CF_5629E343023B_var*
+
+ type
+  PIdaUserStatusChangedSubscriber = ^IdaUserStatusChangedSubscriber;
+
+ function DoIt(aData : PIdaUserStatusChangedSubscriber; anIndex : Integer) : Boolean;
+ begin
+  aData^.UserStatusChanged(anUserID, anActive);
+  Result := True;
+ end;
+
+//#UC END# *5739835200CF_5629E343023B_var*
+//#UC START# *573AC17202BF_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxCSCheckPassword(Get_PriorityCalculator, aLogin, aPassword, RequireAdminRights, theUserID);
+//#UC END# *573AC17202BF_5629E343023B_impl*
+//#UC START# *573AC17202BF_5629E343023B_var*
+//#UC END# *573AC17202BF_5629E343023B_var*
+//#UC START# *573AEE9902DF_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetUserInfo(aUser, l_UserName, l_LoginName, aActFlag);
+ aUserName := l_UserName;
+ aLoginName := l_LoginName;
+//#UC END# *573AEE9902DF_5629E343023B_impl*
+//#UC START# *573AEE9902DF_5629E343023B_var*
+var
+ l_UserName: ShortString;
+ l_LoginName: ShortString;
+//#UC END# *573AEE9902DF_5629E343023B_var*
+//#UC START# *575020410175_5629E343023Bget_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := ThtPriorityCalculator.Make;
+ Result := f_PriorityCalculator;
+//#UC END# *575020410175_5629E343023Bget_impl*
+//#UC START# *575020410175_5629E343023Bget_var*
+//#UC END# *575020410175_5629E343023Bget_var*
+//#UC START# *5757D9BB0116_5629E343023B_impl*
+ try
+  lAction := l3L2IA(@lp_UserGroupIter);
+  try
+   dt_User.xxxUserManager.xxxIterateUserGroups(lAction);
+  finally
+   l3FreeFA(Tl3FreeAction(lAction));
+  end;
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *5757D9BB0116_5629E343023B_impl*
+//#UC START# *5757D9BB0116_5629E343023B_var*
+var
+ Hack : Pointer absolute anAction;
+ lAction : Tl3IteratorAction;
+
+ function lp_UserGroupIter(aData: Pointer; aIndex: Long): Bool;
+ var
+  l_Name: String;
+ begin
+  l_Name := PAnsiChar(aData);
+  Result := anAction(l_Name, aIndex);
+ end;
+
+//#UC END# *5757D9BB0116_5629E343023B_var*
+//#UC START# *575A8B790353_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxIsMemberOfGroup(aUserGroupID, aUserID);
+//#UC END# *575A8B790353_5629E343023B_impl*
+//#UC START# *575A8B790353_5629E343023B_var*
+//#UC END# *575A8B790353_5629E343023B_var*
+//#UC START# *57625B5002DD_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxGetUserGroups(aUserID);
+//#UC END# *57625B5002DD_5629E343023B_impl*
+//#UC START# *57625B5002DD_5629E343023B_var*
+//#UC END# *57625B5002DD_5629E343023B_var*
+//#UC START# *576289510024_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetUserGroupList(aUser, aList);
+//#UC END# *576289510024_5629E343023B_impl*
+//#UC START# *576289510024_5629E343023B_var*
+//#UC END# *576289510024_5629E343023B_var*
+//#UC START# *57628A9403C6_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetUserGroupList(aUser, aList);
+//#UC END# *57628A9403C6_5629E343023B_impl*
+//#UC START# *57628A9403C6_5629E343023B_var*
+//#UC END# *57628A9403C6_5629E343023B_var*
+//#UC START# *5767ABE002DC_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxSetUserGroupList(aUser, aList);
+//#UC END# *5767ABE002DC_5629E343023B_impl*
+//#UC START# *5767ABE002DC_5629E343023B_var*
+//#UC END# *5767ABE002DC_5629E343023B_var*
+//#UC START# *576B95A600B9_5629E343023B_impl*
+ l_Name := aName;
+ Result := dt_User.xxxUserManager.xxxAddUserGroup(l_Name);
+//#UC END# *576B95A600B9_5629E343023B_impl*
+//#UC START# *576B95A600B9_5629E343023B_var*
+var
+ l_Name: ShortString;
+//#UC END# *576B95A600B9_5629E343023B_var*
+//#UC START# *576B960500C5_5629E343023B_impl*
+ l_Name := aName;
+ dt_User.xxxUserManager.xxxEditUserGroup(aGroupID, l_Name, aImportPriority, aExportPriority);
+//#UC END# *576B960500C5_5629E343023B_impl*
+//#UC START# *576B960500C5_5629E343023B_var*
+var
+ l_Name: ShortString;
+//#UC END# *576B960500C5_5629E343023B_var*
+//#UC START# *576BAC4402D8_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxDelUserGroupByID(aGroupID);
+//#UC END# *576BAC4402D8_5629E343023B_impl*
+//#UC START# *576BAC4402D8_5629E343023B_var*
+//#UC END# *576BAC4402D8_5629E343023B_var*
+//#UC START# *577F6AD90170_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxRemoveUserFromAllGroups(aUser);
+//#UC END# *577F6AD90170_5629E343023B_impl*
+//#UC START# *577F6AD90170_5629E343023B_var*
+//#UC END# *577F6AD90170_5629E343023B_var*
+//#UC START# *577F80C503AF_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxSetUserGroup(aUser, aGroup, Add);
+//#UC END# *577F80C503AF_5629E343023B_impl*
+//#UC START# *577F80C503AF_5629E343023B_var*
+//#UC END# *577F80C503AF_5629E343023B_var*
+//#UC START# *5783537E00A1_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxAdminChangePassWord(aUser, NewPass);
+//#UC END# *5783537E00A1_5629E343023B_impl*
+//#UC START# *5783537E00A1_5629E343023B_var*
+//#UC END# *5783537E00A1_5629E343023B_var*
+//#UC START# *578392E7026A_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetHostUserListOnGroup(aGroupID, aList, NeedSort);
+//#UC END# *578392E7026A_5629E343023B_impl*
+//#UC START# *578392E7026A_5629E343023B_var*
+//#UC END# *578392E7026A_5629E343023B_var*
+//#UC START# *5783933A010B_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxSetHostUserListOnGroup(aGroupID, aList);
+//#UC END# *5783933A010B_5629E343023B_impl*
+//#UC START# *5783933A010B_5629E343023B_var*
+//#UC END# *5783933A010B_5629E343023B_var*
+//#UC START# *5784BBF10299_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxAddUser(aUserName, aLoginName, aPassword, ActFlag);
+//#UC END# *5784BBF10299_5629E343023B_impl*
+//#UC START# *5784BBF10299_5629E343023B_var*
+//#UC END# *5784BBF10299_5629E343023B_var*
+//#UC START# *5784BC420208_5629E343023B_impl*
+ Result := dt_User.xxxUserManager.xxxAddUserID(anID, aUserName, aLoginName, aPassword, ActFlag);
+//#UC END# *5784BC420208_5629E343023B_impl*
+//#UC START# *5784BC420208_5629E343023B_var*
+//#UC END# *5784BC420208_5629E343023B_var*
+//#UC START# *5784BD1501E8_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxEditUser(aUser, aUserName, aLoginName, ActFlag, EditMask);
+//#UC END# *5784BD1501E8_5629E343023B_impl*
+//#UC START# *5784BD1501E8_5629E343023B_var*
+//#UC END# *5784BD1501E8_5629E343023B_var*
+//#UC START# *5784BE1E02F7_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxDelUser(aUser);
+//#UC END# *5784BE1E02F7_5629E343023B_impl*
+//#UC START# *5784BE1E02F7_5629E343023B_var*
+//#UC END# *5784BE1E02F7_5629E343023B_var*
+//#UC START# *57A87EF901F3_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetUserListOnGroup(aUsGroup, aList, GetActiveUsersOnly);
+//#UC END# *57A87EF901F3_5629E343023B_impl*
+//#UC START# *57A87EF901F3_5629E343023B_var*
+//#UC END# *57A87EF901F3_5629E343023B_var*
+//#UC START# *57A9DF2103CE_5629E343023B_impl*
+ if dt_User.xxxUserManager = nil then
+  aList.Clear
+ else
+  dt_User.xxxUserManager.xxxGetFiltredUserList(aList, aOnlyActive);
+//#UC END# *57A9DF2103CE_5629E343023B_impl*
+//#UC START# *57A9DF2103CE_5629E343023B_var*
+//#UC END# *57A9DF2103CE_5629E343023B_var*
+//#UC START# *57AC28890131_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxGetDocGroupData(aUserGroup, aFamily, aDocDataList);
+//#UC END# *57AC28890131_5629E343023B_impl*
+//#UC START# *57AC28890131_5629E343023B_var*
+//#UC END# *57AC28890131_5629E343023B_var*
+//#UC START# *57AC289F0257_5629E343023B_impl*
+ dt_User.xxxUserManager.xxxPutDocGroupData(aUserGroup, aFamily, aDocDataList);
+//#UC END# *57AC289F0257_5629E343023B_impl*
+//#UC START# *57AC289F0257_5629E343023B_var*
+//#UC END# *57AC289F0257_5629E343023B_var*

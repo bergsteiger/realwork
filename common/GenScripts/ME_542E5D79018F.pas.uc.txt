@@ -1,0 +1,142 @@
+//#UC START# *479731C50290_542E5D79018F_impl*
+ FreeAndNil(f_RootStreamManager);
+ inherited;
+//#UC END# *479731C50290_542E5D79018F_impl*
+//#UC START# *479731C50290_542E5D79018F_var*
+//#UC END# *479731C50290_542E5D79018F_var*
+//#UC START# *542E5D4E01DD_542E5D79018Fget_impl*
+ Result := f_Storage;
+//#UC END# *542E5D4E01DD_542E5D79018Fget_impl*
+//#UC START# *542E5D4E01DD_542E5D79018Fget_var*
+//#UC END# *542E5D4E01DD_542E5D79018Fget_var*
+//#UC START# *542E5D79018F_ext:FileName
+w:\common\components\rtl\Garant\m3\m3StorageHolder.pas
+//#UC END# *542E5D79018F_ext:FileName
+//#UC START# *542E5D79018Fimpl_uses*
+//#UC END# *542E5D79018Fimpl_uses*
+//#UC START# *542E5E1A037B_542E5D79018F_impl*
+ Assert(f_RootStreamManager = nil);
+ Assert((anAccess = STGM_READ) OR (anAccess = STGM_READWRITE));
+ Assert(Assigned(aStorageClass));
+ Assert(aStream <> nil);
+ inherited Create;
+ f_Access := anAccess;
+ f_StorageClass := aStorageClass;
+ f_Storage := f_StorageClass.OpenRoot(anAccess, aStream, f_RootStreamManager);
+ Assert(f_Storage <> nil);
+ Assert(f_RootStreamManager <> nil);
+//#UC END# *542E5E1A037B_542E5D79018F_impl*
+//#UC START# *542E5E1A037B_542E5D79018F_var*
+//#UC END# *542E5E1A037B_542E5D79018F_var*
+//#UC START# *542E6E450028_542E5D79018F_impl*
+ Result := false;
+ theStorage := nil;
+
+ if not Tm3StorageHolderList.Exists then
+  Exit;
+
+ if (aType <> m3_stArchive) then
+  Exit;
+  
+ l_List := Tm3StorageHolderList.Instance;
+ Assert(l_List <> nil);
+ l_List.Lock;
+ try
+
+  if (aSharedMode = 0) then
+  begin
+   if l_List.FindData(aFileName, l_Index) then
+    l_List.Delete(l_Index);
+   // - удал€ем то, что было захвачено не монопольно
+   Exit;
+  end;//aSharedMode = 0
+
+  if l_List.FindData(aFileName, l_Index) then
+  begin
+   l_Item := l_List.Items[l_Index];
+
+   if (l_Item.SharedMode <> aSharedMode) then
+   begin
+    if (l_Item.SharedMode = FILE_SHARE_READ) then
+    begin
+     l_List.Delete(l_Index);
+     // - удал€ем менеджер с более низкими разрешени€ми доступа
+     Exit;
+    end;//l_Item.Access = STGM_READ
+   end;//l_Item.SharedMode <> aSharedMode
+
+   if (l_Item.Access <> anAccess) then
+   begin
+    if (l_Item.Access = STGM_READ) then
+    begin
+     l_List.Delete(l_Index);
+     // - удал€ем менеджер с более низкими разрешени€ми доступа
+     Exit;
+    end;//l_Item.Access = STGM_READ
+   end;//l_Item.Access <> anAccess
+
+   theStorage := l_Item.ReopenStorage(anAccess);
+   Result := (theStorage <> nil);
+  end;//l_List.FindData(aFileName, l_Index)
+ finally
+  l_List.Unlock;
+ end;//try..finally
+//#UC END# *542E6E450028_542E5D79018F_impl*
+//#UC START# *542E6E450028_542E5D79018F_var*
+var
+ l_List : Tm3StorageHolderList;
+ l_Index : Integer;
+ l_Item  : Tm3StorageHolder;
+//#UC END# *542E6E450028_542E5D79018F_var*
+//#UC START# *542E736E0204_542E5D79018F_impl*
+ Assert(f_RootStreamManager <> nil);
+ Assert(f_Storage <> nil);
+ Result := f_Storage;
+ // - отдаЄм хранилище
+ f_Storage := nil;
+ // - отпускаем его
+ f_FileName := aFileName;
+ f_SharedMode := aSharedMode;
+ if (aFileName = '') then
+ // - нельз€ кешировать временные хранилища
+  Exit;
+ if f_StorageClass.ForPlugin then
+ // - дл€ плагина - нечего вообще заморачиватьс€
+  Exit;
+ if not f_StorageClass.IsPacked then
+ // - непакованные хранилища - это кака€-то экзотика
+  Exit;
+ if (aSharedMode = 0) then
+ // - нельз€ кешировать монопольные хранилища
+  Exit;
+(* if (f_Access = STGM_READWRITE) then
+ // - давайте пока кешировать хранилища только на чтение
+  Exit;*)
+ l_List := Tm3StorageHolderList.Instance;
+ Assert(l_List <> nil);
+ l_List.Lock;
+ try
+  if not l_List.FindData(Self, l_Index) then
+   l_List.Add(Self)
+  else
+  begin
+   if (l_List.Items[l_Index] = Self) then
+   // - мы уже закешированы, выходим
+    Exit;
+   Assert(false, 'ƒл€ файла "' + FileName + '" уже есть другой менеджер блоков');
+  end;//not l_List.FindData(Self, l_Index)
+ finally
+  l_List.Unlock;
+ end;//try..finally
+//#UC END# *542E736E0204_542E5D79018F_impl*
+//#UC START# *542E736E0204_542E5D79018F_var*
+var
+ l_List : Tm3StorageHolderList;
+ l_Index : Integer;
+//#UC END# *542E736E0204_542E5D79018F_var*
+//#UC START# *542E95A901B7_542E5D79018F_impl*
+ Assert(f_Storage = nil);
+ Result := f_StorageClass.OpenFromManager(anAccess, f_RootStreamManager);
+//#UC END# *542E95A901B7_542E5D79018F_impl*
+//#UC START# *542E95A901B7_542E5D79018F_var*
+//#UC END# *542E95A901B7_542E5D79018F_var*

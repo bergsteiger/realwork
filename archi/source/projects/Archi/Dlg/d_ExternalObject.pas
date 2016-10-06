@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, d_IntEdit, StdCtrls, vtSpin, Buttons, ExtCtrls, Menus;
+  Dialogs, d_IntEdit, StdCtrls, vtSpin, Buttons, ExtCtrls, Menus, ActnList;
 
 type
   TExternalObjectDlg = class(TIntegerEditDlg)
@@ -13,6 +13,9 @@ type
     menuObjectType: TPopupMenu;
     itmAddObject: TMenuItem;
     itmEdit: TMenuItem;
+    PopupActList: TActionList;
+    acInsert: TAction;
+    acEdit: TAction;
     procedure itmEditClick(Sender: TObject);
     procedure itmAddObjectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

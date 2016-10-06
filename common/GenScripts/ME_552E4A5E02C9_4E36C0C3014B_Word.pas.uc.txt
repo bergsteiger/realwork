@@ -1,0 +1,19 @@
+//#UC START# *552E4A5E02C9_4E36C0C3014B_Word_ext:ParentFileName
+w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas
+//#UC END# *552E4A5E02C9_4E36C0C3014B_Word_ext:ParentFileName
+//#UC START# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_impl*
+ l_Captions := '';
+ for I := 0 to aPageControl.PageCount - 1 do
+  if aPageControl.Pages[I].TabVisible then
+   if (Length(l_Captions) > 0) then
+    l_Captions := l_Captions + ' | ' + l3Str(aPageControl.Pages[I].Caption)
+   else
+    l_Captions := l3Str(aPageControl.Pages[I].Caption);
+
+ Result := l_Captions;
+//#UC END# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_impl*
+//#UC START# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_var*
+var
+ l_Captions: AnsiString;
+ I: Integer;
+//#UC END# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_var*

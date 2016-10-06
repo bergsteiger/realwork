@@ -11,14 +11,14 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
- , ncsMessage
+ , csPersonificatedMessage
  , k2SizedMemoryPool
  , l3MarshalledTypes
  , k2Base
 ;
 
 type
- TcsUploadDocStream = class(TncsMessage)
+ TcsUploadDocStream = class(TcsPersonificatedMessage)
   protected
    function pm_GetData: Tk2RawData;
    procedure pm_SetData(aValue: Tk2RawData);

@@ -1,0 +1,20 @@
+//#UC START# *4BE13147032C_4C88AA1A00AB_impl*
+ l_Selection := aForm.Text.Selection;
+ if (l_Selection <> nil) then
+ begin
+  evSelectTableColumn(l_Selection, aForm.Text.Document.Para[0].AsList, 0);
+  aForm.Text.Copy;
+  evSelectTableColumn(l_Selection, aForm.Text.Document.Para[2].AsList, 0);
+  aForm.Text.Paste;
+  l3System.ClearClipboard;
+ end; // if (l_Selection <> nil) then
+//#UC END# *4BE13147032C_4C88AA1A00AB_impl*
+//#UC START# *4BE13147032C_4C88AA1A00AB_var*
+var
+ l_Selection : InevSelection;
+//#UC END# *4BE13147032C_4C88AA1A00AB_var*
+//#UC START# *4C88AA1A00AB_ext:FileName
+w:\common\components\gui\Garant\Daily\PasteColumnTest.pas
+//#UC END# *4C88AA1A00AB_ext:FileName
+//#UC START# *4C88AA1A00ABimpl_uses*
+//#UC END# *4C88AA1A00ABimpl_uses*

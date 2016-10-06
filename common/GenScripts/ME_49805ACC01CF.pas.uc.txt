@@ -1,0 +1,24 @@
+//#UC START# *49804EB60303_49805ACC01CF_impl*
+ nsTimeMachineOn(Document, bsBusinessToAdapter(aDate));
+//#UC END# *49804EB60303_49805ACC01CF_impl*
+//#UC START# *49804EB60303_49805ACC01CF_var*
+//#UC END# *49804EB60303_49805ACC01CF_var*
+//#UC START# *49804ED003A8_49805ACC01CF_impl*
+ nsTimeMachineOn(Document, TCommonService.Instance.GetCurEditionDate(Document));
+//#UC END# *49804ED003A8_49805ACC01CF_impl*
+//#UC START# *49804ED003A8_49805ACC01CF_var*
+//#UC END# *49804ED003A8_49805ACC01CF_var*
+//#UC START# *49805ACC01CF_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas
+//#UC END# *49805ACC01CF_ext:FileName
+//#UC START# *49805F2C0082_49805ACC01CFget_impl*
+ // Если не задана дата действия текущей редакции, то делаем операцию
+ // включения на дату действия текущей редакции недоступной (CQ OIT5-26843):
+ if (ViewArea <> nil) and
+   ViewArea.IsDateCurrentRedationEmpty then
+  Result := [ns_ontmCurrentRedactionOp]
+ else
+  Result := [];
+//#UC END# *49805F2C0082_49805ACC01CFget_impl*
+//#UC START# *49805F2C0082_49805ACC01CFget_var*
+//#UC END# *49805F2C0082_49805ACC01CFget_var*

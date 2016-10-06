@@ -1,0 +1,207 @@
+//#UC START# *479731C50290_4958DD7002B6_impl*
+ f_Grid := nil;
+ f_TabTable := nil;
+ FreeAndNil(f_LastOpenDocsManager);
+ FreeAndNil(f_TreeStyle);
+ TWorkJournalService.Instance.MakeWorkJournal.UnRegisterListener(Self);
+ inherited;
+//#UC END# *479731C50290_4958DD7002B6_impl*
+//#UC START# *479731C50290_4958DD7002B6_var*
+//#UC END# *479731C50290_4958DD7002B6_var*
+//#UC START# *47EA4E9002C6_4958DD7002B6_impl*
+ LoadTrees;
+ inherited;
+ BuildGrid;
+//#UC END# *47EA4E9002C6_4958DD7002B6_impl*
+//#UC START# *47EA4E9002C6_4958DD7002B6_var*
+//#UC END# *47EA4E9002C6_4958DD7002B6_var*
+//#UC START# *4958DD7002B6_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Form.pas
+//#UC END# *4958DD7002B6_ext:FileName
+//#UC START# *4958DD7002B6impl_uses*
+ , Base_Operations_F1Services_Contracts
+//#UC END# *4958DD7002B6impl_uses*
+//#UC START# *49803F5503AA_4958DD7002B6_impl*
+ inherited;
+ if not aFromHistory then
+  LoadTrees;
+ BuildGrid;
+ InitKeyboardNavigation;
+//#UC END# *49803F5503AA_4958DD7002B6_impl*
+//#UC START# *49803F5503AA_4958DD7002B6_var*
+//#UC END# *49803F5503AA_4958DD7002B6_var*
+//#UC START# *49807428008C_4958DD7002B6_impl*
+ Result := inherited DoLoadState(aState, aStateType, aClone);
+ if (aStateType = vcm_stContent) then
+  LoadLastOpenDocs;
+//#UC END# *49807428008C_4958DD7002B6_impl*
+//#UC START# *49807428008C_4958DD7002B6_var*
+//#UC END# *49807428008C_4958DD7002B6_var*
+//#UC START# *4A485B710126_4958DD7002B6_impl*
+ RecalcGrid;
+//#UC END# *4A485B710126_4958DD7002B6_impl*
+//#UC START# *4A485B710126_4958DD7002B6_var*
+//#UC END# *4A485B710126_4958DD7002B6_var*
+//#UC START# *4A83AA610299_4958DD7002B6_impl*
+ with tvLastOpenDocs do
+ begin
+  Changing;
+  try
+   LoadLastOpenDocs;
+  finally
+   Changed;
+  end;//try..finally
+ end;//with tvLastOpenDocs
+ Invalidate;
+//#UC END# *4A83AA610299_4958DD7002B6_impl*
+//#UC START# *4A83AA610299_4958DD7002B6_var*
+//#UC END# *4A83AA610299_4958DD7002B6_var*
+//#UC START# *4A8E8F2E0195_4958DD7002B6_impl*
+ inherited;
+ pnlMain.OnResize := pnlMainResize;
+ TWorkJournalService.Instance.MakeWorkJournal.RegisterListener(Self);
+ TreeStyle;
+ f_LastOpenDocsManager := TnsLastOpenDocsManager.Create(c_MainMenuColor,
+                                                        tvLastOpenDocs,
+                                                        Self.NewSchool);
+//#UC END# *4A8E8F2E0195_4958DD7002B6_impl*
+//#UC START# *4A8E8F2E0195_4958DD7002B6_var*
+//#UC END# *4A8E8F2E0195_4958DD7002B6_var*
+//#UC START# *4AC9A3AD01DE_4958DD7002B6_impl*
+ if nsScrollMainMenu(Self, Message) then
+  inherited;
+//#UC END# *4AC9A3AD01DE_4958DD7002B6_impl*
+//#UC START# *4AC9A3AD01DE_4958DD7002B6_var*
+//#UC END# *4AC9A3AD01DE_4958DD7002B6_var*
+//#UC START# *4AC9B1BB022A_4958DD7002B6_impl*
+ Inc(f_ArrangeCount);
+ try
+  if (f_ArrangeCount = 1) then
+   agArrangeGrid(f_Grid, Self, pnlMain, 0);
+ finally
+  Dec(f_ArrangeCount);
+ end;//try..finally
+//#UC END# *4AC9B1BB022A_4958DD7002B6_impl*
+//#UC START# *4AC9B1BB022A_4958DD7002B6_var*
+//#UC END# *4AC9B1BB022A_4958DD7002B6_var*
+//#UC START# *4AC9B367032D_4958DD7002B6_impl*
+ if (f_Grid <> nil) then
+ begin
+  DoRecalcGrid(f_Grid);
+  ArrangeGrid;
+ end;//f_Grid <> nil
+//#UC END# *4AC9B367032D_4958DD7002B6_impl*
+//#UC START# *4AC9B367032D_4958DD7002B6_var*
+//#UC END# *4AC9B367032D_4958DD7002B6_var*
+//#UC START# *4AC9B6A80163_4958DD7002B6_impl*
+ f_Grid := nil;
+ f_Grid := DoBuildGrid;
+ if (f_Grid <> nil) then
+ begin
+  f_Grid.OnSizeChanged := GridSizeChanged;
+  RecalcGrid;
+  if f_Grid.TwoStageBuild then
+   RecalcGrid;
+  // - это специально иначе старое ОМ и ОМ Инфарма неправильно считает высоты деревьев
+  //   т.к. неправильно трактуются ширины. И процесс сходится только после второго раза.
+  //   Как раньше собственно и было.
+ end;
+//#UC END# *4AC9B6A80163_4958DD7002B6_impl*
+//#UC START# *4AC9B6A80163_4958DD7002B6_var*
+//#UC END# *4AC9B6A80163_4958DD7002B6_var*
+//#UC START# *4AC9B71F032F_4958DD7002B6_impl*
+ ArrangeGrid;
+//#UC END# *4AC9B71F032F_4958DD7002B6_impl*
+//#UC START# *4AC9B71F032F_4958DD7002B6_var*
+//#UC END# *4AC9B71F032F_4958DD7002B6_var*
+//#UC START# *4AC9C93202F7_4958DD7002B6get_impl*
+ if (f_TreeStyle = nil) then
+ begin
+  f_TreeStyle := TnsTreeStyleManager.Create(c_MainMenuColor, Self.NewSchool);
+  for l_Index := 0 to Pred(ComponentCount) do
+   if (Components[l_Index] <> tvLastOpenDocs) and
+     (Components[l_Index] is TnscTreeView) then
+   begin
+    f_TreeStyle.Init(TnscTreeView(Components[l_Index]));
+    TnscTreeView(Components[l_Index]).OnActionElement := ActionElement;
+   end;//Components[l_Index] <> tvLastOpenDocs
+ end;//f_TreeStyle = nil
+ Result := f_TreeStyle;
+//#UC END# *4AC9C93202F7_4958DD7002B6get_impl*
+//#UC START# *4AC9C93202F7_4958DD7002B6get_var*
+var
+ l_Index: Integer;
+//#UC END# *4AC9C93202F7_4958DD7002B6get_var*
+//#UC START# *4AC9CB6100E4_4958DD7002B6_impl*
+ f_TabTable := TnscTabTable.Make;
+ DoInitKeyboardNavigation(f_TabTable);
+//#UC END# *4AC9CB6100E4_4958DD7002B6_impl*
+//#UC START# *4AC9CB6100E4_4958DD7002B6_var*
+//#UC END# *4AC9CB6100E4_4958DD7002B6_var*
+//#UC START# *4AC9CB8B01D3_4958DD7002B6_impl*
+ // - ничего не делаем
+//#UC END# *4AC9CB8B01D3_4958DD7002B6_impl*
+//#UC START# *4AC9CB8B01D3_4958DD7002B6_var*
+//#UC END# *4AC9CB8B01D3_4958DD7002B6_var*
+//#UC START# *4AC9D12600E0_4958DD7002B6_impl*
+ Assert(false, 'Метод TPrimMainMenuForm.LoadLastOpenDocs должен быть переопределён в потомках');
+//#UC END# *4AC9D12600E0_4958DD7002B6_impl*
+//#UC START# *4AC9D12600E0_4958DD7002B6_var*
+//#UC END# *4AC9D12600E0_4958DD7002B6_var*
+//#UC START# *4AC9E13902F9_4958DD7002B6_impl*
+ l_Node := TnscTreeView(Sender).GetNode(Index);
+ if Supports(l_Node, InsMainMenuNode, l_MenuNode) then
+  try
+   DoActionElement(l_MenuNode);
+  finally
+   l_Node := nil;
+  end//try..finally
+ else
+  nsOpenNavigatorItem(l_Node, NativeMainForm);
+//#UC END# *4AC9E13902F9_4958DD7002B6_impl*
+//#UC START# *4AC9E13902F9_4958DD7002B6_var*
+//#UC END# *4AC9E13902F9_4958DD7002B6_var*
+//#UC START# *4AC9E19E022B_4958DD7002B6_impl*
+ nsOpenNavigatorItem(aNode, NativeMainForm);
+//#UC END# *4AC9E19E022B_4958DD7002B6_impl*
+//#UC START# *4AC9E19E022B_4958DD7002B6_var*
+//#UC END# *4AC9E19E022B_4958DD7002B6_var*
+//#UC START# *4AC9E9EC0064_4958DD7002B6_impl*
+ LoadLastOpenDocs;
+//#UC END# *4AC9E9EC0064_4958DD7002B6_impl*
+//#UC START# *4AC9E9EC0064_4958DD7002B6_var*
+//#UC END# *4AC9E9EC0064_4958DD7002B6_var*
+//#UC START# *4ACA197F0147_4958DD7002B6get_impl*
+ Result := nil;
+//#UC END# *4ACA197F0147_4958DD7002B6get_impl*
+//#UC START# *4ACA197F0147_4958DD7002B6get_var*
+//#UC END# *4ACA197F0147_4958DD7002B6get_var*
+//#UC START# *4ACB2F98002B_4958DD7002B6_impl*
+ Result := false;
+//#UC END# *4ACB2F98002B_4958DD7002B6_impl*
+//#UC START# *4ACB2F98002B_4958DD7002B6_var*
+//#UC END# *4ACB2F98002B_4958DD7002B6_var*
+//#UC START# *4ACC82D6017B_4958DD7002B6_impl*
+ if (f_Grid <> nil) then
+  //if not Dispatcher.FormDispatcher.Locked then
+   ArrangeGrid;
+//#UC END# *4ACC82D6017B_4958DD7002B6_impl*
+//#UC START# *4ACC82D6017B_4958DD7002B6_var*
+//#UC END# *4ACC82D6017B_4958DD7002B6_var*
+//#UC START# *4AD3468102DB_4958DD7002B6_impl*
+ aGrid.Recalc;
+//#UC END# *4AD3468102DB_4958DD7002B6_impl*
+//#UC START# *4AD3468102DB_4958DD7002B6_var*
+//#UC END# *4AD3468102DB_4958DD7002B6_var*
+//#UC START# *4B4F49900003_4958DD7002B6_impl*
+ if (aStateType = vcm_stContent) then
+ begin
+  Result := true;
+  theState := TPrimMainMenuState.Make;
+  // - это специально, чтобы DoLoadState дёрнулось
+ end
+ else
+  Result := inherited SaveOwnFormState(theState, aStateType, aForClone);
+//#UC END# *4B4F49900003_4958DD7002B6_impl*
+//#UC START# *4B4F49900003_4958DD7002B6_var*
+//#UC END# *4B4F49900003_4958DD7002B6_var*

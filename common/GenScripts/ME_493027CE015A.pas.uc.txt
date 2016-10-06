@@ -1,0 +1,108 @@
+//#UC START# *47FB2086026D_493027CE015A_impl*
+ if f_dsFilters.IsEmpty then
+ begin
+  f_dsFilters.NeedMake := vcm_nmForce;
+  Refresh;
+ end;//if f_dsFilters.IsEmpty then
+//#UC END# *47FB2086026D_493027CE015A_impl*
+//#UC START# *47FB2086026D_493027CE015A_var*
+//#UC END# *47FB2086026D_493027CE015A_var*
+//#UC START# *492EF70F0275_493027CE015Aget_impl*
+ Result := InitialUseCaseData;
+//#UC END# *492EF70F0275_493027CE015Aget_impl*
+//#UC START# *492EF70F0275_493027CE015Aget_var*
+//#UC END# *492EF70F0275_493027CE015Aget_var*
+//#UC START# *492EF8440252_493027CE015Aarea_impl*
+ Result := TdsFilters.Make(Self);
+//#UC END# *492EF8440252_493027CE015Aarea_impl*
+//#UC START# *492EF8440252_493027CE015Aarea_var*
+//#UC END# *492EF8440252_493027CE015Aarea_var*
+//#UC START# *492EF8440252_493027CE015Aget_init*
+  f_dsFilters.NeedMake := vcm_nmYes;
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EF8440252_493027CE015Aget_init*
+//#UC START# *492EF8440252_493027CE015Aget_need*
+    and ((afw.Settings.LoadBoolean(pi_Search_Sheets_Filters, dv_Search_Sheets_Filters) and
+         (f_dsFilters.NeedMake = vcm_nmYes)) or (f_dsFilters.NeedMake = vcm_nmForce))
+  // - условие создания ViewArea
+//#UC END# *492EF8440252_493027CE015Aget_need*
+//#UC START# *492EF8440252_493027CE015Aget_var*
+//#UC END# *492EF8440252_493027CE015Aget_var*
+//#UC START# *492EF877026C_493027CE015Aarea_impl*
+ Result := TdsTreeAttributeFirstLevel.Make(Self, TdeSearch.Clone(InitialUseCaseData));
+//#UC END# *492EF877026C_493027CE015Aarea_impl*
+//#UC START# *492EF877026C_493027CE015Aarea_var*
+//#UC END# *492EF877026C_493027CE015Aarea_var*
+//#UC START# *492EF877026C_493027CE015Aget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EF877026C_493027CE015Aget_init*
+//#UC START# *492EF877026C_493027CE015Aget_need*
+  // - условие создания ViewArea
+//#UC END# *492EF877026C_493027CE015Aget_need*
+//#UC START# *492EF877026C_493027CE015Aget_var*
+//#UC END# *492EF877026C_493027CE015Aget_var*
+//#UC START# *492EF8AA024F_493027CE015Aarea_impl*
+ Result := TdsSaveLoad.Make(Self);
+//#UC END# *492EF8AA024F_493027CE015Aarea_impl*
+//#UC START# *492EF8AA024F_493027CE015Aarea_var*
+//#UC END# *492EF8AA024F_493027CE015Aarea_var*
+//#UC START# *492EF8AA024F_493027CE015Aget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EF8AA024F_493027CE015Aget_init*
+//#UC START# *492EF8AA024F_493027CE015Aget_need*
+  // - условие создания ViewArea
+//#UC END# *492EF8AA024F_493027CE015Aget_need*
+//#UC START# *492EF8AA024F_493027CE015Aget_var*
+//#UC END# *492EF8AA024F_493027CE015Aget_var*
+//#UC START# *492EF8E10244_493027CE015Aarea_impl*
+ Result := TdsSelectedAttributes.Make(Self,
+   TdeSelectedAttributes.Make(pm_GetDSTreeAttributeSelect.RefreshValues, InitialUseCaseData.Tag));
+//#UC END# *492EF8E10244_493027CE015Aarea_impl*
+//#UC START# *492EF8E10244_493027CE015Aarea_var*
+//#UC END# *492EF8E10244_493027CE015Aarea_var*
+//#UC START# *492EF8E10244_493027CE015Aget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EF8E10244_493027CE015Aget_init*
+//#UC START# *492EF8E10244_493027CE015Aget_need*
+  // - условие создания ViewArea
+//#UC END# *492EF8E10244_493027CE015Aget_need*
+//#UC START# *492EF8E10244_493027CE015Aget_var*
+//#UC END# *492EF8E10244_493027CE015Aget_var*
+//#UC START# *492EF8F20381_493027CE015Aarea_impl*
+ Result := TdsTreeAttributeSelect.Make(Self, TdeSearch.Clone(InitialUseCaseData));
+//#UC END# *492EF8F20381_493027CE015Aarea_impl*
+//#UC START# *492EF8F20381_493027CE015Aarea_var*
+//#UC END# *492EF8F20381_493027CE015Aarea_var*
+//#UC START# *492EF8F20381_493027CE015Aget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EF8F20381_493027CE015Aget_init*
+//#UC START# *492EF8F20381_493027CE015Aget_need*
+  // - условие создания ViewArea
+//#UC END# *492EF8F20381_493027CE015Aget_need*
+//#UC START# *492EF8F20381_493027CE015Aget_var*
+//#UC END# *492EF8F20381_493027CE015Aget_var*
+//#UC START# *493027030386_493027CE015Aarea_impl*
+ Result := TdsAttributeSelect.Make(Self, TdeSearch.Clone(InitialUseCaseData));
+//#UC END# *493027030386_493027CE015Aarea_impl*
+//#UC START# *493027030386_493027CE015Aarea_var*
+//#UC END# *493027030386_493027CE015Aarea_var*
+//#UC START# *493027030386_493027CE015Aget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *493027030386_493027CE015Aget_init*
+//#UC START# *493027030386_493027CE015Aget_need*
+  // - условие создания ViewArea
+//#UC END# *493027030386_493027CE015Aget_need*
+//#UC START# *493027030386_493027CE015Aget_var*
+//#UC END# *493027030386_493027CE015Aget_var*
+//#UC START# *493027CE015A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\Search\sdsSituation.pas
+//#UC END# *493027CE015A_ext:FileName
+//#UC START# *493027CE015Aimpl_uses*
+//#UC END# *493027CE015Aimpl_uses*
+//#UC START# *4959149300F9_493027CE015A_impl*
+ if (f_dsSelectedAttributes <> nil) then
+  f_dsSelectedAttributes.Referred := nil;
+ Refresh;
+//#UC END# *4959149300F9_493027CE015A_impl*
+//#UC START# *4959149300F9_493027CE015A_var*
+//#UC END# *4959149300F9_493027CE015A_var*

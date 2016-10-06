@@ -1,0 +1,218 @@
+//#UC START# *4A8ECF3001D2_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas
+//#UC END# *4A8ECF3001D2_ext:FileName
+//#UC START# *4A8ECF3001D2impl_uses*
+ , StdRes
+//#UC END# *4A8ECF3001D2impl_uses*
+//#UC START# *4AA4B45E0101_4A8ECF3001D2_impl*
+ if (aDoc <> nil) then
+  Tfs_Autoreferat.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(aDoc)),
+                       CheckContainer(aContainer),
+                       True,
+                       True);
+//#UC END# *4AA4B45E0101_4A8ECF3001D2_impl*
+//#UC START# *4AA4B45E0101_4A8ECF3001D2_var*
+//#UC END# *4AA4B45E0101_4A8ECF3001D2_var*
+//#UC START# *4AA4C0C500AA_4A8ECF3001D2_impl*
+ aList.GetSummary(l_Document);
+ if (l_Document <> nil) then
+  Tfs_AutoreferatAfterSearch.Make(TsdsAutoreferat.Make(TdeDocInfo.Make(l_Document)),
+                                  CheckContainer(aContainer));
+//#UC END# *4AA4C0C500AA_4A8ECF3001D2_impl*
+//#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
+var
+ l_Document : IDocument;
+//#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
+//#UC START# *4AB76AD20100_4A8ECF3001D2_impl*
+  l_NeedShowMainMenu := lp_IsContainerEmpty(TvcmTabbedContainerFormDispatcher.Instance.ActiveVCMContainer);
+
+  if l_NeedShowMainMenu then
+  begin
+   lp_CreateContainer(not aDenyNewTab);
+   lp_OpenMainMenuIfNeeded;
+  end;
+  
+  l_FillFormAnswer := -2;
+  l_IsDefined := defDataAdapter.Monitoring.IsNewsLineDefined;
+  l_IsOnline := False;
+  l_HasConnection := False;
+
+  afw.ProcessMessages;
+
+  if not l_IsDefined then
+  begin
+   l_IsOnline := defDataAdapter.PrimeManager.GetHasOnlineAccess;
+   l_HasConnection := l_IsOnline and defDataAdapter.PrimeManager.CheckConnectionToOnlineServer;
+   if l_HasConnection then
+   begin
+    l_FillFormAnswer := vcmMessageDlg(str_NewsLineIsNotSetup, []);
+    if l_FillFormAnswer = mrCancel then
+     Exit;
+   end
+  end;
+
+  if l_IsOnline and (l_FillFormAnswer = -1) then
+  begin
+   if l_HasConnection then
+   begin
+    if not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch) then
+    begin
+     if (l_Container = nil) then
+      lp_CreateContainer(False);
+     TCommonPostService.Instance.StartOpen(l_Container, False);
+    end else
+     Op_SearchSupport_ActivatePostingsListForm.Broadcast;
+   end else
+   begin
+    if vcmAsk(str_PrimeIsOffline, []) then
+     // ничего не делаем
+    else
+     Application.HelpSystem.ShowHelp('man-nav-prime-questionnaire', '');
+   end;
+  end else
+  begin
+   lp_CreateContainer(not aDenyNewTab);
+   if (l_Container <> nil) then
+   begin
+    Result := TenNewsLine.MakeSingleChild(l_Container,
+                                vcmCheckAggregate(vcmMakeParams(nil, l_Container)),
+                                vcm_ztNavigator);
+    op_DateInterval_OpenInt.Call(Result);
+    Result.SetActiveAndShowInParent;
+   end;
+  end;
+//#UC END# *4AB76AD20100_4A8ECF3001D2_impl*
+//#UC START# *4AB76AD20100_4A8ECF3001D2_var*
+ l_Container: IvcmContainer;
+
+ l_IsDefined: Boolean;
+ l_FillFormAnswer: TModalResult;
+ l_IsOnline: Boolean;
+ l_HasConnection: Boolean;
+
+ function lp_IsContainerEmpty(const aContainer: IvcmContainer): Boolean;
+ var
+  l_ContainedForm: IvcmContainedForm;
+ begin
+  if Supports(aContainer, IvcmContainedForm, l_ContainedForm) then
+  try
+   Result := l_ContainedForm.IsEmpty;
+  finally
+   l_ContainedForm := nil; 
+  end
+  else
+   Assert(False);
+ end;//lp_IsContainerEmpty
+
+ procedure lp_OpenMainMenuIfNeeded;
+ var
+  l_ContainerForMainMenu: IvcmContainer;
+ begin
+  l_ContainerForMainMenu := CheckContainer(nil);
+  if TvcmTabbedContainerFormDispatcher.Instance.NeedUsetabs and
+     lp_IsContainerEmpty(l_ContainerForMainMenu) then
+  begin
+   try
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    afw.ProcessMessages;
+    UpdateWindow(l_ContainerForMainMenu.AsForm.VCLWinControl.Handle);
+   finally
+    l_ContainerForMainMenu := nil;
+   end;
+  end
+ end;
+
+ procedure lp_CreateContainer(aNewTab: Boolean);
+ var
+  l_IsEmpty: Boolean;
+  l_ContainedForm: IvcmContainedForm;
+ begin
+  l_Container := CheckContainer(nil);
+  if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs then
+  begin
+   l_IsEmpty := lp_IsContainerEmpty(l_Container);
+   if aNewTab and (not l_IsEmpty) then
+    l_Container := nsOpenNewWindowTabbed(l_Container, vcm_okInNewTab)
+   else
+    l_Container := nsOpenNewWindowTabbed(l_Container, vcm_okInCurrentTab);
+  end;
+ end;
+var
+ l_NeedShowMainMenu: Boolean;
+//#UC END# *4AB76AD20100_4A8ECF3001D2_var*
+//#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
+ TMonitoringsService.Instance.OpenNewsLine(False);
+ TnsOpenNewsLineEvent.Log;
+//#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
+//#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*
+//#UC END# *4AB775AA0314_4A8ECF3001D2exec_var*
+//#UC START# *4AB775AA0314_4A8ECF3001D2test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not defDataAdapter.AdministratorLogin and
+                                  defDataAdapter.Monitoring.IsExist;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB775AA0314_4A8ECF3001D2test_impl*
+//#UC START# *4AB775AA0314_4A8ECF3001D2test_var*
+//#UC END# *4AB775AA0314_4A8ECF3001D2test_var*
+//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_impl*
+ // Построение обзора законодателоьства
+ TSearchService.Instance.OpenLegislationReview(nil);
+//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_impl*
+//#UC START# *4AB77A0E0276_4A8ECF3001D2exec_var*
+//#UC END# *4AB77A0E0276_4A8ECF3001D2exec_var*
+//#UC START# *4AB77A0E0276_4A8ECF3001D2test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.LegislationReviewAvailable;
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4AB77A0E0276_4A8ECF3001D2test_impl*
+//#UC START# *4AB77A0E0276_4A8ECF3001D2test_var*
+//#UC END# *4AB77A0E0276_4A8ECF3001D2test_var*
+//#UC START# *4B14ED2F033E_4B14ED130233_impl*
+ GetLogger.AddEvent(LE_OPEN_NEWS_LINE, MakeParamsList);
+//#UC END# *4B14ED2F033E_4B14ED130233_impl*
+//#UC START# *4B14ED2F033E_4B14ED130233_var*
+//#UC END# *4B14ED2F033E_4B14ED130233_var*
+//#UC START# *542950E801C0_4A8ECF3001D2_impl*
+ __WasEnter := vcmEnterFactory;
+ try
+  l_IsOnline := defDataAdapter.PrimeManager.GetHasOnlineAccess;
+  l_HasConnection := l_IsOnline and defDataAdapter.PrimeManager.CheckConnectionToOnlineServer;
+
+  if l_HasConnection then
+  begin
+   l_Cont := nsOpenNewWindowTabbed(CheckContainer(nil), vcm_okInCurrentTab);
+   TCommonPostService.Instance.StartOpen(l_Cont, False);
+  end else
+  begin
+   //lp_OpenMainMenuIfNeeded;
+   if vcmAsk(str_PrimeIsOffline, []) then
+    // ничего не делаем
+   else
+    Application.HelpSystem.ShowHelp('man-nav-prime-questionnaire', '');
+  end;
+ finally
+  if __WasEnter then
+   vcmLeaveFactory;
+ end;//try..finally
+//#UC END# *542950E801C0_4A8ECF3001D2_impl*
+//#UC START# *542950E801C0_4A8ECF3001D2_var*
+ procedure lp_OpenMainMenuIfNeeded;
+ var
+  l_ContainerForMainMenu: IvcmContainer;
+ begin
+  if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs and
+     (not TvcmTabbedContainerFormDispatcher.Instance.HasAnyDockedForms) then
+  begin
+   l_ContainerForMainMenu := CheckContainer(nil);
+   try
+    TMainMenuService.Instance.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+   finally
+    l_ContainerForMainMenu := nil;
+   end;
+  end
+ end;
+
+var
+ __WasEnter: Boolean;
+ l_Cont: IvcmContainer;
+ l_Res: IvcmEntityForm;
+ l_IsOnline, l_HasConnection: Boolean;
+//#UC END# *542950E801C0_4A8ECF3001D2_var*

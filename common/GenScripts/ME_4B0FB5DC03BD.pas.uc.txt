@@ -1,0 +1,30 @@
+//#UC START# *479731C50290_4B0FB5DC03BD_impl*
+ f_Doc := nil;
+ inherited Cleanup;
+//#UC END# *479731C50290_4B0FB5DC03BD_impl*
+//#UC START# *479731C50290_4B0FB5DC03BD_var*
+//#UC END# *479731C50290_4B0FB5DC03BD_var*
+//#UC START# *4B0FA5CB0254_4B0FB5DC03BD_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(f_Doc);
+ l_Data.AddULong(cMap[f_Selection]);
+ GetLogger.AddEvent(LE_DOCUMENT_PRINT, l_Data);
+//#UC END# *4B0FA5CB0254_4B0FB5DC03BD_impl*
+//#UC START# *4B0FA5CB0254_4B0FB5DC03BD_var*
+var
+ l_Data: InsLogEventData;
+const
+ cMap: array [Boolean] of Cardinal = (0, 1); 
+//#UC END# *4B0FA5CB0254_4B0FB5DC03BD_var*
+//#UC START# *4B0FB5DC03BD_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentPrintEvent.pas
+//#UC END# *4B0FB5DC03BD_ext:FileName
+//#UC START# *4B0FB5DC03BDimpl_uses*
+//#UC END# *4B0FB5DC03BDimpl_uses*
+//#UC START# *4B0FB62D03D7_4B0FB5DC03BD_impl*
+ inherited Create;
+ f_Doc := aDoc;
+ f_Selection := aSelection;
+//#UC END# *4B0FB62D03D7_4B0FB5DC03BD_impl*
+//#UC START# *4B0FB62D03D7_4B0FB5DC03BD_var*
+//#UC END# *4B0FB62D03D7_4B0FB5DC03BD_var*

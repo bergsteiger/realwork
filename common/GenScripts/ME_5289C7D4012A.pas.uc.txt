@@ -1,0 +1,41 @@
+//#UC START# *5289C7D4012A_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas
+//#UC END# *5289C7D4012A_ext:ParentFileName
+//#UC START# *5289CC6003B0_5289C7D4012A_impl*
+ Result := (Self.rZoneType = anOther.rZoneType) AND (Self.rFormID.EQ(anOther.rFormID)) AND
+  (Self.rUserType = anOther.rUserType) AND
+   ((Self.rSubUserType = anOther.rSubUserType) or
+    ((Self.rSubUserType = 0) and (anOther.rSubUserType = vcm_utAny)) or
+    ((Self.rSubUserType = vcm_utAny) and (anOther.rSubUserType = 0)));
+//#UC END# *5289CC6003B0_5289C7D4012A_impl*
+//#UC START# *5289CC6003B0_5289C7D4012A_var*
+//#UC END# *5289CC6003B0_5289C7D4012A_var*
+//#UC START# *5289CC9F0130_5289C7D4012A_impl*
+ l_UT := Self.rUserType - anOther.rUserType;
+ l_Name := AnsiCompareStr(Self.rFormID.rName, anOther.rFormID.rName);
+ l_ZT := Ord(Self.rZoneType) - Ord(anOther.rZoneType);
+ l_ID := Self.rFormID.rID - anOther.rFormID.rID;
+ l_SubUT := Self.rSubUserType - anOther.rUserType;
+ Result := 0;
+ if (l_UT < 0) or (l_Name < 0) or (l_ZT < 0) or (l_ID < 0) or (l_SubUT < 0) then
+  Result := -1
+ else
+ if (l_UT > 0) or (l_Name > 0) or (l_ZT > 0) or (l_ID > 0) or (l_SubUT > 0) then
+  Result := 1;
+//#UC END# *5289CC9F0130_5289C7D4012A_impl*
+//#UC START# *5289CC9F0130_5289C7D4012A_var*
+var
+ l_UT: Integer;
+ l_SubUT: Integer;
+ l_ZT: Integer;
+ l_Name: Integer;
+ l_ID: Integer;
+//#UC END# *5289CC9F0130_5289C7D4012A_var*
+//#UC START# *528B525300DE_5289C7D4012A_impl*
+ Result.rFormID := aFormID;
+ Result.rZoneType := aZoneType;
+ Result.rUserType := aUserType;
+ Result.rSubUserType := aSubUserType;
+//#UC END# *528B525300DE_5289C7D4012A_impl*
+//#UC START# *528B525300DE_5289C7D4012A_var*
+//#UC END# *528B525300DE_5289C7D4012A_var*

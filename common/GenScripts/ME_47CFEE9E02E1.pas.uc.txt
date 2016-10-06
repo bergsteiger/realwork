@@ -1,0 +1,812 @@
+//#UC START# *479731C50290_47CFEE9E02E1_impl*
+ f_LimitErrorControl := nil;
+ f_UpperButtons := nil;
+ f_StateControl := nil;
+ f_StartFocusControl := nil;
+ f_CurrPara := nil;
+ if (f_QueryContainer <> nil) then
+  f_QueryContainer.UnlinkListener(Self);
+ f_QueryContainer := nil;
+ f_AdapterModel := nil;
+ l3Free(f_GroupList);
+ inherited;
+//#UC END# *479731C50290_47CFEE9E02E1_impl*
+//#UC START# *479731C50290_47CFEE9E02E1_var*
+//#UC END# *479731C50290_47CFEE9E02E1_var*
+//#UC START# *479731C50290_48B7FA9403B1_impl*
+ f_CurrentControl := nil;
+ l3Free(f_QueryCard);
+ inherited;
+//#UC END# *479731C50290_48B7FA9403B1_impl*
+//#UC START# *479731C50290_48B7FA9403B1_var*
+//#UC END# *479731C50290_48B7FA9403B1_var*
+//#UC START# *47A6FEE600FC_48B7FA9403B1_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_48B7FA9403B1_impl*
+//#UC START# *47A6FEE600FC_48B7FA9403B1_var*
+//#UC END# *47A6FEE600FC_48B7FA9403B1_var*
+//#UC START# *47C6BE3B027A_47CFEE9E02E1_impl*
+ Result := f_InsertRowMode;
+//#UC END# *47C6BE3B027A_47CFEE9E02E1_impl*
+//#UC START# *47C6BE3B027A_47CFEE9E02E1_var*
+//#UC END# *47C6BE3B027A_47CFEE9E02E1_var*
+//#UC START# *47C7C8EE0193_47CFEE9E02E1_impl*
+ l_Control := evGetEditorControl(aPrev.Child[0].Child[0]);
+ l_Req := l_Control.Req;
+ l_Req.InsertToModel(nil, l_Control, aChild, True, anAdd);
+//#UC END# *47C7C8EE0193_47CFEE9E02E1_impl*
+//#UC START# *47C7C8EE0193_47CFEE9E02E1_var*
+var
+ l_Control : IevEditorControl;
+ l_Req     : IevReq;
+//#UC END# *47C7C8EE0193_47CFEE9E02E1_var*
+//#UC START# *47C7C9070379_47CFEE9E02E1_impl*
+ DoDeleteOnUndo(aTag);
+//#UC END# *47C7C9070379_47CFEE9E02E1_impl*
+//#UC START# *47C7C9070379_47CFEE9E02E1_var*
+//#UC END# *47C7C9070379_47CFEE9E02E1_var*
+//#UC START# *47C7C91E0277_47CFEE9E02E1_impl*
+ DoHideDroppedControl(CanSetFocus)
+//#UC END# *47C7C91E0277_47CFEE9E02E1_impl*
+//#UC START# *47C7C91E0277_47CFEE9E02E1_var*
+//#UC END# *47C7C91E0277_47CFEE9E02E1_var*
+//#UC START# *47C7C9A4014C_47CFEE9E02E1_impl*
+ Result := DoMouseWheel(aDown);
+//#UC END# *47C7C9A4014C_47CFEE9E02E1_impl*
+//#UC START# *47C7C9A4014C_47CFEE9E02E1_var*
+//#UC END# *47C7C9A4014C_47CFEE9E02E1_var*
+//#UC START# *47C7CA230160_47CFEE9E02E1_impl*
+ Result := DoKeyDown(aView, Msg, aCurPara);
+//#UC END# *47C7CA230160_47CFEE9E02E1_impl*
+//#UC START# *47C7CA230160_47CFEE9E02E1_var*
+//#UC END# *47C7CA230160_47CFEE9E02E1_var*
+//#UC START# *47C7CA350361_47CFEE9E02E1_impl*
+ DoChangePara(aCurPara);
+//#UC END# *47C7CA350361_47CFEE9E02E1_impl*
+//#UC START# *47C7CA350361_47CFEE9E02E1_var*
+//#UC END# *47C7CA350361_47CFEE9E02E1_var*
+//#UC START# *47C7CA4500E7_47CFEE9E02E1_impl*
+ f_StateControl := nil;
+//#UC END# *47C7CA4500E7_47CFEE9E02E1_impl*
+//#UC START# *47C7CA4500E7_47CFEE9E02E1_var*
+//#UC END# *47C7CA4500E7_47CFEE9E02E1_var*
+//#UC START# *47C7CA5402D0_47CFEE9E02E1_impl*
+ if f_UpperButtons <> nil then
+ begin
+  f_UpperButtons.Upper := False;
+  f_UpperButtons := nil;
+ end;
+//#UC END# *47C7CA5402D0_47CFEE9E02E1_impl*
+//#UC START# *47C7CA5402D0_47CFEE9E02E1_var*
+//#UC END# *47C7CA5402D0_47CFEE9E02E1_var*
+//#UC START# *47C7CA670121_47CFEE9E02E1_impl*
+ Result := False;                                 
+ l_Field := evGetField(aPara);
+ if (l_Field <> nil) and (aKeyCode in [VK_SUBTRACT, VK_ADD]) then
+ begin
+  Supports(l_Field, IevEditorFieldWithTree, l_FieldWithTree);
+  if (l_FieldWithTree = nil) or l_FieldWithTree.IsList or (l_FieldWithTree.ComboStyle <> ev_cbFilterable) then
+  begin
+   if aKeyCode = VK_SUBTRACT then
+    aKeyCode := cMinusKeyCode
+   else
+    aKeyCode := cPlusKeyCode;
+   Result := True;
+  end;
+ end;
+//#UC END# *47C7CA670121_47CFEE9E02E1_impl*
+//#UC START# *47C7CA670121_47CFEE9E02E1_var*
+var
+ l_Field    : IevEditorControlField;
+ l_FieldWithTree: IevEditorFieldWithTree;
+//#UC END# *47C7CA670121_47CFEE9E02E1_var*
+//#UC START# *47C7CB490100_47CFEE9E02E1_impl*
+ if f_StartFocusControl <> nil then
+ begin
+  with pm_GetEditor do
+   if (Selection <> nil) and not Selection.Point.MostInner.Obj.AsObject.IsSame(f_StartFocusControl.Para.MakePoint.MostInner.Obj^.AsObject) then
+    Selection.SelectPoint(f_StartFocusControl.Para.MakePoint, False);
+  f_StartFocusControl := nil;
+ end;
+//#UC END# *47C7CB490100_47CFEE9E02E1_impl*
+//#UC START# *47C7CB490100_47CFEE9E02E1_var*
+//#UC END# *47C7CB490100_47CFEE9E02E1_var*
+//#UC START# *47C7CB5403D4_47CFEE9E02E1_impl*
+ l_op := f_QueryContainer.Processor.StartOp(0,True);
+ try
+  if (f_StateControl <> nil) and
+   Supports(f_StateControl, IevEditorControlField, l_Field) then
+  begin
+   l_Field.Req.Group.Para.OwnerPara.Invalidate([]);
+   l_Field.Req.SetFocus(l_Field);
+  end;
+  l_op.SaveUndo := False;
+  for l_GroupIdx := 0 to Get_GroupCount-1 do
+   with Get_QueryGroup(l_GroupIdx) do
+    for l_ReqIdx := 0 to ReqCount-1 do
+     with Req[l_ReqIdx] do
+      for l_FieldIdx := 0 to FieldsCount-1 do
+      begin
+       if Supports(Fields[l_FieldIdx], IevEditorFieldWithTree, l_FieldWithTree) then
+        l_FieldWithTree.CheckTextVersusValue;
+       UpdateState(Fields[l_FieldIdx], l_op);
+      end;
+ finally
+  l_op := nil;
+ end;
+//#UC END# *47C7CB5403D4_47CFEE9E02E1_impl*
+//#UC START# *47C7CB5403D4_47CFEE9E02E1_var*
+var
+ l_Field: IevEditorControlField;
+ l_GroupIdx: Integer;
+ l_ReqIdx: Integer;
+ l_FieldIdx: Integer;
+ l_FieldWithTree: IevEditorFieldWithTree;
+ l_op: InevOp;
+//#UC END# *47C7CB5403D4_47CFEE9E02E1_var*
+//#UC START# *47C7CB5D0311_47CFEE9E02E1_impl*
+ if aPara.TagType.IsSame(k2_typControlPara) then
+ begin
+  l_Control := evGetCustomControl(aPara);
+  if l_Control <> nil then
+  begin
+   l_Control := GetControlIterator(l_Control).GetNextVisible(False);
+  end;
+  Result := l_Control = nil;
+ end
+ else
+ begin
+  l_Group := evGetQueryGroup(aPara);
+  Result := f_GroupList.IndexOf(l_Group) = f_GroupList.Count - 1;
+ end;
+//#UC END# *47C7CB5D0311_47CFEE9E02E1_impl*
+//#UC START# *47C7CB5D0311_47CFEE9E02E1_var*
+var
+ l_Control : IevCustomEditorControl;
+ l_Group   : IevQueryGroup;
+//#UC END# *47C7CB5D0311_47CFEE9E02E1_var*
+//#UC START# *47C7CBC903AE_47CFEE9E02E1_impl*
+ if aPara.TagType.IsSame(k2_typControlPara) then
+ begin
+  l_Control := evGetCustomControl(aPara);
+  if l_Control <> nil then
+  begin
+   l_Control := GetControlIterator(l_Control).GetPrevVisible(False);
+  end;
+  Result := l_Control = nil;
+ end
+ else
+ begin
+  l_Group := evGetQueryGroup(aPara);
+  Result := f_GroupList.IndexOf(l_Group) = 0;
+ end;
+//#UC END# *47C7CBC903AE_47CFEE9E02E1_impl*
+//#UC START# *47C7CBC903AE_47CFEE9E02E1_var*
+var
+ l_Control : IevCustomEditorControl;
+ l_Group   : IevQueryGroup;
+//#UC END# *47C7CBC903AE_47CFEE9E02E1_var*
+//#UC START# *47C7CBDE0030_47CFEE9E02E1_impl*
+ f_PasteOperation := True;
+//#UC END# *47C7CBDE0030_47CFEE9E02E1_impl*
+//#UC START# *47C7CBDE0030_47CFEE9E02E1_var*
+//#UC END# *47C7CBDE0030_47CFEE9E02E1_var*
+//#UC START# *47C7CBEA02E3_47CFEE9E02E1_impl*
+ f_PasteOperation := False;
+ if Assigned(f_LimitErrorControl) then
+  IevAdapterModel(f_AdapterModel).LimitCharsReached(f_LimitErrorControl);
+ f_LimitErrorControl := nil;
+//#UC END# *47C7CBEA02E3_47CFEE9E02E1_impl*
+//#UC START# *47C7CBEA02E3_47CFEE9E02E1_var*
+//#UC END# *47C7CBEA02E3_47CFEE9E02E1_var*
+//#UC START# *47C7CBF803D7_47CFEE9E02E1_impl*
+ Result := f_PasteOperation;
+//#UC END# *47C7CBF803D7_47CFEE9E02E1_impl*
+//#UC START# *47C7CBF803D7_47CFEE9E02E1_var*
+//#UC END# *47C7CBF803D7_47CFEE9E02E1_var*
+//#UC START# *47C7CC09021A_47CFEE9E02E1_impl*
+ l_Count := f_GroupList.Count - 1;
+ for i := 0 to l_Count do
+ begin
+  l_Control := GetFirstVisible(f_GroupList[i], False, True);
+  if l_Control <> nil then Break;
+ end;
+ if l_Control <> nil then
+  Result := l_Control.Para
+ else
+  Result := nil;
+//#UC END# *47C7CC09021A_47CFEE9E02E1_impl*
+//#UC START# *47C7CC09021A_47CFEE9E02E1_var*
+var
+ i         : Integer;
+ l_Count   : Integer;
+ l_Control : IevCustomEditorControl;
+//#UC END# *47C7CC09021A_47CFEE9E02E1_var*
+//#UC START# *47C7CC480009_47CFEE9E02E1_impl*
+ l_Count := f_GroupList.Count - 1;
+ for i := l_Count downto 0 do
+ begin
+  l_Control := GetLastVisible(f_GroupList[i], False, True);
+  if l_Control <> nil then Break;
+ end;
+ if l_Control <> nil then
+  Result := l_Control.Para
+ else
+  Result := nil;
+//#UC END# *47C7CC480009_47CFEE9E02E1_impl*
+//#UC START# *47C7CC480009_47CFEE9E02E1_var*
+var
+ i         : Integer;
+ l_Count   : Integer;
+ l_Control : IevCustomEditorControl;
+//#UC END# *47C7CC480009_47CFEE9E02E1_var*
+//#UC START# *47CD77A200FE_48B7FA9403B1_impl*
+ Result := nil;
+ if (f_CurrentControl <> nil) then
+  if Supports(f_CurrentControl, IevEditorControl, l_EditorControl) then
+  begin
+   Result := l_EditorControl.Req.GetNextVisible(l_EditorControl, OnlyFields,
+     l_IsLast); //Пытаемся получить следующий доступный для перехода контрол
+   if l_IsLast then //В реквизите нет больше контролов, на которые можно перейти
+    Result := f_QueryCard.GetFirstControl(l_EditorControl.Req, OnlyFields);
+  end
+  else
+   if Supports(f_CurrentControl, IevQueryGroup, l_Group) then
+    Result := f_QueryCard.GetFirstVisible(l_Group, OnlyFields, False);
+//#UC END# *47CD77A200FE_48B7FA9403B1_impl*
+//#UC START# *47CD77A200FE_48B7FA9403B1_var*
+var
+ l_EditorControl : IevEditorControl;
+ l_Group         : IevQueryGroup;
+ l_IsLast        : Boolean;
+//#UC END# *47CD77A200FE_48B7FA9403B1_var*
+//#UC START# *47CD77B1038D_48B7FA9403B1_impl*
+ Result := nil;
+ if (f_CurrentControl <> nil) then
+  if Supports(f_CurrentControl, IevEditorControl, l_EditorControl) then
+  begin
+   Result := l_EditorControl.Req.GetPrevVisible(l_EditorControl, OnlyFields,
+     l_IsFirst);
+   if l_IsFirst then
+    Result := f_QueryCard.GetLastControl(l_EditorControl.Req, OnlyFields);
+  end
+  else
+   if Supports(f_CurrentControl, IevQueryGroup, l_Group) then
+    Result := f_QueryCard.GetLastVisible(l_Group, OnlyFields, False);
+//#UC END# *47CD77B1038D_48B7FA9403B1_impl*
+//#UC START# *47CD77B1038D_48B7FA9403B1_var*
+var
+ l_EditorControl : IevEditorControl;
+ l_Group         : IevQueryGroup;
+ l_IsFirst       : Boolean;
+//#UC END# *47CD77B1038D_48B7FA9403B1_var*
+//#UC START# *47CD829A0262_47CFEE9E02E1_impl*
+ f_CurrPara := aCurPara;
+//#UC END# *47CD829A0262_47CFEE9E02E1_impl*
+//#UC START# *47CD829A0262_47CFEE9E02E1_var*
+//#UC END# *47CD829A0262_47CFEE9E02E1_var*
+//#UC START# *47CD82A70217_47CFEE9E02E1_impl*
+ Result := f_QueryContainer;
+//#UC END# *47CD82A70217_47CFEE9E02E1_impl*
+//#UC START# *47CD82A70217_47CFEE9E02E1_var*
+//#UC END# *47CD82A70217_47CFEE9E02E1_var*
+//#UC START# *47CD82BA01D2_47CFEE9E02E1_impl*
+ f_StartFocusControl := aValue;
+ RememberState(aValue);
+//#UC END# *47CD82BA01D2_47CFEE9E02E1_impl*
+//#UC START# *47CD82BA01D2_47CFEE9E02E1_var*
+//#UC END# *47CD82BA01D2_47CFEE9E02E1_var*
+//#UC START# *47CD82C800FB_47CFEE9E02E1_impl*
+ ClearUpper;
+ f_StateControl := nil;
+ f_CurrPara := nil;
+//#UC END# *47CD82C800FB_47CFEE9E02E1_impl*
+//#UC START# *47CD82C800FB_47CFEE9E02E1_var*
+//#UC END# *47CD82C800FB_47CFEE9E02E1_var*
+//#UC START# *47CD82DD0015_47CFEE9E02E1_impl*
+ if (f_UpperButtons <> aButton) then
+ begin
+  if (f_UpperButtons <> nil) then
+   f_UpperButtons.Upper := False;
+  if aButton <> nil then
+   f_UpperButtons := aButton
+  else
+   f_UpperButtons := nil;
+ end;
+//#UC END# *47CD82DD0015_47CFEE9E02E1_impl*
+//#UC START# *47CD82DD0015_47CFEE9E02E1_var*
+//#UC END# *47CD82DD0015_47CFEE9E02E1_var*
+//#UC START# *47CD82ED006B_47CFEE9E02E1_impl*
+ Result := DoGetNode(anIndex);
+//#UC END# *47CD82ED006B_47CFEE9E02E1_impl*
+//#UC START# *47CD82ED006B_47CFEE9E02E1_var*
+//#UC END# *47CD82ED006B_47CFEE9E02E1_var*
+//#UC START# *47CD82FE0071_47CFEE9E02E1_impl*
+ f_QueryContainer.ClearCard;
+//#UC END# *47CD82FE0071_47CFEE9E02E1_impl*
+//#UC START# *47CD82FE0071_47CFEE9E02E1_var*
+//#UC END# *47CD82FE0071_47CFEE9E02E1_var*
+//#UC START# *47CD830E0357_47CFEE9E02E1_impl*
+ f_QueryContainer.Lock.Lock(Self);
+//#UC END# *47CD830E0357_47CFEE9E02E1_impl*
+//#UC START# *47CD830E0357_47CFEE9E02E1_var*
+//#UC END# *47CD830E0357_47CFEE9E02E1_var*
+//#UC START# *47CD831A0092_47CFEE9E02E1_impl*
+ f_QueryContainer.Lock.Unlock(Self);
+//#UC END# *47CD831A0092_47CFEE9E02E1_impl*
+//#UC START# *47CD831A0092_47CFEE9E02E1_var*
+//#UC END# *47CD831A0092_47CFEE9E02E1_var*
+//#UC START# *47CD83410138_47CFEE9E02E1_impl*
+ l_Count := f_GroupList.Count - 1;
+ for i := 0 to l_Count do
+  f_GroupList[i].Expanded := anExpand;
+//#UC END# *47CD83410138_47CFEE9E02E1_impl*
+//#UC START# *47CD83410138_47CFEE9E02E1_var*
+var
+ i       : Integer;
+ l_Count : Integer;
+//#UC END# *47CD83410138_47CFEE9E02E1_var*
+//#UC START# *47CD835002FB_47CFEE9E02E1_impl*
+ if not aGroup.Expanded then
+  f_CurrPara := aGroup.Para;
+ f_QueryContainer.AfterCollapsed;
+//#UC END# *47CD835002FB_47CFEE9E02E1_impl*
+//#UC START# *47CD835002FB_47CFEE9E02E1_var*
+//#UC END# *47CD835002FB_47CFEE9E02E1_var*
+//#UC START# *47CD83830353_47CFEE9E02E1_impl*
+ if f_PasteOperation then
+  f_LimitErrorControl := aControl
+ else
+  IevAdapterModel(f_AdapterModel).LimitCharsReached(aControl);
+//#UC END# *47CD83830353_47CFEE9E02E1_impl*
+//#UC START# *47CD83830353_47CFEE9E02E1_var*
+//#UC END# *47CD83830353_47CFEE9E02E1_var*
+//#UC START# *47CD839201D4_47CFEE9E02E1_impl*
+ f_StateControl := aControl;
+//#UC END# *47CD839201D4_47CFEE9E02E1_impl*
+//#UC START# *47CD839201D4_47CFEE9E02E1_var*
+//#UC END# *47CD839201D4_47CFEE9E02E1_var*
+//#UC START# *47CD83A1034C_47CFEE9E02E1_impl*
+ Result := f_StateControl;
+//#UC END# *47CD83A1034C_47CFEE9E02E1_impl*
+//#UC START# *47CD83A1034C_47CFEE9E02E1_var*
+//#UC END# *47CD83A1034C_47CFEE9E02E1_var*
+//#UC START# *47CD83B10329_47CFEE9E02E1_impl*
+ aCurPara.QT(InevPara, f_CurrPara);
+ if f_CurrPara <> nil then
+ begin
+  Result := evGetEditorControl(f_CurrPara.AsObject);
+  if Result <> nil then
+   if Result.ControlType = ev_ctCollapsedPanel then
+    if Supports(Result, IevQueryGroup, l_Group) then
+     Result := l_Group.FirstReq.FirstField;
+ end
+ else
+  Result := nil;
+//#UC END# *47CD83B10329_47CFEE9E02E1_impl*
+//#UC START# *47CD83B10329_47CFEE9E02E1_var*
+var
+ l_Group: IevQueryGroup;
+//#UC END# *47CD83B10329_47CFEE9E02E1_var*
+//#UC START# *47CD83C8037F_47CFEE9E02E1_impl*
+ if (f_GroupList <> nil) then
+  f_GroupList.Clear;
+ f_QueryContainer := aQueryContainer;
+ with aQueryContainer do
+ begin
+  LinkListener(Self);
+  Assert(Obj.AsPara.AsObject.ChildrenCount <> 0, 'Нет дочерних параграфов!!!');
+  with Obj do
+   if AsObject.IsValid then
+   begin
+    with AsPara.AsList do
+     IterateParaF(nevL2PIA(@GetChildBlock));
+    Set_Para(AsPara);
+   end;//if IsValid
+ end;//with aQueryContainer
+ StartSetFocus;
+//#UC END# *47CD83C8037F_47CFEE9E02E1_impl*
+//#UC START# *47CD83C8037F_47CFEE9E02E1_var*
+   
+ function GetChildBlock(const aChild : InevPara; 
+                        anIndex      : Integer): Boolean; 
+ var
+  l_CG  : IevQueryGroup;
+  l_Tbl : InevPara;
+  l_Index : Integer;
+  l_List  : InevParaList;
+ begin
+  Result := True;
+  with aChild do
+   if AsObject.IsKindOf(k2_typControlsBlock) then
+   begin
+    l_List := aChild.AsList;
+//    for l_Index := 0 to l_List.ChildrenCount - 1 do
+    begin
+     l_CG := TevControlGroup.Make(aChild, Self);
+     try
+      for l_Index := 0 to l_List.AsObject.ChildrenCount - 1 do
+      // - ведь таблиц внутри группы может быть сколько угодно
+      begin
+       l_Tbl := l_List.Para[l_Index];
+       try
+        l_CG.InitModel(l_Tbl);
+       finally
+        l_Tbl := nil;
+       end;//try..finally
+      end;//for l_Index
+      f_GroupList.Add(l_CG);
+     finally
+      l_CG := nil;
+     end; //try..finally
+    end;//for l_Index
+   end;//if IsKindOf(k2_typControlBlock)
+ end;//GetChildBlock
+
+//#UC END# *47CD83C8037F_47CFEE9E02E1_var*
+//#UC START# *47CD83DC0133_47CFEE9E02E1_impl*
+ f_AdapterModel := Pointer(aListener);
+//#UC END# *47CD83DC0133_47CFEE9E02E1_impl*
+//#UC START# *47CD83DC0133_47CFEE9E02E1_var*
+//#UC END# *47CD83DC0133_47CFEE9E02E1_var*
+//#UC START# *47CD83EE0268_47CFEE9E02E1_impl*
+ Result := IevAdapterModel(f_AdapterModel);
+//#UC END# *47CD83EE0268_47CFEE9E02E1_impl*
+//#UC START# *47CD83EE0268_47CFEE9E02E1_var*
+//#UC END# *47CD83EE0268_47CFEE9E02E1_var*
+//#UC START# *47CD840002F7_47CFEE9E02E1_impl*
+ f_AdapterModel := nil;
+//#UC END# *47CD840002F7_47CFEE9E02E1_impl*
+//#UC START# *47CD840002F7_47CFEE9E02E1_var*
+//#UC END# *47CD840002F7_47CFEE9E02E1_var*
+//#UC START# *47CD842102B4_47CFEE9E02E1_impl*
+ l_Count := f_GroupList.Count - 1;
+ for i := 0 to l_Count do
+ begin
+  l_Group := f_GroupList[i];
+  try
+   Result := l_Group.FindDescriptionReq(aReqName);
+   if Result <> nil then
+    Break;
+  finally
+   l_Group := nil;
+  end;
+ end;
+//#UC END# *47CD842102B4_47CFEE9E02E1_impl*
+//#UC START# *47CD842102B4_47CFEE9E02E1_var*
+var
+ i       : Integer;
+ l_Count : Integer;
+ l_Group : IevQueryGroup;
+//#UC END# *47CD842102B4_47CFEE9E02E1_var*
+//#UC START# *47CD843F005D_47CFEE9E02E1_impl*
+ l_Control := evGetEditorControl(GetDocumentContainer.GetCurrPara);
+ if Assigned(l_Control) and (l_Control.ControlType in evEditControls) then
+  RememberFocusControl(l_Control)
+ else
+  if f_AdapterModel <> nil then
+   IevAdapterModel(f_AdapterModel).FocusStartField
+  else
+   if f_GroupList.Count > 0 then
+    f_GroupList.First.FirstReq.FirstField.SetFocus
+//#UC END# *47CD843F005D_47CFEE9E02E1_impl*
+//#UC START# *47CD843F005D_47CFEE9E02E1_var*
+var
+ l_Control: IevEditorControl;
+//#UC END# *47CD843F005D_47CFEE9E02E1_var*
+//#UC START# *47CD84520292_47CFEE9E02E1get_impl*
+ Result := f_GroupList[anIndex];
+//#UC END# *47CD84520292_47CFEE9E02E1get_impl*
+//#UC START# *47CD84520292_47CFEE9E02E1get_var*
+//#UC END# *47CD84520292_47CFEE9E02E1get_var*
+//#UC START# *47CD8478024F_47CFEE9E02E1get_impl*
+ Result := f_GroupList.Count;
+//#UC END# *47CD8478024F_47CFEE9E02E1get_impl*
+//#UC START# *47CD8478024F_47CFEE9E02E1get_var*
+//#UC END# *47CD8478024F_47CFEE9E02E1get_var*
+//#UC START# *47CD84A1019A_47CFEE9E02E1get_impl*
+ //!!!Stub: Если нужно будет отображать документ в нескольких окнах, то это место нужно переделать! 
+ if (f_QueryContainer <> nil) and
+   Supports(f_QueryContainer, InevDocumentContainer, l_Containter) then
+  l_Containter.TextSource.CastAnyEditorTo(InevControl, Result)
+ else 
+  Result := nil;   
+//#UC END# *47CD84A1019A_47CFEE9E02E1get_impl*
+//#UC START# *47CD84A1019A_47CFEE9E02E1get_var*
+var
+ l_Containter : InevDocumentContainer;
+//#UC END# *47CD84A1019A_47CFEE9E02E1get_var*
+//#UC START# *47CD84BB0044_47CFEE9E02E1get_impl*
+ Result := f_InsertRowMode;
+//#UC END# *47CD84BB0044_47CFEE9E02E1get_impl*
+//#UC START# *47CD84BB0044_47CFEE9E02E1get_var*
+//#UC END# *47CD84BB0044_47CFEE9E02E1get_var*
+//#UC START# *47CD84BB0044_47CFEE9E02E1set_impl*
+ f_InsertRowMode := aValue;
+//#UC END# *47CD84BB0044_47CFEE9E02E1set_impl*
+//#UC START# *47CD84BB0044_47CFEE9E02E1set_var*
+//#UC END# *47CD84BB0044_47CFEE9E02E1set_var*
+//#UC START# *47CD84CC027E_47CFEE9E02E1get_impl*
+ Result := TevQueryType(Para.AsObject.IntA[k2_tiCardType]);
+//#UC END# *47CD84CC027E_47CFEE9E02E1get_impl*
+//#UC START# *47CD84CC027E_47CFEE9E02E1get_var*
+//#UC END# *47CD84CC027E_47CFEE9E02E1get_var*
+//#UC START# *47CFEE9E02E1_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evControlContainer.pas
+//#UC END# *47CFEE9E02E1_ext:FileName
+//#UC START# *47CFEE9E02E1impl_uses*
+//#UC END# *47CFEE9E02E1impl_uses*
+//#UC START# *47CFF63F02B6_47CFEE9E02E1_impl*
+ inherited Create(nil);
+ f_GroupList := TevQueryGroupList.Make;
+ f_InsertRowMode := False;
+//#UC END# *47CFF63F02B6_47CFEE9E02E1_impl*
+//#UC START# *47CFF63F02B6_47CFEE9E02E1_var*
+//#UC END# *47CFF63F02B6_47CFEE9E02E1_var*
+//#UC START# *47D0045001C3_47CFEE9E02E1_impl*
+ Result := nil;
+ l_Index := f_GroupList.IndexOf(aGroup);
+ if not aGroup.Expanded then //Если группа развернута, то можно просто получить первый контрол
+  if not anExpanedeOnly then
+   Inc(l_Index);
+ if l_Index < f_GroupList.Count then
+  for i := l_Index to f_GroupList.Count - 1 do
+  begin
+   l_Group := f_GroupList[i];
+   if not anOnlyFields and not aGroup.Expanded then
+   begin
+    Result := l_Group;
+    Break;
+   end;
+   l_ReqCount := l_Group.ReqCount - 1;
+   for k := 0 to l_ReqCount do
+   begin
+    Result := l_Group.Req[k].GetFirstVisible(anOnlyFields);
+    if Result <> nil then Break;
+   end;
+   if Result <> nil then Break;
+  end;
+//#UC END# *47D0045001C3_47CFEE9E02E1_impl*
+//#UC START# *47D0045001C3_47CFEE9E02E1_var*
+var
+ i, k       : Integer;
+ l_Index    : Integer;
+ l_Group    : IevQueryGroup;
+ l_ReqCount : Integer;
+//#UC END# *47D0045001C3_47CFEE9E02E1_var*
+//#UC START# *47D0048E01F2_47CFEE9E02E1_impl*
+ Result := nil;
+ l_Index := f_GroupList.IndexOf(aGroup);
+ if not anExpanedeOnly then
+  Dec(l_Index);
+ if l_Index >= 0 then
+  for i := l_Index downto 0 do
+  begin
+   l_Group := f_GroupList[i];
+   if not anOnlyFields and not l_Group.Expanded then
+   begin
+    Result := l_Group;
+    Break;
+   end;
+   l_ReqCount := l_Group.ReqCount - 1;
+   for k := l_ReqCount downto 0 do
+   begin
+    Result := l_Group.Req[k].GetLastVisible(anOnlyFields);
+    if Result <> nil then Break;
+   end;
+   if Result <> nil then Break;
+  end;
+//#UC END# *47D0048E01F2_47CFEE9E02E1_impl*
+//#UC START# *47D0048E01F2_47CFEE9E02E1_var*
+var
+ i, k       : Integer;
+ l_Index    : Integer;
+ l_Group    : IevQueryGroup;
+ l_ReqCount : Integer;
+//#UC END# *47D0048E01F2_47CFEE9E02E1_var*
+//#UC START# *47D0074B0107_47CFEE9E02E1_impl*
+ Result := nil;
+ l_Req := aReq;
+ while l_Req <> nil do
+ begin
+  l_Req := GetNextReq(l_Req, anOnlyFields, l_Last);
+  if (l_Req <> nil) and not anOnlyFields and l_Last then //Переход по всем контролам
+  begin
+   Result := l_Req.Group;
+   Break;
+  end
+  else //Только по полям - группы игнорируются!
+   if (l_Req <> nil) and l_Req.Group.Expanded then
+   begin
+    Result := l_Req.GetFirstVisible(anOnlyFields);
+    if Result <> nil then
+     Break;
+   end
+   else
+    Result := nil;
+ end;
+//#UC END# *47D0074B0107_47CFEE9E02E1_impl*
+//#UC START# *47D0074B0107_47CFEE9E02E1_var*
+var
+ l_Req  : IevReq;
+ l_Last : Boolean;
+//#UC END# *47D0074B0107_47CFEE9E02E1_var*
+//#UC START# *47D0075D03DF_47CFEE9E02E1_impl*
+ Result := nil;
+ l_Req := aReq;
+ while l_Req <> nil do
+ begin
+  l_Req := GetPrevReq(l_Req, anOnlyFields, l_First);
+  if not anOnlyFields and l_First then //Переход по всем контролам
+  begin
+   Result := aReq.Group;
+   Break;
+  end
+  else
+   if l_Req <> nil then
+   begin
+    Result := l_Req.GetLastVisible(anOnlyFields);
+    if anOnlyFields and (Result = nil) then
+     Continue
+    else
+     Break;
+   end
+   else
+    Result := nil;
+ end;
+//#UC END# *47D0075D03DF_47CFEE9E02E1_impl*
+//#UC START# *47D0075D03DF_47CFEE9E02E1_var*
+var
+ l_Req   : IevReq;
+ l_First : Boolean;
+//#UC END# *47D0075D03DF_47CFEE9E02E1_var*
+//#UC START# *47D009D1009A_47CFEE9E02E1_impl*
+ aFirstReq := False;
+ l_Group := aReq.Group;
+ l_Req := l_Group.GetNextReq(aReq);
+ try
+  if l_Req <> nil then
+   Result := l_Req
+  else
+   if (f_GroupList.Last <> l_Group) then
+   begin
+    aFirstReq := True;
+    l_Index := f_GroupList.IndexOf(l_Group);
+    while l_Index < (f_GroupList.Count - 1) do        
+    begin
+     Inc(l_Index);
+     l_Group := f_GroupList[l_Index];         
+     if anExpandedOnly then 
+      if l_Group.Expanded then 
+       Break
+      else 
+       l_Group := nil
+     else
+      Break;  
+    end; 
+    if l_Group <> nil then
+     Result := l_Group.Req[0]
+    else 
+     Result := nil;    
+   end 
+   else 
+    Result := nil;
+ finally
+  l_Group := nil;
+  l_Req := nil;
+ end; 
+//#UC END# *47D009D1009A_47CFEE9E02E1_impl*
+//#UC START# *47D009D1009A_47CFEE9E02E1_var*
+//Функция возращает указатель на следующий реквизит. Если он является последним 
+//в группе, то возвращается первый в следующей группе (aFirstReq выставляется 
+//в True). Если группа последняя, то возвращается nil. Если выставлен 
+//anExpandedOnly = True, то проверяются только развернутые группы и игнорируются 
+//свернутые.                                     
+var
+ l_Req   : IevReq;
+ l_Group : IevQueryGroup;
+ l_Index : Integer;
+//#UC END# *47D009D1009A_47CFEE9E02E1_var*
+//#UC START# *47D00A370286_47CFEE9E02E1_impl*
+ aLastReq := False;
+ l_Group := aReq.Group;
+ l_Req := l_Group.GetPrevReq(aReq);
+ try
+  if l_Req <> nil then
+   Result := l_Req
+  else 
+   if (f_GroupList.First <> l_Group) then
+   begin
+    aLastReq := True;
+    l_Index := f_GroupList.IndexOf(l_Group);
+    while l_Index > 0 do        
+    begin
+     Dec(l_Index);
+     l_Group := f_GroupList[l_Index];         
+     if anExpandedOnly then 
+      if l_Group.Expanded then 
+       Break
+      else 
+       l_Group := nil
+     else
+      Break;  
+    end; 
+    if l_Group <> nil then
+     Result := l_Group.LastReq
+    else 
+     Result := nil;    
+   end 
+   else 
+   begin
+    aLastReq := l_Group.FirstReq = aReq;
+    Result := nil;
+   end; 
+ finally
+  l_Group := nil;
+  l_Req := nil;
+ end; 
+//#UC END# *47D00A370286_47CFEE9E02E1_impl*
+//#UC START# *47D00A370286_47CFEE9E02E1_var*
+var
+ l_Req   : IevReq;
+ l_Group : IevQueryGroup;
+ l_Index : Integer;
+//#UC END# *47D00A370286_47CFEE9E02E1_var*
+//#UC START# *47D010D10193_47CFEE9E02E1_impl*
+ Result := nil;
+//#UC END# *47D010D10193_47CFEE9E02E1_impl*
+//#UC START# *47D010D10193_47CFEE9E02E1_var*
+//#UC END# *47D010D10193_47CFEE9E02E1_var*
+//#UC START# *47D0111400DC_47CFEE9E02E1_impl*
+ l_Control := evGetEditorControl(aTag.Child[0].Child[0]);
+ l_Req := l_Control.Req;
+ if (l_Req <> nil) then
+  l_Req.DeleteFromModel(nil, l_Control, True);
+ f_CurrPara := nil;
+//#UC END# *47D0111400DC_47CFEE9E02E1_impl*
+//#UC START# *47D0111400DC_47CFEE9E02E1_var*
+var
+ l_Control : IevEditorControl;
+ l_Req     : IevReq;
+//#UC END# *47D0111400DC_47CFEE9E02E1_var*
+//#UC START# *47D011870105_47CFEE9E02E1_impl*
+ if (aCurPara <> nil) {and aCurPara.IsKindOf(k2_typLeafPara)} then
+   f_CurrPara := aCurPara
+ else
+  f_CurrPara := nil;
+ if f_CurrPara <> nil then
+ begin
+  if f_CurrPara.AsObject.IsKindOf(k2_typControlPara) then
+  begin
+   l_Control := evGetEditorControl(f_CurrPara.AsObject);
+   if (l_Control <> nil) and (l_Control.ControlType in evEditControls) then
+   begin
+    RememberFocusControl(l_Control);
+    RememberState(l_Control);
+   end;
+  end;
+ end;
+//#UC END# *47D011870105_47CFEE9E02E1_impl*
+//#UC START# *47D011870105_47CFEE9E02E1_var*
+var
+ l_Control: IevEditorControl;
+//#UC END# *47D011870105_47CFEE9E02E1_var*
+//#UC START# *47D0135901AC_47CFEE9E02E1_impl*
+ Result := False; //Мы не забираем обработку на себя, а только обрабатываем событие
+ if (Msg.CharCode = VK_APPS) then
+  f_StateControl := GetFocusedControl(aCurPara);
+//#UC END# *47D0135901AC_47CFEE9E02E1_impl*
+//#UC START# *47D0135901AC_47CFEE9E02E1_var*
+//#UC END# *47D0135901AC_47CFEE9E02E1_var*
+//#UC START# *48B7F005003D_47CFEE9E02E1_impl*
+ Result := TevControlIterator.Make(aCurrentControl, Self);
+//#UC END# *48B7F005003D_47CFEE9E02E1_impl*
+//#UC START# *48B7F005003D_47CFEE9E02E1_var*
+//#UC END# *48B7F005003D_47CFEE9E02E1_var*
+//#UC START# *48B7FB0A0266_48B7FA9403B1_impl*
+ inherited Create;
+ f_CurrentControl := aControl;
+ l3Set(f_QueryCard, aQueryCard);
+//#UC END# *48B7FB0A0266_48B7FA9403B1_impl*
+//#UC START# *48B7FB0A0266_48B7FA9403B1_var*
+//#UC END# *48B7FB0A0266_48B7FA9403B1_var*

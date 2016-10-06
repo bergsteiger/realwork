@@ -1,0 +1,41 @@
+//#UC START# *484CCEBC00DC_484CEA1E0104_impl*
+ if (aValue = EmptyStr) then
+  Result := k2NullTag
+ else
+ begin
+  FN := Tk2FontManager.Instance.FontByName(aValue);
+  if (FN = nil) then
+   Result := k2NullTag
+  else
+   Result := FN;
+ end;//aValue = EmptyStr
+//#UC END# *484CCEBC00DC_484CEA1E0104_impl*
+//#UC START# *484CCEBC00DC_484CEA1E0104_var*
+var
+ FN : Tk2FontName;
+//#UC END# *484CCEBC00DC_484CEA1E0104_var*
+//#UC START# *484CEA1E0104_ext:FileName
+w:\common\components\rtl\Garant\K2\evFontName_Wrap.pas
+//#UC END# *484CEA1E0104_ext:FileName
+//#UC START# *484CEA1E0104impl_uses*
+//#UC END# *484CEA1E0104impl_uses*
+//#UC START# *484CEAD301AE_484CEA1E0104_impl*
+ if (aValue Is Tk2FontName) then
+  Result := Tk2FontName(aValue)
+ else
+ if (aValue Is Tl3CustomString) then
+ begin
+  //Assert(false);
+  if Tl3CustomString(aValue).Empty then
+   Result := k2NullTag
+  else
+   Result := AtomType.StrToTag(Tl3CustomString(aValue).AsString) As Tk2FontName {._AsRef};
+ end//aValue Is Tl3CustomString
+ else
+ begin
+  Assert(false);
+  Result := inherited ObjToTag(aValue);
+ end;//aValue Is Tl3CustomString
+//#UC END# *484CEAD301AE_484CEA1E0104_impl*
+//#UC START# *484CEAD301AE_484CEA1E0104_var*
+//#UC END# *484CEAD301AE_484CEA1E0104_var*

@@ -1,0 +1,293 @@
+//#UC START# *479731C50290_567A8DB002B6_impl*
+ FreeAndNil(f_Boxed);
+ inherited;
+//#UC END# *479731C50290_567A8DB002B6_impl*
+//#UC START# *479731C50290_567A8DB002B6_var*
+//#UC END# *479731C50290_567A8DB002B6_var*
+//#UC START# *550C25D70182_ext:FileName
+w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas
+//#UC END# *550C25D70182_ext:FileName
+//#UC START# *550C25D70182impl_uses*
+//#UC END# *550C25D70182impl_uses*
+//#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
+ Result := GetWordDirectives(aCtx, aWord);
+//#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
+//#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_var*
+//#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_var*
+//#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
+ try
+  if (aWord = nil) then
+   l_B := nil
+  else
+   l_B := aWord.GetEndBracket(aCtx, true);
+ except
+  l_B := nil;
+ end;//try..except
+ if (l_B = nil) then
+  Result := ''
+ else
+  Result := aCtx.rEngine.KeywordByName(TtfwCStringFactory.C(l_B.NameForRegister)).AsString;
+//#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
+//#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
+var
+ l_B : RtfwWord;
+//#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
+//#UC START# *550C278901A4_550C278901A4_4DAEED140007_Word_impl*
+ Result := aWord.GetLeftWordRefValue(aCtx, anIndex);
+//#UC END# *550C278901A4_550C278901A4_4DAEED140007_Word_impl*
+//#UC START# *550C278901A4_550C278901A4_4DAEED140007_Word_var*
+//#UC END# *550C278901A4_550C278901A4_4DAEED140007_Word_var*
+//#UC START# *550C27BB0382_550C27BB0382_4DAEED140007_Word_impl*
+ Result := aWord.GetInParam(aCtx, anIndex);
+//#UC END# *550C27BB0382_550C27BB0382_4DAEED140007_Word_impl*
+//#UC START# *550C27BB0382_550C27BB0382_4DAEED140007_Word_var*
+//#UC END# *550C27BB0382_550C27BB0382_4DAEED140007_Word_var*
+//#UC START# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
+ Result := aWord.LeftWordRefValuesCount(aCtx);
+//#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
+//#UC START# *550C27EA0141_550C27EA0141_4DAEED140007_Word_var*
+//#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_var*
+//#UC START# *550C28100270_550C28100270_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := TtfwCStringFactory.C('??? Unexisting word ???')
+ else
+  Result := aWord.WordName;
+//#UC END# *550C28100270_550C28100270_4DAEED140007_Word_impl*
+//#UC START# *550C28100270_550C28100270_4DAEED140007_Word_var*
+//#UC END# *550C28100270_550C28100270_4DAEED140007_Word_var*
+//#UC START# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
+ Result := aWord.ParentWord;
+//#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
+//#UC START# *550C283B01A0_550C283B01A0_4DAEED140007_Word_var*
+//#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_var*
+//#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else
+  Result := aWord.WordProducer;
+//#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
+//#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
+//#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
+//#UC START# *558ABFC70287_558ABFC70287_4DAEED140007_Word_impl*
+ aWord.WordProducer := aProducer;
+//#UC END# *558ABFC70287_558ABFC70287_4DAEED140007_Word_impl*
+//#UC START# *558ABFC70287_558ABFC70287_4DAEED140007_Word_var*
+//#UC END# *558ABFC70287_558ABFC70287_4DAEED140007_Word_var*
+//#UC START# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
+ if (aWord.InnerDictionary <> nil) then
+  Result := (aWord.InnerDictionary As TtfwDictionary).DRbyCName[aName]
+ else
+  Result := nil;
+//#UC END# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_impl*
+//#UC START# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_var*
+//#UC END# *558D53EF03DB_558D53EF03DB_4DAEED140007_Word_var*
+//#UC START# *558D76DE02E9_558D76DE02E9_4DAEED140007_Word_impl*
+ Result := aWord.GetRef(aCtx);
+//#UC END# *558D76DE02E9_558D76DE02E9_4DAEED140007_Word_impl*
+//#UC START# *558D76DE02E9_558D76DE02E9_4DAEED140007_Word_var*
+//#UC END# *558D76DE02E9_558D76DE02E9_4DAEED140007_Word_var*
+//#UC START# *559BDE5C03AB_559BDE5C03AB_4DAEED140007_Word_impl*
+ Result := aWord.SourcePoint.ToString;
+//#UC END# *559BDE5C03AB_559BDE5C03AB_4DAEED140007_Word_impl*
+//#UC START# *559BDE5C03AB_559BDE5C03AB_4DAEED140007_Word_var*
+//#UC END# *559BDE5C03AB_559BDE5C03AB_4DAEED140007_Word_var*
+//#UC START# *559D45FC0043_559D45FC0043_4DAEED140007_Word_impl*
+ Result := aWord.IsVarLike;
+//#UC END# *559D45FC0043_559D45FC0043_4DAEED140007_Word_impl*
+//#UC START# *559D45FC0043_559D45FC0043_4DAEED140007_Word_var*
+//#UC END# *559D45FC0043_559D45FC0043_4DAEED140007_Word_var*
+//#UC START# *559D46110368_559D46110368_4DAEED140007_Word_impl*
+ Result := aWord.IsInParam;
+//#UC END# *559D46110368_559D46110368_4DAEED140007_Word_impl*
+//#UC START# *559D46110368_559D46110368_4DAEED140007_Word_var*
+//#UC END# *559D46110368_559D46110368_4DAEED140007_Word_var*
+//#UC START# *55C2043A0132_55C2043A0132_4DAEED140007_Word_impl*
+ aWord.SetValue(aValue, aCtx);
+//#UC END# *55C2043A0132_55C2043A0132_4DAEED140007_Word_impl*
+//#UC START# *55C2043A0132_55C2043A0132_4DAEED140007_Word_var*
+//#UC END# *55C2043A0132_55C2043A0132_4DAEED140007_Word_var*
+//#UC START# *55C385720214_55C385720214_4DAEED140007_Word_impl*
+ Result := aWord.ResultTypeInfo[aCtx];
+//#UC END# *55C385720214_55C385720214_4DAEED140007_Word_impl*
+//#UC START# *55C385720214_55C385720214_4DAEED140007_Word_var*
+//#UC END# *55C385720214_55C385720214_4DAEED140007_Word_var*
+//#UC START# *55CDED9E02BF_55CDED9E02BF_4DAEED140007_Word_impl*
+ Result := aWord.IsImmediate(aCtx);
+//#UC END# *55CDED9E02BF_55CDED9E02BF_4DAEED140007_Word_impl*
+//#UC START# *55CDED9E02BF_55CDED9E02BF_4DAEED140007_Word_var*
+//#UC END# *55CDED9E02BF_55CDED9E02BF_4DAEED140007_Word_var*
+//#UC START# *55E08D220146_55E08D220146_4DAEED140007_Word_impl*
+ aWord.Use;
+//#UC END# *55E08D220146_55E08D220146_4DAEED140007_Word_impl*
+//#UC START# *55E08D220146_55E08D220146_4DAEED140007_Word_var*
+//#UC END# *55E08D220146_55E08D220146_4DAEED140007_Word_var*
+//#UC START# *55E08D570094_55E08D570094_4DAEED140007_Word_impl*
+ aWord.Free;
+//#UC END# *55E08D570094_55E08D570094_4DAEED140007_Word_impl*
+//#UC START# *55E08D570094_55E08D570094_4DAEED140007_Word_var*
+//#UC END# *55E08D570094_55E08D570094_4DAEED140007_Word_var*
+//#UC START# *55E708220353_55E708220353_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := TtfwMembersIterator.Make(nil)
+ else
+ if (aWord Is TkwForwardDeclaration) then
+  Result := TtfwMembersIterator.Make(TkwForwardDeclaration(aWord).RealWord.InnerDictionary)
+ else
+  Result := TtfwMembersIterator.Make(aWord.InnerDictionary);
+//#UC END# *55E708220353_55E708220353_4DAEED140007_Word_impl*
+//#UC START# *55E708220353_55E708220353_4DAEED140007_Word_var*
+//#UC END# *55E708220353_55E708220353_4DAEED140007_Word_var*
+//#UC START# *55E727A202B7_55E727A202B7_4DAEED140007_Word_impl*
+ Result := aWord.InnerDictionary As TtfwDictionary;
+//#UC END# *55E727A202B7_55E727A202B7_4DAEED140007_Word_impl*
+//#UC START# *55E727A202B7_55E727A202B7_4DAEED140007_Word_var*
+//#UC END# *55E727A202B7_55E727A202B7_4DAEED140007_Word_var*
+//#UC START# *55E8430C020E_55E8430C020E_4DAEED140007_Word_impl*
+ Result := DoWord(aWord);
+//#UC END# *55E8430C020E_55E8430C020E_4DAEED140007_Word_impl*
+//#UC START# *55E8430C020E_55E8430C020E_4DAEED140007_Word_var*
+
+ function DoWord(aWord : TtfwWord) : ItfwValueList;
+ var
+  l_List : TtfwWordRefList;
+  l_RightParamsCount : Integer;
+  l_Index : Integer;
+ begin//DoWord
+  if (aWord Is TkwForwardDeclaration) then
+   Result := DoWord(TkwForwardDeclaration(aWord).RealWord)
+  else
+  if (aWord is TkwCompiledWordWorkerWord) then
+   Result := DoWord(TkwCompiledWordWorkerWord(aWord).Compiled)
+  else
+  if (aWord is TkwForwardDeclarationHolder) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_List.Add(TkwForwardDeclarationHolder(aWord).Holded);
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwForwardDeclarationHolder
+  else
+  if (aWord is TkwCompiledIfElse) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_List.Add(TkwCompiledIfElse(aWord).Condition);
+    l_List.Add(TkwCompiledIfElse(aWord).WordToWork);
+    if (TkwCompiledIfElse(aWord).ElseBranch <> nil) then
+     l_List.Add(TkwCompiledIfElse(aWord).ElseBranch);
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwCompiledIfElse
+  else
+  if (aWord is TkwDualCompiledWordContainer) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_List.Add(TkwDualCompiledWordContainer(aWord).WordToWork);
+    if (TkwDualCompiledWordContainer(aWord).ElseBranch <> nil) then
+     l_List.Add(TkwDualCompiledWordContainer(aWord).ElseBranch);
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwDualCompiledWordContainer
+  else
+  if (aWord is TkwCompiledWordContainer) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_List.Add(TkwCompiledWordContainer(aWord).WordToWork);
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwCompiledWordContainer
+  else
+  if (aWord is TkwCompiledWordWorkerWordRunner) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_RightParamsCount := TkwCompiledWordWorkerWordRunner(aWord).WordToRun.RightParamsCount(aCtx);
+    if (l_RightParamsCount = 1) then
+     l_List.Add(TkwCompiledWordWorkerWordRunner(aWord).WordToWork)
+    else
+    begin
+     for l_Index := 0 to Pred(l_RightParamsCount) do
+      l_List.Add((TkwCompiledWordWorkerWordRunner(aWord).WordToWork As TkwRuntimeWordWithCode).Code[l_Index]);
+    end;//l_RightParamsCount = 1
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwCompiledWordWorkerWordRunner
+  else
+  if (aWord is TkwCompiledWordWorker) then
+  begin
+   l_List := TtfwWordRefList.Create;
+   try
+    l_List.Add(TkwCompiledWordWorker(aWord).WordToWork);
+    Result := TtfwCodeIterator.Make(l_List);
+   finally
+    FreeAndNil(l_List);
+   end;//try..finally
+  end//aWord is TkwCompiledWordWorker
+  else
+  if (aWord = nil) OR not (aWord Is TkwRuntimeWordWithCode) then
+   Result := TtfwCodeIterator.Make(nil)
+  else
+   Result := TtfwCodeIterator.Make(TkwCompiledWordPrim(aWord).GetCode(aCtx));
+ end;//DoWord
+
+//#UC END# *55E8430C020E_55E8430C020E_4DAEED140007_Word_var*
+//#UC START# *5609675401ED_5609675401ED_4DAEED140007_Word_impl*
+ aWord.SetValuePrim(aValue, aCtx);
+//#UC END# *5609675401ED_5609675401ED_4DAEED140007_Word_impl*
+//#UC START# *5609675401ED_5609675401ED_4DAEED140007_Word_var*
+//#UC END# *5609675401ED_5609675401ED_4DAEED140007_Word_var*
+//#UC START# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
+ if (aWord = nil) then
+  Result := nil
+ else
+  Result := aWord.Key As TtfwKeyWord;
+//#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_impl*
+//#UC START# *5613CB150380_5613CB150380_4DAEED140007_Word_var*
+//#UC END# *5613CB150380_5613CB150380_4DAEED140007_Word_var*
+//#UC START# *5673E6BA0364_5673E6BA0364_4DAEED140007_Word_impl*
+ aWord.SetParent(aParent);
+//#UC END# *5673E6BA0364_5673E6BA0364_4DAEED140007_Word_impl*
+//#UC START# *5673E6BA0364_5673E6BA0364_4DAEED140007_Word_var*
+//#UC END# *5673E6BA0364_5673E6BA0364_4DAEED140007_Word_var*
+//#UC START# *5673F2E60341_5673F2E60341_4DAEED140007_Word_impl*
+ aWord.Key := aKey;
+//#UC END# *5673F2E60341_5673F2E60341_4DAEED140007_Word_impl*
+//#UC START# *5673F2E60341_5673F2E60341_4DAEED140007_Word_var*
+//#UC END# *5673F2E60341_5673F2E60341_4DAEED140007_Word_var*
+//#UC START# *567A8D840243_567A8DB002B6get_impl*
+ Result := f_Boxed;
+//#UC END# *567A8D840243_567A8DB002B6get_impl*
+//#UC START# *567A8D840243_567A8DB002B6get_var*
+//#UC END# *567A8D840243_567A8DB002B6get_var*
+//#UC START# *567A8D980275_567A8D980275_4DAEED140007_Word_impl*
+ Result := TtfwWordBox.Make(aWord);
+//#UC END# *567A8D980275_567A8D980275_4DAEED140007_Word_impl*
+//#UC START# *567A8D980275_567A8D980275_4DAEED140007_Word_var*
+//#UC END# *567A8D980275_567A8D980275_4DAEED140007_Word_var*
+//#UC START# *567A8DFB0357_567A8DB002B6_impl*
+ inherited Create;
+ aWord.SetrefTo(f_Boxed);
+//#UC END# *567A8DFB0357_567A8DB002B6_impl*
+//#UC START# *567A8DFB0357_567A8DB002B6_var*
+//#UC END# *567A8DFB0357_567A8DB002B6_var*
+//#UC START# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
+ Result := aWord.GetRefForCompare;
+//#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
+//#UC START# *57500AC802FC_57500AC802FC_4DAEED140007_Word_var*
+//#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_var*

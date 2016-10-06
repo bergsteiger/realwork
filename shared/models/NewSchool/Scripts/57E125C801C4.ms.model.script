@@ -3,6 +3,7 @@
 INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57E125C801C4
+%%Inner ME_57E125C801C4
 
 FORWARD ME_57E125C801C4
 
@@ -51,6 +52,90 @@ ME ME_57E146F5020B
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_57E146F5020B TvtDropDirection
+
+FORWARD ME_57ED309B017F
+
+ME ME_57ED30C002C4
+ MEPROP UID '57ED30C002C4'
+ MEPROP Name 'rdRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30C002C4 rdRight
+
+ME ME_57ED30CB0076
+ MEPROP UID '57ED30CB0076'
+ MEPROP Name 'rdBottom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30CB0076 rdBottom
+
+ME ME_57ED30D50030
+ MEPROP UID '57ED30D50030'
+ MEPROP Name 'rdTop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30D50030 rdTop
+
+ME ME_57ED30DE03CA
+ MEPROP UID '57ED30DE03CA'
+ MEPROP Name 'rdBottomRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30DE03CA rdBottomRight
+
+ME ME_57ED30E7026C
+ MEPROP UID '57ED30E7026C'
+ MEPROP Name 'rdTopRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30E7026C rdTopRight
+
+ME ME_57ED309B017F
+ MEPROP UID '57ED309B017F'
+ MEPROP Name 'TvtResizeDirection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57ED30C002C4 // rdRight
+ HWL ME_57ED30CB0076 // rdBottom
+ HWL ME_57ED30D50030 // rdTop
+ HWL ME_57ED30DE03CA // rdBottomRight
+ HWL ME_57ED30E7026C // rdTopRight
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57ED309B017F TvtResizeDirection
 
 ME ME_57E147AE0316
  MEPROP UID '57E147AE0316'
@@ -131,6 +216,64 @@ ME ME_57E53BEF00F5
  ;
 
 ENDME // ME_57E53BEF00F5 f_Canvas
+
+ME ME_57ED310D022C
+ MEPROP UID '57ED310D022C'
+ MEPROP Name 'f_ResizeDirection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELINK Target HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED310D022C f_ResizeDirection
+
+ME ME_57ED312D0013
+ MEPROP UID '57ED312D0013'
+ MEPROP Name 'f_Resize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57ED312D0013 f_Resize
+
+ME ME_57ED316801CF
+ MEPROP UID '57ED316801CF'
+ MEPROP Name 'f_ResizePoint'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Точка окна, за которую схватили мышью для изменения размеров' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_57ED316801CF f_ResizePoint
+
+ME ME_57F23C65019F
+ MEPROP UID '57F23C65019F'
+ MEPROP Name 'f_InitialSize'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Размеры окна перед началом ресайза' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_57F23C65019F f_InitialSize
 
 FORWARD ME_57E2474902DE
 
@@ -354,14 +497,162 @@ ME ME_57E53C6D0303
 
 ENDME // ME_57E53C6D0303 Paint
 
-ME ME_57E25F6603C3
- MEPROP Name 'Message'
+FORWARD ME_57ED30620029
+
+ME ME_57ED30710157
+ MEPROP Name 'aResizeDirection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57ED309B017F // TvtResizeDirection
+ ;
+
+ENDME // ME_57ED30710157 aResizeDirection
+
+ME ME_57ED30710193
+ MEPROP Name 'X'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57ED30710193 X
+
+ME ME_57ED307101E3
+ MEPROP Name 'Y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57ED307101E3 Y
+
+ME ME_57ED306B020B
+ MEPROP UID '57ED306B020B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57ED30620029 // BeginResize
+ ;
+ MELIST Parameters
+   Seq: ( ME_57ED30710157 // aResizeDirection
+ ME_57ED30710193 // X
+ ME_57ED307101E3 // Y
+ )
+ ; // Parameters
+
+ENDME // ME_57ED306B020B DoIt
+
+ME ME_57ED30620029
+ MEPROP UID '57ED30620029'
+ MEPROP Name 'BeginResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57ED306B020B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57ED30620029 BeginResize
+
+FORWARD ME_57EE6C32020D
+
+ME ME_57EE6C95027D
+ MEPROP Name 'X'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57EE6C95027D X
+
+ME ME_57EE6C95029B
+ MEPROP Name 'Y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57EE6C95029B Y
+
+ME ME_57EE6C8403BF
+ MEPROP UID '57EE6C8403BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE6C32020D // ProcessResize
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE6C95027D // X
+ ME_57EE6C95029B // Y
+ )
+ ; // Parameters
+
+ENDME // ME_57EE6C8403BF DoIt
+
+ME ME_57EE6C32020D
+ MEPROP UID '57EE6C32020D'
+ MEPROP Name 'ProcessResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EE6C8403BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EE6C32020D ProcessResize
+
+FORWARD ME_57EE6CDD00B2
+
+ME ME_36372F9A8E04
+ MEPROP UID '36372F9A8E04'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода FinishResize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE6CDD00B2 // FinishResize
+ ;
+
+ENDME // ME_36372F9A8E04 DoIt
+
+ME ME_57EE6CDD00B2
+ MEPROP UID '57EE6CDD00B2'
+ MEPROP Name 'FinishResize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_36372F9A8E04 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EE6CDD00B2 FinishResize
+
+ME ME_57EE459902F8
+ MEPROP Name 'Msg'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
  MELINK Target WL 'ME_50291A020241' '476F78840219.ms.model.script' // TWMNCCalcSize
  ;
 
-ENDME // ME_57E25F6603C3 Message
+ENDME // ME_57EE459902F8 Msg
 
 ME ME_57E25F5E0233
  MEPROP UID '57E25F5E0233'
@@ -373,47 +664,21 @@ ME ME_57E25F5E0233
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
  ;
  MELIST Parameters
-   Seq: ( ME_57E25F6603C3 // Message
+   Seq: ( ME_57EE459902F8 // Msg
  )
  ; // Parameters
  UP "Message ID" 'WM_NCCALCSIZE'
 
 ENDME // ME_57E25F5E0233 WMNCCalcSize
 
-ME ME_57E53C130033
- MEPROP Name 'Message'
- MEPROP Class class_Parameter
- MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_482C43A60274' '476F78840219.ms.model.script' // TWMPaint
- ;
-
-ENDME // ME_57E53C130033 Message
-
-ME ME_57E53C0803A3
- MEPROP UID '57E53C0803A3'
- MEPROP Name 'WMPaint'
- MEPROP Class class_Operation
- MELINK Stereotype st_message::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
- ;
- MELIST Parameters
-   Seq: ( ME_57E53C130033 // Message
- )
- ; // Parameters
- UP "Message ID" 'WM_PAINT'
-
-ENDME // ME_57E53C0803A3 WMPaint
-
-ME ME_57E55FDB0187
- MEPROP Name 'Message'
+ME ME_57EE45A101C8
+ MEPROP Name 'Msg'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
  MELINK Target WL 'ME_48998D0E0073' '476F78840219.ms.model.script' // TWMNCPaint
  ;
 
-ENDME // ME_57E55FDB0187 Message
+ENDME // ME_57EE45A101C8 Msg
 
 ME ME_57E55FCD0311
  MEPROP UID '57E55FCD0311'
@@ -425,21 +690,21 @@ ME ME_57E55FCD0311
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
  ;
  MELIST Parameters
-   Seq: ( ME_57E55FDB0187 // Message
+   Seq: ( ME_57EE45A101C8 // Msg
  )
  ; // Parameters
  UP "Message ID" 'WM_NCPAINT'
 
 ENDME // ME_57E55FCD0311 WMNCPaint
 
-ME ME_57E8C63701E8
- MEPROP Name 'Message'
+ME ME_57EE45A300F6
+ MEPROP Name 'Msg'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
  MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
  ;
 
-ENDME // ME_57E8C63701E8 Message
+ENDME // ME_57EE45A300F6 Msg
 
 ME ME_57E8C60B0281
  MEPROP UID '57E8C60B0281'
@@ -451,12 +716,168 @@ ME ME_57E8C60B0281
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
  ;
  MELIST Parameters
-   Seq: ( ME_57E8C63701E8 // Message
+   Seq: ( ME_57EE45A300F6 // Msg
  )
  ; // Parameters
  UP "Message ID" 'WM_NCHITTEST'
 
 ENDME // ME_57E8C60B0281 WMNCHitTest
+
+ME ME_57EE45A50165
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_508FAB07030A' '476F78840219.ms.model.script' // TWMMouseMove
+ ;
+
+ENDME // ME_57EE45A50165 Msg
+
+ME ME_57ED160D00F8
+ MEPROP UID '57ED160D00F8'
+ MEPROP Name 'WMMouseMove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE45A50165 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEMOVE'
+
+ENDME // ME_57ED160D00F8 WMMouseMove
+
+ME ME_57EE45A800DA
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_482C43A60274' '476F78840219.ms.model.script' // TWMPaint
+ ;
+
+ENDME // ME_57EE45A800DA Msg
+
+ME ME_57ED16320366
+ MEPROP UID '57ED16320366'
+ MEPROP Name 'WMPaint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE45A800DA // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_PAINT'
+
+ENDME // ME_57ED16320366 WMPaint
+
+ME ME_57EE45AA0135
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_53FEECDE00D0' '476F78840219.ms.model.script' // TWMNCLButtonDown
+ ;
+
+ENDME // ME_57EE45AA0135 Msg
+
+ME ME_57ED30370037
+ MEPROP UID '57ED30370037'
+ MEPROP Name 'WMNCLButtonDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE45AA0135 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCLBUTTONDOWN'
+
+ENDME // ME_57ED30370037 WMNCLButtonDown
+
+ME ME_57EE45AC02C5
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4C0CC47E0075' '476F78840219.ms.model.script' // TWMNCMouseMove
+ ;
+
+ENDME // ME_57EE45AC02C5 Msg
+
+ME ME_57ED3384013B
+ MEPROP UID '57ED3384013B'
+ MEPROP Name 'WMNCMouseMove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE45AC02C5 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCMOUSEMOVE'
+
+ENDME // ME_57ED3384013B WMNCMouseMove
+
+ME ME_57EE707C03B5
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_53FEECF2024F' '476F78840219.ms.model.script' // TWMNCLButtonUp
+ ;
+
+ENDME // ME_57EE707C03B5 Msg
+
+ME ME_57EE706D00A3
+ MEPROP UID '57EE706D00A3'
+ MEPROP Name 'WMNCLButtonUp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE707C03B5 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCLBUTTONUP'
+
+ENDME // ME_57EE706D00A3 WMNCLButtonUp
+
+ME ME_57F23B0303B9
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E7B4F6B0021' '476F78840219.ms.model.script' // TWMMouseActivate
+ ;
+
+ENDME // ME_57F23B0303B9 Msg
+
+ME ME_57F23AD70393
+ MEPROP UID '57F23AD70393'
+ MEPROP Name 'WMMouseActivate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F23B0303B9 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEACTIVATE'
+
+ENDME // ME_57F23AD70393 WMMouseActivate
 
 ME ME_479731C50290_ME_57E125C801C4
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
@@ -529,6 +950,10 @@ ME ME_57E125C801C4
  HWL ME_57E26A5E010A // IsBorderNearOwnerVisible
  HWL ME_57E3C8470156 // f_Done
  HWL ME_57E53BEF00F5 // f_Canvas
+ HWL ME_57ED310D022C // f_ResizeDirection
+ HWL ME_57ED312D0013 // f_Resize
+ HWL ME_57ED316801CF // f_ResizePoint
+ HWL ME_57F23C65019F // f_InitialSize
  )
  ; // Attributes
  MELIST Operations
@@ -540,10 +965,18 @@ ME ME_57E125C801C4
  HWL ME_57E3BB8101C2 // GetOwnerHandle
  HWL ME_57E3CB0F00A9 // CloseUp
  HWL ME_57E53C6D0303 // Paint
+ HWL ME_57ED30620029 // BeginResize
+ HWL ME_57EE6C32020D // ProcessResize
+ HWL ME_57EE6CDD00B2 // FinishResize
  HWL ME_57E25F5E0233 // WMNCCalcSize
- HWL ME_57E53C0803A3 // WMPaint
  HWL ME_57E55FCD0311 // WMNCPaint
  HWL ME_57E8C60B0281 // WMNCHitTest
+ HWL ME_57ED160D00F8 // WMMouseMove
+ HWL ME_57ED16320366 // WMPaint
+ HWL ME_57ED30370037 // WMNCLButtonDown
+ HWL ME_57ED3384013B // WMNCMouseMove
+ HWL ME_57EE706D00A3 // WMNCLButtonUp
+ HWL ME_57F23AD70393 // WMMouseActivate
  )
  ; // Operations
  MELIST Overridden
@@ -558,6 +991,7 @@ ME ME_57E125C801C4
  ; // Overridden
  MELIST Children
    Seq: ( HWL ME_57E146F5020B // TvtDropDirection
+ HWL ME_57ED309B017F // TvtResizeDirection
  )
  ; // Children
  MESTRINGLIST DiagramsNames

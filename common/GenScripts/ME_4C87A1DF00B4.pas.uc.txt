@@ -1,0 +1,301 @@
+//#UC START# *479731C50290_4C87A1DF00B4_impl*
+ if (DataSource <> nil) then
+  DataSource.Unsubscribe(IbsCommonDictionListener(Self));
+ inherited;
+//#UC END# *479731C50290_4C87A1DF00B4_impl*
+//#UC START# *479731C50290_4C87A1DF00B4_var*
+//#UC END# *479731C50290_4C87A1DF00B4_var*
+//#UC START# *493402BC0160_4C87A1DF00B4_impl*
+ WordsTree.Current := dsCommonDiction.MakeCurrentIndex(WordsTree.TreeStruct);
+//#UC END# *493402BC0160_4C87A1DF00B4_impl*
+//#UC START# *493402BC0160_4C87A1DF00B4_var*
+//#UC END# *493402BC0160_4C87A1DF00B4_var*
+//#UC START# *497469C90140_4C87A1DF00B4_impl*
+ inherited;
+ if (anOld <> nil) then
+  anOld.Unsubscribe(IbsCommonDictionListener(Self));
+ if (aNew <> nil) then
+  aNew.Subscribe(IbsCommonDictionListener(Self));
+ // ¬озможно, что в истории лежит которого на самом деле уже нет, вследствии
+ // установки базы без толкового словар€ не лету
+ if (dsCommonDiction <> nil) then
+ begin
+  // ѕоиск слова в толковом словаре
+  if not Dispatcher.History.InBF then
+  begin
+   //WordsTree.TreeStruct := dsCommonDiction.SimpleTree;
+   (*if Assigned(ContextFilterState) and
+      Supports(dsCommonDiction.SimpleTree, Il3FilterableTree, l_Tree) then
+    WordsTree.TreeStruct := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilterState.Context),
+                                                l_Node,
+                                                l_NewNodeIndex,
+                                                True,
+                                                ContextFilter.NeedRefilterTree)
+   else
+    WordsTree.TreeStruct := dsCommonDiction.SimpleTree;*)
+   WordsTree.TreeStruct;
+   if not l3IsNil(dsCommonDiction.Context) then
+   begin
+    ContextFilter.Context := dsCommonDiction.Context;
+    ContextFilter.ForceActive;
+   end//if not l3IsNil(dsCommonDiction.Context) then
+   // ѕереход по ссылке в толковани€х
+   else
+   begin
+    // ¬ыключаем контекст перед позиционированием
+    ContextFilter.Active := False;
+    // ѕри открытии словар€ показываем текущее толкование в списке (первое):
+    if lp_IsInit then
+    begin
+     // ≈сли дерево на экране, то покажем первое толкование:
+     if WordsTree.IsTreeAssign then
+      ChangeDiction(WordsTree.Current)
+     // »наче подождем когда дерево по€витс€ и покажем первое толкование:
+     else
+      NeedShowCurrentDiction := True;
+    end//if lp_IsInit then
+    // —позиционируемс€
+    else
+    begin
+     l_Index := dsCommonDiction.MakeCurrentIndex(WordsTree.TreeStruct);
+     if l_Index > -1 then
+      WordsTree.Current := Pred(l_Index)
+     else
+      WordsTree.SetNoCurrent;
+    end;//if lp_IsInit then
+    if Assigned(ContextFilterState) then
+     ContextFilter.AssignState(ContextFilterState);
+   end;//if not l3IsNil(dsCommonDiction.Context) then
+  end;//if not aFromHistory then
+ end;//dsCommonDiction <> nil
+
+ PostMessage(WordsTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *497469C90140_4C87A1DF00B4_impl*
+//#UC START# *497469C90140_4C87A1DF00B4_var*
+
+ function lp_IsInit: Boolean;
+ begin
+  Result := (sdsBaseDocument <> nil) and not sdsBaseDocument.HasDocument;
+ end;//lp_IsInit
+
+var
+ l_Index: Integer;
+ l_Tree: Il3FilterableTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+//#UC END# *497469C90140_4C87A1DF00B4_var*
+//#UC START# *49803F5503AA_4C87A1DF00B4_impl*
+ inherited;
+
+ // отключаем придочивание дл€ исключени€ потенциальных AV, сделано вместе с
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=382410422
+// if Parent is TvtSizeablePanel then
+//  TvtSizeablePanel(Parent).DisableAcceptInDockOver := true;
+
+ WordsTree.Images := nsDictRes.DictImages;
+ ContextFilter.Images := dmStdRes.SmallImageList;
+ UpdateStatusInfo;
+//#UC END# *49803F5503AA_4C87A1DF00B4_impl*
+//#UC START# *49803F5503AA_4C87A1DF00B4_var*
+//#UC END# *49803F5503AA_4C87A1DF00B4_var*
+//#UC START# *4A8E8F2E0195_4C87A1DF00B4_impl*
+ ActiveControl := WordsTree;
+ with BackgroundPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+ with ContextFilter do
+ begin
+  Height := 31;
+  LabelVisible := False;
+  ImageIndex := 77;
+  ContextFilterTarget := WordsTree;
+  OnChange := ContextFilterChange;
+  OnWrongContext := ContextFilterWrongContext;
+ end;
+ with WordsTree do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  ActionElementMode := l3_amSingleClick;
+  NeedStatus := True;
+  OnCountChanged := WordsTreeCountChanged;
+  OnGetItemImage := WordsTreeGetItemImage;
+  OnActionElement := WordsTreeActionElement;
+  OnCurrentChanged := WordsTreeCurrentChanged;
+  OnTreeChanged := WordsTreeTreeChanged;
+  OnSelectCountChanged := WordsTreeSelectCountChanged;
+  OnFormatStatusInfo := WordsTreeFormatStatusInfo;
+  OnNewCharPressed := WordsTreeNewCharPressed;
+  OnMakeTreeSource := WordsTreeMakeTreeSource;
+  SettingId := 'stidDictionTree';
+ end;
+//#UC END# *4A8E8F2E0195_4C87A1DF00B4_impl*
+//#UC START# *4A8E8F2E0195_4C87A1DF00B4_var*
+//#UC END# *4A8E8F2E0195_4C87A1DF00B4_var*
+//#UC START# *4BDAF7880236_4C87A1DF00B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7880236_4C87A1DF00B4test_impl*
+//#UC START# *4BDAF7880236_4C87A1DF00B4test_var*
+//#UC END# *4BDAF7880236_4C87A1DF00B4test_var*
+//#UC START# *4BDAF7A2005C_4C87A1DF00B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4BDAF7A2005C_4C87A1DF00B4test_impl*
+//#UC START# *4BDAF7A2005C_4C87A1DF00B4test_var*
+//#UC END# *4BDAF7A2005C_4C87A1DF00B4test_var*
+//#UC START# *4C87A1DF00B4_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDictionOptions_Form.pas
+//#UC END# *4C87A1DF00B4_ext:FileName
+//#UC START# *4C87A1DF00B4impl_uses*
+ , l3ControlsTypes
+//#UC END# *4C87A1DF00B4impl_uses*
+//#UC START# *5005645F03CE_4C87A1DF00B4_impl*
+ if aItem <> -1 then
+ begin
+  l_l3Node := WordsTree.GetNode(aItem);
+  try
+   if (dsCommonDiction <> nil) then
+    dsCommonDiction.CurrentChanged(l_l3Node, aUpdateWithDelay);
+  finally
+   l_l3Node := nil;
+  end;//try..finally
+ end;//if Index <> -1 then
+//#UC END# *5005645F03CE_4C87A1DF00B4_impl*
+//#UC START# *5005645F03CE_4C87A1DF00B4_var*
+var
+ l_l3Node : Il3SimpleNode;
+//#UC END# *5005645F03CE_4C87A1DF00B4_var*
+//#UC START# *5005661D0242_4C87A1DF00B4set_impl*
+ inherited;
+ NeedShowCurrentDiction := false;
+ Assert(False);//тут бесконечна€ рекурси€
+//#UC END# *5005661D0242_4C87A1DF00B4set_impl*
+//#UC START# *5005661D0242_4C87A1DF00B4set_var*
+//#UC END# *5005661D0242_4C87A1DF00B4set_var*
+//#UC START# *5146E2260095_4C87A1DF00B4_impl*
+ if Assigned(dsCommonDiction) and
+    Supports(WordsTree.TreeStruct, Il3FilterableTree, l_Tree) then
+ begin
+  // —охраним параметры контекстной фильтрации дл€ данного €зыка
+  f_ContextFilterState := nil;
+  dsCommonDiction.ContextFilterState := ContextFilter.MakeState;
+  l_Filtered := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilterState.ActiveContext),
+                                    l_Node,
+                                    l_NewNodeIndex,
+                                    True,
+                                    ContextFilter.NeedRefilterTree);
+
+  if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
+   with WordsTree do
+   begin
+    Changing;
+    try
+     TreeStruct := l_Filtered;
+     vlbMakeItemVisible(Current);
+    finally
+     Changed;
+    end;{try..finally}
+   end;//with WordsTree do
+ end;//if Supports(WordsTree.TreeStruct,
+//#UC END# *5146E2260095_4C87A1DF00B4_impl*
+//#UC START# *5146E2260095_4C87A1DF00B4_var*
+var
+ l_Tree: Il3FilterableTree;
+ l_Filtered: Il3SimpleTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+//#UC END# *5146E2260095_4C87A1DF00B4_var*
+//#UC START# *5146E29E0040_4C87A1DF00B4_impl*
+ nsBeepWrongContext;
+//#UC END# *5146E29E0040_4C87A1DF00B4_impl*
+//#UC START# *5146E29E0040_4C87A1DF00B4_var*
+//#UC END# *5146E29E0040_4C87A1DF00B4_var*
+//#UC START# *5146E2F602B1_4C87A1DF00B4_impl*
+ UpdateStatusInfo;
+//#UC END# *5146E2F602B1_4C87A1DF00B4_impl*
+//#UC START# *5146E2F602B1_4C87A1DF00B4_var*
+//#UC END# *5146E2F602B1_4C87A1DF00B4_var*
+//#UC START# *5146E33502A3_4C87A1DF00B4_impl*
+ UpdateStatusInfo;
+ // ≈сли происходит переключени€ €зыка толкований обновл€ть текущий нельз€, т.к.
+ // в процессе переключени€ произойдет поиск текущего в новом списке толкований
+ // и если толкование не будет найдено, то в новом списке толковани€ не будет
+ // устновлен текущий:
+ ChangeDiction(aNewCurrent);
+//#UC END# *5146E33502A3_4C87A1DF00B4_impl*
+//#UC START# *5146E33502A3_4C87A1DF00B4_var*
+//#UC END# *5146E33502A3_4C87A1DF00B4_var*
+//#UC START# *5146E621033A_4C87A1DF00B4_impl*
+ Result := cDictItemIcon;
+//#UC END# *5146E621033A_4C87A1DF00B4_impl*
+//#UC START# *5146E621033A_4C87A1DF00B4_var*
+//#UC END# *5146E621033A_4C87A1DF00B4_var*
+//#UC START# *5146E64C035F_4C87A1DF00B4_impl*
+ ChangeDiction(Index, False);
+//#UC END# *5146E64C035F_4C87A1DF00B4_impl*
+//#UC START# *5146E64C035F_4C87A1DF00B4_var*
+//#UC END# *5146E64C035F_4C87A1DF00B4_var*
+//#UC START# *5146EC920269_4C87A1DF00B4_impl*
+ if NeedShowCurrentDiction then
+ begin
+  ChangeDiction(WordsTree.Current);
+  NeedShowCurrentDiction := False;
+ end;//if NeedShowCurrentDiction then
+//#UC END# *5146EC920269_4C87A1DF00B4_impl*
+//#UC START# *5146EC920269_4C87A1DF00B4_var*
+//#UC END# *5146EC920269_4C87A1DF00B4_var*
+//#UC START# *5146ED3F0081_4C87A1DF00B4_impl*
+ UpdateStatusInfo;
+//#UC END# *5146ED3F0081_4C87A1DF00B4_impl*
+//#UC START# *5146ED3F0081_4C87A1DF00B4_var*
+//#UC END# *5146ED3F0081_4C87A1DF00B4_var*
+//#UC START# *5146ED6C00BB_4C87A1DF00B4_impl*
+ Info := vcmFmt(cMap[UserType]^,[aCurrent, aCount]);
+//#UC END# *5146ED6C00BB_4C87A1DF00B4_impl*
+//#UC START# *5146ED6C00BB_4C87A1DF00B4_var*
+const
+ cMap: array [utTips .. utMedicDiction] of PvcmStringID = (
+  @str_TipsStatusInfoFormat,   //utTips
+  @str_DictionStatusInfoFormat //utMedicDiction
+ );
+//#UC END# *5146ED6C00BB_4C87A1DF00B4_var*
+//#UC START# *5146ED7F005F_4C87A1DF00B4_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *5146ED7F005F_4C87A1DF00B4_impl*
+//#UC START# *5146ED7F005F_4C87A1DF00B4_var*
+//#UC END# *5146ED7F005F_4C87A1DF00B4_var*
+//#UC START# *52F4E7F400DE_4C87A1DF00B4_impl*
+(* if Assigned(dsCommonDiction) then
+  if Assigned(ContextFilterState) and
+     Supports(dsCommonDiction.SimpleTree, Il3FilterableTree, l_Tree) then
+   theTree := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilterState.Context),
+                                  l_Node,
+                                  l_NewNodeIndex,
+                                  True,
+                                  ContextFilter.NeedRefilterTree)
+  else
+   theTree := dsCommonDiction.SimpleTree
+ else
+  theTree := nil;*)
+ theTree := nil;
+ if Assigned(dsCommonDiction) then
+  with DefDataAdapter do
+   if Assigned(ContextFilterState)
+    then theTree := TnsDictionTree.Make(dsCommonDiction.DictionKind, LG_RUSSIAN, ContextFilterState.Context)
+    else theTree := TnsDictionTree.Make(dsCommonDiction.DictionKind, LG_RUSSIAN);
+//#UC END# *52F4E7F400DE_4C87A1DF00B4_impl*
+//#UC START# *52F4E7F400DE_4C87A1DF00B4_var*
+var
+ l_Tree: Il3FilterableTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+//#UC END# *52F4E7F400DE_4C87A1DF00B4_var*
+//#UC START# *52F89EEA01EE_4C87A1DF00B4get_impl*
+ if not Assigned(f_ContextFilterState) then
+  if Assigned(dsCommonDiction) then
+   f_ContextFilterState := dsCommonDiction.ContextFilterState;
+ Result := f_ContextFilterState;
+//#UC END# *52F89EEA01EE_4C87A1DF00B4get_impl*
+//#UC START# *52F89EEA01EE_4C87A1DF00B4get_var*
+//#UC END# *52F89EEA01EE_4C87A1DF00B4get_var*

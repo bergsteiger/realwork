@@ -1,0 +1,36 @@
+//#UC START# *56090AF902FF_ext:FileName
+w:\common\components\rtl\Garant\Daily\l3IntegerToIntegerMapTest.pas
+//#UC END# *56090AF902FF_ext:FileName
+//#UC START# *56090AF902FFimpl_uses*
+//#UC END# *56090AF902FFimpl_uses*
+//#UC START# *56090B0D03D1_56090AF902FF_impl*
+ l_M := Tl3IntegerToIntegerMap.Create;
+ try
+  l_M.Add(1, 100);
+  l_M.Add(2, 200);
+  l_M.Add(3, 300);
+  CheckTrue(l_M.Has(1));
+  CheckTrue(l_M.Has(2));
+  CheckTrue(l_M.Has(3));
+  CheckFalse(l_M.Has(4));
+
+  CheckTrue(l_M.IndexByKey(1) = 0);
+  CheckTrue(l_M.IndexByKey(2) = 1);
+  CheckTrue(l_M.IndexByKey(3) = 2);
+  CheckTrue(l_M.IndexByKey(4) = -1);
+
+  CheckTrue(l_M.ValueByKey(1) = 100);
+  CheckTrue(l_M.ValueByKey(2) = 200);
+  CheckTrue(l_M.ValueByKey(3) = 300);
+
+  CheckTrue(l_M.ValueSlotByKey(1)^ = 100);
+  CheckTrue(l_M.ValueSlotByKey(2)^ = 200);
+  CheckTrue(l_M.ValueSlotByKey(3)^ = 300);
+ finally
+  FreeAndNil(l_M);
+ end;//try..finally
+//#UC END# *56090B0D03D1_56090AF902FF_impl*
+//#UC START# *56090B0D03D1_56090AF902FF_var*
+var
+ l_M : Tl3IntegerToIntegerMap;
+//#UC END# *56090B0D03D1_56090AF902FF_var*

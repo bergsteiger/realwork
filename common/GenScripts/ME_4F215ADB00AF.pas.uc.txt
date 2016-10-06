@@ -1,0 +1,33 @@
+//#UC START# *4DAEEDE10285_4F215ADB00AF_impl*
+ l_Res := false;
+ try
+  l_F := aCtx.rEngine.PopDelphiString;
+  //l_N := aCtx.rEngine.PopDelphiString;
+  l_UT := aCtx.rEngine.PopInt;
+  l_ID.rName := l_F;
+  l_ID.rID := 0;
+  l_Res := vcmDispatcher.FormDispatcher.
+   CurrentMainForm.AsContainer.HasForm(l_ID, vcm_ztAny, true,  @l_EF, l_UT);
+ finally
+  aCtx.rEngine.PushBool(l_Res);
+ end;//try..finally
+ if l_Res then
+ begin
+  aCtx.rEngine.PushObj(l_EF.VCLWinControl);
+  aCtx.rEngine.Swap;
+ end;//l_Res
+//#UC END# *4DAEEDE10285_4F215ADB00AF_impl*
+//#UC START# *4DAEEDE10285_4F215ADB00AF_var*
+var
+ l_Res : Boolean;
+ //l_N  : AnsiString;
+ l_F  : AnsiString;
+ l_ID : TvcmFormID;
+ l_EF : IvcmEntityForm;
+ l_UT : Integer;
+//#UC END# *4DAEEDE10285_4F215ADB00AF_var*
+//#UC START# *4F215ADB00AF_ext:FileName
+w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmFindForm.pas
+//#UC END# *4F215ADB00AF_ext:FileName
+//#UC START# *4F215ADB00AFimpl_uses*
+//#UC END# *4F215ADB00AFimpl_uses*

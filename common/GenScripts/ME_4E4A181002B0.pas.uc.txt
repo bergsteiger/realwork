@@ -1,0 +1,25 @@
+//#UC START# *4DAEEDE10285_4E4A181002B0_impl*
+ inherited;
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя архива с базой!', aCtx);
+ l_DirName := g_BaseEngine.DataParams.DocStoragePath;
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(aCtx.rEngine.PopDelphiString);
+ try
+  acDeInitDB;
+ except
+  on EdtBrokenFileLock do;
+ end;
+ if not ArUnackBaseFromArchive(l_FileName, l_DirName, l_Msg) then
+  Assert(False, l_Msg);
+ acInitDB; 
+//#UC END# *4DAEEDE10285_4E4A181002B0_impl*
+//#UC START# *4DAEEDE10285_4E4A181002B0_var*
+var
+ l_Msg      : AnsiString;
+ l_DirName  : AnsiString;
+ l_FileName : AnsiString;
+//#UC END# *4DAEEDE10285_4E4A181002B0_var*
+//#UC START# *4E4A181002B0_ext:FileName
+w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearDataBase.pas
+//#UC END# *4E4A181002B0_ext:FileName
+//#UC START# *4E4A181002B0impl_uses*
+//#UC END# *4E4A181002B0impl_uses*

@@ -1,0 +1,178 @@
+//#UC START# *46A498630097_ext:ParentFileName
+w:\common\components\rtl\Garant\L3\l3Interfaces.pas
+//#UC END# *46A498630097_ext:ParentFileName
+//#UC START# *46A498630097ci*
+//#UC END# *46A498630097ci*
+//#UC START# *46A498630097impl*
+// start object Tl3_Rect
+
+procedure Tl3_Rect.Inflate(const Pt: Tl3_Point);
+  {overload;}
+  {-увеличивает размеры прямоугольника на P}
+begin
+ TopLeft := Tl3_Point(R.TopLeft).Sub(Pt);
+ BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
+end;
+
+procedure Tl3_Rect.Inflate(X, Y: Tl3Inch);
+  {overload;}
+  {-увеличивает размеры прямоугольника на (X, Y)}
+begin
+ Dec(R.Left, X);
+ Inc(R.Right, X);
+ Dec(R.Top, Y);
+ Inc(R.Bottom, Y);
+end;
+
+procedure Tl3_Rect.OffsetPt(const Pt: Tl3_Point);
+  {-сдвинуть прямоугольник на Pt}
+begin
+ TopLeft := Tl3_Point(R.TopLeft).Add(Pt);
+ BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
+end;
+
+procedure Tl3_Rect.Offset(aX, aY: Tl3Inch);
+  {-сдвинуть прямоугольник на (X, Y)}
+begin
+ Inc(R.Top, aY);
+ Inc(R.Bottom, aY);
+ Inc(R.Left, aX);
+ Inc(R.Right, aX);
+end;
+
+function Tl3_Rect.ContainsPt(const Pt: Tl3_Point): Boolean;
+  {-содержит ли прямоугольник точку Pt}
+begin
+ with Pt do
+  Result := ((P.X >= R.Left) AND (P.Y >= R.Top)) AND ((P.X < R.Right) AND (P.Y < R.Bottom));
+end;
+
+function Tl3_Rect.EQ(const Rt: Tl3_Rect): Boolean;
+  {-проверяет равенство двух прямоугольников}
+begin
+ Result := Tl3_Point(R.TopLeft).EQ(Rt.R.TopLeft) AND Tl3_Point(R.BottomRight).EQ(Rt.R.BottomRight);
+end;
+
+function Tl3_Rect.AddPt(const Pt: Tl3_Point): Tl3_Rect;
+  {-сдвинуть прямоугольник на Pt и вернуть Result}
+begin
+ Result.R.Left := R.Left + Pt.P.X;
+ Result.R.Right := R.Right + Pt.P.X;
+ Result.R.Top := R.Top + Pt.P.Y;
+ if R.Bottom = High(MaxInt) then
+  Result.R.Bottom := High(Integer)
+ else 
+  Result.R.Bottom := R.Bottom + Pt.P.Y;
+end;
+
+function Tl3_Rect.SubPt(const Pt: Tl3_Point): Tl3_Rect;
+  {-сдвинуть прямоугольник на -Pt и вернуть Result}
+begin
+ Result.R.Left := R.Left - Pt.P.X;
+ Result.R.Right := R.Right - Pt.P.X;
+ Result.R.Top := R.Top - Pt.P.Y;
+ Result.R.Bottom := R.Bottom - Pt.P.Y;
+end;
+
+function evIntersectRect(var DR: Tl3Rect; const SR1, SR2: Tl3Rect): Boolean;
+begin
+ with DR do
+ begin
+  R.Top := Max(SR1.R.Top, SR2.R.Top);
+  R.Bottom := Min(SR1.R.Bottom, SR2.R.Bottom);
+  Result := (R.Top < R.Bottom);
+  if Result then
+  begin
+   R.Left := Max(SR1.R.Left, SR2.R.Left);
+   R.Right := Min(SR1.R.Right, SR2.R.Right);
+   Result := (R.Left < R.Right);
+  end;//Result
+  if not Result then
+   FillChar(DR, SizeOf(DR), 0);
+ end;//with DR
+end;
+
+function Tl3_Rect.IntersectsWith(const Rt: Tl3_Rect): Boolean;
+  {-проверяет пересечение Self с Rt}
+var
+ OutR : Tl3_Rect;
+begin
+ Result := evIntersectRect(OutR, Self, Tl3_Rect(Rt));
+end;
+
+(*function Tl3_Rect.pm_GetTopLeft: Tl3_Point;
+  {-}
+begin
+ Result := Tl3_Point(R.TopLeft);
+end;
+
+procedure Tl3_Rect.pm_SetTopLeft(const aValue: Tl3_Point);
+  {-}
+begin
+ R.TopLeft := aValue;
+end;
+
+function Tl3_Rect.pm_GetBottomRight: Tl3_Point;
+  {-}
+begin
+ Result := Tl3_Point(R.BottomRight);
+end;
+
+procedure Tl3_Rect.pm_SetBottomRight(const aValue: Tl3_Point);
+  {-}
+begin
+ R.BottomRight := aValue;
+end;*)
+
+procedure Tl3_Rect.MakeZoom(Z: Integer);
+begin
+ Top := evZoom(Z, Top);
+ Left := evZoom(Z, Left);
+ Right := evZoom(Z, Right);
+ Bottom := evZoom(Z, Bottom);
+end;
+//#UC END# *46A498630097impl*
+//#UC START# *46A498630097publ*
+(*    protected
+    // property methods
+      function  pm_GetTopLeft: Tl3_Point;
+      procedure pm_SetTopLeft(const aValue: Tl3_Point);
+        {-}
+      function  pm_GetBottomRight: Tl3_Point;
+      procedure pm_SetBottomRight(const aValue: Tl3_Point);
+        {-}*)
+    public
+    // public methods
+      procedure Inflate(const Pt: Tl3_Point);
+        overload;
+        {* - увеличивает размеры прямоугольника на P. }
+      procedure Inflate(X, Y: Tl3Inch);
+        overload;
+        {* - увеличивает размеры прямоугольника на (X, Y). }
+      procedure OffsetPt(const Pt: Tl3_Point);
+        {* - сдвинуть прямоугольник на Pt. }
+      procedure Offset(aX, aY: Tl3Inch);
+        {* - сдвинуть прямоугольник на (X, Y). }
+      function  ContainsPt(const Pt: Tl3_Point): Boolean;
+        {* - содержит ли прямоугольник точку Pt? }
+      function  EQ(const Rt: Tl3_Rect): Boolean;
+        {* - проверяет равенство двух прямоугольников. }
+      function  AddPt(const Pt: Tl3_Point): Tl3_Rect;
+        {* - сдвинуть прямоугольник на Pt и вернуть Result. }
+      function  SubPt(const Pt: Tl3_Point): Tl3_Rect;
+        {* - сдвинуть прямоугольник на -Pt и вернуть Result. }
+      function  IntersectsWith(const Rt: Tl3_Rect): Boolean;
+        {* - проверяет пересечение Self с Rt. }
+      procedure MakeZoom(Z: Integer);
+        {* - увеличивает координаты вектора на Z %. }
+(*    public
+    // public properties
+      property TopLeft: Tl3_Point
+        read pm_GetTopLeft
+        write pm_SetTopLeft;
+        {-}
+      property BottomRight: Tl3_Point
+        read pm_GetBottomRight
+        write pm_SetBottomRight;
+        {-}*)
+//#UC END# *46A498630097publ*

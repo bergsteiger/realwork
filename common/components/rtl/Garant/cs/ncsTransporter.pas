@@ -20,6 +20,7 @@ uses
  , ncsProcessThread
  , ncsReplyWaiter
  , CsCommon
+ , l3InterfacePtrList
  , ncsMessage
  , Windows
  , SyncObjs
@@ -35,6 +36,7 @@ type
    f_Connected: Boolean;
    f_ClientID: TCsClientId;
    f_IOHandlers: TncsIOHandlerArray;
+   f_Helpers: Tl3InterfacePtrList;
    f_SendQueue: TncsMessageQueue;
    f_ReceiveQueue: TncsMessageQueue;
    f_SendThread: TncsSendThread;
@@ -61,10 +63,16 @@ type
    procedure Set_ClientID(aValue: TCsClientId);
    function Get_Processing: Boolean;
    function Get_SessionID: AnsiString;
+   procedure RegisterHelper(const aHelper: IUnknown);
+   procedure UnregisterHelper(const aHelper: IUnknown);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
+  public
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
   protected
    property SendQueue: TncsMessageQueue
     read f_SendQueue;
@@ -277,6 +285,44 @@ begin
 //#UC END# *548FEF4F002E_544A09EE005Fget_impl*
 end;//TncsTransporter.Get_SessionID
 
+procedure TncsTransporter.RegisterHelper(const aHelper: IUnknown);
+//#UC START# *57F3749202B7_544A09EE005F_var*
+//#UC END# *57F3749202B7_544A09EE005F_var*
+begin
+//#UC START# *57F3749202B7_544A09EE005F_impl*
+ f_Helpers.Add(aHelper);
+//#UC END# *57F3749202B7_544A09EE005F_impl*
+end;//TncsTransporter.RegisterHelper
+
+procedure TncsTransporter.UnregisterHelper(const aHelper: IUnknown);
+//#UC START# *57F374AC00AA_544A09EE005F_var*
+//#UC END# *57F374AC00AA_544A09EE005F_var*
+begin
+//#UC START# *57F374AC00AA_544A09EE005F_impl*
+ f_Helpers.Remove(aHelper);
+//#UC END# *57F374AC00AA_544A09EE005F_impl*
+end;//TncsTransporter.UnregisterHelper
+
+function TncsTransporter.QueryInterface(const IID: TGUID;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+//#UC START# *47913CBF0265_544A09EE005F_var*
+var
+ l_IDX: Integer;
+//#UC END# *47913CBF0265_544A09EE005F_var*
+begin
+//#UC START# *47913CBF0265_544A09EE005F_impl*
+ Result := inherited QueryInterface(IID, Obj);
+ if Result <> S_Ok then
+  for l_IDX := 0 to f_Helpers.Count - 1 do
+  begin
+   Result := f_Helpers[l_IDX].QueryInterface(IID, Obj);
+   if Result = S_Ok then
+    Break;
+  end;
+//#UC END# *47913CBF0265_544A09EE005F_impl*
+end;//TncsTransporter.QueryInterface
+
 procedure TncsTransporter.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_544A09EE005F_var*
@@ -295,6 +341,7 @@ begin
  IOHandlers[ncs_skSend] := nil;
  IOHandlers[ncs_skReceive] := nil;
  FreeAndNil(f_ReplyWaiter);
+ FreeAndNil(f_Helpers);
  inherited;
 //#UC END# *479731C50290_544A09EE005F_impl*
 end;//TncsTransporter.Cleanup
@@ -313,6 +360,8 @@ begin
  f_ReceiveQueue := TncsMessageQueue.Create;
  f_ReceiveThread := TncsReceiveThread.Create(f_ReceiveQueue);
  f_ProcessThread := TncsProcessThread.Create(f_ReceiveQueue, Self, f_ReplyWaiter);
+
+ f_Helpers := Tl3InterfacePtrList.Make;
 //#UC END# *47A042E100E2_544A09EE005F_impl*
 end;//TncsTransporter.InitFields
 

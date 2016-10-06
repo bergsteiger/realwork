@@ -584,6 +584,7 @@ begin
 //#UC START# *47F33B990105_47E9EDA800FE_impl*
  Result := TdeList.Make(aNewList, true, wdAlwaysOpen, nil, nil,
   aAllDocumentsFiltered, False, f_IsChanged);
+ AssignFilters(f_ActiveFilters, Result.ActiveFilters);
 //#UC END# *47F33B990105_47E9EDA800FE_impl*
 end;//_dsList_.DataForNewList
 
@@ -917,21 +918,10 @@ end;//_dsList_.ApplyFilters
 
 procedure _dsList_.LoadActiveFilters(const aFilters: IFiltersFromQuery);
 //#UC START# *525BC48802E6_47E9EDA800FE_var*
-var
- l_Index  : Integer;
- l_Enum: InsFiltersEnumerator;
- l_Filter : IFilterFromQuery;
 //#UC END# *525BC48802E6_47E9EDA800FE_var*
 begin
 //#UC START# *525BC48802E6_47E9EDA800FE_impl*
- f_ActiveFilters := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
- l_Enum := TnsFiltersEnumerator.Make(aFilters);
- while l_Enum.MoveNext do
- begin
-  l_Filter := l_Enum.Current;
-  if IsActiveFilter(l_Filter) then
-   f_ActiveFilters.Add(l_Filter);
- end;
+ f_ActiveFilters := CatFilters(aFilters, f_ActiveFilters);
 //#UC END# *525BC48802E6_47E9EDA800FE_impl*
 end;//_dsList_.LoadActiveFilters
 
@@ -1344,6 +1334,7 @@ begin
  finally
   l_Filterable := nil;
  end;//try..finally
+ AssignFilters(PartData.ActiveFilters, f_ActiveFilters);
 //#UC END# *47F60D510152_47E9EDA800FE_impl*
 end;//_dsList_.ApplyFilter
 
@@ -1384,6 +1375,7 @@ begin
  finally
   l_Filterable := nil;
  end;{try..finally}
+ AssignFilters(PartData.ActiveFilters, f_ActiveFilters);
 //#UC END# *47F6121700FE_47E9EDA800FE_impl*
 end;//_dsList_.ClearFilters
 
@@ -2006,7 +1998,11 @@ begin
   else
    l_PermanentFilters := nil;
   try
-   LoadActiveFilters(CatFilters(l_ActiveFilters, l_PermanentFilters));
+   if ((l_ActiveFilters = nil) or (l_ActiveFilters.Count = 0)) and (PartData.ActiveFilters <> nil) then
+    l_ActiveFilters := CopyFilters(PartData.ActiveFilters);
+   f_ActiveFilters := l_ActiveFilters; 
+//   LoadActiveFilters(CatFilters(l_ActiveFilters, l_PermanentFilters));
+   f_AllDocumentFiltered := PartData.AllDocumentsFiltered;
   finally
    l_ActiveFilters := nil;
    l_PermanentFilters := nil;

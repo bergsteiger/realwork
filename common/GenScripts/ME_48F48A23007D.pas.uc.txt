@@ -1,0 +1,29 @@
+//#UC START# *48F4818300A5_48F48A23007D_impl*
+ Result := inherited GetIsQuestionNeedBeforeFlush;
+//#UC END# *48F4818300A5_48F48A23007D_impl*
+//#UC START# *48F4818300A5_48F48A23007D_var*
+//#UC END# *48F4818300A5_48F48A23007D_var*
+//#UC START# *48F481B6035B_48F48A23007D_impl*
+ l_Filter := aFilters;
+ if (aFormat = CF_RTF) then
+ begin
+  l_AppInfo := Data.AppInfo;
+  if not l3IsNil(l_AppInfo) then
+   TevdTextToFirstParaAdder.SetTo(l_Filter, l_AppInfo);
+ end;//aFormat = CF_RTF
+ try
+  Result := inherited DoStore(aFormat, aPool, l_Filter, aFlags);
+ finally
+  l_Filter := nil;
+ end;//try..finally
+//#UC END# *48F481B6035B_48F48A23007D_impl*
+//#UC START# *48F481B6035B_48F48A23007D_var*
+var
+ l_Filter : InevTagGenerator;
+ l_AppInfo : Il3CString;
+//#UC END# *48F481B6035B_48F48A23007D_var*
+//#UC START# *48F48A23007D_ext:FileName
+w:\common\components\gui\Garant\Everest\evConstStringDataObject.pas
+//#UC END# *48F48A23007D_ext:FileName
+//#UC START# *48F48A23007Dimpl_uses*
+//#UC END# *48F48A23007Dimpl_uses*

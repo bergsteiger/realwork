@@ -1,0 +1,49 @@
+//#UC START# *47EA4E9002C6_4B9A34C4007A_impl*
+ inherited;
+ l3BoolReset(f_HasControlStatus);
+//#UC END# *47EA4E9002C6_4B9A34C4007A_impl*
+//#UC START# *47EA4E9002C6_4B9A34C4007A_var*
+//#UC END# *47EA4E9002C6_4B9A34C4007A_var*
+//#UC START# *4B9A2F660115_4B9A34C4007A_impl*
+ if Get_HasControlStatus then
+ begin
+  l_Controllable := Get_Controllable;
+  if Assigned(l_Controllable) then
+  try
+   l3BoolReset(f_HasControlStatus);
+   l_Controllable.ResetControlStatus;
+  finally
+   l_Controllable := nil;
+  end;{try..finally}
+ end;//Get_HasControlStatus
+//#UC END# *4B9A2F660115_4B9A34C4007A_impl*
+//#UC START# *4B9A2F660115_4B9A34C4007A_var*
+var
+ l_Controllable: IControllable;
+//#UC END# *4B9A2F660115_4B9A34C4007A_var*
+//#UC START# *4B9A2F95007C_4B9A34C4007Aget_impl*
+ Result := False;
+ if not l3BoolCheck(f_HasControlStatus, Result) then
+  Result := l3BoolSet(Get_ControlStatus <> CS_NONE, f_HasControlStatus);
+//#UC END# *4B9A2F95007C_4B9A34C4007Aget_impl*
+//#UC START# *4B9A2F95007C_4B9A34C4007Aget_var*
+//#UC END# *4B9A2F95007C_4B9A34C4007Aget_var*
+//#UC START# *4B9A2FB102EE_4B9A34C4007Aget_impl*
+ Result := DoGetControllable;
+//#UC END# *4B9A2FB102EE_4B9A34C4007Aget_impl*
+//#UC START# *4B9A2FB102EE_4B9A34C4007Aget_var*
+//#UC END# *4B9A2FB102EE_4B9A34C4007Aget_var*
+//#UC START# *4B9A2FD30344_4B9A34C4007Aget_impl*
+ l_Controllable := Get_Controllable;
+ if Assigned(l_Controllable) and l_Controllable.GetControlled then
+  Result := l_Controllable.GetControlStatus
+ else
+  Result := CS_NONE;
+//#UC END# *4B9A2FD30344_4B9A34C4007Aget_impl*
+//#UC START# *4B9A2FD30344_4B9A34C4007Aget_var*
+var
+ l_Controllable: IControllable;
+//#UC END# *4B9A2FD30344_4B9A34C4007Aget_var*
+//#UC START# *4B9A34C4007A_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas
+//#UC END# *4B9A34C4007A_ext:FileName

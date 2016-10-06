@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , DynamicDocListUnit
+ , FiltersUnit
  , l3Interfaces
  , l3TreeInterfaces
  , bsTypes
@@ -42,6 +43,7 @@ type
   function pm_GetAllDocumentsFiltered: Boolean;
   function pm_GetNeedApplyPermanentFilters: Boolean;
   function pm_GetIsChanged: Boolean;
+  function pm_GetActiveFilters: IFiltersFromQuery;
   property List: IDynList
    read pm_GetList;
   property TimeMachineOff: Boolean
@@ -62,6 +64,8 @@ type
    read pm_GetNeedApplyPermanentFilters;
   property IsChanged: Boolean
    read pm_GetIsChanged;
+  property ActiveFilters: IFiltersFromQuery
+   read pm_GetActiveFilters;
  end;//IdeList
 {$IfEnd} // NOT Defined(Admin)
 

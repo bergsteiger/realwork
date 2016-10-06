@@ -1,0 +1,64 @@
+//#UC START# *4911B69E037D_53C9011903D6_impl*
+  f_ExitCode := cs_arsSuccess;
+  l3FillChar(l_StartupInfo, SizeOf(l_StartupInfo));
+  l_StartupInfo.cb := SizeOf(l_StartupInfo);
+  l_StartupInfo.wShowWindow := SW_SHOW;
+  l_ExeFile := Format('"%s" "%s" "%s" %d %s %s',
+    [AssistantFileName,
+     f_TaskFileName,
+     f_ServerHostName,
+     f_ServerPort,
+     l3EncodeBase64(f_UserName),
+     l3EncodeBase64(f_Password)]);
+  if CreateProcess(nil,
+                   PAnsiChar(l_ExeFile),
+                   nil,
+                   nil,
+                   TRUE,
+                   NORMAL_PRIORITY_CLASS,
+                   nil,
+                   nil,
+                   l_StartupInfo,
+                   l_ProcessInfo) then
+  begin
+    CloseHandle(l_ProcessInfo.hThread);
+    WaitForSingleObject(l_ProcessInfo.hProcess, INFINITE);
+    GetExitCodeProcess(l_ProcessInfo.hProcess, f_ExitCode);
+    CloseHandle(l_ProcessInfo.hProcess);
+  end
+  else
+  begin
+    f_ExitCode := cs_arsUtilityNotFound;
+  end;
+//#UC END# *4911B69E037D_53C9011903D6_impl*
+//#UC START# *4911B69E037D_53C9011903D6_var*
+var
+  l_StartupInfo: TStartupInfo;
+  l_ProcessInfo: TProcessInformation;
+  l_ExeFile: String;
+//#UC END# *4911B69E037D_53C9011903D6_var*
+//#UC START# *53C9011903D6_ext:ParentFileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncSubmitter.pas
+//#UC END# *53C9011903D6_ext:ParentFileName
+//#UC START# *53C917C30155_53C9011903D6_impl*
+  Assert(Suspended);
+  f_TaskFileName := aTaskFile;
+  Suspended := False;
+//#UC END# *53C917C30155_53C9011903D6_impl*
+//#UC START# *53C917C30155_53C9011903D6_var*
+//#UC END# *53C917C30155_53C9011903D6_var*
+//#UC START# *53CCF6F70264_53C9011903D6_impl*
+ inherited Create;
+ f_ServerHostName := anHostName;
+ f_UserName := aUserName;
+ f_Password := aPassword;
+ f_ServerPort := aPort;
+ f_ExitCode := cs_arsSuccess;
+//#UC END# *53CCF6F70264_53C9011903D6_impl*
+//#UC START# *53CCF6F70264_53C9011903D6_var*
+//#UC END# *53CCF6F70264_53C9011903D6_var*
+//#UC START# *540475CA0270_53C9011903D6_impl*
+ Result := Format('%salcuTaskExecutor.exe', [ExtractFilePath(ParamStr(0))]);
+//#UC END# *540475CA0270_53C9011903D6_impl*
+//#UC START# *540475CA0270_53C9011903D6_var*
+//#UC END# *540475CA0270_53C9011903D6_var*

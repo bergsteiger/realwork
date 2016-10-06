@@ -1,0 +1,74 @@
+//#UC START# *5562DBEF006B_5562DE9702A4_impl*
+ f_MenuOpen := False;
+ if (Button = mbLeft) and (Shift = []) then
+  with TvtCalendarPanelFriend(f_Calendar) do
+   if (GetDayFromPoint(Point(X,Y)) > 0) and (GetDayFromPoint(Point(X,Y)) = OldDay) then
+    if (Owner is TWinControl) then
+     PostMessage(TWinControl(Owner).Handle, WM_vt_CALLCLOSEUP, 1, 0);
+//#UC END# *5562DBEF006B_5562DE9702A4_impl*
+//#UC START# *5562DBEF006B_5562DE9702A4_var*
+//#UC END# *5562DBEF006B_5562DE9702A4_var*
+//#UC START# *5562DDAF0285_5562DE9702A4_impl*
+ Result := 2 * (3 + cButtonWidth);
+//#UC END# *5562DDAF0285_5562DE9702A4_impl*
+//#UC START# *5562DDAF0285_5562DE9702A4_var*
+//#UC END# *5562DDAF0285_5562DE9702A4_var*
+//#UC START# *5562DE3A02DF_5562DE9702A4_impl*
+ lPanel := TvtPanel.Create(Self);
+ with lPanel do
+ begin
+  Parent := Self;
+  Height := 25;
+  BevelOuter := bvNone;
+  Align := alBottom;
+ end;
+
+ with TSpeedButton.Create(Self) do
+ begin
+  Parent := lPanel;
+  SetBounds(lPanel.Width - 3 - cButtonWidth - cButtonWidth, 3, cButtonWidth, cButtonHeight);
+  Anchors := [akRight, akTop];
+{$IF not Defined(nsTest) OR Defined(InsiderTest)}
+  vtStdResources.Images.GetBitmap(vt_imgOk, Glyph);
+{$IfEND}
+  Flat := True;
+  OnClick := OkClick;
+  ShowHint := True;
+  Caption := str_vtChoose.AsStr;
+  Hint := str_vtChoose.AsStr;
+  Font.Charset := RUSSIAN_CHARSET;
+ end;
+
+ with TSpeedButton.Create(Self) do
+ begin
+  Parent := lPanel;
+  SetBounds(lPanel.Width - 3 - cButtonWidth, 3, cButtonWidth, cButtonHeight);
+  Anchors := [akRight, akTop];
+{$IF not Defined(nsTest) OR Defined(InsiderTest)}
+  vtStdResources.Images.GetBitmap(vt_imgCancel, Glyph);
+{$IfEND}
+  Flat := True;
+  OnClick := CancelClick;
+  ShowHint := True;
+  Caption := str_vtCancel.AsStr;
+  Hint := str_vtCancel.AsStr;
+ end;
+//#UC END# *5562DE3A02DF_5562DE9702A4_impl*
+//#UC START# *5562DE3A02DF_5562DE9702A4_var*
+var
+ lPanel: TvtPanel;
+//#UC END# *5562DE3A02DF_5562DE9702A4_var*
+//#UC START# *5562DE4D0243_5562DE9702A4_impl*
+ aLabel.Font.Style := aLabel.Font.Style + [fsUnderline];
+ aLabel.Font.Color := clBlue;
+//#UC END# *5562DE4D0243_5562DE9702A4_impl*
+//#UC START# *5562DE4D0243_5562DE9702A4_var*
+//#UC END# *5562DE4D0243_5562DE9702A4_var*
+//#UC START# *5562DE9702A4_ext:ParentFileName
+w:\common\components\gui\Garant\VT\vtDateEdit.pas
+//#UC END# *5562DE9702A4_ext:ParentFileName
+//#UC START# *5562DEB2009F_5562DE9702A4_impl*
+ PostMessage(TWinControl(Owner).Handle, WM_vt_CALLCLOSEUP, 1, 0);
+//#UC END# *5562DEB2009F_5562DE9702A4_impl*
+//#UC START# *5562DEB2009F_5562DE9702A4_var*
+//#UC END# *5562DEB2009F_5562DE9702A4_var*

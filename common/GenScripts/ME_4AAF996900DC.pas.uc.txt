@@ -1,0 +1,21 @@
+//#UC START# *4AAF996900DC_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas
+//#UC END# *4AAF996900DC_ext:FileName
+//#UC START# *4AAF996900DCimpl_uses*
+//#UC END# *4AAF996900DCimpl_uses*
+//#UC START# *4AAF99C703C7_4AAF996900DC_impl*
+ Result := True;
+ if GetWindow(aWnd, GW_OWNER) = Application.Handle then
+ begin
+  if (FindControl(aWnd) = nil) and IsWindowVisible(aWnd) then
+  begin
+   SendMessage(aWnd, PMessage(aParam)^.Msg, PMessage(aParam)^.wParam, PMessage(aParam)^.lParam);
+   SetForegroundWindow(aWnd);
+  end;
+ end;
+//#UC END# *4AAF99C703C7_4AAF996900DC_impl*
+//#UC START# *4AAF99C703C7_4AAF996900DC_var*
+var
+ ProcessID: Cardinal;
+ TheadID: Cardinal;
+//#UC END# *4AAF99C703C7_4AAF996900DC_var*

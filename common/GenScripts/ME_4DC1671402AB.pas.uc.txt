@@ -1,0 +1,29 @@
+//#UC START# *493E4F7E039B_4DC1671402AB_impl*
+ l_dsDocument := Self.pm_GetDsDocument;
+ if (l_dsDocument <> nil) then
+ begin
+  l_DocInfo := l_dsDocument.DocInfo;
+  if (l_DocInfo <> nil) then
+   l_Document := l_DocInfo.Doc
+  else
+   l_Document := nil;
+ end//l_dsDocument <> nil
+ else
+ begin
+  l_DocInfo := nil;
+  l_Document := nil;
+ end;//l_dsDocument <> nil
+ Result := TnsListWarningGenerator.Generate(aWarning,
+                                            l_Document,
+                                            aGen, aUserType,
+                                            l_dsDocument As IucpUnderControl);
+//#UC END# *493E4F7E039B_4DC1671402AB_impl*
+//#UC START# *493E4F7E039B_4DC1671402AB_var*
+var
+ l_dsDocument : IdsBaseDocument;
+ l_DocInfo    : IdeDocInfo;
+ l_Document   : IDocument;
+//#UC END# *493E4F7E039B_4DC1671402AB_var*
+//#UC START# *4DC1671402AB_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas
+//#UC END# *4DC1671402AB_ext:FileName

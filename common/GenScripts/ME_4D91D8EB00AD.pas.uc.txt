@@ -1,0 +1,64 @@
+//#UC START# *4BFFA0FF01D2_4D91D8EB00AD_impl*
+ Result := inherited TrySelectPara(aContainer, aSel, aParaID);
+ if not Result then
+ begin
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=217157085
+  if (f_Para <> nil) then
+  begin
+   Result := true;
+   // - будем оптимистами
+   if f_Form.GotoSub(f_Para) then
+    Exit;
+   if (f_Para <> nil) then
+    begin
+     if f_Para.AsObject.QT(InevPara, l_Para) then
+      try
+       if evInPara(l_Para.AsObject, k2_typBlock, l_Block) AND
+          (l_Block.IntA[k2_tiLayerID] = Ord(ev_sbtSub)) then
+       begin
+        if evInPara(l_Block.AsObject, k2_typDocument, l_Doc) then
+        begin
+         l_Part := TevDocumentPartImplementation.Make(l_Doc,
+                                                      nil,
+                                                      l_Block.IntA[k2_tiHandle],
+                                                      l_Block.IntA[k2_tiLayerID]);
+         try
+          if f_Form.GotoBlock(l_Part) then
+           Exit;
+         finally
+          l_Part := nil;
+         end;//try..finally
+        end;//evInPara(l_Block, k2_typDocument, l_Doc)
+       end;//evInPara(l_Para, k2_typBlock, l_Block)
+      finally
+       l_Para := nil;
+      end;//try..finally
+    end;//f_Para <> nil
+   Result := false;
+  end;//f_Para <> nil
+ end;//not Result
+//#UC END# *4BFFA0FF01D2_4D91D8EB00AD_impl*
+//#UC START# *4BFFA0FF01D2_4D91D8EB00AD_var*
+var
+ l_Para  : InevPara;
+ l_Block : Tl3Variant;
+ l_Doc   : Tl3Variant;
+ l_Part  : IevDocumentPart;
+//#UC END# *4BFFA0FF01D2_4D91D8EB00AD_var*
+//#UC START# *4D91D8EB00AD_ext:ParentFileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_Form.pas
+//#UC END# *4D91D8EB00AD_ext:ParentFileName
+//#UC START# *4D91D9A70258_4D91D8EB00AD_impl*
+ inherited Create(aForm.Text, aPara.ID, ev_sbtPara);
+ f_Para := aPara;
+ f_Form := aForm;
+//#UC END# *4D91D9A70258_4D91D8EB00AD_impl*
+//#UC START# *4D91D9A70258_4D91D8EB00AD_var*
+//#UC END# *4D91D9A70258_4D91D8EB00AD_var*
+//#UC START# *5215B94503C0_4D91D8EB00AD_impl*
+ inherited Create(aForm.Text, aPosition.rPos, DocPosTypeToEdtSubType(aPosition.rRefType));
+ f_Para := nil;
+ f_Position := aPosition;
+//#UC END# *5215B94503C0_4D91D8EB00AD_impl*
+//#UC START# *5215B94503C0_4D91D8EB00AD_var*
+//#UC END# *5215B94503C0_4D91D8EB00AD_var*

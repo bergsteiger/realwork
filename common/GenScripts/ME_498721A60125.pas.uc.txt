@@ -1,0 +1,148 @@
+//#UC START# *479731C50290_498721A60125_impl*
+ inherited;
+//#UC END# *479731C50290_498721A60125_impl*
+//#UC START# *479731C50290_498721A60125_var*
+//#UC END# *479731C50290_498721A60125_var*
+//#UC START# *498721A60125_ext:FileName
+w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas
+//#UC END# *498721A60125_ext:FileName
+//#UC START# *49880FD20039_498721A60125exec_impl*
+ OpenDocumentInListOpExecute(True);
+//#UC END# *49880FD20039_498721A60125exec_impl*
+//#UC START# *49880FD20039_498721A60125exec_var*
+//#UC END# *49880FD20039_498721A60125exec_var*
+//#UC START# *49880FD20039_498721A60125test_impl*
+ OpenDocumentInListOpTest(aParams, True);
+//#UC END# *49880FD20039_498721A60125test_impl*
+//#UC START# *49880FD20039_498721A60125test_var*
+//#UC END# *49880FD20039_498721A60125test_var*
+//#UC START# *49880FE90145_498721A60125exec_impl*
+ ReturnToListOpExecute;
+//#UC END# *49880FE90145_498721A60125exec_impl*
+//#UC START# *49880FE90145_498721A60125exec_var*
+//#UC END# *49880FE90145_498721A60125exec_var*
+//#UC START# *49880FE90145_498721A60125test_impl*
+ ReturnToListOpTest(aParams);
+//#UC END# *49880FE90145_498721A60125test_impl*
+//#UC START# *49880FE90145_498721A60125test_var*
+//#UC END# *49880FE90145_498721A60125test_var*
+//#UC START# *4988147F0063_498721A60125_impl*
+ if (ucbDocumentFromList <> nil) then
+ begin
+  l_DocInfo := ucbDocumentFromList.SwitchToDocumentFromList(not aNext);
+  if (l_DocInfo <> nil) then
+   TnsDocumentFromListNavigationEvent.Log(aNext, l_DocInfo.List, l_DocInfo.Doc);
+ end;//ucbDocumentFromList <> nil
+//#UC END# *4988147F0063_498721A60125_impl*
+//#UC START# *4988147F0063_498721A60125_var*
+var
+ l_DocInfo     : IdeDocInfo;
+ l_DocFromList : IucbDocumentFromList;
+//#UC END# *4988147F0063_498721A60125_var*
+//#UC START# *4988148302B3_498721A60125_impl*
+ with aParams.Op do
+ begin
+  Flag[vcm_ofEnabled] := (ucbDocumentFromList <> nil);
+  if Flag[vcm_ofEnabled] then
+   if aNext
+    then Flag[vcm_ofEnabled] := ucbDocumentFromList.CanOpenNextDoc
+    else Flag[vcm_ofEnabled] := ucbDocumentFromList.CanOpenPrevDoc;
+ end;//with aParams.Op
+//#UC END# *4988148302B3_498721A60125_impl*
+//#UC START# *4988148302B3_498721A60125_var*
+//#UC END# *4988148302B3_498721A60125_var*
+//#UC START# *4988149B0392_498721A60125_impl*
+ if (ucbDocumentFromList <> nil) then
+  ucbDocumentFromList.ReturnToList;
+//#UC END# *4988149B0392_498721A60125_impl*
+//#UC START# *4988149B0392_498721A60125_var*
+//#UC END# *4988149B0392_498721A60125_var*
+//#UC START# *498814A0026F_498721A60125_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (ucbDocumentFromList <> nil) and
+                                   ucbDocumentFromList.CanReturnToList;
+//#UC END# *498814A0026F_498721A60125_impl*
+//#UC START# *498814A0026F_498721A60125_var*
+//#UC END# *498814A0026F_498721A60125_var*
+//#UC START# *4A8E5E4702C6_498721A60125_impl*
+ with aList do
+ begin
+  if Assigned(dsBaseDocument)
+   then l_Likeable := dsBaseDocument.AsLikeable
+   else l_Likeable := nil;
+  if Assigned(l_Likeable) and l_Likeable.GetCanLike then
+  begin
+   l_Item := TnscStatusBarItemDef.Make(True, str_IsDocumentUsefulCaption.AsCStr, False, False, 0, nsc_ttkNone);
+   Add(l_Item);
+   l_Operation := TnscStatusBarOperationDef.MakeSNoCaption(opcode_Document_DocumentIsUseful, False, False, 0, nsc_ttkNone);
+   Add(l_Operation);
+   Add(TnscStatusBarOperationDef.MakeSNoCaption(opcode_Document_DocumentIsUseless, False, False, 0, nsc_ttkNone));
+   l_Delimiter := TnscStatusBarDelimiterDef.Make(True);
+   Add(l_Delimiter);
+   l_Delimiter.SubscribeOnNotification(l_Operation);
+   l_Item.SubscribeOnNotification(l_Operation);
+  end;
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_PrevDocumentInList,
+   False, str_PrevDocumentInList, True, False, 0, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_ReturnToList,
+   False, str_ListCaption, True, False, 0, nsc_ttkNone));
+  Add(TnscStatusBarOperationDef.MakeS(opcode_Document_NextDocumentInList,
+   False, str_NextDocumentInList, True, False, 0, nsc_ttkNone));
+ end;//with aList
+//#UC END# *4A8E5E4702C6_498721A60125_impl*
+//#UC START# *4A8E5E4702C6_498721A60125_var*
+var
+ l_Operation: InscStatusBarOperationDef;
+ l_Item: InscStatusBarItemDef;
+ l_Delimiter: InscStatusBarDelimiterDef;
+ l_Likeable: ILikeable;
+//#UC END# *4A8E5E4702C6_498721A60125_var*
+//#UC START# *4FE1BA1303D3_498721A60125exec_impl*
+ OpenDocumentInListOpExecute(False);
+//#UC END# *4FE1BA1303D3_498721A60125exec_impl*
+//#UC START# *4FE1BA1303D3_498721A60125exec_var*
+//#UC END# *4FE1BA1303D3_498721A60125exec_var*
+//#UC START# *4FE1BA1303D3_498721A60125test_impl*
+ OpenDocumentInListOpTest(aParams, False);
+//#UC END# *4FE1BA1303D3_498721A60125test_impl*
+//#UC START# *4FE1BA1303D3_498721A60125test_var*
+//#UC END# *4FE1BA1303D3_498721A60125test_var*
+//#UC START# *4FE1EF1201D6_498721A60125exec_impl*
+ dsBaseDocument.LikeState := dlsUseful;
+//#UC END# *4FE1EF1201D6_498721A60125exec_impl*
+//#UC START# *4FE1EF1201D6_498721A60125exec_var*
+//#UC END# *4FE1EF1201D6_498721A60125exec_var*
+//#UC START# *4FE1EF1201D6_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1201D6_498721A60125getstate_impl*
+//#UC START# *4FE1EF1201D6_498721A60125getstate_var*
+//#UC END# *4FE1EF1201D6_498721A60125getstate_var*
+//#UC START# *4FE1EF1201D6_498721A60125test_impl*
+ l_Likeable := dsBaseDocument.AsLikeable;
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(l_Likeable) and l_Likeable.GetCanLike;
+ aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofVisible];
+ aParams.Op.Flag[vcm_ofChecked] := aParams.Op.Flag[vcm_ofEnabled] and (dsBaseDocument.LikeState = dlsUseful);
+//#UC END# *4FE1EF1201D6_498721A60125test_impl*
+//#UC START# *4FE1EF1201D6_498721A60125test_var*
+var
+ l_Likeable: ILikeable;
+//#UC END# *4FE1EF1201D6_498721A60125test_var*
+//#UC START# *4FE1EF1B039A_498721A60125exec_impl*
+ dsBaseDocument.LikeState := dlsUseless;
+//#UC END# *4FE1EF1B039A_498721A60125exec_impl*
+//#UC START# *4FE1EF1B039A_498721A60125exec_var*
+//#UC END# *4FE1EF1B039A_498721A60125exec_var*
+//#UC START# *4FE1EF1B039A_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1B039A_498721A60125getstate_impl*
+//#UC START# *4FE1EF1B039A_498721A60125getstate_var*
+//#UC END# *4FE1EF1B039A_498721A60125getstate_var*
+//#UC START# *4FE1EF1B039A_498721A60125test_impl*
+ l_Likeable := dsBaseDocument.AsLikeable;
+ aParams.Op.Flag[vcm_ofVisible] := Assigned(l_Likeable) and l_Likeable.GetCanLike;
+ aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofVisible];
+ aParams.Op.Flag[vcm_ofChecked] := aParams.Op.Flag[vcm_ofEnabled] and (dsBaseDocument.LikeState = dlsUseless);
+//#UC END# *4FE1EF1B039A_498721A60125test_impl*
+//#UC START# *4FE1EF1B039A_498721A60125test_var*
+var
+ l_Likeable: ILikeable;
+//#UC END# *4FE1EF1B039A_498721A60125test_var*

@@ -1,0 +1,35 @@
+//#UC START# *5421799C0066_ext:FileName
+w:\common\components\rtl\Garant\m3\m3Persistent.pas
+//#UC END# *5421799C0066_ext:FileName
+//#UC START# *5421799C0066impl_uses*
+//#UC END# *5421799C0066impl_uses*
+//#UC START# *545384D7010A_5421799C0066_impl*
+ m2COMReadBuffer(AStream,ABuff^,ASize);
+//#UC END# *545384D7010A_5421799C0066_impl*
+//#UC START# *545384D7010A_5421799C0066_var*
+//#UC END# *545384D7010A_5421799C0066_var*
+//#UC START# *5453850B01B3_5421799C0066_impl*
+ m2COMWriteBuffer(AStream,ABuff^,ASize);
+//#UC END# *5453850B01B3_5421799C0066_impl*
+//#UC START# *5453850B01B3_5421799C0066_var*
+//#UC END# *5453850B01B3_5421799C0066_var*
+//#UC START# *5453853E01FD_5421799C0066_impl*
+ LoadBuff(aStream, @l_Size, SizeOf(l_Size));
+ aString.CodePage := CP_Unicode;
+ aString.Len := l_Size div SizeOf(WideChar);
+ LoadBuff(aStream, PWideChar(aString.St), l_Size);
+//#UC END# *5453853E01FD_5421799C0066_impl*
+//#UC START# *5453853E01FD_5421799C0066_var*
+var
+ l_Size : LongInt;
+//#UC END# *5453853E01FD_5421799C0066_var*
+//#UC START# *5453856F0321_5421799C0066_impl*
+ aString.CodePage := CP_Unicode;
+ l_Size := aString.Len * SizeOf(WideChar);
+ SaveBuff(AStream, @l_Size, SizeOf(l_Size));
+ SaveBuff(AStream, PWideChar(aString.St), l_Size);
+//#UC END# *5453856F0321_5421799C0066_impl*
+//#UC START# *5453856F0321_5421799C0066_var*
+var
+ l_Size : LongInt;
+//#UC END# *5453856F0321_5421799C0066_var*

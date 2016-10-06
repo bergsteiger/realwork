@@ -1,0 +1,168 @@
+//#UC START# *479731C50290_57566B200124_impl*
+ f_HTUser := nil;
+ f_PGUser := nil;
+ inherited;
+//#UC END# *479731C50290_57566B200124_impl*
+//#UC START# *479731C50290_57566B200124_var*
+//#UC END# *479731C50290_57566B200124_var*
+//#UC START# *5729DCF300FC_57566B200124_impl*
+ f_HTUser.Save(aStream);
+//#UC END# *5729DCF300FC_57566B200124_impl*
+//#UC START# *5729DCF300FC_57566B200124_var*
+//#UC END# *5729DCF300FC_57566B200124_var*
+//#UC START# *572B08330098_57566B200124_impl*
+ l_Pos := aStream.Position;
+ f_HTUser.Load(aStream);
+ aStream.Position := l_Pos;
+ f_HTUser.Load(aStream);
+//#UC END# *572B08330098_57566B200124_impl*
+//#UC START# *572B08330098_57566B200124_var*
+var
+ l_Pos: Int64;
+//#UC END# *572B08330098_57566B200124_var*
+//#UC START# *572B1204035B_57566B200124get_impl*
+ Result := f_HTUser.ID;
+ Assert(Result = f_PGUser.ID);
+//#UC END# *572B1204035B_57566B200124get_impl*
+//#UC START# *572B1204035B_57566B200124get_var*
+//#UC END# *572B1204035B_57566B200124get_var*
+//#UC START# *572B1204035B_57566B200124set_impl*
+ f_HTUser.ID := aValue;
+ f_PGUser.ID := aValue;
+//#UC END# *572B1204035B_57566B200124set_impl*
+//#UC START# *572B1204035B_57566B200124set_var*
+//#UC END# *572B1204035B_57566B200124set_var*
+//#UC START# *572B121B01DF_57566B200124get_impl*
+ Result := f_HTUser.Active;
+ Assert(Result = f_PGUser.Active);
+//#UC END# *572B121B01DF_57566B200124get_impl*
+//#UC START# *572B121B01DF_57566B200124get_var*
+//#UC END# *572B121B01DF_57566B200124get_var*
+//#UC START# *572B121B01DF_57566B200124set_impl*
+ f_HTUser.Active := aValue;
+ f_PGUser.Active := aValue;
+//#UC END# *572B121B01DF_57566B200124set_impl*
+//#UC START# *572B121B01DF_57566B200124set_var*
+//#UC END# *572B121B01DF_57566B200124set_var*
+//#UC START# *572B123002B7_57566B200124get_impl*
+ Result := f_HTUser.HasAdminRights;
+ Assert(Result = f_PGUser.HasAdminRights);
+//#UC END# *572B123002B7_57566B200124get_impl*
+//#UC START# *572B123002B7_57566B200124get_var*
+//#UC END# *572B123002B7_57566B200124get_var*
+//#UC START# *572B123002B7_57566B200124set_impl*
+ f_HTUser.HasAdminRights := aValue;
+ f_PGUser.HasAdminRights := aValue;
+//#UC END# *572B123002B7_57566B200124set_impl*
+//#UC START# *572B123002B7_57566B200124set_var*
+//#UC END# *572B123002B7_57566B200124set_var*
+//#UC START# *572B12420088_57566B200124get_impl*
+ Result := f_HTUser.ExportPriority;
+ Assert(Result = f_PGUser.ExportPriority);
+//#UC END# *572B12420088_57566B200124get_impl*
+//#UC START# *572B12420088_57566B200124get_var*
+//#UC END# *572B12420088_57566B200124get_var*
+//#UC START# *572B12420088_57566B200124set_impl*
+ f_HTUser.ExportPriority := aValue;
+ f_PGUser.ExportPriority := aValue;
+//#UC END# *572B12420088_57566B200124set_impl*
+//#UC START# *572B12420088_57566B200124set_var*
+//#UC END# *572B12420088_57566B200124set_var*
+//#UC START# *572B125E006C_57566B200124get_impl*
+ Result := f_HTUser.ImportPriority;
+ Assert(Result = f_PGUser.ImportPriority);
+//#UC END# *572B125E006C_57566B200124get_impl*
+//#UC START# *572B125E006C_57566B200124get_var*
+//#UC END# *572B125E006C_57566B200124get_var*
+//#UC START# *572B125E006C_57566B200124set_impl*
+ f_HTUser.ImportPriority := aValue;
+ f_PGUser.ImportPriority := aValue;
+//#UC END# *572B125E006C_57566B200124set_impl*
+//#UC START# *572B125E006C_57566B200124set_var*
+//#UC END# *572B125E006C_57566B200124set_var*
+//#UC START# *572B126D0341_57566B200124get_impl*
+ Result := f_HTUser.IP;
+ Assert(Result = f_PGUser.IP);
+//#UC END# *572B126D0341_57566B200124get_impl*
+//#UC START# *572B126D0341_57566B200124get_var*
+//#UC END# *572B126D0341_57566B200124get_var*
+//#UC START# *572B126D0341_57566B200124set_impl*
+ f_HTUser.IP := aValue;
+ f_PGUser.IP := aValue;
+//#UC END# *572B126D0341_57566B200124set_impl*
+//#UC START# *572B126D0341_57566B200124set_var*
+//#UC END# *572B126D0341_57566B200124set_var*
+//#UC START# *572B127D0098_57566B200124get_impl*
+ Result := f_HTUser.LoginDate;
+ Assert(Result = f_PGUser.LoginDate);
+//#UC END# *572B127D0098_57566B200124get_impl*
+//#UC START# *572B127D0098_57566B200124get_var*
+//#UC END# *572B127D0098_57566B200124get_var*
+//#UC START# *572B127D0098_57566B200124set_impl*
+ f_HTUser.LoginDate := aValue;
+ f_PGUser.LoginDate := aValue;
+//#UC END# *572B127D0098_57566B200124set_impl*
+//#UC START# *572B127D0098_57566B200124set_var*
+//#UC END# *572B127D0098_57566B200124set_var*
+//#UC START# *572B128D015A_57566B200124get_impl*
+ Result := f_HTUser.LoginName;
+ Assert(Result = f_PGUser.LoginName);
+//#UC END# *572B128D015A_57566B200124get_impl*
+//#UC START# *572B128D015A_57566B200124get_var*
+//#UC END# *572B128D015A_57566B200124get_var*
+//#UC START# *572B128D015A_57566B200124set_impl*
+ f_HTUser.LoginName := aValue;
+ f_PGUser.LoginName := aValue;
+//#UC END# *572B128D015A_57566B200124set_impl*
+//#UC START# *572B128D015A_57566B200124set_var*
+//#UC END# *572B128D015A_57566B200124set_var*
+//#UC START# *572B129D021B_57566B200124get_impl*
+ Result := f_HTUser.Password;
+ Assert(Result = f_PGUser.Password);
+//#UC END# *572B129D021B_57566B200124get_impl*
+//#UC START# *572B129D021B_57566B200124get_var*
+//#UC END# *572B129D021B_57566B200124get_var*
+//#UC START# *572B129D021B_57566B200124set_impl*
+ f_HTUser.Password := aValue;
+ f_PGUser.Password := aValue;
+//#UC END# *572B129D021B_57566B200124set_impl*
+//#UC START# *572B129D021B_57566B200124set_var*
+//#UC END# *572B129D021B_57566B200124set_var*
+//#UC START# *572B12AE028C_57566B200124get_impl*
+ Result := f_HTUser.UserName;
+ Assert(Result = f_PGUser.UserName);
+//#UC END# *572B12AE028C_57566B200124get_impl*
+//#UC START# *572B12AE028C_57566B200124get_var*
+//#UC END# *572B12AE028C_57566B200124get_var*
+//#UC START# *572B12AE028C_57566B200124set_impl*
+ f_HTUser.UserName := aValue;
+ f_PGUser.UserName := aValue;
+//#UC END# *572B12AE028C_57566B200124set_impl*
+//#UC START# *572B12AE028C_57566B200124set_var*
+//#UC END# *572B12AE028C_57566B200124set_var*
+//#UC START# *57359E8903CF_57566B200124_impl*
+ Result := (aLeft = nil) = (aRight = nil);
+ if Result and Assigned(aLeft) then
+  Result := (aLeft.ID = aRight.ID) and
+   (aLeft.Active = aRight.Active) and
+   (aLeft.HasAdminRights = aRight.HasAdminRights) and
+   (aLeft.IP = aRight.IP) and
+   (aLeft.LoginName = aRight.LoginName) and
+   (aLeft.Password = aRight.Password) and
+   (aLeft.UserName = aRight.UserName);
+//#UC END# *57359E8903CF_57566B200124_impl*
+//#UC START# *57359E8903CF_57566B200124_var*
+//#UC END# *57359E8903CF_57566B200124_var*
+//#UC START# *57566B200124_ext:FileName
+w:\common\components\rtl\Garant\ComboAccess\caArchiUser.pas
+//#UC END# *57566B200124_ext:FileName
+//#UC START# *57566B200124impl_uses*
+//#UC END# *57566B200124impl_uses*
+//#UC START# *57566B3E0317_57566B200124_impl*
+ inherited Create;
+ Assert(IsUsersEqual(aHTUser, aPGUser));
+ f_HTUser := aHTUser;
+ f_PGUser := aPGUser;
+//#UC END# *57566B3E0317_57566B200124_impl*
+//#UC START# *57566B3E0317_57566B200124_var*
+//#UC END# *57566B3E0317_57566B200124_var*

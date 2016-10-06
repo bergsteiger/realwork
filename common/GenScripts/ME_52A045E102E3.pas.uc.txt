@@ -1,0 +1,175 @@
+//#UC START# *47D1602000C6_52A045E102E3_impl*
+ inherited;
+ AutoWidth := awCurrent;
+//#UC END# *47D1602000C6_52A045E102E3_impl*
+//#UC START# *47D1602000C6_52A045E102E3_var*
+//#UC END# *47D1602000C6_52A045E102E3_var*
+//#UC START# *4F8845840032_52A045E102E3_impl*
+ Result := TvcmComboBoxActionLink;
+//#UC END# *4F8845840032_52A045E102E3_impl*
+//#UC START# *4F8845840032_52A045E102E3_var*
+//#UC END# *4F8845840032_52A045E102E3_var*
+//#UC START# *52A045E102E3_ext:ParentFileName
+w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas
+//#UC END# *52A045E102E3_ext:ParentFileName
+//#UC START# *52A9A42D031B_52A045E102E3_impl*
+ if InnerPoint(Point(Integer(Msg.WParam), Integer(Msg.LParam)))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A42D031B_52A045E102E3_impl*
+//#UC START# *52A9A42D031B_52A045E102E3_var*
+//#UC END# *52A9A42D031B_52A045E102E3_var*
+//#UC START# *52A9A4500057_52A045E102E3_impl*
+ if IsInnerControl(HWND(Msg.WParam))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A4500057_52A045E102E3_impl*
+//#UC START# *52A9A4500057_52A045E102E3_var*
+//#UC END# *52A9A4500057_52A045E102E3_var*
+//#UC START# *52A9A8710199_52A045E102E3_impl*
+ if (Sender is TvcmOperationAction) then
+  SetCaptionFromAction(TvcmOperationAction(Sender), False);
+ inherited;
+//#UC END# *52A9A8710199_52A045E102E3_impl*
+//#UC START# *52A9A8710199_52A045E102E3_var*
+//#UC END# *52A9A8710199_52A045E102E3_var*
+//#UC START# *52A9A9B802B4_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  SetStringsFromAction(l_Action);
+  inherited;
+ finally
+  l_Action := nil;
+ end//try..finally
+ else
+  inherited;
+//#UC END# *52A9A9B802B4_52A045E102E3_impl*
+//#UC START# *52A9A9B802B4_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9A9B802B4_52A045E102E3_var*
+//#UC START# *52A9AA140394_52A045E102E3_impl*
+ if not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo) then
+ begin
+  f_InUpdateCation := True;
+  try
+   if Supports(anAction, IvcmAction, l_Action) then
+   try
+    if not SetStringsFromAction(anAction) then
+    begin
+(*     {$IfNDef vcmUseComboTree}
+     Items.Clear;
+     Items.Add(vcmStr(l_Action.SelectedString));
+     if anUpdateIndex then
+      ItemIndex := Items.IndexOf(vcmStr(l_Action.SelectedString));
+     {$EndIf vcmUseComboTree}*)
+    end;//not SetStringsFromAction(anAction)
+   finally
+    l_Action := nil;
+   end;//try..finally
+  finally
+   f_InUpdateCation := False;
+  end;//try..finally
+ end;//not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo)
+//#UC END# *52A9AA140394_52A045E102E3_impl*
+//#UC START# *52A9AA140394_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AA140394_52A045E102E3_var*
+//#UC START# *52A9AA400220_52A045E102E3_impl*
+ Result := False;
+ l_Strings := anAction.SubItems;
+ if (l_Strings = nil) or (l_Strings.Count = 0) then
+ begin
+  Result := vcmSetRoot(anAction.SubNodes);
+  if (anAction.SubNodes = nil) or (anAction.SubNodes.Count = 0) then
+   if anAction.IsSelectedStringChanged then
+   //if not l3Same(Text, anAction.SelectedString) then
+    Text := anAction.SelectedString;
+ end//l_Strings = nil
+ else
+ begin
+  Result := True;
+  if (Action is TvcmOperationAction) and
+   (TvcmOperationAction(Action).OpDef.OperationType = vcm_otCombo) then
+  begin
+   Items.Assign(l_Strings.Items);
+   if not vcmIsNil(anAction.SelectedString) then
+    ItemIndex := Items.IndexOf(anAction.SelectedString);
+  end//anAction is TvcmOperationAction
+  else
+  begin
+   Items.Assign(l_Strings.Items);
+   if anAction.IsSelectedStringChanged then
+   begin
+    if not l3Same(Text, anAction.SelectedString) then
+    begin
+     Text := anAction.SelectedString;
+     //AdjustWidth;
+     //// ^ http://mdp.garant.ru/pages/viewpage.action?pageId=100958843
+     // ÊÎÑÒÛËÜ ÏÅÐÅÅÕÀË Â TctButtonEdit.pm_SetText èç - çà K278854646
+    end;//not l3Same(Text, anAction.SelectedString)
+   end;//not vcmSame(f_SelectedString, anAction.SelectedString)
+  end;//anAction is TvcmOperationAction
+ end;//l_Strings = nil..
+//#UC END# *52A9AA400220_52A045E102E3_impl*
+//#UC START# *52A9AA400220_52A045E102E3_var*
+var
+ l_Strings: IvcmStrings;
+//#UC END# *52A9AA400220_52A045E102E3_var*
+//#UC START# *52A9AADF0289_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  Action.ActionComponent := Self;
+  l_Action.SelectedString := Text;
+  l_Action.LockUpdate;
+  try
+   lp_SaveLock;
+   try
+    Action.Execute;
+   finally
+    lp_RestoreLock;
+   end;//try..finally
+  finally
+   l_Action.UnlockUpdate;
+  end;//try..finally
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AADF0289_52A045E102E3_impl*
+//#UC START# *52A9AADF0289_52A045E102E3_var*
+var
+ l_LockCount: Integer;
+ l_Action: IvcmAction;
+
+ procedure lp_SaveLock;
+ begin
+  l_LockCount:=0;
+  while l_Action.IsExecuteLocked do
+  begin
+   l_Action.UnlockExecute;
+   Inc(l_LockCount);
+  end;//while l_Action.IsExecuteLocked do
+ end;//lp_SaveLock
+
+ procedure lp_RestoreLock;
+ begin
+  while l_LockCount > 0 do
+  begin
+   l_Action.LockExecute;
+   Dec(l_LockCount);
+  end;//while l_LockCount > 0 do
+ end;//lp_RestoreLock
+//#UC END# *52A9AADF0289_52A045E102E3_var*
+//#UC START# *52A9AAEA0068_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  l_Action.SelectedString := Text;
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AAEA0068_52A045E102E3_impl*
+//#UC START# *52A9AAEA0068_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AAEA0068_52A045E102E3_var*

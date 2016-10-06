@@ -49,6 +49,21 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmFormManualUpdateActions
 
+ TkwVcmFormReloadToolbars = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта vcm:Form:ReloadToolbars }
+  private
+   procedure vcm_Form_ReloadToolbars(const aCtx: TtfwContext;
+    aForm: TvcmEntityForm);
+    {* Реализация слова скрипта vcm:Form:ReloadToolbars }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVcmFormReloadToolbars
+
  TkwPopFormIsFloatingStateAndParentNotVisible = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible }
   private
@@ -162,6 +177,52 @@ begin
  end;//try..except
  vcm_Form_ManualUpdateActions(aCtx, l_aForm);
 end;//TkwVcmFormManualUpdateActions.DoDoIt
+
+procedure TkwVcmFormReloadToolbars.vcm_Form_ReloadToolbars(const aCtx: TtfwContext;
+ aForm: TvcmEntityForm);
+ {* Реализация слова скрипта vcm:Form:ReloadToolbars }
+//#UC START# *57F365EB014D_57F365EB014D_Word_var*
+//#UC END# *57F365EB014D_57F365EB014D_Word_var*
+begin
+//#UC START# *57F365EB014D_57F365EB014D_Word_impl*
+ aForm.ReloadToolbars;
+//#UC END# *57F365EB014D_57F365EB014D_Word_impl*
+end;//TkwVcmFormReloadToolbars.vcm_Form_ReloadToolbars
+
+class function TkwVcmFormReloadToolbars.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Form:ReloadToolbars';
+end;//TkwVcmFormReloadToolbars.GetWordNameForRegister
+
+function TkwVcmFormReloadToolbars.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVcmFormReloadToolbars.GetResultTypeInfo
+
+function TkwVcmFormReloadToolbars.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwVcmFormReloadToolbars.GetAllParamsCount
+
+function TkwVcmFormReloadToolbars.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
+end;//TkwVcmFormReloadToolbars.ParamsTypes
+
+procedure TkwVcmFormReloadToolbars.DoDoIt(const aCtx: TtfwContext);
+var l_aForm: TvcmEntityForm;
+begin
+ try
+  l_aForm := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Form_ReloadToolbars(aCtx, l_aForm);
+end;//TkwVcmFormReloadToolbars.DoDoIt
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.IsFloatingStateAndParentNotVisible(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Boolean;
@@ -362,6 +423,8 @@ end;//TkwPopFormFormID.DoDoIt
 initialization
  TkwVcmFormManualUpdateActions.RegisterInEngine;
  {* Регистрация vcm_Form_ManualUpdateActions }
+ TkwVcmFormReloadToolbars.RegisterInEngine;
+ {* Регистрация vcm_Form_ReloadToolbars }
  TkwPopFormIsFloatingStateAndParentNotVisible.RegisterInEngine;
  {* Регистрация pop_Form_IsFloatingStateAndParentNotVisible }
  TkwPopFormIsFloatingState.RegisterInEngine;

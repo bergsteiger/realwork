@@ -1,0 +1,35 @@
+//#UC START# *479731C50290_47CFDFAB0197_impl*
+ if (f_Para <> nil) and f_Para.AsObject.IsValid then
+ begin
+  if f_Para.AsObject.HasSubAtom(k2_tiModelControl) then
+  // - проверка, чтобы в WevReqRow.GetAtomData не попадать
+   if l3IEQ(Self, IUnknown(f_Para.AsObject.IntA[k2_tiModelControl])) then
+    f_Para.AsObject.AttrW[k2_tiModelControl, nil] := nil;
+ end;//f_Para <> nil..
+ f_Para := nil;
+ inherited;
+//#UC END# *479731C50290_47CFDFAB0197_impl*
+//#UC START# *479731C50290_47CFDFAB0197_var*
+//#UC END# *479731C50290_47CFDFAB0197_var*
+//#UC START# *47CD5D46015B_47CFDFAB0197get_impl*
+ Assert(f_Para <> nil);
+ Result := f_Para;
+//#UC END# *47CD5D46015B_47CFDFAB0197get_impl*
+//#UC START# *47CD5D46015B_47CFDFAB0197get_var*
+//#UC END# *47CD5D46015B_47CFDFAB0197get_var*
+//#UC START# *47CFDFAB0197_ext:FileName
+w:\common\components\gui\Garant\Everest\qf\evCustomControlTool.pas
+//#UC END# *47CFDFAB0197_ext:FileName
+//#UC START# *47CFDFAB0197impl_uses*
+//#UC END# *47CFDFAB0197impl_uses*
+//#UC START# *47CFE07602FE_47CFDFAB0197_impl*
+ inherited Create;
+ Set_Para(aPara);
+//#UC END# *47CFE07602FE_47CFDFAB0197_impl*
+//#UC START# *47CFE07602FE_47CFDFAB0197_var*
+//#UC END# *47CFE07602FE_47CFDFAB0197_var*
+//#UC START# *47CFE37202A1_47CFDFAB0197_impl*
+ f_Para := Value;
+//#UC END# *47CFE37202A1_47CFDFAB0197_impl*
+//#UC START# *47CFE37202A1_47CFDFAB0197_var*
+//#UC END# *47CFE37202A1_47CFDFAB0197_var*

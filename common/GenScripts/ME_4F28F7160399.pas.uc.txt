@@ -1,0 +1,79 @@
+//#UC START# *479731C50290_4F28F7160399_impl*
+ l3Free(f_TemplatesArray);
+ FreeAndNil(f_TableTag);
+ inherited;
+//#UC END# *479731C50290_4F28F7160399_impl*
+//#UC START# *479731C50290_4F28F7160399_var*
+//#UC END# *479731C50290_4F28F7160399_var*
+//#UC START# *4F28F7160399_ext:FileName
+w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas
+//#UC END# *4F28F7160399_ext:FileName
+//#UC START# *4F28F7160399impl_uses*
+//#UC END# *4F28F7160399impl_uses*
+//#UC START# *4F28FC7702ED_4F28F7160399_impl*
+ if (aRange <> nil) then
+ begin
+  l_Table := aRange.Table;
+  if (l_Table <> nil) then
+  begin
+   l_RowsIterator := l_Table.RowsIterator;
+   if (l_RowsIterator <> nil) then
+   begin
+    l_Row := l_RowsIterator.First;
+    if f_TemplatesArray = nil then
+     f_TemplatesArray := TevCellsOffsetsList.Create
+    else
+     f_TemplatesArray.Clear;
+    while (l_Row <> nil) do
+    begin
+     l_CellIterator := l_Row.CellsIterator;
+     if l_CellIterator <> nil then
+      RememberRowWidth(l_CellIterator);
+     l_Row := l_RowsIterator.Next;
+    end; // while (l_Row <> nil) do
+    l_Table.GetTag.SetRef(f_TableTag);
+   end; // if (l_RowsIterator <> nil) then
+  end; // if (l_Table <> nil) then
+ end; // if (aRange <> nil) then
+//#UC END# *4F28FC7702ED_4F28F7160399_impl*
+//#UC START# *4F28FC7702ED_4F28F7160399_var*
+var
+ l_Row          : IedRow;
+ l_Table        : IedTable;
+ l_RowsIterator : IedRowsIterator;
+ l_CellIterator : IedCellsIterator;
+//#UC END# *4F28FC7702ED_4F28F7160399_var*
+//#UC START# *4F28FC900076_4F28F7160399_impl*
+ if (aRange <> nil) then
+ begin
+  l_Table := aRange.Table;
+  if (l_Table <> nil) and (f_TemplatesArray <> nil) and (f_TemplatesArray.Count > 0) then
+  begin
+   if l_Table.GetTag.IsSame(f_TableTag) then
+    TevCellsWidthCorrecter.DoCorrection(l_Table, nil, True, aProgress)
+   else
+    TevCellsWidthCorrecter.DoCorrection(l_Table, f_TemplatesArray, True, aProgress);
+  end; // if (l_Table <> nil) and (f_TemplatesArray <> nil) and (f_TemplatesArray.Count > 0) then
+ end; // if (aRange <> nil) then
+//#UC END# *4F28FC900076_4F28F7160399_impl*
+//#UC START# *4F28FC900076_4F28F7160399_var*
+var
+ l_Table: IedTable;
+//#UC END# *4F28FC900076_4F28F7160399_var*
+//#UC START# *4F28FCC703E7_4F28F7160399_impl*
+ Result := (f_TemplatesArray <> nil) and (f_TemplatesArray.Count > 0);
+//#UC END# *4F28FCC703E7_4F28F7160399_impl*
+//#UC START# *4F28FCC703E7_4F28F7160399_var*
+//#UC END# *4F28FCC703E7_4F28F7160399_var*
+//#UC START# *4F28FCDD00F8_4F28F7160399_impl*
+ l3Free(f_TemplatesArray);
+ FreeAndNil(f_TableTag);
+ inherited;
+//#UC END# *4F28FCDD00F8_4F28F7160399_impl*
+//#UC START# *4F28FCDD00F8_4F28F7160399_var*
+//#UC END# *4F28FCDD00F8_4F28F7160399_var*
+//#UC START# *4F29052701FB_4F28F7160399_impl*
+ f_TemplatesArray.Try2RemeberWidths(anIterator);
+//#UC END# *4F29052701FB_4F28F7160399_impl*
+//#UC START# *4F29052701FB_4F28F7160399_var*
+//#UC END# *4F29052701FB_4F28F7160399_var*

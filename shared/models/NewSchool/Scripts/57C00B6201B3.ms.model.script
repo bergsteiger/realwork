@@ -13,6 +13,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_57C00B6201B3
 %%Inner ME_57C00B6201B3
 %%Inner ME_57C00B6201B3
+%%Inner ME_57C00B6201B3
 
 FORWARD ME_57C00B6201B3
 
@@ -1963,6 +1964,38 @@ ME ME_57EE78B60153
 
 ENDME // ME_57EE78B60153 
 
+FORWARD ME_57F206DC02EB
+
+ME ME_57F207E90054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+
+ENDME // ME_57F207E90054 
+
+ME ME_57F2428200E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_57F2428200E8 
+
+ME ME_57F2454D03AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_57ED10DC019F' '57BEAF780201.ms.model.script' // TarMultiOperation
+ ;
+
+ENDME // ME_57F2454D03AA 
+
 ME ME_57D2A771002F_ME_57EE6E97018D
  MELINK Original HWL ME_57D2A771002F // DoExecute
  ;
@@ -1997,6 +2030,9 @@ ME ME_57EE6E97018D
  ME_57EE78AC00A8 // TcsMultiOperationReply
  ME_57EE78B2014A // FreeAndNil
  ME_57EE78B60153 // UserConsts
+ ME_57F207E90054 // TalcuMultiOperationRequest
+ ME_57F2428200E8 // TTypeInfo
+ ME_57F2454D03AA // TarMultiOperation
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
@@ -2008,6 +2044,225 @@ ME ME_57EE6E97018D
  UP extprop:pas:UnitName 'alcuMultiOperationExecutor'
 
 ENDME // ME_57EE6E97018D TalcuMultiOperationExecutor
+
+ME ME_57F207570275
+ MEPROP UID '57F207570275'
+ MEPROP Name 'Message'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57EE51860032' '57C686B70253.ms.model.script' // TcsMultiOperation
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57F207570275 Message
+
+ME ME_57F20770026C
+ MEPROP UID '57F20770026C'
+ MEPROP Name 'Reply'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57EE517102EC' '57C686B70253.ms.model.script' // TcsMultiOperationReply
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57F20770026C Reply
+
+ME ME_57F207C700B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_57F207C700B9 
+
+ME ME_57F207CE011B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57F207CE011B 
+
+ME ME_57F207D201A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57F207D201A1 
+
+ME ME_57F2154D00DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_57F2154D00DE 
+
+ME ME_57F2240802CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57F2240802CC 
+
+ME ME_57F2240C0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57DFADE9018A' '57DFADD40219.ms.model.script' // Il3IDList
+ ;
+
+ENDME // ME_57F2240C0287 
+
+ME ME_57F224200323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57ED158F01BB' '57E2336703B0.ms.model.script' // TarDirectMultiOperationHelper
+ ;
+
+ENDME // ME_57F224200323 
+
+ME ME_57F22FC1008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_57ED10DC019F' '57BEAF780201.ms.model.script' // TarMultiOperation
+ ;
+
+ENDME // ME_57F22FC1008C 
+
+ME ME_57F239CC01F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_57F239CC01F2 
+
+ME ME_57F239E801E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
+ ;
+
+ENDME // ME_57F239E801E5 
+
+ME ME_57F23EA30189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F206DC02EB // TalcuMultiOperationRequest
+ ;
+ MELINK Target WL 'ME_51B6CE6100D8' '51B6CE6100D8.ms.model.script' // dt_Doc
+ ;
+
+ENDME // ME_57F23EA30189 
+
+ME ME_479731C50290_ME_57F206DC02EB
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57F206DC02EB Cleanup
+
+ME ME_53A2EEE90097_ME_57F206DC02EB
+ MELINK Original WL 'ME_53A2EEE90097' '52F8C2AE0042.ms.model.script' // DoRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53A2EEE90097_ME_57F206DC02EB DoRun
+
+ME ME_57C4135700F7_ME_57F206DC02EB
+ MELINK Original WL 'ME_57C4135700F7' '52F8C2AE0042.ms.model.script' // DoAbort
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57C4135700F7_ME_57F206DC02EB DoAbort
+
+%%ImplementedBy ME_57F2070C002F ME_57F206DC02EB
+
+%%InheritedBy ME_57D29F210256 ME_57F206DC02EB
+
+ME ME_57F206DC02EB
+ MEPROP UID '57F206DC02EB'
+ MEPROP Name 'TalcuMultiOperationRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C00B6201B3 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D29F210256 // TalcuWaitableRequest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57F2070C002F' '484A470100DD.ms.model.script' // MultiOperationRequest
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57F207570275 // Message
+ HWL ME_57F20770026C // Reply
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57F206DC02EB // Cleanup
+ ME_53A2EEE90097_ME_57F206DC02EB // DoRun
+ ME_57C4135700F7_ME_57F206DC02EB // DoAbort
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57F207C700B9 // Logging Levels
+ ME_57F207CE011B // Tl3StopWatch
+ ME_57F207D201A1 // FreeAndNil
+ ME_57F2154D00DE // TTypeInfo
+ ME_57F2240802CC // l3System
+ ME_57F2240C0287 // Il3IDList
+ ME_57F224200323 // TarDirectMultiOperationHelper
+ ME_57F22FC1008C // TarMultiOperation
+ ME_57F239CC01F2 // ISab
+ ME_57F239E801E5 // dt_Sab
+ ME_57F23EA30189 // dt_Doc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationRequest.pas'
+ UP extprop:rc:SelfName 'alcuMultiOperationRequest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuMultiOperationRequest'
+
+ENDME // ME_57F206DC02EB TalcuMultiOperationRequest
 
 ME ME_57C00B6201B3
  MEPROP UID '57C00B6201B3'
@@ -2031,6 +2286,7 @@ ME ME_57C00B6201B3
  HWL ME_57EBC0C00362 // TalcuMultiClearAttributesExecutor
  HWL ME_57ECC59F00D4 // TalcuMultiClearAttributesRequest
  HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ HWL ME_57F206DC02EB // TalcuMultiOperationRequest
  )
  ; // Children
  MELIST Depends
@@ -2039,6 +2295,7 @@ ME ME_57C00B6201B3
  WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
  WL 'ME_4720831F012D' '4720831F012D.ms.model.script' // m3DBInterfaces
  WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
+ WL 'ME_4767743E00E5' '4767743E00E5.ms.model.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
@@ -2051,6 +2308,7 @@ ME ME_57C00B6201B3
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
  WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ WL 'ME_519B70FC02AB' '519B70FC02AB.ms.model.script' // DataAccess
  WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
  WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
  WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
@@ -2059,6 +2317,8 @@ ME ME_57C00B6201B3
  WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces
  WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
  WL 'ME_54856B98017D' '54856B98017D.ms.model.script' // CoreExecutors
+ WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
+ WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
  WL 'ME_57C537DE02D3' '57C537DE02D3.ms.model.script' // Addresses
  WL 'ME_57C53E5D02DC' '57C53E5D02DC.ms.model.script' // Addresses
  WL 'ME_57C686B70253' '57C686B70253.ms.model.script' // DocStreamTransfer
