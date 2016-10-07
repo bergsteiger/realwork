@@ -1,0 +1,127 @@
+// f1TagDataProviderPrim 4C72603000E8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C72603000E8
+
+FORWARD ME_4C722FFF0364
+
+ME ME_4C723005023F
+ MEPROP Name 'aProp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC6F6A00FA' '47AC6F0B025E.ms.model.script' // Tk2CustomProperty
+ ;
+
+ENDME // ME_4C723005023F aProp
+
+ME ME_4C7230050265
+ MEPROP Name 'aChecker'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C722E000103' '4C6E92E9016E.ms.model.script' // If1AtomChecker
+ ;
+
+ENDME // ME_4C7230050265 aChecker
+
+ME ME_4C722FFF0364
+ MEPROP UID '4C722FFF0364'
+ MEPROP Name 'DoBuildSubs'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C723005023F // aProp
+ ME_4C7230050265 // aChecker
+ )
+ ; // Parameters
+
+ENDME // ME_4C722FFF0364 DoBuildSubs
+
+FORWARD ME_4C6EAFC9029B
+
+ME ME_4C6EAFE9031E
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4C6EAFE9031E aValue
+
+ME ME_4C6EAFC9029B
+ MEPROP UID '4C6EAFC9029B'
+ MEPROP Name 'DoSetWStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C6EAFE9031E // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4C6EAFC9029B DoSetWStyle
+
+ME ME_4CEE666803CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
+ ;
+ MELINK Target WL 'ME_4CEE65C8015D' '4CEE659103B3.ms.model.script' // TnsCommentModifier
+ ;
+
+ENDME // ME_4CEE666803CD 
+
+ME ME_4CEE666D000D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72603000E8 // f1TagDataProviderPrim
+ ;
+ MELINK Target WL 'ME_4CEE65B701A4' '4CEE659103B3.ms.model.script' // TnsParaModifier
+ ;
+
+ENDME // ME_4CEE666D000D 
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4C72603000E8
+
+ME ME_4C72603000E8
+ MEPROP UID '4C72603000E8'
+ MEPROP Name 'f1TagDataProviderPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый источник данных тега' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C726B20031E' '4C726B20031E.ms.model.script' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C722FFF0364 // DoBuildSubs
+ HWL ME_4C6EAFC9029B // DoSetWStyle
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CEE666803CD // TnsCommentModifier
+ ME_4CEE666D000D // TnsParaModifier
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '23.08.2010 15:49'
+ UP extprop:pas:TypeName '_f1TagDataProviderPrim_'
+ UP extprop:pas:UnitName 'f1TagDataProviderPrim.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas'
+
+ENDME // ME_4C72603000E8 f1TagDataProviderPrim

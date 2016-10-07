@@ -1,0 +1,47 @@
+// GblAdapter 4AC2178C0370 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AC217A5034F
+
+FORWARD ME_4AC2178C0370
+
+ME ME_4AC217A5034F
+ MEPROP UID '4AC217A5034F'
+ MEPROP GUID 'E6962E3D-3FF3-4A2D-BB58-C8B199FCCB2E'
+ MEPROP Name 'IGblAdapterDll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC2178C0370 // GblAdapter
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GblAdapterDll'
+
+ENDME // ME_4AC217A5034F IGblAdapterDll
+
+ME ME_4AC2178C0370
+ MEPROP UID '4AC2178C0370'
+ MEPROP Name 'GblAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заглушка, чтобы можно было делать uses к обвязке для dll' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48078CC202EC' '48078CC202EC.ms.model.script' // AdapterHelpers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC217A5034F // IGblAdapterDll
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\NOT_FINISHED_GblAdapter.pas'
+
+ENDME // ME_4AC2178C0370 GblAdapter

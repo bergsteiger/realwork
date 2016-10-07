@@ -2,23 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4F7DD05B035B
-
-ME ME_4F7DD06802A0
- MEPROP UID '4F7DD06802A0'
- MEPROP Name 'nsFlashWindow'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F7DD05B035B // Flashing
- ;
- UP "finished" False
- UP extprop:rc:SelfName 'FlashWindow'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsFlashWindow.pas'
-
-ENDME // ME_4F7DD06802A0 nsFlashWindow
+%%Inner ME_4F7DD06802A0
 
 ME ME_4F7DD05B035B
  MEPROP UID '4F7DD05B035B'
@@ -31,8 +15,11 @@ ME ME_4F7DD05B035B
  MELINK Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_4F7DD06802A0 // nsFlashWindow
+   Seq: ( WL 'ME_4F7DD06802A0' '4F7DD06802A0.ms.model.script' // nsFlashWindow
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4F7DD05B035B Flashing

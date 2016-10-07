@@ -1,0 +1,43 @@
+// nsVerifyValue 4C88F30900A7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C88F30900A7
+
+ME ME_4C88F33402E6
+ MEPROP UID '4C88F33402E6'
+ MEPROP Name 'nsEmailVerify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88F30900A7 // nsVerifyValue
+ ;
+ UP extprop:rc:SelfName 'EmailVerify'
+
+ENDME // ME_4C88F33402E6 nsEmailVerify
+
+ME ME_4C88F30900A7
+ MEPROP UID '4C88F30900A7'
+ MEPROP Name 'nsVerifyValue'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88F33402E6 // nsEmailVerify
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'VerifyValue'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsVerifyValue.pas'
+
+ENDME // ME_4C88F30900A7 nsVerifyValue

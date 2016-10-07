@@ -1,0 +1,144 @@
+// nsNotifiers 4A6860C40384 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AD5AD050225
+%%Inner ME_4AD5AD100369
+%%Inner ME_4AD5AD200280
+%%Inner ME_4AD5AD2903C2
+%%Inner ME_4AD5AD350278
+
+FORWARD ME_4A6860C40384
+
+ME ME_4AD5AD050225
+ MEPROP UID '4AD5AD050225'
+ MEPROP Name 'TnsOnLongProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OnLongProcess'
+
+ENDME // ME_4AD5AD050225 TnsOnLongProcess
+
+ME ME_4AD5AD100369
+ MEPROP UID '4AD5AD100369'
+ MEPROP Name 'TnsSynchronizedNotification'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SynchronizedNotification'
+
+ENDME // ME_4AD5AD100369 TnsSynchronizedNotification
+
+ME ME_4AD5AD200280
+ MEPROP UID '4AD5AD200280'
+ MEPROP Name 'TnsOnControlledChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OnControlledChange'
+
+ENDME // ME_4AD5AD200280 TnsOnControlledChange
+
+ME ME_4AD5AD2903C2
+ MEPROP UID '4AD5AD2903C2'
+ MEPROP Name 'TnsOnExternalFolderChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OnExternalFolderChange'
+
+ENDME // ME_4AD5AD2903C2 TnsOnExternalFolderChange
+
+ME ME_4AD5AD350278
+ MEPROP UID '4AD5AD350278'
+ MEPROP Name 'TnsChatNotifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChatNotifier'
+
+ENDME // ME_4AD5AD350278 TnsChatNotifier
+
+ME ME_542BED580387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ MELINK Target WL 'ME_542BED480295' '48F747EC0073.ms.model.script' // TnsNotificationManager
+ ;
+
+ENDME // ME_542BED580387 
+
+ME ME_55D429BB02FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6860C40384 // nsNotifiers
+ ;
+ MELINK Target WL 'ME_55D429A70008' '48F747EC0073.ms.model.script' // TnsUnderControlNotificationManager
+ ;
+
+ENDME // ME_55D429BB02FD 
+
+ME ME_4A6860C40384
+ MEPROP UID '4A6860C40384'
+ MEPROP Name 'nsNotifiers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5AD050225 // TnsOnLongProcess
+ HWL ME_4AD5AD100369 // TnsSynchronizedNotification
+ HWL ME_4AD5AD200280 // TnsOnControlledChange
+ HWL ME_4AD5AD2903C2 // TnsOnExternalFolderChange
+ HWL ME_4AD5AD350278 // TnsChatNotifier
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_542BED580387 // TnsNotificationManager
+ ME_55D429BB02FD // TnsUnderControlNotificationManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Notifiers'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsNotifiers.pas'
+
+ENDME // ME_4A6860C40384 nsNotifiers

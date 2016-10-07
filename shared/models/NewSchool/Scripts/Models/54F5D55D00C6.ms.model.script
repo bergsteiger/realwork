@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54F5D5E002E0
+
 FORWARD ME_54F5D55D00C6
 
 FORWARD ME_54F5D5E002E0
@@ -36,6 +38,9 @@ ME ME_54F5D8820129
    Seq: ( HWL ME_54F5D89D02FD // ServerDownNotification
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'f1NotificationListener'
 
@@ -58,6 +63,10 @@ ME ME_54F5D9170267
 
 ENDME // ME_54F5D9170267 ItemType
 
+%%ImplementedBy ME_47B57D830369 ME_54F5D8B60392
+
+%%InheritedBy ME_4A54DD4E036F ME_54F5D8B60392
+
 ME ME_54F5D8B60392
  MEPROP UID '54F5D8B60392'
  MEPROP Name 'Tf1NotificationList'
@@ -73,7 +82,7 @@ ME ME_54F5D8B60392
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  )
  ; // Implements
  MELIST Attributes
@@ -148,6 +157,8 @@ ME ME_54F5D9540254
 
 ENDME // ME_54F5D9540254 AddListener
 
+%%InheritedBy ME_54F5D9540254 ME_54F5D987008A
+
 ME ME_54F5D987008A
  MEPROP UID '54F5D987008A'
  MEPROP Name 'RemoveListener'
@@ -190,7 +201,7 @@ ME ME_54F5E7C90309
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_54F5E7BD01ED // Exists
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_54F5E7C90309 DoIt
@@ -218,16 +229,18 @@ ME ME_54F5DA300119
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F5D5E002E0 // Tf1NotificationManager
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_54F5DA300119 
 
 ME ME_479731C50290_ME_54F5D5E002E0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_54F5D5E002E0 Cleanup
+
+%%InheritedBy ME_4A54DD4E036F ME_54F5D5E002E0
 
 ME ME_54F5D5E002E0
  MEPROP UID '54F5D5E002E0'
@@ -267,6 +280,9 @@ ME ME_54F5D5E002E0
    Seq: ( ME_54F5DA300119 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
  UP "singleton" True
  UP extprop:pas:UnitName 'f1NotificationManager'
  UP extprop:rc:isAcceptableForScripts True
@@ -295,5 +311,8 @@ ME ME_54F5D55D00C6
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
 
 ENDME // ME_54F5D55D00C6 CommonNotifications

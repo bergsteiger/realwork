@@ -1,0 +1,195 @@
+// atCRC32 4A4B91810237 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A4B91A1034B
+
+FORWARD ME_4A4B91810237
+
+FORWARD ME_4A4B91A1034B
+
+ME ME_4A4B91AD0154
+ MEPROP UID '4A4B91AD0154'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4B91A1034B // array of Longword
+ ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4A4B91AD0154 
+
+ME ME_4A4B91A1034B
+ MEPROP UID '4A4B91A1034B'
+ MEPROP Name 'array of Longword'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4B91AD0154 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_4A4B91A1034B array of Longword
+
+ME ME_4A4B91B701D1
+ MEPROP UID '4A4B91B701D1'
+ MEPROP Name 'CRC32Table'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+ MELINK Target HWL ME_4A4B91A1034B // array of Longword
+ ;
+
+ENDME // ME_4A4B91B701D1 CRC32Table
+
+ME ME_4A4B91E4031E
+ MEPROP UID '4A4B91E4031E'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+
+ENDME // ME_4A4B91E4031E Init
+
+ME ME_4A4B93380119
+ MEPROP UID '4A4B93380119'
+ MEPROP Name 'InitCRC32Table'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+
+ENDME // ME_4A4B93380119 InitCRC32Table
+
+FORWARD ME_4A4B91EE0198
+
+ME ME_4A4B91F30019
+ MEPROP Name 'Buf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4A4B91F30019 Buf
+
+ME ME_4A4B91F30029
+ MEPROP Name 'BufLength'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4A4B91F30029 BufLength
+
+ME ME_4A4B91EE0198
+ MEPROP UID '4A4B91EE0198'
+ MEPROP Name 'ComputeCRC32'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4B91F30019 // Buf
+ ME_4A4B91F30029 // BufLength
+ )
+ ; // Parameters
+
+ENDME // ME_4A4B91EE0198 ComputeCRC32
+
+FORWARD ME_4A4B91F8033D
+
+ME ME_4A4B91FA028E
+ MEPROP Name 'Buf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_4A4B91FA028E Buf
+
+ME ME_4A4B91FA029D
+ MEPROP Name 'BufLength'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4A4B91FA029D BufLength
+
+ME ME_4A4B91FA02AD
+ MEPROP Name 'CRC32'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4A4B91FA02AD CRC32
+
+ME ME_4A4B91F8033D
+ MEPROP UID '4A4B91F8033D'
+ MEPROP Name 'UpdateCRC32'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4B91810237 // atCRC32
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4B91FA028E // Buf
+ ME_4A4B91FA029D // BufLength
+ ME_4A4B91FA02AD // CRC32
+ )
+ ; // Parameters
+
+ENDME // ME_4A4B91F8033D UpdateCRC32
+
+ME ME_4A4B91810237
+ MEPROP UID '4A4B91810237'
+ MEPROP Name 'atCRC32'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Расчет контрольной суммы CRC32' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48172BE2027A' '48172BE2027A.ms.model.script' // Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4B91B701D1 // CRC32Table
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A4B91E4031E // Init
+ HWL ME_4A4B93380119 // InitCRC32Table
+ HWL ME_4A4B91EE0198 // ComputeCRC32
+ HWL ME_4A4B91F8033D // UpdateCRC32
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4A4B91A1034B // array of Longword
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\atCRC32.pas'
+
+ENDME // ME_4A4B91810237 atCRC32

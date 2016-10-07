@@ -1,0 +1,272 @@
+// atTypedObjectList 4807692D0057 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4807692D0057
+
+ME ME_4807695E0286
+ MEPROP UID '4807695E0286'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_4807695E0286 
+
+FORWARD ME_48076B270243
+
+ME ME_48076D19003F
+ MEPROP UID '48076D19003F'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48076B270243 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48076D19003F anIndex
+
+ME ME_48076B270243
+ MEPROP UID '48076B270243'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48076D19003F // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_48076B270243 Items
+
+ME ME_48076C1B012D
+ MEPROP UID '48076C1B012D'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_48076C1B012D First
+
+ME ME_48076C440066
+ MEPROP UID '48076C440066'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_48076C440066 Last
+
+FORWARD ME_48076B5F0329
+
+ME ME_48076B7500EA
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_48076B7500EA anObject
+
+ME ME_48076B5F0329
+ MEPROP UID '48076B5F0329'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48076B7500EA // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_48076B5F0329 Add
+
+FORWARD ME_48076B940117
+
+ME ME_48076BFB00D3
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_48076BFB00D3 anItem
+
+ME ME_48076B940117
+ MEPROP UID '48076B940117'
+ MEPROP Name 'Extract'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+ MELIST Parameters
+   Seq: ( ME_48076BFB00D3 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_48076B940117 Extract
+
+FORWARD ME_48076BAE0300
+
+ME ME_48076BF501EA
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_48076BF501EA anObject
+
+ME ME_48076BAE0300
+ MEPROP UID '48076BAE0300'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48076BF501EA // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_48076BAE0300 Remove
+
+FORWARD ME_48076BC00116
+
+ME ME_48076BEE0323
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_48076BEE0323 anObject
+
+ME ME_48076BC00116
+ MEPROP UID '48076BC00116'
+ MEPROP Name 'IndexOf'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48076BEE0323 // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_48076BC00116 IndexOf
+
+FORWARD ME_48076BD102FF
+
+ME ME_48076BDE0266
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48076BDE0266 anIndex
+
+ME ME_48076BDE028A
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807694E0254' '480769090320.ms.model.script' // ObjectListElement
+ ;
+
+ENDME // ME_48076BDE028A anObject
+
+ME ME_48076BD102FF
+ MEPROP UID '48076BD102FF'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807692D0057 // atTypedObjectList
+ ;
+ MELIST Parameters
+   Seq: ( ME_48076BDE0266 // anIndex
+ ME_48076BDE028A // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_48076BD102FF Insert
+
+ME ME_4807692D0057
+ MEPROP UID '4807692D0057'
+ MEPROP Name 'atTypedObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типизированный список объектов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_480769090320' '480769090320.ms.model.script' // MixIns
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4807695E0286 // 
+ HWL ME_48076B270243 // Items
+ HWL ME_48076C1B012D // First
+ HWL ME_48076C440066 // Last
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48076B5F0329 // Add
+ HWL ME_48076B940117 // Extract
+ HWL ME_48076BAE0300 // Remove
+ HWL ME_48076BC00116 // IndexOf
+ HWL ME_48076BD102FF // Insert
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_atTypedObjectList_'
+ UP extprop:pas:UnitName 'atTypedObjectList.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas'
+
+ENDME // ME_4807692D0057 atTypedObjectList

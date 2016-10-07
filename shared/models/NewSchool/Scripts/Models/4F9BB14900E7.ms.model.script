@@ -1,0 +1,1146 @@
+// nsQuestionsWithChoices 4F9BB14900E7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9BB14900E7
+
+FORWARD ME_4F9BB17D03CD
+
+FORWARD ME_4F9BB19A0173
+
+FORWARD ME_4F9BB1C40283
+
+ME ME_4F9BB1D70321
+ MEPROP UID '4F9BB1D70321'
+ MEPROP Name 'Open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Открыть текст документа''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB1C40283 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB1D70321 Open
+
+%%InheritedBy ME_4F9BB1D70321 ME_4F9BB1E60328
+
+ME ME_4F9BB1E60328
+ MEPROP UID '4F9BB1E60328'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Сравнить с предыдущей редакцией''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB1C40283 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB1D70321 // Open
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB1E60328 Compare
+
+ME ME_4F9BB1C40283
+ MEPROP UID '4F9BB1C40283'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB19A0173 // ChangedDocumentOnControl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB1D70321 // Open
+ HWL ME_4F9BB1E60328 // Compare
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB1C40283 Choices
+
+ME ME_4F9BB19A0173
+ MEPROP UID '4F9BB19A0173'
+ MEPROP Name 'ChangedDocumentOnControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''В документ на контроле внесены изменения. Выберите действие:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB1C40283 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+ UP "SettingsCaption" 'Действие при выборе измененного документа на контроле'
+
+ENDME // ME_4F9BB19A0173 ChangedDocumentOnControl
+
+FORWARD ME_4F9BB2080194
+
+FORWARD ME_4F9BB23E021F
+
+ME ME_4F9BB24E0368
+ MEPROP UID '4F9BB24E0368'
+ MEPROP Name 'Back'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и отредактировать запрос''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB23E021F // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB24E0368 Back
+
+%%InheritedBy ME_4F9BB24E0368 ME_4F9BB262030D
+
+ME ME_4F9BB262030D
+ MEPROP UID '4F9BB262030D'
+ MEPROP Name 'Continue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Продолжить поиск''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB23E021F // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB24E0368 // Back
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB262030D Continue
+
+ME ME_4F9BB23E021F
+ MEPROP UID '4F9BB23E021F'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB2080194 // SearchUnresolvedContext
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB24E0368 // Back
+ HWL ME_4F9BB262030D // Continue
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB23E021F Choices
+
+ME ME_4F9BB2080194
+ MEPROP UID '4F9BB2080194'
+ MEPROP Name 'SearchUnresolvedContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB23E021F // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9BB2080194 SearchUnresolvedContext
+
+FORWARD ME_4F9BB2940338
+
+FORWARD ME_4F9BB2AE02FE
+
+ME ME_4F9BB2C2022E
+ MEPROP UID '4F9BB2C2022E'
+ MEPROP Name 'Append'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Добавить в существующий список''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB2AE02FE // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB2C2022E Append
+
+%%InheritedBy ME_4F9BB2C2022E ME_4F9BB2D2035A
+
+ME ME_4F9BB2D2035A
+ MEPROP UID '4F9BB2D2035A'
+ MEPROP Name 'Copy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Копировать в новый список''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB2AE02FE // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB2C2022E // Append
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB2D2035A Copy
+
+ME ME_4F9BB2AE02FE
+ MEPROP UID '4F9BB2AE02FE'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB2940338 // DropListToList
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB2C2022E // Append
+ HWL ME_4F9BB2D2035A // Copy
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB2AE02FE Choices
+
+ME ME_4F9BB2940338
+ MEPROP UID '4F9BB2940338'
+ MEPROP Name 'DropListToList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB2AE02FE // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9BB2940338 DropListToList
+
+FORWARD ME_4F9BB2FF0281
+
+FORWARD ME_4F9BB3100261
+
+ME ME_4F9BB3290284
+ MEPROP UID '4F9BB3290284'
+ MEPROP Name 'Open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Перейти, открыв во внешнем браузере ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB3100261 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB3290284 Open
+
+%%InheritedBy ME_4F9BB3290284 ME_4F9BB33600F7
+
+ME ME_4F9BB33600F7
+ MEPROP UID '4F9BB33600F7'
+ MEPROP Name 'Stay'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Не переходить''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB3100261 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB3290284 // Open
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB33600F7 Stay
+
+ME ME_4F9BB3100261
+ MEPROP UID '4F9BB3100261'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB2FF0281 // mtNotGarantDomain
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB3290284 // Open
+ HWL ME_4F9BB33600F7 // Stay
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB3100261 Choices
+
+ME ME_4F9BB2FF0281
+ MEPROP UID '4F9BB2FF0281'
+ MEPROP Name 'mtNotGarantDomain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Переход по внешней ссылке''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB3100261 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9BB2FF0281 mtNotGarantDomain
+
+FORWARD ME_4F9BB36100E0
+
+FORWARD ME_4F9BB39401CF
+
+ME ME_4F9BB3A5034E
+ MEPROP UID '4F9BB3A5034E'
+ MEPROP Name 'Expand'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''расширить базовый список до полного и произвести поиск в нем''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB39401CF // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB3A5034E Expand
+
+%%InheritedBy ME_4F9BB3A5034E ME_4F9BB3B60352
+
+ME ME_4F9BB3B60352
+ MEPROP UID '4F9BB3B60352'
+ MEPROP Name 'AllBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''произвести поиск по всему информационному банку''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB39401CF // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB3A5034E // Expand
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB3B60352 AllBase
+
+ME ME_4F9BB39401CF
+ MEPROP UID '4F9BB39401CF'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB36100E0 // EmptySearchResultInBaseList
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB3A5034E // Expand
+ HWL ME_4F9BB3B60352 // AllBase
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB39401CF Choices
+
+ME ME_4F9BB36100E0
+ MEPROP UID '4F9BB36100E0'
+ MEPROP Name 'EmptySearchResultInBaseList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB39401CF // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9BB36100E0 EmptySearchResultInBaseList
+
+FORWARD ME_4F9BB3E101D8
+
+FORWARD ME_4F9BB3F7014C
+
+ME ME_4F9BB40F02B4
+ MEPROP UID '4F9BB40F02B4'
+ MEPROP Name 'Back'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''вернуться к регистрации нового пользователя, изменив регистрационные данные''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB3F7014C // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB40F02B4 Back
+
+%%InheritedBy ME_4F9BB40F02B4 ME_4F9BB4290314
+
+ME ME_4F9BB4290314
+ MEPROP UID '4F9BB4290314'
+ MEPROP Name 'Login'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB3F7014C // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9BB40F02B4 // Back
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9BB4290314 Login
+
+ME ME_4F9BB3F7014C
+ MEPROP UID '4F9BB3F7014C'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB3E101D8 // AutologinDuplicate
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB40F02B4 // Back
+ HWL ME_4F9BB4290314 // Login
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB3F7014C Choices
+
+ME ME_4F9BB3E101D8
+ MEPROP UID '4F9BB3E101D8'
+ MEPROP Name 'AutologinDuplicate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Пользователь с таким именем уже существует. Сделайте выбор:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9BB3F7014C // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Warning'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9BB3E101D8 AutologinDuplicate
+
+ME ME_62493EE5E5E0
+ MEPROP UID '62493EE5E5E0'
+ MEPROP Name 'ChangedDocumentOnControl_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9BB17D03CD // Questions
+ ;
+ MEPROP Value '''Действие при выборе измененного документа на контроле'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Действие при выборе измененного документа на контроле'''
+
+ENDME // ME_62493EE5E5E0 ChangedDocumentOnControl_SettingsCaption
+
+ME ME_4F9BB17D03CD
+ MEPROP UID '4F9BB17D03CD'
+ MEPROP Name 'Questions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_62493EE5E5E0 // ChangedDocumentOnControl_SettingsCaption
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9BB19A0173 // ChangedDocumentOnControl
+ HWL ME_4F9BB2080194 // SearchUnresolvedContext
+ HWL ME_4F9BB2940338 // DropListToList
+ HWL ME_4F9BB2FF0281 // mtNotGarantDomain
+ HWL ME_4F9BB36100E0 // EmptySearchResultInBaseList
+ HWL ME_4F9BB3E101D8 // AutologinDuplicate
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9BB17D03CD Questions
+
+FORWARD ME_4566A7D963E6
+
+ME ME_1F7ED63DE1C2
+ MEPROP UID '1F7ED63DE1C2'
+ MEPROP Name 'ChangedDocumentOnControl_Choice_Open'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Открыть текст документа''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Open''; rValue : ''Открыть текст документа'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Open''; rValue : ''Открыть текст документа'')'
+ UPLINK Speller HWL ME_4F9BB1D70321 // Open
+ ;
+
+ENDME // ME_1F7ED63DE1C2 ChangedDocumentOnControl_Choice_Open
+
+ME ME_936DD2920E2E
+ MEPROP UID '936DD2920E2E'
+ MEPROP Name 'ChangedDocumentOnControl_Choice_Compare'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Сравнить с предыдущей редакцией''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Compare''; rValue : ''Сравнить с предыдущей редакцией'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangedDocumentOnControl_Choice_Compare''; rValue : ''Сравнить с предыдущей редакцией'')'
+ UPLINK Speller HWL ME_4F9BB1E60328 // Compare
+ ;
+
+ENDME // ME_936DD2920E2E ChangedDocumentOnControl_Choice_Compare
+
+ME ME_4566A7D963E6
+ MEPROP UID '4566A7D963E6'
+ MEPROP Name 'LCImpl_ChangedDocumentOnControl_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ChangedDocumentOnControl' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_1F7ED63DE1C2 // ChangedDocumentOnControl_Choice_Open
+ HWL ME_936DD2920E2E // ChangedDocumentOnControl_Choice_Compare
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB1C40283 // Choices
+ ;
+
+ENDME // ME_4566A7D963E6 LCImpl_ChangedDocumentOnControl_Choices
+
+FORWARD ME_6E8D04DC84C2
+
+ME ME_A029F4968C96
+ MEPROP UID 'A029F4968C96'
+ MEPROP Name 'SearchUnresolvedContext_Choice_Back'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и отредактировать запрос''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Back''; rValue : ''Вернуться в карточку и отредактировать запрос'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Back''; rValue : ''Вернуться в карточку и отредактировать запрос'')'
+ UPLINK Speller HWL ME_4F9BB24E0368 // Back
+ ;
+
+ENDME // ME_A029F4968C96 SearchUnresolvedContext_Choice_Back
+
+ME ME_3B2472B436FE
+ MEPROP UID '3B2472B436FE'
+ MEPROP Name 'SearchUnresolvedContext_Choice_Continue'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Продолжить поиск''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Continue''; rValue : ''Продолжить поиск'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SearchUnresolvedContext_Choice_Continue''; rValue : ''Продолжить поиск'')'
+ UPLINK Speller HWL ME_4F9BB262030D // Continue
+ ;
+
+ENDME // ME_3B2472B436FE SearchUnresolvedContext_Choice_Continue
+
+ME ME_6E8D04DC84C2
+ MEPROP UID '6E8D04DC84C2'
+ MEPROP Name 'LCImpl_SearchUnresolvedContext_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога SearchUnresolvedContext' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_A029F4968C96 // SearchUnresolvedContext_Choice_Back
+ HWL ME_3B2472B436FE // SearchUnresolvedContext_Choice_Continue
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB23E021F // Choices
+ ;
+
+ENDME // ME_6E8D04DC84C2 LCImpl_SearchUnresolvedContext_Choices
+
+FORWARD ME_3640157D9A87
+
+ME ME_ACA9AD2E8093
+ MEPROP UID 'ACA9AD2E8093'
+ MEPROP Name 'DropListToList_Choice_Append'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Добавить в существующий список''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Append''; rValue : ''Добавить в существующий список'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Append''; rValue : ''Добавить в существующий список'')'
+ UPLINK Speller HWL ME_4F9BB2C2022E // Append
+ ;
+
+ENDME // ME_ACA9AD2E8093 DropListToList_Choice_Append
+
+ME ME_E29265CD1505
+ MEPROP UID 'E29265CD1505'
+ MEPROP Name 'DropListToList_Choice_Copy'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Копировать в новый список''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Copy''; rValue : ''Копировать в новый список'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DropListToList_Choice_Copy''; rValue : ''Копировать в новый список'')'
+ UPLINK Speller HWL ME_4F9BB2D2035A // Copy
+ ;
+
+ENDME // ME_E29265CD1505 DropListToList_Choice_Copy
+
+ME ME_3640157D9A87
+ MEPROP UID '3640157D9A87'
+ MEPROP Name 'LCImpl_DropListToList_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога DropListToList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_ACA9AD2E8093 // DropListToList_Choice_Append
+ HWL ME_E29265CD1505 // DropListToList_Choice_Copy
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB2AE02FE // Choices
+ ;
+
+ENDME // ME_3640157D9A87 LCImpl_DropListToList_Choices
+
+FORWARD ME_7D74460CC6DB
+
+ME ME_5FD7591402E7
+ MEPROP UID '5FD7591402E7'
+ MEPROP Name 'mtNotGarantDomain_Choice_Open'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Перейти, открыв во внешнем браузере ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Open''; rValue : ''Перейти, открыв во внешнем браузере '')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Open''; rValue : ''Перейти, открыв во внешнем браузере '')'
+ UPLINK Speller HWL ME_4F9BB3290284 // Open
+ ;
+
+ENDME // ME_5FD7591402E7 mtNotGarantDomain_Choice_Open
+
+ME ME_423F30D55A5E
+ MEPROP UID '423F30D55A5E'
+ MEPROP Name 'mtNotGarantDomain_Choice_Stay'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Не переходить''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Stay''; rValue : ''Не переходить'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtNotGarantDomain_Choice_Stay''; rValue : ''Не переходить'')'
+ UPLINK Speller HWL ME_4F9BB33600F7 // Stay
+ ;
+
+ENDME // ME_423F30D55A5E mtNotGarantDomain_Choice_Stay
+
+ME ME_7D74460CC6DB
+ MEPROP UID '7D74460CC6DB'
+ MEPROP Name 'LCImpl_mtNotGarantDomain_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога mtNotGarantDomain' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5FD7591402E7 // mtNotGarantDomain_Choice_Open
+ HWL ME_423F30D55A5E // mtNotGarantDomain_Choice_Stay
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB3100261 // Choices
+ ;
+
+ENDME // ME_7D74460CC6DB LCImpl_mtNotGarantDomain_Choices
+
+FORWARD ME_673D00390A68
+
+ME ME_3A40DD24A8A0
+ MEPROP UID '3A40DD24A8A0'
+ MEPROP Name 'EmptySearchResultInBaseList_Choice_Expand'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''расширить базовый список до полного и произвести поиск в нем''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_Expand''; rValue : ''расширить базовый список до полного и произвести поиск в нем'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_Expand''; rValue : ''расширить базовый список до полного и произвести поиск в нем'')'
+ UPLINK Speller HWL ME_4F9BB3A5034E // Expand
+ ;
+
+ENDME // ME_3A40DD24A8A0 EmptySearchResultInBaseList_Choice_Expand
+
+ME ME_068F9E24256C
+ MEPROP UID '068F9E24256C'
+ MEPROP Name 'EmptySearchResultInBaseList_Choice_AllBase'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''произвести поиск по всему информационному банку''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_AllBase''; rValue : ''произвести поиск по всему информационному банку'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EmptySearchResultInBaseList_Choice_AllBase''; rValue : ''произвести поиск по всему информационному банку'')'
+ UPLINK Speller HWL ME_4F9BB3B60352 // AllBase
+ ;
+
+ENDME // ME_068F9E24256C EmptySearchResultInBaseList_Choice_AllBase
+
+ME ME_673D00390A68
+ MEPROP UID '673D00390A68'
+ MEPROP Name 'LCImpl_EmptySearchResultInBaseList_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога EmptySearchResultInBaseList' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_3A40DD24A8A0 // EmptySearchResultInBaseList_Choice_Expand
+ HWL ME_068F9E24256C // EmptySearchResultInBaseList_Choice_AllBase
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB39401CF // Choices
+ ;
+
+ENDME // ME_673D00390A68 LCImpl_EmptySearchResultInBaseList_Choices
+
+FORWARD ME_A3EA595F0C4B
+
+ME ME_4B822294594A
+ MEPROP UID '4B822294594A'
+ MEPROP Name 'AutologinDuplicate_Choice_Back'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''вернуться к регистрации нового пользователя, изменив регистрационные данные''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Back''; rValue : ''вернуться к регистрации нового пользователя, изменив регистрационные данные'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Back''; rValue : ''вернуться к регистрации нового пользователя, изменив регистрационные данные'')'
+ UPLINK Speller HWL ME_4F9BB40F02B4 // Back
+ ;
+
+ENDME // ME_4B822294594A AutologinDuplicate_Choice_Back
+
+ME ME_C6B366E89F0E
+ MEPROP UID 'C6B366E89F0E'
+ MEPROP Name 'AutologinDuplicate_Choice_Login'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Login''; rValue : ''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''AutologinDuplicate_Choice_Login''; rValue : ''войти в систему с указанными регистрационными данными, использовав введенное имя пользователя'')'
+ UPLINK Speller HWL ME_4F9BB4290314 // Login
+ ;
+
+ENDME // ME_C6B366E89F0E AutologinDuplicate_Choice_Login
+
+ME ME_A3EA595F0C4B
+ MEPROP UID 'A3EA595F0C4B'
+ MEPROP Name 'LCImpl_AutologinDuplicate_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога AutologinDuplicate' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B822294594A // AutologinDuplicate_Choice_Back
+ HWL ME_C6B366E89F0E // AutologinDuplicate_Choice_Login
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9BB3F7014C // Choices
+ ;
+
+ENDME // ME_A3EA595F0C4B LCImpl_AutologinDuplicate_Choices
+
+ME ME_F566326BE103
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_F566326BE103 
+
+ME ME_E92D493B15D0
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9BB14900E7 // nsQuestionsWithChoices
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_E92D493B15D0 
+
+ME ME_4F9BB14900E7
+ MEPROP UID '4F9BB14900E7'
+ MEPROP Name 'nsQuestionsWithChoices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F9BB1120134' '4F9BB1120134.ms.model.script' // Сюда вынес все сообщения из StdRes с Choices
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4F9BB17D03CD // Questions
+ HWL ME_4566A7D963E6 // LCImpl_ChangedDocumentOnControl_Choices
+ HWL ME_6E8D04DC84C2 // LCImpl_SearchUnresolvedContext_Choices
+ HWL ME_3640157D9A87 // LCImpl_DropListToList_Choices
+ HWL ME_7D74460CC6DB // LCImpl_mtNotGarantDomain_Choices
+ HWL ME_673D00390A68 // LCImpl_EmptySearchResultInBaseList_Choices
+ HWL ME_A3EA595F0C4B // LCImpl_AutologinDuplicate_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_F566326BE103 // Tl3StringIDEx
+ ME_E92D493B15D0 // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'QuestionsWithChoices'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas'
+
+ENDME // ME_4F9BB14900E7 nsQuestionsWithChoices

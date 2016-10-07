@@ -1,0 +1,89 @@
+// CurrentChangedListener 492428D203A1 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492428D203A1
+
+FORWARD ME_49242A4E0252
+
+ME ME_49242A530248
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49242A530248 aNode
+
+ME ME_49242A4E0252
+ MEPROP UID '49242A4E0252'
+ MEPROP Name 'CurrentChangedNotification'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492428D203A1 // CurrentChangedListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_49242A530248 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_49242A4E0252 CurrentChangedNotification
+
+ME ME_49302FF8014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492428D203A1 // CurrentChangedListener
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49302FF8014A 
+
+ME ME_49590D4802EE_ME_492428D203A1
+ MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49590D4802EE_ME_492428D203A1 Process
+
+%%ImplementedBy ME_49590CE80397 ME_492428D203A1
+
+ME ME_492428D203A1
+ MEPROP UID '492428D203A1'
+ MEPROP Name 'CurrentChangedListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Шаблон необходим для реализация поведения получения слушателем'#13#10'уведомления об изменении текущего в дереве и рассылки такого же'#13#10'уведомления своим слушателям.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA005310028' '4AA005310028.ms.model.script' // Search
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49590CE80397' '491DAF4202EE.ms.model.script' // CurrentChangedListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_49242A4E0252 // CurrentChangedNotification
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49590D4802EE_ME_492428D203A1 // Process
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49302FF8014A // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2008/01/30 08:25:26'
+ UP extprop:pas:TypeName '_CurrentChangedListener_'
+ UP extprop:pas:UnitName 'CurrentChangedListener.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas'
+
+ENDME // ME_492428D203A1 CurrentChangedListener

@@ -1,0 +1,328 @@
+// atOperationFactory 4808A9F301D4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4808AA270314
+%%Inner ME_4808A8F6016B
+
+FORWARD ME_4808A9F301D4
+
+FORWARD ME_4808AA270314
+
+%%InheritedBy ME_4787A405013D ME_4808AA7401A8
+
+ME ME_4808AA7401A8
+ MEPROP UID '4808AA7401A8'
+ MEPROP Name 'EOperationNotRegistered'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4808AA7401A8 EOperationNotRegistered
+
+ME ME_4808AA610137
+ MEPROP UID '4808AA610137'
+ MEPROP Name 'f_Operations'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELINK Target WL 'ME_4807752C025A' '48076E7F0260.ms.model.script' // TatStringListWithOwn
+ ;
+
+ENDME // ME_4808AA610137 f_Operations
+
+ME ME_4808AA940289
+ MEPROP UID '4808AA940289'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+
+ENDME // ME_4808AA940289 Create
+
+FORWARD ME_4808AAA60096
+
+ME ME_4808AAAB0201
+ MEPROP Name 'opClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4808A2FF00D6' '48089D120398.ms.model.script' // CTatOperationBase
+ ;
+
+ENDME // ME_4808AAAB0201 opClass
+
+ME ME_4808AAA60096
+ MEPROP UID '4808AAA60096'
+ MEPROP Name 'RegisterOperation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808AAAB0201 // opClass
+ )
+ ; // Parameters
+
+ENDME // ME_4808AAA60096 RegisterOperation
+
+FORWARD ME_4808AABD0051
+
+ME ME_4808AAC401C1
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4808AAC401C1 name
+
+ME ME_4808AABD0051
+ MEPROP UID '4808AABD0051'
+ MEPROP Name 'MakeOperation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELINK Target WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808AAC401C1 // name
+ )
+ ; // Parameters
+
+ENDME // ME_4808AABD0051 MakeOperation
+
+ME ME_4808AB4B01B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4808AB4B01B4 
+
+FORWARD ME_4808A8F6016B
+
+ME ME_4808AB9503D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MELINK Target HWL ME_4808A8F6016B // TatClassContainer
+ ;
+
+ENDME // ME_4808AB9503D9 
+
+ME ME_48077504027E_ME_4808AA270314
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4808AA270314 Destroy
+
+%%InheritedBy ME_4807745602C8 ME_4808AA270314
+
+ME ME_4808AA270314
+ MEPROP UID '4808AA270314'
+ MEPROP Name 'TatOperationFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808A9F301D4 // atOperationFactory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4808AA610137 // f_Operations
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808AA940289 // Create
+ HWL ME_4808AAA60096 // RegisterOperation
+ HWL ME_4808AABD0051 // MakeOperation
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4808AA270314 // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4808AA7401A8 // EOperationNotRegistered
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4808AB4B01B4 // SysUtils
+ ME_4808AB9503D9 // TatClassContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atOperationFactory'
+
+ENDME // ME_4808AA270314 TatOperationFactory
+
+ME ME_4808A9150291
+ MEPROP UID '4808A9150291'
+ MEPROP Name 'F_OpClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A8F6016B // TatClassContainer
+ ;
+ MELINK Target WL 'ME_4808A2FF00D6' '48089D120398.ms.model.script' // CTatOperationBase
+ ;
+
+ENDME // ME_4808A9150291 F_OpClass
+
+FORWARD ME_4808A92C0073
+
+ME ME_4808A92D035F
+ MEPROP Name 'opClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4808A2FF00D6' '48089D120398.ms.model.script' // CTatOperationBase
+ ;
+
+ENDME // ME_4808A92D035F opClass
+
+ME ME_4808A92C0073
+ MEPROP UID '4808A92C0073'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A8F6016B // TatClassContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808A92D035F // opClass
+ )
+ ; // Parameters
+
+ENDME // ME_4808A92C0073 Create
+
+%%InheritedBy ME_4807745602C8 ME_4808A8F6016B
+
+ME ME_4808A8F6016B
+ MEPROP UID '4808A8F6016B'
+ MEPROP Name 'TatClassContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808A9F301D4 // atOperationFactory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4808A9150291 // F_OpClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808A92C0073 // Create
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atClassContainer'
+
+ENDME // ME_4808A8F6016B TatClassContainer
+
+ME ME_4808AAD8005B
+ MEPROP UID '4808AAD8005B'
+ MEPROP Name 'OperationFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A9F301D4 // atOperationFactory
+ ;
+ MELINK Target HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_4808AA270314 // TatOperationFactory
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4808AAD8005B OperationFactory
+
+ME ME_4808AA000171
+ MEPROP UID '4808AA000171'
+ MEPROP Name 'Ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A9F301D4 // atOperationFactory
+ ;
+
+ENDME // ME_4808AA000171 Ini
+
+ME ME_4808AA0E02AD
+ MEPROP UID '4808AA0E02AD'
+ MEPROP Name 'Fini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A9F301D4 // atOperationFactory
+ ;
+
+ENDME // ME_4808AA0E02AD Fini
+
+ME ME_4808A9F301D4
+ MEPROP UID '4808A9F301D4'
+ MEPROP Name 'atOperationFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_480865840083' '480865840083.ms.model.script' // OperationsFramework
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4808AAD8005B // OperationFactory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808AA000171 // Ini
+ HWL ME_4808AA0E02AD // Fini
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4808AA270314 // TatOperationFactory
+ HWL ME_4808A8F6016B // TatClassContainer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationFactory.pas'
+
+ENDME // ME_4808A9F301D4 atOperationFactory

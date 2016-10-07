@@ -1,0 +1,286 @@
+// nsRootManager 48FDC52D0006 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FDC52D0006
+
+ME ME_48FDC5AD022D
+ MEPROP UID '48FDC5AD022D'
+ MEPROP Name 'CurrentNodeIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48FDC5AD022D CurrentNodeIndex
+
+ME ME_48FDC5BC0004
+ MEPROP UID '48FDC5BC0004'
+ MEPROP Name 'CurrentNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_48FDC5BC0004 CurrentNode
+
+ME ME_48FDC5D302A1
+ MEPROP UID '48FDC5D302A1'
+ MEPROP Name 'f_GetByVisibleIndexCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDC5D302A1 f_GetByVisibleIndexCounter
+
+ME ME_549D5B64019A
+ MEPROP UID '549D5B64019A'
+ MEPROP Name 'OneLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_549D5B64019A OneLevel
+
+FORWARD ME_48FDC58F0218
+
+ME ME_48FDC59F013D
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDC59F013D anIndex
+
+ME ME_48FDC58F0218
+ MEPROP UID '48FDC58F0218'
+ MEPROP Name 'GetByVisibleIndex'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает ноду по видимому индексу' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDC59F013D // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48FDC58F0218 GetByVisibleIndex
+
+ME ME_48FDC5DE02CF
+ MEPROP UID '48FDC5DE02CF'
+ MEPROP Name 'GetByVisibleIndexStarted'
+ MEPROP Class class_Operation
+ %SUMMARY 'Скобки, обрамляющие вызов GetByVisibleIndex' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+
+ENDME // ME_48FDC5DE02CF GetByVisibleIndexStarted
+
+ME ME_48FDC5EE026F
+ MEPROP UID '48FDC5EE026F'
+ MEPROP Name 'GetByVisibleIndexFinished'
+ MEPROP Class class_Operation
+ %SUMMARY 'Скобки, обрамляющие вызов GetByVisibleIndex' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+
+ENDME // ME_48FDC5EE026F GetByVisibleIndexFinished
+
+FORWARD ME_48FDC60C0328
+
+ME ME_48FDC6210290
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_48FDC6210290 aNode
+
+ME ME_48FDC60C0328
+ MEPROP UID '48FDC60C0328'
+ MEPROP Name 'GetVisibleIndex'
+ MEPROP Class class_Operation
+ %SUMMARY 'рассчитываем видимый индекс для ноды' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDC6210290 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_48FDC60C0328 GetVisibleIndex
+
+FORWARD ME_48FDC628027A
+
+ME ME_48FDC6330282
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDC6330282 anIndex
+
+ME ME_48FDC628027A
+ MEPROP UID '48FDC628027A'
+ MEPROP Name 'GetINode'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает узел по видимому индексу [0..CountView-1]' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDC6330282 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48FDC628027A GetINode
+
+ME ME_48FDC63903E2
+ MEPROP UID '48FDC63903E2'
+ MEPROP Name 'CursorTop'
+ MEPROP Class class_Operation
+ %SUMMARY 'переставить курсор на первый видимый элемент' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+
+ENDME // ME_48FDC63903E2 CursorTop
+
+ME ME_48FDC85E039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48FDC52D0006 // nsRootManager
+ ;
+ MELINK Target WL 'ME_45EECBE20290' '457450470167.ms.model.script' // NotFound
+ ;
+
+ENDME // ME_48FDC85E039C 
+
+ME ME_48FD97BC0335_ME_48FDC52D0006
+ MELINK Original WL 'ME_48FD97BC0335' '48FD8E460027.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" False
+ENDME // ME_48FD97BC0335_ME_48FDC52D0006 Cleanup
+
+ME ME_48FDA0CB01AD_ME_48FDC52D0006
+ MELINK Original WL 'ME_48FDA0CB01AD' '48FD8F78038B.ms.model.script' // IsInGetByVisibleIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FDA0CB01AD_ME_48FDC52D0006 IsInGetByVisibleIndex
+
+ME ME_48FDA0F500F9_ME_48FDC52D0006
+ MELINK Original WL 'ME_48FDA0F500F9' '48FD8F78038B.ms.model.script' // DoChangeChildrenCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FDA0F500F9_ME_48FDC52D0006 DoChangeChildrenCount
+
+ME ME_48FDA1F20208_ME_48FDC52D0006
+ MELINK Original WL 'ME_48FDA1F20208' '48FD8F78038B.ms.model.script' // DropCurrent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FDA1F20208_ME_48FDC52D0006 DropCurrent
+
+%%InheritedBy ME_48FDB9BD0325 ME_48FDC52D0006
+
+ME ME_48FDC52D0006
+ MEPROP UID '48FDC52D0006'
+ MEPROP Name 'nsRootManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FDB9BD0325' '48FDB9BD0325.ms.model.script' // nsRootManagerPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48FDC5AD022D // CurrentNodeIndex
+ HWL ME_48FDC5BC0004 // CurrentNode
+ HWL ME_48FDC5D302A1 // f_GetByVisibleIndexCounter
+ HWL ME_549D5B64019A // OneLevel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FDC58F0218 // GetByVisibleIndex
+ HWL ME_48FDC5DE02CF // GetByVisibleIndexStarted
+ HWL ME_48FDC5EE026F // GetByVisibleIndexFinished
+ HWL ME_48FDC60C0328 // GetVisibleIndex
+ HWL ME_48FDC628027A // GetINode
+ HWL ME_48FDC63903E2 // CursorTop
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48FD97BC0335_ME_48FDC52D0006 // Cleanup
+ ME_48FDA0CB01AD_ME_48FDC52D0006 // IsInGetByVisibleIndex
+ ME_48FDA0F500F9_ME_48FDC52D0006 // DoChangeChildrenCount
+ ME_48FDA1F20208_ME_48FDC52D0006 // DropCurrent
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48FDC85E039C // NotFound
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '2005/11/22 21:28:41'
+ UP extprop:pas:TypeName '_nsRootManager_'
+ UP extprop:pas:UnitName 'nsRootManager.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManager.imp.pas'
+
+ENDME // ME_48FDC52D0006 nsRootManager

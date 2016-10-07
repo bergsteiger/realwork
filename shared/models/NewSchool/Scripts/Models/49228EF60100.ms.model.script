@@ -1,0 +1,75 @@
+// nsManagers 49228EF60100 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49228EF60100
+
+FORWARD ME_4AA1182503AD
+
+ME ME_4AC21D3802BF
+ MEPROP UID '4AC21D3802BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA1182503AD // ProfilersManager
+ ;
+ MELINK Target WL 'ME_49917FC60368' '49917E6E033C.ms.model.script' // InsProfilersManager
+ ;
+
+ENDME // ME_4AC21D3802BF DoIt
+
+ME ME_4AA1182503AD
+ MEPROP UID '4AA1182503AD'
+ MEPROP Name 'ProfilersManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49228EF60100 // nsManagers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC21D3802BF // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'vcmUseProfilers'
+ UP "is static" False
+
+ENDME // ME_4AA1182503AD ProfilersManager
+
+ME ME_49228EFF01C6
+ MEPROP UID '49228EFF01C6'
+ MEPROP Name 'fake'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49228EF60100 // nsManagers
+ ;
+
+ENDME // ME_49228EFF01C6 fake
+
+ME ME_49228EF60100
+ MEPROP UID '49228EF60100'
+ MEPROP Name 'nsManagers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA1182503AD // ProfilersManager
+ HWL ME_49228EFF01C6 // fake
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Managers'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsManagers.pas'
+
+ENDME // ME_49228EF60100 nsManagers

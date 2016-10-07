@@ -1,0 +1,206 @@
+// nsNativePara 4CED4C700123 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CED4C700123
+
+FORWARD ME_4C6ACFE7038A
+
+FORWARD ME_535A3F3B014F
+
+ME ME_535A3F4203E6
+ MEPROP Name 'aStub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_535A3F4203E6 aStub
+
+ME ME_535A3F3B014F
+ MEPROP UID '535A3F3B014F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6ACFE7038A // Make
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_535A3F4203E6 // aStub
+ )
+ ; // Parameters
+
+ENDME // ME_535A3F3B014F DoIt
+
+ME ME_535A3F110277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6ACFE7038A // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A3F110277 
+
+ME ME_4C6ACFE7038A
+ MEPROP UID '4C6ACFE7038A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED4C700123 // nsNativePara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535A3F3B014F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_535A3F110277 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4C6ACFE7038A Make
+
+FORWARD ME_4C6ACF6D008A
+
+FORWARD ME_4C6ACF760325
+
+ME ME_4C6ACF8002FA
+ MEPROP Name 'aStub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C6ACF8002FA aStub
+
+ME ME_4C6ACF760325
+ MEPROP UID '4C6ACF760325'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6ACF6D008A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C6ACF8002FA // aStub
+ )
+ ; // Parameters
+
+ENDME // ME_4C6ACF760325 DoIt
+
+ME ME_4C6AD0230342
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6ACF6D008A // Create
+ ;
+ MELINK Target WL 'ME_480DBA760390' '480DBA760390.ms.model.script' // k2Facade
+ ;
+
+ENDME // ME_4C6AD0230342 
+
+ME ME_4C6ACF6D008A
+ MEPROP UID '4C6ACF6D008A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED4C700123 // nsNativePara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C6ACF760325 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C6AD0230342 // k2Facade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C6ACF6D008A Create
+
+FORWARD ME_4CEFB6330350
+
+FORWARD ME_4CEFB64302C3
+
+ME ME_4CEFB64E0035
+ MEPROP Name 'aTypeID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4CEFB64E0035 aTypeID
+
+ME ME_4CEFB64302C3
+ MEPROP UID '4CEFB64302C3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFB6330350 // Create$FromTypeID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEFB64E0035 // aTypeID
+ )
+ ; // Parameters
+
+ENDME // ME_4CEFB64302C3 DoIt
+
+ME ME_4CEFB6330350
+ MEPROP UID '4CEFB6330350'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$FromTypeID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED4C700123 // nsNativePara
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFB64302C3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CEFB6330350 Create$FromTypeID
+
+ME ME_4CED4C700123
+ MEPROP UID '4CED4C700123'
+ MEPROP Name 'nsNativePara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Родной" параграф. Не представлен нодой из адаптерного дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C726B20031E' '4C726B20031E.ms.model.script' // TagDataProviders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C6ACFE7038A // Make
+ HWL ME_4C6ACF6D008A // Create
+ HWL ME_4CEFB6330350 // Create$FromTypeID
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "needs InstanceR" True
+ UP "no hands" True
+ UP "started" '24.11.2010 20:33'
+ UP extprop:pas:TypeName '_nsNativePara_'
+ UP extprop:pas:UnitName 'nsNativePara.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas'
+
+ENDME // ME_4CED4C700123 nsNativePara

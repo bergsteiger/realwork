@@ -1,0 +1,127 @@
+// nsSettings 4F6C571A00B2 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6C571A00B2
+
+ME ME_4F6C569301A3
+ MEPROP UID '4F6C569301A3'
+ MEPROP Name 'IStringType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C571A00B2 // nsSettings
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4F6C569301A3 IStringType
+
+ME ME_4F6C655300CB
+ MEPROP UID '4F6C655300CB'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C571A00B2 // nsSettings
+ ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_4F6C655300CB KeyType
+
+ME ME_4F6C92520133
+ MEPROP UID '4F6C92520133'
+ MEPROP Name 'BooleanType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C571A00B2 // nsSettings
+ ;
+ MELINK Target WL 'ME_4F6C9243020F' '4807744200AA.ms.model.script' // ByteBool
+ ;
+
+ENDME // ME_4F6C92520133 BooleanType
+
+ME ME_4F6C5B5002BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6C571A00B2 // nsSettings
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '4A6854C70390.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_4F6C5B5002BD 
+
+ME ME_4F6C56D90012_ME_4F6C571A00B2
+ MELINK Original WL 'ME_4F6C56D90012' '4AD58B6C0289.ms.model.script' // IStringTypeToIl3CString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6C56D90012_ME_4F6C571A00B2 IStringTypeToIl3CString
+
+ME ME_4F6C651603A5_ME_4F6C571A00B2
+ MELINK Original WL 'ME_4F6C651603A5' '4AD58B6C0289.ms.model.script' // SettingIDtoKeyType
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6C651603A5_ME_4F6C571A00B2 SettingIDtoKeyType
+
+ME ME_4F6C65E2024F_ME_4F6C571A00B2
+ MELINK Original WL 'ME_4F6C65E2024F' '4AD58B6C0289.ms.model.script' // Il3CStringToAString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6C65E2024F_ME_4F6C571A00B2 Il3CStringToAString
+
+ME ME_4F6C699E009A_ME_4F6C571A00B2
+ MELINK Original WL 'ME_4F6C699E009A' '4AD58B6C0289.ms.model.script' // StringToPChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F6C699E009A_ME_4F6C571A00B2 StringToPChar
+
+%%InheritedBy ME_4AD58B6C0289 ME_4F6C571A00B2
+
+ME ME_4F6C571A00B2
+ MEPROP UID '4F6C571A00B2'
+ MEPROP Name 'nsSettings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_491447590351' '491447590351.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AD58B6C0289' '4AD58B6C0289.ms.model.script' // nsAbstractSettingsPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C569301A3 // IStringType
+ HWL ME_4F6C655300CB // KeyType
+ HWL ME_4F6C92520133 // BooleanType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F6C56D90012_ME_4F6C571A00B2 // IStringTypeToIl3CString
+ ME_4F6C651603A5_ME_4F6C571A00B2 // SettingIDtoKeyType
+ ME_4F6C65E2024F_ME_4F6C571A00B2 // Il3CStringToAString
+ ME_4F6C699E009A_ME_4F6C571A00B2 // StringToPChar
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F6C5B5002BD // nsTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nsSettings_'
+ UP extprop:pas:UnitName 'nsSettings.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas'
+
+ENDME // ME_4F6C571A00B2 nsSettings

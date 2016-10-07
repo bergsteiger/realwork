@@ -1,0 +1,409 @@
+// atConverter 503E2BCA01E8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_503E2CD3004F
+%%Inner ME_503E2DBA0292
+%%Inner ME_503E33CC022A
+%%Inner ME_503E5CE502FF
+
+FORWARD ME_503E2BCA01E8
+
+FORWARD ME_503E2CD3004F
+
+ME ME_503E2D6900E2
+ MEPROP UID '503E2D6900E2'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E2CD3004F // Synonyms
+ ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+
+ENDME // ME_503E2D6900E2 First
+
+ME ME_503E2D6F01E2
+ MEPROP UID '503E2D6F01E2'
+ MEPROP Name 'Second'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E2CD3004F // Synonyms
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503E2D6F01E2 Second
+
+ME ME_503E2CD3004F
+ MEPROP UID '503E2CD3004F'
+ MEPROP Name 'Synonyms'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503E2D6900E2 // First
+ HWL ME_503E2D6F01E2 // Second
+ )
+ ; // Attributes
+
+ENDME // ME_503E2CD3004F Synonyms
+
+FORWARD ME_503E2DBA0292
+
+ME ME_503E2DD90010
+ MEPROP UID '503E2DD90010'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_503E2DBA0292 // ConvertMap
+ ;
+ MELINK Target HWL ME_503E2CD3004F // Synonyms
+ ;
+
+ENDME // ME_503E2DD90010 
+
+ME ME_503E2DBA0292
+ MEPROP UID '503E2DBA0292'
+ MEPROP Name 'ConvertMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503E2DD90010 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_503E2DBA0292 ConvertMap
+
+%%InheritedBy ME_4787A405013D ME_503E33CC022A
+
+ME ME_503E33CC022A
+ MEPROP UID '503E33CC022A'
+ MEPROP Name 'EConvertError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_503E33CC022A EConvertError
+
+FORWARD ME_503E5CE502FF
+
+ME ME_503E5CFD02BA
+ MEPROP UID '503E5CFD02BA'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_503E5CE502FF // array of Synonyms
+ ;
+ MELINK Target HWL ME_503E2CD3004F // Synonyms
+ ;
+
+ENDME // ME_503E5CFD02BA 
+
+ME ME_503E5CE502FF
+ MEPROP UID '503E5CE502FF'
+ MEPROP Name 'array of Synonyms'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503E5CFD02BA // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_503E5CE502FF array of Synonyms
+
+ME ME_503E374D0090
+ MEPROP UID '503E374D0090'
+ MEPROP Name 'f_ConvertMap'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target HWL ME_503E2DBA0292 // ConvertMap
+ ;
+
+ENDME // ME_503E374D0090 f_ConvertMap
+
+ME ME_503E2CB901C3
+ MEPROP UID '503E2CB901C3'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+
+ENDME // ME_503E2CB901C3 
+
+ME ME_503E2CBF0054
+ MEPROP UID '503E2CBF0054'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503E2CBF0054 
+
+FORWARD ME_503E2F000018
+
+ME ME_503E2F150276
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+
+ENDME // ME_503E2F150276 aFirst
+
+ME ME_503E2F000018
+ MEPROP UID '503E2F000018'
+ MEPROP Name 'FirstToSecond'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E2F150276 // aFirst
+ )
+ ; // Parameters
+ UP "force overload" True
+
+ENDME // ME_503E2F000018 FirstToSecond
+
+FORWARD ME_503E2F1B035E
+
+ME ME_503E2F340053
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503E2F340053 aSecond
+
+ME ME_503E2F1B035E
+ MEPROP UID '503E2F1B035E'
+ MEPROP Name 'SecondToFirst'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E2F340053 // aSecond
+ )
+ ; // Parameters
+ UP "force overload" True
+
+ENDME // ME_503E2F1B035E SecondToFirst
+
+ME ME_503E3A040395
+ MEPROP UID '503E3A040395'
+ MEPROP Name 'InitConvertMap'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+
+ENDME // ME_503E3A040395 InitConvertMap
+
+FORWARD ME_503E3C86007D
+
+ME ME_503E3C970053
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2C0901A6' '48076E7F0260.ms.model.script' // FirstType
+ ;
+
+ENDME // ME_503E3C970053 aFirst
+
+ME ME_503E3C86007D
+ MEPROP UID '503E3C86007D'
+ MEPROP Name 'Error1st'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E3C970053 // aFirst
+ )
+ ; // Parameters
+
+ENDME // ME_503E3C86007D Error1st
+
+FORWARD ME_503E3CC102AE
+
+ME ME_503E3CCF0018
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503E3CCF0018 aSecond
+
+ME ME_503E3CC102AE
+ MEPROP UID '503E3CC102AE'
+ MEPROP Name 'Error2nd'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E3CCF0018 // aSecond
+ )
+ ; // Parameters
+
+ENDME // ME_503E3CC102AE Error2nd
+
+ME ME_503E4FF00107
+ MEPROP UID '503E4FF00107'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+
+ENDME // ME_503E4FF00107 Create
+
+FORWARD ME_503E5D3102F3
+
+ME ME_503E5D50012C
+ MEPROP Name 'anArray'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_503E5CE502FF // array of Synonyms
+ ;
+
+ENDME // ME_503E5D50012C anArray
+
+ME ME_503E5D3102F3
+ MEPROP UID '503E5D3102F3'
+ MEPROP Name 'InitConvertMap'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E5D50012C // anArray
+ )
+ ; // Parameters
+
+ENDME // ME_503E5D3102F3 InitConvertMap
+
+ME ME_503E3E300006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503E2BCA01E8 // atConverter
+ ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_503E3E300006 
+
+%%InheritedBy ME_4807745602C8 ME_503E2BCA01E8
+
+ME ME_503E2BCA01E8
+ MEPROP UID '503E2BCA01E8'
+ MEPROP Name 'atConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_503E374D0090 // f_ConvertMap
+ HWL ME_503E2CB901C3 // 
+ HWL ME_503E2CBF0054 // 
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_503E2F000018 // FirstToSecond
+ HWL ME_503E2F1B035E // SecondToFirst
+ HWL ME_503E3A040395 // InitConvertMap
+ HWL ME_503E3C86007D // Error1st
+ HWL ME_503E3CC102AE // Error2nd
+ HWL ME_503E4FF00107 // Create
+ HWL ME_503E5D3102F3 // InitConvertMap
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_503E2CD3004F // Synonyms
+ HWL ME_503E2DBA0292 // ConvertMap
+ HWL ME_503E33CC022A // EConvertError
+ HWL ME_503E5CE502FF // array of Synonyms
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_503E3E300006 // PTypeInfo
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_atConverter_'
+ UP extprop:pas:UnitName 'atConverter.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas'
+
+ENDME // ME_503E2BCA01E8 atConverter

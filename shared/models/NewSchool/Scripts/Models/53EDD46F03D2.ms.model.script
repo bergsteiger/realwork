@@ -1,0 +1,87 @@
+// nsAppTitleData 53EDD46F03D2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53EDD51203D9
+
+FORWARD ME_53EDD46F03D2
+
+FORWARD ME_53EDD51203D9
+
+ME ME_53EDD57A01CA
+ MEPROP UID '53EDD57A01CA'
+ MEPROP Name 'Title'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53EDD51203D9 // TnsAppTitleData
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_53EDD57A01CA Title
+
+ME ME_53EDD5A700FA
+ MEPROP UID '53EDD5A700FA'
+ MEPROP Name 'f_Initialized'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53EDD51203D9 // TnsAppTitleData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53EDD5A700FA f_Initialized
+
+ME ME_53EDD51203D9
+ MEPROP UID '53EDD51203D9'
+ MEPROP Name 'TnsAppTitleData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EDD46F03D2 // nsAppTitleData
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53EDD57A01CA // Title
+ HWL ME_53EDD5A700FA // f_Initialized
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AppTitleData'
+
+ENDME // ME_53EDD51203D9 TnsAppTitleData
+
+ME ME_53EDD46F03D2
+ MEPROP UID '53EDD46F03D2'
+ MEPROP Name 'nsAppTitleData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53EDD51203D9 // TnsAppTitleData
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'AppTitleData'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas'
+
+ENDME // ME_53EDD46F03D2 nsAppTitleData

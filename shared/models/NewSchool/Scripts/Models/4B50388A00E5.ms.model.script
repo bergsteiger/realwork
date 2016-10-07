@@ -1,0 +1,344 @@
+// nsUserPropertyImpl 4B50388A00E5 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B50388A00E5
+
+ME ME_4B50392D0118
+ MEPROP UID '4B50392D0118'
+ MEPROP Name 'f_Profile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_45EED78501B5' '45EEAA96039C.ms.model.script' // UserProfile
+ ;
+
+ENDME // ME_4B50392D0118 f_Profile
+
+ME ME_4B50394B0136
+ MEPROP UID '4B50394B0136'
+ MEPROP Name 'f_Changed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B50394B0136 f_Changed
+
+ME ME_4B50395D006E
+ MEPROP UID '4B50395D006E'
+ MEPROP Name 'f_NewUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B50395D006E f_NewUser
+
+ME ME_4B50439D03B6
+ MEPROP UID '4B50439D03B6'
+ MEPROP Name 'DefaultGroupID'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B50439D03B6 DefaultGroupID
+
+FORWARD ME_4B5047BC003A
+
+ME ME_4B5048120349
+ MEPROP Name 'aProfile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED78501B5' '45EEAA96039C.ms.model.script' // UserProfile
+ ;
+
+ENDME // ME_4B5048120349 aProfile
+
+ME ME_4B5048120377
+ MEPROP Name 'aChanged'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B5048120377 aChanged
+
+ME ME_4B50481203C5
+ MEPROP Name 'aNewUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B50481203C5 aNewUser
+
+ME ME_4B5047BC003A
+ MEPROP UID '4B5047BC003A'
+ MEPROP Name 'SetProfileData'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B5048120349 // aProfile
+ ME_4B5048120377 // aChanged
+ ME_4B50481203C5 // aNewUser
+ )
+ ; // Parameters
+
+ENDME // ME_4B5047BC003A SetProfileData
+
+ME ME_4B5049D901A9
+ MEPROP UID '4B5049D901A9'
+ MEPROP Name 'ClearNewUser'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+
+ENDME // ME_4B5049D901A9 ClearNewUser
+
+ME ME_4B50432D02A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4B50432D02A5 
+
+ME ME_4B50436C03D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '4A6854C70390.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4B50436C03D6 
+
+ME ME_4B504370015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_4AB882990057' '4A6854C70390.ms.model.script' // nsCStr
+ ;
+
+ENDME // ME_4B504370015F 
+
+ME ME_4B50442000D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4B50442000D2 
+
+ME ME_4B50448C03CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B50388A00E5 // nsUserPropertyImpl
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4B50448C03CD 
+
+ME ME_4B5025A002EE_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5025A002EE' '49903C95009E.ms.model.script' // HasUserProfile
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B5025A002EE_ME_4B50388A00E5 HasUserProfile
+
+ME ME_4B5025A700F0_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5025A700F0' '49903C95009E.ms.model.script' // HasPassword
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B5025A700F0_ME_4B50388A00E5 HasPassword
+
+ME ME_4B5026560312_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5026560312' '49903C95009E.ms.model.script' // SaveUserProfile
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B5026560312_ME_4B50388A00E5 SaveUserProfile
+
+ME ME_4B5026E201E6_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5026E201E6' '49903C95009E.ms.model.script' // UID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B5026E201E6_ME_4B50388A00E5 UID
+
+ME ME_4B5026F60253_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5026F60253' '49903C95009E.ms.model.script' // GroupUID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B5026F60253_ME_4B50388A00E5 GroupUID
+
+ME ME_4B5026FD015E_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5026FD015E' '49903C95009E.ms.model.script' // Login
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B5026FD015E_ME_4B50388A00E5 Login
+
+ME ME_4B502705014F_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B502705014F' '49903C95009E.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B502705014F_ME_4B50388A00E5 Name
+
+ME ME_4B50270B0138_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B50270B0138' '49903C95009E.ms.model.script' // Mail
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B50270B0138_ME_4B50388A00E5 Mail
+
+ME ME_4B5027120274_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5027120274' '49903C95009E.ms.model.script' // IsChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B5027120274_ME_4B50388A00E5 IsChanged
+
+ME ME_4B50271C00EE_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B50271C00EE' '49903C95009E.ms.model.script' // IsNewUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B50271C00EE_ME_4B50388A00E5 IsNewUser
+
+ME ME_4B502720021F_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B502720021F' '49903C95009E.ms.model.script' // CanBuyConsulting
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B502720021F_ME_4B50388A00E5 CanBuyConsulting
+
+ME ME_4B5027240286_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5027240286' '49903C95009E.ms.model.script' // IsSystem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B5027240286_ME_4B50388A00E5 IsSystem
+
+ME ME_4B50272901C3_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B50272901C3' '49903C95009E.ms.model.script' // IsPrivileged
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B50272901C3_ME_4B50388A00E5 IsPrivileged
+
+ME ME_4B5460600098_ME_4B50388A00E5
+ MELINK Original WL 'ME_4B5460600098' '49903C95009E.ms.model.script' // SaveUserInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B5460600098_ME_4B50388A00E5 SaveUserInfo
+
+ME ME_4F3C01AD01FB_ME_4B50388A00E5
+ MELINK Original WL 'ME_4F3C01AD01FB' '49903C95009E.ms.model.script' // DontDeleteIdle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4F3C01AD01FB_ME_4B50388A00E5 DontDeleteIdle
+
+ME ME_479731C50290_ME_4B50388A00E5
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4B50388A00E5 Cleanup
+
+%%ImplementedBy ME_4A5CB93700CF ME_4B50388A00E5
+%%ImplementedBy ME_4B5024CA0129 ME_4B50388A00E5
+
+ME ME_4B50388A00E5
+ MEPROP UID '4B50388A00E5'
+ MEPROP Name 'nsUserPropertyImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ACF68160358' '4ACF68160358.ms.model.script' // Users$CommonForAdminAndF1
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_4B5024CA0129' '49903C95009E.ms.model.script' // nsUserProperty
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B50392D0118 // f_Profile
+ HWL ME_4B50394B0136 // f_Changed
+ HWL ME_4B50395D006E // f_NewUser
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B50439D03B6 // DefaultGroupID
+ HWL ME_4B5047BC003A // SetProfileData
+ HWL ME_4B5049D901A9 // ClearNewUser
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B5025A002EE_ME_4B50388A00E5 // HasUserProfile
+ ME_4B5025A700F0_ME_4B50388A00E5 // HasPassword
+ ME_4B5026560312_ME_4B50388A00E5 // SaveUserProfile
+ ME_4B5026E201E6_ME_4B50388A00E5 // UID
+ ME_4B5026F60253_ME_4B50388A00E5 // GroupUID
+ ME_4B5026FD015E_ME_4B50388A00E5 // Login
+ ME_4B502705014F_ME_4B50388A00E5 // Name
+ ME_4B50270B0138_ME_4B50388A00E5 // Mail
+ ME_4B5027120274_ME_4B50388A00E5 // IsChanged
+ ME_4B50271C00EE_ME_4B50388A00E5 // IsNewUser
+ ME_4B502720021F_ME_4B50388A00E5 // CanBuyConsulting
+ ME_4B5027240286_ME_4B50388A00E5 // IsSystem
+ ME_4B50272901C3_ME_4B50388A00E5 // IsPrivileged
+ ME_4B5460600098_ME_4B50388A00E5 // SaveUserInfo
+ ME_4F3C01AD01FB_ME_4B50388A00E5 // DontDeleteIdle
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B50388A00E5 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B50432D02A5 // DataAdapter
+ ME_4B50436C03D6 // nsAStr
+ ME_4B504370015F // nsCStr
+ ME_4B50442000D2 // nsConst
+ ME_4B50448C03CD // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nsUserPropertyImpl_'
+ UP extprop:pas:UnitName 'nsUserPropertyImpl.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas'
+
+ENDME // ME_4B50388A00E5 nsUserPropertyImpl

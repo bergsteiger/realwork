@@ -1,0 +1,131 @@
+// nsFolders 48228EF9010F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48228FED02C2
+%%Inner ME_4AF47A4900CC
+
+FORWARD ME_48228EF9010F
+
+ME ME_48228FED02C2
+ MEPROP UID '48228FED02C2'
+ MEPROP Name 'TFoldersTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево моих документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FoldersTree'
+
+ENDME // ME_48228FED02C2 TFoldersTree
+
+ME ME_4AF47A4900CC
+ MEPROP UID '4AF47A4900CC'
+ MEPROP Name 'TFolderSecurity'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FolderSecurity'
+
+ENDME // ME_4AF47A4900CC TFolderSecurity
+
+ME ME_4AE9C07702B0
+ MEPROP UID '4AE9C07702B0'
+ MEPROP Name 'cInfoCaptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+ UP "spell names" False
+
+ENDME // ME_4AE9C07702B0 cInfoCaptions
+
+ME ME_4AC095C002E6
+ MEPROP UID '4AC095C002E6'
+ MEPROP Name 'UserFoldersTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+
+ENDME // ME_4AC095C002E6 UserFoldersTree
+
+ME ME_4C7E77AD014A
+ MEPROP UID '4C7E77AD014A'
+ MEPROP Name 'CheckFolderElementRights'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+
+ENDME // ME_4C7E77AD014A CheckFolderElementRights
+
+ME ME_4C879EFC02C7
+ MEPROP UID '4C879EFC02C7'
+ MEPROP Name 'nsDeleteBookmark'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48228EF9010F // nsFolders
+ ;
+ UP extprop:rc:SelfName 'DeleteBookmark'
+
+ENDME // ME_4C879EFC02C7 nsDeleteBookmark
+
+ME ME_48228EF9010F
+ MEPROP UID '48228EF9010F'
+ MEPROP Name 'nsFolders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для работы с моими документами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC095C002E6 // UserFoldersTree
+ HWL ME_4C7E77AD014A // CheckFolderElementRights
+ HWL ME_4C879EFC02C7 // nsDeleteBookmark
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_48228FED02C2 // TFoldersTree
+ HWL ME_4AF47A4900CC // TFolderSecurity
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4AE9C07702B0 // cInfoCaptions
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifndef" 'Admin,Monitorings'
+ UP extprop:rc:SelfName 'Folders'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsFolders.pas'
+
+ENDME // ME_48228EF9010F nsFolders

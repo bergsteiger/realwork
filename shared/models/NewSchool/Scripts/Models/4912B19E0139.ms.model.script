@@ -1,0 +1,60 @@
+// GblAdapter 4912B19E0139 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4912B1E80264
+%%Inner ME_4AA7E1CF0079
+
+FORWARD ME_4912B19E0139
+
+ME ME_4912B1E80264
+ MEPROP UID '4912B1E80264'
+ MEPROP Name 'EUnknownFactoryKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ќа самом деле - оно где-то в Shared' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4912B19E0139 // GblAdapter
+ ;
+
+ENDME // ME_4912B1E80264 EUnknownFactoryKey
+
+ME ME_4AA7E1CF0079
+ MEPROP UID '4AA7E1CF0079'
+ MEPROP Name 'ECorbaException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4912B19E0139 // GblAdapter
+ ;
+
+ENDME // ME_4AA7E1CF0079 ECorbaException
+
+ME ME_4912B19E0139
+ MEPROP UID '4912B19E0139'
+ MEPROP Name 'GblAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '»спользуетс€ потому, что иначе никак не достучатьс€ до EUnknownFactoryKey.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4912B1E80264 // EUnknownFactoryKey
+ HWL ME_4AA7E1CF0079 // ECorbaException
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_GblAdapter.pas'
+
+ENDME // ME_4912B19E0139 GblAdapter

@@ -1,0 +1,229 @@
+// TestDocListUtils 499C28950272 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499C28950272
+
+FORWARD ME_499C29190244
+
+ME ME_499C298B02DD
+ MEPROP Name 'aTTV'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499C26240034' '499C26240034.ms.model.script' // TnscTreeView
+ ;
+
+ENDME // ME_499C298B02DD aTTV
+
+ME ME_499C29190244
+ MEPROP UID '499C29190244'
+ MEPROP Name 'GetLEIFromTTV'
+ MEPROP Class class_Operation
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_45EEDB87037E' '45700BFD0251.ms.model.script' // ListEntryInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_499C298B02DD // aTTV
+ )
+ ; // Parameters
+
+ENDME // ME_499C29190244 GetLEIFromTTV
+
+FORWARD ME_499C296703E6
+
+ME ME_499C297C0137
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_499C297C0137 aNode
+
+ME ME_499C296703E6
+ MEPROP UID '499C296703E6'
+ MEPROP Name 'GetLEIFromNode'
+ MEPROP Class class_Operation
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_45EEDB87037E' '45700BFD0251.ms.model.script' // ListEntryInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_499C297C0137 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_499C296703E6 GetLEIFromNode
+
+FORWARD ME_499C3C1E014C
+
+ME ME_499C3C32014A
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_499C3C32014A aDocument
+
+ME ME_499C3C32017D
+ MEPROP Name 'aParaID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_499C3C32017D aParaID
+
+ME ME_499C3C1E014C
+ MEPROP UID '499C3C1E014C'
+ MEPROP Name 'GetSubIDByParaID'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает номер саба по номеру параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_499C3C32014A // aDocument
+ ME_499C3C32017D // aParaID
+ )
+ ; // Parameters
+
+ENDME // ME_499C3C1E014C GetSubIDByParaID
+
+ME ME_499C2C320286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_499C2C320286 
+
+ME ME_499C2C4C03CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_499C2C4C03CD 
+
+ME ME_499C2DAF01A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_499C2DAF01A0 
+
+ME ME_499C3C6A0288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_499C3C6A0288 
+
+ME ME_499C3D2A036E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_499C3D2A036E 
+
+ME ME_499C3D5103CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_480DBA760390' '480DBA760390.ms.model.script' // k2Facade
+ ;
+
+ENDME // ME_499C3D5103CB 
+
+ME ME_49AE48A50168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_49AE48A50168 
+
+ME ME_49AE48B801E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
+ ;
+
+ENDME // ME_49AE48B801E9 
+
+ME ME_49AE48CA00B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_499C28950272 // TestDocListUtils
+ ;
+ MELINK Target WL 'ME_484FAB98031E' '484A470100DD.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_49AE48CA00B7 
+
+ME ME_499C28950272
+ MEPROP UID '499C28950272'
+ MEPROP Name 'TestDocListUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты ГК, для работы со списком документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_499C28420302' '499C28420302.ms.model.script' // TestUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_499C29190244 // GetLEIFromTTV
+ HWL ME_499C296703E6 // GetLEIFromNode
+ HWL ME_499C3C1E014C // GetSubIDByParaID
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_499C2C320286 // NodeBase
+ ME_499C2C4C03CD // EntityBase
+ ME_499C2DAF01A0 // SysUtils
+ ME_499C3C6A0288 // NodeIterator
+ ME_499C3D2A036E // Tk2TagID
+ ME_499C3D5103CB // k2Facade
+ ME_49AE48A50168 // LeafPara
+ ME_49AE48B801E9 // Sub
+ ME_49AE48CA00B7 // Bookmark
+ )
+ ; // Dependencies
+ UP "author" 'ГК'
+ UP "no hands" True
+ UP "started" 'давно'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas'
+
+ENDME // ME_499C28950272 TestDocListUtils

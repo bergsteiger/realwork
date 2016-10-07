@@ -1,0 +1,95 @@
+// nsStringValueMapFactory 4AD5BA56015E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AD5BA6B007C
+
+FORWARD ME_4AD5BA56015E
+
+FORWARD ME_4AD5BA6B007C
+
+FORWARD ME_4AD5BA7502D5
+
+ME ME_4AD5BA7A035A
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991947702E9' '499192F203B4.ms.model.script' // TnsValueMapID
+ ;
+
+ENDME // ME_4AD5BA7A035A aID
+
+ME ME_4AD5BA7502D5
+ MEPROP UID '4AD5BA7502D5'
+ MEPROP Name 'MakeMap'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BA6B007C // TnsStringValueMapFactory
+ ;
+ MELINK Target WL 'ME_499194AE007A' '499192F203B4.ms.model.script' // InsValueMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD5BA7A035A // aID
+ )
+ ; // Parameters
+
+ENDME // ME_4AD5BA7502D5 MakeMap
+
+ME ME_4AD5BA6B007C
+ MEPROP UID '4AD5BA6B007C'
+ MEPROP Name 'TnsStringValueMapFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD5BA56015E // nsStringValueMapFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD5BA7502D5 // MakeMap
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMapFactory'
+
+ENDME // ME_4AD5BA6B007C TnsStringValueMapFactory
+
+ME ME_4F181B1603AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BA56015E // nsStringValueMapFactory
+ ;
+ MELINK Target WL 'ME_4F181AFC03E3' '4F181AFC03E3.ms.model.script' // nsStringValueMapFactoryRes
+ ;
+
+ENDME // ME_4F181B1603AA 
+
+ME ME_4AD5BA56015E
+ MEPROP UID '4AD5BA56015E'
+ MEPROP Name 'nsStringValueMapFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5BA6B007C // TnsStringValueMapFactory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F181B1603AA // nsStringValueMapFactoryRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'StringValueMapFactory'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsStringValueMapFactory.pas'
+
+ENDME // ME_4AD5BA56015E nsStringValueMapFactory

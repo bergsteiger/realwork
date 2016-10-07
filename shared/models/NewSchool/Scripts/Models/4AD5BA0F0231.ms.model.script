@@ -1,0 +1,153 @@
+// nsIntegerValueMapFactory 4AD5BA0F0231 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AD5BA260390
+%%Inner ME_4AD5BB9B0344
+
+FORWARD ME_4AD5BA0F0231
+
+FORWARD ME_4AD5BA260390
+
+FORWARD ME_4AD5BA4000DF
+
+ME ME_4AD5BA48021A
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991947702E9' '499192F203B4.ms.model.script' // TnsValueMapID
+ ;
+
+ENDME // ME_4AD5BA48021A aID
+
+ME ME_4AD5BA4000DF
+ MEPROP UID '4AD5BA4000DF'
+ MEPROP Name 'MakeMap'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BA260390 // TnsIntegerValueMapFactory
+ ;
+ MELINK Target WL 'ME_499194AE007A' '499192F203B4.ms.model.script' // InsValueMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD5BA48021A // aID
+ )
+ ; // Parameters
+
+ENDME // ME_4AD5BA4000DF MakeMap
+
+ME ME_4AD5BA260390
+ MEPROP UID '4AD5BA260390'
+ MEPROP Name 'TnsIntegerValueMapFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD5BA0F0231 // nsIntegerValueMapFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD5BA4000DF // MakeMap
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMapFactory'
+
+ENDME // ME_4AD5BA260390 TnsIntegerValueMapFactory
+
+ME ME_46A5EFE602DE_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_46A5EFE602DE' '4677FBA70343.ms.model.script' // MapID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_46A5EFE602DE_ME_4AD5BB9B0344 MapID
+
+ME ME_46A5F0130365_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_46A5F0130365' '4677FBA70343.ms.model.script' // GetDisplayNames
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F0130365_ME_4AD5BB9B0344 GetDisplayNames
+
+ME ME_46A5F03800A2_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_46A5F03800A2' '4677FBA70343.ms.model.script' // MapSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F03800A2_ME_4AD5BB9B0344 MapSize
+
+ME ME_46A5FCF900E0_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_46A5FCF900E0' '4677FBA70343.ms.model.script' // DisplayNameToValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5FCF900E0_ME_4AD5BB9B0344 DisplayNameToValue
+
+ME ME_46A5FD1B000D_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_46A5FD1B000D' '4677FBA70343.ms.model.script' // ValueToDisplayName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5FD1B000D_ME_4AD5BB9B0344 ValueToDisplayName
+
+ME ME_473D93290004_ME_4AD5BB9B0344
+ MELINK Original WL 'ME_473D93290004' '467823B7002C.ms.model.script' // FillStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D93290004_ME_4AD5BB9B0344 FillStrings
+
+%%ImplementedBy ME_4991945C0196 ME_4AD5BB9B0344
+%%ImplementedBy ME_499194F40273 ME_4AD5BB9B0344
+
+ME ME_4AD5BB9B0344
+ MEPROP UID '4AD5BB9B0344'
+ MEPROP Name 'TnsIntegerValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD5BA0F0231 // nsIntegerValueMapFactory
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4991945C0196' '499192F203B4.ms.model.script' // InsStringsSource
+ WL 'ME_499194F40273' '499192F203B4.ms.model.script' // InsIntegerValueMap
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46A5EFE602DE_ME_4AD5BB9B0344 // MapID
+ ME_46A5F0130365_ME_4AD5BB9B0344 // GetDisplayNames
+ ME_46A5F03800A2_ME_4AD5BB9B0344 // MapSize
+ ME_46A5FCF900E0_ME_4AD5BB9B0344 // DisplayNameToValue
+ ME_46A5FD1B000D_ME_4AD5BB9B0344 // ValueToDisplayName
+ ME_473D93290004_ME_4AD5BB9B0344 // FillStrings
+ )
+ ; // Implemented
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMap'
+
+ENDME // ME_4AD5BB9B0344 TnsIntegerValueMap
+
+ME ME_4AD5BA0F0231
+ MEPROP UID '4AD5BA0F0231'
+ MEPROP Name 'nsIntegerValueMapFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5BA260390 // TnsIntegerValueMapFactory
+ HWL ME_4AD5BB9B0344 // TnsIntegerValueMap
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'IntegerValueMapFactory'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsIntegerValueMapFactory.pas'
+
+ENDME // ME_4AD5BA0F0231 nsIntegerValueMapFactory

@@ -1,0 +1,51 @@
+// SearchRes 4EC391C00307 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EC391DB0057
+
+FORWARD ME_4EC391C00307
+
+%%InheritedBy ME_4AAA214A0250 ME_4EC391DB0057
+
+ME ME_4EC391DB0057
+ MEPROP UID '4EC391DB0057'
+ MEPROP Name 'TnsSearchRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EC391C00307 // SearchRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SearchRes'
+
+ENDME // ME_4EC391DB0057 TnsSearchRes
+
+ME ME_4EC391C00307
+ MEPROP UID '4EC391C00307'
+ MEPROP Name 'SearchRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4EEA0958023A' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EC391DB0057 // TnsSearchRes
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_SearchRes.pas'
+
+ENDME // ME_4EC391C00307 SearchRes

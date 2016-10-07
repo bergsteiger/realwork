@@ -1,0 +1,327 @@
+// atNamedParametersList 4807779F01CA Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48077B920072
+%%Inner ME_483D5A2F00CE
+
+FORWARD ME_4807779F01CA
+
+%%InheritedBy ME_4787A405013D ME_48077B920072
+
+ME ME_48077B920072
+ MEPROP UID '48077B920072'
+ MEPROP Name 'EParameterNotExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_48077B920072 EParameterNotExists
+
+%%InheritedBy ME_480777BC0090 ME_483D5A2F00CE
+
+ME ME_483D5A2F00CE
+ MEPROP UID '483D5A2F00CE'
+ MEPROP Name 'CNamedParameter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_483D5A2F00CE CNamedParameter
+
+ME ME_4807787D0165
+ MEPROP UID '4807787D0165'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4807787D0165 Count
+
+ME ME_483D5AEF0060
+ MEPROP UID '483D5AEF0060'
+ MEPROP Name 'ParamType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target HWL ME_483D5A2F00CE // CNamedParameter
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_483D5AEF0060 ParamType
+
+ME ME_480777C30099
+ MEPROP UID '480777C30099'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ ;
+
+ENDME // ME_480777C30099 
+
+ME ME_480777D00124
+ MEPROP UID '480777D00124'
+ MEPROP Name 'f_Parameters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_4807752C025A' '48076E7F0260.ms.model.script' // TatStringListWithOwn
+ ;
+
+ENDME // ME_480777D00124 f_Parameters
+
+FORWARD ME_480777E80008
+
+ME ME_48077809039E
+ MEPROP UID '48077809039E'
+ MEPROP Name 'aName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480777E80008 // ParamByName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48077809039E aName
+
+ME ME_480777E80008
+ MEPROP UID '480777E80008'
+ MEPROP Name 'ParamByName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48077809039E // aName
+ )
+ ; // Attributes
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_480777E80008 ParamByName
+
+FORWARD ME_480778200358
+
+ME ME_480778320346
+ MEPROP UID '480778320346'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480778200358 // ParamByIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480778320346 anIndex
+
+ME ME_480778200358
+ MEPROP UID '480778200358'
+ MEPROP Name 'ParamByIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480778320346 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_480778200358 ParamByIndex
+
+ME ME_48077863002D
+ MEPROP UID '48077863002D'
+ MEPROP Name 'destroy'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ UP "is static" False
+
+ENDME // ME_48077863002D destroy
+
+FORWARD ME_480778A700B7
+
+ME ME_480778B702EC
+ MEPROP Name 'aParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ ;
+
+ENDME // ME_480778B702EC aParam
+
+ME ME_480778A700B7
+ MEPROP UID '480778A700B7'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELIST Parameters
+   Seq: ( ME_480778B702EC // aParam
+ )
+ ; // Parameters
+
+ENDME // ME_480778A700B7 Add
+
+ME ME_48077A750096
+ MEPROP UID '48077A750096'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+
+ENDME // ME_48077A750096 Create
+
+FORWARD ME_50363C5402FA
+
+ME ME_50363C8202AE
+ MEPROP Name 'aParamName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50363C8202AE aParamName
+
+ME ME_50363C820325
+ MEPROP Name 'anAliasName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50363C820325 anAliasName
+
+ME ME_50363C5402FA
+ MEPROP UID '50363C5402FA'
+ MEPROP Name 'AddAlias'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELIST Parameters
+   Seq: ( ME_50363C8202AE // aParamName
+ ME_50363C820325 // anAliasName
+ )
+ ; // Parameters
+
+ENDME // ME_50363C5402FA AddAlias
+
+ME ME_4808968A0080
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
+ ;
+ MELINK Target WL 'ME_4808963302B7' '478CF30500C1.ms.model.script' // TDuplicates
+ ;
+
+ENDME // ME_4808968A0080 
+
+ME ME_4807779F01CA
+ MEPROP UID '4807779F01CA'
+ MEPROP Name 'atNamedParametersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4807787D0165 // Count
+ HWL ME_483D5AEF0060 // ParamType
+ HWL ME_480777C30099 // 
+ HWL ME_480777D00124 // f_Parameters
+ HWL ME_480777E80008 // ParamByName
+ HWL ME_480778200358 // ParamByIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48077863002D // destroy
+ HWL ME_480778A700B7 // Add
+ HWL ME_48077A750096 // Create
+ HWL ME_50363C5402FA // AddAlias
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_48077B920072 // EParameterNotExists
+ HWL ME_483D5A2F00CE // CNamedParameter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4808968A0080 // TDuplicates
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_atNamedParametersList_'
+ UP extprop:pas:UnitName 'atNamedParametersList.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas'
+
+ENDME // ME_4807779F01CA atNamedParametersList

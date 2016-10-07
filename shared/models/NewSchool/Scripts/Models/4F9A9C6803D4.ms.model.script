@@ -1,0 +1,1910 @@
+// nsQuestions 4F9A9C6803D4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9A9C6803D4
+
+FORWARD ME_4F9A978A01B8
+
+FORWARD ME_4F9A97A000B5
+
+FORWARD ME_4F9A97F90047
+
+ME ME_4F9A980E032F
+ MEPROP UID '4F9A980E032F'
+ MEPROP Name 'Selection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A97F90047 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A980E032F Selection
+
+%%InheritedBy ME_4F9A980E032F ME_4F9A981F0126
+
+ME ME_4F9A981F0126
+ MEPROP UID '4F9A981F0126'
+ MEPROP Name 'WholeDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A97F90047 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9A980E032F // Selection
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A981F0126 WholeDocument
+
+ME ME_4F9A97F90047
+ MEPROP UID '4F9A97F90047'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A97A000B5 // DocumentEMailSelection
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9A980E032F // Selection
+ HWL ME_4F9A981F0126 // WholeDocument
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A97F90047 Choices
+
+ME ME_4F9A9A81020A
+ MEPROP UID '4F9A9A81020A'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A97A000B5 // DocumentEMailSelection
+ ;
+ MELINK Target HWL ME_4F9A980E032F // Selection
+ ;
+
+ENDME // ME_4F9A9A81020A 
+
+ME ME_4F9A97A000B5
+ MEPROP UID '4F9A97A000B5'
+ MEPROP Name 'DocumentEMailSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Переслать по E-mail:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9A9A81020A // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A97F90047 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда пересылать выделенный фрагмент'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при пересылке выделенного фрагмента'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Пересылка по EMail'
+
+ENDME // ME_4F9A97A000B5 DocumentEMailSelection
+
+FORWARD ME_4F9A9CE80132
+
+FORWARD ME_4F9A9D3200E9
+
+ME ME_4F9A9D470071
+ MEPROP UID '4F9A9D470071'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9D3200E9 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9D470071 Selected
+
+%%InheritedBy ME_4F9A9D470071 ME_4F9A9D5602BE
+
+ME ME_4F9A9D5602BE
+ MEPROP UID '4F9A9D5602BE'
+ MEPROP Name 'WholeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9D3200E9 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9A9D470071 // Selected
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9D5602BE WholeList
+
+ME ME_4F9A9D3200E9
+ MEPROP UID '4F9A9D3200E9'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9CE80132 // ListEMailSelection
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9A9D470071 // Selected
+ HWL ME_4F9A9D5602BE // WholeList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A9D3200E9 Choices
+
+ME ME_4F9A9D6A0226
+ MEPROP UID '4F9A9D6A0226'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A9CE80132 // ListEMailSelection
+ ;
+ MELINK Target HWL ME_4F9A9D470071 // Selected
+ ;
+
+ENDME // ME_4F9A9D6A0226 
+
+ME ME_4F9A9CE80132
+ MEPROP UID '4F9A9CE80132'
+ MEPROP Name 'ListEMailSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Пересылка по EMail''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9A9D6A0226 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A9D3200E9 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда пересылать выделенные элементы '
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при пересылке выделенных элементов'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Пересылка по EMail'
+
+ENDME // ME_4F9A9CE80132 ListEMailSelection
+
+FORWARD ME_4F9A9D8400FB
+
+FORWARD ME_4F9A9DB901E8
+
+ME ME_4F9A9DD0022C
+ MEPROP UID '4F9A9DD0022C'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9DB901E8 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9DD0022C Selected
+
+%%InheritedBy ME_4F9A9DD0022C ME_4F9A9DE00280
+
+ME ME_4F9A9DE00280
+ MEPROP UID '4F9A9DE00280'
+ MEPROP Name 'WholeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9DB901E8 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9A9DD0022C // Selected
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9DE00280 WholeList
+
+ME ME_4F9A9DB901E8
+ MEPROP UID '4F9A9DB901E8'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9A9DD0022C // Selected
+ HWL ME_4F9A9DE00280 // WholeList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A9DB901E8 Choices
+
+ME ME_4F9A9DF5013E
+ MEPROP UID '4F9A9DF5013E'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ ;
+ MELINK Target HWL ME_4F9A9DD0022C // Selected
+ ;
+
+ENDME // ME_4F9A9DF5013E 
+
+ME ME_4F9A9D8400FB
+ MEPROP UID '4F9A9D8400FB'
+ MEPROP Name 'ListPrintSelectedConfirmation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Печатать:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9A9DF5013E // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A9DB901E8 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда печатать выделенные элементы'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при печати выделенных элементов'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Печать'
+
+ENDME // ME_4F9A9D8400FB ListPrintSelectedConfirmation
+
+FORWARD ME_4F9A9EA50070
+
+FORWARD ME_4F9A9ED4006F
+
+ME ME_4F9A9EDE028B
+ MEPROP UID '4F9A9EDE028B'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9ED4006F // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9EDE028B Selected
+
+%%InheritedBy ME_4F9A9EDE028B ME_4F9A9EF30089
+
+ME ME_4F9A9EF30089
+ MEPROP UID '4F9A9EF30089'
+ MEPROP Name 'WholeDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9ED4006F // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9A9EDE028B // Selected
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9EF30089 WholeDocument
+
+ME ME_4F9A9ED4006F
+ MEPROP UID '4F9A9ED4006F'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9A9EDE028B // Selected
+ HWL ME_4F9A9EF30089 // WholeDocument
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A9ED4006F Choices
+
+ME ME_4F9A9F09016E
+ MEPROP UID '4F9A9F09016E'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A9EA50070 // PrintSelectedConfirmation
+ ;
+ MELINK Target HWL ME_4F9A9EDE028B // Selected
+ ;
+
+ENDME // ME_4F9A9F09016E 
+
+ME ME_4F9A9EA50070
+ MEPROP UID '4F9A9EA50070'
+ MEPROP Name 'PrintSelectedConfirmation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Печатать:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9A9F09016E // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A9ED4006F // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда печатать выделенный фрагмент'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при печати выделенного фрагмента'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Печать'
+
+ENDME // ME_4F9A9EA50070 PrintSelectedConfirmation
+
+FORWARD ME_4F9A9F2201B2
+
+FORWARD ME_4F9A9F5600E7
+
+ME ME_4F9A9F670013
+ MEPROP UID '4F9A9F670013'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9F5600E7 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9F670013 Selected
+
+%%InheritedBy ME_4F9A9F670013 ME_4F9A9F7502CB
+
+ME ME_4F9A9F7502CB
+ MEPROP UID '4F9A9F7502CB'
+ MEPROP Name 'WholeDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9F5600E7 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9A9F670013 // Selected
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9A9F7502CB WholeDocument
+
+ME ME_4F9A9F5600E7
+ MEPROP UID '4F9A9F5600E7'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9F2201B2 // ExportSelectionToWord
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9A9F670013 // Selected
+ HWL ME_4F9A9F7502CB // WholeDocument
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A9F5600E7 Choices
+
+ME ME_4F9A9F8C03B6
+ MEPROP UID '4F9A9F8C03B6'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A9F2201B2 // ExportSelectionToWord
+ ;
+ MELINK Target HWL ME_4F9A9F670013 // Selected
+ ;
+
+ENDME // ME_4F9A9F8C03B6 
+
+ME ME_4F9A9F2201B2
+ MEPROP UID '4F9A9F2201B2'
+ MEPROP Name 'ExportSelectionToWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Экспортировать в MS-Word''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9A9F8C03B6 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A9F5600E7 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда экспортировать выделенный фрагмент'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при открытии в MS-Word выделенного фрагмента'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Экспорт в MS-Word'
+
+ENDME // ME_4F9A9F2201B2 ExportSelectionToWord
+
+FORWARD ME_4F9A9FA3007C
+
+FORWARD ME_4F9AA00C012C
+
+ME ME_4F9AA01E0031
+ MEPROP UID '4F9AA01E0031'
+ MEPROP Name 'Selected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9AA00C012C // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9AA01E0031 Selected
+
+%%InheritedBy ME_4F9AA01E0031 ME_4F9AA0300173
+
+ME ME_4F9AA0300173
+ MEPROP UID '4F9AA0300173'
+ MEPROP Name 'WholeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9AA00C012C // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9AA01E0031 // Selected
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9AA0300173 WholeList
+
+ME ME_4F9AA00C012C
+ MEPROP UID '4F9AA00C012C'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9FA3007C // ListExportSelectionToWord
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9AA01E0031 // Selected
+ HWL ME_4F9AA0300173 // WholeList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9AA00C012C Choices
+
+ME ME_4F9AA0430254
+ MEPROP UID '4F9AA0430254'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9A9FA3007C // ListExportSelectionToWord
+ ;
+ MELINK Target HWL ME_4F9AA01E0031 // Selected
+ ;
+
+ENDME // ME_4F9AA0430254 
+
+ME ME_4F9A9FA3007C
+ MEPROP UID '4F9A9FA3007C'
+ MEPROP Name 'ListExportSelectionToWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Экспортировать в MS-Word:''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9AA0430254 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9AA00C012C // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Всегда экспортировать выделенные элементы'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "LongHint" 'Подтверждение при открытии в MS-Word выделенных элементов'
+ UP "NeedCheck" True
+ UP "SettingsCaption" 'Экспорт в MS-Word'
+
+ENDME // ME_4F9A9FA3007C ListExportSelectionToWord
+
+FORWARD ME_4F9ABD110202
+
+FORWARD ME_4F9ABD2F003C
+
+ME ME_4F9ABD4202DA
+ MEPROP UID '4F9ABD4202DA'
+ MEPROP Name 'Spec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Обратиться к специалистам Правовой поддержки онлайн''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9ABD2F003C // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9ABD4202DA Spec
+
+%%InheritedBy ME_4F9ABD4202DA ME_4F9ABD54028B
+
+ME ME_4F9ABD54028B
+ MEPROP UID '4F9ABD54028B'
+ MEPROP Name 'Back'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9ABD2F003C // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9ABD4202DA // Spec
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4F9ABD54028B Back
+
+ME ME_4F9ABD2F003C
+ MEPROP UID '4F9ABD2F003C'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F9ABD4202DA // Spec
+ HWL ME_4F9ABD54028B // Back
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9ABD2F003C Choices
+
+ME ME_4F9ABD780351
+ MEPROP UID '4F9ABD780351'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_CustomChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F9ABD110202 // ConsultDocumentsNotFound
+ ;
+ MELINK Target HWL ME_4F9ABD4202DA // Spec
+ ;
+
+ENDME // ME_4F9ABD780351 
+
+ME ME_4F9ABD110202
+ MEPROP UID '4F9ABD110202'
+ MEPROP Name 'ConsultDocumentsNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F9ABD780351 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9ABD2F003C // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Warning'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4F9ABD110202 ConsultDocumentsNotFound
+
+FORWARD ME_5273829D012E
+
+FORWARD ME_527382CB0366
+
+ME ME_527382EB03A9
+ MEPROP UID '527382EB03A9'
+ MEPROP Name 'Back'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_527382CB0366 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_527382EB03A9 Back
+
+ME ME_527382CB0366
+ MEPROP UID '527382CB0366'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5273829D012E // ConsultDocumentsNotFoundNoSpec
+ ;
+ MELIST Children
+   Seq: ( HWL ME_527382EB03A9 // Back
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_527382CB0366 Choices
+
+ME ME_5273829D012E
+ MEPROP UID '5273829D012E'
+ MEPROP Name 'ConsultDocumentsNotFoundNoSpec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Информация по данному запросу отсутствует в установленном у Вас комплекте.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_527382CB0366 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Warning'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_5273829D012E ConsultDocumentsNotFoundNoSpec
+
+ME ME_A11CF2ABA866
+ MEPROP UID 'A11CF2ABA866'
+ MEPROP Name 'DocumentEMailSelection_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда пересылать выделенный фрагмент'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда пересылать выделенный фрагмент'''
+
+ENDME // ME_A11CF2ABA866 DocumentEMailSelection_CheckCaption
+
+ME ME_05B687D0717C
+ MEPROP UID '05B687D0717C'
+ MEPROP Name 'DocumentEMailSelection_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Пересылка по EMail'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Пересылка по EMail'''
+
+ENDME // ME_05B687D0717C DocumentEMailSelection_SettingsCaption
+
+ME ME_C00CB26D1597
+ MEPROP UID 'C00CB26D1597'
+ MEPROP Name 'DocumentEMailSelection_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при пересылке выделенного фрагмента'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при пересылке выделенного фрагмента'''
+
+ENDME // ME_C00CB26D1597 DocumentEMailSelection_LongHint
+
+ME ME_7FAC13D5FCE0
+ MEPROP UID '7FAC13D5FCE0'
+ MEPROP Name 'ListEMailSelection_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда пересылать выделенные элементы '''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда пересылать выделенные элементы '''
+
+ENDME // ME_7FAC13D5FCE0 ListEMailSelection_CheckCaption
+
+ME ME_6230D8B6C1E9
+ MEPROP UID '6230D8B6C1E9'
+ MEPROP Name 'ListEMailSelection_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Пересылка по EMail'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Пересылка по EMail'''
+
+ENDME // ME_6230D8B6C1E9 ListEMailSelection_SettingsCaption
+
+ME ME_5FD7955D6772
+ MEPROP UID '5FD7955D6772'
+ MEPROP Name 'ListEMailSelection_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при пересылке выделенных элементов'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при пересылке выделенных элементов'''
+
+ENDME // ME_5FD7955D6772 ListEMailSelection_LongHint
+
+ME ME_B3C08296F672
+ MEPROP UID 'B3C08296F672'
+ MEPROP Name 'ListPrintSelectedConfirmation_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда печатать выделенные элементы'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда печатать выделенные элементы'''
+
+ENDME // ME_B3C08296F672 ListPrintSelectedConfirmation_CheckCaption
+
+ME ME_D65A435E2B4B
+ MEPROP UID 'D65A435E2B4B'
+ MEPROP Name 'ListPrintSelectedConfirmation_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Печать'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Печать'''
+
+ENDME // ME_D65A435E2B4B ListPrintSelectedConfirmation_SettingsCaption
+
+ME ME_37B771881FD3
+ MEPROP UID '37B771881FD3'
+ MEPROP Name 'ListPrintSelectedConfirmation_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при печати выделенных элементов'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при печати выделенных элементов'''
+
+ENDME // ME_37B771881FD3 ListPrintSelectedConfirmation_LongHint
+
+ME ME_9E56D232515D
+ MEPROP UID '9E56D232515D'
+ MEPROP Name 'PrintSelectedConfirmation_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда печатать выделенный фрагмент'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда печатать выделенный фрагмент'''
+
+ENDME // ME_9E56D232515D PrintSelectedConfirmation_CheckCaption
+
+ME ME_08BEC8A9A38F
+ MEPROP UID '08BEC8A9A38F'
+ MEPROP Name 'PrintSelectedConfirmation_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Печать'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Печать'''
+
+ENDME // ME_08BEC8A9A38F PrintSelectedConfirmation_SettingsCaption
+
+ME ME_E3DE32BC5DD7
+ MEPROP UID 'E3DE32BC5DD7'
+ MEPROP Name 'PrintSelectedConfirmation_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при печати выделенного фрагмента'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при печати выделенного фрагмента'''
+
+ENDME // ME_E3DE32BC5DD7 PrintSelectedConfirmation_LongHint
+
+ME ME_ADB17A353755
+ MEPROP UID 'ADB17A353755'
+ MEPROP Name 'ExportSelectionToWord_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда экспортировать выделенный фрагмент'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда экспортировать выделенный фрагмент'''
+
+ENDME // ME_ADB17A353755 ExportSelectionToWord_CheckCaption
+
+ME ME_36181C8C91CC
+ MEPROP UID '36181C8C91CC'
+ MEPROP Name 'ExportSelectionToWord_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Экспорт в MS-Word'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Экспорт в MS-Word'''
+
+ENDME // ME_36181C8C91CC ExportSelectionToWord_SettingsCaption
+
+ME ME_E3BE167C85D7
+ MEPROP UID 'E3BE167C85D7'
+ MEPROP Name 'ExportSelectionToWord_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при открытии в MS-Word выделенного фрагмента'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при открытии в MS-Word выделенного фрагмента'''
+
+ENDME // ME_E3BE167C85D7 ExportSelectionToWord_LongHint
+
+ME ME_CBE5D3988148
+ MEPROP UID 'CBE5D3988148'
+ MEPROP Name 'ListExportSelectionToWord_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Всегда экспортировать выделенные элементы'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всегда экспортировать выделенные элементы'''
+
+ENDME // ME_CBE5D3988148 ListExportSelectionToWord_CheckCaption
+
+ME ME_CF57709EF2A4
+ MEPROP UID 'CF57709EF2A4'
+ MEPROP Name 'ListExportSelectionToWord_SettingsCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Экспорт в MS-Word'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Экспорт в MS-Word'''
+
+ENDME // ME_CF57709EF2A4 ListExportSelectionToWord_SettingsCaption
+
+ME ME_1A86C3981ADD
+ MEPROP UID '1A86C3981ADD'
+ MEPROP Name 'ListExportSelectionToWord_LongHint'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9A978A01B8 // Asks
+ ;
+ MEPROP Value '''Подтверждение при открытии в MS-Word выделенных элементов'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтверждение при открытии в MS-Word выделенных элементов'''
+
+ENDME // ME_1A86C3981ADD ListExportSelectionToWord_LongHint
+
+ME ME_4F9A978A01B8
+ MEPROP UID '4F9A978A01B8'
+ MEPROP Name 'Asks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_A11CF2ABA866 // DocumentEMailSelection_CheckCaption
+ HWL ME_05B687D0717C // DocumentEMailSelection_SettingsCaption
+ HWL ME_C00CB26D1597 // DocumentEMailSelection_LongHint
+ HWL ME_7FAC13D5FCE0 // ListEMailSelection_CheckCaption
+ HWL ME_6230D8B6C1E9 // ListEMailSelection_SettingsCaption
+ HWL ME_5FD7955D6772 // ListEMailSelection_LongHint
+ HWL ME_B3C08296F672 // ListPrintSelectedConfirmation_CheckCaption
+ HWL ME_D65A435E2B4B // ListPrintSelectedConfirmation_SettingsCaption
+ HWL ME_37B771881FD3 // ListPrintSelectedConfirmation_LongHint
+ HWL ME_9E56D232515D // PrintSelectedConfirmation_CheckCaption
+ HWL ME_08BEC8A9A38F // PrintSelectedConfirmation_SettingsCaption
+ HWL ME_E3DE32BC5DD7 // PrintSelectedConfirmation_LongHint
+ HWL ME_ADB17A353755 // ExportSelectionToWord_CheckCaption
+ HWL ME_36181C8C91CC // ExportSelectionToWord_SettingsCaption
+ HWL ME_E3BE167C85D7 // ExportSelectionToWord_LongHint
+ HWL ME_CBE5D3988148 // ListExportSelectionToWord_CheckCaption
+ HWL ME_CF57709EF2A4 // ListExportSelectionToWord_SettingsCaption
+ HWL ME_1A86C3981ADD // ListExportSelectionToWord_LongHint
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F9A97A000B5 // DocumentEMailSelection
+ HWL ME_4F9A9CE80132 // ListEMailSelection
+ HWL ME_4F9A9D8400FB // ListPrintSelectedConfirmation
+ HWL ME_4F9A9EA50070 // PrintSelectedConfirmation
+ HWL ME_4F9A9F2201B2 // ExportSelectionToWord
+ HWL ME_4F9A9FA3007C // ListExportSelectionToWord
+ HWL ME_4F9ABD110202 // ConsultDocumentsNotFound
+ HWL ME_5273829D012E // ConsultDocumentsNotFoundNoSpec
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F9A978A01B8 Asks
+
+FORWARD ME_133EA42C3D0E
+
+ME ME_2550AF876D56
+ MEPROP UID '2550AF876D56'
+ MEPROP Name 'DocumentEMailSelection_Choice_Selection'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_Selection''; rValue : ''Выделенный фрагмент'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_Selection''; rValue : ''Выделенный фрагмент'')'
+ UPLINK Speller HWL ME_4F9A980E032F // Selection
+ ;
+
+ENDME // ME_2550AF876D56 DocumentEMailSelection_Choice_Selection
+
+ME ME_817F4CEAD54C
+ MEPROP UID '817F4CEAD54C'
+ MEPROP Name 'DocumentEMailSelection_Choice_WholeDocument'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentEMailSelection_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ UPLINK Speller HWL ME_4F9A981F0126 // WholeDocument
+ ;
+
+ENDME // ME_817F4CEAD54C DocumentEMailSelection_Choice_WholeDocument
+
+ME ME_133EA42C3D0E
+ MEPROP UID '133EA42C3D0E'
+ MEPROP Name 'LCImpl_DocumentEMailSelection_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога DocumentEMailSelection' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_2550AF876D56 // DocumentEMailSelection_Choice_Selection
+ HWL ME_817F4CEAD54C // DocumentEMailSelection_Choice_WholeDocument
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9A97F90047 // Choices
+ ;
+
+ENDME // ME_133EA42C3D0E LCImpl_DocumentEMailSelection_Choices
+
+FORWARD ME_E717941FB90E
+
+ME ME_0692F4DB06E2
+ MEPROP UID '0692F4DB06E2'
+ MEPROP Name 'ListEMailSelection_Choice_Selected'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ UPLINK Speller HWL ME_4F9A9D470071 // Selected
+ ;
+
+ENDME // ME_0692F4DB06E2 ListEMailSelection_Choice_Selected
+
+ME ME_672A20D7C88F
+ MEPROP UID '672A20D7C88F'
+ MEPROP Name 'ListEMailSelection_Choice_WholeList'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_WholeList''; rValue : ''Список целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListEMailSelection_Choice_WholeList''; rValue : ''Список целиком'')'
+ UPLINK Speller HWL ME_4F9A9D5602BE // WholeList
+ ;
+
+ENDME // ME_672A20D7C88F ListEMailSelection_Choice_WholeList
+
+ME ME_E717941FB90E
+ MEPROP UID 'E717941FB90E'
+ MEPROP Name 'LCImpl_ListEMailSelection_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListEMailSelection' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_0692F4DB06E2 // ListEMailSelection_Choice_Selected
+ HWL ME_672A20D7C88F // ListEMailSelection_Choice_WholeList
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9A9D3200E9 // Choices
+ ;
+
+ENDME // ME_E717941FB90E LCImpl_ListEMailSelection_Choices
+
+FORWARD ME_0DDBC24CAF72
+
+ME ME_1EBF4D455E1E
+ MEPROP UID '1EBF4D455E1E'
+ MEPROP Name 'ListPrintSelectedConfirmation_Choice_Selected'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ UPLINK Speller HWL ME_4F9A9DD0022C // Selected
+ ;
+
+ENDME // ME_1EBF4D455E1E ListPrintSelectedConfirmation_Choice_Selected
+
+ME ME_304381F8030F
+ MEPROP UID '304381F8030F'
+ MEPROP Name 'ListPrintSelectedConfirmation_Choice_WholeList'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_WholeList''; rValue : ''Список целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListPrintSelectedConfirmation_Choice_WholeList''; rValue : ''Список целиком'')'
+ UPLINK Speller HWL ME_4F9A9DE00280 // WholeList
+ ;
+
+ENDME // ME_304381F8030F ListPrintSelectedConfirmation_Choice_WholeList
+
+ME ME_0DDBC24CAF72
+ MEPROP UID '0DDBC24CAF72'
+ MEPROP Name 'LCImpl_ListPrintSelectedConfirmation_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListPrintSelectedConfirmation' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_1EBF4D455E1E // ListPrintSelectedConfirmation_Choice_Selected
+ HWL ME_304381F8030F // ListPrintSelectedConfirmation_Choice_WholeList
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9A9DB901E8 // Choices
+ ;
+
+ENDME // ME_0DDBC24CAF72 LCImpl_ListPrintSelectedConfirmation_Choices
+
+FORWARD ME_43C7CCB167A0
+
+ME ME_55B19A2CB6C0
+ MEPROP UID '55B19A2CB6C0'
+ MEPROP Name 'PrintSelectedConfirmation_Choice_Selected'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ UPLINK Speller HWL ME_4F9A9EDE028B // Selected
+ ;
+
+ENDME // ME_55B19A2CB6C0 PrintSelectedConfirmation_Choice_Selected
+
+ME ME_A815B1D1B27B
+ MEPROP UID 'A815B1D1B27B'
+ MEPROP Name 'PrintSelectedConfirmation_Choice_WholeDocument'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintSelectedConfirmation_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ UPLINK Speller HWL ME_4F9A9EF30089 // WholeDocument
+ ;
+
+ENDME // ME_A815B1D1B27B PrintSelectedConfirmation_Choice_WholeDocument
+
+ME ME_43C7CCB167A0
+ MEPROP UID '43C7CCB167A0'
+ MEPROP Name 'LCImpl_PrintSelectedConfirmation_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога PrintSelectedConfirmation' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55B19A2CB6C0 // PrintSelectedConfirmation_Choice_Selected
+ HWL ME_A815B1D1B27B // PrintSelectedConfirmation_Choice_WholeDocument
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9A9ED4006F // Choices
+ ;
+
+ENDME // ME_43C7CCB167A0 LCImpl_PrintSelectedConfirmation_Choices
+
+FORWARD ME_AF0BDCE8C386
+
+ME ME_5B6A5C2AE4E1
+ MEPROP UID '5B6A5C2AE4E1'
+ MEPROP Name 'ExportSelectionToWord_Choice_Selected'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенный фрагмент''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_Selected''; rValue : ''Выделенный фрагмент'')'
+ UPLINK Speller HWL ME_4F9A9F670013 // Selected
+ ;
+
+ENDME // ME_5B6A5C2AE4E1 ExportSelectionToWord_Choice_Selected
+
+ME ME_CCEB1A7F426D
+ MEPROP UID 'CCEB1A7F426D'
+ MEPROP Name 'ExportSelectionToWord_Choice_WholeDocument'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Документ целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportSelectionToWord_Choice_WholeDocument''; rValue : ''Документ целиком'')'
+ UPLINK Speller HWL ME_4F9A9F7502CB // WholeDocument
+ ;
+
+ENDME // ME_CCEB1A7F426D ExportSelectionToWord_Choice_WholeDocument
+
+ME ME_AF0BDCE8C386
+ MEPROP UID 'AF0BDCE8C386'
+ MEPROP Name 'LCImpl_ExportSelectionToWord_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ExportSelectionToWord' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5B6A5C2AE4E1 // ExportSelectionToWord_Choice_Selected
+ HWL ME_CCEB1A7F426D // ExportSelectionToWord_Choice_WholeDocument
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9A9F5600E7 // Choices
+ ;
+
+ENDME // ME_AF0BDCE8C386 LCImpl_ExportSelectionToWord_Choices
+
+FORWARD ME_CB2A2E37A56C
+
+ME ME_FD1D8C02A25D
+ MEPROP UID 'FD1D8C02A25D'
+ MEPROP Name 'ListExportSelectionToWord_Choice_Selected'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Выделенные элементы''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_Selected''; rValue : ''Выделенные элементы'')'
+ UPLINK Speller HWL ME_4F9AA01E0031 // Selected
+ ;
+
+ENDME // ME_FD1D8C02A25D ListExportSelectionToWord_Choice_Selected
+
+ME ME_97BBFBEB37EB
+ MEPROP UID '97BBFBEB37EB'
+ MEPROP Name 'ListExportSelectionToWord_Choice_WholeList'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Список целиком''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_WholeList''; rValue : ''Список целиком'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListExportSelectionToWord_Choice_WholeList''; rValue : ''Список целиком'')'
+ UPLINK Speller HWL ME_4F9AA0300173 // WholeList
+ ;
+
+ENDME // ME_97BBFBEB37EB ListExportSelectionToWord_Choice_WholeList
+
+ME ME_CB2A2E37A56C
+ MEPROP UID 'CB2A2E37A56C'
+ MEPROP Name 'LCImpl_ListExportSelectionToWord_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ListExportSelectionToWord' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_FD1D8C02A25D // ListExportSelectionToWord_Choice_Selected
+ HWL ME_97BBFBEB37EB // ListExportSelectionToWord_Choice_WholeList
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9AA00C012C // Choices
+ ;
+
+ENDME // ME_CB2A2E37A56C LCImpl_ListExportSelectionToWord_Choices
+
+FORWARD ME_A3FF1C976F1C
+
+ME ME_95EF818C0469
+ MEPROP UID '95EF818C0469'
+ MEPROP Name 'ConsultDocumentsNotFound_Choice_Spec'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Обратиться к специалистам Правовой поддержки онлайн''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Spec''; rValue : ''Обратиться к специалистам Правовой поддержки онлайн'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Spec''; rValue : ''Обратиться к специалистам Правовой поддержки онлайн'')'
+ UPLINK Speller HWL ME_4F9ABD4202DA // Spec
+ ;
+
+ENDME // ME_95EF818C0469 ConsultDocumentsNotFound_Choice_Spec
+
+ME ME_085B95DAA3A6
+ MEPROP UID '085B95DAA3A6'
+ MEPROP Name 'ConsultDocumentsNotFound_Choice_Back'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFound_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ UPLINK Speller HWL ME_4F9ABD54028B // Back
+ ;
+
+ENDME // ME_085B95DAA3A6 ConsultDocumentsNotFound_Choice_Back
+
+ME ME_A3FF1C976F1C
+ MEPROP UID 'A3FF1C976F1C'
+ MEPROP Name 'LCImpl_ConsultDocumentsNotFound_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ConsultDocumentsNotFound' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_95EF818C0469 // ConsultDocumentsNotFound_Choice_Spec
+ HWL ME_085B95DAA3A6 // ConsultDocumentsNotFound_Choice_Back
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4F9ABD2F003C // Choices
+ ;
+
+ENDME // ME_A3FF1C976F1C LCImpl_ConsultDocumentsNotFound_Choices
+
+FORWARD ME_668058777597
+
+ME ME_A03254C603EE
+ MEPROP UID 'A03254C603EE'
+ MEPROP Name 'ConsultDocumentsNotFoundNoSpec_Choice_Back'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Вернуться в карточку и изменить условия запроса''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_668058777597 // LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ConsultDocumentsNotFoundNoSpec_Choice_Back''; rValue : ''Вернуться в карточку и изменить условия запроса'')'
+ UPLINK Speller HWL ME_527382EB03A9 // Back
+ ;
+
+ENDME // ME_A03254C603EE ConsultDocumentsNotFoundNoSpec_Choice_Back
+
+ME ME_668058777597
+ MEPROP UID '668058777597'
+ MEPROP Name 'LCImpl_ConsultDocumentsNotFoundNoSpec_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога ConsultDocumentsNotFoundNoSpec' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_A03254C603EE // ConsultDocumentsNotFoundNoSpec_Choice_Back
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_527382CB0366 // Choices
+ ;
+
+ENDME // ME_668058777597 LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+
+ME ME_2113CB5A9D0D
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_2113CB5A9D0D 
+
+ME ME_146A169426C1
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9A9C6803D4 // nsQuestions
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_146A169426C1 
+
+ME ME_4F9A9C6803D4
+ MEPROP UID '4F9A9C6803D4'
+ MEPROP Name 'nsQuestions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F9BB1120134' '4F9BB1120134.ms.model.script' // Сюда вынес все сообщения из StdRes с Choices
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4F9A978A01B8 // Asks
+ HWL ME_133EA42C3D0E // LCImpl_DocumentEMailSelection_Choices
+ HWL ME_E717941FB90E // LCImpl_ListEMailSelection_Choices
+ HWL ME_0DDBC24CAF72 // LCImpl_ListPrintSelectedConfirmation_Choices
+ HWL ME_43C7CCB167A0 // LCImpl_PrintSelectedConfirmation_Choices
+ HWL ME_AF0BDCE8C386 // LCImpl_ExportSelectionToWord_Choices
+ HWL ME_CB2A2E37A56C // LCImpl_ListExportSelectionToWord_Choices
+ HWL ME_A3FF1C976F1C // LCImpl_ConsultDocumentsNotFound_Choices
+ HWL ME_668058777597 // LCImpl_ConsultDocumentsNotFoundNoSpec_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_2113CB5A9D0D // Tl3StringIDEx
+ ME_146A169426C1 // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Questions'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\nsQuestions.pas'
+
+ENDME // ME_4F9A9C6803D4 nsQuestions

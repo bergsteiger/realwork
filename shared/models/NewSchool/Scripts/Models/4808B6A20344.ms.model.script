@@ -1,0 +1,644 @@
+// atLogger 4808B6A20344 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4808A17901C6
+%%Inner ME_4808BAD201EB
+%%Inner ME_4808BB4F028A
+%%Inner ME_4808BC490355
+
+FORWARD ME_4808B6A20344
+
+FORWARD ME_4808A17901C6
+
+FORWARD ME_4808B7A4001B
+
+ME ME_4808B7AD00E3
+ MEPROP UID '4808B7AD00E3'
+ MEPROP Name 'lmtNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7AD00E3 lmtNone
+
+ME ME_4808B7B201CA
+ MEPROP UID '4808B7B201CA'
+ MEPROP Name 'lmtInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7B201CA lmtInfo
+
+ME ME_4808B7B7034B
+ MEPROP UID '4808B7B7034B'
+ MEPROP Name 'lmtWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7B7034B lmtWarning
+
+ME ME_4808B7BD0009
+ MEPROP UID '4808B7BD0009'
+ MEPROP Name 'lmtError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7BD0009 lmtError
+
+ME ME_4808B7C102FF
+ MEPROP UID '4808B7C102FF'
+ MEPROP Name 'lmtException'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7C102FF lmtException
+
+ME ME_4808B7A4001B
+ MEPROP UID '4808B7A4001B'
+ MEPROP Name 'TatLogMessageType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4808B7AD00E3 // lmtNone
+ HWL ME_4808B7B201CA // lmtInfo
+ HWL ME_4808B7B7034B // lmtWarning
+ HWL ME_4808B7BD0009 // lmtError
+ HWL ME_4808B7C102FF // lmtException
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4808B7A4001B TatLogMessageType
+
+%%InheritedBy ME_4808B68300D5 ME_5076D5F50154
+
+ME ME_5076D5F50154
+ MEPROP UID '5076D5F50154'
+ MEPROP Name 'PFormatSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4808B68300D5' '47877EB202FB.ms.model.script' // TFormatSettings
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_5076D5F50154 PFormatSettings
+
+ME ME_5076D6960256
+ MEPROP UID '5076D6960256'
+ MEPROP Name 'f_TlsIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_5076D6960256 f_TlsIndex
+
+ME ME_4808B70603E1
+ MEPROP UID '4808B70603E1'
+ MEPROP Name 'f_CS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_4808B70603E1 f_CS
+
+FORWARD ME_4808B7840086
+
+ME ME_4808B790017B
+ MEPROP Name 'formattedMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4808B790017B formattedMsg
+
+ME ME_4808B7840086
+ MEPROP UID '4808B7840086'
+ MEPROP Name 'WriteMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808B790017B // formattedMsg
+ )
+ ; // Parameters
+
+ENDME // ME_4808B7840086 WriteMessage
+
+FORWARD ME_4808B7CF01A2
+
+ME ME_4808B7DD03C5
+ MEPROP Name 'msgType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4808B7A4001B // TatLogMessageType
+ ;
+
+ENDME // ME_4808B7DD03C5 msgType
+
+ME ME_4808B7DE000D
+ MEPROP Name 'msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4808B7DE000D msg
+
+ME ME_4808B7CF01A2
+ MEPROP UID '4808B7CF01A2'
+ MEPROP Name 'AddMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808B7DD03C5 // msgType
+ ME_4808B7DE000D // msg
+ )
+ ; // Parameters
+
+ENDME // ME_4808B7CF01A2 AddMessage
+
+ME ME_4808B8250055
+ MEPROP UID '4808B8250055'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+
+ENDME // ME_4808B8250055 Create
+
+ME ME_5076D63901B2
+ MEPROP UID '5076D63901B2'
+ MEPROP Name 'GetFormatSettings'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELINK Target HWL ME_5076D5F50154 // PFormatSettings
+ ;
+
+ENDME // ME_5076D63901B2 GetFormatSettings
+
+ME ME_4808B8ED00B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808A17901C6 // TatLogger
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_4808B8ED00B1 
+
+ME ME_4808B42B0093_ME_4808A17901C6
+ MELINK Original WL 'ME_4808B42B0093' '48077E620315.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B42B0093_ME_4808A17901C6 Info
+
+ME ME_4808B44F022E_ME_4808A17901C6
+ MELINK Original WL 'ME_4808B44F022E' '48077E620315.ms.model.script' // Warning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B44F022E_ME_4808A17901C6 Warning
+
+ME ME_4808B45F00DA_ME_4808A17901C6
+ MELINK Original WL 'ME_4808B45F00DA' '48077E620315.ms.model.script' // Error
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B45F00DA_ME_4808A17901C6 Error
+
+ME ME_4808B46D01DF_ME_4808A17901C6
+ MELINK Original WL 'ME_4808B46D01DF' '48077E620315.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B46D01DF_ME_4808A17901C6 Exception
+
+ME ME_484A74A700FD_ME_4808A17901C6
+ MELINK Original WL 'ME_484A74A700FD' '48077E620315.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A74A700FD_ME_4808A17901C6 Info
+
+ME ME_484A76C6037D_ME_4808A17901C6
+ MELINK Original WL 'ME_484A76C6037D' '48077E620315.ms.model.script' // Warning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A76C6037D_ME_4808A17901C6 Warning
+
+ME ME_484A76ED00FD_ME_4808A17901C6
+ MELINK Original WL 'ME_484A76ED00FD' '48077E620315.ms.model.script' // Error
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A76ED00FD_ME_4808A17901C6 Error
+
+ME ME_48077504027E_ME_4808A17901C6
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4808A17901C6 Destroy
+
+%%ImplementedBy ME_4808B4120377 ME_4808A17901C6
+
+%%InheritedBy ME_48077FF80141 ME_4808A17901C6
+
+ME ME_4808A17901C6
+ MEPROP UID '4808A17901C6'
+ MEPROP Name 'TatLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48077FF80141' '4807744200AA.ms.model.script' // TInterfacedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4808B4120377' '48077E620315.ms.model.script' // IatLogger
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5076D6960256 // f_TlsIndex
+ HWL ME_4808B70603E1 // f_CS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808B7840086 // WriteMessage
+ HWL ME_4808B7CF01A2 // AddMessage
+ HWL ME_4808B8250055 // Create
+ HWL ME_5076D63901B2 // GetFormatSettings
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4808B42B0093_ME_4808A17901C6 // Info
+ ME_4808B44F022E_ME_4808A17901C6 // Warning
+ ME_4808B45F00DA_ME_4808A17901C6 // Error
+ ME_4808B46D01DF_ME_4808A17901C6 // Exception
+ ME_484A74A700FD_ME_4808A17901C6 // Info
+ ME_484A76C6037D_ME_4808A17901C6 // Warning
+ ME_484A76ED00FD_ME_4808A17901C6 // Error
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4808A17901C6 // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4808B7A4001B // TatLogMessageType
+ HWL ME_5076D5F50154 // PFormatSettings
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4808B8ED00B1 // THandle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atLogger'
+
+ENDME // ME_4808A17901C6 TatLogger
+
+ME ME_4808B42B0093_ME_4808BAD201EB
+ MELINK Original WL 'ME_4808B42B0093' '48077E620315.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B42B0093_ME_4808BAD201EB Info
+
+ME ME_4808B44F022E_ME_4808BAD201EB
+ MELINK Original WL 'ME_4808B44F022E' '48077E620315.ms.model.script' // Warning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B44F022E_ME_4808BAD201EB Warning
+
+ME ME_4808B45F00DA_ME_4808BAD201EB
+ MELINK Original WL 'ME_4808B45F00DA' '48077E620315.ms.model.script' // Error
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B45F00DA_ME_4808BAD201EB Error
+
+ME ME_4808B46D01DF_ME_4808BAD201EB
+ MELINK Original WL 'ME_4808B46D01DF' '48077E620315.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B46D01DF_ME_4808BAD201EB Exception
+
+ME ME_484A74A700FD_ME_4808BAD201EB
+ MELINK Original WL 'ME_484A74A700FD' '48077E620315.ms.model.script' // Info
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A74A700FD_ME_4808BAD201EB Info
+
+ME ME_484A76C6037D_ME_4808BAD201EB
+ MELINK Original WL 'ME_484A76C6037D' '48077E620315.ms.model.script' // Warning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A76C6037D_ME_4808BAD201EB Warning
+
+ME ME_484A76ED00FD_ME_4808BAD201EB
+ MELINK Original WL 'ME_484A76ED00FD' '48077E620315.ms.model.script' // Error
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_484A76ED00FD_ME_4808BAD201EB Error
+
+%%ImplementedBy ME_4808B4120377 ME_4808BAD201EB
+
+%%InheritedBy ME_48077FF80141 ME_4808BAD201EB
+
+ME ME_4808BAD201EB
+ MEPROP UID '4808BAD201EB'
+ MEPROP Name 'TatLoggerStub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48077FF80141' '4807744200AA.ms.model.script' // TInterfacedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4808B4120377' '48077E620315.ms.model.script' // IatLogger
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4808B42B0093_ME_4808BAD201EB // Info
+ ME_4808B44F022E_ME_4808BAD201EB // Warning
+ ME_4808B45F00DA_ME_4808BAD201EB // Error
+ ME_4808B46D01DF_ME_4808BAD201EB // Exception
+ ME_484A74A700FD_ME_4808BAD201EB // Info
+ ME_484A76C6037D_ME_4808BAD201EB // Warning
+ ME_484A76ED00FD_ME_4808BAD201EB // Error
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atLoggerStub'
+
+ENDME // ME_4808BAD201EB TatLoggerStub
+
+ME ME_4808B7840086_ME_4808BB4F028A
+ MELINK Original HWL ME_4808B7840086 // WriteMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B7840086_ME_4808BB4F028A WriteMessage
+
+%%InheritedBy ME_4808A17901C6 ME_4808BB4F028A
+
+ME ME_4808BB4F028A
+ MEPROP UID '4808BB4F028A'
+ MEPROP Name 'TatConsoleLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4808A17901C6 // TatLogger
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4808B7840086_ME_4808BB4F028A // WriteMessage
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atConsoleLogger'
+
+ENDME // ME_4808BB4F028A TatConsoleLogger
+
+FORWARD ME_4808BC490355
+
+ME ME_4808BC680137
+ MEPROP UID '4808BC680137'
+ MEPROP Name 'f_File'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808BC490355 // TatFileLogger
+ ;
+ MELINK Target WL 'ME_4808BC3A03E1' '4807744200AA.ms.model.script' // Text
+ ;
+
+ENDME // ME_4808BC680137 f_File
+
+FORWARD ME_4808BC73011C
+
+ME ME_4808BC800080
+ MEPROP Name 'fileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4808BC800080 fileName
+
+ME ME_4808BC73011C
+ MEPROP UID '4808BC73011C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808BC490355 // TatFileLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808BC800080 // fileName
+ )
+ ; // Parameters
+
+ENDME // ME_4808BC73011C Create
+
+ME ME_4808B7840086_ME_4808BC490355
+ MELINK Original HWL ME_4808B7840086 // WriteMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808B7840086_ME_4808BC490355 WriteMessage
+
+ME ME_48077504027E_ME_4808BC490355
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4808BC490355 Destroy
+
+%%InheritedBy ME_4808A17901C6 ME_4808BC490355
+
+ME ME_4808BC490355
+ MEPROP UID '4808BC490355'
+ MEPROP Name 'TatFileLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4808A17901C6 // TatLogger
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4808BC680137 // f_File
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808BC73011C // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4808B7840086_ME_4808BC490355 // WriteMessage
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4808BC490355 // Destroy
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atFileLogger'
+
+ENDME // ME_4808BC490355 TatFileLogger
+
+ME ME_4808BA7703BC
+ MEPROP UID '4808BA7703BC'
+ MEPROP Name 'Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELINK Target WL 'ME_4808B4120377' '48077E620315.ms.model.script' // IatLogger
+ ;
+
+ENDME // ME_4808BA7703BC Logger
+
+ME ME_4808BA8C00FD
+ MEPROP UID '4808BA8C00FD'
+ MEPROP Name 'DbgLogger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+ MELINK Target WL 'ME_4808B4120377' '48077E620315.ms.model.script' // IatLogger
+ ;
+
+ENDME // ME_4808BA8C00FD DbgLogger
+
+ME ME_4808BA9401C5
+ MEPROP UID '4808BA9401C5'
+ MEPROP Name 'Ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+
+ENDME // ME_4808BA9401C5 Ini
+
+ME ME_4808BAA1027F
+ MEPROP UID '4808BAA1027F'
+ MEPROP Name 'Fini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808B6A20344 // atLogger
+ ;
+
+ENDME // ME_4808BAA1027F Fini
+
+ME ME_4808B6A20344
+ MEPROP UID '4808B6A20344'
+ MEPROP Name 'atLogger'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4808BA7703BC // Logger
+ HWL ME_4808BA8C00FD // DbgLogger
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808BA9401C5 // Ini
+ HWL ME_4808BAA1027F // Fini
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4808A17901C6 // TatLogger
+ HWL ME_4808BAD201EB // TatLoggerStub
+ HWL ME_4808BB4F028A // TatConsoleLogger
+ HWL ME_4808BC490355 // TatFileLogger
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atLogger.pas'
+
+ENDME // ME_4808B6A20344 atLogger

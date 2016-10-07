@@ -1,0 +1,139 @@
+// StyleParser 4CEFBA3C0323 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEFBA3C0323
+
+FORWARD ME_4CEFBA5302E6
+
+FORWARD ME_4CEFBA6400FC
+
+ME ME_4CEFBA6C024E
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4CEFBA6C024E aStyle
+
+ME ME_4CEFBA6400FC
+ MEPROP UID '4CEFBA6400FC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEFBA6C024E // aStyle
+ )
+ ; // Parameters
+
+ENDME // ME_4CEFBA6400FC DoIt
+
+ME ME_4CEFBB170082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CEFBB170082 
+
+ME ME_4CEFC66A007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4CEFC66A007A 
+
+ME ME_4CEFC6D30308
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ ;
+ MELINK Target WL 'ME_4C1B918900FD' '4C1B918900FD.ms.model.script' // Ver
+ ;
+
+ENDME // ME_4CEFC6D30308 
+
+ME ME_52690132031D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ ;
+ MELINK Target WL 'ME_5266A6750356' '52669BFC024E.ms.model.script' // Empty
+ ;
+
+ENDME // ME_52690132031D 
+
+ME ME_4CEFBA5302E6
+ MEPROP UID '4CEFBA5302E6'
+ MEPROP Name 'DoDoParseStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEFBA3C0323 // StyleParser
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFBA6400FC // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CEFBB170082 // FreeAndNil
+ ME_4CEFC66A007A // l3Set
+ ME_4CEFC6D30308 // Ver
+ ME_52690132031D // Empty
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4CEFBA5302E6 DoDoParseStyle
+
+ME ME_4DDD3D76011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEFBA3C0323 // StyleParser
+ ;
+ MELINK Target WL 'ME_4DDD3D520070' '4C726B20031E.ms.model.script' // TnsStyleParser
+ ;
+
+ENDME // ME_4DDD3D76011A 
+
+ME ME_4CEFBA3C0323
+ MEPROP UID '4CEFBA3C0323'
+ MEPROP Name 'StyleParser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C726B20031E' '4C726B20031E.ms.model.script' // TagDataProviders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFBA5302E6 // DoDoParseStyle
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DDD3D76011A // TnsStyleParser
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" True
+ UP extprop:pas:TypeName '_StyleParser_'
+ UP extprop:pas:UnitName 'StyleParser.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas'
+
+ENDME // ME_4CEFBA3C0323 StyleParser

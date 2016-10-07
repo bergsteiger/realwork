@@ -1,0 +1,144 @@
+// atObjectHistory 483A7BE60395 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483A7BE60395
+
+ME ME_483A8008021E
+ MEPROP UID '483A8008021E'
+ MEPROP Name 'HistoryLength'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_483A8008021E HistoryLength
+
+ME ME_483A7C2C0318
+ MEPROP UID '483A7C2C0318'
+ MEPROP Name 'InterfaceListElement'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+ MELINK Target WL 'ME_483A7C1F024D' '480865840083.ms.model.script' // HistoryStoredObject
+ ;
+
+ENDME // ME_483A7C2C0318 InterfaceListElement
+
+ME ME_483A7C3701A1
+ MEPROP UID '483A7C3701A1'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+ MELINK Target WL 'ME_483A7C1F024D' '480865840083.ms.model.script' // HistoryStoredObject
+ ;
+
+ENDME // ME_483A7C3701A1 
+
+ME ME_483A8053003A
+ MEPROP UID '483A8053003A'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+ MELINK Target WL 'ME_483A7C1F024D' '480865840083.ms.model.script' // HistoryStoredObject
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_483A8053003A Current
+
+FORWARD ME_483A8088025D
+
+ME ME_483A80DE0115
+ MEPROP Name 'aStoredObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483A7C1F024D' '480865840083.ms.model.script' // HistoryStoredObject
+ ;
+
+ENDME // ME_483A80DE0115 aStoredObject
+
+ME ME_483A8088025D
+ MEPROP UID '483A8088025D'
+ MEPROP Name 'AddToHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_483A80DE0115 // aStoredObject
+ )
+ ; // Parameters
+
+ENDME // ME_483A8088025D AddToHistory
+
+ME ME_483AA4810302
+ MEPROP UID '483AA4810302'
+ MEPROP Name 'TrimHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483A7BE60395 // atObjectHistory
+ ;
+
+ENDME // ME_483AA4810302 TrimHistory
+
+%%InheritedBy ME_4807825A006E ME_483A7BE60395
+%%InheritedBy ME_4836DFD401E3 ME_483A7BE60395
+
+ME ME_483A7BE60395
+ MEPROP UID '483A7BE60395'
+ MEPROP Name 'atObjectHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_480865840083' '480865840083.ms.model.script' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807825A006E' '478CF30500C1.ms.model.script' // TInterfaceList
+ WL 'ME_4836DFD401E3' '4836DFD401E3.ms.model.script' // atTypedInterfaceList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_483A8008021E // HistoryLength
+ HWL ME_483A7C2C0318 // InterfaceListElement
+ HWL ME_483A7C3701A1 // 
+ HWL ME_483A8053003A // Current
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_483A8088025D // AddToHistory
+ HWL ME_483AA4810302 // TrimHistory
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_atObjectHistory_'
+ UP extprop:pas:UnitName 'atObjectHistory.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas'
+
+ENDME // ME_483A7BE60395 atObjectHistory

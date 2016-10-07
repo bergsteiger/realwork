@@ -1,0 +1,269 @@
+// atTypedInterfaceList 4836DFD401E3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836DFD401E3
+
+ME ME_4836E1400166
+ MEPROP UID '4836E1400166'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4836E1400166 First
+
+FORWARD ME_4836E1A0031B
+
+ME ME_4836E1AC029E
+ MEPROP UID '4836E1AC029E'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836E1A0031B // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836E1AC029E anIndex
+
+ME ME_4836E1A0031B
+ MEPROP UID '4836E1A0031B'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4836E1AC029E // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4836E1A0031B Items
+
+ME ME_4836E2150166
+ MEPROP UID '4836E2150166'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+
+ENDME // ME_4836E2150166 
+
+ME ME_4836E234001E
+ MEPROP UID '4836E234001E'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4836E234001E Last
+
+FORWARD ME_4836DFF301A4
+
+ME ME_4836E0060195
+ MEPROP Name 'anInterface'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+
+ENDME // ME_4836E0060195 anInterface
+
+ME ME_4836DFF301A4
+ MEPROP UID '4836DFF301A4'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836E0060195 // anInterface
+ )
+ ; // Parameters
+
+ENDME // ME_4836DFF301A4 Add
+
+FORWARD ME_4836E01D0137
+
+ME ME_4836E03F02FC
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836E03F02FC anIndex
+
+ME ME_4836E01D0137
+ MEPROP UID '4836E01D0137'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836E03F02FC // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4836E01D0137 Delete
+
+FORWARD ME_4836E04D03D7
+
+ME ME_4836E11A00D9
+ MEPROP Name 'anInterface'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+
+ENDME // ME_4836E11A00D9 anInterface
+
+ME ME_4836E04D03D7
+ MEPROP UID '4836E04D03D7'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836E11A00D9 // anInterface
+ )
+ ; // Parameters
+
+ENDME // ME_4836E04D03D7 Remove
+
+FORWARD ME_4836E082002D
+
+ME ME_4836E11F0147
+ MEPROP Name 'anInterface'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+
+ENDME // ME_4836E11F0147 anInterface
+
+ME ME_4836E082002D
+ MEPROP UID '4836E082002D'
+ MEPROP Name 'IndexOf'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836E11F0147 // anInterface
+ )
+ ; // Parameters
+
+ENDME // ME_4836E082002D IndexOf
+
+FORWARD ME_4836E0B6004D
+
+ME ME_4836E0ED01C4
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836E0ED01C4 anIndex
+
+ME ME_4836E122027F
+ MEPROP Name 'anInterface'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4836E12E02DD' '480769090320.ms.model.script' // InterfaceListElement
+ ;
+
+ENDME // ME_4836E122027F anInterface
+
+ME ME_4836E0B6004D
+ MEPROP UID '4836E0B6004D'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836DFD401E3 // atTypedInterfaceList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836E0ED01C4 // anIndex
+ ME_4836E122027F // anInterface
+ )
+ ; // Parameters
+
+ENDME // ME_4836E0B6004D Insert
+
+ME ME_4836DFD401E3
+ MEPROP UID '4836DFD401E3'
+ MEPROP Name 'atTypedInterfaceList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_480769090320' '480769090320.ms.model.script' // MixIns
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4836E1400166 // First
+ HWL ME_4836E1A0031B // Items
+ HWL ME_4836E2150166 // 
+ HWL ME_4836E234001E // Last
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4836DFF301A4 // Add
+ HWL ME_4836E01D0137 // Delete
+ HWL ME_4836E04D03D7 // Remove
+ HWL ME_4836E082002D // IndexOf
+ HWL ME_4836E0B6004D // Insert
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_atTypedInterfaceList_'
+ UP extprop:pas:UnitName 'atTypedInterfaceList.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas'
+
+ENDME // ME_4836DFD401E3 atTypedInterfaceList

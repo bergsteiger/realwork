@@ -1,0 +1,179 @@
+// nsOpenUtils 49895C3C02D6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49895C3C02D6
+
+ME ME_4AC9E4080336
+ MEPROP UID '4AC9E4080336'
+ MEPROP Name 'nsOpenNavigatorItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+ UP extprop:rc:SelfName 'OpenNavigatorItem'
+
+ENDME // ME_4AC9E4080336 nsOpenNavigatorItem
+
+ME ME_4AEAD8D40138
+ MEPROP UID '4AEAD8D40138'
+ MEPROP Name 'nsSayAdapterObjectMissing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+ UP extprop:rc:SelfName 'SayAdapterObjectMissing'
+
+ENDME // ME_4AEAD8D40138 nsSayAdapterObjectMissing
+
+ME ME_4C7E5A4D01BF
+ MEPROP UID '4C7E5A4D01BF'
+ MEPROP Name 'OpenControllableElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+
+ENDME // ME_4C7E5A4D01BF OpenControllableElement
+
+ME ME_4C7E745402B1
+ MEPROP UID '4C7E745402B1'
+ MEPROP Name 'OpenQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+
+ENDME // ME_4C7E745402B1 OpenQuery
+
+ME ME_4C7F64FB02A4
+ MEPROP UID '4C7F64FB02A4'
+ MEPROP Name 'OpenFolderElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+
+ENDME // ME_4C7F64FB02A4 OpenFolderElement
+
+FORWARD ME_4E731A650122
+
+FORWARD ME_4E731A9202F6
+
+ME ME_4E731AAE0154
+ MEPROP Name 'aSectionItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E731AAE0154 aSectionItem
+
+ME ME_4E731AAE017A
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4E731AAE017A aContainer
+
+ME ME_4E731A9202F6
+ MEPROP UID '4E731A9202F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E731A650122 // nsOpenNavigatorItem$ForMainMenu
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E731AAE0154 // aSectionItem
+ ME_4E731AAE017A // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_4E731A9202F6 DoIt
+
+%%ImplementedBy ME_4E70D70C0055 ME_4E731A650122
+
+ME ME_4E731A650122
+ MEPROP UID '4E731A650122'
+ MEPROP Name 'nsOpenNavigatorItem'
+ MEPROP OriginalName 'nsOpenNavigatorItem$ForMainMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E731A9202F6 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'OpenNavigatorItem'
+
+ENDME // ME_4E731A650122 nsOpenNavigatorItem$ForMainMenu
+
+ME ME_49895C4A0080
+ MEPROP UID '49895C4A0080'
+ MEPROP Name 'nsSayAdapterObjectMissing'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49895C3C02D6 // nsOpenUtils
+ ;
+
+ENDME // ME_49895C4A0080 nsSayAdapterObjectMissing
+
+ME ME_49895C3C02D6
+ MEPROP UID '49895C3C02D6'
+ MEPROP Name 'nsOpenUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC9E4080336 // nsOpenNavigatorItem
+ HWL ME_4AEAD8D40138 // nsSayAdapterObjectMissing
+ HWL ME_4C7E5A4D01BF // OpenControllableElement
+ HWL ME_4C7E745402B1 // OpenQuery
+ HWL ME_4C7F64FB02A4 // OpenFolderElement
+ HWL ME_4E731A650122 // nsOpenNavigatorItem$ForMainMenu
+ HWL ME_49895C4A0080 // nsSayAdapterObjectMissing
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'OpenUtils'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsOpenUtils.pas'
+
+ENDME // ME_49895C3C02D6 nsOpenUtils

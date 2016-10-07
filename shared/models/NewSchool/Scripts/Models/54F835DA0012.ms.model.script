@@ -1,0 +1,480 @@
+// tasSaveLoadProxy 54F835DA0012 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54F836540343
+%%Inner ME_54F8360D0043
+
+FORWARD ME_54F835DA0012
+
+FORWARD ME_54F836540343
+
+FORWARD ME_54F839B602DC
+
+FORWARD ME_54F839C80227
+
+ME ME_54F839CB021B
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F839CB021B aQuery
+
+ME ME_54F839CB022F
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_54F839CB022F aTag
+
+ME ME_54F839CB0244
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_54F839CB0244 aTree
+
+ME ME_54F839C80227
+ MEPROP UID '54F839C80227'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F839B602DC // LoadFromQuery
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F839CB021B // aQuery
+ ME_54F839CB022F // aTag
+ ME_54F839CB0244 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_54F839C80227 DoIt
+
+ME ME_54F839B602DC
+ MEPROP UID '54F839B602DC'
+ MEPROP Name 'LoadFromQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54F836540343 // ItasSaveLoadProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F839C80227 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F839B602DC LoadFromQuery
+
+FORWARD ME_54F839D803D3
+
+FORWARD ME_54F839E201BF
+
+ME ME_54F839E901F3
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F839E901F3 aQuery
+
+ME ME_54F839E90209
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_54F839E90209 aTag
+
+ME ME_54F839E9021F
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_54F839E9021F aTree
+
+ME ME_54F839E201BF
+ MEPROP UID '54F839E201BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F839D803D3 // SaveToQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F839E901F3 // aQuery
+ ME_54F839E90209 // aTag
+ ME_54F839E9021F // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_54F839E201BF DoIt
+
+ME ME_54F839D803D3
+ MEPROP UID '54F839D803D3'
+ MEPROP Name 'SaveToQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54F836540343 // ItasSaveLoadProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F839E201BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F839D803D3 SaveToQuery
+
+FORWARD ME_54F85E5A00B4
+
+FORWARD ME_54F85E6901D5
+
+ME ME_54F85E6B01EB
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F85E6B01EB aQuery
+
+ME ME_54F85E6901D5
+ MEPROP UID '54F85E6901D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F85E5A00B4 // IsQuerySaved
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F85E6B01EB // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_54F85E6901D5 DoIt
+
+ME ME_54F85E5A00B4
+ MEPROP UID '54F85E5A00B4'
+ MEPROP Name 'IsQuerySaved'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54F836540343 // ItasSaveLoadProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F85E6901D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F85E5A00B4 IsQuerySaved
+
+ME ME_54F836540343
+ MEPROP UID '54F836540343'
+ MEPROP GUID '3BF8A648-734F-42A0-89ED-6D697CC6BB8E'
+ MEPROP Name 'ItasSaveLoadProcessor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F835DA0012 // tasSaveLoadProxy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F839B602DC // LoadFromQuery
+ HWL ME_54F839D803D3 // SaveToQuery
+ HWL ME_54F85E5A00B4 // IsQuerySaved
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'tasSaveLoadProcessor'
+
+ENDME // ME_54F836540343 ItasSaveLoadProcessor
+
+FORWARD ME_54F8360D0043
+
+ME ME_54F83673012A
+ MEPROP UID '54F83673012A'
+ MEPROP Name 'Processor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F8360D0043 // TtasSaveLoadProxy
+ ;
+ MELINK Target HWL ME_54F836540343 // ItasSaveLoadProcessor
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_54F83673012A Processor
+
+FORWARD ME_54F836C10315
+
+FORWARD ME_54F836CD0153
+
+ME ME_54F836D002C4
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F836D002C4 aQuery
+
+ME ME_54F839760014
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_54F839760014 aTag
+
+ME ME_54F839760027
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_54F839760027 aTree
+
+ME ME_54F836CD0153
+ MEPROP UID '54F836CD0153'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F836C10315 // LoadFromQuery
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F836D002C4 // aQuery
+ ME_54F839760014 // aTag
+ ME_54F839760027 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_54F836CD0153 DoIt
+
+ME ME_54F836C10315
+ MEPROP UID '54F836C10315'
+ MEPROP Name 'LoadFromQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F8360D0043 // TtasSaveLoadProxy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F836CD0153 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F836C10315 LoadFromQuery
+
+FORWARD ME_54F8399003BA
+
+FORWARD ME_54F8399B0070
+
+ME ME_54F839A003C1
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F839A003C1 aQuery
+
+ME ME_54F839A003D5
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_54F839A003D5 aTag
+
+ME ME_54F839A10001
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_54F839A10001 aTree
+
+ME ME_54F8399B0070
+ MEPROP UID '54F8399B0070'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F8399003BA // SaveToQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F839A003C1 // aQuery
+ ME_54F839A003D5 // aTag
+ ME_54F839A10001 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_54F8399B0070 DoIt
+
+ME ME_54F8399003BA
+ MEPROP UID '54F8399003BA'
+ MEPROP Name 'SaveToQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F8360D0043 // TtasSaveLoadProxy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F8399B0070 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F8399003BA SaveToQuery
+
+FORWARD ME_54F85E7203A1
+
+FORWARD ME_54F85E7E019E
+
+ME ME_54F85E8002E1
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_54F85E8002E1 aQuery
+
+ME ME_54F85E7E019E
+ MEPROP UID '54F85E7E019E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F85E7203A1 // IsQuerySaved
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54F85E8002E1 // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_54F85E7E019E DoIt
+
+ME ME_54F85E7203A1
+ MEPROP UID '54F85E7203A1'
+ MEPROP Name 'IsQuerySaved'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F8360D0043 // TtasSaveLoadProxy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54F85E7E019E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54F85E7203A1 IsQuerySaved
+
+ME ME_479731C50290_ME_54F8360D0043
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54F8360D0043 Cleanup
+
+%%InheritedBy ME_4A54DD4E036F ME_54F8360D0043
+
+ME ME_54F8360D0043
+ MEPROP UID '54F8360D0043'
+ MEPROP Name 'TtasSaveLoadProxy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F835DA0012 // tasSaveLoadProxy
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54F83673012A // Processor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54F836C10315 // LoadFromQuery
+ HWL ME_54F8399003BA // SaveToQuery
+ HWL ME_54F85E7203A1 // IsQuerySaved
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54F8360D0043 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'tasSaveLoadProxy'
+
+ENDME // ME_54F8360D0043 TtasSaveLoadProxy
+
+ME ME_54F835DA0012
+ MEPROP UID '54F835DA0012'
+ MEPROP Name 'tasSaveLoadProxy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A85282C0252' '4A85282C0252.ms.model.script' // LiteSearch
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54F836540343 // ItasSaveLoadProcessor
+ HWL ME_54F8360D0043 // TtasSaveLoadProxy
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\tasSaveLoadProxy.pas'
+
+ENDME // ME_54F835DA0012 tasSaveLoadProxy

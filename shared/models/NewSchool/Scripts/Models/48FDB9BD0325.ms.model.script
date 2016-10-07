@@ -1,0 +1,71 @@
+// nsRootManagerPrim 48FDB9BD0325 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FDB9BD0325
+
+ME ME_48FDB9E80327
+ MEPROP UID '48FDB9E80327'
+ MEPROP Name 'RootNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FDB9BD0325 // nsRootManagerPrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48FDB9E80327 RootNode
+
+ME ME_48FD97BC0335_ME_48FDB9BD0325
+ MELINK Original WL 'ME_48FD97BC0335' '48FD8E460027.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" False
+ENDME // ME_48FD97BC0335_ME_48FDB9BD0325 Cleanup
+
+ME ME_500056650395_ME_48FDB9BD0325
+ MELINK Original WL 'ME_500056650395' '47913F4E02E0.ms.model.script' // BeforeClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_500056650395_ME_48FDB9BD0325 BeforeClearFields
+
+%%InheritedBy ME_48FDB24300E8 ME_48FDB9BD0325
+
+ME ME_48FDB9BD0325
+ MEPROP UID '48FDB9BD0325'
+ MEPROP Name 'nsRootManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FDB24300E8' '48FDB24300E8.ms.model.script' // nsNodeNotifier
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48FDB9E80327 // RootNode
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48FD97BC0335_ME_48FDB9BD0325 // Cleanup
+ ME_500056650395_ME_48FDB9BD0325 // BeforeClearFields
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '2005/11/22 21:28:41'
+ UP extprop:pas:TypeName '_nsRootManagerPrim_'
+ UP extprop:pas:UnitName 'nsRootManagerPrim.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas'
+
+ENDME // ME_48FDB9BD0325 nsRootManagerPrim

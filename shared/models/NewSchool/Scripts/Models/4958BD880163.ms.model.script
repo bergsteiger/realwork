@@ -1,0 +1,111 @@
+// nsUserSettingsListener 4958BD880163 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4958BD880163
+
+ME ME_4958BE910345
+ MEPROP UID '4958BE910345'
+ MEPROP Name 'UserSettingsChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'Изменились настройки пользователя' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4958BD880163 // nsUserSettingsListener
+ ;
+
+ENDME // ME_4958BE910345 UserSettingsChanged
+
+ME ME_4958BF0203C3
+ MEPROP UID '4958BF0203C3'
+ MEPROP Name 'Cleanup'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4958BD880163 // nsUserSettingsListener
+ ;
+ UP "is static" False
+
+ENDME // ME_4958BF0203C3 Cleanup
+
+ME ME_4958BF2302DF
+ MEPROP UID '4958BF2302DF'
+ MEPROP Name 'InitFields'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4958BD880163 // nsUserSettingsListener
+ ;
+ UP "is static" False
+
+ENDME // ME_4958BF2302DF InitFields
+
+ME ME_4958EEAB024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4958BD880163 // nsUserSettingsListener
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4958EEAB024C 
+
+ME ME_4958EEB50042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4958BD880163 // nsUserSettingsListener
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4958EEB50042 
+
+ME ME_491443FE01BE_ME_4958BD880163
+ MELINK Original WL 'ME_491443FE01BE' '47ECAAF901F8.ms.model.script' // Changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491443FE01BE_ME_4958BD880163 Changed
+
+%%ImplementedBy ME_491443D20347 ME_4958BD880163
+
+ME ME_4958BD880163
+ MEPROP UID '4958BD880163'
+ MEPROP Name 'nsUserSettingsListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель изменения настроек пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_491443D20347' '47ECAAF901F8.ms.model.script' // InsUserSettingsListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4958BE910345 // UserSettingsChanged
+ HWL ME_4958BF0203C3 // Cleanup
+ HWL ME_4958BF2302DF // InitFields
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_491443FE01BE_ME_4958BD880163 // Changed
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4958EEAB024C // SysUtils
+ ME_4958EEB50042 // afwFacade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nsUserSettingsListener_'
+ UP extprop:pas:UnitName 'nsUserSettingsListener.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas'
+
+ENDME // ME_4958BD880163 nsUserSettingsListener

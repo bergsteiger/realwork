@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_48400B220217
+%%Inner ME_4B6AE7650002
+%%Inner ME_4B6AE9CB00C2
+
 FORWARD ME_4B6AE61900F5
 
 FORWARD ME_48400B220217
@@ -50,7 +54,7 @@ ME ME_48400C6300A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
- MELINK Target WL 'ME_483FF50C00F4' '4AB0997B00A2.ms.model.script' // TMemoryStream
+ MELINK Target WL 'ME_483FF50C00F4' '478CF30500C1.ms.model.script' // TMemoryStream
  ;
 
 ENDME // ME_48400C6300A0 
@@ -60,7 +64,7 @@ ME ME_48441A6F0156
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
- MELINK Target WL 'ME_47ECAA5B0394' '47ECA80B000D.ms.model.script' // Tk2TagGenerator
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
  ;
 
 ENDME // ME_48441A6F0156 
@@ -90,7 +94,7 @@ ME ME_4B6AF2D402FA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4B6AF2D402FA 
@@ -100,10 +104,12 @@ ME ME_4B7A9A7603C9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48400B220217 // TatBaseEvdHelper
  ;
- MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ MELINK Target WL 'ME_47AB1FDE03E4' '47AB1FDE03E4.ms.model.script' // l3Memory
  ;
 
 ENDME // ME_4B7A9A7603C9 
+
+%%InheritedBy ME_48F473650362 ME_48400B220217
 
 ME ME_48400B220217
  MEPROP UID '48400B220217'
@@ -116,7 +122,7 @@ ME ME_48400B220217
  MELINK Parent HWL ME_4B6AE61900F5 // EvdHelpers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+   Seq: ( WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
  )
  ; // Inherits
  MELIST Operations
@@ -133,6 +139,9 @@ ME ME_48400B220217
  ME_4B7A9A7603C9 // l3Memory
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'atBaseEvdHelper'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'atBaseEvdHelper'
@@ -154,7 +163,7 @@ ME ME_484415F90238
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_48400B7E0236 // IatUserComment
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" False
 
@@ -189,7 +198,7 @@ ME ME_4B6AE8560374
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4B6AE8560374 f_CommentText
@@ -251,6 +260,10 @@ ME ME_4B6AE81E0267_ME_4B6AE7650002
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B6AE81E0267_ME_4B6AE7650002 DoGenerate
 
+%%ImplementedBy ME_48400B7E0236 ME_4B6AE7650002
+
+%%InheritedBy ME_48400B220217 ME_4B6AE7650002
+
 ME ME_4B6AE7650002
  MEPROP UID '4B6AE7650002'
  MEPROP Name 'TatUserComment'
@@ -292,6 +305,9 @@ ME ME_4B6AE7650002
  ME_4B6AF1690278 // TextPara
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'atUserComment'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'atUserComment'
@@ -313,7 +329,7 @@ ME ME_4B6AEA0B018F
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4B6AE9DB0325 // IatChatMessage
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" False
 
@@ -348,7 +364,7 @@ ME ME_4B6AE9ED0068
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4B6AE9ED0068 f_ChatMessage
@@ -400,6 +416,10 @@ ME ME_4B6AEA0B018F_ME_4B6AE9CB00C2
  UP "pm" False
 ENDME // ME_4B6AEA0B018F_ME_4B6AE9CB00C2 ChatMessage
 
+%%ImplementedBy ME_4B6AE9DB0325 ME_4B6AE9CB00C2
+
+%%InheritedBy ME_48400B220217 ME_4B6AE9CB00C2
+
 ME ME_4B6AE9CB00C2
  MEPROP UID '4B6AE9CB00C2'
  MEPROP Name 'TatChatMessage'
@@ -440,6 +460,9 @@ ME ME_4B6AE9CB00C2
  ME_4B6AFCDB01CA // Tk2TagID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'atChatMessage'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'atChatMessage'
@@ -476,6 +499,9 @@ ME ME_4B6AE61900F5
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/EvdHelpers'
  UP intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\EvdHelpers'
 

@@ -1,0 +1,148 @@
+// atCommon 48172C290190 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48172C290190
+
+FORWARD ME_48172C380180
+
+ME ME_48172CBE0307
+ MEPROP Name 'strLength'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48172CBE0307 strLength
+
+ME ME_48172C380180
+ MEPROP UID '48172C380180'
+ MEPROP Name 'GetRandomStr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48172C290190 // atCommon
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_48172CBE0307 // strLength
+ )
+ ; // Parameters
+
+ENDME // ME_48172C380180 GetRandomStr
+
+ME ME_4877882C03CF
+ MEPROP UID '4877882C03CF'
+ MEPROP Name 'GetTimeStamp'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48172C290190 // atCommon
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4877882C03CF GetTimeStamp
+
+FORWARD ME_4B75913601D9
+
+ME ME_4B7591460327
+ MEPROP Name 'anItem1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4B7591460327 anItem1
+
+ME ME_4B7591460336
+ MEPROP Name 'anItem2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4B7591460336 anItem2
+
+ME ME_4B75913601D9
+ MEPROP UID '4B75913601D9'
+ MEPROP Name 'Less'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48172C290190 // atCommon
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7591460327 // anItem1
+ ME_4B7591460336 // anItem2
+ )
+ ; // Parameters
+
+ENDME // ME_4B75913601D9 Less
+
+FORWARD ME_4CB8650F023B
+
+ME ME_4CB865240378
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4CB865240378 aStream
+
+ME ME_4CB8650F023B
+ MEPROP UID '4CB8650F023B'
+ MEPROP Name 'ReadStream'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48172C290190 // atCommon
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB865240378 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_4CB8650F023B ReadStream
+
+ME ME_487788B7019D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48172C290190 // atCommon
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_487788B7019D 
+
+ME ME_48172C290190
+ MEPROP UID '48172C290190'
+ MEPROP Name 'atCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48172BE2027A' '48172BE2027A.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48172C380180 // GetRandomStr
+ HWL ME_4877882C03CF // GetTimeStamp
+ HWL ME_4B75913601D9 // Less
+ HWL ME_4CB8650F023B // ReadStream
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_487788B7019D // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\atCommon.pas'
+
+ENDME // ME_48172C290190 atCommon

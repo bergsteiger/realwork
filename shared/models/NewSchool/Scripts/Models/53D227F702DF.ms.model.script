@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_53D2281F0048
+
 FORWARD ME_53D227F702DF
 
 FORWARD ME_53D2281F0048
@@ -56,6 +58,10 @@ ME ME_55E6CD3F01AE
 
 ENDME // ME_55E6CD3F01AE ItemType
 
+%%ImplementedBy ME_47B57D630029 ME_55E6CD1903BE
+
+%%InheritedBy ME_4A54DD4E036F ME_55E6CD1903BE
+
 ME ME_55E6CD1903BE
  MEPROP UID '55E6CD1903BE'
  MEPROP Name 'TnscDocumentHistoryListenerList'
@@ -71,7 +77,7 @@ ME ME_55E6CD1903BE
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  )
  ; // Implements
  MELIST Attributes
@@ -119,7 +125,7 @@ ME ME_53D2295103BB
  MEPROP Name 'aDocId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_53D2295103BB aDocId
@@ -164,7 +170,7 @@ ME ME_53D2296902FB
  MEPROP Name 'aDocId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_53D2296902FB aDocId
@@ -177,7 +183,7 @@ ME ME_53D229600035
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_53D2295603BA // HasDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_53D2296902FB // aDocId
@@ -248,6 +254,8 @@ ME ME_55E6CD570088
 
 ENDME // ME_55E6CD570088 AddListener
 
+%%InheritedBy ME_55E6CD570088 ME_55E6CD750386
+
 ME ME_55E6CD750386
  MEPROP UID '55E6CD750386'
  MEPROP Name 'RemoveListener'
@@ -283,16 +291,18 @@ ME ME_53F703F600E0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53D2281F0048 // TnscDocumentHistory
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_53F703F600E0 
 
 ME ME_479731C50290_ME_53D2281F0048
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_53D2281F0048 Cleanup
+
+%%InheritedBy ME_49E7754802A9 ME_53D2281F0048
 
 ME ME_53D2281F0048
  MEPROP UID '53D2281F0048'
@@ -334,6 +344,9 @@ ME ME_53D2281F0048
    Seq: ( ME_53F703F600E0 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "singleton" True
  UP extprop:pas:UnitName 'nscDocumentHistory'
  UP extprop:rc:isAcceptableForScripts True
@@ -362,6 +375,9 @@ ME ME_53D227F702DF
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'Admin, Monitorings'
 
 ENDME // ME_53D227F702DF DocumentHistory

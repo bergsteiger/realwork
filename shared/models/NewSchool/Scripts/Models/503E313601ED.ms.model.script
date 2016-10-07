@@ -1,0 +1,146 @@
+// atStringConverterImp 503E313601ED Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503E313601ED
+
+FORWARD ME_503E318D00A7
+
+ME ME_503E31E2023D
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_503E31E2023D aName
+
+ME ME_503E318D00A7
+ MEPROP UID '503E318D00A7'
+ MEPROP Name 'ToValue'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E313601ED // atStringConverterImp
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E31E2023D // aName
+ )
+ ; // Parameters
+
+ENDME // ME_503E318D00A7 ToValue
+
+FORWARD ME_503E31BD027C
+
+ME ME_503E31DA039A
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+
+ENDME // ME_503E31DA039A aValue
+
+ME ME_503E31BD027C
+ MEPROP UID '503E31BD027C'
+ MEPROP Name 'ToName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E313601ED // atStringConverterImp
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E31DA039A // aValue
+ )
+ ; // Parameters
+ UP "force overload" True
+
+ENDME // ME_503E31BD027C ToName
+
+FORWARD ME_503E37A40321
+
+ME ME_503E37BC00B9
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_503E37BC00B9 aName
+
+ME ME_503E37A40321
+ MEPROP UID '503E37A40321'
+ MEPROP Name 'ToValueCI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_503E313601ED // atStringConverterImp
+ ;
+ MELINK Target WL 'ME_503E2CAF01BA' '48076E7F0260.ms.model.script' // SecondType
+ ;
+ MELIST Parameters
+   Seq: ( ME_503E37BC00B9 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_503E37A40321 ToValueCI
+
+ME ME_503E4311036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503E313601ED // atStringConverterImp
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_503E4311036F 
+
+ME ME_503E3C86007D_ME_503E313601ED
+ MELINK Original WL 'ME_503E3C86007D' '503E2BCA01E8.ms.model.script' // Error1st
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_503E3C86007D_ME_503E313601ED Error1st
+
+%%ImplementedBy ME_504F26C40007 ME_503E313601ED
+
+ME ME_503E313601ED
+ MEPROP UID '503E313601ED'
+ MEPROP Name 'atStringConverterImp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_504F26C40007' '48076E7F0260.ms.model.script' // MatConverter
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_503E318D00A7 // ToValue
+ HWL ME_503E31BD027C // ToName
+ HWL ME_503E37A40321 // ToValueCI
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_503E3C86007D_ME_503E313601ED // Error1st
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_503E4311036F // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_atStringConverterImp_'
+ UP extprop:pas:UnitName 'atStringConverterImp.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas'
+
+ENDME // ME_503E313601ED atStringConverterImp
