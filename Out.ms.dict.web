@@ -1,0 +1,256 @@
+UNIT Out.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ core.ms.dict
+;
+
+USES 
+ ElementsRTTI.ms.dict
+;
+
+USES
+ CompileTimeVar.ms.dict
+;
+
+USES
+ SaveVarAndDo.ms.dict
+;
+
+CONST cPathSep '\'
+
+FILE CompileTime-VAR g_OutFile nil
+%REMARK 'Текущий файл'
+
+STRING CompileTime-VAR g_Indent ''
+%REMARK 'Текущий отступ'
+
+CONST cIndentChar ' '
+
+STRING FUNCTION IndentStr
+ g_Indent &gt;&gt;&gt; Result
+; // IndentStr
+
+OBJECT STRING INTEGER ARRAY BOOLEAN TYPE OUTABLE
+
+USES
+ Chars.ms.dict
+;
+
+BOOLEAN CompileTime-VAR g_EnableAutoEOL true
+BOOLEAN CompileTime-VAR g_NeedOutLn false
+
+: DoToOut
+ g_OutFile File:WriteStr
+; // DoToOut
+
+VAR g_ToOut
+( @ DoToOut &gt;&gt;&gt; g_ToOut )
+
+: ToOut
+ g_ToOut IsNil ?FAIL 'Не определён файл для вывода'
+ g_ToOut DO
+; // ToOut
+
+PROCEDURE OutLnToFile
+ \n ToOut
+; // OutLnToFile
+
+BOOLEAN FUNCTION .Out?
+
+  OUTABLE IN aValue
+  
+ : .OutToFile
+  if g_NeedOutLn then
+  begin
+   false &gt;&gt;&gt; g_NeedOutLn
+   OutLnToFile
+  end // g_NeedOutLn
+  ToOut
+ ; // .OutToFile 
+  
+ VAR l_WasOut
+ VAR l_NeedIndent
+
+ PROCEDURE .OutValue
+   OUTABLE IN aValue
+  RULES 
+   ( aValue .IsValueValid ! )
+    ()
+   ( aValue IsArray )
+    begin
+     aValue .for&gt; call.me
+    end // aValue IsArray
+   DEFAULT 
+    begin
+     STRING VAR l_Value 
+     aValue ToPrintable &gt;&gt;&gt; l_Value
+     if ( l_WasOut ! ) then
+     begin
+      true &gt;&gt;&gt; l_WasOut
+      IndentStr .OutToFile
+      false &gt;&gt;&gt; l_NeedIndent
+     end // l_WasOut !
+     
+     if ( l_NeedIndent ) then
+     begin
+      false &gt;&gt;&gt; l_NeedIndent
+      IndentStr .OutToFile
+     end // l_NeedIndent
+  
+     if ( l_Value \n == ) then
+     begin
+      l_Value .OutToFile
+      true &gt;&gt;&gt; l_NeedIndent
+     end // ( l_Value \n == )
+     else
+     begin
+      l_Value .OutToFile
+     end // ( l_Value \n == )
+    end // DEFAULT
+  ; // RULES  
+ ; // .OutValue
+ 
+ false &gt;&gt;&gt; l_WasOut
+ false &gt;&gt;&gt; l_NeedIndent
+ aValue .OutValue
+ 
+ if l_WasOut then
+  if g_EnableAutoEOL then
+   OutLnToFile
+  
+ l_WasOut &gt;&gt;&gt; Result
+; // .Out?
+
+: .Out
+ .Out? DROP
+; // .Out
+
+PROCEDURE Indented:
+  ^ IN aLambda
+  
+ TF g_Indent (
+  g_Indent cIndentChar Cat &gt;&gt;&gt; g_Indent
+  aLambda DO
+ ) 
+; // Indented:
+
+PROCEDURE OutLn
+ if g_NeedOutLn then
+  OutLnToFile
+ true &gt;&gt;&gt; g_NeedOutLn
+; // OutLn
+
+PROCEDURE .ProcessOut:
+  STRING IN aFileName
+  ^ IN aLambda
+ TF g_OutFile (
+  TF g_NeedOutLn (
+   aFileName File:OpenWrite &gt;&gt;&gt; g_OutFile
+   TRY
+    aLambda DO
+   FINALLY
+    nil &gt;&gt;&gt; g_OutFile
+   END // TRY..FINALLY
+  ) // TF g_NeedOutLn
+ ) // TF g_OutFile 
+; // .ProcessOut:
+
+USES
+ CreateGUID.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+PROCEDURE .ProcessTmpOut:
+  STRING IN aFileName
+  ^ IN aLambda
+ VAR l_OutFileName 
+ VAR l_FileName
+ aFileName &gt;&gt;&gt; l_FileName
+ if ( l_FileName sysutils:ExtractFilePath .IsNil ) then
+ begin
+  [ sysutils:GetCurrentDir l_FileName ] cPathSep strings:CatSep &gt;&gt;&gt; l_FileName
+ end // ( l_FileName sysutils:ExtractFilePath .IsNil )
+ [ 'C:\Temp\' CreateUID '.tmp' ] strings:Cat &gt;&gt;&gt; l_OutFileName
+ l_OutFileName .ProcessOut: ( aLambda DO ) 
+ if (
+     ( l_FileName sysutils:FileExists ! )
+     OR ( cEmptyStr l_FileName l_OutFileName CompareFiles ! ) 
+    ) then
+ begin
+  $20 l_FileName l_OutFileName CopyFile
+ end 
+ l_OutFileName DeleteFile DROP
+; // .ProcessTmpOut:
+
+PROCEDURE .ProcessIn:
+  STRING IN aFileName
+  ^ IN aLambda
+ FILE VAR l_In
+ nil &gt;&gt;&gt; l_In
+ TF l_In (
+  aFileName File:OpenRead &gt;&gt;&gt; l_In
+  l_In File:ReadLines ( aLambda DO )
+ ) // TF l_In
+; // .ProcessIn:
+
+elem_proc OutWordLink
+  STRING IN aDictFileName
+ [ 
+  'WL' ' ' 
+  cQuote 'ME_' Self .UID cQuote 
+  ' ' 
+  cQuote aDictFileName cQuote 
+  ' // ' Self .Name
+ ] .Out
+; // OutWordLink
+
+PROCEDURE OutSeq:
+  ^ IN aLambda
+ 'Seq: (' .Out
+ Indented: (
+  aLambda DO
+ ) // Indented:
+ ') // Seq:' .Out
+; // OutSeq:
+
+PROCEDURE .OutWord:
+  STRING IN aName
+  ^ IN aLambda
+ [ ': ' aName ] .Out
+ Indented: (
+  aLambda DO
+ ) // Indented:
+ [ '; // ' aName ] .Out
+; // .OutWord:
+
+PROCEDURE .OutMEWord:
+  STRING IN aName
+  ^ IN aLambda
+ [ 'ME ' aName ] .Out
+ Indented: (
+  aLambda DO
+ ) // Indented:
+ [ 'ENDME // ' aName ] .Out
+; // .OutMEWord:
+
+USES
+ arrays.ms.dict
+;
+
+ARRAY FUNCTION HookOut:
+  ^ IN aLambda
+ [] &gt;&gt;&gt; Result
+ TF g_ToOut (
+   @ ( IN aValue aValue .AddToArray: Result ) &gt;&gt;&gt; g_ToOut 
+  aLambda DO
+ ) // TF g_ToOut
+ false &gt;&gt;&gt; g_NeedOutLn
+; // HookOut:
+
