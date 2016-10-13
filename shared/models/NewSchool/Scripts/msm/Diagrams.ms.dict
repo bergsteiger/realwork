@@ -24,7 +24,10 @@ elem_iterator Diagrams
  Cached:
  (
   RULES
-   ( Self .IsSomeView )
+   (
+    ( Self .IsSomeView )
+    AND ( Self .Viewed Self ?!= )
+   ) 
     ( Self .Viewed call.me )
    DEFAULT
     ( Self 'Diagrams' .ElemList ) 
@@ -33,9 +36,37 @@ elem_iterator Diagrams
  >>> Result
 ; // Diagrams
 
+USES
+ SetElementVar.ms.dict
+;
+
 elem_iterator Views
- Self 'Views' .ElemList >>> Result
+ Cached:
+ (
+  VAR l_Views
+  Self 'Views' .ElemList >>> l_Views
+  //Self 'Views' l_Views .SetElementVar
+  // - сохряняем ссылку себе, чтобы потом пережить перечитывание списка
+  l_Views
+ ) 
+ >>> Result
 ; // Views
+
+USES
+ CountIt.ms.dict
+;
+
+USES
+ DiagramExt.ms.dict
+;
+
+USES
+ MEPrefix.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
 
 elem_iterator msm:Diagrams
  Cached:
@@ -46,16 +77,35 @@ elem_iterator msm:Diagrams
     AND ( Self .Viewed Self ?!= )
    ) 
     ( Self .Viewed call.me )
+   (
+    ( Self .IsSomeView ! )
+    AND ( Self .Diagrams .NotEmpty ) 
+   ) 
+    ( Self .Diagrams )
    DEFAULT
     begin
      VAR l_Name
      Self .WordName '_view' .CutSuffix >>> l_Name
      VAR l_DictName
-     l_Name 'ME_' .CutPrefix >>> l_DictName
-     l_DictName '.ms.diagram.script' Cat >>> l_DictName
+     l_Name MEPrefix .CutPrefix >>> l_DictName
+     l_DictName DiagramExt Cat >>> l_DictName
      l_Name '_diagrams' Cat >>> l_Name
-     WL l_Name l_DictName
-     .Diagrams
+     VAR l_DigramsHolder 
+     WL l_Name l_DictName >>> l_DigramsHolder
+     RULES
+      ( l_DigramsHolder .IsNil )
+       nil
+      DEFAULT
+       begin
+        l_DigramsHolder .Diagrams
+        VAR l_Diagrams
+        >>> l_Diagrams
+        //l_DigramsHolder 'Diagrams' l_Diagrams .SetElementVar
+        //Self 'Diagrams' l_Diagrams .SetElementVar
+        // - сохряняем ссылку себе, чтобы потом пережить перечитывание списка
+        l_Diagrams
+       end // DEFAULT
+     ; // RULES  
     end // DEFAULT 
   ; // RULES
  )

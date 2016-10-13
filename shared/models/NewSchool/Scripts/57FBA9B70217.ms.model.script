@@ -1,0 +1,178 @@
+// msmEditViewController 57FBA9B70217 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57FBA9B70217
+
+ME ME_57FBA9E302AC
+ MEPROP UID '57FBA9E302AC'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57FBA9E302AC ConcreteModel
+
+ME ME_57FBAA26014B
+ MEPROP UID '57FBAA26014B'
+ MEPROP Name 'InitContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELINK Target WL 'ME_57B45BCC011C' '57B45BA30322.ms.model.script' // TmsmDefaultInitContext
+ ;
+
+ENDME // ME_57FBAA26014B InitContext
+
+FORWARD ME_57FBAD4B01C7
+
+ME ME_7047577F983D
+ MEPROP Name 'Sender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_7047577F983D Sender
+
+ME ME_11FE2580740E
+ MEPROP UID '11FE2580740E'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FBAD4B01C7 // DoTextChange
+ ;
+ MELIST Parameters
+   Seq: ( ME_7047577F983D // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_11FE2580740E DoIt
+
+%%InheritedBy ME_47881B22005A ME_57FBAD4B01C7
+
+ME ME_57FBAD4B01C7
+ MEPROP UID '57FBAD4B01C7'
+ MEPROP Name 'DoTextChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_11FE2580740E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FBAD4B01C7 DoTextChange
+
+ME ME_57FBAA3B00EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57FBAA3B00EB 
+
+ME ME_57FCD3E80040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELINK Target WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+ ;
+
+ENDME // ME_57FCD3E80040 
+
+ME ME_57FCD4330199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_57FCD4330199 
+
+ME ME_57ADFB33027D_ME_57FBA9B70217
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57ADFB33027D_ME_57FBA9B70217 InitOwnView
+
+ME ME_57B6A49900F4_ME_57FBA9B70217
+ MELINK Original WL 'ME_57B6A49900F4' '57AAE90E02B6.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57B6A49900F4_ME_57FBA9B70217 LinkDataToView
+
+%%InheritedBy ME_57B179D70299 ME_57FBA9B70217
+
+ME ME_57FBA9B70217
+ MEPROP UID '57FBA9B70217'
+ MEPROP Name 'msmEditViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FBA9E302AC // ConcreteModel
+ HWL ME_57FBAA26014B // InitContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57FBAD4B01C7 // DoTextChange
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57ADFB33027D_ME_57FBA9B70217 // InitOwnView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57B6A49900F4_ME_57FBA9B70217 // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57FBAA3B00EB // CaptionChangedEvent
+ ME_57FCD3E80040 // TtfwCStringFactory
+ ME_57FCD4330199 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEditViewController.imp.pas'
+ UP extprop:pas:TypeName '_msmEditViewController_'
+ UP extprop:pas:UnitName 'msmEditViewController.imp'
+
+ENDME // ME_57FBA9B70217 msmEditViewController

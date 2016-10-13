@@ -194,8 +194,11 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmCopySelection.Make('Copy', aModel));
   aController.AddOperation(TmsmPaste.Make('Paste', aModel));
+  aController.AddOperation(TmsmDeleteSelection.Make('Delete', aModel));
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmAddElement.Make('Add element', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmChangeProperties.Make('Properties', aModel));
   Result := aController;
  end;//AddNavigatorOperations
 

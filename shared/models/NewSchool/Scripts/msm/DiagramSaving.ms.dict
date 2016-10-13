@@ -64,6 +64,22 @@ USES
  Diagrams.ms.dict
 ;
 
+USES
+ ModelRoot.ms.dict
+;
+
+USES
+ DiagramExt.ms.dict
+;
+
+USES
+ IsDeletedElement.ms.dict
+;
+
+USES
+ Predicates.ms.dict
+;
+
 elem_generator diagram.save.script
 
  Inherits .model.script
@@ -85,6 +101,8 @@ elem_generator diagram.save.script
     true
    ( Self .Attributes .NotEmpty )
     true
+   ( Self .msm:Diagrams .NotEmpty )
+    true
    DEFAULT
     false
   ; // RULES
@@ -93,12 +111,12 @@ elem_generator diagram.save.script
 
  STRING elem_func FinalFileNamePrim
   [
-   '\shared\models\NewSchool\Scripts\Models\'
+   ModelRoot
    if ( Self .LUID .IsNil ) then
     ( Self .Name )
    else
     ( Self .LUID )
-   '.ms.diagram.script'
+   DiagramExt
   ] strings:Cat >>> Result
  ; // FinalFileNamePrim
  
@@ -128,6 +146,7 @@ elem_generator diagram.save.script
     [ 'MELINK Original ' aDiagram .Original .ScriptWordLink ' ;' ' // ' aDiagram .Original .NameInModel ] .Out
     OutLn
     aDiagram .Views 
+    .filter> .Not: .IsDeletedElement
     .filter> .IsView
     .for> (
       IN aView
@@ -147,6 +166,10 @@ elem_generator diagram.save.script
      OutLn
     ) // .for>
     aDiagram .Views 
+    .filter> .Not: .IsDeletedElement
+    //.filter> ( .From .Not: .IsDeletedElement )
+    //.filter> ( .To .Not: .IsDeletedElement )
+    // - это убрал в IsDeletedElement
     .filter> .IsViewLink
     .for> (
       IN aView
@@ -159,8 +182,10 @@ elem_generator diagram.save.script
          aView .Original .NameInModel .NotIsNil ?
           ( ' // ' aView .Original .NameInModel )
          ] .Out )
-      [ 'MELINK From ' aView .From .WordName ' ;' ] .Out
-      [ 'MELINK To ' aView .To .WordName ' ;' ] .Out
+      aView .From .NotIsNil ?
+       ( [ 'MELINK From ' aView .From .WordName ' ;' ] .Out )
+      aView .To .NotIsNil ?
+       ( [ 'MELINK To ' aView .To .WordName ' ;' ] .Out )
       aView .MDAClass class_Unknown ?!= 
       AND ( aView .MDAClass aView .Original .MDAClass ?!= )
       ?
@@ -172,7 +197,9 @@ elem_generator diagram.save.script
     [ 'MELIST Views' ] .Out
     [
       ' Seq: ( '
-      aDiagram .Views .for> (
+      aDiagram .Views 
+      .filter> .Not: .IsDeletedElement
+      .for> (
         IN aView
        aView .WordName
        VAR l_NameInModel

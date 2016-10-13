@@ -141,6 +141,15 @@ ME ME_57F509B60345
 
 ENDME // ME_57F509B60345 anElementStereotype
 
+ME ME_57FBFF9F02CC
+ MEPROP Name 'aKeyValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FBFF9F02CC aKeyValues
+
 ME ME_57F509B403A8
  MEPROP UID '57F509B403A8'
  MEPROP Name 'DoIt'
@@ -152,6 +161,7 @@ ME ME_57F509B403A8
  MELIST Parameters
    Seq: ( ME_57F509B6031C // anElementName
  ME_57F509B60345 // anElementStereotype
+ ME_57FBFF9F02CC // aKeyValues
  )
  ; // Parameters
 
@@ -174,6 +184,70 @@ ME ME_57F509AC007F
 
 ENDME // ME_57F509AC007F SelectElement
 
+FORWARD ME_57FB8665023E
+
+ME ME_57FB867C0305
+ MEPROP UID '57FB867C0305'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FB8665023E // SelectFormCaption
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57FB867C0305 DoIt
+
+ME ME_57FB8665023E
+ MEPROP UID '57FB8665023E'
+ MEPROP Name 'SelectFormCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F5098E01B5 // ImsmElementSelector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FB867C0305 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FB8665023E SelectFormCaption
+
+FORWARD ME_57FB86B0027E
+
+ME ME_57FB86BE004D
+ MEPROP UID '57FB86BE004D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FB86B0027E // KeyValues
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FB86BE004D DoIt
+
+ME ME_57FB86B0027E
+ MEPROP UID '57FB86B0027E'
+ MEPROP Name 'KeyValues'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F5098E01B5 // ImsmElementSelector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FB86BE004D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FB86B0027E KeyValues
+
 ME ME_57F5098E01B5
  MEPROP UID '57F5098E01B5'
  MEPROP GUID 'BB24B3A1-7520-46D9-80C2-696EE7386AD5'
@@ -187,6 +261,8 @@ ME ME_57F5098E01B5
  ;
  MELIST Operations
    Seq: ( HWL ME_57F509AC007F // SelectElement
+ HWL ME_57FB8665023E // SelectFormCaption
+ HWL ME_57FB86B0027E // KeyValues
  )
  ; // Operations
  MESTRINGLIST DiagramsNames
@@ -202,26 +278,6 @@ FORWARD ME_4345AF874625
 FORWARD ME_57F504370010
 
 ME ME_82502CA40222
- MEPROP Name 'aList'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
- ;
-
-ENDME // ME_82502CA40222 aList
-
-ME ME_82502CA40223
- MEPROP Name 'aListContext'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_57B45B380244' '57B45AC9019C.ms.model.script' // TmsmListViewtInitContext
- ;
-
-ENDME // ME_82502CA40223 aListContext
-
-ME ME_82502CA40224
  MEPROP Name 'aSelector'
  UP IsSummoned true
  MEPROP Class class_Parameter
@@ -229,7 +285,7 @@ ME ME_82502CA40224
  MELINK Target HWL ME_57F5098E01B5 // ImsmElementSelector
  ;
 
-ENDME // ME_82502CA40224 aSelector
+ENDME // ME_82502CA40222 aSelector
 
 ME ME_BBCBB8731EE0
  MEPROP UID 'BBCBB8731EE0'
@@ -241,9 +297,7 @@ ME ME_BBCBB8731EE0
  MELINK Parent HWL ME_4345AF874625 // MmsmModelElementSelectService
  ;
  MELIST Parameters
-   Seq: ( ME_82502CA40222 // aList
- ME_82502CA40223 // aListContext
- ME_82502CA40224 // aSelector
+   Seq: ( ME_82502CA40222 // aSelector
  )
  ; // Parameters
  UPLINK Speller HWL ME_57F504370010 // SelectElement
@@ -270,24 +324,6 @@ ME ME_4345AF874625
 
 ENDME // ME_4345AF874625 MmsmModelElementSelectService
 
-ME ME_57F504D503C5
- MEPROP Name 'aList'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
- ;
-
-ENDME // ME_57F504D503C5 aList
-
-ME ME_57F5051502D7
- MEPROP Name 'aListContext'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_57B45B380244' '57B45AC9019C.ms.model.script' // TmsmListViewtInitContext
- ;
-
-ENDME // ME_57F5051502D7 aListContext
-
 ME ME_57F50C6B02AC
  MEPROP Name 'aSelector'
  MEPROP Class class_Parameter
@@ -307,9 +343,7 @@ ME ME_57F504370010
  MELINK Parent HWL ME_57F5040203B0 // TmsmModelElementSelectService
  ;
  MELIST Parameters
-   Seq: ( ME_57F504D503C5 // aList
- ME_57F5051502D7 // aListContext
- ME_57F50C6B02AC // aSelector
+   Seq: ( ME_57F50C6B02AC // aSelector
  )
  ; // Parameters
 
@@ -359,7 +393,7 @@ ME ME_57CED450035C
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ MELINK Parent WL? 'ME_57A9C7A301DF' // msm$Lib
  ;
  MELIST Children
    Seq: ( HWL ME_57CED46B03BD // TmsmOpenService
@@ -367,12 +401,13 @@ ME ME_57CED450035C
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
- WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
- WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4DAF19F600C5' // tfwScriptingInterfaces
+ WL? 'ME_57A9F4A003C8' // msmModelElements
+ WL? 'ME_57ADC53E00B6' // msmConcreteModels
+ WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

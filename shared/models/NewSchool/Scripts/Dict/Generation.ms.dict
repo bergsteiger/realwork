@@ -214,41 +214,17 @@ USES
  LUID.ms.dict
 ;
 
-BOOLEAN elem_func IsSameModelElement
-  ModelElement IN anOther
- RULES
-  ( Self anOther ?== )
-   true
-  ( Self .LUID anOther .LUID == )
-   true
-  DEFAULT
-   false 
- ; // RULES  
- >>> Result 
-; // IsSameModelElement
-
-BOOLEAN elem_func IsArray
- Self .IsStereotype st_Vector
- >>> Result
-; // IsArray
-
-BOOLEAN elem_func IsOpenArray
- Self .IsArray
- AND ( Self .GetUP "array type" 'open' == )
- >>> Result
-; // IsOpenArray
+USES
+ IsSameModelElement.ms.dict
+;
 
 USES
  FirstElement.ms.dict
 ;
 
-ModelElement elem_func FirstAttribute
- Cached:
- (
-  Self .Attributes .FirstElement
- )
- >>> Result
-; // FirstAttribute
+USES
+ FirstAttribute.ms.dict
+;
 
 BOOLEAN elem_func IsMixInParamType
  Self .IsStereotype st_ImpurityParamType 
@@ -263,9 +239,13 @@ BOOLEAN elem_func IsIterator
  Self .IsStereotype st_Iterator >>> Result
 ; // IsIterator
 
+USES
+ GarantMetaModel.ms.dict
+;
+
 FORWARD .IteratorAction
 
-STRING elem_func TypeName
+STRING elem_func TypeNamePrim
  Cached:
  (
   RULES
@@ -284,12 +264,20 @@ STRING elem_func TypeName
      RULES
       ( l_ExtName .IsNotNil )
        l_ExtName
+      ( Self .IsMixIn )
+      // - на самом деле ещё IsMixIn определяется ниже, это возможно надо учитывать
+       ( [ '_' Self .Name '_' ] strings:Cat )
       DEFAULT
        ( Self .Name )
      ; // RULES
     )
   ; // RULES  
  )
+ >>> Result
+; // TypeNamePrim
+
+STRING elem_func TypeName
+ Self .TypeNamePrim
  >>> Result
  if ( Self .IsMixInParamType ) then
  begin
@@ -335,7 +323,6 @@ BOOLEAN elem_func IsSameType
 
 USES
  GarantModel.ms.dict
- GarantMetaModel.ms.dict
 ;
 
 ARRAY elem_func CachedElementToArray
@@ -3746,6 +3733,10 @@ BOOLEAN elem_func IsWrapper
  >>> Result
 ; // IsWrapper
 
+USES
+ MEPrefix.ms.dict
+;
+
 ARRAY elem_func LoadList
   STRING IN anExt
   STRING IN aFuncSuffix
@@ -3760,7 +3751,7 @@ ARRAY elem_func LoadList
    'INCLUDE ' 
    cQuote l_FileName cQuote
    ' '
-   'ME_' Self .LUID aFuncSuffix
+   MEPrefix Self .LUID aFuncSuffix
   ] strings:Cat >>> l_Code 
   l_Code script:CompileStringAndProcess ( 
    DO
@@ -15538,6 +15529,46 @@ STRING elem_func PasFinalFileName
       ] cPathSep strings:CatSep >>> Result
      end // ( Result .IsNotNil )
     end // ( Self .IsScriptKeywordsPack )
+   ( 'MSM'  Self .LUID StartsStr )
+   // - это элемент "новой системы"
+    begin
+     //Self .Name Msg
+     RULES
+      ( Self .IsMixIn )
+       begin
+        Self .PasPathOnly >>> Result
+        if ( Result .IsNotNil ) then
+        begin
+         [ 
+          Result
+          [ Self .Name '.imp.pas' ] strings:Cat
+         ] cPathSep strings:CatSep >>> Result
+        end // ( Result .IsNotNil )
+       end // ( Self .IsMixIn )
+      ( Self .IsSimpleClass )
+       begin
+        Self .PasPathOnly >>> Result
+        if ( Result .IsNotNil ) then
+        begin
+         [ 
+          Result
+          [ Self .Name .CutT '.pas' ] strings:Cat
+         ] cPathSep strings:CatSep >>> Result
+        end // ( Result .IsNotNil )
+       end // ( Self .IsSimpleClass )
+      ( Self .IsUtilityPack )
+       begin
+        Self .PasPathOnly >>> Result
+        if ( Result .IsNotNil ) then
+        begin
+         [ 
+          Result
+          [ Self .Name '.pas' ] strings:Cat
+         ] cPathSep strings:CatSep >>> Result
+        end // ( Result .IsNotNil )
+       end // ( Self .IsUtilityPack )
+     ; // RULES
+    end // ( 'MSM'  Self .LUID StartsStr )
   ; // RULES
  end // ( Result .IsNil )
 ; // PasFinalFileName

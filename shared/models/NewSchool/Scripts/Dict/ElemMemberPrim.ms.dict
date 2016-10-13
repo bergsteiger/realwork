@@ -109,7 +109,7 @@ elem_iterator xElemList
   STRING IN aMemberName
  Self aMemberName [empty] .xElemMemberPrim
  >>> Result 
-; // ElemList
+; // xElemList
 
 ModelElement elem_func xElemWord
   STRING IN aMemberName
@@ -234,6 +234,42 @@ BOOLEAN elem_func IsDiagram
  ; // RULES
  >>> Result
 ; // IsDiagram
+
+BOOLEAN elem_func IsDiagrams
+ RULES
+  ( Self .IsNil )
+   false
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    pop:Word:Producer @ MEDIAGRAMS ?==
+   end // DEFAULT
+ ; // RULES
+ >>> Result
+; // IsDiagrams
+
+BOOLEAN elem_func IsMeStub
+ RULES
+  ( Self .IsNil )
+   false
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    pop:Word:Producer @ MESTUB ?==
+   end // DEFAULT
+ ; // RULES
+ >>> Result
+; // IsMeStub
 
 BOOLEAN elem_func IsSomeView
  RULES
@@ -367,60 +403,159 @@ USES
  WordsRTTI.ms.dict
 ;
 
+BOOLEAN FUNCTION IsStereoKindOf
+  ModelElement IN anOurStereo
+  ModelElement IN anOtherStereo
+ anOurStereo 
+ 'isA:' anOtherStereo .WordName Cat 
+ false
+ DoCache 
+ (
+  BOOLEAN VAR l_Is
+  anOurStereo anOtherStereo ?== >>> l_Is
+  if ( l_Is ! ) then
+  begin
+   anOurStereo .Name anOtherStereo .Name ?== >>> l_Is
+  end // l_Is !
+  if ( l_Is ! ) then
+  begin
+   RULES
+    ( anOurStereo IsString )
+     ()
+    DEFAULT 
+     begin
+      anOurStereo .Inherited.Words 
+      .trunc> ( DROP l_Is ! ) 
+      .for> (
+       ModelElement IN anAncestor
+       if ( anAncestor anOtherStereo call.me ) then
+       begin
+        true >>> l_Is
+       end
+      )
+     end // DEFAULT
+   ; // RULES 
+  end // l_Is !
+  l_Is
+ ) 
+ >>> Result
+; // IsStereoKindOf
+
+elem_iterator Inherits
+ Self 'Inherits' .ElemList >>> Result
+; // Inherits
+
+elem_iterator Implements
+ Self 'Implements' .ElemList >>> Result
+; // Implements
+
+elem_iterator StereotypeAncestors
+ Cached:
+ (
+  Self .Implements
+  .filter> ( .NameInModel Self .NameInModel SameStr )
+  // - вытаскиваем вперёд переопределения, они типа главные
+  .join> (
+   Self .Inherits
+   .join> ( Self .Implements ) 
+  )
+  array:CopyWithoutDuplicates
+ ) 
+ >>> Result
+; // StereotypeAncestors
+
+ModelElement STRING elem_func StereotypeInModel
+ RULES
+  //( Self .IsStereotype st_MDACategory )
+  // Self
+  //( Self .IsStereotype st_MDAClass )
+  // Self
+  ( Self .IsMeStub )
+   ( Self 'StereotypeInModel' .ElemWord )
+  //( Self 'StereotypeInModel' .ElemWord .IsNil )
+  // Self
+  DEFAULT
+   Self
+   //( Self 'StereotypeInModel' .ElemWord )
+ ; // RULES  
+ >>> Result
+; // StereotypeInModel
+
+BOOLEAN FUNCTION .IsStereotypeInModelKindOf
+  ModelElement IN anOurStereo
+  ModelElement IN anOtherStereo
+ anOtherStereo .StereotypeInModel >>> anOtherStereo
+ anOurStereo 
+ 'IsStereotypeInModelKindOf:' anOtherStereo .WordName Cat 
+ false
+ DoCache 
+ (
+  BOOLEAN VAR l_Is
+  anOurStereo anOtherStereo ?== >>> l_Is
+  if ( l_Is ! ) then
+  begin
+   anOurStereo .Name anOtherStereo .Name ?== >>> l_Is
+  end // l_Is !
+  if ( l_Is ! ) then
+  begin
+   RULES
+    ( anOurStereo IsString )
+     ()
+    DEFAULT 
+     begin
+      anOurStereo .StereotypeAncestors
+      .trunc> ( DROP l_Is ! ) 
+      .for> (
+       ModelElement IN anAncestor
+       if ( anAncestor anOtherStereo call.me ) then
+       begin
+        true >>> l_Is
+       end
+      )
+     end // DEFAULT
+   ; // RULES 
+  end // l_Is !
+  l_Is
+ ) 
+ >>> Result
+; // .IsStereotypeInModelKindOf
+
+BOOLEAN elem_func IsStereotypeInModelKindOf:
+  ^ IN anOtherStereo
+ Self anOtherStereo .IsStereotypeInModelKindOf
+ >>> Result
+; // IsStereotypeInModelKindOf:
+
 BOOLEAN elem_func IsStereotype
   ^ IN aStereo
   
- BOOLEAN FUNCTION IsStereoKindOf
-   ModelElement IN anOurStereo
-   ModelElement IN anOtherStereo
-  anOurStereo 
-  'isA:' anOtherStereo .WordName Cat 
-  false
-  DoCache (
-   BOOLEAN VAR l_Is
-   anOurStereo anOtherStereo ?== >>> l_Is
-   if ( l_Is ! ) then
-   begin
-    anOurStereo .Name anOtherStereo .Name ?== >>> l_Is
-   end // l_Is !
-   if ( l_Is ! ) then
-   begin
-    RULES
-     ( anOurStereo IsString )
-      ()
-     DEFAULT 
-      begin
-       anOurStereo .Inherited.Words 
-       .trunc> ( DROP l_Is ! ) 
-       .for> (
-        ModelElement IN anAncestor
-        if ( anAncestor anOtherStereo call.me ) then
-        begin
-         true >>> l_Is
-        end
-       )
-      end // DEFAULT
-    ; // RULES 
-   end // l_Is !
-   l_Is
-  ) >>> Result
- ; // IsStereoKindOf
-
  ModelElement VAR l_OurStereo
  Self .Stereotype >>> l_OurStereo
  
- if ( l_OurStereo IsNil ) then
- begin
-  false >>> Result
- end // l_OurStereo IsNil
- else
- begin
-  ModelElement VAR l_Stereo
-  aStereo DO >>> l_Stereo
-  l_OurStereo l_Stereo IsStereoKindOf >>> Result
- end // // l_OurStereo IsNil
+ RULES 
+  ( l_OurStereo .IsNil )
+    false
+  (  
+   ( l_OurStereo .IsMeStub )
+   OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
+  ) 
+   begin
+    ModelElement VAR l_Stereo
+    aStereo DO >>> l_Stereo
+    l_OurStereo l_Stereo IsStereoKindOf
+   end // // l_OurStereo IsNil
+  DEFAULT 
+   begin
+    ModelElement VAR l_Stereo
+    aStereo DO >>> l_Stereo
+    l_OurStereo l_Stereo .IsStereotypeInModelKindOf
+   end // // l_OurStereo IsNil
+ ; // RULES
+ >>> Result
  
 ; // IsStereotype
+
+WordAlias .IsStereotype: .IsStereotype
 
 VOID IMMEDIATE operator %%Inner
  ^L IN aName
@@ -440,3 +575,8 @@ VOID IMMEDIATE operator %%InheritedBy
  ^L IN aTo
  ^L IN aFrom
 ; // %%InheritedBy
+
+elem_iterator Attributes
+ Self 'Attributes' .ElemList >>> Result
+; // Attributes
+

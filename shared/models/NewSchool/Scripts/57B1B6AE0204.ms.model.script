@@ -130,7 +130,7 @@ ME ME_57DA9E250137
  MELINK Parent HWL ME_57B1B6AE0204 // UseCases
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL? 'ME_47B57D830369' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -184,7 +184,7 @@ ME ME_57EA573903E0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57EA53530213 // TmsmViewRefList
  ;
- MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_57EA573903E0 
@@ -239,7 +239,7 @@ ME ME_57EA53530213
  MELINK Parent HWL ME_57B1B6AE0204 // UseCases
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B5A0AE03CC' '47B5A0AE03CC.ms.model.script' // l3ObjectRefListPrim
+   Seq: ( WL? 'ME_47B5A0AE03CC' // l3ObjectRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -703,23 +703,23 @@ ME ME_57B1B6AE0204
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ MELINK Parent WL? 'ME_57B1DAE6030C' // msm$MVC
  ;
  MELIST Children
    Seq: ( HWL ME_57DA9E250137 // TImsmControllerList
  HWL ME_57EA53530213 // TmsmViewRefList
  HWL ME_57AD94F00212 // TmsmUseCase
- WL 'ME_57EA6BAE038E' '57EA6BAE038E.ms.model.script' // msmUseCaseView
+ WL? 'ME_57EA6BAE038E' // msmUseCaseView
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
- WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
- WL 'ME_57CEB4640283' '57CEB4640283.ms.model.script' // msmModels
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57AAE90E02B6' // Controllers
+ WL? 'ME_57CEAF3602AB' // msmUseCases
+ WL? 'ME_57CEB4640283' // msmModels
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

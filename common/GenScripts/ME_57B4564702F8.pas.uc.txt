@@ -5,11 +5,32 @@
 //#UC END# *46A5AA4B003C_57B4564702F8_var*
 //#UC START# *47D1602000C6_57B4564702F8_impl*
  inherited;
+ Self.BorderStyle := bsNone;
+ Self.BevelInner := bvNone;
+ Self.BevelOuter := bvNone;
+ Self.Ctl3D := false;
  Self.OnGetItemImageIndex := Self.DoGetItemImageIndex;
  Self.OnQuickSearchStrChanged := Self.QuickSearchHandler;
 //#UC END# *47D1602000C6_57B4564702F8_impl*
 //#UC START# *47D1602000C6_57B4564702F8_var*
 //#UC END# *47D1602000C6_57B4564702F8_var*
+//#UC START# *48BFA1300211_57B4564702F8_impl*
+ Result := true;
+//#UC END# *48BFA1300211_57B4564702F8_impl*
+//#UC START# *48BFA1300211_57B4564702F8_var*
+//#UC END# *48BFA1300211_57B4564702F8_var*
+//#UC START# *48BFB42C002A_57B4564702F8_impl*
+ Result := l3CatFormatArray(inherited DoGetAcceptableFormats,
+  [{CF_TreeNodes, }CF_TreeNode]);
+ //Result := inherited DoGetAcceptableFormats;
+//#UC END# *48BFB42C002A_57B4564702F8_impl*
+//#UC START# *48BFB42C002A_57B4564702F8_var*
+//#UC END# *48BFB42C002A_57B4564702F8_var*
+//#UC START# *48BFB6D800B3_57B4564702F8_impl*
+ Result := inherited DoDoDrop(aFormat, aMedium, dwEffect);
+//#UC END# *48BFB6D800B3_57B4564702F8_impl*
+//#UC START# *48BFB6D800B3_57B4564702F8_var*
+//#UC END# *48BFB6D800B3_57B4564702F8_var*
 //#UC START# *514C89A601FE_57B4564702F8get_impl*
  if Assigned(OnGetTotal) then
   if (f_LockTotal <= 0) AND not InUpdating then
@@ -184,12 +205,13 @@ end;
  , Controls
  , Forms
  , ImgList
- , l3Interfaces
+ //, l3Interfaces
  , l3BitmapContainer
  //, l3TreeInterfaces
  , l3InternalInterfaces
  , l3Units
  , l3Base
+ , l3TreeConst
  , evNodeData
 //#UC END# *57B4564702F8impl_uses*
 //#UC START# *57B4564702F8intf_uses*

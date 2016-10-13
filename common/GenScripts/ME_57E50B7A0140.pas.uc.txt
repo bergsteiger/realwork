@@ -12,10 +12,23 @@ w:\common\components\gui\Garant\msm\msmWordsByUserNameIndex.pas
  , tfwArray
 //#UC END# *57E50B7A0140impl_uses*
 //#UC START# *57E50D7500A3_57E50B7A0140_impl*
- Result := l3ComparePointers(aA.GetRefForCompare, aB.GetRefForCompare);
- Assert(false);
+ if (aB = nil) then
+ // - чтобы поиск работал, а вообще это заплатка конечно
+  Result := 0
+ else
+  Result := l3ComparePointers(GetRef(aA), GetRef(aB));
+ //Assert(false);
 //#UC END# *57E50D7500A3_57E50B7A0140_impl*
 //#UC START# *57E50D7500A3_57E50B7A0140_var*
+
+ function GetRef(aW : TtfwWord): Pointer;
+ begin//GetRef
+  if (aW = nil) then
+   Result := nil
+  else
+   Result := aW.GetRefForCompare;
+ end;//GetRef
+ 
 //#UC END# *57E50D7500A3_57E50B7A0140_var*
 //#UC START# *57E512D20247_57E50B7A0140_impl*
  Lock;

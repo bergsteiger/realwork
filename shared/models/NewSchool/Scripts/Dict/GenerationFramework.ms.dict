@@ -1,6 +1,10 @@
 UNIT GenerationFramework.ms.dict
 
 USES
+ axiom_push.ms.dict
+;
+
+USES
  core.ms.dict
 ;
 
@@ -104,13 +108,13 @@ USES
 STRING FUNCTION .CheckDrive
   STRING IN Self
  Self >>> Result
- if ( cRoot Result StartsStr ! ) then
+ if ( cRoot Result StartsText ! ) then
  begin
   Result cPathSep .CutPrefix >>> Result
   [ cRoot
   // - это потому, что в пути нету диска, а для ExtractFileName он нужен
   Result ] cPathSep strings:CatSep >>> Result
- end // ( cRoot Result StartsStr ! )
+ end // ( cRoot Result StartsText ! )
 ; // .CheckDrive
 
 BOOLEAN elem_func NeedOwnFilePrim
@@ -132,20 +136,24 @@ USES
 elem_proc Save
   IN aGenerator
  WithGen: aGenerator (
-  if ( Self .NeedOwnFile ) then
-  begin
-   VAR l_FileName
-   Self .? .FinalFileNamePrim .CheckDrive >>> l_FileName
-   if ( l_FileName .NotIsNil ) then
-   begin
-    l_FileName .ProcessTmpOut: (
-     Self .CurrentGenerator
-    ) // l_FileName .ProcessTmpOut:
-   end // ( l_FileName .NotIsNil )
-  end // ( Self .NeedOwnFile )
-  else
-  begin
-   Self .Parent aGenerator call.me
-  end // ( Self .NeedOwnFile )
+  RULES
+   ( Self .IsNil )
+    ()
+   ( Self .NeedOwnFile )
+    begin
+     VAR l_FileName
+     Self .? .FinalFileNamePrim .CheckDrive >>> l_FileName
+     if ( l_FileName .NotIsNil ) then
+     begin
+      l_FileName .ProcessTmpOut: (
+       Self .CurrentGenerator
+      ) // l_FileName .ProcessTmpOut:
+     end // ( l_FileName .NotIsNil )
+    end // ( Self .NeedOwnFile )
+   DEFAULT
+    begin
+     Self .Parent aGenerator call.me
+    end // ( Self .NeedOwnFile )
+  ; // RULES
  ) // WithGen:
 ; // Save

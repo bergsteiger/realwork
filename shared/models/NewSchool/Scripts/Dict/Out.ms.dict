@@ -200,11 +200,15 @@ PROCEDURE .ProcessIn:
  ) // TF l_In
 ; // .ProcessIn:
 
+USES
+ MEPrefix.ms.dict
+;
+
 elem_proc OutWordLink
   STRING IN aDictFileName
  [ 
   'WL' ' ' 
-  cQuote 'ME_' Self .UID cQuote 
+  cQuote MEPrefix Self .UID cQuote 
   ' ' 
   cQuote aDictFileName cQuote 
   ' // ' Self .Name

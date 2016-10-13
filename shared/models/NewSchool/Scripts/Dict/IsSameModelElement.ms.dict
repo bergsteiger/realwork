@@ -1,0 +1,22 @@
+UNIT IsSameModelElement.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
+BOOLEAN elem_func IsSameModelElement
+  ModelElement IN anOther
+ RULES
+  ( Self anOther ?== )
+   true
+  ( Self .LUID anOther .LUID == )
+   true
+  DEFAULT
+   false 
+ ; // RULES  
+ >>> Result 
+; // IsSameModelElement

@@ -43,6 +43,81 @@ ME ME_574480410161
 
 ENDME // ME_574480410161 SaveDialog_SetFileFormat
 
+ME ME_57FCE362013D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_57FCE362013D aValue
+
+ME ME_57FCE34603AA
+ MEPROP UID '57FCE34603AA'
+ MEPROP Name 'SaveDialog_SetSaveObjects'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE362013D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE34603AA SaveDialog_SetSaveObjects
+
+ME ME_57FCE3860337
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57FCE3860337 aValue
+
+ME ME_57FCE37F01BC
+ MEPROP UID '57FCE37F01BC'
+ MEPROP Name 'SaveDialog_SetMergeFiles'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE3860337 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE37F01BC SaveDialog_SetMergeFiles
+
+ME ME_57FCE9BC01D5
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57FCE9BC01D5 aValue
+
+ME ME_57FCE9AC0123
+ MEPROP UID '57FCE9AC0123'
+ MEPROP Name 'SaveDialog_SetSelectedOnly'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE9BC01D5 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE9AC0123 SaveDialog_SetSelectedOnly
+
 ME ME_57448093012F
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -62,11 +137,14 @@ ME ME_574480200219
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4DDA34AA023B' '4DDA34AA023B.ms.model.script' // Dialogs
+ MELINK Parent WL? 'ME_4DDA34AA023B' // Dialogs
  ;
  MELIST Operations
    Seq: ( HWL ME_5744803103A2 // SaveDialog_GetFileName
  HWL ME_574480410161 // SaveDialog_SetFileFormat
+ HWL ME_57FCE34603AA // SaveDialog_SetSaveObjects
+ HWL ME_57FCE37F01BC // SaveDialog_SetMergeFiles
+ HWL ME_57FCE9AC0123 // SaveDialog_SetSelectedOnly
  )
  ; // Operations
  MELIST Dependencies

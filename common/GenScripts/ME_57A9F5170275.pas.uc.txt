@@ -10,6 +10,7 @@ w:\common\components\gui\Garant\msm\msmModelElement.pas
  , SysUtils
  , l3InterfacesMisc
  , l3String
+ //, WordsRTTIPack
 //#UC END# *57A9F5170275impl_uses*
 //#UC START# *57AA0B890200_57A9F5170275get_impl*
  Result := Get_ElementProp('Parent');
@@ -46,6 +47,11 @@ w:\common\components\gui\Garant\msm\msmModelElement.pas
 //#UC END# *57B301FD025C_57A9F5170275get_impl*
 //#UC START# *57B301FD025C_57A9F5170275get_var*
 //#UC END# *57B301FD025C_57A9F5170275get_var*
+//#UC START# *57B301FD025C_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallStrSetter(MainWord, aName, aValue);
+//#UC END# *57B301FD025C_57A9F5170275set_impl*
+//#UC START# *57B301FD025C_57A9F5170275set_var*
+//#UC END# *57B301FD025C_57A9F5170275set_var*
 //#UC START# *57B47A88013F_57A9F5170275get_impl*
  Result := TmsmModelElementMethodCaller.CallAndGetInt(MainWord, aName);
 //#UC END# *57B47A88013F_57A9F5170275get_impl*
@@ -66,6 +72,11 @@ w:\common\components\gui\Garant\msm\msmModelElement.pas
 //#UC END# *57B5E9BE022F_57A9F5170275get_impl*
 //#UC START# *57B5E9BE022F_57A9F5170275get_var*
 //#UC END# *57B5E9BE022F_57A9F5170275get_var*
+//#UC START# *57B5E9BE022F_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallWordSetter(MainWord, aName, aValue.MainWord);
+//#UC END# *57B5E9BE022F_57A9F5170275set_impl*
+//#UC START# *57B5E9BE022F_57A9F5170275set_var*
+//#UC END# *57B5E9BE022F_57A9F5170275set_var*
 //#UC START# *57C3E90C0177_57A9F5170275get_impl*
  Result := MainWord;
 //#UC END# *57C3E90C0177_57A9F5170275get_impl*
@@ -98,7 +109,19 @@ w:\common\components\gui\Garant\msm\msmModelElement.pas
 //#UC START# *57E30F9F0205_57A9F5170275_var*
 //#UC END# *57E30F9F0205_57A9F5170275_var*
 //#UC START# *57E30FCD03DF_57A9F5170275_impl*
- Result := MakeFromObj(aValue.AsObject);
+ Case aValue.rType of
+  tfw_vtIntf:
+   Result := MakeFromBox(aValue.AsIntf As ItfwWordBox);
+  tfw_vtObj:
+   Result := MakeFromObj(aValue.AsObject);
+  tfw_vtNil:
+   Result := nil; 
+  else
+  begin
+   Result := nil;
+   Assert(false);
+  end;//else
+ end;//Case aValue.rType
 //#UC END# *57E30FCD03DF_57A9F5170275_impl*
 //#UC START# *57E30FCD03DF_57A9F5170275_var*
 //#UC END# *57E30FCD03DF_57A9F5170275_var*
@@ -146,3 +169,26 @@ var
  l_BLen  : Integer;
  l_Index : Integer;
 //#UC END# *57F4E41301BA_57A9F5170275_var*
+//#UC START# *57F7BC19011F_57A9F5170275_impl*
+ Result := TmsmDeletedElements.Instance.FindData(Self.MainWord, l_Index);
+//#UC END# *57F7BC19011F_57A9F5170275_impl*
+//#UC START# *57F7BC19011F_57A9F5170275_var*
+var
+ l_Index : Integer;
+//#UC END# *57F7BC19011F_57A9F5170275_var*
+//#UC START# *57F7BE0102D2_57A9F5170275_impl*
+ TmsmDeletedElements.Instance.Add(Self.MainWord);
+ l_P := Self.Get_Parent;
+ if (l_P <> nil) then
+  TmsmChangedElements.Instance.Add(l_P.MainWord);
+//#UC END# *57F7BE0102D2_57A9F5170275_impl*
+//#UC START# *57F7BE0102D2_57A9F5170275_var*
+var
+ l_P : ImsmModelElement;
+//#UC END# *57F7BE0102D2_57A9F5170275_var*
+//#UC START# *57FB927001F2_57A9F5170275_impl*
+ Assert(aBox <> nil);
+ Result := MakeFromWord(aBox.Boxed);
+//#UC END# *57FB927001F2_57A9F5170275_impl*
+//#UC START# *57FB927001F2_57A9F5170275_var*
+//#UC END# *57FB927001F2_57A9F5170275_var*

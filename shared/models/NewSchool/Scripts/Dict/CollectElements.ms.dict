@@ -80,6 +80,10 @@ ARRAY FUNCTION .CollectInDictionary:
  >>> Result
 ; // .CollectInDictionary:
 
+USES
+ ProcessModelFiles.ms.dict
+;
+
 : ProcessAllDictionaries:
   ^ IN aDictionaryLambda
  
@@ -92,14 +96,10 @@ ARRAY FUNCTION .CollectInDictionary:
   begin 
    if ( aDir .AddToArray?: l_Dirs ) then
    begin
-    @ ( 
-      IN aDict
-     //Log: aDict 
+    aDir .ProcessModelFiles: ( 
+      STRING IN aDict
      aDict aDictionaryLambda DO
-    )
-    '*.ms.model.script' 
-    aDir
-    ProcessFilesWithMask
+    ) // aDir .ProcessModelFiles:
    end // ( aDir .AddToArray?: l_Dirs )
   end // ( aDir .NotIsNil )
  ; // DoDir
@@ -177,6 +177,10 @@ USES
  Out.ms.dict
 ;
 
+USES
+ MEPrefix.ms.dict
+;
+
 PROCEDURE .OutCollected
   ARRAY IN aCollected
   STRING IN anExt
@@ -198,7 +202,7 @@ PROCEDURE .OutCollected
        IN aRec
       [ 
        'WL' ' '
-       cQuote 'ME_' aRec -> Source .UID cQuote
+       cQuote MEPrefix aRec -> Source .UID cQuote
        ' '
        cQuote aRec -> SourceFile cQuote
        ' // ' aRec -> Source .Name

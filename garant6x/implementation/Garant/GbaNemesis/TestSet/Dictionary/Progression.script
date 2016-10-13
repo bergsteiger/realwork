@@ -7314,4 +7314,13 @@ VOID WORDWORKER "Дублировать вторую вкладку и выполнить"
  )
 ;
 
+VOID WORDWORKER "Вытащить кнопку 'Ок' на тулбар диалога 'Создать фильтр' и выполнить"
+ TRY
+  True 'opOkExt' 'enResult' 'tbCreateFilterFormTop' 'cfCreate' vcm:ToolbarButton:SetVisible
+  ( WordToWork DO ) 
+ FINALLY
+  False 'opOkExt' 'enResult' 'tbCreateFilterFormTop' 'cfCreate' vcm:ToolbarButton:SetVisible
+ END
+;
+
 

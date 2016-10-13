@@ -402,6 +402,27 @@ ME ME_57D8F19D03D2
 
 ENDME // ME_57D8F19D03D2 ImsmElementSelection
 
+%%InheritedBy ME_57B1A4520214 ME_57DA971502E6
+
+ME ME_57DA971502E6
+ MEPROP UID '57DA971502E6'
+ MEPROP Name 'ImsmCaptionModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57ADC53E00B6 // msmConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'msmCaptionModel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57DA971502E6 ImsmCaptionModel
+
 FORWARD ME_57B31CCA0246
 
 ME ME_57B2B019009C
@@ -412,7 +433,7 @@ ME ME_57B2B019009C
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
  MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
@@ -429,7 +450,7 @@ ME ME_57B31CF301D2
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
  MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
  ;
@@ -445,7 +466,7 @@ ME ME_57D8F1B70265
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
  MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELINK Target HWL ME_57D8F19D03D2 // ImsmElementSelection
  ;
@@ -487,7 +508,7 @@ ME ME_57E283A603D2
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57E283AD036D // DoIt
@@ -531,7 +552,7 @@ ME ME_57E3F713019E
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57E3F71F03B5 // DoIt
@@ -549,7 +570,7 @@ ME ME_57E3F7330377
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
 
 ENDME // ME_57E3F7330377 Paste$FromClipboard
@@ -589,7 +610,7 @@ ME ME_57E3FC26029F
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57E3FC300303 // DoIt
@@ -597,81 +618,6 @@ ME ME_57E3FC26029F
  ; // Operations
 
 ENDME // ME_57E3FC26029F Paste$Array
-
-FORWARD ME_57E410D101DC
-
-ME ME_57E4110501EA
- MEPROP Name 'aFormat'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
- ;
-
-ENDME // ME_57E4110501EA aFormat
-
-ME ME_57E41105021C
- MEPROP Name 'aMedium'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A5B1570253' '4677FBA70343.ms.model.script' // Tl3StoragePlace
- ;
-
-ENDME // ME_57E41105021C aMedium
-
-ME ME_57E411050244
- MEPROP Name 'dwEffect'
- MEPROP Class class_Parameter
- MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
- ;
-
-ENDME // ME_57E411050244 dwEffect
-
-ME ME_57E41A8D0376
- MEPROP Name 'aPoint'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537B7CD8032A' '4677FBA70343.ms.model.script' // Tl3SPoint
- ;
-
-ENDME // ME_57E41A8D0376 aPoint
-
-ME ME_57E410DB02A3
- MEPROP UID '57E410DB02A3'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57E410D101DC // Drop
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_57E4110501EA // aFormat
- ME_57E41105021C // aMedium
- ME_57E411050244 // dwEffect
- ME_57E41A8D0376 // aPoint
- )
- ; // Parameters
-
-ENDME // ME_57E410DB02A3 DoIt
-
-ME ME_57E410D101DC
- MEPROP UID '57E410D101DC'
- MEPROP Name 'Drop'
- MEPROP Class class_Class
- MELINK Stereotype st_facetmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
- ;
- MELIST Operations
-   Seq: ( HWL ME_57E410DB02A3 // DoIt
- )
- ; // Operations
-
-ENDME // ME_57E410D101DC Drop
 
 FORWARD ME_57E4210F0225
 
@@ -720,7 +666,7 @@ ME ME_57E4210F0225
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57E4211F01A1 // DoIt
@@ -765,7 +711,7 @@ ME ME_57EB7E79022F
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57EB7E850078 // DoIt
@@ -797,7 +743,7 @@ ME ME_57F4FE6D0164
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57F4FE78017D // DoIt
@@ -826,6 +772,15 @@ ME ME_57F4FEB900FC
 
 ENDME // ME_57F4FEB900FC anElementStereotype
 
+ME ME_57FC0303025F
+ MEPROP Name 'aKeyValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FC0303025F aKeyValues
+
 ME ME_57F4FE9C021F
  MEPROP UID '57F4FE9C021F'
  MEPROP Name 'DoIt'
@@ -837,6 +792,7 @@ ME ME_57F4FE9C021F
  MELIST Parameters
    Seq: ( ME_57F4FEB900D8 // anElementName
  ME_57F4FEB900FC // anElementStereotype
+ ME_57FC0303025F // aKeyValues
  )
  ; // Parameters
 
@@ -850,7 +806,7 @@ ME ME_57F4FE8F022B
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57B31CCA0246 // MmsmListLike
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  ;
  MELIST Operations
    Seq: ( HWL ME_57F4FE9C021F // DoIt
@@ -859,16 +815,244 @@ ME ME_57F4FE8F022B
 
 ENDME // ME_57F4FE8F022B AddNewElement
 
+ME ME_57F7B78D0250
+ MEPROP UID '57F7B78D0250'
+ MEPROP Name 'DeleteSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+
+ENDME // ME_57F7B78D0250 DeleteSelection
+
+FORWARD ME_57F7B79A0325
+
+ME ME_57F7B7A601BC
+ MEPROP UID '57F7B7A601BC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F7B79A0325 // CanDeleteSelection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57F7B7A601BC DoIt
+
+ME ME_57F7B79A0325
+ MEPROP UID '57F7B79A0325'
+ MEPROP Name 'CanDeleteSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F7B7A601BC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F7B79A0325 CanDeleteSelection
+
+FORWARD ME_57FC23270363
+
+ME ME_57FC23480203
+ MEPROP Name 'aKeyValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FC23480203 aKeyValues
+
+ME ME_57FC234202FE
+ MEPROP UID '57FC234202FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FC23270363 // ChangeProperties
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FC23480203 // aKeyValues
+ )
+ ; // Parameters
+
+ENDME // ME_57FC234202FE DoIt
+
+ME ME_57FC23270363
+ MEPROP UID '57FC23270363'
+ MEPROP Name 'ChangeProperties'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FC234202FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FC23270363 ChangeProperties
+
+FORWARD ME_57FC23540116
+
+ME ME_57FC2368030C
+ MEPROP UID '57FC2368030C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FC23540116 // CanChangeProperties
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57FC2368030C DoIt
+
+ME ME_57FC23540116
+ MEPROP UID '57FC23540116'
+ MEPROP Name 'CanChangeProperties'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FC2368030C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FC23540116 CanChangeProperties
+
+FORWARD ME_57FCC057014C
+
+ME ME_57FCC0710335
+ MEPROP UID '57FCC0710335'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FCC057014C // PropertiesForNewElement
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FCC0710335 DoIt
+
+ME ME_57FCC057014C
+ MEPROP UID '57FCC057014C'
+ MEPROP Name 'PropertiesForNewElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FCC0710335 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FCC057014C PropertiesForNewElement
+
+FORWARD ME_57FCC083017F
+
+ME ME_57FCC08E02C8
+ MEPROP UID '57FCC08E02C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57FCC083017F // Properties
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+
+ENDME // ME_57FCC08E02C8 DoIt
+
+ME ME_57FCC083017F
+ MEPROP UID '57FCC083017F'
+ MEPROP Name 'Properties'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57FCC08E02C8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57FCC083017F Properties
+
+ME ME_57B1A47403C5_ME_57B31CCA0246
+ MELINK Original WL 'ME_57B1A47403C5' '57AAE8D403E5.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57B1A47403C5_ME_57B31CCA0246 Caption
+
+ME ME_57B4228B001E_ME_57B31CCA0246
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B4228B001E_ME_57B31CCA0246 Subscribe
+
+ME ME_57B422AB0293_ME_57B31CCA0246
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B422AB0293_ME_57B31CCA0246 Unsubscribe
+
+ME ME_57E410D101DC_ME_57B31CCA0246
+ MELINK Original WL 'ME_57E410D101DC' '57FF348E0031.ms.model.script' // Drop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E410D101DC_ME_57B31CCA0246 Drop
+
+ME ME_57FF47AE00B4_ME_57B31CCA0246
+ MELINK Original WL 'ME_57FF47AE00B4' '57FF348E0031.ms.model.script' // DragOver
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FF47AE00B4_ME_57B31CCA0246 DragOver
+
+%%ImplementedBy ME_57FF34BE0390 ME_57B31CCA0246
+
+%%InheritedBy ME_57DA971502E6 ME_57B31CCA0246
+
 ME ME_57B31CCA0246
  MEPROP UID '57B31CCA0246'
- MEPROP Name 'MmsmListLike'
+ MEPROP GUID '4206D8FC-70C8-44A4-B35C-C6EB9AA41961'
+ MEPROP Name 'ImsmListLikeModelPrim'
  MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
+ MELINK Stereotype st_Facet ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_57ADC53E00B6 // msmConcreteModels
  ;
+ MELIST Inherits
+   Seq: ( HWL ME_57DA971502E6 // ImsmCaptionModel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57FF34BE0390' '57FF348E0031.ms.model.script' // MmsmDragAndDropModel
+ )
+ ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_57B2B019009C // ElementToAction
  HWL ME_57B31CF301D2 // CurrentElement
@@ -880,39 +1064,33 @@ ME ME_57B31CCA0246
  HWL ME_57E3F713019E // Paste$DataObject
  HWL ME_57E3F7330377 // Paste$FromClipboard
  HWL ME_57E3FC26029F // Paste$Array
- HWL ME_57E410D101DC // Drop
  HWL ME_57E4210F0225 // Drop$Element
  HWL ME_57EB7E79022F // CanPaste
  HWL ME_57F4FE6D0164 // CanAddNewElement
  HWL ME_57F4FE8F022B // AddNewElement
+ HWL ME_57F7B78D0250 // DeleteSelection
+ HWL ME_57F7B79A0325 // CanDeleteSelection
+ HWL ME_57FC23270363 // ChangeProperties
+ HWL ME_57FC23540116 // CanChangeProperties
+ HWL ME_57FCC057014C // PropertiesForNewElement
+ HWL ME_57FCC083017F // Properties
  )
  ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57B1A47403C5_ME_57B31CCA0246 // Caption
+ ME_57B4228B001E_ME_57B31CCA0246 // Subscribe
+ ME_57B422AB0293_ME_57B31CCA0246 // Unsubscribe
+ ME_57E410D101DC_ME_57B31CCA0246 // Drop
+ ME_57FF47AE00B4_ME_57B31CCA0246 // DragOver
+ )
+ ; // Implemented
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' )
  ; // DiagramsNames
-
-ENDME // ME_57B31CCA0246 MmsmListLike
-
-%%InheritedBy ME_57B1A4520214 ME_57DA971502E6
-
-ME ME_57DA971502E6
- MEPROP UID '57DA971502E6'
- MEPROP Name 'ImsmCaptionModel'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57ADC53E00B6 // msmConcreteModels
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
- )
- ; // Inherits
- UP extprop:rc:SelfName 'msmCaptionModel'
+ UP extprop:rc:SelfName 'msmListLikeModelPrim'
  UP extprop:rc:isAcceptableForScripts true
 
-ENDME // ME_57DA971502E6 ImsmCaptionModel
+ENDME // ME_57B31CCA0246 ImsmListLikeModelPrim
 
 FORWARD ME_57CD626402C0
 
@@ -1041,7 +1219,7 @@ ME ME_57E3FC26029F_ME_57CD626402C0
 ENDME // ME_57E3FC26029F_ME_57CD626402C0 Paste$Array
 
 ME ME_57E410D101DC_ME_57CD626402C0
- MELINK Original HWL ME_57E410D101DC // Drop
+ MELINK Original WL 'ME_57E410D101DC' '57FF348E0031.ms.model.script' // Drop
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57E410D101DC_ME_57CD626402C0 Drop
@@ -1070,9 +1248,51 @@ ME ME_57F4FE8F022B_ME_57CD626402C0
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57F4FE8F022B_ME_57CD626402C0 AddNewElement
 
-%%ImplementedBy ME_57B31CCA0246 ME_57CD626402C0
+ME ME_57F7B78D0250_ME_57CD626402C0
+ MELINK Original HWL ME_57F7B78D0250 // DeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B78D0250_ME_57CD626402C0 DeleteSelection
 
-%%InheritedBy ME_57DA971502E6 ME_57CD626402C0
+ME ME_57F7B79A0325_ME_57CD626402C0
+ MELINK Original HWL ME_57F7B79A0325 // CanDeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B79A0325_ME_57CD626402C0 CanDeleteSelection
+
+ME ME_57FC23270363_ME_57CD626402C0
+ MELINK Original HWL ME_57FC23270363 // ChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23270363_ME_57CD626402C0 ChangeProperties
+
+ME ME_57FC23540116_ME_57CD626402C0
+ MELINK Original HWL ME_57FC23540116 // CanChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23540116_ME_57CD626402C0 CanChangeProperties
+
+ME ME_57FCC057014C_ME_57CD626402C0
+ MELINK Original HWL ME_57FCC057014C // PropertiesForNewElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC057014C_ME_57CD626402C0 PropertiesForNewElement
+
+ME ME_57FCC083017F_ME_57CD626402C0
+ MELINK Original HWL ME_57FCC083017F // Properties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC083017F_ME_57CD626402C0 Properties
+
+ME ME_57FF47AE00B4_ME_57CD626402C0
+ MELINK Original WL 'ME_57FF47AE00B4' '57FF348E0031.ms.model.script' // DragOver
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FF47AE00B4_ME_57CD626402C0 DragOver
+
+%%ImplementedBy ME_57FF34E20357 ME_57CD626402C0
+
+%%InheritedBy ME_57B31CCA0246 ME_57CD626402C0
 
 ME ME_57CD626402C0
  MEPROP UID '57CD626402C0'
@@ -1086,11 +1306,11 @@ ME ME_57CD626402C0
  MELINK Parent HWL ME_57ADC53E00B6 // msmConcreteModels
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57DA971502E6 // ImsmCaptionModel
+   Seq: ( HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_57B31CCA0246 // MmsmListLike
+   Seq: ( WL 'ME_57FF34E20357' '57FF348E0031.ms.model.script' // ImsmDragAndDropModel
  )
  ; // Implements
  MELIST Attributes
@@ -1117,6 +1337,13 @@ ME ME_57CD626402C0
  ME_57EB7E79022F_ME_57CD626402C0 // CanPaste
  ME_57F4FE6D0164_ME_57CD626402C0 // CanAddNewElement
  ME_57F4FE8F022B_ME_57CD626402C0 // AddNewElement
+ ME_57F7B78D0250_ME_57CD626402C0 // DeleteSelection
+ ME_57F7B79A0325_ME_57CD626402C0 // CanDeleteSelection
+ ME_57FC23270363_ME_57CD626402C0 // ChangeProperties
+ ME_57FC23540116_ME_57CD626402C0 // CanChangeProperties
+ ME_57FCC057014C_ME_57CD626402C0 // PropertiesForNewElement
+ ME_57FCC083017F_ME_57CD626402C0 // Properties
+ ME_57FF47AE00B4_ME_57CD626402C0 // DragOver
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1251,7 +1478,7 @@ ME ME_57E3FC26029F_ME_57B178F400EB
 ENDME // ME_57E3FC26029F_ME_57B178F400EB Paste$Array
 
 ME ME_57E410D101DC_ME_57B178F400EB
- MELINK Original HWL ME_57E410D101DC // Drop
+ MELINK Original WL 'ME_57E410D101DC' '57FF348E0031.ms.model.script' // Drop
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57E410D101DC_ME_57B178F400EB Drop
@@ -1280,7 +1507,47 @@ ME ME_57F4FE8F022B_ME_57B178F400EB
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57F4FE8F022B_ME_57B178F400EB AddNewElement
 
-%%ImplementedBy ME_57B31CCA0246 ME_57B178F400EB
+ME ME_57F7B78D0250_ME_57B178F400EB
+ MELINK Original HWL ME_57F7B78D0250 // DeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B78D0250_ME_57B178F400EB DeleteSelection
+
+ME ME_57F7B79A0325_ME_57B178F400EB
+ MELINK Original HWL ME_57F7B79A0325 // CanDeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B79A0325_ME_57B178F400EB CanDeleteSelection
+
+ME ME_57FC23270363_ME_57B178F400EB
+ MELINK Original HWL ME_57FC23270363 // ChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23270363_ME_57B178F400EB ChangeProperties
+
+ME ME_57FC23540116_ME_57B178F400EB
+ MELINK Original HWL ME_57FC23540116 // CanChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23540116_ME_57B178F400EB CanChangeProperties
+
+ME ME_57FCC057014C_ME_57B178F400EB
+ MELINK Original HWL ME_57FCC057014C // PropertiesForNewElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC057014C_ME_57B178F400EB PropertiesForNewElement
+
+ME ME_57FCC083017F_ME_57B178F400EB
+ MELINK Original HWL ME_57FCC083017F // Properties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC083017F_ME_57B178F400EB Properties
+
+ME ME_57FF47AE00B4_ME_57B178F400EB
+ MELINK Original WL 'ME_57FF47AE00B4' '57FF348E0031.ms.model.script' // DragOver
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FF47AE00B4_ME_57B178F400EB DragOver
 
 %%InheritedBy ME_57CD626402C0 ME_57B178F400EB
 
@@ -1299,10 +1566,6 @@ ME ME_57B178F400EB
    Seq: ( HWL ME_57CD626402C0 // ImsmListLikeModel
  )
  ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_57B31CCA0246 // MmsmListLike
- )
- ; // Implements
  MELIST Operations
    Seq: ( HWL ME_57E54FA00289 // SetList
  )
@@ -1325,6 +1588,13 @@ ME ME_57B178F400EB
  ME_57EB7E79022F_ME_57B178F400EB // CanPaste
  ME_57F4FE6D0164_ME_57B178F400EB // CanAddNewElement
  ME_57F4FE8F022B_ME_57B178F400EB // AddNewElement
+ ME_57F7B78D0250_ME_57B178F400EB // DeleteSelection
+ ME_57F7B79A0325_ME_57B178F400EB // CanDeleteSelection
+ ME_57FC23270363_ME_57B178F400EB // ChangeProperties
+ ME_57FC23540116_ME_57B178F400EB // CanChangeProperties
+ ME_57FCC057014C_ME_57B178F400EB // PropertiesForNewElement
+ ME_57FCC083017F_ME_57B178F400EB // Properties
+ ME_57FF47AE00B4_ME_57B178F400EB // DragOver
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1432,7 +1702,7 @@ ME ME_57E3FC26029F_ME_57B198570162
 ENDME // ME_57E3FC26029F_ME_57B198570162 Paste$Array
 
 ME ME_57E410D101DC_ME_57B198570162
- MELINK Original HWL ME_57E410D101DC // Drop
+ MELINK Original WL 'ME_57E410D101DC' '57FF348E0031.ms.model.script' // Drop
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57E410D101DC_ME_57B198570162 Drop
@@ -1461,7 +1731,47 @@ ME ME_57F4FE8F022B_ME_57B198570162
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57F4FE8F022B_ME_57B198570162 AddNewElement
 
-%%ImplementedBy ME_57B31CCA0246 ME_57B198570162
+ME ME_57F7B78D0250_ME_57B198570162
+ MELINK Original HWL ME_57F7B78D0250 // DeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B78D0250_ME_57B198570162 DeleteSelection
+
+ME ME_57F7B79A0325_ME_57B198570162
+ MELINK Original HWL ME_57F7B79A0325 // CanDeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B79A0325_ME_57B198570162 CanDeleteSelection
+
+ME ME_57FC23270363_ME_57B198570162
+ MELINK Original HWL ME_57FC23270363 // ChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23270363_ME_57B198570162 ChangeProperties
+
+ME ME_57FC23540116_ME_57B198570162
+ MELINK Original HWL ME_57FC23540116 // CanChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23540116_ME_57B198570162 CanChangeProperties
+
+ME ME_57FCC057014C_ME_57B198570162
+ MELINK Original HWL ME_57FCC057014C // PropertiesForNewElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC057014C_ME_57B198570162 PropertiesForNewElement
+
+ME ME_57FCC083017F_ME_57B198570162
+ MELINK Original HWL ME_57FCC083017F // Properties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC083017F_ME_57B198570162 Properties
+
+ME ME_57FF47AE00B4_ME_57B198570162
+ MELINK Original WL 'ME_57FF47AE00B4' '57FF348E0031.ms.model.script' // DragOver
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FF47AE00B4_ME_57B198570162 DragOver
 
 %%InheritedBy ME_57CD626402C0 ME_57B198570162
 
@@ -1480,10 +1790,6 @@ ME ME_57B198570162
    Seq: ( HWL ME_57CD626402C0 // ImsmListLikeModel
  )
  ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_57B31CCA0246 // MmsmListLike
- )
- ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_57ADC5D70104 // Tree
  )
@@ -1506,6 +1812,13 @@ ME ME_57B198570162
  ME_57EB7E79022F_ME_57B198570162 // CanPaste
  ME_57F4FE6D0164_ME_57B198570162 // CanAddNewElement
  ME_57F4FE8F022B_ME_57B198570162 // AddNewElement
+ ME_57F7B78D0250_ME_57B198570162 // DeleteSelection
+ ME_57F7B79A0325_ME_57B198570162 // CanDeleteSelection
+ ME_57FC23270363_ME_57B198570162 // ChangeProperties
+ ME_57FC23540116_ME_57B198570162 // CanChangeProperties
+ ME_57FCC057014C_ME_57B198570162 // PropertiesForNewElement
+ ME_57FCC083017F_ME_57B198570162 // Properties
+ ME_57FF47AE00B4_ME_57B198570162 // DragOver
  )
  ; // Implemented
  UP extprop:rc:SelfName 'msmTreeModel'
@@ -1614,7 +1927,7 @@ ME ME_57E3FC26029F_ME_57D27E070278
 ENDME // ME_57E3FC26029F_ME_57D27E070278 Paste$Array
 
 ME ME_57E410D101DC_ME_57D27E070278
- MELINK Original HWL ME_57E410D101DC // Drop
+ MELINK Original WL 'ME_57E410D101DC' '57FF348E0031.ms.model.script' // Drop
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57E410D101DC_ME_57D27E070278 Drop
@@ -1648,6 +1961,48 @@ ME ME_57F4FE8F022B_ME_57D27E070278
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57F4FE8F022B_ME_57D27E070278 AddNewElement
+
+ME ME_57F7B78D0250_ME_57D27E070278
+ MELINK Original HWL ME_57F7B78D0250 // DeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B78D0250_ME_57D27E070278 DeleteSelection
+
+ME ME_57F7B79A0325_ME_57D27E070278
+ MELINK Original HWL ME_57F7B79A0325 // CanDeleteSelection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F7B79A0325_ME_57D27E070278 CanDeleteSelection
+
+ME ME_57FC23270363_ME_57D27E070278
+ MELINK Original HWL ME_57FC23270363 // ChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23270363_ME_57D27E070278 ChangeProperties
+
+ME ME_57FC23540116_ME_57D27E070278
+ MELINK Original HWL ME_57FC23540116 // CanChangeProperties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FC23540116_ME_57D27E070278 CanChangeProperties
+
+ME ME_57FCC057014C_ME_57D27E070278
+ MELINK Original HWL ME_57FCC057014C // PropertiesForNewElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC057014C_ME_57D27E070278 PropertiesForNewElement
+
+ME ME_57FCC083017F_ME_57D27E070278
+ MELINK Original HWL ME_57FCC083017F // Properties
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FCC083017F_ME_57D27E070278 Properties
+
+ME ME_57FF47AE00B4_ME_57D27E070278
+ MELINK Original WL 'ME_57FF47AE00B4' '57FF348E0031.ms.model.script' // DragOver
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FF47AE00B4_ME_57D27E070278 DragOver
 
 %%InheritedBy ME_57B178F400EB ME_57D27E070278
 
@@ -1685,6 +2040,13 @@ ME ME_57D27E070278
  ME_57EB7E79022F_ME_57D27E070278 // CanPaste
  ME_57F4FE6D0164_ME_57D27E070278 // CanAddNewElement
  ME_57F4FE8F022B_ME_57D27E070278 // AddNewElement
+ ME_57F7B78D0250_ME_57D27E070278 // DeleteSelection
+ ME_57F7B79A0325_ME_57D27E070278 // CanDeleteSelection
+ ME_57FC23270363_ME_57D27E070278 // ChangeProperties
+ ME_57FC23540116_ME_57D27E070278 // CanChangeProperties
+ ME_57FCC057014C_ME_57D27E070278 // PropertiesForNewElement
+ ME_57FCC083017F_ME_57D27E070278 // Properties
+ ME_57FF47AE00B4_ME_57D27E070278 // DragOver
  )
  ; // Implemented
  UP extprop:rc:SelfName 'msmDrawingModel'
@@ -1741,12 +2103,12 @@ ME ME_57ADC53E00B6
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ MELINK Parent WL? 'ME_57A9C7A301DF' // msm$Lib
  ;
  MELIST Children
    Seq: ( HWL ME_57D8F19D03D2 // ImsmElementSelection
- HWL ME_57B31CCA0246 // MmsmListLike
  HWL ME_57DA971502E6 // ImsmCaptionModel
+ HWL ME_57B31CCA0246 // ImsmListLikeModelPrim
  HWL ME_57CD626402C0 // ImsmListLikeModel
  HWL ME_57B178F400EB // ImsmListModel
  HWL ME_57B198570162 // ImsmTreeModel
@@ -1757,15 +2119,16 @@ ME ME_57ADC53E00B6
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
- WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
- WL 'ME_57B6AC48035C' '57B6AC48035C.ms.model.script' // msmUsualData
- WL 'ME_57CEB4640283' '57CEB4640283.ms.model.script' // msmModels
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4DAF19F600C5' // tfwScriptingInterfaces
+ WL? 'ME_57A9F4A003C8' // msmModelElements
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57B565F200E5' // msmElementViews
+ WL? 'ME_57B6AC48035C' // msmUsualData
+ WL? 'ME_57CEB4640283' // msmModels
+ WL? 'ME_57FF348E0031' // msmDefaultModels
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

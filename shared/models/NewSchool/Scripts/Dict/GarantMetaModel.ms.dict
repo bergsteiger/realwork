@@ -664,3 +664,14 @@ BOOLEAN elem_func IsInjects
  Self .IsStereotype st_injects::Dependency 
  >>> Result
 ; // IsInjects
+
+BOOLEAN elem_func IsArray
+ Self .IsStereotype st_Vector
+ >>> Result
+; // IsArray
+
+BOOLEAN elem_func IsOpenArray
+ Self .IsArray
+ AND ( Self .GetUP "array type" 'open' == )
+ >>> Result
+; // IsOpenArray

@@ -1,22 +1,31 @@
 // TestParamsDefine.script
 // Объявление костант/переменных для поддержки парметров в скриптах.
 
-INTEGER VAR g_WasInit // Проверка была ли вызвана процедура "Первоначальные параметры"
+CONST cnAnyParamDefValue 0
 
-INTEGER VAR g_DocumentIDToOpen  // Что открыывать
+INTEGER VAR g_WasInit // Проверка была ли вызвана процедура "Первоначальные параметры"
+( 0 >>> g_WasInit )
 
 INTEGER VAR g_How2Prepare // Подготовка размеров
+( cnAnyParamDefValue >>> g_How2Prepare )
 
 INTEGER VAR g_StartAction // Прокрутка и сдвиг курора и т.п.
+( cnAnyParamDefValue >>> g_StartAction )
 
 INTEGER VAR g_CheckAction // Вид проверки в конце теста
+( cnAnyParamDefValue >>> g_CheckAction )
 
 INTEGER VAR g_How2End // Действия при закрытии теста
+( cnAnyParamDefValue >>> g_How2End )
 
 INTEGER VAR g_BeforeStart // Перед началом теста...
+( cnAnyParamDefValue >>> g_BeforeStart )
 
 BOOLEAN VAR g_AntiTest // Антитест
- 
+( false >>> g_AntiTest )
+
+
+CONST cnWithOutDocument cnAnyParamDefValue 
 CONST cnNewDocID -1 
 CONST cnNewEmptyDocID -2
 CONST cnNewNSR -3
@@ -26,7 +35,13 @@ CONST cnNewHTML -6
 CONST cnNewBMPObjTopic -7
 CONST cnNewPDFObjTopic -8
 CONST cnNewDOCX -9
- 
+
+INTEGER VAR g_DocumentIDToOpen  // Что открыывать
+( cnAnyParamDefValue >>> g_DocumentIDToOpen )
+
+PROCEDURE "Без документа" 
+	cnWithOutDocument >>> g_DocumentIDToOpen
+; 
 PROCEDURE "Использовать создание документа" 
 	cnNewDocID >>> g_DocumentIDToOpen 
 ;

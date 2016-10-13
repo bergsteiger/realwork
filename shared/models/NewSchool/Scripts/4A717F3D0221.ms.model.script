@@ -326,11 +326,11 @@ ME ME_4B69588202EA
  MELINK Parent HWL ME_4A717F3D0221 // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B16B85D03A1' '4B16B85D03A1.ms.model.script' // vcmData
+   Seq: ( WL? 'ME_4B16B85D03A1' // vcmData
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BEF0140.ms.model.script' // afwApplicationDataUpdate
+   Seq: ( WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
  WL 'ME_4B6875DF0310' '4A7181A301E3.ms.model.script' // IsdsCompareEditionsState
  WL 'ME_4EA7FCF9025D' '484900780017.ms.model.script' // После переключения баз СР должно перестраиваться
  )
@@ -560,11 +560,11 @@ ME ME_4CCE7DC70233
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BEF0140.ms.model.script' // afwApplicationDataUpdate
+   Seq: ( WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
  WL 'ME_4E898AA2012C' '4C6E92E9016E.ms.model.script' // If1EditionDocumentContainer
  WL 'ME_4EA7FCF9025D' '484900780017.ms.model.script' // После переключения баз СР должно перестраиваться
  WL 'ME_4F33DE9F0185' '484900780017.ms.model.script' // Ссылки на справку быть не должно
- WL 'ME_4F33E7CF0393' '4F33E7CF0393.ms.model.script' // nsEditionsDecorationRules
+ WL? 'ME_4F33E7CF0393' // nsEditionsDecorationRules
  )
  ; // Implements
  MELIST Attributes
@@ -615,56 +615,56 @@ ME ME_4A717F3D0221
  %SUMMARY 'Работа с редакциями' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A6D569202A5' '4A6D569202A5.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A6D569202A5' // Editions
  ;
  MELIST Children
-   Seq: ( WL 'ME_4B548BE50138' '4B548BE50138.ms.model.script' // VScroll
- WL 'ME_4A71859C0249' '4A71859C0249.ms.model.script' // dsEdition
- WL 'ME_4A7188E40294' '4A7188E40294.ms.model.script' // dsEditionDiff
- WL 'ME_4A7181A301E3' '4A7181A301E3.ms.model.script' // TsdsCompareEditions
- WL 'ME_4A717F6E0327' '4A717F6E0327.ms.model.script' // TdsEditionsContainerData
- WL 'ME_4A717F9600F4' '4A717F9600F4.ms.model.script' // TdsLeftEdition
+   Seq: ( WL? 'ME_4B548BE50138' // VScroll
+ WL? 'ME_4A71859C0249' // dsEdition
+ WL? 'ME_4A7188E40294' // dsEditionDiff
+ WL? 'ME_4A7181A301E3' // TsdsCompareEditions
+ WL? 'ME_4A717F6E0327' // TdsEditionsContainerData
+ WL? 'ME_4A717F9600F4' // TdsLeftEdition
  HWL ME_4A7FD7E9035C // TnsEditionDiffData
- WL 'ME_4A717FA60328' '4A717FA60328.ms.model.script' // TdsRightEdition
+ WL? 'ME_4A717FA60328' // TdsRightEdition
  HWL ME_4B69588202EA // TsdsCompareEditionsState
  HWL ME_4CCE7DC70233 // TnsEditionFromDTPDocumentContainer
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
- WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
- WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
- WL 'ME_467FC9F80281' '467FC9F80281.ms.model.script' // DocumentTagNodes
- WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
- WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_47EA4BB502F9' '47EA4BB502F9.ms.model.script' // afwMixIns
- WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
- WL 'ME_47F260DC003F' '47F260DC003F.ms.model.script' // ns
- WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_4908545802CA' '4908545802CA.ms.model.script' // DocumentContainers
- WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
- WL 'ME_491DCA2C00A9' '491DCA2C00A9.ms.model.script' // Search
- WL 'ME_4A6D56B00065' '4A6D56B00065.ms.model.script' // EditionsInterfaces
- WL 'ME_4A785027038D' '4A785027038D.ms.model.script' // CommonObjects
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4AD5B47F0278' '4AD5B47F0278.ms.model.script' // Folders
- WL 'ME_4B9A347B0217' '4B9A347B0217.ms.model.script' // UnderControlImpl
- WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.ms.model.script' // F1DocumentContainers
- WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.ms.model.script' // DocInfo
- WL 'ME_4C6E92E9016E' '4C6E92E9016E.ms.model.script' // F1TagDataProviderInterface
- WL 'ME_4F33E7AF02BA' '4F33E7AF02BA.ms.model.script' // DecorationProcessing
- WL 'ME_4F4B48E5029E' '4F4B48E5029E.ms.model.script' // Aspects
- WL 'ME_4F546F810266' '4F546F810266.ms.model.script' // HAF
- WL 'ME_53A402C7010D' '53A402C7010D.ms.model.script' // TabbedInterfaceSupport
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4423F94903C8' // IO
+ WL? 'ME_456EA56002BF' // BaseTypes
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_457450470167' // DynamicTree
+ WL? 'ME_467823B7002C' // afwInterfaces
+ WL? 'ME_467FC9F80281' // DocumentTagNodes
+ WL? 'ME_4683F37902CF' // vcmInterfaces
+ WL? 'ME_476BF10A0280' // l3Tree_TLB
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47C5207602D1' // nevTools
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_47EA4BB502F9' // afwMixIns
+ WL? 'ME_47EA50050263' // BaseDocument
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_47F22C7501F6' // Document
+ WL? 'ME_47F260DC003F' // ns
+ WL? 'ME_484900780017' // Работа с документом
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_4908545802CA' // DocumentContainers
+ WL? 'ME_4912DD020283' // eeInterfaces
+ WL? 'ME_491DCA2C00A9' // Search
+ WL? 'ME_4A6D56B00065' // EditionsInterfaces
+ WL? 'ME_4A785027038D' // CommonObjects
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4AD5B47F0278' // Folders
+ WL? 'ME_4B9A347B0217' // UnderControlImpl
+ WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ WL? 'ME_4C6ABB3201AC' // DocInfo
+ WL? 'ME_4C6E92E9016E' // F1TagDataProviderInterface
+ WL? 'ME_4F33E7AF02BA' // DecorationProcessing
+ WL? 'ME_4F4B48E5029E' // Aspects
+ WL? 'ME_4F546F810266' // HAF
+ WL? 'ME_53A402C7010D' // TabbedInterfaceSupport
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

@@ -107,22 +107,27 @@ var
  l_NeedClear := CanCacheWord(aWord);
  if l_NeedClear then
  begin
-  l_Index := 0;
-  FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
-  {if (l_Index > 0) then
-   Dec(l_Index);}
-  while (l_Index < Count) do
-  begin
-   if ItemSlot(l_Index).rWord = aWord then
+  Lock;
+  try
+   l_Index := 0;
+   FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
+   {if (l_Index > 0) then
+    Dec(l_Index);}
+   while (l_Index < Count) do
    begin
-    while (ItemSlot(l_Index).rWord = aWord) do
-     Delete(l_Index);
-    Exit;
-   end//ItemSlot(l_Index).rWord = aWord
-   else
-    Inc(l_Index);
-   break;
-  end;//while (l_Index < Count)
+    if ItemSlot(l_Index).rWord = aWord then
+    begin
+     while (ItemSlot(l_Index).rWord = aWord) do
+      Delete(l_Index);
+     Exit;
+    end//ItemSlot(l_Index).rWord = aWord
+    else
+     Inc(l_Index);
+    break;
+   end;//while (l_Index < Count)
+  finally
+   Unlock;
+  end;//try..finally
  end;//l_NeedClear
 //#UC END# *57D25F960241_57B2E6B90102_impl*
 //#UC START# *57D25F960241_57B2E6B90102_var*
@@ -137,3 +142,14 @@ var
 const
  cPath = 'C:\Temp\Scripts\Stubs\';
 //#UC END# *57D66CDF00D6_57B2E6B90102_var*
+//#UC START# *57FC1F460358_57B2E6B90102_impl*
+ Lock;
+ try
+  inherited Clear;
+  TmsmElementListsService.Instance.RegetLists;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57FC1F460358_57B2E6B90102_impl*
+//#UC START# *57FC1F460358_57B2E6B90102_var*
+//#UC END# *57FC1F460358_57B2E6B90102_var*

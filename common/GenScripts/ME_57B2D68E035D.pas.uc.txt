@@ -1,3 +1,8 @@
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.Clear;
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_var*
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_var*
 //#UC START# *57B2D68E035D_ext:FileName
 w:\common\components\gui\Garant\msm\msmWordsCachePack.pas
 //#UC END# *57B2D68E035D_ext:FileName
@@ -18,17 +23,33 @@ w:\common\components\gui\Garant\msm\msmWordsCachePack.pas
    Unlock;
   end;//try..finally
  end;//with TmsmWordsCache.Instance
+ if not Result then
+ begin
+  with TmsmLostWords.Instance do
+  begin
+   Lock;
+   try
+    Result := FindData(aName, l_Index);
+    if Result then
+     aCtx.rEngine.PushObj(nil);
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmLostWords.Instance
+ end;//not Result 
 //#UC END# *57B2D71E02B8_57B2D71E02B8_Word_impl*
 //#UC START# *57B2D71E02B8_57B2D71E02B8_Word_var*
 var
  l_Index: Integer;
 //#UC END# *57B2D71E02B8_57B2D71E02B8_Word_var*
 //#UC START# *57B2D7420034_57B2D7420034_Word_impl*
- if (aWord <> nil) then
+ if (aWord = nil) then
+  TmsmLostWords.Instance.Add(aName)
+ else
  begin
   Assert(l3Same(aName, aWord.Key.AsCStr));
   TmsmWordsCache.Instance.Add(aWord);
- end;//aWord <> nil
+ end;//aWord = nil
 //#UC END# *57B2D7420034_57B2D7420034_Word_impl*
 //#UC START# *57B2D7420034_57B2D7420034_Word_var*
 //#UC END# *57B2D7420034_57B2D7420034_Word_var*
@@ -82,3 +103,13 @@ var
  l_V : TmsmModelElementMethodValue;
  l_Index : Integer;
 //#UC END# *57B2DFE201B1_57B2DFE201B1_Word_var*
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValues(aWord);
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_impl*
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_var*
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_var*
+//#UC START# *57FF6B330005_57FF6B330005_Word_impl*
+ TmsmElementListsService.Instance.RegetViewedListsFor(aWord);
+//#UC END# *57FF6B330005_57FF6B330005_Word_impl*
+//#UC START# *57FF6B330005_57FF6B330005_Word_var*
+//#UC END# *57FF6B330005_57FF6B330005_Word_var*

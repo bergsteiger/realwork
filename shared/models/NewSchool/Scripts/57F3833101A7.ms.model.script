@@ -25,6 +25,22 @@ ME ME_57F382B203A9
 
 ENDME // ME_57F382B203A9 BytesProcessed
 
+ME ME_57FB5C8F0014
+ MEPROP UID '57FB5C8F0014'
+ MEPROP Name 'ProcessingTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57F3829802BA // IncsTrafficCounter
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+ UP "pm" false
+
+ENDME // ME_57FB5C8F0014 ProcessingTime
+
 ME ME_57F382CC017D
  MEPROP UID '57F382CC017D'
  MEPROP Name 'Reset'
@@ -60,6 +76,30 @@ ME ME_57F382DC01D1
 
 ENDME // ME_57F382DC01D1 DoProgress
 
+ME ME_57FB5CD10103
+ MEPROP Name 'aWatch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57FB5CD10103 aWatch
+
+ME ME_57FB5CB90232
+ MEPROP UID '57FB5CB90232'
+ MEPROP Name 'AddWatch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F3829802BA // IncsTrafficCounter
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FB5CD10103 // aWatch
+ )
+ ; // Parameters
+
+ENDME // ME_57FB5CB90232 AddWatch
+
 ME ME_57F3829802BA
  MEPROP UID '57F3829802BA'
  MEPROP GUID 'A75CEBEC-F0A7-4C0F-9464-84EDD9E2013E'
@@ -73,11 +113,13 @@ ME ME_57F3829802BA
  ;
  MELIST Attributes
    Seq: ( HWL ME_57F382B203A9 // BytesProcessed
+ HWL ME_57FB5C8F0014 // ProcessingTime
  )
  ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57F382CC017D // Reset
  HWL ME_57F382DC01D1 // DoProgress
+ HWL ME_57FB5CB90232 // AddWatch
  )
  ; // Operations
  UP extprop:rc:SelfName 'ncsTrafficCounter'
@@ -100,6 +142,20 @@ ME ME_57F3839803DE
  ;
 
 ENDME // ME_57F3839803DE f_Counter
+
+ME ME_57FB5D0B036C
+ MEPROP UID '57FB5D0B036C'
+ MEPROP Name 'f_Watch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F3830802F2 // TncsTrafficCounter
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57FB5D0B036C f_Watch
 
 ME ME_57F383A802EA
  MEPROP UID '57F383A802EA'
@@ -158,6 +214,19 @@ ME ME_57F382DC01D1_ME_57F3830802F2
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57F382DC01D1_ME_57F3830802F2 DoProgress
 
+ME ME_57FB5C8F0014_ME_57F3830802F2
+ MELINK Original HWL ME_57FB5C8F0014 // ProcessingTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57FB5C8F0014_ME_57F3830802F2 ProcessingTime
+
+ME ME_57FB5CB90232_ME_57F3830802F2
+ MELINK Original HWL ME_57FB5CB90232 // AddWatch
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FB5CB90232_ME_57F3830802F2 AddWatch
+
 %%ImplementedBy ME_57F3829802BA ME_57F3830802F2
 
 %%InheritedBy ME_49E7754802A9 ME_57F3830802F2
@@ -182,6 +251,7 @@ ME ME_57F3830802F2
  ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_57F3839803DE // f_Counter
+ HWL ME_57FB5D0B036C // f_Watch
  )
  ; // Attributes
  MELIST Operations
@@ -193,6 +263,8 @@ ME ME_57F3830802F2
    Seq: ( ME_57F382B203A9_ME_57F3830802F2 // BytesProcessed
  ME_57F382CC017D_ME_57F3830802F2 // Reset
  ME_57F382DC01D1_ME_57F3830802F2 // DoProgress
+ ME_57FB5C8F0014_ME_57F3830802F2 // ProcessingTime
+ ME_57FB5CB90232_ME_57F3830802F2 // AddWatch
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -212,7 +284,7 @@ ME ME_57F3833101A7
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_546457E203C0' '546457E203C0.ms.model.script' // ResultDelivery
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
  ;
  MELIST Children
    Seq: ( HWL ME_57F3829802BA // IncsTrafficCounter

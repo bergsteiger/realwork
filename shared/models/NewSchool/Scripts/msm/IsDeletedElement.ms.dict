@@ -1,0 +1,51 @@
+UNIT IsDeletedElement.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ axiom:msm
+;
+
+USES
+ IsNil.ms.dict
+;
+
+BOOLEAN elem_func IsDeletedElement
+ RULES
+  ( Self msm:IsDeletedElement )
+   true
+  (
+   ( Self .IsSomeView )
+   AND ( Self .Viewed Self ?!= )   
+   AND ( Self .Viewed call.me )
+  ) 
+   true
+  ( 
+   ( Self .From .NotIsNil )
+   AND ( Self .From call.me )
+  ) 
+   true
+  ( 
+   ( Self .To .NotIsNil )
+   AND ( Self .To call.me )
+  ) 
+   true
+  DEFAULT
+   false
+ ; // RULES   
+ >>> Result
+; // IsDeletedElement

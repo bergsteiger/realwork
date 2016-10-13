@@ -1,0 +1,98 @@
+// l3MultiMapPrim 57F7D217018F Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F7D217018F
+
+ME ME_57E50D8C0241
+ MEPROP Name 'aA'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_560908710273' '560907E00134.ms.model.script' // ValueType
+ ;
+
+ENDME // ME_57E50D8C0241 aA
+
+ME ME_57E50D8C027D
+ MEPROP Name 'aB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_560908710273' '560907E00134.ms.model.script' // ValueType
+ ;
+
+ENDME // ME_57E50D8C027D aB
+
+ME ME_57E50D7500A3
+ MEPROP UID '57E50D7500A3'
+ MEPROP Name 'CompareValues'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_inline::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57F7D217018F // l3MultiMapPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E50D8C0241 // aA
+ ME_57E50D8C027D // aB
+ )
+ ; // Parameters
+
+ENDME // ME_57E50D7500A3 CompareValues
+
+ME ME_47B07CF403D0_ME_57F7D217018F
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_57F7D217018F IsSameItems
+
+ME ME_47B99D4503A2_ME_57F7D217018F
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_57F7D217018F CompareExistingItems
+
+ME ME_47A042E100E2_ME_57F7D217018F
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_57F7D217018F InitFields
+
+%%InheritedBy ME_560907E00134 ME_57F7D217018F
+
+ME ME_57F7D217018F
+ MEPROP UID '57F7D217018F'
+ MEPROP Name 'l3MultiMapPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_560907E00134' // l3MapPrimPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57E50D7500A3 // CompareValues
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_57F7D217018F // IsSameItems
+ ME_47B99D4503A2_ME_57F7D217018F // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57F7D217018F // InitFields
+ )
+ ; // Overridden
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MultiMapPrim.imp.pas'
+ UP extprop:pas:TypeName '_l3MultiMapPrim_'
+ UP extprop:pas:UnitName 'l3MultiMapPrim.imp'
+
+ENDME // ME_57F7D217018F l3MultiMapPrim

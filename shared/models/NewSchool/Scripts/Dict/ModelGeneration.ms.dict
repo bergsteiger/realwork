@@ -102,7 +102,7 @@ STRING elem_func VisibilityString
    'ProtectedAccess'
   DEFAULT
    ( Self .Visibility ToPrintable ) 
- ;
+ ; // RULES
  >>> Result
 ; // VisibilityString
  
@@ -118,7 +118,7 @@ STRING elem_func AbstractionString
    'optional'
   DEFAULT
    ( Self .Abstraction ToPrintable )
- ;
+ ; // RULES
  >>> Result
 ; // AbstractionString
 
@@ -132,7 +132,7 @@ STRING elem_func LinkTypeString
    'agr'
   DEFAULT
    ( Self .LinkType ToPrintable )
- ;
+ ; // RULES
  >>> Result
 ; // LinkTypeString
 
@@ -148,7 +148,7 @@ STRING elem_func OpKindString
    'DecoratedType'
   DEFAULT
    ( Self .OpKind ToPrintable )
- ;
+ ; // RULES
  >>> Result
 ; // OpKindString
 
@@ -162,17 +162,43 @@ STRING FUNCTION .FineString
  >>> Result
 ; // .FineString
 
+USES
+ MEPrefix.ms.dict
+;
+
+USES
+ ModelScriptExt.ms.dict
+;
+
 STRING elem_func ScriptWordLink
  [
-  'WL '
-  cQuote Self .WordName cQuote ' '
-  cQuote Self .DictName cModelScript cQuote
+  RULES
+   ( 
+    Self .WordName MEPrefix .CutPrefix
+    Self .DictName 
+    SameText
+   )
+    begin
+     'WL? '
+     cQuote Self .WordName cQuote
+    end
+   DEFAULT
+    begin
+     'WL '
+     cQuote Self .WordName cQuote ' '
+     cQuote Self .DictName cModelScript cQuote
+    end // DEFAULT
+  ; // RULES
  ] strings:Cat
  >>> Result
 ; // ScriptWordLink
 
 USES
  GenerationFramework.ms.dict
+;
+
+USES
+ ModelRoot.ms.dict
 ;
 
 elem_generator model.script
@@ -214,7 +240,7 @@ elem_generator model.script
  
  STRING elem_func FinalFileNamePrim
   [
-   '\shared\models\NewSchool\Scripts\Models\'
+   ModelRoot
    if ( Self .LUID .IsNil ) then
     ( Self .Name )
    else
@@ -250,6 +276,8 @@ elem_generator model.script
    OutLn
  end
 
+ VAR l_LinkFrom
+ Self >>> l_LinkFrom
  VAR l_DictName
  Self .DictName >>> l_DictName
 
@@ -262,6 +290,11 @@ elem_generator model.script
     DEFAULT
      begin
       RULES
+       (
+        ( Self .IsSubRoot )
+        AND ( Self l_LinkFrom ?!= )
+       ) 
+        ( Self .ScriptWordLink )
        ( l_DictName Self .DictName != )
         ( Self .ScriptWordLink )
        ( Self .MDAClass class_Parameter == )
@@ -492,7 +525,9 @@ elem_generator model.script
     ( [ 'MEPROP IsSubRoot ' 'true' ] .Out )
    Self .MDAClass class_Unknown != ?
     ( [ 'MEPROP Class class_' Self .MDAClassString ] .Out )
-   Self .Stereotype .NotIsNil ?
+   Self .Stereotype .NotIsNil 
+   AND ( Self .Stereotype .UPisTrue "unstereotyped" ! )
+   ?
     ( [ 'MELINK Stereotype st_' Self .Stereotype .Name ' ;' ] .Out )
    Self .Kind kind_Unknown != ?
     ( [ 'MEPROP Kind kind_' Self .KindString ] .Out )
@@ -508,6 +543,7 @@ elem_generator model.script
    Self .OpKind opkind_Normal != ?
     ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
    Self .Parent .NotIsNil 
+   AND ( Self .MDAClass class_Parameter != )
    AND ( Self .Parent .IsProjectGroup ! )
    ?
     ( [ 'MELINK Parent ' Self .Parent .pas_script_Reference ' ;' ] .Out )

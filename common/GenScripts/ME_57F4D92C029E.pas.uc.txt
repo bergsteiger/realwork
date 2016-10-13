@@ -1,25 +1,111 @@
 //#UC START# *47A042E100E2_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited;
 //#UC END# *47A042E100E2_57F4D92C029E_impl*
 //#UC START# *47A042E100E2_57F4D92C029E_var*
 //#UC END# *47A042E100E2_57F4D92C029E_var*
 //#UC START# *48C7925A02E5_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited CreateParams(Params);
+ Params.Style := Params.Style or P[f_ScrollBars];
 //#UC END# *48C7925A02E5_57F4D92C029E_impl*
 //#UC START# *48C7925A02E5_57F4D92C029E_var*
+const
+ P: array[TScrollStyle] of DWORD = (0, WS_HSCROLL, WS_VSCROLL, WS_HSCROLL or WS_VSCROLL);
 //#UC END# *48C7925A02E5_57F4D92C029E_var*
 //#UC START# *4CC8414403B8_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited;
 //#UC END# *4CC8414403B8_57F4D92C029E_impl*
 //#UC START# *4CC8414403B8_57F4D92C029E_var*
 //#UC END# *4CC8414403B8_57F4D92C029E_var*
+//#UC START# *57E53C6D0303_57F4D92C029E_impl*
+ inherited;
+ if not aNCArea then
+  Exit;
+ if f_SizeGrip then
+ begin
+  GetScrollBarsVisible(H, V);
+  DC := GetWindowDC(Handle);
+  try
+   r := lp_SizeGripRect;
+   l_Width := r.Right - r.Left;
+   l_Height := r.Bottom - r.Top;
+
+   l_CacheDC := CreateCompatibleDC(DC);
+   l_Bitmap := CreateCompatibleBitmap(DC, l_Width, l_Height);
+   SelectObject(l_CacheDC, l_Bitmap);
+   DrawFrameControl(l_CacheDC, Rect(0, 0, l_Width, l_Height), DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
+
+   if DropDirection = ddDown then
+    StretchBlt(DC, r.Left, r.Top, l_Width, l_Height, l_CacheDC, 0, 0, l_Width, l_Height, SRCCOPY)
+   else
+    StretchBlt(DC, r.Left, r.Top + l_Height - 1, l_Width, -l_Height, l_CacheDC, 0, 0, l_Width, l_Height, SRCCOPY);
+
+   DeleteObject(l_Bitmap);
+   DeleteDC(l_CacheDC);
+  finally
+   ReleaseDC(Handle, DC);
+  end;
+ end;
+//#UC END# *57E53C6D0303_57F4D92C029E_impl*
+//#UC START# *57E53C6D0303_57F4D92C029E_var*
+var
+ V, H: Boolean;
+
+ function lp_SizeGripRect: TRect;
+ var
+  CX, CY: Integer;
+ begin
+  CX := GetSystemMetrics(SM_CXVSCROLL);
+  CY := GetSystemMetrics(SM_CYHSCROLL);
+  if DropDirection = ddDown then
+   if H then
+    Result := Rect(Width - BorderWidth - CX, Height - BorderWidth - CY, Width - BorderWidth, Height - BorderWidth)
+   else
+    Result := Rect(BorderWidth, Height - BorderWidth - CY, Width - BorderWidth, Height - BorderWidth)
+  else
+   if H then
+    Result := Rect(Width - BorderWidth - CX, BorderWidth, Width - BorderWidth, Height - BorderWidth)
+   else
+    Result := Rect(BorderWidth, BorderWidth, Width - BorderWidth, BorderWidth + CY);
+ end;
+
+var
+ DC: hDC;
+ l_Bitmap: HBITMAP;
+ l_CacheDC: HDC;
+ l_Width, l_Height: Integer;
+ r: TRect;
+//#UC END# *57E53C6D0303_57F4D92C029E_var*
 //#UC START# *57F3C62D038B_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ GetScrollBarsVisible(H, V);
+ l_ScrollInfo.cbSize := SizeOf(l_ScrollInfo);
+ l_ScrollInfo.nMin := 0;
+ l_ScrollInfo.nMax := GetTotalClientHeight;
+ if V then
+  l_ScrollInfo.nPage := ClientHeight
+ else
+  l_ScrollInfo.nPage := l_ScrollInfo.nMax + 1;
+ l_ScrollInfo.nPos := 0;
+ l_ScrollInfo.fMask := SIF_RANGE or SIF_POS or SIF_PAGE;
+ SetScrollInfo(Handle, SB_VERT, l_ScrollInfo, True);
+ l_ScrollInfo.cbSize := SizeOf(l_ScrollInfo);
+ l_ScrollInfo.nMin := 0;
+ l_ScrollInfo.nMax := GetTotalClientWidth;
+ if H then
+  l_ScrollInfo.nPage := ClientWidth
+ else
+  l_ScrollInfo.nPage := l_ScrollInfo.nMax + 1;
+ l_ScrollInfo.nPos := 0;
+ l_ScrollInfo.fMask := SIF_RANGE or SIF_POS or SIF_PAGE;
+ SetScrollInfo(Handle, SB_HORZ, l_ScrollInfo, True);
 //#UC END# *57F3C62D038B_57F4D92C029E_impl*
 //#UC START# *57F3C62D038B_57F4D92C029E_var*
+var
+ l_ScrollInfo: TScrollInfo;
+ H, V: Boolean;
 //#UC END# *57F3C62D038B_57F4D92C029E_var*
 //#UC START# *57F3C8350020_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited;
+ UpdateScrollInfo;
 //#UC END# *57F3C8350020_57F4D92C029E_impl*
 //#UC START# *57F3C8350020_57F4D92C029E_var*
 //#UC END# *57F3C8350020_57F4D92C029E_var*
@@ -27,14 +113,187 @@
 w:\common\components\gui\Garant\VT\vtAbstractScrollingDropDownWindow.pas
 //#UC END# *57F4D92C029E_ext:FileName
 //#UC START# *57F4D92C029Eimpl_uses*
+ , Classes
+ , Windows
 //#UC END# *57F4D92C029Eimpl_uses*
 //#UC START# *57F4DAEA00FB_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited;
 //#UC END# *57F4DAEA00FB_57F4D92C029E_impl*
 //#UC START# *57F4DAEA00FB_57F4D92C029E_var*
 //#UC END# *57F4DAEA00FB_57F4D92C029E_var*
 //#UC START# *57F4DAFC0079_57F4D92C029E_impl*
- !!! Needs to be implemented !!!
+ inherited;
 //#UC END# *57F4DAFC0079_57F4D92C029E_impl*
 //#UC START# *57F4DAFC0079_57F4D92C029E_var*
 //#UC END# *57F4DAFC0079_57F4D92C029E_var*
+//#UC START# *57F62D6B0111_57F4D92C029E_impl*
+ inherited;
+ if f_SizeGrip then
+ begin
+  GetScrollBarsVisible(H, V);
+  DrawFrameControl(aDC, lp_SizeGripRect, DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
+ end;
+//#UC END# *57F62D6B0111_57F4D92C029E_impl*
+//#UC START# *57F62D6B0111_57F4D92C029E_var*
+var
+ V, H: Boolean;
+
+ l_Bitmap: HBITMAP;
+ l_CacheDC: HDC;
+ l_Width, l_Height: Integer;
+
+ function lp_SizeGripRect: TRect;
+ var
+  CX, CY: Integer;
+ begin
+  CX := GetSystemMetrics(SM_CXVSCROLL);
+  CY := GetSystemMetrics(SM_CYHSCROLL);
+  if DropDirection = ddDown then
+   if H then
+    Result := Rect(Width - BorderWidth - CX, Height - BorderWidth - CY, Width - BorderWidth, Height - BorderWidth)
+   else
+    Result := Rect(BorderWidth, Height - BorderWidth - CY, Width - BorderWidth, Height - BorderWidth)
+  else
+   if H then
+    Result := Rect(Width - BorderWidth - CX, BorderWidth, Width - BorderWidth, Height - BorderWidth)
+   else
+    Result := Rect(BorderWidth, BorderWidth, Width - BorderWidth, BorderWidth + CY);
+ end;
+
+//#UC END# *57F62D6B0111_57F4D92C029E_var*
+//#UC START# *57F6581A0326_57F4D92C029E_impl*
+ l_RealClientWidth := Width - 2 * BorderWidth;
+ if IsBorderNearOwnerVisible then
+  l_RealClientHeight := Height - 2 * BorderWidth
+ else
+  l_RealClientHeight := Height - BorderWidth;
+ if f_SizeGrip then
+  l_RealClientHeight := l_RealClientHeight - GetSystemMetrics(SM_CYHSCROLL);
+
+ aHScroll := (f_ScrollBars in [ssHorizontal, ssBoth]) and(l_RealClientWidth < GetTotalClientWidth);
+ if aHScroll then
+  Dec(l_RealClientHeight, GetSystemMetrics(SM_CYHSCROLL));
+
+ aVScroll := (f_ScrollBars in [ssVertical, ssBoth]) and (l_RealClientHeight < GetTotalClientHeight);
+ if aVScroll then
+ begin
+  Dec(l_RealClientWidth, GetSystemMetrics(SM_CXVSCROLL));
+  aHScroll := (f_ScrollBars in [ssHorizontal, ssBoth]) and (l_RealClientWidth < GetTotalClientWidth);
+ end;
+//#UC END# *57F6581A0326_57F4D92C029E_impl*
+//#UC START# *57F6581A0326_57F4D92C029E_var*
+var
+ l_RealClientWidth,
+ l_RealClientHeight: Integer;
+//#UC END# *57F6581A0326_57F4D92C029E_var*
+//#UC START# *57F6584400CB_57F4D92C029E_impl*
+ //!!! Needs to be implemented !!!
+//#UC END# *57F6584400CB_57F4D92C029E_impl*
+//#UC START# *57F6584400CB_57F4D92C029E_var*
+//#UC END# *57F6584400CB_57F4D92C029E_var*
+//#UC START# *57F659780060_57F4D92C029Eset_impl*
+ // пока что без горизонтального
+ if aValue = ssBoth then
+  aValue := ssVertical
+ else
+ if aValue = ssHorizontal then
+  aValue := ssNone;
+
+ if (f_ScrollBars <> aValue) then
+ begin
+  f_ScrollBars := aValue;
+  RecreateWnd;
+ end;
+//#UC END# *57F659780060_57F4D92C029Eset_impl*
+//#UC START# *57F659780060_57F4D92C029Eset_var*
+//#UC END# *57F659780060_57F4D92C029Eset_var*
+//#UC START# *57F787CC00C2_57F4D92C029E_impl*
+ inherited;
+
+ if Msg.Result = HTCLIENT then
+ begin
+  X := Msg.XPos - Left;
+  Y := Msg.YPos - Top;
+  GetScrollBarsVisible(HS, VS);
+ end;
+//#UC END# *57F787CC00C2_57F4D92C029E_impl*
+//#UC START# *57F787CC00C2_57F4D92C029E_var*
+var
+ X, Y: Integer;
+ VS, HS: Boolean;
+//#UC END# *57F787CC00C2_57F4D92C029E_var*
+//#UC START# *57F787EA025B_57F4D92C029E_impl*
+ inherited;
+ GetScrollBarsVisible(H, V);
+ if not H and f_SizeGrip then
+ begin
+  if DropDirection = ddDown then
+   Dec(Msg.CalcSize_Params.rgrc[0].Bottom, GetSystemMetrics(SM_CYHSCROLL))
+  else
+   Inc(Msg.CalcSize_Params.rgrc[0].Top, GetSystemMetrics(SM_CYHSCROLL));
+ end;
+//#UC END# *57F787EA025B_57F4D92C029E_impl*
+//#UC START# *57F787EA025B_57F4D92C029E_var*
+var
+ H, V: Boolean;
+//#UC END# *57F787EA025B_57F4D92C029E_var*
+//#UC START# *57F78829017B_57F4D92C029Eset_impl*
+ if f_SizeGrip <> aValue then
+ begin
+  f_SizeGrip := aValue;
+  if f_SizeGrip then
+   AutoSize := False;
+  RecreateWnd; 
+ end;
+//#UC END# *57F78829017B_57F4D92C029Eset_impl*
+//#UC START# *57F78829017B_57F4D92C029Eset_var*
+//#UC END# *57F78829017B_57F4D92C029Eset_var*
+//#UC START# *57F7B58F0176_57F4D92C029E_impl*
+ inherited;
+
+ if (Msg.Result = HTCLIENT) then
+ begin
+  X := Msg.XPos - Left;
+  Y := Msg.YPos - Top;
+  GetScrollBarsVisible(HS, VS);
+  if (X >= Width - BorderWidth - GetSystemMetrics(SM_CXVSCROLL)) then
+  begin
+   if DropDirection = ddDown then
+    if f_SizeGrip and (Y >= Height - BorderWidth - GetSystemMetrics(SM_CXVSCROLL)) then
+     Msg.Result := HTBOTTOMRIGHT
+    else
+    if VS then
+     Msg.Result := HTVSCROLL
+    else
+     //inherited
+   else
+    if f_SizeGrip and (Y <= BorderWidth + GetSystemMetrics(SM_CXVSCROLL)) then
+     Msg.Result := HTTOPRIGHT
+    else
+    if VS then
+     Msg.Result := HTVSCROLL
+    else
+     //inherited
+  end;
+ end;
+//#UC END# *57F7B58F0176_57F4D92C029E_impl*
+//#UC START# *57F7B58F0176_57F4D92C029E_var*
+var
+ X, Y: Integer;
+ VS, HS: Boolean;
+//#UC END# *57F7B58F0176_57F4D92C029E_var*
+//#UC START# *57F7C5D10269_57F4D92C029Eget_impl*
+ Result := inherited AutoSize;
+//#UC END# *57F7C5D10269_57F4D92C029Eget_impl*
+//#UC START# *57F7C5D10269_57F4D92C029Eget_var*
+//#UC END# *57F7C5D10269_57F4D92C029Eget_var*
+//#UC START# *57F7C5D10269_57F4D92C029Eset_impl*
+ inherited AutoSize := aValue;
+ if aValue then
+ begin
+  AllowResize := False;
+  SizeGrip := False;
+ end;
+//#UC END# *57F7C5D10269_57F4D92C029Eset_impl*
+//#UC START# *57F7C5D10269_57F4D92C029Eset_var*
+//#UC END# *57F7C5D10269_57F4D92C029Eset_var*

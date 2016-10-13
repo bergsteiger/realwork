@@ -35,6 +35,7 @@ O %S%f_tpi_script_FileName()
 F %S%f_tpi_script_GenerateForward()
 	[{"%SO"!=""}\
 	%f_clear_list(GENERATED_STEREOS)\
+	[UNIT %S#f_tpi_script_FileName()\n\n]\
 	INCLUDE 'ME.ms.dict'\n\n\
 
 	<{}{"%D#f_tpi_script_FileName()"!=""}\
@@ -55,7 +56,7 @@ F %S%f_tpi_script_GenerateForward()
 
 	<%FF>\
 
-	ME %S%f_tpi_script_Name()\
+	MESTUB %S%f_tpi_script_Name()\
 	[ Inherits ( <%G#f_tpi_script_Name() ><%R#f_tpi_script_Name() >)]
 	 MEPROP UID '%SU'
 	[{"%SN"!=""}\
@@ -67,7 +68,7 @@ F %S%f_tpi_script_GenerateForward()
 	%f_with_gen_id(pas.script,%f_StereotypeInModelRef(%S))\
 	%S#f_pas_script_GenerateUserProperties()\
 	
-	ENDME // %S%f_tpi_script_Name()\n\n\
+	ENDMESTUB // %S%f_tpi_script_Name()\n\n\
 	]\
 
 //	[{%SS=MDAGenerator}%f_warning(%SN %SS)]\

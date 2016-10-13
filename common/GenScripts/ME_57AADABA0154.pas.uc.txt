@@ -30,6 +30,11 @@ w:\common\components\gui\Garant\msm\msmModelElementList.pas
 //#UC END# *57AADC1802AE_57AADABA0154_impl*
 //#UC START# *57AADC1802AE_57AADABA0154_var*
 //#UC END# *57AADC1802AE_57AADABA0154_var*
+//#UC START# *57AADC3E007E_57AADABA0154_impl*
+ Result := TmsmModelElementListFactory.Make(anElement);
+//#UC END# *57AADC3E007E_57AADABA0154_impl*
+//#UC START# *57AADC3E007E_57AADABA0154_var*
+//#UC END# *57AADC3E007E_57AADABA0154_var*
 //#UC START# *57AE2E140297_57AADABA0154get_impl*
  Result := Self.Element.rElement;
 //#UC END# *57AE2E140297_57AADABA0154get_impl*
@@ -42,7 +47,7 @@ w:\common\components\gui\Garant\msm\msmModelElementList.pas
   for l_Index := 0 to Pred(Get_Count) do
   begin
    l_E := Get_Item(l_Index);
-   if l_E.IsSameElement(anElement) then
+   if (l_E <> nil) AND l_E.IsSameElement(anElement) then
    begin
     Result := l_Index;
     Exit;
@@ -51,7 +56,7 @@ w:\common\components\gui\Garant\msm\msmModelElementList.pas
   for l_Index := 0 to Pred(Get_Count) do
   begin
    l_E := Get_Item(l_Index);
-   if l_E.IsSameElementView(anElement) then
+   if (l_E <> nil) AND l_E.IsSameElementView(anElement) then
    begin
     Result := l_Index;
     Exit;
@@ -64,3 +69,9 @@ var
  l_Index : Integer;
  l_E : ImsmModelElement;
 //#UC END# *57D1327900BC_57AADABA0154_var*
+//#UC START# *57FE4D3B0255_57AADABA0154_impl*
+ List := nil;
+ List;
+//#UC END# *57FE4D3B0255_57AADABA0154_impl*
+//#UC START# *57FE4D3B0255_57AADABA0154_var*
+//#UC END# *57FE4D3B0255_57AADABA0154_var*

@@ -1,7 +1,33 @@
+//#UC START# *242B3CA0CFEF_573B090C02C5_impl*
+ f_SelOnlyDefault := False;
+ f_SelectedOnly := aValue;
+//#UC END# *242B3CA0CFEF_573B090C02C5_impl*
+//#UC START# *242B3CA0CFEF_573B090C02C5_var*
+//#UC END# *242B3CA0CFEF_573B090C02C5_var*
+//#UC START# *4020F60E166B_573B090C02C5_impl*
+ f_SaveObjDefault := False;
+ f_SaveObjects := aValue;
+//#UC END# *4020F60E166B_573B090C02C5_impl*
+//#UC START# *4020F60E166B_573B090C02C5_var*
+//#UC END# *4020F60E166B_573B090C02C5_var*
+//#UC START# *47A042E100E2_573B090C02C5_impl*
+ inherited;
+ f_SaveObjDefault := True;
+ f_MergeDefault := True;
+ f_SelOnlyDefault := True;
+//#UC END# *47A042E100E2_573B090C02C5_impl*
+//#UC START# *47A042E100E2_573B090C02C5_var*
+//#UC END# *47A042E100E2_573B090C02C5_var*
 //#UC START# *52B375B038DC_573B090C02C5_impl*
  if Tl3BatchService.Instance.IsBatchMode then
  begin
   Result := True;
+  if f_SaveObjDefault then
+   f_SaveObjects := ns_sdlkTitles;
+  if f_MergeDefault then
+   f_MergeFiles := False;
+  if f_SelOnlyDefault then
+   f_SelectedOnly := True;
   f_FileName := ChangeFileExt(ParamStr(0), '.autosave');
   case f_FileFormat of
    ns_ffTxt: aDialog.FilterIndex := 2;
@@ -15,6 +41,12 @@
   end;
   Assert(aDialog.SelectedFileFormat = f_FileFormat);
   aDialog.FileName := f_FileName;
+  aDialog.SaveListTarget := f_SaveObjects;
+  aDialog.MergeChecked := f_MergeFiles;
+  aDialog.SelectedOnlyChecked := f_SelectedOnly;
+  f_SaveObjDefault := True;
+  f_MergeDefault := True;
+  f_SelOnlyDefault := True;
  end else
   Result := aDialog.Execute;
 //#UC END# *52B375B038DC_573B090C02C5_impl*
@@ -30,6 +62,12 @@ w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogImpl.pas
 //#UC END# *593F1F6D46A5_573B090C02C5_impl*
 //#UC START# *593F1F6D46A5_573B090C02C5_var*
 //#UC END# *593F1F6D46A5_573B090C02C5_var*
+//#UC START# *8E9943B92E87_573B090C02C5_impl*
+ f_MergeDefault := False;
+ f_MergeFiles := aValue;
+//#UC END# *8E9943B92E87_573B090C02C5_impl*
+//#UC START# *8E9943B92E87_573B090C02C5_var*
+//#UC END# *8E9943B92E87_573B090C02C5_var*
 //#UC START# *D50DF667C759_573B090C02C5_impl*
  Result := f_FileName;
 //#UC END# *D50DF667C759_573B090C02C5_impl*

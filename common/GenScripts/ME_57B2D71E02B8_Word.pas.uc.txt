@@ -10,6 +10,20 @@
    Unlock;
   end;//try..finally
  end;//with TmsmWordsCache.Instance
+ if not Result then
+ begin
+  with TmsmLostWords.Instance do
+  begin
+   Lock;
+   try
+    Result := FindData(aName, l_Index);
+    if Result then
+     aCtx.rEngine.PushObj(nil);
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmLostWords.Instance
+ end;//not Result 
 //#UC END# *57B2D71E02B8_57B2D71E02B8_Word_impl*
 //#UC START# *57B2D71E02B8_57B2D71E02B8_Word_var*
 var

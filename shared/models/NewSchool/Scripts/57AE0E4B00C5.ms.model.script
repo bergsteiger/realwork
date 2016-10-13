@@ -12,6 +12,9 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_57AE0E4B00C5
 %%Inner ME_57AE0E4B00C5
 %%Inner ME_57AE0E4B00C5
+%%Inner ME_57AE0E4B00C5
+%%Inner ME_57AE0E4B00C5
+%%Inner ME_57AE0E4B00C5
 
 FORWARD ME_57AE0E4B00C5
 
@@ -55,7 +58,7 @@ ME ME_57AE06A901F9
  MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57AE0566006E' '57AE0566006E.ms.model.script' // msmConcreteModelViewController
+   Seq: ( WL? 'ME_57AE0566006E' // msmConcreteModelViewController
  )
  ; // Inherits
  MELIST Attributes
@@ -128,7 +131,7 @@ ME ME_57B456D203BE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57AB57E20079 // TmsmTreeViewController
  ;
- MELINK Target WL 'ME_515DA5860015' '515DA5860015.ms.model.script' // TvtOutliner
+ MELINK Target WL? 'ME_515DA5860015' // TvtOutliner
  ;
 
 ENDME // ME_57B456D203BE 
@@ -148,11 +151,11 @@ ME ME_57AB57E20079
  MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57B179D70299' '57B179D70299.ms.model.script' // msmConcreteModelOwnViewController
+   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57C981AF03C7' '57C981AF03C7.ms.model.script' // msmMETreeViewController
+   Seq: ( WL? 'ME_57C981AF03C7' // msmMETreeViewController
  )
  ; // Implements
  MELIST Attributes
@@ -352,7 +355,7 @@ ME ME_57AAF20F0140
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
  ;
- MELINK Target WL 'ME_4CFFE3470249' '4CFFE3470249.ms.model.script' // TvtLister
+ MELINK Target WL? 'ME_4CFFE3470249' // TvtLister
  ;
 
 ENDME // ME_57AAF20F0140 
@@ -390,11 +393,11 @@ ME ME_57AAF18F0065
  MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57B179D70299' '57B179D70299.ms.model.script' // msmConcreteModelOwnViewController
+   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57C9879A032D' '57C9879A032D.ms.model.script' // msmMEListViewController
+   Seq: ( WL? 'ME_57C9879A032D' // msmMEListViewController
  )
  ; // Implements
  MELIST Attributes
@@ -443,7 +446,7 @@ ME ME_57D00BA4017F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57D00B730178 // TmsmDrawingViewController
  ;
- MELINK Target WL 'ME_57D00ACC01B0' '57D00ACC01B0.ms.model.script' // TmsmDrawingView
+ MELINK Target WL? 'ME_57D00ACC01B0' // TmsmDrawingView
  ;
 
 ENDME // ME_57D00BA4017F OwnViewClass
@@ -519,7 +522,7 @@ ME ME_57D00B730178
  MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57B179D70299' '57B179D70299.ms.model.script' // msmConcreteModelOwnViewController
+   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
  )
  ; // Inherits
  MELIST Attributes
@@ -695,7 +698,7 @@ ME ME_57EAA0F20125
  MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57B179D70299' '57B179D70299.ms.model.script' // msmConcreteModelOwnViewController
+   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
  )
  ; // Inherits
  MELIST Attributes
@@ -900,6 +903,94 @@ ME ME_57EB966601BF
 
 ENDME // ME_57EB966601BF TmsmMEImages
 
+FORWARD ME_57FCD0D10020
+
+ME ME_57FBA9D201AC
+ MEPROP UID '57FBA9D201AC'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FCD0D10020 // TmsmEditViewController
+ ;
+ MELINK Target WL 'ME_57FBA730025D' '57B42D1A0044.ms.model.script' // TmsmEdit
+ ;
+
+ENDME // ME_57FBA9D201AC OwnViewClass
+
+%%InheritedBy ME_57FBA9B70217 ME_57FCD0D10020
+
+ME ME_57FCD0D10020
+ MEPROP UID '57FCD0D10020'
+ MEPROP Name 'TmsmEditViewController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_57FBA9B70217' // msmEditViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FBA9D201AC // OwnViewClass
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEditViewController.pas'
+ UP extprop:rc:SelfName 'msmEditViewController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmEditViewController'
+
+ENDME // ME_57FCD0D10020 TmsmEditViewController
+
+FORWARD ME_57FCD0F30287
+
+ME ME_57FCD1080286
+ MEPROP UID '57FCD1080286'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FCD0F30287 // TmsmMemoViewController
+ ;
+ MELINK Target WL 'ME_57FCCF280377' '57B42D1A0044.ms.model.script' // TmsmMemo
+ ;
+
+ENDME // ME_57FCD1080286 OwnViewClass
+
+%%InheritedBy ME_57FBA9B70217 ME_57FCD0F30287
+
+ME ME_57FCD0F30287
+ MEPROP UID '57FCD0F30287'
+ MEPROP Name 'TmsmMemoViewController'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AE0E4B00C5 // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_57FBA9B70217' // msmEditViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FCD1080286 // OwnViewClass
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMemoViewController.pas'
+ UP extprop:rc:SelfName 'msmMemoViewController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmMemoViewController'
+
+ENDME // ME_57FCD0F30287 TmsmMemoViewController
+
 ME ME_57AE0E4B00C5
  MEPROP UID '57AE0E4B00C5'
  MEPROP Name 'ConcreteViewControllers'
@@ -908,41 +999,46 @@ ME ME_57AE0E4B00C5
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ MELINK Parent WL? 'ME_57A9C7A301DF' // msm$Lib
  ;
  MELIST Children
-   Seq: ( WL 'ME_57C977AE0264' '57C977AE0264.ms.model.script' // msmMEListLikeViewController
- WL 'ME_57C981AF03C7' '57C981AF03C7.ms.model.script' // msmMETreeViewController
+   Seq: ( WL? 'ME_57C977AE0264' // msmMEListLikeViewController
+ WL? 'ME_57C981AF03C7' // msmMETreeViewController
  HWL ME_57AE06A901F9 // TmsmMainFormController
- WL 'ME_57B45AC9019C' '57B45AC9019C.ms.model.script' // msmListAndTreeViewUtils
- WL 'ME_57C9879A032D' '57C9879A032D.ms.model.script' // msmMEListViewController
+ WL? 'ME_57B45AC9019C' // msmListAndTreeViewUtils
+ WL? 'ME_57C9879A032D' // msmMEListViewController
  HWL ME_57AB57E20079 // TmsmTreeViewController
  HWL ME_57AAF18F0065 // TmsmListViewController
  HWL ME_57D00B730178 // TmsmDrawingViewController
  HWL ME_57EAA0F20125 // TmsmButtonEditViewController
  HWL ME_57EB966601BF // TmsmMEImages
+ WL? 'ME_57FBA9B70217' // msmEditViewController
+ HWL ME_57FCD0D10020 // TmsmEditViewController
+ HWL ME_57FCD0F30287 // TmsmMemoViewController
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
- WL 'ME_4E1447600037' '4E1447600037.ms.model.script' // Common
- WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
- WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
- WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
- WL 'ME_57B6CF34012E' '57B6CF34012E.ms.model.script' // msmViewUtilsInterfaces
- WL 'ME_57C990A903C4' '57C990A903C4.ms.model.script' // ViewUtils
- WL 'ME_57C99A680247' '57C99A680247.ms.model.script' // msmListAndTreeInterfaces
- WL 'ME_57CD261B0318' '57CD261B0318.ms.model.script' // ListAndTree
- WL 'ME_57CEB008027D' '57CEB008027D.ms.model.script' // Operations
- WL 'ME_57D00A41032F' '57D00A41032F.ms.model.script' // Drawing
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_4AB0997B00A2' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4B97E7FD006C' // Outliner
+ WL? 'ME_4E1447600037' // Common
+ WL? 'ME_4F473F0902B2' // CString
+ WL? 'ME_54B90AC6014B' // StringUtils
+ WL? 'ME_57A9F4A003C8' // msmModelElements
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57AAE90E02B6' // Controllers
+ WL? 'ME_57ADC53E00B6' // msmConcreteModels
+ WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ WL? 'ME_57B6CF34012E' // msmViewUtilsInterfaces
+ WL? 'ME_57C990A903C4' // ViewUtils
+ WL? 'ME_57C99A680247' // msmListAndTreeInterfaces
+ WL? 'ME_57CD261B0318' // ListAndTree
+ WL? 'ME_57CEB008027D' // Operations
+ WL? 'ME_57D00A41032F' // Drawing
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

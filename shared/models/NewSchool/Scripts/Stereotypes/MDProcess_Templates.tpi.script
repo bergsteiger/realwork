@@ -1,27 +1,29 @@
+UNIT MDProcess_Templates.tpi.script
+
 INCLUDE 'ME.ms.dict'
 
 INCLUDE 'MDProcess_CoreTemplates.tpi.script'
 EXPORTS MDProcess_CoreTemplates.tpi.script
 
-ME gen_mda
+MESTUB gen_mda
  MEPROP UID '46E28D830109'
  MEPROP Name 'mda'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
  ;
 
-ENDME // gen_mda
+ENDMESTUB // gen_mda
 
-ME gen_mda.inc
+MESTUB gen_mda.inc
  MEPROP UID '4A09484300C6'
  MEPROP Name 'mda.inc'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_4A09484300C6' '46E16545033C.ms.model.script' // mda.inc
  ;
 
-ENDME // gen_mda.inc
+ENDMESTUB // gen_mda.inc
 
-ME gen_tpi.script
+MESTUB gen_tpi.script
  MEPROP UID '5655E2B600CA'
  MEPROP Name 'tpi.script'
  MEPROP Stereotype 'generator'
@@ -30,18 +32,18 @@ ME gen_tpi.script
  UP "lang id" 'script'
  UP "tab replace" '\\s'
 
-ENDME // gen_tpi.script
+ENDMESTUB // gen_tpi.script
 
-ME st_MDAGeneratorInner
+MESTUB st_MDAGeneratorInner
  MEPROP UID '57B5D4FD0184'
  MEPROP Name 'MDAGeneratorInner'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_57B5D4FD0184' '46E1536802AF.ms.model.script' // MDAGeneratorInner
  ;
 
-ENDME // st_MDAGeneratorInner
+ENDMESTUB // st_MDAGeneratorInner
 
-ME st_MDAGenerator
+MESTUB st_MDAGenerator
  MEPROP UID '46E1540F00AB'
  MEPROP Name 'MDAGenerator'
  MEPROP Stereotype 'MDAClass'
@@ -55,9 +57,9 @@ ME st_MDAGenerator
  UP "visualization f-font color" 4944890
  UP "visualization f-line color" 4944890
 
-ENDME // st_MDAGenerator
+ENDMESTUB // st_MDAGenerator
 
-ME st_generator::Operation Inherits ( st_MDAGeneratorInner )
+MESTUB st_generator::Operation Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E3DB9001C5'
  MEPROP Name 'generator::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -68,9 +70,9 @@ ME st_generator::Operation Inherits ( st_MDAGeneratorInner )
  UP "implementable" true
  UP "personal label" 'code_mda_op_generator'
 
-ENDME // st_generator::Operation
+ENDMESTUB // st_generator::Operation
 
-ME st_function::Operation Inherits ( st_MDAGeneratorInner )
+MESTUB st_function::Operation Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E3DB3B001F'
  MEPROP Name 'function::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -82,9 +84,9 @@ ME st_function::Operation Inherits ( st_MDAGeneratorInner )
  UP "personal label" 'code_mda_op_function'
  UP "unstereotyped" true
 
-ENDME // st_function::Operation
+ENDMESTUB // st_function::Operation
 
-ME st_transformator::Operation Inherits ( st_MDAGeneratorInner )
+MESTUB st_transformator::Operation Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E3F93A0128'
  MEPROP Name 'transformator::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -95,9 +97,9 @@ ME st_transformator::Operation Inherits ( st_MDAGeneratorInner )
  UP "implementable" true
  UP "personal label" 'code_mda_op_transformator'
 
-ENDME // st_transformator::Operation
+ENDMESTUB // st_transformator::Operation
 
-ME st_UserProperty::Attribute Inherits ( st_MDAGeneratorInner )
+MESTUB st_UserProperty::Attribute Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46EFD6DC0192'
  MEPROP Name 'UserProperty::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -108,9 +110,9 @@ ME st_UserProperty::Attribute Inherits ( st_MDAGeneratorInner )
  UP "link type" 'a'
  UP "personal label" 'code_mda_attr_up'
 
-ENDME // st_UserProperty::Attribute
+ENDMESTUB // st_UserProperty::Attribute
 
-ME st_bool::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_bool::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '46E6B9A10135'
  MEPROP Name 'bool::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -118,9 +120,9 @@ ME st_bool::Attribute Inherits ( st_UserProperty::Attribute )
  ;
  UP "implementable" false
 
-ENDME // st_bool::Attribute
+ENDMESTUB // st_bool::Attribute
 
-ME st_string::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_string::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '46E6B9AC02FA'
  MEPROP Name 'string::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -128,9 +130,9 @@ ME st_string::Attribute Inherits ( st_UserProperty::Attribute )
  ;
  UP "implementable" false
 
-ENDME // st_string::Attribute
+ENDMESTUB // st_string::Attribute
 
-ME st_include::Dependency Inherits ( st_MDAGeneratorInner )
+MESTUB st_include::Dependency Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E6CB280164'
  MEPROP Name 'include::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -138,9 +140,9 @@ ME st_include::Dependency Inherits ( st_MDAGeneratorInner )
  ;
  UP "personal label" 'code_mda_dep_include'
 
-ENDME // st_include::Dependency
+ENDMESTUB // st_include::Dependency
 
-ME st_group::Dependency Inherits ( st_MDAGeneratorInner )
+MESTUB st_group::Dependency Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E7DE3F03A6'
  MEPROP Name 'group::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -148,9 +150,9 @@ ME st_group::Dependency Inherits ( st_MDAGeneratorInner )
  ;
  UP "personal label" 'code_mda_dep_group'
 
-ENDME // st_group::Dependency
+ENDMESTUB // st_group::Dependency
 
-ME st_list::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_list::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '46E6B6890396'
  MEPROP Name 'list::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -158,36 +160,36 @@ ME st_list::Attribute Inherits ( st_UserProperty::Attribute )
  ;
  UP "implementable" false
 
-ENDME // st_list::Attribute
+ENDMESTUB // st_list::Attribute
 
-ME st_file::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_file::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '46FE5AA001E5'
  MEPROP Name 'file::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_46FE5AA001E5' '46E1536802AF.ms.model.script' // file
  ;
 
-ENDME // st_file::Attribute
+ENDMESTUB // st_file::Attribute
 
-ME st_color::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_color::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '46FE5AED032D'
  MEPROP Name 'color::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_46FE5AED032D' '46E1536802AF.ms.model.script' // color
  ;
 
-ENDME // st_color::Attribute
+ENDMESTUB // st_color::Attribute
 
-ME st_tribool::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_tribool::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '470E033101F4'
  MEPROP Name 'tribool::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470E033101F4' '46E1536802AF.ms.model.script' // tribool
  ;
 
-ENDME // st_tribool::Attribute
+ENDMESTUB // st_tribool::Attribute
 
-ME st_main_hierarchy::Dependency Inherits ( st_MDAGeneratorInner )
+MESTUB st_main_hierarchy::Dependency Inherits ( st_MDAGeneratorInner )
  MEPROP UID '49F847A30327'
  MEPROP Name 'main_hierarchy::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -195,9 +197,9 @@ ME st_main_hierarchy::Dependency Inherits ( st_MDAGeneratorInner )
  ;
  UP "personal label" 'code_mda_dep_main_hierarchy'
 
-ENDME // st_main_hierarchy::Dependency
+ENDMESTUB // st_main_hierarchy::Dependency
 
-ME st_exclude_auto_copy::Dependency Inherits ( st_MDAGeneratorInner )
+MESTUB st_exclude_auto_copy::Dependency Inherits ( st_MDAGeneratorInner )
  MEPROP UID '4AE5844A0278'
  MEPROP Name 'exclude_auto_copy::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -205,18 +207,18 @@ ME st_exclude_auto_copy::Dependency Inherits ( st_MDAGeneratorInner )
  ;
  UP "personal label" 'code_mda_dep'
 
-ENDME // st_exclude_auto_copy::Dependency
+ENDMESTUB // st_exclude_auto_copy::Dependency
 
-ME st_text::Attribute Inherits ( st_UserProperty::Attribute )
+MESTUB st_text::Attribute Inherits ( st_UserProperty::Attribute )
  MEPROP UID '4D6CD5FA03E7'
  MEPROP Name 'text::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4D6CD5FA03E7' '46E1536802AF.ms.model.script' // text
  ;
 
-ENDME // st_text::Attribute
+ENDMESTUB // st_text::Attribute
 
-ME st_MDAMainStereotype Inherits ( st_MDAGenerator )
+MESTUB st_MDAMainStereotype Inherits ( st_MDAGenerator )
  MEPROP UID '46E7B7700193'
  MEPROP Name 'MDAMainStereotype'
  MEPROP Stereotype 'MDAClass'
@@ -225,9 +227,9 @@ ME st_MDAMainStereotype Inherits ( st_MDAGenerator )
  UP "abstraction type" 'ra'
  UP "has derived impl" true
 
-ENDME // st_MDAMainStereotype
+ENDMESTUB // st_MDAMainStereotype
 
-ME st_MDASubStereotype Inherits ( st_MDAGenerator )
+MESTUB st_MDASubStereotype Inherits ( st_MDAGenerator )
  MEPROP UID '46E7ADBC0377'
  MEPROP Name 'MDASubStereotype'
  MEPROP Stereotype 'MDAClass'
@@ -240,9 +242,9 @@ ME st_MDASubStereotype Inherits ( st_MDAGenerator )
  UP "visualization f-font color" 6617700
  UP "visualization f-line color" 6617700
 
-ENDME // st_MDASubStereotype
+ENDMESTUB // st_MDASubStereotype
 
-ME st_MDASubChild Inherits ( st_MDASubStereotype )
+MESTUB st_MDASubChild Inherits ( st_MDASubStereotype )
  MEPROP UID '46E7ACEF00E7'
  MEPROP Name 'MDASubChild'
  MEPROP Stereotype 'MDAClass'
@@ -250,9 +252,9 @@ ME st_MDASubChild Inherits ( st_MDASubStereotype )
  ;
  UP "abstraction type" 'rafo'
 
-ENDME // st_MDASubChild
+ENDMESTUB // st_MDASubChild
 
-ME st_MDADependency Inherits ( st_MDASubStereotype )
+MESTUB st_MDADependency Inherits ( st_MDASubStereotype )
  MEPROP UID '46E6C0CB0116'
  MEPROP Name 'MDADependency'
  MEPROP Stereotype 'MDAClass'
@@ -261,9 +263,9 @@ ME st_MDADependency Inherits ( st_MDASubStereotype )
  UP "abstraction type" 'raf'
  UP "personal label" 'code_mda_dependency'
 
-ENDME // st_MDADependency
+ENDMESTUB // st_MDADependency
 
-ME st_MDAUtilityPack
+MESTUB st_MDAUtilityPack
  MEPROP UID '46E6CEA300A8'
  MEPROP Name 'MDAUtilityPack'
  MEPROP Stereotype 'MDAClass'
@@ -274,9 +276,9 @@ ME st_MDAUtilityPack
  UP "visualization f-font color" 16099915
  UP "visualization f-line color" 16099915
 
-ENDME // st_MDAUtilityPack
+ENDMESTUB // st_MDAUtilityPack
 
-REDEFINITION ME st_function::Operation Inherits ( st_MDAGeneratorInner )
+REDEFINITION MESTUB st_function::Operation Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E6CEE102CB'
  MEPROP Name 'function::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -286,9 +288,9 @@ REDEFINITION ME st_function::Operation Inherits ( st_MDAGeneratorInner )
  UP "personal label" 'code_mda_op_function'
  UP "unstereotyped" true
 
-ENDME // st_function::Operation
+ENDMESTUB // st_function::Operation
 
-REDEFINITION ME st_transformator::Operation Inherits ( st_MDAGeneratorInner )
+REDEFINITION MESTUB st_transformator::Operation Inherits ( st_MDAGeneratorInner )
  MEPROP UID '46E81A760106'
  MEPROP Name 'transformator::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -297,9 +299,9 @@ REDEFINITION ME st_transformator::Operation Inherits ( st_MDAGeneratorInner )
  UP "empty target" true
  UP "personal label" 'code_mda_op_transformator'
 
-ENDME // st_transformator::Operation
+ENDMESTUB // st_transformator::Operation
 
-ME st_MDAOperation Inherits ( st_MDASubChild )
+MESTUB st_MDAOperation Inherits ( st_MDASubChild )
  MEPROP UID '46E3D9F10271'
  MEPROP Name 'MDAOperation'
  MEPROP Stereotype 'MDAClass'
@@ -308,9 +310,9 @@ ME st_MDAOperation Inherits ( st_MDASubChild )
  UP "abstraction type" 'rao'
  UP "personal label" 'code_mda_operation'
 
-ENDME // st_MDAOperation
+ENDMESTUB // st_MDAOperation
 
-ME st_MDAAttribute Inherits ( st_MDASubChild )
+MESTUB st_MDAAttribute Inherits ( st_MDASubChild )
  MEPROP UID '46E40915033C'
  MEPROP Name 'MDAAttribute'
  MEPROP Stereotype 'MDAClass'
@@ -318,9 +320,9 @@ ME st_MDAAttribute Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_attribute'
 
-ENDME // st_MDAAttribute
+ENDMESTUB // st_MDAAttribute
 
-ME st_MDACategory Inherits ( st_MDAMainStereotype )
+MESTUB st_MDACategory Inherits ( st_MDAMainStereotype )
  MEPROP UID '46E1538400EA'
  MEPROP Name 'MDACategory'
  MEPROP Stereotype 'MDAClass'
@@ -331,9 +333,9 @@ ME st_MDACategory Inherits ( st_MDAMainStereotype )
  UP "visualization f-font color" 15093990
  UP "visualization f-line color" 15093990
 
-ENDME // st_MDACategory
+ENDMESTUB // st_MDACategory
 
-ME st_MDAStateMachine Inherits ( st_MDASubChild )
+MESTUB st_MDAStateMachine Inherits ( st_MDASubChild )
  MEPROP UID '470F42DA003E'
  MEPROP Name 'MDAStateMachine'
  MEPROP Stereotype 'MDAClass'
@@ -341,9 +343,9 @@ ME st_MDAStateMachine Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_statemachine'
 
-ENDME // st_MDAStateMachine
+ENDMESTUB // st_MDAStateMachine
 
-ME st_MDAState Inherits ( st_MDASubChild )
+MESTUB st_MDAState Inherits ( st_MDASubChild )
  MEPROP UID '470F4363008C'
  MEPROP Name 'MDAState'
  MEPROP Stereotype 'MDAClass'
@@ -351,9 +353,9 @@ ME st_MDAState Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_state'
 
-ENDME // st_MDAState
+ENDMESTUB // st_MDAState
 
-ME st_MDAStateAction Inherits ( st_MDASubChild )
+MESTUB st_MDAStateAction Inherits ( st_MDASubChild )
  MEPROP UID '470F43B201E4'
  MEPROP Name 'MDAStateAction'
  MEPROP Stereotype 'MDAClass'
@@ -361,9 +363,9 @@ ME st_MDAStateAction Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_state_action'
 
-ENDME // st_MDAStateAction
+ENDMESTUB // st_MDAStateAction
 
-ME st_MDATransition Inherits ( st_MDASubChild )
+MESTUB st_MDATransition Inherits ( st_MDASubChild )
  MEPROP UID '470F44760251'
  MEPROP Name 'MDATransition'
  MEPROP Stereotype 'MDAClass'
@@ -371,9 +373,9 @@ ME st_MDATransition Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_transition'
 
-ENDME // st_MDATransition
+ENDMESTUB // st_MDATransition
 
-ME st_MDATransitionAttribute Inherits ( st_MDASubChild )
+MESTUB st_MDATransitionAttribute Inherits ( st_MDASubChild )
  MEPROP UID '470F44DC0138'
  MEPROP Name 'MDATransitionAttribute'
  MEPROP Stereotype 'MDAClass'
@@ -381,9 +383,9 @@ ME st_MDATransitionAttribute Inherits ( st_MDASubChild )
  ;
  UP "personal label" 'code_mda_transition_attribute'
 
-ENDME // st_MDATransitionAttribute
+ENDMESTUB // st_MDATransitionAttribute
 
-ME st_MDAParameter Inherits ( st_MDASubStereotype )
+MESTUB st_MDAParameter Inherits ( st_MDASubStereotype )
  MEPROP UID '470F58AF0138'
  MEPROP Name 'MDAParameter'
  MEPROP Stereotype 'MDAClass'
@@ -391,9 +393,9 @@ ME st_MDAParameter Inherits ( st_MDASubStereotype )
  ;
  UP "personal label" 'code_mda_parameter'
 
-ENDME // st_MDAParameter
+ENDMESTUB // st_MDAParameter
 
-ME st_MDAAbstractClass Inherits ( st_MDAGenerator )
+MESTUB st_MDAAbstractClass Inherits ( st_MDAGenerator )
  MEPROP UID '485A71080391'
  MEPROP Name 'MDAAbstractClass'
  MEPROP Stereotype 'MDAClass'
@@ -402,9 +404,9 @@ ME st_MDAAbstractClass Inherits ( st_MDAGenerator )
  UP "abstraction type" 'a'
  UP "has derived impl" true
 
-ENDME // st_MDAAbstractClass
+ENDMESTUB // st_MDAAbstractClass
 
-ME st_MDAClass Inherits ( st_MDAMainStereotype )
+MESTUB st_MDAClass Inherits ( st_MDAMainStereotype )
  MEPROP UID '46E1537802AF'
  MEPROP Name 'MDAClass'
  MEPROP Stereotype 'MDAClass'
@@ -412,9 +414,9 @@ ME st_MDAClass Inherits ( st_MDAMainStereotype )
  ;
  UP "personal label" 'code_mda_class'
 
-ENDME // st_MDAClass
+ENDMESTUB // st_MDAClass
 
-ME st_MDATemplates
+MESTUB st_MDATemplates
  MEPROP UID '46E13A69005D'
  MEPROP Name 'MDATemplates'
  MEPROP Stereotype 'MDACategory'
@@ -426,9 +428,9 @@ ME st_MDATemplates
  UP "visualization f-font color" 16764165
  UP "visualization f-line color" 16764165
 
-ENDME // st_MDATemplates
+ENDMESTUB // st_MDATemplates
 
-ME st_MDALayer
+MESTUB st_MDALayer
  MEPROP UID '46E1534D0399'
  MEPROP Name 'MDALayer'
  MEPROP Stereotype 'MDACategory'
@@ -439,9 +441,9 @@ ME st_MDALayer
  UP "visualization f-font color" 15093990
  UP "visualization f-line color" 15093990
 
-ENDME // st_MDALayer
+ENDMESTUB // st_MDALayer
 
-ME st_MDALibrary
+MESTUB st_MDALibrary
  MEPROP UID '46E155F80242'
  MEPROP Name 'MDALibrary'
  MEPROP Stereotype 'MDACategory'
@@ -452,9 +454,9 @@ ME st_MDALibrary
  UP "visualization f-font color" 16110170
  UP "visualization f-line color" 16110170
 
-ENDME // st_MDALibrary
+ENDMESTUB // st_MDALibrary
 
-ME st_MDAReport
+MESTUB st_MDAReport
  MEPROP UID '4725C5D4004E'
  MEPROP Name 'MDAReport'
  MEPROP Stereotype 'MDAClass'
@@ -465,9 +467,9 @@ ME st_MDAReport
  UP "visualization f-font color" 16099915
  UP "visualization f-line color" 16099915
 
-ENDME // st_MDAReport
+ENDMESTUB // st_MDAReport
 
-ME st_report::Operation
+MESTUB st_report::Operation
  MEPROP UID '4725C6630128'
  MEPROP Name 'report::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -476,9 +478,9 @@ ME st_report::Operation
  UP "empty target" true
  UP "personal label" 'code_mda_op_report'
 
-ENDME // st_report::Operation
+ENDMESTUB // st_report::Operation
 
-REDEFINITION ME st_group::Dependency
+REDEFINITION MESTUB st_group::Dependency
  MEPROP UID '4725C75E002E'
  MEPROP Name 'group::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -486,9 +488,9 @@ REDEFINITION ME st_group::Dependency
  ;
  UP "personal label" 'code_mda_dep_group'
 
-ENDME // st_group::Dependency
+ENDMESTUB // st_group::Dependency
 
-ME gen_idl
+MESTUB gen_idl
  MEPROP UID '47022BBE0261'
  MEPROP Name 'idl'
  MEPROP Stereotype 'generator'
@@ -496,9 +498,9 @@ ME gen_idl
  ;
  UP "lang id" 'idl'
 
-ENDME // gen_idl
+ENDMESTUB // gen_idl
 
-ME gen_idl_ami
+MESTUB gen_idl_ami
  MEPROP UID '47022C0F01E4'
  MEPROP Name 'idl_ami'
  MEPROP Stereotype 'generator'
@@ -506,36 +508,36 @@ ME gen_idl_ami
  ;
  UP "lang id" 'idl'
 
-ENDME // gen_idl_ami
+ENDMESTUB // gen_idl_ami
 
-ME gen_ant.xml
+MESTUB gen_ant.xml
  MEPROP UID '47032F9601A5'
  MEPROP Name 'ant.xml'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47032F9601A5' '47022B0D038A.ms.model.script' // ant.xml
  ;
 
-ENDME // gen_ant.xml
+ENDMESTUB // gen_ant.xml
 
-ME gen_ant.bat
+MESTUB gen_ant.bat
  MEPROP UID '47032FA101E4'
  MEPROP Name 'ant.bat'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47032FA101E4' '47022B0D038A.ms.model.script' // ant.bat
  ;
 
-ENDME // gen_ant.bat
+ENDMESTUB // gen_ant.bat
 
-ME st_IDLImpl
+MESTUB st_IDLImpl
  MEPROP UID '471445E501F4'
  MEPROP Name 'IDLImpl'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_471445E501F4' '47022B0D038A.ms.model.script' // IDLImpl
  ;
 
-ENDME // st_IDLImpl
+ENDMESTUB // st_IDLImpl
 
-ME gen_h
+MESTUB gen_h
  MEPROP UID '47022C88029F'
  MEPROP Name 'h'
  MEPROP Stereotype 'generator'
@@ -544,9 +546,9 @@ ME gen_h
  UP "ifdef_suffix" 'H'
  UP "lang id" 'cpp'
 
-ENDME // gen_h
+ENDMESTUB // gen_h
 
-ME gen_cpp
+MESTUB gen_cpp
  MEPROP UID '47022CB8034B'
  MEPROP Name 'cpp'
  MEPROP Stereotype 'generator'
@@ -554,9 +556,9 @@ ME gen_cpp
  ;
  UP "lang id" 'cpp'
 
-ENDME // gen_cpp
+ENDMESTUB // gen_cpp
 
-ME gen_i.h
+MESTUB gen_i.h
  MEPROP UID '47022CCF00EA'
  MEPROP Name 'i.h'
  MEPROP Stereotype 'generator'
@@ -564,72 +566,72 @@ ME gen_i.h
  ;
  UP "lang id" 'cpp'
 
-ENDME // gen_i.h
+ENDMESTUB // gen_i.h
 
-ME gen_mpc
+MESTUB gen_mpc
  MEPROP UID '47031E41002E'
  MEPROP Name 'mpc'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031E41002E' '4773969402E9.ms.model.script' // mpc
  ;
 
-ENDME // gen_mpc
+ENDMESTUB // gen_mpc
 
-ME gen_mpc2
+MESTUB gen_mpc2
  MEPROP UID '47031E850177'
  MEPROP Name 'mpc2'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031E850177' '4773969402E9.ms.model.script' // mpc2
  ;
 
-ENDME // gen_mpc2
+ENDMESTUB // gen_mpc2
 
-ME gen_s.reg
+MESTUB gen_s.reg
  MEPROP UID '47031EA5002E'
  MEPROP Name 's.reg'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031EA5002E' '4773969402E9.ms.model.script' // s.reg
  ;
 
-ENDME // gen_s.reg
+ENDMESTUB // gen_s.reg
 
-ME gen_s.ini
+MESTUB gen_s.ini
  MEPROP UID '47031EDE0138'
  MEPROP Name 's.ini'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031EDE0138' '4773969402E9.ms.model.script' // s.ini
  ;
 
-ENDME // gen_s.ini
+ENDMESTUB // gen_s.ini
 
-ME gen_vi.rc
+MESTUB gen_vi.rc
  MEPROP UID '47031EF6005D'
  MEPROP Name 'vi.rc'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031EF6005D' '4773969402E9.ms.model.script' // vi.rc
  ;
 
-ENDME // gen_vi.rc
+ENDMESTUB // gen_vi.rc
 
-ME gen_vi.rch
+MESTUB gen_vi.rch
  MEPROP UID '47031F13004E'
  MEPROP Name 'vi.rch'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_47031F13004E' '4773969402E9.ms.model.script' // vi.rch
  ;
 
-ENDME // gen_vi.rch
+ENDMESTUB // gen_vi.rch
 
-ME gen_rc
+MESTUB gen_rc
  MEPROP UID '471442BE033C'
  MEPROP Name 'rc'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_471442BE033C' '4773969402E9.ms.model.script' // rc
  ;
 
-ENDME // gen_rc
+ENDMESTUB // gen_rc
 
-ME gen_odl
+MESTUB gen_odl
  MEPROP UID '47032097038A'
  MEPROP Name 'odl'
  MEPROP Stereotype 'generator'
@@ -637,27 +639,27 @@ ME gen_odl
  ;
  UP "lang id" 'cpp'
 
-ENDME // gen_odl
+ENDMESTUB // gen_odl
 
-ME gen_com.def
+MESTUB gen_com.def
  MEPROP UID '470320C1030D'
  MEPROP Name 'com.def'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_470320C1030D' '4773969402E9.ms.model.script' // com.def
  ;
 
-ENDME // gen_com.def
+ENDMESTUB // gen_com.def
 
-ME gen_com.rgs
+MESTUB gen_com.rgs
  MEPROP UID '470320E002CE'
  MEPROP Name 'com.rgs'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_470320E002CE' '4773969402E9.ms.model.script' // com.rgs
  ;
 
-ENDME // gen_com.rgs
+ENDMESTUB // gen_com.rgs
 
-ME gen_fctr.h
+MESTUB gen_fctr.h
  MEPROP UID '4705C5490109'
  MEPROP Name 'fctr.h'
  MEPROP Stereotype 'generator'
@@ -666,9 +668,9 @@ ME gen_fctr.h
  UP "ifdef_suffix" 'FCTR_H'
  UP "lang id" 'cpp'
 
-ENDME // gen_fctr.h
+ENDMESTUB // gen_fctr.h
 
-ME gen_fctr.cpp
+MESTUB gen_fctr.cpp
  MEPROP UID '4705C54B01F4'
  MEPROP Name 'fctr.cpp'
  MEPROP Stereotype 'generator'
@@ -676,9 +678,9 @@ ME gen_fctr.cpp
  ;
  UP "lang id" 'cpp'
 
-ENDME // gen_fctr.cpp
+ENDMESTUB // gen_fctr.cpp
 
-ME gen_java
+MESTUB gen_java
  MEPROP UID '470321950119'
  MEPROP Name 'java'
  MEPROP Stereotype 'generator'
@@ -686,9 +688,9 @@ ME gen_java
  ;
  UP "lang id" 'java'
 
-ENDME // gen_java
+ENDMESTUB // gen_java
 
-ME gen_fctr.java
+MESTUB gen_fctr.java
  MEPROP UID '470321C1038A'
  MEPROP Name 'fctr.java'
  MEPROP Stereotype 'generator'
@@ -696,9 +698,9 @@ ME gen_fctr.java
  ;
  UP "lang id" 'java'
 
-ENDME // gen_fctr.java
+ENDMESTUB // gen_fctr.java
 
-ME gen_output.project
+MESTUB gen_output.project
  MEPROP UID '47032220003E'
  MEPROP Name 'output.project'
  MEPROP Stereotype 'generator'
@@ -706,9 +708,9 @@ ME gen_output.project
  ;
  UP "lang id" 'xml'
 
-ENDME // gen_output.project
+ENDMESTUB // gen_output.project
 
-ME gen_output.xml
+MESTUB gen_output.xml
  MEPROP UID '4703223D01A5'
  MEPROP Name 'output.xml'
  MEPROP Stereotype 'generator'
@@ -716,9 +718,9 @@ ME gen_output.xml
  ;
  UP "lang id" 'xml'
 
-ENDME // gen_output.xml
+ENDMESTUB // gen_output.xml
 
-ME gen_build.xml
+MESTUB gen_build.xml
  MEPROP UID '47032262037A'
  MEPROP Name 'build.xml'
  MEPROP Stereotype 'generator'
@@ -726,9 +728,9 @@ ME gen_build.xml
  ;
  UP "lang id" 'xml'
 
-ENDME // gen_build.xml
+ENDMESTUB // gen_build.xml
 
-ME gen_output.classpath
+MESTUB gen_output.classpath
  MEPROP UID '470322910119'
  MEPROP Name 'output.classpath'
  MEPROP Stereotype 'generator'
@@ -736,9 +738,9 @@ ME gen_output.classpath
  ;
  UP "lang id" 'xml'
 
-ENDME // gen_output.classpath
+ENDMESTUB // gen_output.classpath
 
-ME gen_Makejar.launch
+MESTUB gen_Makejar.launch
  MEPROP UID '470322DF03A9'
  MEPROP Name 'Makejar.launch'
  MEPROP Stereotype 'generator'
@@ -746,9 +748,9 @@ ME gen_Makejar.launch
  ;
  UP "lang id" 'xml'
 
-ENDME // gen_Makejar.launch
+ENDMESTUB // gen_Makejar.launch
 
-ME gen_dll.h
+MESTUB gen_dll.h
  MEPROP UID '47032EC4032C'
  MEPROP Name 'dll.h'
  MEPROP Stereotype 'generator'
@@ -757,9 +759,9 @@ ME gen_dll.h
  UP "ifdef_suffix" 'TIE_H'
  UP "lang id" 'dll_cpp'
 
-ENDME // gen_dll.h
+ENDMESTUB // gen_dll.h
 
-ME gen_dll.cpp
+MESTUB gen_dll.cpp
  MEPROP UID '47032ED002DE'
  MEPROP Name 'dll.cpp'
  MEPROP Stereotype 'generator'
@@ -767,9 +769,9 @@ ME gen_dll.cpp
  ;
  UP "lang id" 'dll_cpp'
 
-ENDME // gen_dll.cpp
+ENDMESTUB // gen_dll.cpp
 
-ME gen_pas
+MESTUB gen_pas
  MEPROP UID '470F152700FA'
  MEPROP Name 'pas'
  MEPROP Stereotype 'generator'
@@ -777,9 +779,9 @@ ME gen_pas
  ;
  UP "lang id" 'delphi'
 
-ENDME // gen_pas
+ENDMESTUB // gen_pas
 
-ME gen_intf.pas
+MESTUB gen_intf.pas
  MEPROP UID '470F1571031C'
  MEPROP Name 'intf.pas'
  MEPROP Stereotype 'generator'
@@ -788,9 +790,9 @@ ME gen_intf.pas
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
 
-ENDME // gen_intf.pas
+ENDMESTUB // gen_intf.pas
 
-ME gen_impl.pas
+MESTUB gen_impl.pas
  MEPROP UID '470F15B800CB'
  MEPROP Name 'impl.pas'
  MEPROP Stereotype 'generator'
@@ -799,9 +801,9 @@ ME gen_impl.pas
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
 
-ENDME // gen_impl.pas
+ENDMESTUB // gen_impl.pas
 
-ME gen_intf2.pas
+MESTUB gen_intf2.pas
  MEPROP UID '477398E501C0'
  MEPROP Name 'intf2.pas'
  MEPROP Stereotype 'generator'
@@ -810,9 +812,9 @@ ME gen_intf2.pas
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
 
-ENDME // gen_intf2.pas
+ENDMESTUB // gen_intf2.pas
 
-ME gen_intf3.pas
+MESTUB gen_intf3.pas
  MEPROP UID '4774D2A20372'
  MEPROP Name 'intf3.pas'
  MEPROP Stereotype 'generator'
@@ -821,9 +823,9 @@ ME gen_intf3.pas
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
 
-ENDME // gen_intf3.pas
+ENDMESTUB // gen_intf3.pas
 
-ME gen_pas.script
+MESTUB gen_pas.script
  MEPROP UID '563244E50325'
  MEPROP Name 'pas.script'
  MEPROP Stereotype 'generator'
@@ -832,18 +834,18 @@ ME gen_pas.script
  UP "lang id" 'script'
  UP "tab replace" '\\s'
 
-ENDME // gen_pas.script
+ENDMESTUB // gen_pas.script
 
-ME gen_mpc.dll
+MESTUB gen_mpc.dll
  MEPROP UID '470F252801D4'
  MEPROP Name 'mpc.dll'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_470F252801D4' '4773984F02AA.ms.model.script' // mpc.dll
  ;
 
-ENDME // gen_mpc.dll
+ENDMESTUB // gen_mpc.dll
 
-ME gen_vm
+MESTUB gen_vm
  MEPROP UID '477394DD0114'
  MEPROP Name 'vm'
  MEPROP Stereotype 'generator'
@@ -851,18 +853,18 @@ ME gen_vm
  ;
  UP "encoding" 'utf8'
 
-ENDME // gen_vm
+ENDMESTUB // gen_vm
 
-ME gen_js
+MESTUB gen_js
  MEPROP UID '477395290327'
  MEPROP Name 'js'
  MEPROP Stereotype 'generator'
  MELINK StereotypeInModel WL 'ME_477395290327' '477399050133.ms.model.script' // js
  ;
 
-ENDME // gen_js
+ENDMESTUB // gen_js
 
-ME st_Settings Inherits ( st_WikiImplClass )
+MESTUB st_Settings Inherits ( st_WikiImplClass )
  MEPROP UID '48A27E2101E1'
  MEPROP Name 'Settings'
  MEPROP Stereotype 'MDAClass'
@@ -875,9 +877,9 @@ ME st_Settings Inherits ( st_WikiImplClass )
  UP "visualization font color" 0
  UP "visualization line color" 0
 
-ENDME // st_Settings
+ENDMESTUB // st_Settings
 
-ME st_Parameters::Attribute
+MESTUB st_Parameters::Attribute
  MEPROP UID '48A27E7F0092'
  MEPROP Name 'Parameters::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -887,27 +889,27 @@ ME st_Parameters::Attribute
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_Parameters::Attribute
+ENDMESTUB // st_Parameters::Attribute
 
-ME st_Annotate
+MESTUB st_Annotate
  MEPROP UID '4A55CDF90044'
  MEPROP Name 'Annotate'
  MEPROP Stereotype 'MDAAbstractClass'
  MELINK StereotypeInModel WL 'ME_4A55CDF90044' '470384F502CE.ms.model.script' // Annotate
  ;
 
-ENDME // st_Annotate
+ENDMESTUB // st_Annotate
 
-ME st_UsesContainer
+MESTUB st_UsesContainer
  MEPROP UID '4B2A2ADB0305'
  MEPROP Name 'UsesContainer'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4B2A2ADB0305' '470384F502CE.ms.model.script' // UsesContainer
  ;
 
-ENDME // st_UsesContainer
+ENDMESTUB // st_UsesContainer
 
-ME st_uses::Dependency
+MESTUB st_uses::Dependency
  MEPROP UID '47049B5902FD'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -915,18 +917,18 @@ ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_CallingConventionsHolder
+MESTUB st_CallingConventionsHolder
  MEPROP UID '4B72B660033E'
  MEPROP Name 'CallingConventionsHolder'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4B72B660033E' '470384F502CE.ms.model.script' // CallingConventionsHolder
  ;
 
-ENDME // st_CallingConventionsHolder
+ENDMESTUB // st_CallingConventionsHolder
 
-ME st_ClassBase Inherits ( st_WikiImplClass st_UsesContainer )
+MESTUB st_ClassBase Inherits ( st_WikiImplClass st_UsesContainer )
  MEPROP UID '4705C18D0261'
  MEPROP Name 'ClassBase'
  MEPROP Stereotype 'MDAClass'
@@ -934,9 +936,9 @@ ME st_ClassBase Inherits ( st_WikiImplClass st_UsesContainer )
  ;
  UP "can be parametrized" true
 
-ENDME // st_ClassBase
+ENDMESTUB // st_ClassBase
 
-ME st_Attr::Attribute
+MESTUB st_Attr::Attribute
  MEPROP UID '47049A0701B5'
  MEPROP Name 'Attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -948,9 +950,9 @@ ME st_Attr::Attribute
  UP "unstereotyped" true
  UP "visability type" '-#+'
 
-ENDME // st_Attr::Attribute
+ENDMESTUB // st_Attr::Attribute
 
-ME st_template::Attribute
+MESTUB st_template::Attribute
  MEPROP UID '47049B3F008C'
  MEPROP Name 'template::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -960,9 +962,9 @@ ME st_template::Attribute
  UP "link type" 'l'
  UP "personal label" 'code_template_attr'
 
-ENDME // st_template::Attribute
+ENDMESTUB // st_template::Attribute
 
-ME st_Operation::Operation Inherits ( st_Annotate st_CallingConventionsHolder )
+MESTUB st_Operation::Operation Inherits ( st_Annotate st_CallingConventionsHolder )
  MEPROP UID '47049A220138'
  MEPROP Name 'Operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -977,9 +979,9 @@ ME st_Operation::Operation Inherits ( st_Annotate st_CallingConventionsHolder )
  UP "unstereotyped" true
  UP "visability type" '-#+'
 
-ENDME // st_Operation::Operation
+ENDMESTUB // st_Operation::Operation
 
-ME st_chg::Operation Inherits ( st_Operation::Operation )
+MESTUB st_chg::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47049A480157'
  MEPROP Name 'chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -987,9 +989,9 @@ ME st_chg::Operation Inherits ( st_Operation::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_chg::Operation
+ENDMESTUB // st_chg::Operation
 
-ME st_ctor::Operation Inherits ( st_Operation::Operation )
+MESTUB st_ctor::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47049AA3038A'
  MEPROP Name 'ctor::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1001,9 +1003,9 @@ ME st_ctor::Operation Inherits ( st_Operation::Operation )
  UP "personal label" 'code_factory'
  UP "visability type" '+#-'
 
-ENDME // st_ctor::Operation
+ENDMESTUB // st_ctor::Operation
 
-ME st_oneway::Operation Inherits ( st_Operation::Operation )
+MESTUB st_oneway::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47049A720399'
  MEPROP Name 'oneway::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1012,9 +1014,9 @@ ME st_oneway::Operation Inherits ( st_Operation::Operation )
  UP "abstraction type" 'raf'
  UP "personal label" 'code_const_method'
 
-ENDME // st_oneway::Operation
+ENDMESTUB // st_oneway::Operation
 
-ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+MESTUB st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  MEPROP UID '47049A880271'
  MEPROP Name 'oneway,chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1022,9 +1024,9 @@ ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_oneway,chg::Operation
+ENDMESTUB // st_oneway,chg::Operation
 
-ME st_static::Operation Inherits ( st_Operation::Operation )
+MESTUB st_static::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47049ADD02FD'
  MEPROP Name 'static::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1033,9 +1035,9 @@ ME st_static::Operation Inherits ( st_Operation::Operation )
  UP "implementable" false
  UP "personal label" 'code_static_method'
 
-ENDME // st_static::Operation
+ENDMESTUB // st_static::Operation
 
-ME st_static::Attribute Inherits ( st_Attr::Attribute )
+MESTUB st_static::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '4705C24F008C'
  MEPROP Name 'static::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1043,9 +1045,9 @@ ME st_static::Attribute Inherits ( st_Attr::Attribute )
  ;
  UP "personal label" 'code_static_attr'
 
-ENDME // st_static::Attribute
+ENDMESTUB // st_static::Attribute
 
-ME st_friend::Dependency
+MESTUB st_friend::Dependency
  MEPROP UID '4705E460003E'
  MEPROP Name 'friend::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -1053,9 +1055,9 @@ ME st_friend::Dependency
  ;
  UP "personal label" 'code_dep_friend'
 
-ENDME // st_friend::Dependency
+ENDMESTUB // st_friend::Dependency
 
-ME st_property::Attribute Inherits ( st_Attr::Attribute st_Annotate st_CallingConventionsHolder )
+MESTUB st_property::Attribute Inherits ( st_Attr::Attribute st_Annotate st_CallingConventionsHolder )
  MEPROP UID '4773ED2300A0'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1067,9 +1069,9 @@ ME st_property::Attribute Inherits ( st_Attr::Attribute st_Annotate st_CallingCo
  UP "personal label" 'code_property'
  UP "visability type" '+#-'
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-ME st_key::Attribute
+MESTUB st_key::Attribute
  MEPROP UID '479EF1F303A6'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1080,9 +1082,9 @@ ME st_key::Attribute
  UP "personal label" 'code_attr_key'
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-ME st_readonly::Attribute Inherits ( st_property::Attribute )
+MESTUB st_readonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '4773ED64017E'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1092,9 +1094,9 @@ ME st_readonly::Attribute Inherits ( st_property::Attribute )
  UP "implementable" true
  UP "personal label" 'code_readonly_attr'
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-ME st_writeonly::Attribute Inherits ( st_property::Attribute )
+MESTUB st_writeonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '4773ED880366'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1104,9 +1106,9 @@ ME st_writeonly::Attribute Inherits ( st_property::Attribute )
  UP "implementable" true
  UP "personal label" 'code_writeonly_attr'
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-ME st_static_property::Attribute Inherits ( st_property::Attribute )
+MESTUB st_static_property::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '47CE829D00F6'
  MEPROP Name 'static_property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1116,9 +1118,9 @@ ME st_static_property::Attribute Inherits ( st_property::Attribute )
  UP "has exception" 'a'
  UP "implementable" false
 
-ENDME // st_static_property::Attribute
+ENDMESTUB // st_static_property::Attribute
 
-ME st_static_readonly::Attribute Inherits ( st_static_property::Attribute )
+MESTUB st_static_readonly::Attribute Inherits ( st_static_property::Attribute )
  MEPROP UID '47CE82CB018D'
  MEPROP Name 'static_readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1126,9 +1128,9 @@ ME st_static_readonly::Attribute Inherits ( st_static_property::Attribute )
  ;
  UP "has exception" 'g'
 
-ENDME // st_static_readonly::Attribute
+ENDMESTUB // st_static_readonly::Attribute
 
-ME st_static_writeonly::Attribute Inherits ( st_static_property::Attribute )
+MESTUB st_static_writeonly::Attribute Inherits ( st_static_property::Attribute )
  MEPROP UID '47CE842F03CC'
  MEPROP Name 'static_writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1136,9 +1138,9 @@ ME st_static_writeonly::Attribute Inherits ( st_static_property::Attribute )
  ;
  UP "has exception" 's'
 
-ENDME // st_static_writeonly::Attribute
+ENDMESTUB // st_static_writeonly::Attribute
 
-ME st_consume::Dependency
+MESTUB st_consume::Dependency
  MEPROP UID '47FC942F02A9'
  MEPROP Name 'consume::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -1146,9 +1148,9 @@ ME st_consume::Dependency
  ;
  UP "personal label" 'code_dep_consume'
 
-ENDME // st_consume::Dependency
+ENDMESTUB // st_consume::Dependency
 
-ME st_supply::Dependency
+MESTUB st_supply::Dependency
  MEPROP UID '47FC94300102'
  MEPROP Name 'supply::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -1156,9 +1158,9 @@ ME st_supply::Dependency
  ;
  UP "personal label" 'code_dep_supply'
 
-ENDME // st_supply::Dependency
+ENDMESTUB // st_supply::Dependency
 
-ME st_Iterator Inherits ( st_WikiImplClass st_UsesContainer )
+MESTUB st_Iterator Inherits ( st_WikiImplClass st_UsesContainer )
  MEPROP UID '470F016F00CB'
  MEPROP Name 'Iterator'
  MEPROP Stereotype 'MDAClass'
@@ -1170,9 +1172,9 @@ ME st_Iterator Inherits ( st_WikiImplClass st_UsesContainer )
  UP "visualization f-font color" 6572835
  UP "visualization f-line color" 6572835
 
-ENDME // st_Iterator
+ENDMESTUB // st_Iterator
 
-ME st_element_type::Attribute
+MESTUB st_element_type::Attribute
  MEPROP UID '4BAA2F1D02EA'
  MEPROP Name 'element_type::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1183,9 +1185,9 @@ ME st_element_type::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '-'
 
-ENDME // st_element_type::Attribute
+ENDMESTUB // st_element_type::Attribute
 
-ME st_in::Attribute
+MESTUB st_in::Attribute
  MEPROP UID '4BAA436D03BD'
  MEPROP Name 'in::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1196,27 +1198,27 @@ ME st_in::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_in::Attribute
+ENDMESTUB // st_in::Attribute
 
-ME st_index_type::Attribute
+MESTUB st_index_type::Attribute
  MEPROP UID '4BC3191F03A1'
  MEPROP Name 'index_type::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4BC3191F03A1' '470384F502CE.ms.model.script' // index type
  ;
 
-ENDME // st_index_type::Attribute
+ENDMESTUB // st_index_type::Attribute
 
-ME st_result_type::Attribute
+MESTUB st_result_type::Attribute
  MEPROP UID '546C958701E5'
  MEPROP Name 'result_type::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_546C958701E5' '470384F502CE.ms.model.script' // result type
  ;
 
-ENDME // st_result_type::Attribute
+ENDMESTUB // st_result_type::Attribute
 
-ME st_facetiterator Inherits ( st_Iterator )
+MESTUB st_facetiterator Inherits ( st_Iterator )
  MEPROP UID '52E285EC027B'
  MEPROP Name 'facetiterator'
  MEPROP Stereotype 'MDAClass'
@@ -1225,18 +1227,18 @@ ME st_facetiterator Inherits ( st_Iterator )
  UP "abstraction type" 'a'
  UP "implementable" true
 
-ENDME // st_facetiterator
+ENDMESTUB // st_facetiterator
 
-ME st_WikiTargetImpl
+MESTUB st_WikiTargetImpl
  MEPROP UID '47188B1503B9'
  MEPROP Name 'WikiTargetImpl'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_47188B1503B9' '470335BE01D4.ms.model.script' // WikiTargetImpl
  ;
 
-ENDME // st_WikiTargetImpl
+ENDMESTUB // st_WikiTargetImpl
 
-ME st_InstallerTarget
+MESTUB st_InstallerTarget
  MEPROP UID '470469A6035B'
  MEPROP Name 'InstallerTarget'
  MEPROP Stereotype 'MDACategory'
@@ -1248,18 +1250,18 @@ ME st_InstallerTarget
  UP "visualization f-font color" 720650
  UP "visualization f-line color" 720650
 
-ENDME // st_InstallerTarget
+ENDMESTUB // st_InstallerTarget
 
-ME st_AbstractTarget Inherits ( st_WikiTargetImpl )
+MESTUB st_AbstractTarget Inherits ( st_WikiTargetImpl )
  MEPROP UID '4715CA6D02CE'
  MEPROP Name 'AbstractTarget'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_4715CA6D02CE' '470335BE01D4.ms.model.script' // AbstractTarget
  ;
 
-ENDME // st_AbstractTarget
+ENDMESTUB // st_AbstractTarget
 
-ME st_CustomFile
+MESTUB st_CustomFile
  MEPROP UID '47048BA5035B'
  MEPROP Name 'CustomFile'
  MEPROP Stereotype 'MDAClass'
@@ -1271,9 +1273,9 @@ ME st_CustomFile
  UP "visualization f-font color" 2019870
  UP "visualization f-line color" 2019870
 
-ENDME // st_CustomFile
+ENDMESTUB // st_CustomFile
 
-ME st_CustomDirectory
+MESTUB st_CustomDirectory
  MEPROP UID '47048BD902EE'
  MEPROP Name 'CustomDirectory'
  MEPROP Stereotype 'MDAClass'
@@ -1284,9 +1286,9 @@ ME st_CustomDirectory
  UP "visualization f-font color" 2019870
  UP "visualization f-line color" 2019870
 
-ENDME // st_CustomDirectory
+ENDMESTUB // st_CustomDirectory
 
-ME st_ExeTarget Inherits ( st_AbstractTarget )
+MESTUB st_ExeTarget Inherits ( st_AbstractTarget )
  MEPROP UID '470382290251'
  MEPROP Name 'ExeTarget'
  MEPROP Stereotype 'MDACategory'
@@ -1298,9 +1300,9 @@ ME st_ExeTarget Inherits ( st_AbstractTarget )
  UP "visualization f-font color" 5961040
  UP "visualization f-line color" 5305680
 
-ENDME // st_ExeTarget
+ENDMESTUB // st_ExeTarget
 
-ME st_AdapterTarget Inherits ( st_AbstractTarget )
+MESTUB st_AdapterTarget Inherits ( st_AbstractTarget )
  MEPROP UID '47046C6B02FD'
  MEPROP Name 'AdapterTarget'
  MEPROP Stereotype 'MDACategory'
@@ -1311,9 +1313,9 @@ ME st_AdapterTarget Inherits ( st_AbstractTarget )
  UP "visualization f-font color" 5961040
  UP "visualization f-line color" 5305680
 
-ENDME // st_AdapterTarget
+ENDMESTUB // st_AdapterTarget
 
-ME st_AdapterTargetUnion Inherits ( st_AdapterTarget )
+MESTUB st_AdapterTargetUnion Inherits ( st_AdapterTarget )
  MEPROP UID '4739321200EA'
  MEPROP Name 'AdapterTargetUnion'
  MEPROP Stereotype 'MDACategory'
@@ -1321,9 +1323,9 @@ ME st_AdapterTargetUnion Inherits ( st_AdapterTarget )
  ;
  UP "personal label" 'code_adapter_target_union'
 
-ENDME // st_AdapterTargetUnion
+ENDMESTUB // st_AdapterTargetUnion
 
-ME st_ComTarget Inherits ( st_AbstractTarget )
+MESTUB st_ComTarget Inherits ( st_AbstractTarget )
  MEPROP UID '47046A7002FD'
  MEPROP Name 'ComTarget'
  MEPROP Stereotype 'MDACategory'
@@ -1335,9 +1337,9 @@ ME st_ComTarget Inherits ( st_AbstractTarget )
  UP "visualization f-font color" 5961040
  UP "visualization f-line color" 5305680
 
-ENDME // st_ComTarget
+ENDMESTUB // st_ComTarget
 
-ME st_AdapterRoot
+MESTUB st_AdapterRoot
  MEPROP UID '4F0F7133009C'
  MEPROP Name 'AdapterRoot'
  MEPROP Stereotype 'MDAClass'
@@ -1349,9 +1351,9 @@ ME st_AdapterRoot
  UP "visualization f-font color" 2019870
  UP "visualization f-line color" 2019870
 
-ENDME // st_AdapterRoot
+ENDMESTUB // st_AdapterRoot
 
-ME st_export::Dependency
+MESTUB st_export::Dependency
  MEPROP UID '4F0F71EF03C8'
  MEPROP Name 'export::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -1359,9 +1361,9 @@ ME st_export::Dependency
  ;
  UP "personal label" 'code_dep_export'
 
-ENDME // st_export::Dependency
+ENDMESTUB // st_export::Dependency
 
-ME st_AdapterRootPackage
+MESTUB st_AdapterRootPackage
  MEPROP UID '4F0F7EE902FD'
  MEPROP Name 'AdapterRootPackage'
  MEPROP Stereotype 'MDACategory'
@@ -1372,18 +1374,18 @@ ME st_AdapterRootPackage
  UP "visualization f-font color" 2021150
  UP "visualization f-line color" 2021150
 
-ENDME // st_AdapterRootPackage
+ENDMESTUB // st_AdapterRootPackage
 
-ME st_Const_Iterator Inherits ( st_Iterator )
+MESTUB st_Const_Iterator Inherits ( st_Iterator )
  MEPROP UID '470F01DB0148'
  MEPROP Name 'Const_Iterator'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_470F01DB0148' '470F01500290.ms.model.script' // Const Iterator
  ;
 
-ENDME // st_Const_Iterator
+ENDMESTUB // st_Const_Iterator
 
-ME st_BaseContainer
+MESTUB st_BaseContainer
  MEPROP UID '470F07F9004E'
  MEPROP Name 'BaseContainer'
  MEPROP Stereotype 'MDAClass'
@@ -1394,9 +1396,9 @@ ME st_BaseContainer
  UP "visualization f-font color" 6572835
  UP "visualization f-line color" 6572835
 
-ENDME // st_BaseContainer
+ENDMESTUB // st_BaseContainer
 
-ME st_attr::Attribute
+MESTUB st_attr::Attribute
  MEPROP UID '470F0883001F'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1406,9 +1408,9 @@ ME st_attr::Attribute
  UP "personal label" 'code_attr'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_BaseMap Inherits ( st_BaseContainer )
+MESTUB st_BaseMap Inherits ( st_BaseContainer )
  MEPROP UID '470F01FA031C'
  MEPROP Name 'BaseMap'
  MEPROP Stereotype 'MDAClass'
@@ -1417,9 +1419,9 @@ ME st_BaseMap Inherits ( st_BaseContainer )
  UP "personal label" 'code_map'
  UP "visability type" '+#-'
 
-ENDME // st_BaseMap
+ENDMESTUB // st_BaseMap
 
-ME st_allocator::Attribute
+MESTUB st_allocator::Attribute
  MEPROP UID '470F02CE005D'
  MEPROP Name 'allocator::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1428,9 +1430,9 @@ ME st_allocator::Attribute
  UP "link type" 'l'
  UP "personal label" 'code_allocator'
 
-ENDME // st_allocator::Attribute
+ENDMESTUB // st_allocator::Attribute
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '4BFA518A001D'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1438,9 +1440,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_key::Attribute
+REDEFINITION MESTUB st_key::Attribute
  MEPROP UID '470F0428034B'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1452,18 +1454,18 @@ REDEFINITION ME st_key::Attribute
  UP "personal label" 'code_attr_key'
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-ME st_Map Inherits ( st_BaseMap )
+MESTUB st_Map Inherits ( st_BaseMap )
  MEPROP UID '470F05F10399'
  MEPROP Name 'Map'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_470F05F10399' '470F01500290.ms.model.script' // Map
  ;
 
-ENDME // st_Map
+ENDMESTUB // st_Map
 
-ME st_compare::Attribute
+MESTUB st_compare::Attribute
  MEPROP UID '470F030E00BB'
  MEPROP Name 'compare::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1472,9 +1474,9 @@ ME st_compare::Attribute
  UP "link type" 'l'
  UP "personal label" 'code_comparator'
 
-ENDME // st_compare::Attribute
+ENDMESTUB // st_compare::Attribute
 
-ME st_HashMap Inherits ( st_Map )
+MESTUB st_HashMap Inherits ( st_Map )
  MEPROP UID '470F067B0138'
  MEPROP Name 'HashMap'
  MEPROP Stereotype 'MDAClass'
@@ -1482,9 +1484,9 @@ ME st_HashMap Inherits ( st_Map )
  ;
  UP "internal" true
 
-ENDME // st_HashMap
+ENDMESTUB // st_HashMap
 
-ME st_hasher::Attribute
+MESTUB st_hasher::Attribute
  MEPROP UID '470F06C102EE'
  MEPROP Name 'hasher::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1493,18 +1495,18 @@ ME st_hasher::Attribute
  UP "empty target" true
  UP "personal label" 'code_hasher'
 
-ENDME // st_hasher::Attribute
+ENDMESTUB // st_hasher::Attribute
 
-ME st_MultiMap Inherits ( st_Map )
+MESTUB st_MultiMap Inherits ( st_Map )
  MEPROP UID '470F0379030D'
  MEPROP Name 'MultiMap'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_470F0379030D' '470F01500290.ms.model.script' // MultiMap
  ;
 
-ENDME // st_MultiMap
+ENDMESTUB // st_MultiMap
 
-ME st_Vector Inherits ( st_BaseContainer )
+MESTUB st_Vector Inherits ( st_BaseContainer )
  MEPROP UID '470F096E0203'
  MEPROP Name 'Vector'
  MEPROP Stereotype 'MDAClass'
@@ -1512,18 +1514,18 @@ ME st_Vector Inherits ( st_BaseContainer )
  ;
  UP "personal label" 'code_vector'
 
-ENDME // st_Vector
+ENDMESTUB // st_Vector
 
-REDEFINITION ME st_allocator::Attribute Inherits ( st_allocator::Attribute )
+REDEFINITION MESTUB st_allocator::Attribute Inherits ( st_allocator::Attribute )
  MEPROP UID '470F0B1202FD'
  MEPROP Name 'allocator::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470F0B1202FD' '470F01500290.ms.model.script' // allocator
  ;
 
-ENDME // st_allocator::Attribute
+ENDMESTUB // st_allocator::Attribute
 
-ME st_UnsortedSet Inherits ( st_BaseContainer )
+MESTUB st_UnsortedSet Inherits ( st_BaseContainer )
  MEPROP UID '470F0922033C'
  MEPROP Name 'UnsortedSet'
  MEPROP Stereotype 'MDAClass'
@@ -1531,36 +1533,36 @@ ME st_UnsortedSet Inherits ( st_BaseContainer )
  ;
  UP "personal label" 'code_unsorted_set'
 
-ENDME // st_UnsortedSet
+ENDMESTUB // st_UnsortedSet
 
-REDEFINITION ME st_allocator::Attribute Inherits ( st_allocator::Attribute )
+REDEFINITION MESTUB st_allocator::Attribute Inherits ( st_allocator::Attribute )
  MEPROP UID '470F0ADC006D'
  MEPROP Name 'allocator::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470F0ADC006D' '470F01500290.ms.model.script' // allocator
  ;
 
-ENDME // st_allocator::Attribute
+ENDMESTUB // st_allocator::Attribute
 
-REDEFINITION ME st_compare::Attribute Inherits ( st_compare::Attribute )
+REDEFINITION MESTUB st_compare::Attribute Inherits ( st_compare::Attribute )
  MEPROP UID '494636A40261'
  MEPROP Name 'compare::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_494636A40261' '470F01500290.ms.model.script' // compare
  ;
 
-ENDME // st_compare::Attribute
+ENDMESTUB // st_compare::Attribute
 
-REDEFINITION ME st_hasher::Attribute Inherits ( st_hasher::Attribute )
+REDEFINITION MESTUB st_hasher::Attribute Inherits ( st_hasher::Attribute )
  MEPROP UID '494636C30135'
  MEPROP Name 'hasher::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_494636C30135' '470F01500290.ms.model.script' // hasher
  ;
 
-ENDME // st_hasher::Attribute
+ENDMESTUB // st_hasher::Attribute
 
-ME st_Set Inherits ( st_Vector )
+MESTUB st_Set Inherits ( st_Vector )
  MEPROP UID '470F08DC0157'
  MEPROP Name 'Set'
  MEPROP Stereotype 'MDAClass'
@@ -1568,18 +1570,18 @@ ME st_Set Inherits ( st_Vector )
  ;
  UP "personal label" 'code_set'
 
-ENDME // st_Set
+ENDMESTUB // st_Set
 
-REDEFINITION ME st_compare::Attribute Inherits ( st_compare::Attribute )
+REDEFINITION MESTUB st_compare::Attribute Inherits ( st_compare::Attribute )
  MEPROP UID '470F090503B9'
  MEPROP Name 'compare::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470F090503B9' '470F01500290.ms.model.script' // compare
  ;
 
-ENDME // st_compare::Attribute
+ENDMESTUB // st_compare::Attribute
 
-ME st_Queue Inherits ( st_BaseContainer )
+MESTUB st_Queue Inherits ( st_BaseContainer )
  MEPROP UID '470F0B9902BF'
  MEPROP Name 'Queue'
  MEPROP Stereotype 'MDAClass'
@@ -1587,18 +1589,18 @@ ME st_Queue Inherits ( st_BaseContainer )
  ;
  UP "personal label" 'code_queue'
 
-ENDME // st_Queue
+ENDMESTUB // st_Queue
 
-ME st_List Inherits ( st_Vector )
+MESTUB st_List Inherits ( st_Vector )
  MEPROP UID '470F0BDF0271'
  MEPROP Name 'List'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_470F0BDF0271' '470F01500290.ms.model.script' // List
  ;
 
-ENDME // st_List
+ENDMESTUB // st_List
 
-ME st_UnsortedMap Inherits ( st_HashMap )
+MESTUB st_UnsortedMap Inherits ( st_HashMap )
  MEPROP UID '470F050F01B5'
  MEPROP Name 'UnsortedMap'
  MEPROP Stereotype 'MDAClass'
@@ -1606,27 +1608,27 @@ ME st_UnsortedMap Inherits ( st_HashMap )
  ;
  UP "personal label" 'code_unsorted_map'
 
-ENDME // st_UnsortedMap
+ENDMESTUB // st_UnsortedMap
 
-ME st_Array Inherits ( st_Vector )
+MESTUB st_Array Inherits ( st_Vector )
  MEPROP UID '4A0D1146004D'
  MEPROP Name 'Array'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4A0D1146004D' '470F01500290.ms.model.script' // Array
  ;
 
-ENDME // st_Array
+ENDMESTUB // st_Array
 
-ME st_FixedArray Inherits ( st_BaseContainer )
+MESTUB st_FixedArray Inherits ( st_BaseContainer )
  MEPROP UID '4A10F31901C6'
  MEPROP Name 'FixedArray'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4A10F31901C6' '470F01500290.ms.model.script' // FixedArray
  ;
 
-ENDME // st_FixedArray
+ENDMESTUB // st_FixedArray
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '4A10F404034B'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1635,9 +1637,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
  UP "link type" 'arl'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_size::Attribute
+MESTUB st_size::Attribute
  MEPROP UID '4A10FE01039E'
  MEPROP Name 'size::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1648,18 +1650,18 @@ ME st_size::Attribute
  UP "personal label" 'code_key_attr'
  UP "unstereotyped" true
 
-ENDME // st_size::Attribute
+ENDMESTUB // st_size::Attribute
 
-ME st_AllContainerInclude
+MESTUB st_AllContainerInclude
  MEPROP UID '4A10F7610180'
  MEPROP Name 'AllContainerInclude'
  MEPROP Stereotype 'MDAAbstractClass'
  MELINK StereotypeInModel WL 'ME_4A10F7610180' '470F01500290.ms.model.script' // AllContainerInclude
  ;
 
-ENDME // st_AllContainerInclude
+ENDMESTUB // st_AllContainerInclude
 
-ME st_Deque Inherits ( st_BaseContainer )
+MESTUB st_Deque Inherits ( st_BaseContainer )
  MEPROP UID '5086903001FE'
  MEPROP Name 'Deque'
  MEPROP Stereotype 'MDAClass'
@@ -1667,9 +1669,9 @@ ME st_Deque Inherits ( st_BaseContainer )
  ;
  UP "personal label" 'code_deque'
 
-ENDME // st_Deque
+ENDMESTUB // st_Deque
 
-ME st_Typedef
+MESTUB st_Typedef
  MEPROP UID '470F144E000F'
  MEPROP Name 'Typedef'
  MEPROP Stereotype 'MDAClass'
@@ -1681,9 +1683,9 @@ ME st_Typedef
  UP "visualization f-font color" 2313060
  UP "visualization f-line color" 2313060
 
-ENDME // st_Typedef
+ENDMESTUB // st_Typedef
 
-ME st_Constants
+MESTUB st_Constants
  MEPROP UID '470F16EE0242'
  MEPROP Name 'Constants'
  MEPROP Stereotype 'MDAClass'
@@ -1695,9 +1697,9 @@ ME st_Constants
  UP "visualization f-font color" 6579300
  UP "visualization f-line color" 6579300
 
-ENDME // st_Constants
+ENDMESTUB // st_Constants
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '470F17590109'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1708,18 +1710,18 @@ REDEFINITION ME st_attr::Attribute
  UP "personal label" 'code_attr'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_injects::Dependency
+MESTUB st_injects::Dependency
  MEPROP UID '55BF20350026'
  MEPROP Name 'injects::Dependency'
  MEPROP Stereotype 'MDADependency'
  MELINK StereotypeInModel WL 'ME_55BF20350026' '470EF9BF0138.ms.model.script' // injects
  ;
 
-ENDME // st_injects::Dependency
+ENDMESTUB // st_injects::Dependency
 
-ME st_Enum
+MESTUB st_Enum
  MEPROP UID '470F198F0000'
  MEPROP Name 'Enum'
  MEPROP Stereotype 'MDAClass'
@@ -1732,9 +1734,9 @@ ME st_Enum
  UP "visualization f-font color" 2313060
  UP "visualization f-line color" 2313060
 
-ENDME // st_Enum
+ENDMESTUB // st_Enum
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '470F1A0100DA'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1746,9 +1748,9 @@ REDEFINITION ME st_attr::Attribute
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_Exception Inherits ( st_WikiImplClass )
+MESTUB st_Exception Inherits ( st_WikiImplClass )
  MEPROP UID '470F1AB702CE'
  MEPROP Name 'Exception'
  MEPROP Stereotype 'MDAClass'
@@ -1762,9 +1764,9 @@ ME st_Exception Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 658175
  UP "visualization f-line color" 658175
 
-ENDME // st_Exception
+ENDMESTUB // st_Exception
 
-REDEFINITION ME st_ctor::Operation
+REDEFINITION MESTUB st_ctor::Operation
  MEPROP UID '470F1B49030D'
  MEPROP Name 'ctor::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1776,9 +1778,9 @@ REDEFINITION ME st_ctor::Operation
  UP "personal label" 'code_factory'
  UP "visability type" '+#'
 
-ENDME // st_ctor::Operation
+ENDMESTUB // st_ctor::Operation
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '470F1B890000'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1789,9 +1791,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
  UP "unstereotyped" true
  UP "visability type" '-'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_sequence::Attribute Inherits ( st_attr::Attribute )
+MESTUB st_sequence::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '470F1BD700CB'
  MEPROP Name 'sequence::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1800,9 +1802,9 @@ ME st_sequence::Attribute Inherits ( st_attr::Attribute )
  UP "personal label" 'code_sequence_attr'
  UP "visability type" '+#-'
 
-ENDME // st_sequence::Attribute
+ENDMESTUB // st_sequence::Attribute
 
-REDEFINITION ME st_property::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_property::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '4787A55D00FD'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1810,27 +1812,27 @@ REDEFINITION ME st_property::Attribute Inherits ( st_property::Attribute )
  ;
  UP "visability type" '+#-'
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-REDEFINITION ME st_readonly::Attribute Inherits ( st_readonly::Attribute )
+REDEFINITION MESTUB st_readonly::Attribute Inherits ( st_readonly::Attribute )
  MEPROP UID '4787A67F030D'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4787A67F030D' '470EF9BF0138.ms.model.script' // readonly
  ;
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-REDEFINITION ME st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
+REDEFINITION MESTUB st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  MEPROP UID '4787A6A0002B'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4787A6A0002B' '470EF9BF0138.ms.model.script' // writeonly
  ;
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-ME st_Struct Inherits ( st_WikiImplClass )
+MESTUB st_Struct Inherits ( st_WikiImplClass )
  MEPROP UID '470F33CD0242'
  MEPROP Name 'Struct'
  MEPROP Stereotype 'MDAClass'
@@ -1843,9 +1845,9 @@ ME st_Struct Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 2313060
  UP "visualization f-line color" 2313060
 
-ENDME // st_Struct
+ENDMESTUB // st_Struct
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '470F3680003E'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1858,9 +1860,9 @@ REDEFINITION ME st_attr::Attribute
  UP "unstereotyped" true
  UP "visability type" '+#-'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_ctor::Operation
+REDEFINITION MESTUB st_ctor::Operation
  MEPROP UID '470F36C70128'
  MEPROP Name 'ctor::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -1870,18 +1872,18 @@ REDEFINITION ME st_ctor::Operation
  UP "personal label" 'code_factory'
  UP "visability type" '+#-'
 
-ENDME // st_ctor::Operation
+ENDMESTUB // st_ctor::Operation
 
-REDEFINITION ME st_sequence::Attribute Inherits ( st_attr::Attribute )
+REDEFINITION MESTUB st_sequence::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '470F36E20261'
  MEPROP Name 'sequence::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470F36E20261' '470EF9BF0138.ms.model.script' // sequence
  ;
 
-ENDME // st_sequence::Attribute
+ENDMESTUB // st_sequence::Attribute
 
-ME st_Union
+MESTUB st_Union
  MEPROP UID '470F3839033C'
  MEPROP Name 'Union'
  MEPROP Stereotype 'MDAClass'
@@ -1893,9 +1895,9 @@ ME st_Union
  UP "visualization f-font color" 2313060
  UP "visualization f-line color" 2313060
 
-ENDME // st_Union
+ENDMESTUB // st_Union
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '470F38E001D4'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1906,9 +1908,9 @@ REDEFINITION ME st_attr::Attribute
  UP "personal label" 'code_attr'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_switch::Attribute
+MESTUB st_switch::Attribute
  MEPROP UID '470F3908000F'
  MEPROP Name 'switch::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1916,9 +1918,9 @@ ME st_switch::Attribute
  ;
  UP "personal label" 'code_switch_attr'
 
-ENDME // st_switch::Attribute
+ENDMESTUB // st_switch::Attribute
 
-ME st_BitMask
+MESTUB st_BitMask
  MEPROP UID '470F39A900EA'
  MEPROP Name 'BitMask'
  MEPROP Stereotype 'MDAClass'
@@ -1930,9 +1932,9 @@ ME st_BitMask
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_BitMask
+ENDMESTUB // st_BitMask
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '470F3A1C038A'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1944,9 +1946,9 @@ REDEFINITION ME st_attr::Attribute
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_InstanceDef
+MESTUB st_InstanceDef
  MEPROP UID '47134EBE030D'
  MEPROP Name 'InstanceDef'
  MEPROP Stereotype 'MDAClass'
@@ -1958,9 +1960,9 @@ ME st_InstanceDef
  UP "visualization f-font color" 700210
  UP "visualization f-line color" 699954
 
-ENDME // st_InstanceDef
+ENDMESTUB // st_InstanceDef
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '47134F7702BF'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -1970,9 +1972,9 @@ REDEFINITION ME st_attr::Attribute
  UP "personal label" 'code_attr'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '47134F91007D'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -1980,9 +1982,9 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_ImpurityParamType
+MESTUB st_ImpurityParamType
  MEPROP UID '47A1ABD80383'
  MEPROP Name 'ImpurityParamType'
  MEPROP Stereotype 'MDAClass'
@@ -1995,18 +1997,18 @@ ME st_ImpurityParamType
  UP "visualization f-font color" 12614523
  UP "visualization f-line color" 12614523
 
-ENDME // st_ImpurityParamType
+ENDMESTUB // st_ImpurityParamType
 
-ME st_ValueMapper
+MESTUB st_ValueMapper
  MEPROP UID '4B97725D025B'
  MEPROP Name 'ValueMapper'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4B97725D025B' '470EF9BF0138.ms.model.script' // ValueMapper
  ;
 
-ENDME // st_ValueMapper
+ENDMESTUB // st_ValueMapper
 
-ME st_ConstantArray Inherits ( st_ValueMapper )
+MESTUB st_ConstantArray Inherits ( st_ValueMapper )
  MEPROP UID '47FDE8610215'
  MEPROP Name 'ConstantArray'
  MEPROP Stereotype 'MDAClass'
@@ -2019,9 +2021,9 @@ ME st_ConstantArray Inherits ( st_ValueMapper )
  UP "visualization f-font color" 6579300
  UP "visualization f-line color" 6579300
 
-ENDME // st_ConstantArray
+ENDMESTUB // st_ConstantArray
 
-ME st_array_element::Attribute
+MESTUB st_array_element::Attribute
  MEPROP UID '47FDE8AF00BE'
  MEPROP Name 'array_element::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2031,9 +2033,9 @@ ME st_array_element::Attribute
  UP "personal label" 'code_attr'
  UP "unstereotyped" true
 
-ENDME // st_array_element::Attribute
+ENDMESTUB // st_array_element::Attribute
 
-ME st_LocalConst Inherits ( st_Constants st_WikiImplClass st_ValueMapper )
+MESTUB st_LocalConst Inherits ( st_Constants st_WikiImplClass st_ValueMapper )
  MEPROP UID '4B386A11030E'
  MEPROP Name 'LocalConst'
  MEPROP Stereotype 'MDAClass'
@@ -2045,9 +2047,9 @@ ME st_LocalConst Inherits ( st_Constants st_WikiImplClass st_ValueMapper )
  UP "visualization f-font color" 9143144
  UP "visualization f-line color" 9143144
 
-ENDME // st_LocalConst
+ENDMESTUB // st_LocalConst
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '4DC1281403A3'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2055,18 +2057,18 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_MessagePrim Inherits ( st_attr::Attribute )
+MESTUB st_MessagePrim Inherits ( st_attr::Attribute )
  MEPROP UID '4E09AE2E02B6'
  MEPROP Name 'MessagePrim'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_4E09AE2E02B6' '470EF9BF0138.ms.model.script' // MessagePrim
  ;
 
-ENDME // st_MessagePrim
+ENDMESTUB // st_MessagePrim
 
-ME st_Message Inherits ( st_WikiImplClass st_MessagePrim )
+MESTUB st_Message Inherits ( st_WikiImplClass st_MessagePrim )
  MEPROP UID '4E01DC9002B0'
  MEPROP Name 'Message'
  MEPROP Stereotype 'MDAClass'
@@ -2077,27 +2079,27 @@ ME st_Message Inherits ( st_WikiImplClass st_MessagePrim )
  UP "visualization f-font color" 8388736
  UP "visualization f-line color" 8388736
 
-ENDME // st_Message
+ENDMESTUB // st_Message
 
-ME st_CustomChoice::Attribute
+MESTUB st_CustomChoice::Attribute
  MEPROP UID '4E09D0A100CC'
  MEPROP Name 'CustomChoice::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4E09D0A100CC' '470EF9BF0138.ms.model.script' // CustomChoice
  ;
 
-ENDME // st_CustomChoice::Attribute
+ENDMESTUB // st_CustomChoice::Attribute
 
-ME st_DefaultChoice::Attribute
+MESTUB st_DefaultChoice::Attribute
  MEPROP UID '4E09D1030281'
  MEPROP Name 'DefaultChoice::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_4E09D1030281' '470EF9BF0138.ms.model.script' // DefaultChoice
  ;
 
-ENDME // st_DefaultChoice::Attribute
+ENDMESTUB // st_DefaultChoice::Attribute
 
-ME st_Choices Inherits ( st_LocalConst )
+MESTUB st_Choices Inherits ( st_LocalConst )
  MEPROP UID '4E09AB0A01C4'
  MEPROP Name 'Choices'
  MEPROP Stereotype 'MDAClass'
@@ -2105,9 +2107,9 @@ ME st_Choices Inherits ( st_LocalConst )
  ;
  UP "inherite constraints" false
 
-ENDME // st_Choices
+ENDMESTUB // st_Choices
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_attr::Attribute )
  MEPROP UID '4E09ABF1010D'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2115,9 +2117,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_attr::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_Choice Inherits ( st_WikiImplClass st_attr::Attribute )
+MESTUB st_Choice Inherits ( st_WikiImplClass st_attr::Attribute )
  MEPROP UID '4E09CACE010E'
  MEPROP Name 'Choice'
  MEPROP Stereotype 'MDAClass'
@@ -2128,9 +2130,9 @@ ME st_Choice Inherits ( st_WikiImplClass st_attr::Attribute )
  UP "visualization f-font color" 8388736
  UP "visualization f-line color" 8388736
 
-ENDME // st_Choice
+ENDMESTUB // st_Choice
 
-ME st_FunctorBase
+MESTUB st_FunctorBase
  MEPROP UID '4713197703A9'
  MEPROP Name 'FunctorBase'
  MEPROP Stereotype 'MDAClass'
@@ -2143,9 +2145,9 @@ ME st_FunctorBase
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_FunctorBase
+ENDMESTUB // st_FunctorBase
 
-REDEFINITION ME st_attr::Attribute
+REDEFINITION MESTUB st_attr::Attribute
  MEPROP UID '4713261D0109'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2157,9 +2159,9 @@ REDEFINITION ME st_attr::Attribute
  UP "unstereotyped" true
  UP "visability type" '-+'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '471326540280'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2167,27 +2169,27 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-REDEFINITION ME st_ctor::Operation Inherits ( st_ctor::Operation )
+REDEFINITION MESTUB st_ctor::Operation Inherits ( st_ctor::Operation )
  MEPROP UID '482BD31C000D'
  MEPROP Name 'ctor::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_482BD31C000D' '4713175502FD.ms.model.script' // ctor
  ;
 
-ENDME // st_ctor::Operation
+ENDMESTUB // st_ctor::Operation
 
-ME st_UnaryFunctor Inherits ( st_FunctorBase )
+MESTUB st_UnaryFunctor Inherits ( st_FunctorBase )
  MEPROP UID '471326A40232'
  MEPROP Name 'UnaryFunctor'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_471326A40232' '4713175502FD.ms.model.script' // UnaryFunctor
  ;
 
-ENDME // st_UnaryFunctor
+ENDMESTUB // st_UnaryFunctor
 
-ME st_result::Attribute
+MESTUB st_result::Attribute
  MEPROP UID '471327120119'
  MEPROP Name 'result::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2197,9 +2199,9 @@ ME st_result::Attribute
  UP "personal label" 'code_result'
  UP "visability type" '+'
 
-ENDME // st_result::Attribute
+ENDMESTUB // st_result::Attribute
 
-ME st_param::Attribute
+MESTUB st_param::Attribute
  MEPROP UID '4713275603C8'
  MEPROP Name 'param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2210,18 +2212,18 @@ ME st_param::Attribute
  UP "personal label" 'code_param_attr'
  UP "visability type" '+'
 
-ENDME // st_param::Attribute
+ENDMESTUB // st_param::Attribute
 
-ME st_Predicate Inherits ( st_FunctorBase )
+MESTUB st_Predicate Inherits ( st_FunctorBase )
  MEPROP UID '47132786033C'
  MEPROP Name 'Predicate'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47132786033C' '4713175502FD.ms.model.script' // Predicate
  ;
 
-ENDME // st_Predicate
+ENDMESTUB // st_Predicate
 
-REDEFINITION ME st_param::Attribute
+REDEFINITION MESTUB st_param::Attribute
  MEPROP UID '471327AE037A'
  MEPROP Name 'param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2231,18 +2233,18 @@ REDEFINITION ME st_param::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_param::Attribute
+ENDMESTUB // st_param::Attribute
 
-ME st_BinaryFunctor Inherits ( st_FunctorBase )
+MESTUB st_BinaryFunctor Inherits ( st_FunctorBase )
  MEPROP UID '471327DD0222'
  MEPROP Name 'BinaryFunctor'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_471327DD0222' '4713175502FD.ms.model.script' // BinaryFunctor
  ;
 
-ENDME // st_BinaryFunctor
+ENDMESTUB // st_BinaryFunctor
 
-REDEFINITION ME st_result::Attribute
+REDEFINITION MESTUB st_result::Attribute
  MEPROP UID '471327F701F4'
  MEPROP Name 'result::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2252,9 +2254,9 @@ REDEFINITION ME st_result::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_result::Attribute
+ENDMESTUB // st_result::Attribute
 
-ME st_first_param::Attribute
+MESTUB st_first_param::Attribute
  MEPROP UID '4713280A0000'
  MEPROP Name 'first_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2265,9 +2267,9 @@ ME st_first_param::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_first_param::Attribute
+ENDMESTUB // st_first_param::Attribute
 
-ME st_second_param::Attribute
+MESTUB st_second_param::Attribute
  MEPROP UID '4713282601D4'
  MEPROP Name 'second_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2278,18 +2280,18 @@ ME st_second_param::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_second_param::Attribute
+ENDMESTUB // st_second_param::Attribute
 
-ME st_BinaryPredicate Inherits ( st_FunctorBase )
+MESTUB st_BinaryPredicate Inherits ( st_FunctorBase )
  MEPROP UID '47132852037A'
  MEPROP Name 'BinaryPredicate'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47132852037A' '4713175502FD.ms.model.script' // BinaryPredicate
  ;
 
-ENDME // st_BinaryPredicate
+ENDMESTUB // st_BinaryPredicate
 
-REDEFINITION ME st_first_param::Attribute
+REDEFINITION MESTUB st_first_param::Attribute
  MEPROP UID '4713288E0128'
  MEPROP Name 'first_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2300,9 +2302,9 @@ REDEFINITION ME st_first_param::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_first_param::Attribute
+ENDMESTUB // st_first_param::Attribute
 
-REDEFINITION ME st_second_param::Attribute
+REDEFINITION MESTUB st_second_param::Attribute
  MEPROP UID '4713289D02AF'
  MEPROP Name 'second_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2313,9 +2315,9 @@ REDEFINITION ME st_second_param::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '+'
 
-ENDME // st_second_param::Attribute
+ENDMESTUB // st_second_param::Attribute
 
-ME st_Function
+MESTUB st_Function
  MEPROP UID '47679DF1032E'
  MEPROP Name 'Function'
  MEPROP Stereotype 'MDAClass'
@@ -2328,9 +2330,9 @@ ME st_Function
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_Function
+ENDMESTUB // st_Function
 
-REDEFINITION ME st_Operation::Operation
+REDEFINITION MESTUB st_Operation::Operation
  MEPROP UID '47679E8A0154'
  MEPROP Name 'Operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2343,9 +2345,9 @@ REDEFINITION ME st_Operation::Operation
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_Operation::Operation
+ENDMESTUB // st_Operation::Operation
 
-ME st_FactoryMemory
+MESTUB st_FactoryMemory
  MEPROP UID '4753C0BC029E'
  MEPROP Name 'FactoryMemory'
  MEPROP Stereotype 'MDAClass'
@@ -2356,9 +2358,9 @@ ME st_FactoryMemory
  UP "visualization f-font color" 14443530
  UP "visualization f-line color" 14443530
 
-ENDME // st_FactoryMemory
+ENDMESTUB // st_FactoryMemory
 
-ME st_common_key::Attribute
+MESTUB st_common_key::Attribute
  MEPROP UID '4753C0D40361'
  MEPROP Name 'common_key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2367,9 +2369,9 @@ ME st_common_key::Attribute
  UP "link type" 'arl'
  UP "personal label" 'code_attr'
 
-ENDME // st_common_key::Attribute
+ENDMESTUB // st_common_key::Attribute
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '47577B900144'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2377,18 +2379,18 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_AbstractInterface
+MESTUB st_AbstractInterface
  MEPROP UID '47174CE200AB'
  MEPROP Name 'AbstractInterface'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47174CE200AB' '478DF69F0205.ms.model.script' // AbstractInterface
  ;
 
-ENDME // st_AbstractInterface
+ENDMESTUB // st_AbstractInterface
 
-ME st_factory::Operation
+MESTUB st_factory::Operation
  MEPROP UID '497483770297'
  MEPROP Name 'factory::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2399,9 +2401,9 @@ ME st_factory::Operation
  UP "empty target" true
  UP "has exception" 'g'
 
-ENDME // st_factory::Operation
+ENDMESTUB // st_factory::Operation
 
-ME st_AbstractFacet Inherits ( st_WikiImplClass )
+MESTUB st_AbstractFacet Inherits ( st_WikiImplClass )
  MEPROP UID '470F704E00AB'
  MEPROP Name 'AbstractFacet'
  MEPROP Stereotype 'MDAClass'
@@ -2413,9 +2415,9 @@ ME st_AbstractFacet Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_AbstractFacet
+ENDMESTUB // st_AbstractFacet
 
-REDEFINITION ME st_property::Attribute Inherits ( st_CallingConventionsHolder )
+REDEFINITION MESTUB st_property::Attribute Inherits ( st_CallingConventionsHolder )
  MEPROP UID '470F544503C8'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2429,9 +2431,9 @@ REDEFINITION ME st_property::Attribute Inherits ( st_CallingConventionsHolder )
  UP "personal label" 'code_property'
  UP "visability type" '+#'
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-REDEFINITION ME st_key::Attribute
+REDEFINITION MESTUB st_key::Attribute
  MEPROP UID '470F55370280'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2443,9 +2445,9 @@ REDEFINITION ME st_key::Attribute
  UP "personal label" 'code_attr_key'
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_readonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '470F549D033C'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2454,9 +2456,9 @@ REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
  UP "has exception" 'g'
  UP "personal label" 'code_readonly_attr'
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
+REDEFINITION MESTUB st_key::Attribute Inherits ( st_key::Attribute )
  MEPROP UID '49794A25023E'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2464,9 +2466,9 @@ REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_writeonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '470F54C402CE'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2475,9 +2477,9 @@ REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
  UP "has exception" 's'
  UP "personal label" 'code_writeonly_attr'
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
+REDEFINITION MESTUB st_key::Attribute Inherits ( st_key::Attribute )
  MEPROP UID '49794A40013F'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2485,9 +2487,9 @@ REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_friend::Dependency
+REDEFINITION MESTUB st_friend::Dependency
  MEPROP UID '470F659B001F'
  MEPROP Name 'friend::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2495,9 +2497,9 @@ REDEFINITION ME st_friend::Dependency
  ;
  UP "personal label" 'code_dep_friend'
 
-ENDME // st_friend::Dependency
+ENDMESTUB // st_friend::Dependency
 
-ME st_op::Operation Inherits ( st_CallingConventionsHolder )
+MESTUB st_op::Operation Inherits ( st_CallingConventionsHolder )
  MEPROP UID '470F556F0196'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2512,18 +2514,18 @@ ME st_op::Operation Inherits ( st_CallingConventionsHolder )
  UP "unstereotyped" true
  UP "visability type" '+#'
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-REDEFINITION ME st_oneway::Operation Inherits ( st_op::Operation )
+REDEFINITION MESTUB st_oneway::Operation Inherits ( st_op::Operation )
  MEPROP UID '470F56670000'
  MEPROP Name 'oneway::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_470F56670000' '478DF69F0205.ms.model.script' // oneway
  ;
 
-ENDME // st_oneway::Operation
+ENDMESTUB // st_oneway::Operation
 
-REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+REDEFINITION MESTUB st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  MEPROP UID '470F56EA0000'
  MEPROP Name 'oneway,chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2531,9 +2533,9 @@ REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_oneway,chg::Operation
+ENDMESTUB // st_oneway,chg::Operation
 
-REDEFINITION ME st_chg::Operation Inherits ( st_op::Operation )
+REDEFINITION MESTUB st_chg::Operation Inherits ( st_op::Operation )
  MEPROP UID '470F5718031C'
  MEPROP Name 'chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2541,9 +2543,9 @@ REDEFINITION ME st_chg::Operation Inherits ( st_op::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_chg::Operation
+ENDMESTUB // st_chg::Operation
 
-REDEFINITION ME st_consume::Dependency
+REDEFINITION MESTUB st_consume::Dependency
  MEPROP UID '47FCA95F01DC'
  MEPROP Name 'consume::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2551,9 +2553,9 @@ REDEFINITION ME st_consume::Dependency
  ;
  UP "personal label" 'code_dep_consume'
 
-ENDME // st_consume::Dependency
+ENDMESTUB // st_consume::Dependency
 
-REDEFINITION ME st_supply::Dependency
+REDEFINITION MESTUB st_supply::Dependency
  MEPROP UID '47FCA95F0314'
  MEPROP Name 'supply::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2561,9 +2563,9 @@ REDEFINITION ME st_supply::Dependency
  ;
  UP "personal label" 'code_dep_supply'
 
-ENDME // st_supply::Dependency
+ENDMESTUB // st_supply::Dependency
 
-REDEFINITION ME st_static::Operation Inherits ( st_op::Operation )
+REDEFINITION MESTUB st_static::Operation Inherits ( st_op::Operation )
  MEPROP UID '4BA7AADE00D2'
  MEPROP Name 'static::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2574,9 +2576,9 @@ REDEFINITION ME st_static::Operation Inherits ( st_op::Operation )
  UP "personal label" 'code_static_method'
  UP "visability type" '+'
 
-ENDME // st_static::Operation
+ENDMESTUB // st_static::Operation
 
-ME st_Interface Inherits ( st_AbstractFacet st_AbstractInterface )
+MESTUB st_Interface Inherits ( st_AbstractFacet st_AbstractInterface )
  MEPROP UID '470F512D003E'
  MEPROP Name 'Interface'
  MEPROP Stereotype 'MDAClass'
@@ -2588,9 +2590,9 @@ ME st_Interface Inherits ( st_AbstractFacet st_AbstractInterface )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_Interface
+ENDMESTUB // st_Interface
 
-ME st_factory_op::Operation Inherits ( st_factory::Operation )
+MESTUB st_factory_op::Operation Inherits ( st_factory::Operation )
  MEPROP UID '4B793D19026F'
  MEPROP Name 'factory_op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2598,9 +2600,9 @@ ME st_factory_op::Operation Inherits ( st_factory::Operation )
  ;
  UP "internal" true
 
-ENDME // st_factory_op::Operation
+ENDMESTUB // st_factory_op::Operation
 
-REDEFINITION ME st_factory::Operation Inherits ( st_factory_op::Operation )
+REDEFINITION MESTUB st_factory::Operation Inherits ( st_factory_op::Operation )
  MEPROP UID '470F576D0203'
  MEPROP Name 'factory::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2611,9 +2613,9 @@ REDEFINITION ME st_factory::Operation Inherits ( st_factory_op::Operation )
  UP "personal label" 'code_factory'
  UP "visability type" '+#'
 
-ENDME // st_factory::Operation
+ENDMESTUB // st_factory::Operation
 
-ME st_remover::Operation Inherits ( st_op::Operation )
+MESTUB st_remover::Operation Inherits ( st_op::Operation )
  MEPROP UID '470F5814038A'
  MEPROP Name 'remover::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2624,9 +2626,9 @@ ME st_remover::Operation Inherits ( st_op::Operation )
  UP "personal label" 'code_remover'
  UP "visability type" '+-'
 
-ENDME // st_remover::Operation
+ENDMESTUB // st_remover::Operation
 
-ME st_factory_switch::Attribute
+MESTUB st_factory_switch::Attribute
  MEPROP UID '47B13201031D'
  MEPROP Name 'factory_switch::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2636,45 +2638,45 @@ ME st_factory_switch::Attribute
  UP "personal label" 'code_factory_switch'
  UP "visability type" '+'
 
-ENDME // st_factory_switch::Attribute
+ENDMESTUB // st_factory_switch::Attribute
 
-ME st_multi_factory::Operation Inherits ( st_factory::Operation )
+MESTUB st_multi_factory::Operation Inherits ( st_factory::Operation )
  MEPROP UID '470F57A80119'
  MEPROP Name 'multi_factory::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_470F57A80119' '478DF69F0205.ms.model.script' // multi factory
  ;
 
-ENDME // st_multi_factory::Operation
+ENDMESTUB // st_multi_factory::Operation
 
-ME st_finder::Operation Inherits ( st_factory_op::Operation )
+MESTUB st_finder::Operation Inherits ( st_factory_op::Operation )
  MEPROP UID '4B793D9001F1'
  MEPROP Name 'finder::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_4B793D9001F1' '478DF69F0205.ms.model.script' // finder
  ;
 
-ENDME // st_finder::Operation
+ENDMESTUB // st_finder::Operation
 
-ME st_LocalInterface Inherits ( st_Interface )
+MESTUB st_LocalInterface Inherits ( st_Interface )
  MEPROP UID '47A2D6A00142'
  MEPROP Name 'LocalInterface'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47A2D6A00142' '478DF69F0205.ms.model.script' // LocalInterface
  ;
 
-ENDME // st_LocalInterface
+ENDMESTUB // st_LocalInterface
 
-ME st_Facet Inherits ( st_AbstractFacet )
+MESTUB st_Facet Inherits ( st_AbstractFacet )
  MEPROP UID '49A3CF30020F'
  MEPROP Name 'Facet'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_49A3CF30020F' '478DF69F0205.ms.model.script' // Facet
  ;
 
-ENDME // st_Facet
+ENDMESTUB // st_Facet
 
-ME st_impurity_value::Attribute
+MESTUB st_impurity_value::Attribute
  MEPROP UID '47D80D1E0359'
  MEPROP Name 'impurity_value::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2684,18 +2686,18 @@ ME st_impurity_value::Attribute
  UP "personal label" 'code_impurity_value'
  UP "visability type" '-'
 
-ENDME // st_impurity_value::Attribute
+ENDMESTUB // st_impurity_value::Attribute
 
-REDEFINITION ME st_injects::Dependency
+REDEFINITION MESTUB st_injects::Dependency
  MEPROP UID '55BF3FB50305'
  MEPROP Name 'injects::Dependency'
  MEPROP Stereotype 'MDADependency'
  MELINK StereotypeInModel WL 'ME_55BF3FB50305' '478DF69F0205.ms.model.script' // injects
  ;
 
-ENDME // st_injects::Dependency
+ENDMESTUB // st_injects::Dependency
 
-ME st_Event Inherits ( st_Struct )
+MESTUB st_Event Inherits ( st_Struct )
  MEPROP UID '47FE08A903E0'
  MEPROP Name 'Event'
  MEPROP Stereotype 'MDAClass'
@@ -2703,9 +2705,9 @@ ME st_Event Inherits ( st_Struct )
  ;
  UP "abstraction type" 'fra'
 
-ENDME // st_Event
+ENDMESTUB // st_Event
 
-ME st_PureMixIn Inherits ( st_Facet )
+MESTUB st_PureMixIn Inherits ( st_Facet )
  MEPROP UID '47D8087B0111'
  MEPROP Name 'PureMixIn'
  MEPROP Stereotype 'MDAClass'
@@ -2718,9 +2720,9 @@ ME st_PureMixIn Inherits ( st_Facet )
  UP "visualization font color" 0
  UP "visualization line color" 0
 
-ENDME // st_PureMixIn
+ENDMESTUB // st_PureMixIn
 
-ME st_impurity_param::Attribute
+MESTUB st_impurity_param::Attribute
  MEPROP UID '47D809DF007B'
  MEPROP Name 'impurity_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2729,9 +2731,9 @@ ME st_impurity_param::Attribute
  UP "link type" 'a'
  UP "personal label" 'code_impurity_param'
 
-ENDME // st_impurity_param::Attribute
+ENDMESTUB // st_impurity_param::Attribute
 
-ME st_TypeConvertor Inherits ( st_WikiImplClass )
+MESTUB st_TypeConvertor Inherits ( st_WikiImplClass )
  MEPROP UID '47133FB701C5'
  MEPROP Name 'TypeConvertor'
  MEPROP Stereotype 'MDAClass'
@@ -2743,9 +2745,9 @@ ME st_TypeConvertor Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_TypeConvertor
+ENDMESTUB // st_TypeConvertor
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '4713412100BB'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2753,9 +2755,9 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_Type1::Attribute
+MESTUB st_Type1::Attribute
  MEPROP UID '4713415B002E'
  MEPROP Name 'Type1::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2766,9 +2768,9 @@ ME st_Type1::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '-+#'
 
-ENDME // st_Type1::Attribute
+ENDMESTUB // st_Type1::Attribute
 
-ME st_Type2::Attribute Inherits ( st_Type1::Attribute )
+MESTUB st_Type2::Attribute Inherits ( st_Type1::Attribute )
  MEPROP UID '4713417E0109'
  MEPROP Name 'Type2::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2779,9 +2781,9 @@ ME st_Type2::Attribute Inherits ( st_Type1::Attribute )
  UP "personal label" 'code_attr'
  UP "visability type" '-+#'
 
-ENDME // st_Type2::Attribute
+ENDMESTUB // st_Type2::Attribute
 
-ME st_Functor2::Attribute
+MESTUB st_Functor2::Attribute
  MEPROP UID '471342FC030D'
  MEPROP Name 'Functor2::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2791,9 +2793,9 @@ ME st_Functor2::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '-+#'
 
-ENDME // st_Functor2::Attribute
+ENDMESTUB // st_Functor2::Attribute
 
-ME st_Functor1::Attribute Inherits ( st_Functor2::Attribute )
+MESTUB st_Functor1::Attribute Inherits ( st_Functor2::Attribute )
  MEPROP UID '471342D401C5'
  MEPROP Name 'Functor1::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2803,9 +2805,9 @@ ME st_Functor1::Attribute Inherits ( st_Functor2::Attribute )
  UP "personal label" 'code_attr'
  UP "visability type" '-+#'
 
-ENDME // st_Functor1::Attribute
+ENDMESTUB // st_Functor1::Attribute
 
-ME st_CustomFactory
+MESTUB st_CustomFactory
  MEPROP UID '4713515300CB'
  MEPROP Name 'CustomFactory'
  MEPROP Stereotype 'MDAClass'
@@ -2817,9 +2819,9 @@ ME st_CustomFactory
  UP "visualization f-font color" 705290
  UP "visualization f-line color" 705290
 
-ENDME // st_CustomFactory
+ENDMESTUB // st_CustomFactory
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '4713517E037A'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2827,18 +2829,18 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_AbstractImplInclude Inherits ( st_AllContainerInclude )
+MESTUB st_AbstractImplInclude Inherits ( st_AllContainerInclude )
  MEPROP UID '47170ED00213'
  MEPROP Name 'AbstractImplInclude'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47170ED00213' '470EF980003E.ms.model.script' // AbstractImplInclude
  ;
 
-ENDME // st_AbstractImplInclude
+ENDMESTUB // st_AbstractImplInclude
 
-ME st_UtilityPack Inherits ( st_AbstractImplInclude st_WikiImplClass )
+MESTUB st_UtilityPack Inherits ( st_AbstractImplInclude st_WikiImplClass )
  MEPROP UID '4713540402CE'
  MEPROP Name 'UtilityPack'
  MEPROP Stereotype 'MDAClass'
@@ -2850,9 +2852,9 @@ ME st_UtilityPack Inherits ( st_AbstractImplInclude st_WikiImplClass )
  UP "visualization f-font color" 658175
  UP "visualization f-line color" 658175
 
-ENDME // st_UtilityPack
+ENDMESTUB // st_UtilityPack
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '471354E9009C'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2862,9 +2864,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
  UP "unstereotyped" true
  UP "visability type" '+-'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_uses::Dependency Inherits ( st_uses::Dependency )
+REDEFINITION MESTUB st_uses::Dependency Inherits ( st_uses::Dependency )
  MEPROP UID '4713552800CB'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2872,9 +2874,9 @@ REDEFINITION ME st_uses::Dependency Inherits ( st_uses::Dependency )
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_dependency::Dependency Inherits ( st_uses::Dependency )
+MESTUB st_dependency::Dependency Inherits ( st_uses::Dependency )
  MEPROP UID '471354F90148'
  MEPROP Name 'dependency::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -2883,9 +2885,9 @@ ME st_dependency::Dependency Inherits ( st_uses::Dependency )
  UP "personal label" 'code_dep'
  UP "unstereotyped" true
 
-ENDME // st_dependency::Dependency
+ENDMESTUB // st_dependency::Dependency
 
-REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
+REDEFINITION MESTUB st_op::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '471355720222'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2895,9 +2897,9 @@ REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
  UP "unstereotyped" true
  UP "visability type" '+-'
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-ME st_ini::Operation Inherits ( st_op::Operation )
+MESTUB st_ini::Operation Inherits ( st_op::Operation )
  MEPROP UID '478668780062'
  MEPROP Name 'ini::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2905,9 +2907,9 @@ ME st_ini::Operation Inherits ( st_op::Operation )
  ;
  UP "visability type" '-'
 
-ENDME // st_ini::Operation
+ENDMESTUB // st_ini::Operation
 
-ME st_fini::Operation Inherits ( st_op::Operation )
+MESTUB st_fini::Operation Inherits ( st_op::Operation )
  MEPROP UID '478668A902B5'
  MEPROP Name 'fini::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -2915,9 +2917,9 @@ ME st_fini::Operation Inherits ( st_op::Operation )
  ;
  UP "visability type" '-'
 
-ENDME // st_fini::Operation
+ENDMESTUB // st_fini::Operation
 
-ME st_Servant Inherits ( st_ClassBase st_IDLImpl st_AbstractImplInclude )
+MESTUB st_Servant Inherits ( st_ClassBase st_IDLImpl st_AbstractImplInclude )
  MEPROP UID '47144D340251'
  MEPROP Name 'Servant'
  MEPROP Stereotype 'MDAClass'
@@ -2932,9 +2934,9 @@ ME st_Servant Inherits ( st_ClassBase st_IDLImpl st_AbstractImplInclude )
  UP "visualization f-font color" 705290
  UP "visualization f-line color" 705290
 
-ENDME // st_Servant
+ENDMESTUB // st_Servant
 
-REDEFINITION ME st_switch::Attribute
+REDEFINITION MESTUB st_switch::Attribute
  MEPROP UID '47B1884300A7'
  MEPROP Name 'switch::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2944,9 +2946,9 @@ REDEFINITION ME st_switch::Attribute
  UP "personal label" 'code_switch'
  UP "visability type" '+'
 
-ENDME // st_switch::Attribute
+ENDMESTUB // st_switch::Attribute
 
-ME st_AbstractClass Inherits ( st_AbstractImplInclude st_WikiImplClass )
+MESTUB st_AbstractClass Inherits ( st_AbstractImplInclude st_WikiImplClass )
  MEPROP UID '4717284C01C5'
  MEPROP Name 'AbstractClass'
  MEPROP Stereotype 'MDAClass'
@@ -2954,9 +2956,9 @@ ME st_AbstractClass Inherits ( st_AbstractImplInclude st_WikiImplClass )
  ;
  UP "can be parametrized" true
 
-ENDME // st_AbstractClass
+ENDMESTUB // st_AbstractClass
 
-ME st_Box
+MESTUB st_Box
  MEPROP UID '4714685D005D'
  MEPROP Name 'Box'
  MEPROP Stereotype 'MDAClass'
@@ -2968,9 +2970,9 @@ ME st_Box
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_Box
+ENDMESTUB // st_Box
 
-ME st_deallocator::Attribute
+MESTUB st_deallocator::Attribute
  MEPROP UID '471468EC031C'
  MEPROP Name 'deallocator::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -2979,9 +2981,9 @@ ME st_deallocator::Attribute
  UP "link type" 'l'
  UP "personal label" 'code_deallocator'
 
-ENDME // st_deallocator::Attribute
+ENDMESTUB // st_deallocator::Attribute
 
-ME st_TemplateFunctions
+MESTUB st_TemplateFunctions
  MEPROP UID '47148FF9033C'
  MEPROP Name 'TemplateFunctions'
  MEPROP Stereotype 'MDAClass'
@@ -2994,9 +2996,9 @@ ME st_TemplateFunctions
  UP "visualization f-font color" 6579300
  UP "visualization f-line color" 6579300
 
-ENDME // st_TemplateFunctions
+ENDMESTUB // st_TemplateFunctions
 
-REDEFINITION ME st_Operation::Operation Inherits ( st_Operation::Operation )
+REDEFINITION MESTUB st_Operation::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '471490940138'
  MEPROP Name 'Operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3011,9 +3013,9 @@ REDEFINITION ME st_Operation::Operation Inherits ( st_Operation::Operation )
  UP "unstereotyped" true
  UP "visability type" '-#+'
 
-ENDME // st_Operation::Operation
+ENDMESTUB // st_Operation::Operation
 
-REDEFINITION ME st_chg::Operation Inherits ( st_chg::Operation )
+REDEFINITION MESTUB st_chg::Operation Inherits ( st_chg::Operation )
  MEPROP UID '4714912A00FA'
  MEPROP Name 'chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3021,9 +3023,9 @@ REDEFINITION ME st_chg::Operation Inherits ( st_chg::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_chg::Operation
+ENDMESTUB // st_chg::Operation
 
-REDEFINITION ME st_oneway::Operation Inherits ( st_oneway::Operation )
+REDEFINITION MESTUB st_oneway::Operation Inherits ( st_oneway::Operation )
  MEPROP UID '4714913A003E'
  MEPROP Name 'oneway::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3032,9 +3034,9 @@ REDEFINITION ME st_oneway::Operation Inherits ( st_oneway::Operation )
  UP "abstraction type" 'arf'
  UP "personal label" 'code_const_method'
 
-ENDME // st_oneway::Operation
+ENDMESTUB // st_oneway::Operation
 
-REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway,chg::Operation )
+REDEFINITION MESTUB st_oneway,chg::Operation Inherits ( st_oneway,chg::Operation )
  MEPROP UID '471491410186'
  MEPROP Name 'oneway,chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3042,18 +3044,18 @@ REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway,chg::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_oneway,chg::Operation
+ENDMESTUB // st_oneway,chg::Operation
 
-REDEFINITION ME st_static::Operation Inherits ( st_static::Operation )
+REDEFINITION MESTUB st_static::Operation Inherits ( st_static::Operation )
  MEPROP UID '471491500261'
  MEPROP Name 'static::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_471491500261' '470EF980003E.ms.model.script' // static
  ;
 
-ENDME // st_static::Operation
+ENDMESTUB // st_static::Operation
 
-ME st_UtilityClass Inherits ( st_AbstractClass )
+MESTUB st_UtilityClass Inherits ( st_AbstractClass )
  MEPROP UID '471352960232'
  MEPROP Name 'UtilityClass'
  MEPROP Stereotype 'MDAClass'
@@ -3065,9 +3067,9 @@ ME st_UtilityClass Inherits ( st_AbstractClass )
  UP "visualization f-font color" 658175
  UP "visualization f-line color" 658175
 
-ENDME // st_UtilityClass
+ENDMESTUB // st_UtilityClass
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_static::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_static::Attribute )
  MEPROP UID '47172C4C00CB'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3078,9 +3080,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_static::Attribute )
  UP "unstereotyped" true
  UP "visability type" '-+#'
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_op::Operation Inherits ( st_static::Operation )
+REDEFINITION MESTUB st_op::Operation Inherits ( st_static::Operation )
  MEPROP UID '47172C8D035B'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3088,9 +3090,9 @@ REDEFINITION ME st_op::Operation Inherits ( st_static::Operation )
  ;
  UP "unstereotyped" true
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-REDEFINITION ME st_uses::Dependency Inherits ( st_uses::Dependency )
+REDEFINITION MESTUB st_uses::Dependency Inherits ( st_uses::Dependency )
  MEPROP UID '478328E60019'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3098,18 +3100,18 @@ REDEFINITION ME st_uses::Dependency Inherits ( st_uses::Dependency )
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-REDEFINITION ME st_friend::Dependency Inherits ( st_friend::Dependency )
+REDEFINITION MESTUB st_friend::Dependency Inherits ( st_friend::Dependency )
  MEPROP UID '478328E8015D'
  MEPROP Name 'friend::Dependency'
  MEPROP Stereotype 'MDADependency'
  MELINK StereotypeInModel WL 'ME_478328E8015D' '470EF980003E.ms.model.script' // friend
  ;
 
-ENDME // st_friend::Dependency
+ENDMESTUB // st_friend::Dependency
 
-ME st_SimpleClass Inherits ( st_ClassBase st_IDLImpl st_AbstractClass )
+MESTUB st_SimpleClass Inherits ( st_ClassBase st_IDLImpl st_AbstractClass )
  MEPROP UID '471466900128'
  MEPROP Name 'SimpleClass'
  MEPROP Stereotype 'MDAClass'
@@ -3123,9 +3125,9 @@ ME st_SimpleClass Inherits ( st_ClassBase st_IDLImpl st_AbstractClass )
  UP "visualization f-font color" 705320
  UP "visualization f-line color" 705320
 
-ENDME // st_SimpleClass
+ENDMESTUB // st_SimpleClass
 
-REDEFINITION ME st_impurity_value::Attribute
+REDEFINITION MESTUB st_impurity_value::Attribute
  MEPROP UID '47A1B60702B1'
  MEPROP Name 'impurity_value::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3136,9 +3138,9 @@ REDEFINITION ME st_impurity_value::Attribute
  UP "personal label" 'code_impurity_value'
  UP "visability type" '-'
 
-ENDME // st_impurity_value::Attribute
+ENDMESTUB // st_impurity_value::Attribute
 
-REDEFINITION ME st_ini::Operation Inherits ( st_static::Operation )
+REDEFINITION MESTUB st_ini::Operation Inherits ( st_static::Operation )
  MEPROP UID '4B3881150067'
  MEPROP Name 'ini::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3147,9 +3149,9 @@ REDEFINITION ME st_ini::Operation Inherits ( st_static::Operation )
  UP "abstraction type" 'f'
  UP "visability type" '-'
 
-ENDME // st_ini::Operation
+ENDMESTUB // st_ini::Operation
 
-REDEFINITION ME st_fini::Operation Inherits ( st_static::Operation )
+REDEFINITION MESTUB st_fini::Operation Inherits ( st_static::Operation )
  MEPROP UID '4B38812400E4'
  MEPROP Name 'fini::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3158,9 +3160,9 @@ REDEFINITION ME st_fini::Operation Inherits ( st_static::Operation )
  UP "abstraction type" 'f'
  UP "visability type" '-'
 
-ENDME // st_fini::Operation
+ENDMESTUB // st_fini::Operation
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '4BFA6E530221'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3169,9 +3171,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
  UP "available target stereotypes" 'const|ref|const,ref'
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-ME st_Deallocator Inherits ( st_WikiImplClass )
+MESTUB st_Deallocator Inherits ( st_WikiImplClass )
  MEPROP UID '471DE4B30222'
  MEPROP Name 'Deallocator'
  MEPROP Stereotype 'MDAClass'
@@ -3183,9 +3185,9 @@ ME st_Deallocator Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 10159515
  UP "visualization f-line color" 10159515
 
-ENDME // st_Deallocator
+ENDMESTUB // st_Deallocator
 
-ME st_Environment
+MESTUB st_Environment
  MEPROP UID '471DE69E000F'
  MEPROP Name 'Environment'
  MEPROP Stereotype 'MDAClass'
@@ -3196,9 +3198,9 @@ ME st_Environment
  UP "visualization f-font color" 10188805
  UP "visualization f-line color" 10188805
 
-ENDME // st_Environment
+ENDMESTUB // st_Environment
 
-ME st_enviroment_variable::Attribute Inherits ( st_Attr::Attribute )
+MESTUB st_enviroment_variable::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '471DE6F2009C'
  MEPROP Name 'enviroment_variable::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3208,9 +3210,9 @@ ME st_enviroment_variable::Attribute Inherits ( st_Attr::Attribute )
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_enviroment_variable::Attribute
+ENDMESTUB // st_enviroment_variable::Attribute
 
-ME st_Impurity Inherits ( st_SimpleClass )
+MESTUB st_Impurity Inherits ( st_SimpleClass )
  MEPROP UID '479136C103CF'
  MEPROP Name 'Impurity'
  MEPROP Stereotype 'MDAClass'
@@ -3222,9 +3224,9 @@ ME st_Impurity Inherits ( st_SimpleClass )
  UP "visualization f-font color" 9342520
  UP "visualization f-line color" 9342520
 
-ENDME // st_Impurity
+ENDMESTUB // st_Impurity
 
-REDEFINITION ME st_impurity_param::Attribute
+REDEFINITION MESTUB st_impurity_param::Attribute
  MEPROP UID '47A1AE090224'
  MEPROP Name 'impurity_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3233,9 +3235,9 @@ REDEFINITION ME st_impurity_param::Attribute
  UP "link type" 'a'
  UP "personal label" 'code_impurity_param'
 
-ENDME // st_impurity_param::Attribute
+ENDMESTUB // st_impurity_param::Attribute
 
-ME st_inline::Operation Inherits ( st_Operation::Operation )
+MESTUB st_inline::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47B078C20056'
  MEPROP Name 'inline::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3245,9 +3247,9 @@ ME st_inline::Operation Inherits ( st_Operation::Operation )
  UP "implementable" true
  UP "visability type" '#'
 
-ENDME // st_inline::Operation
+ENDMESTUB // st_inline::Operation
 
-ME st_override::Operation Inherits ( st_Operation::Operation )
+MESTUB st_override::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47B09B8D034D'
  MEPROP Name 'override::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3257,9 +3259,9 @@ ME st_override::Operation Inherits ( st_Operation::Operation )
  UP "implementable" true
  UP "visability type" '#+-'
 
-ENDME // st_override::Operation
+ENDMESTUB // st_override::Operation
 
-ME st_MixInMirror Inherits ( st_WikiImplClass )
+MESTUB st_MixInMirror Inherits ( st_WikiImplClass )
  MEPROP UID '4A5CB5A6037E'
  MEPROP Name 'MixInMirror'
  MEPROP Stereotype 'MDAClass'
@@ -3271,9 +3273,9 @@ ME st_MixInMirror Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 16711680
  UP "visualization f-line color" 16711680
 
-ENDME // st_MixInMirror
+ENDMESTUB // st_MixInMirror
 
-ME st_method Inherits ( st_WikiImplClass st_UsesContainer )
+MESTUB st_method Inherits ( st_WikiImplClass st_UsesContainer )
  MEPROP UID '49CB43D403C5'
  MEPROP Name 'method'
  MEPROP Stereotype 'MDAClass'
@@ -3287,9 +3289,9 @@ ME st_method Inherits ( st_WikiImplClass st_UsesContainer )
  UP "visualization f-font color" 7874680
  UP "visualization f-line color" 7874680
 
-ENDME // st_method
+ENDMESTUB // st_method
 
-ME st_operation::Operation Inherits ( st_CallingConventionsHolder )
+MESTUB st_operation::Operation Inherits ( st_CallingConventionsHolder )
  MEPROP UID '49CB473A0201'
  MEPROP Name 'operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3302,9 +3304,9 @@ ME st_operation::Operation Inherits ( st_CallingConventionsHolder )
  UP "unstereotyped" true
  UP "visability type" '-'
 
-ENDME // st_operation::Operation
+ENDMESTUB // st_operation::Operation
 
-ME st_var::Attribute
+MESTUB st_var::Attribute
  MEPROP UID '49CB56A601B9'
  MEPROP Name 'var::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3315,9 +3317,9 @@ ME st_var::Attribute
  UP "personal label" 'code_attr'
  UP "visability type" '-#'
 
-ENDME // st_var::Attribute
+ENDMESTUB // st_var::Attribute
 
-ME st_globalvar::Attribute Inherits ( st_var::Attribute )
+MESTUB st_globalvar::Attribute Inherits ( st_var::Attribute )
  MEPROP UID '4B72F4DD0345'
  MEPROP Name 'globalvar::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3325,9 +3327,9 @@ ME st_globalvar::Attribute Inherits ( st_var::Attribute )
  ;
  UP "visability type" '#+'
 
-ENDME // st_globalvar::Attribute
+ENDMESTUB // st_globalvar::Attribute
 
-ME st_call::Dependency Inherits ( st_uses::Dependency )
+MESTUB st_call::Dependency Inherits ( st_uses::Dependency )
  MEPROP UID '4BB0B8710126'
  MEPROP Name 'call::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3336,9 +3338,9 @@ ME st_call::Dependency Inherits ( st_uses::Dependency )
  UP "abstraction type" 'f'
  UP "visability type" '-'
 
-ENDME // st_call::Dependency
+ENDMESTUB // st_call::Dependency
 
-ME st_localmethod Inherits ( st_method )
+MESTUB st_localmethod Inherits ( st_method )
  MEPROP UID '49CB758B0318'
  MEPROP Name 'localmethod'
  MEPROP Stereotype 'MDAClass'
@@ -3346,9 +3348,9 @@ ME st_localmethod Inherits ( st_method )
  ;
  UP "abstraction type" 'f'
 
-ENDME // st_localmethod
+ENDMESTUB // st_localmethod
 
-ME st_StateMachine Inherits ( st_WikiImplClass )
+MESTUB st_StateMachine Inherits ( st_WikiImplClass )
  MEPROP UID '470F3B8B032C'
  MEPROP Name 'StateMachine'
  MEPROP Stereotype 'MDAClass'
@@ -3359,9 +3361,9 @@ ME st_StateMachine Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 9528569
  UP "visualization f-line color" 9528569
 
-ENDME // st_StateMachine
+ENDMESTUB // st_StateMachine
 
-ME st_TransitionEvent Inherits ( st_SimpleClass )
+MESTUB st_TransitionEvent Inherits ( st_SimpleClass )
  MEPROP UID '470F3D32029F'
  MEPROP Name 'TransitionEvent'
  MEPROP Stereotype 'MDAClass'
@@ -3372,9 +3374,9 @@ ME st_TransitionEvent Inherits ( st_SimpleClass )
  UP "visualization f-font color" 4316728
  UP "visualization f-line color" 4316728
 
-ENDME // st_TransitionEvent
+ENDMESTUB // st_TransitionEvent
 
-ME st_State Inherits ( st_SimpleClass )
+MESTUB st_State Inherits ( st_SimpleClass )
  MEPROP UID '475F8CC801A5'
  MEPROP Name 'State'
  MEPROP Stereotype 'MDAClass'
@@ -3385,9 +3387,9 @@ ME st_State Inherits ( st_SimpleClass )
  UP "visualization f-font color" 9528569
  UP "visualization f-line color" 9528569
 
-ENDME // st_State
+ENDMESTUB // st_State
 
-ME st_GuiControl Inherits ( st_SimpleClass )
+MESTUB st_GuiControl Inherits ( st_SimpleClass )
  MEPROP UID '47143E02006D'
  MEPROP Name 'GuiControl'
  MEPROP Stereotype 'MDAClass'
@@ -3398,9 +3400,9 @@ ME st_GuiControl Inherits ( st_SimpleClass )
  UP "visualization f-font color" 13110000
  UP "visualization f-line color" 13110000
 
-ENDME // st_GuiControl
+ENDMESTUB // st_GuiControl
 
-ME st_Dialog Inherits ( st_GuiControl )
+MESTUB st_Dialog Inherits ( st_GuiControl )
  MEPROP UID '4714408B03B9'
  MEPROP Name 'Dialog'
  MEPROP Stereotype 'MDAClass'
@@ -3408,18 +3410,18 @@ ME st_Dialog Inherits ( st_GuiControl )
  ;
  UP "personal label" 'code_gui_dialog'
 
-ENDME // st_Dialog
+ENDMESTUB // st_Dialog
 
-REDEFINITION ME st_ctor::Operation Inherits ( st_ctor::Operation )
+REDEFINITION MESTUB st_ctor::Operation Inherits ( st_ctor::Operation )
  MEPROP UID '4BFB75D502BD'
  MEPROP Name 'ctor::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_4BFB75D502BD' '47143DA100FA.ms.model.script' // ctor
  ;
 
-ENDME // st_ctor::Operation
+ENDMESTUB // st_ctor::Operation
 
-ME st_PropertySheet Inherits ( st_Dialog )
+MESTUB st_PropertySheet Inherits ( st_Dialog )
  MEPROP UID '4714421402DE'
  MEPROP Name 'PropertySheet'
  MEPROP Stereotype 'MDAClass'
@@ -3427,9 +3429,9 @@ ME st_PropertySheet Inherits ( st_Dialog )
  ;
  UP "personal label" 'code_gui_property_sheet'
 
-ENDME // st_PropertySheet
+ENDMESTUB // st_PropertySheet
 
-ME st_PropertyPage Inherits ( st_Dialog )
+MESTUB st_PropertyPage Inherits ( st_Dialog )
  MEPROP UID '471442330148'
  MEPROP Name 'PropertyPage'
  MEPROP Stereotype 'MDAClass'
@@ -3437,9 +3439,9 @@ ME st_PropertyPage Inherits ( st_Dialog )
  ;
  UP "personal label" 'code_gui_property_page'
 
-ENDME // st_PropertyPage
+ENDMESTUB // st_PropertyPage
 
-ME st_Resource
+MESTUB st_Resource
  MEPROP UID '4714425A0109'
  MEPROP Name 'Resource'
  MEPROP Stereotype 'MDAClass'
@@ -3450,9 +3452,9 @@ ME st_Resource
  UP "visualization f-font color" 14443680
  UP "visualization f-line color" 14443680
 
-ENDME // st_Resource
+ENDMESTUB // st_Resource
 
-ME st_define::Attribute
+MESTUB st_define::Attribute
  MEPROP UID '4714430C004E'
  MEPROP Name 'define::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3460,9 +3462,9 @@ ME st_define::Attribute
  ;
  UP "personal label" 'code_static_attr'
 
-ENDME // st_define::Attribute
+ENDMESTUB // st_define::Attribute
 
-ME st_ComInterface Inherits ( st_WikiImplClass )
+MESTUB st_ComInterface Inherits ( st_WikiImplClass )
  MEPROP UID '470F75220177'
  MEPROP Name 'ComInterface'
  MEPROP Stereotype 'MDAClass'
@@ -3472,18 +3474,18 @@ ME st_ComInterface Inherits ( st_WikiImplClass )
  UP "visualization bg color" 16766935
  UP "visualization f-font color" 16714250
 
-ENDME // st_ComInterface
+ENDMESTUB // st_ComInterface
 
-REDEFINITION ME st_property::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_property::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '470F75EC03C8'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_470F75EC03C8' '478DF908013A.ms.model.script' // property
  ;
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-REDEFINITION ME st_readonly::Attribute Inherits ( st_readonly::Attribute )
+REDEFINITION MESTUB st_readonly::Attribute Inherits ( st_readonly::Attribute )
  MEPROP UID '470F761D0280'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3492,9 +3494,9 @@ REDEFINITION ME st_readonly::Attribute Inherits ( st_readonly::Attribute )
  UP "has exception" 'g'
  UP "personal label" 'code_attr'
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-REDEFINITION ME st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
+REDEFINITION MESTUB st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  MEPROP UID '470F7634000F'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3502,9 +3504,9 @@ REDEFINITION ME st_writeonly::Attribute Inherits ( st_writeonly::Attribute )
  ;
  UP "has exception" 's'
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-REDEFINITION ME st_op::Operation Inherits ( st_op::Operation )
+REDEFINITION MESTUB st_op::Operation Inherits ( st_op::Operation )
  MEPROP UID '470F76520109'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3519,9 +3521,9 @@ REDEFINITION ME st_op::Operation Inherits ( st_op::Operation )
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-REDEFINITION ME st_friend::Dependency Inherits ( st_friend::Dependency )
+REDEFINITION MESTUB st_friend::Dependency Inherits ( st_friend::Dependency )
  MEPROP UID '470F7665005D'
  MEPROP Name 'friend::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3529,9 +3531,9 @@ REDEFINITION ME st_friend::Dependency Inherits ( st_friend::Dependency )
  ;
  UP "personal label" 'code_dep_friend'
 
-ENDME // st_friend::Dependency
+ENDMESTUB // st_friend::Dependency
 
-REDEFINITION ME st_chg::Operation Inherits ( st_chg::Operation )
+REDEFINITION MESTUB st_chg::Operation Inherits ( st_chg::Operation )
  MEPROP UID '470F7681002E'
  MEPROP Name 'chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3539,36 +3541,36 @@ REDEFINITION ME st_chg::Operation Inherits ( st_chg::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_chg::Operation
+ENDMESTUB // st_chg::Operation
 
-ME st_ComServant Inherits ( st_Servant )
+MESTUB st_ComServant Inherits ( st_Servant )
  MEPROP UID '471740DE003E'
  MEPROP Name 'ComServant'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_471740DE003E' '478DF908013A.ms.model.script' // ComServant
  ;
 
-ENDME // st_ComServant
+ENDMESTUB // st_ComServant
 
-ME st_CommonPackageInclude Inherits ( st_WikiPackageImpl st_AllContainerInclude )
+MESTUB st_CommonPackageInclude Inherits ( st_WikiPackageImpl st_AllContainerInclude )
  MEPROP UID '4714A311037A'
  MEPROP Name 'CommonPackageInclude'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_4714A311037A' '478E27270205.ms.model.script' // CommonPackageInclude
  ;
 
-ENDME // st_CommonPackageInclude
+ENDMESTUB // st_CommonPackageInclude
 
-ME st_AbstractUnitBase Inherits ( st_WikiPackageImpl )
+MESTUB st_AbstractUnitBase Inherits ( st_WikiPackageImpl )
  MEPROP UID '47149A85038A'
  MEPROP Name 'AbstractUnitBase'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_47149A85038A' '478E27270205.ms.model.script' // AbstractUnitBase
  ;
 
-ENDME // st_AbstractUnitBase
+ENDMESTUB // st_AbstractUnitBase
 
-ME st_InterfacePackageBase Inherits ( st_CommonPackageInclude )
+MESTUB st_InterfacePackageBase Inherits ( st_CommonPackageInclude )
  MEPROP UID '4712EA5402DE'
  MEPROP Name 'InterfacePackageBase'
  MEPROP Stereotype 'MDACategory'
@@ -3580,18 +3582,18 @@ ME st_InterfacePackageBase Inherits ( st_CommonPackageInclude )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_InterfacePackageBase
+ENDMESTUB // st_InterfacePackageBase
 
-ME st_AbstractImplBase Inherits ( st_AbstractUnitBase st_CommonPackageInclude )
+MESTUB st_AbstractImplBase Inherits ( st_AbstractUnitBase st_CommonPackageInclude )
  MEPROP UID '4714A0260109'
  MEPROP Name 'AbstractImplBase'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_4714A0260109' '478E27270205.ms.model.script' // AbstractImplBase
  ;
 
-ENDME // st_AbstractImplBase
+ENDMESTUB // st_AbstractImplBase
 
-ME st_Views Inherits ( st_AbstractImplBase )
+MESTUB st_Views Inherits ( st_AbstractImplBase )
  MEPROP UID '47048F1701F4'
  MEPROP Name 'Views'
  MEPROP Stereotype 'MDACategory'
@@ -3604,9 +3606,9 @@ ME st_Views Inherits ( st_AbstractImplBase )
  UP "visualization f-font color" 13110000
  UP "visualization f-line color" 13110000
 
-ENDME // st_Views
+ENDMESTUB // st_Views
 
-ME st_ComInterfaces Inherits ( st_InterfacePackageBase )
+MESTUB st_ComInterfaces Inherits ( st_InterfacePackageBase )
  MEPROP UID '470488F50280'
  MEPROP Name 'ComInterfaces'
  MEPROP Stereotype 'MDACategory'
@@ -3615,9 +3617,9 @@ ME st_ComInterfaces Inherits ( st_InterfacePackageBase )
  UP "disable forward decl" true
  UP "personal label" 'code_com_interfaces'
 
-ENDME // st_ComInterfaces
+ENDMESTUB // st_ComInterfaces
 
-ME st_Interfaces Inherits ( st_InterfacePackageBase )
+MESTUB st_Interfaces Inherits ( st_InterfacePackageBase )
  MEPROP UID '4704865603A9'
  MEPROP Name 'Interfaces'
  MEPROP Stereotype 'MDACategory'
@@ -3626,9 +3628,9 @@ ME st_Interfaces Inherits ( st_InterfacePackageBase )
  UP "disable forward decl" true
  UP "personal label" 'code_interfaces'
 
-ENDME // st_Interfaces
+ENDMESTUB // st_Interfaces
 
-ME st_Impl Inherits ( st_AbstractImplBase )
+MESTUB st_Impl Inherits ( st_AbstractImplBase )
  MEPROP UID '4704917C01F4'
  MEPROP Name 'Impl'
  MEPROP Stereotype 'MDACategory'
@@ -3640,9 +3642,9 @@ ME st_Impl Inherits ( st_AbstractImplBase )
  UP "visualization f-font color" 705290
  UP "visualization f-line color" 705290
 
-ENDME // st_Impl
+ENDMESTUB // st_Impl
 
-ME st_Unit Inherits ( st_AbstractUnitBase )
+MESTUB st_Unit Inherits ( st_AbstractUnitBase )
  MEPROP UID '47048FBD0213'
  MEPROP Name 'Unit'
  MEPROP Stereotype 'MDACategory'
@@ -3655,9 +3657,9 @@ ME st_Unit Inherits ( st_AbstractUnitBase )
  UP "visualization f-font color" 3289840
  UP "visualization f-line color" 5263560
 
-ENDME // st_Unit
+ENDMESTUB // st_Unit
 
-ME st_LibSupport Inherits ( st_WikiPackageImpl )
+MESTUB st_LibSupport Inherits ( st_WikiPackageImpl )
  MEPROP UID '470482B401B5'
  MEPROP Name 'LibSupport'
  MEPROP Stereotype 'MDACategory'
@@ -3668,9 +3670,9 @@ ME st_LibSupport Inherits ( st_WikiPackageImpl )
  UP "visualization f-font color" 5281360
  UP "visualization f-line color" 5281360
 
-ENDME // st_LibSupport
+ENDMESTUB // st_LibSupport
 
-ME st_LibExecutor Inherits ( st_WikiImplClass )
+MESTUB st_LibExecutor Inherits ( st_WikiImplClass )
  MEPROP UID '470483F102AF'
  MEPROP Name 'LibExecutor'
  MEPROP Stereotype 'MDAClass'
@@ -3684,9 +3686,9 @@ ME st_LibExecutor Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 705290
  UP "visualization f-line color" 705290
 
-ENDME // st_LibExecutor
+ENDMESTUB // st_LibExecutor
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '471348310138'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3694,9 +3696,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
+REDEFINITION MESTUB st_op::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '4713484C007D'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3704,18 +3706,18 @@ REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
  ;
  UP "unstereotyped" true
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-REDEFINITION ME st_uses::Dependency Inherits ( st_uses::Dependency )
+REDEFINITION MESTUB st_uses::Dependency Inherits ( st_uses::Dependency )
  MEPROP UID '4713487C033C'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
  MELINK StereotypeInModel WL 'ME_4713487C033C' '470335990177.ms.model.script' // uses
  ;
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_Library
+MESTUB st_Library
  MEPROP UID '470361CD0148'
  MEPROP Name 'Library'
  MEPROP Stereotype 'MDACategory'
@@ -3727,9 +3729,9 @@ ME st_Library
  UP "visualization f-font color" 12805130
  UP "visualization f-line color" 12805130
 
-ENDME // st_Library
+ENDMESTUB // st_Library
 
-ME st_ClientInterceptor Inherits ( st_WikiImplClass )
+MESTUB st_ClientInterceptor Inherits ( st_WikiImplClass )
  MEPROP UID '471349EE01E4'
  MEPROP Name 'ClientInterceptor'
  MEPROP Stereotype 'MDAClass'
@@ -3743,9 +3745,9 @@ ME st_ClientInterceptor Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 705290
  UP "visualization f-line color" 705290
 
-ENDME // st_ClientInterceptor
+ENDMESTUB // st_ClientInterceptor
 
-REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
+REDEFINITION MESTUB st_attr::Attribute Inherits ( st_Attr::Attribute )
  MEPROP UID '47134A6500AB'
  MEPROP Name 'attr::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3753,9 +3755,9 @@ REDEFINITION ME st_attr::Attribute Inherits ( st_Attr::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_attr::Attribute
+ENDMESTUB // st_attr::Attribute
 
-REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
+REDEFINITION MESTUB st_op::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '47134A7602EE'
  MEPROP Name 'op::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3763,9 +3765,9 @@ REDEFINITION ME st_op::Operation Inherits ( st_Operation::Operation )
  ;
  UP "unstereotyped" true
 
-ENDME // st_op::Operation
+ENDMESTUB // st_op::Operation
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '47134AA601A5'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3773,9 +3775,9 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-ME st_connect::Dependency
+MESTUB st_connect::Dependency
  MEPROP UID '47134AB3003E'
  MEPROP Name 'connect::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3783,18 +3785,18 @@ ME st_connect::Dependency
  ;
  UP "personal label" 'code_dep_connect'
 
-ENDME // st_connect::Dependency
+ENDMESTUB // st_connect::Dependency
 
-ME st_ServerInterceptor Inherits ( st_ClientInterceptor )
+MESTUB st_ServerInterceptor Inherits ( st_ClientInterceptor )
  MEPROP UID '47134AE700FA'
  MEPROP Name 'ServerInterceptor'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47134AE700FA' '47134993036B.ms.model.script' // ServerInterceptor
  ;
 
-ENDME // st_ServerInterceptor
+ENDMESTUB // st_ServerInterceptor
 
-ME st_CurrentSlot
+MESTUB st_CurrentSlot
  MEPROP UID '47134AFB01E4'
  MEPROP Name 'CurrentSlot'
  MEPROP Stereotype 'MDAClass'
@@ -3806,9 +3808,9 @@ ME st_CurrentSlot
  UP "visualization f-font color" 10177285
  UP "visualization f-line color" 10177285
 
-ENDME // st_CurrentSlot
+ENDMESTUB // st_CurrentSlot
 
-ME st_Valuetype Inherits ( st_WikiImplClass )
+MESTUB st_Valuetype Inherits ( st_WikiImplClass )
  MEPROP UID '470EFE1E037A'
  MEPROP Name 'Valuetype'
  MEPROP Stereotype 'MDAClass'
@@ -3820,9 +3822,9 @@ ME st_Valuetype Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 15083645
  UP "visualization f-line color" 15083645
 
-ENDME // st_Valuetype
+ENDMESTUB // st_Valuetype
 
-REDEFINITION ME st_Operation::Operation
+REDEFINITION MESTUB st_Operation::Operation
  MEPROP UID '470EFF4F02BF'
  MEPROP Name 'Operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3833,9 +3835,9 @@ REDEFINITION ME st_Operation::Operation
  UP "personal label" 'code_method'
  UP "unstereotyped" true
 
-ENDME // st_Operation::Operation
+ENDMESTUB // st_Operation::Operation
 
-REDEFINITION ME st_factory::Operation Inherits ( st_Operation::Operation )
+REDEFINITION MESTUB st_factory::Operation Inherits ( st_Operation::Operation )
  MEPROP UID '470EFFAD0119'
  MEPROP Name 'factory::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3843,9 +3845,9 @@ REDEFINITION ME st_factory::Operation Inherits ( st_Operation::Operation )
  ;
  UP "personal label" 'code_factory'
 
-ENDME // st_factory::Operation
+ENDMESTUB // st_factory::Operation
 
-ME st_Attribute::Attribute
+MESTUB st_Attribute::Attribute
  MEPROP UID '470EFFEB0242'
  MEPROP Name 'Attribute::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3854,9 +3856,9 @@ ME st_Attribute::Attribute
  UP "personal label" 'code_property'
  UP "unstereotyped" true
 
-ENDME // st_Attribute::Attribute
+ENDMESTUB // st_Attribute::Attribute
 
-ME st_ServerFacet Inherits ( st_WikiImplClass )
+MESTUB st_ServerFacet Inherits ( st_WikiImplClass )
  MEPROP UID '470F7348002E'
  MEPROP Name 'ServerFacet'
  MEPROP Stereotype 'MDAClass'
@@ -3867,9 +3869,9 @@ ME st_ServerFacet Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_ServerFacet
+ENDMESTUB // st_ServerFacet
 
-REDEFINITION ME st_property::Attribute
+REDEFINITION MESTUB st_property::Attribute
  MEPROP UID '471F1A6501A5'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3883,9 +3885,9 @@ REDEFINITION ME st_property::Attribute
  UP "personal label" 'code_property'
  UP "visability type" '+'
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-REDEFINITION ME st_key::Attribute
+REDEFINITION MESTUB st_key::Attribute
  MEPROP UID '471F1C250167'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3897,9 +3899,9 @@ REDEFINITION ME st_key::Attribute
  UP "personal label" 'code_attr_key'
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_readonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '471F1C480232'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3908,9 +3910,9 @@ REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
  UP "has exception" 'g'
  UP "personal label" 'code_readonly_attr'
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_writeonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '471F1C7903D8'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -3919,9 +3921,9 @@ REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
  UP "has exception" 's'
  UP "personal label" 'code_writeonly_attr'
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-REDEFINITION ME st_operation::Operation
+REDEFINITION MESTUB st_operation::Operation
  MEPROP UID '471F1CC2035B'
  MEPROP Name 'operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3936,9 +3938,9 @@ REDEFINITION ME st_operation::Operation
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_operation::Operation
+ENDMESTUB // st_operation::Operation
 
-REDEFINITION ME st_friend::Dependency
+REDEFINITION MESTUB st_friend::Dependency
  MEPROP UID '471F1FEC0109'
  MEPROP Name 'friend::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3946,18 +3948,18 @@ REDEFINITION ME st_friend::Dependency
  ;
  UP "personal label" 'code_dep_friend'
 
-ENDME // st_friend::Dependency
+ENDMESTUB // st_friend::Dependency
 
-REDEFINITION ME st_oneway::Operation Inherits ( st_operation::Operation )
+REDEFINITION MESTUB st_oneway::Operation Inherits ( st_operation::Operation )
  MEPROP UID '471F202802EE'
  MEPROP Name 'oneway::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_471F202802EE' '478DEF830021.ms.model.script' // oneway
  ;
 
-ENDME // st_oneway::Operation
+ENDMESTUB // st_oneway::Operation
 
-REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
+REDEFINITION MESTUB st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  MEPROP UID '471F2F9801D4'
  MEPROP Name 'oneway,chg::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -3965,18 +3967,18 @@ REDEFINITION ME st_oneway,chg::Operation Inherits ( st_oneway::Operation )
  ;
  UP "personal label" 'code_method'
 
-ENDME // st_oneway,chg::Operation
+ENDMESTUB // st_oneway,chg::Operation
 
-REDEFINITION ME st_chg::Operation Inherits ( st_operation::Operation )
+REDEFINITION MESTUB st_chg::Operation Inherits ( st_operation::Operation )
  MEPROP UID '47BABD2E01C1'
  MEPROP Name 'chg::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_47BABD2E01C1' '478DEF830021.ms.model.script' // chg
  ;
 
-ENDME // st_chg::Operation
+ENDMESTUB // st_chg::Operation
 
-REDEFINITION ME st_supply::Dependency
+REDEFINITION MESTUB st_supply::Dependency
  MEPROP UID '47FC905C012A'
  MEPROP Name 'supply::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3984,9 +3986,9 @@ REDEFINITION ME st_supply::Dependency
  ;
  UP "personal label" 'code_dep_supply'
 
-ENDME // st_supply::Dependency
+ENDMESTUB // st_supply::Dependency
 
-REDEFINITION ME st_consume::Dependency
+REDEFINITION MESTUB st_consume::Dependency
  MEPROP UID '47FC910001F7'
  MEPROP Name 'consume::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -3994,9 +3996,9 @@ REDEFINITION ME st_consume::Dependency
  ;
  UP "personal label" 'code_dep_consume'
 
-ENDME // st_consume::Dependency
+ENDMESTUB // st_consume::Dependency
 
-ME st_ServerFactoryOperationInternal
+MESTUB st_ServerFactoryOperationInternal
  MEPROP UID '4AE7EA60000B'
  MEPROP Name 'ServerFactoryOperationInternal'
  MEPROP Stereotype 'MDAAbstractClass'
@@ -4006,18 +4008,18 @@ ME st_ServerFactoryOperationInternal
  UP "personal label" 'srv_factory_internal'
  UP "visability type" '+#i'
 
-ENDME // st_ServerFactoryOperationInternal
+ENDMESTUB // st_ServerFactoryOperationInternal
 
-ME st_ServerEvent Inherits ( st_Struct )
+MESTUB st_ServerEvent Inherits ( st_Struct )
  MEPROP UID '47FC8DC20143'
  MEPROP Name 'ServerEvent'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_47FC8DC20143' '478DEF830021.ms.model.script' // ServerEvent
  ;
 
-ENDME // st_ServerEvent
+ENDMESTUB // st_ServerEvent
 
-ME st_ServerInterface Inherits ( st_ServerFacet st_AbstractInterface )
+MESTUB st_ServerInterface Inherits ( st_ServerFacet st_AbstractInterface )
  MEPROP UID '470F71BF03C8'
  MEPROP Name 'ServerInterface'
  MEPROP Stereotype 'MDAClass'
@@ -4029,9 +4031,9 @@ ME st_ServerInterface Inherits ( st_ServerFacet st_AbstractInterface )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_ServerInterface
+ENDMESTUB // st_ServerInterface
 
-REDEFINITION ME st_remover::Operation Inherits ( st_ServerFactoryOperationInternal )
+REDEFINITION MESTUB st_remover::Operation Inherits ( st_ServerFactoryOperationInternal )
  MEPROP UID '471F1823007D'
  MEPROP Name 'remover::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -4043,9 +4045,9 @@ REDEFINITION ME st_remover::Operation Inherits ( st_ServerFactoryOperationIntern
  UP "implementable" false
  UP "personal label" 'code_remover'
 
-ENDME // st_remover::Operation
+ENDMESTUB // st_remover::Operation
 
-REDEFINITION ME st_factory::Operation Inherits ( st_factory::Operation st_ServerFactoryOperationInternal )
+REDEFINITION MESTUB st_factory::Operation Inherits ( st_factory::Operation st_ServerFactoryOperationInternal )
  MEPROP UID '471F1E100186'
  MEPROP Name 'factory::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -4054,9 +4056,9 @@ REDEFINITION ME st_factory::Operation Inherits ( st_factory::Operation st_Server
  UP "implementable" false
  UP "personal label" 'code_factory'
 
-ENDME // st_factory::Operation
+ENDMESTUB // st_factory::Operation
 
-REDEFINITION ME st_multi_factory::Operation Inherits ( st_multi_factory::Operation st_ServerFactoryOperationInternal )
+REDEFINITION MESTUB st_multi_factory::Operation Inherits ( st_multi_factory::Operation st_ServerFactoryOperationInternal )
  MEPROP UID '471F1E81034B'
  MEPROP Name 'multi_factory::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -4064,18 +4066,18 @@ REDEFINITION ME st_multi_factory::Operation Inherits ( st_multi_factory::Operati
  ;
  UP "implementable" false
 
-ENDME // st_multi_factory::Operation
+ENDMESTUB // st_multi_factory::Operation
 
-REDEFINITION ME st_factory_switch::Attribute Inherits ( st_factory_switch::Attribute )
+REDEFINITION MESTUB st_factory_switch::Attribute Inherits ( st_factory_switch::Attribute )
  MEPROP UID '47B133E102FA'
  MEPROP Name 'factory_switch::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_47B133E102FA' '478DEF830021.ms.model.script' // factory switch
  ;
 
-ENDME // st_factory_switch::Attribute
+ENDMESTUB // st_factory_switch::Attribute
 
-ME st_ServerInterfaces Inherits ( st_InterfacePackageBase )
+MESTUB st_ServerInterfaces Inherits ( st_InterfacePackageBase )
  MEPROP UID '4704926100AB'
  MEPROP Name 'ServerInterfaces'
  MEPROP Stereotype 'MDACategory'
@@ -4084,9 +4086,9 @@ ME st_ServerInterfaces Inherits ( st_InterfacePackageBase )
  UP "disable forward decl" true
  UP "personal label" 'code_server_interfaces'
 
-ENDME // st_ServerInterfaces
+ENDMESTUB // st_ServerInterfaces
 
-ME st_ServerLibrary Inherits ( st_Library )
+MESTUB st_ServerLibrary Inherits ( st_Library )
  MEPROP UID '47037635038A'
  MEPROP Name 'ServerLibrary'
  MEPROP Stereotype 'MDACategory'
@@ -4098,18 +4100,18 @@ ME st_ServerLibrary Inherits ( st_Library )
  UP "visualization f-font color" 16714250
  UP "visualization f-line color" 16714250
 
-ENDME // st_ServerLibrary
+ENDMESTUB // st_ServerLibrary
 
-REDEFINITION ME st_LibSupport Inherits ( st_LibSupport )
+REDEFINITION MESTUB st_LibSupport Inherits ( st_LibSupport )
  MEPROP UID '478E252A02D1'
  MEPROP Name 'LibSupport'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_478E252A02D1' '478E24DA01E6.ms.model.script' // LibSupport
  ;
 
-ENDME // st_LibSupport
+ENDMESTUB // st_LibSupport
 
-ME st_VM Inherits ( st_WikiImplClass )
+MESTUB st_VM Inherits ( st_WikiImplClass )
  MEPROP UID '4704BC82002E'
  MEPROP Name 'VM'
  MEPROP Stereotype 'MDAClass'
@@ -4122,9 +4124,9 @@ ME st_VM Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 13110000
  UP "visualization f-line color" 13110000
 
-ENDME // st_VM
+ENDMESTUB // st_VM
 
-ME st_macro::Operation
+MESTUB st_macro::Operation
  MEPROP UID '4772795A0375'
  MEPROP Name 'macro::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -4132,9 +4134,9 @@ ME st_macro::Operation
  ;
  UP "personal label" 'code_static_method'
 
-ENDME // st_macro::Operation
+ENDMESTUB // st_macro::Operation
 
-REDEFINITION ME st_include::Dependency
+REDEFINITION MESTUB st_include::Dependency
  MEPROP UID '4773ACE201C0'
  MEPROP Name 'include::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -4142,9 +4144,9 @@ REDEFINITION ME st_include::Dependency
  ;
  UP "personal label" 'code_vm_include'
 
-ENDME // st_include::Dependency
+ENDMESTUB // st_include::Dependency
 
-ME st_Decorator Inherits ( st_VM )
+MESTUB st_Decorator Inherits ( st_VM )
  MEPROP UID '473A908D00DA'
  MEPROP Name 'Decorator'
  MEPROP Stereotype 'MDAClass'
@@ -4152,9 +4154,9 @@ ME st_Decorator Inherits ( st_VM )
  ;
  UP "personal label" 'code_decorator'
 
-ENDME // st_Decorator
+ENDMESTUB // st_Decorator
 
-ME st_JSUnit Inherits ( st_WikiPackageImpl )
+MESTUB st_JSUnit Inherits ( st_WikiPackageImpl )
  MEPROP UID '4773773E02F8'
  MEPROP Name 'JSUnit'
  MEPROP Stereotype 'MDACategory'
@@ -4165,9 +4167,9 @@ ME st_JSUnit Inherits ( st_WikiPackageImpl )
  UP "visualization f-font color" 4944613
  UP "visualization f-line color" 4944613
 
-ENDME // st_JSUnit
+ENDMESTUB // st_JSUnit
 
-ME st_WebLibrary
+MESTUB st_WebLibrary
  MEPROP UID '4773C42B0029'
  MEPROP Name 'WebLibrary'
  MEPROP Stereotype 'MDACategory'
@@ -4178,9 +4180,9 @@ ME st_WebLibrary
  UP "visualization f-font color" 13728492
  UP "visualization f-line color" 13728492
 
-ENDME // st_WebLibrary
+ENDMESTUB // st_WebLibrary
 
-ME st_HtmlUnit Inherits ( st_WikiPackageImpl )
+MESTUB st_HtmlUnit Inherits ( st_WikiPackageImpl )
  MEPROP UID '4774C47A00F5'
  MEPROP Name 'HtmlUnit'
  MEPROP Stereotype 'MDACategory'
@@ -4191,9 +4193,9 @@ ME st_HtmlUnit Inherits ( st_WikiPackageImpl )
  UP "visualization f-font color" 13728492
  UP "visualization f-line color" 13728492
 
-ENDME // st_HtmlUnit
+ENDMESTUB // st_HtmlUnit
 
-ME st_TestClass Inherits ( st_WikiImplClass )
+MESTUB st_TestClass Inherits ( st_WikiImplClass )
  MEPROP UID '499972740320'
  MEPROP Name 'TestClass'
  MEPROP Stereotype 'MDAClass'
@@ -4206,9 +4208,9 @@ ME st_TestClass Inherits ( st_WikiImplClass )
  UP "visualization f-font color" 5278217
  UP "visualization f-line color" 5278217
 
-ENDME // st_TestClass
+ENDMESTUB // st_TestClass
 
-REDEFINITION ME st_property::Attribute
+REDEFINITION MESTUB st_property::Attribute
  MEPROP UID '4999824C0371'
  MEPROP Name 'property::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4219,9 +4221,9 @@ REDEFINITION ME st_property::Attribute
  UP "personal label" 'code_property'
  UP "visability type" '+'
 
-ENDME // st_property::Attribute
+ENDMESTUB // st_property::Attribute
 
-REDEFINITION ME st_key::Attribute
+REDEFINITION MESTUB st_key::Attribute
  MEPROP UID '499AA23100C9'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4231,9 +4233,9 @@ REDEFINITION ME st_key::Attribute
  UP "personal label" 'code_attr_key'
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_readonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '499982880154'
  MEPROP Name 'readonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4241,9 +4243,9 @@ REDEFINITION ME st_readonly::Attribute Inherits ( st_property::Attribute )
  ;
  UP "personal label" 'code_readonly_attr'
 
-ENDME // st_readonly::Attribute
+ENDMESTUB // st_readonly::Attribute
 
-REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
+REDEFINITION MESTUB st_key::Attribute Inherits ( st_key::Attribute )
  MEPROP UID '499AA86B0322'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4251,9 +4253,9 @@ REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
+REDEFINITION MESTUB st_writeonly::Attribute Inherits ( st_property::Attribute )
  MEPROP UID '499982B000C6'
  MEPROP Name 'writeonly::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4261,9 +4263,9 @@ REDEFINITION ME st_writeonly::Attribute Inherits ( st_property::Attribute )
  ;
  UP "personal label" 'code_writeonly_attr'
 
-ENDME // st_writeonly::Attribute
+ENDMESTUB // st_writeonly::Attribute
 
-REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
+REDEFINITION MESTUB st_key::Attribute Inherits ( st_key::Attribute )
  MEPROP UID '499AA881023B'
  MEPROP Name 'key::Attribute'
  MEPROP Stereotype 'MDAAttribute'
@@ -4271,9 +4273,9 @@ REDEFINITION ME st_key::Attribute Inherits ( st_key::Attribute )
  ;
  UP "unstereotyped" true
 
-ENDME // st_key::Attribute
+ENDMESTUB // st_key::Attribute
 
-REDEFINITION ME st_uses::Dependency
+REDEFINITION MESTUB st_uses::Dependency
  MEPROP UID '49998E19015C'
  MEPROP Name 'uses::Dependency'
  MEPROP Stereotype 'MDADependency'
@@ -4281,9 +4283,9 @@ REDEFINITION ME st_uses::Dependency
  ;
  UP "personal label" 'code_dep_uses'
 
-ENDME // st_uses::Dependency
+ENDMESTUB // st_uses::Dependency
 
-REDEFINITION ME st_operation::Operation
+REDEFINITION MESTUB st_operation::Operation
  MEPROP UID '499AD56602D7'
  MEPROP Name 'operation::Operation'
  MEPROP Stereotype 'MDAOperation'
@@ -4295,9 +4297,9 @@ REDEFINITION ME st_operation::Operation
  UP "unstereotyped" true
  UP "visability type" '+'
 
-ENDME // st_operation::Operation
+ENDMESTUB // st_operation::Operation
 
-ME st_TestCase Inherits ( st_SimpleClass )
+MESTUB st_TestCase Inherits ( st_SimpleClass )
  MEPROP UID '4B2A19080274'
  MEPROP Name 'TestCase'
  MEPROP Stereotype 'MDAClass'
@@ -4308,9 +4310,9 @@ ME st_TestCase Inherits ( st_SimpleClass )
  UP "visualization f-font color" 2124031
  UP "visualization f-line color" 3329330
 
-ENDME // st_TestCase
+ENDMESTUB // st_TestCase
 
-ME st_Test Inherits ( st_WikiImplClass st_UsesContainer )
+MESTUB st_Test Inherits ( st_WikiImplClass st_UsesContainer )
  MEPROP UID '4B2A197A00D5'
  MEPROP Name 'Test'
  MEPROP Stereotype 'MDAClass'
@@ -4323,36 +4325,36 @@ ME st_Test Inherits ( st_WikiImplClass st_UsesContainer )
  UP "visualization f-font color" 13688896
  UP "visualization f-line color" 13688896
 
-ENDME // st_Test
+ENDMESTUB // st_Test
 
-ME st_TestCaseMixIn Inherits ( st_AbstractImplInclude st_TestCase )
+MESTUB st_TestCaseMixIn Inherits ( st_AbstractImplInclude st_TestCase )
  MEPROP UID '51E0319001F4'
  MEPROP Name 'TestCaseMixIn'
  MEPROP Stereotype 'MDAClass'
  MELINK StereotypeInModel WL 'ME_51E0319001F4' '499971140199.ms.model.script' // TestCaseMixIn
  ;
 
-ENDME // st_TestCaseMixIn
+ENDMESTUB // st_TestCaseMixIn
 
-REDEFINITION ME st_impurity_param::Attribute Inherits ( st_impurity_param::Attribute )
+REDEFINITION MESTUB st_impurity_param::Attribute Inherits ( st_impurity_param::Attribute )
  MEPROP UID '51E034BD007A'
  MEPROP Name 'impurity_param::Attribute'
  MEPROP Stereotype 'MDAAttribute'
  MELINK StereotypeInModel WL 'ME_51E034BD007A' '499971140199.ms.model.script' // impurity param
  ;
 
-ENDME // st_impurity_param::Attribute
+ENDMESTUB // st_impurity_param::Attribute
 
-REDEFINITION ME st_inline::Operation Inherits ( st_inline::Operation )
+REDEFINITION MESTUB st_inline::Operation Inherits ( st_inline::Operation )
  MEPROP UID '51E034D30202'
  MEPROP Name 'inline::Operation'
  MEPROP Stereotype 'MDAOperation'
  MELINK StereotypeInModel WL 'ME_51E034D30202' '499971140199.ms.model.script' // inline
  ;
 
-ENDME // st_inline::Operation
+ENDMESTUB // st_inline::Operation
 
-ME st_TestUnit Inherits ( st_Unit )
+MESTUB st_TestUnit Inherits ( st_Unit )
  MEPROP UID '4999717102EE'
  MEPROP Name 'TestUnit'
  MEPROP Stereotype 'MDACategory'
@@ -4364,9 +4366,9 @@ ME st_TestUnit Inherits ( st_Unit )
  UP "visualization f-font color" 16744448
  UP "visualization f-line color" 16744448
 
-ENDME // st_TestUnit
+ENDMESTUB // st_TestUnit
 
-ME st_TestLibrary Inherits ( st_Library )
+MESTUB st_TestLibrary Inherits ( st_Library )
  MEPROP UID '499971A80065'
  MEPROP Name 'TestLibrary'
  MEPROP Stereotype 'MDACategory'
@@ -4378,9 +4380,9 @@ ME st_TestLibrary Inherits ( st_Library )
  UP "visualization f-font color" 13708259
  UP "visualization f-line color" 13708259
 
-ENDME // st_TestLibrary
+ENDMESTUB // st_TestLibrary
 
-ME st_Project Inherits ( st_Project )
+MESTUB st_Project Inherits ( st_Project )
  MEPROP UID '46E13AC200BB'
  MEPROP Name 'Project'
  MEPROP Stereotype 'MDACategory'
@@ -4390,14 +4392,14 @@ ME st_Project Inherits ( st_Project )
  UP "visualization f-font color" 5961040
  UP "visualization f-line color" 5961040
 
-ENDME // st_Project
+ENDMESTUB // st_Project
 
-REDEFINITION ME st_Project Inherits ( st_Project )
+REDEFINITION MESTUB st_Project Inherits ( st_Project )
  MEPROP UID '4742D0D30277'
  MEPROP Name 'Project'
  MEPROP Stereotype 'MDACategory'
  MELINK StereotypeInModel WL 'ME_4742D0D30277' '4742D06A0248.ms.model.script' // Project
  ;
 
-ENDME // st_Project
+ENDMESTUB // st_Project
 

@@ -33,6 +33,10 @@ USES
 // DictionaryByName.ms.dict
 //;
 
+USES
+ ProcessModelFiles.ms.dict
+;
+
 PROCEDURE WordToCache
   STRING IN aWordName
   TtfwWord IN aWord
@@ -141,7 +145,7 @@ PROCEDURE WordToCache
       end
      ; // DoFile
       
-     @ DoFile '*.ms.model.script' msm:ModelRoot ProcessFilesWithMask
+     msm:ModelRoot .ProcessModelFiles: DoFile
     end // ( aWord .xParent .IsNil )
    end 
   end // ( aWord .xParent .IsNil )

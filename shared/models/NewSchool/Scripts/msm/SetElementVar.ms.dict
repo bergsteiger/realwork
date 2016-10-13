@@ -1,0 +1,38 @@
+UNIT SetElementVar.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ WordIsVar.ms.dict
+;
+
+elem_proc SetElementVar
+  STRING IN aName
+  IN aValue
+ aName '.' .CutPrefix >>> aName
+ 
+ VAR l_Var
+ Ctx:EnterCS
+ TRY
+  Self ->^ aName >>> l_Var
+  
+  if ( l_Var WordIsVar ! ) then
+  begin
+   aName false Self pop:NewWordDefinitor:CheckVarForce
+   // - создаём новую переменную
+   DUP l_Var pop:Word:Producer SWAP pop:Word:SetProducer
+   // - устанавливаем ей стереотип
+   >>> l_Var
+  end // ( l_Var WordIsVar ! )
+  
+  l_Var ^:= aValue
+ FINALLY
+  Ctx:LeaveCS
+ END // TRY..FINALLY
+; // SetElementVar

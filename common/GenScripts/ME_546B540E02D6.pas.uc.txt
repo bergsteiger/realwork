@@ -15,7 +15,6 @@ var
 
  function DoProcess(anItem: TddProcessTask): Boolean;
  var
-  l_Task: TcsExport;
   l_FileIterator: TddFileIterator;
   l_Ptr: TddIterateProc;
 
@@ -44,13 +43,12 @@ var
 
  begin
   Result := False;
-  l_Task := (anItem as TcsExport);
-  l_Reply.RemoteFolder := IncludeTrailingPathDelimiter(l_Task.TaskFolder);
-  l_Reply.LocalFolder := IncludeTrailingPathDelimiter(l_Task.ExportDirectory);
-  l_Task.SetProgress(0, '');
-  l_Task.RequestDelivering;
+  l_Reply.RemoteFolder := IncludeTrailingPathDelimiter(anItem.DeliverySourceFolder);
+  l_Reply.LocalFolder := IncludeTrailingPathDelimiter(anItem.DeliveryTargetFolder);
+  anItem.SetProgress(0, '');
+  anItem.RequestDelivering;
   l3System.Msg2Log('Передача пользователю результатов экспорта');
-  l3System.Msg2Log('Задача от пользователя: %d', [l_Task.UserID]);
+  l3System.Msg2Log('Задача от пользователя: %d', [anItem.UserID]);
   l_FileIterator := TddFileIterator.Make(l_Reply.RemoteFolder, '*.*', nil, True);
   try
    l_Ptr := L2IterateFilesProc(@DoProcessOneFile);

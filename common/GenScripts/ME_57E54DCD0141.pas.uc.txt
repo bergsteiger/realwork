@@ -26,14 +26,26 @@
 //#UC START# *57AE2E140297_57E54DCD0141get_var*
 //#UC END# *57AE2E140297_57E54DCD0141get_var*
 //#UC START# *57AEBED1018D_57E54DCD0141get_impl*
- Result := Get_Item(anIndex).StringProp['DefaultText'];
+ l_E := Get_Item(anIndex);
+ if (l_E = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := l_E.StringProp['DefaultText'];
 //#UC END# *57AEBED1018D_57E54DCD0141get_impl*
 //#UC START# *57AEBED1018D_57E54DCD0141get_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57AEBED1018D_57E54DCD0141get_var*
 //#UC START# *57B6C7D40215_57E54DCD0141get_impl*
- Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
+ l_E := Get_Item(anIndex);
+ if (l_E = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := l_E.StringProp['DefaultSearchText'];
 //#UC END# *57B6C7D40215_57E54DCD0141get_impl*
 //#UC START# *57B6C7D40215_57E54DCD0141get_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57B6C7D40215_57E54DCD0141get_var*
 //#UC START# *57D1327900BC_57E54DCD0141_impl*
  Result := -1;

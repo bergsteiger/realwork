@@ -2,6 +2,9 @@
 w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas
 //#UC END# *55AE5A8C035D_ext:FileName
 //#UC START# *55AE5A8C035Dimpl_uses*
+ , l3String
+ , tfwAutoregisteredDiction
+ , tfwFileStreamFactory
 //#UC END# *55AE5A8C035Dimpl_uses*
 //#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
  if (aDictionaryEx = nil) then
@@ -54,3 +57,36 @@ var
  l_D : TtfwDictionaryEx;
 {$EndIf seCacheDict}
 //#UC END# *55AE84FA0076_55AE84FA0076_559E8B2E0385_Word_var*
+//#UC START# *57F665430181_57F665430181_559E8B2E0385_Word_impl*
+ with TtfwDictionaryCache.Instance do
+ begin
+  Lock;
+  try
+   l_Name := TtfwCStringFactory.C(aCtx.ResolveIncludedFilePath(l3Str(aName)));
+   Result := FindDictionary(l_Name);
+   if (Result = nil) then
+   begin
+    l_F := TtfwFileStreamFactory.Create(l3Str(l_Name));
+    try
+     l_D := TtfwDictionaryEx.Create(l_F, [TtfwAutoregisteredDiction.Instance]);
+     try
+      Add(l_D);
+      Result := l_D;
+     finally
+      FreeAndNil(l_D);
+     end;//try..finally
+    finally
+     FreeAndNil(l_F);
+    end;//try..finally
+   end;//Result = nil
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TtfwDictionaryCache.Instance
+//#UC END# *57F665430181_57F665430181_559E8B2E0385_Word_impl*
+//#UC START# *57F665430181_57F665430181_559E8B2E0385_Word_var*
+var
+ l_D : TtfwDictionaryEx;
+ l_Name : Il3CString;
+ l_F : TtfwFileStreamFactory;
+//#UC END# *57F665430181_57F665430181_559E8B2E0385_Word_var*

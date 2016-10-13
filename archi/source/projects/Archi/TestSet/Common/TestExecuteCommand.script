@@ -3,6 +3,7 @@
 
 USES
  axiom:AutoComplete
+ axiom:Action
  axiom:Mouse
  axiom:Control
  axiom:Editor
@@ -89,13 +90,68 @@ PROCEDURE "Выполнить очистку буфера обмена, если нужно"
 	)
 ;
 
+// Для объектов
+PROCEDURE "Выключить иконку на панели" STRING IN anActName 
+	TActionList VAR l_ActList
+	arEditorWindowActionList "Текущее родительское окно" pop:form:FindActionList >>> l_ActList
+
+    Если ( l_ActList pop:object:IsNil ! ) то (
+	TContainedAction VAR l_Action
+	anActName l_ActList pop:ActionList:FindAction >>> l_Action
+
+      Если ( l_Action pop:object:IsNil ! ) то (
+	Если ( l_Action pop:Action:Checked ) то // проверка
+	( anActName arEditorWindowActionList "Текущее родительское окно" pop:form:ExecuteAction )
+      )
+
+    )
+;
+
+PROCEDURE "Выключить иконку 'Номер метки'"
+	"Выключить иконку на панели {('acPMSubPanelLabelNum')}"
+;
+
+PROCEDURE "Выключить иконку 'Тип названия'"
+	"Выключить иконку на панели {('acPMSubPanelNameType')}"
+;
+
+PROCEDURE "Выключить иконку 'Классы'"
+	"Выключить иконку на панели {('acPMSubPanelClasses')}"
+;
+
+PROCEDURE "Выключить иконку 'Ключи'"
+	"Выключить иконку на панели {('acPMSubPanelKeys')}"
+;
+
+PROCEDURE "Выключить иконку 'Типы'"
+	"Выключить иконку на панели {('acPMSubPanelTypes')}"
+;
+
+PROCEDURE "Выключить иконку 'Оглавление'"
+	"Выключить иконку на панели {('acPMSubPanelTOC')}"
+;
+
+PROCEDURE "Выключить иконку 'Внешние объекты'"
+	"Выключить иконку на панели {('acPMSubPanelExtObjects')}"
+;
+
+PROCEDURE "Работа с сабпанелью. Выключить все иконки"
+	"Выключить иконку 'Номер метки'"
+	"Выключить иконку 'Тип названия'"
+	"Выключить иконку 'Классы'"
+	"Выключить иконку 'Ключи'"
+	"Выключить иконку 'Типы'"
+	"Выключить иконку 'Оглавление'"
+	"Выключить иконку 'Внешние объекты'"
+;
+
 PROCEDURE "Выполнить завершающее действие"
 	"Выполнить очистку буфера обмена, если нужно"
 	"Восстановление позиции мыши, если нужно"
 	ClearFindDialog
 	g_How2End CASE
 		cnNoAction ( )
-		cnCloseDoument ( "Закрыть без сохранения" )			
+		cnCloseDoument ( "Работа с сабпанелью. Выключить все иконки" "Закрыть без сохранения" )			
 		cnCloseAllWindow ( "Закрыть все окна" )		
 		cnInspectorOfObjectsDefaultSettingsAndCloseAllWindows ( "Закрыть все окна" "Установить исходное состояние Реестра Объектов" )				
         END
@@ -257,7 +313,7 @@ PROCEDURE "Подготовка дочернего окна"
 	g_ActionWithDocument CASE
                 cnWithOutDocument ( )
                 cnMessage ( "Развернуть окно" )
-		cnAddToViborka ( "Развернуть окно" )
+				cnAddToViborka ( "Развернуть окно" )
                 cnSelectionWithList ( "Развернуть окно" )
 		DEFAULT ( "Развернуть редактор" )
 	END	  
@@ -520,6 +576,7 @@ PROCEDURE "Изменить размеры"
 		cnWorkingWithTextBlock ( "Перейти на вкладку 'Текст' и включить блоки" )
 		cnWorkingWithAnnoSpec ( "Перейти на вкладку 'Аннотация' и включить спецсимволы" )
 		cnWorkingWithSpravkaSpec ( "Перейти на вкладку 'Справка' и включить спецсимволы" )
+		cnSubPanelObjects ( "Включить 'Внешние объекты'" )
         END
 ;
 

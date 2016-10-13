@@ -4,3 +4,16 @@ STRING FUNCTION CreateUID
  sysutils:CreateGUID '-' '' string:Replace '{' '' string:Replace '}' '' string:Replace
  >>> Result
 ; // CreateUID
+
+STRING FUNCTION CreateMUID
+
+ : ConvertUID
+  string:Hash48
+  'MSM' SWAP Cat
+  // - добавляем "свой след", чтобы искать можно было
+ ; // ConvertUID
+ 
+ CreateUID
+ ConvertUID
+ >>> Result
+; // CreateMUID

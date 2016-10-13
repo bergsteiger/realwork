@@ -551,7 +551,6 @@ ME ME_48495E29035B
  WL 'ME_53FF0C820388' '53BD13B4023B.ms.model.script' // BasesIDListHelper
  WL 'ME_53FF16320146' '53BD13B4023B.ms.model.script' // InfoIDListHelper
  WL 'ME_57BEADD60037' '53BD13B4023B.ms.model.script' // FoundSelectorHelper
- WL 'ME_57DA8247013D' '53BD13B4023B.ms.model.script' // DocIDListHelper
  WL 'ME_57EB9A4601EC' '53BD13B4023B.ms.model.script' // AttributesHelper
  )
  ; // Implementors
@@ -8544,25 +8543,6 @@ ME ME_57DA6A97039A
 
 ENDME // ME_57DA6A97039A FamilyID
 
-ME ME_57DA6AC3021B
- MEPROP UID '57DA6AC3021B'
- MEPROP Name 'DocIDList'
- MEPROP Class class_Attribute
- MELINK Stereotype st_array::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
- ;
- MELINK Target HWL ME_48495E29035B // Address
- ;
- UP "Duplicates" 'Ignore'
- UP "HasStoreChildTrigger" false
- UP extprop:evd:NeedsOwnType true
- UP extprop:evd:NewTypeName 'csMultiModifyDocs_DocIDList'
-
-ENDME // ME_57DA6AC3021B DocIDList
-
 ME ME_57DA6E6A028C
  MEPROP UID '57DA6E6A028C'
  MEPROP Name 'ActionType'
@@ -8594,6 +8574,25 @@ ME ME_57E8B7D501E2
 
 ENDME // ME_57E8B7D501E2 AnouncedDate
 
+ME ME_57FF728700DB
+ MEPROP UID '57FF728700DB'
+ MEPROP Name 'DocumentIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
+ ;
+ MELINK Target HWL ME_48495E29035B // Address
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiModifyDocs_DocumentIDList'
+
+ENDME // ME_57FF728700DB DocumentIDList
+
 %%InheritedBy ME_57F25640029D ME_57DA505703B1
 
 ME ME_57DA505703B1
@@ -8613,9 +8612,9 @@ ME ME_57DA505703B1
  MELIST Attributes
    Seq: ( HWL ME_57DA5CBB0233 // Data
  HWL ME_57DA6A97039A // FamilyID
- HWL ME_57DA6AC3021B // DocIDList
  HWL ME_57DA6E6A028C // ActionType
  HWL ME_57E8B7D501E2 // AnouncedDate
+ HWL ME_57FF728700DB // DocumentIDList
  )
  ; // Attributes
  MESTRINGLIST DiagramsNames
@@ -8845,25 +8844,6 @@ ME ME_57EB995903A5
 
 ENDME // ME_57EB995903A5 FamilyID
 
-ME ME_57EB9965020C
- MEPROP UID '57EB9965020C'
- MEPROP Name 'DocIDList'
- MEPROP Class class_Attribute
- MELINK Stereotype st_array::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57EB989602C6 // csMultiClearAttributes
- ;
- MELINK Target HWL ME_48495E29035B // Address
- ;
- UP "Duplicates" 'Ignore'
- UP "HasStoreChildTrigger" false
- UP extprop:evd:NeedsOwnType true
- UP extprop:evd:NewTypeName 'csMultiClearAttributes_DocIDList'
-
-ENDME // ME_57EB9965020C DocIDList
-
 ME ME_57EB99CA031F
  MEPROP UID '57EB99CA031F'
  MEPROP Name 'Attributes'
@@ -8898,6 +8878,25 @@ ME ME_57EB9A1802D1
 
 ENDME // ME_57EB9A1802D1 RightsNeeded
 
+ME ME_57FF726D029B
+ MEPROP UID '57FF726D029B'
+ MEPROP Name 'DocumentIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EB989602C6 // csMultiClearAttributes
+ ;
+ MELINK Target HWL ME_48495E29035B // Address
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiClearAttributes_DocumentIDList'
+
+ENDME // ME_57FF726D029B DocumentIDList
+
 %%InheritedBy ME_57F25640029D ME_57EB989602C6
 
 ME ME_57EB989602C6
@@ -8916,9 +8915,9 @@ ME ME_57EB989602C6
  ; // Inherits
  MELIST Attributes
    Seq: ( HWL ME_57EB995903A5 // FamilyID
- HWL ME_57EB9965020C // DocIDList
  HWL ME_57EB99CA031F // Attributes
  HWL ME_57EB9A1802D1 // RightsNeeded
+ HWL ME_57FF726D029B // DocumentIDList
  )
  ; // Attributes
  MESTRINGLIST DiagramsNames
@@ -9094,6 +9093,40 @@ ME ME_57EE501C03B3
 
 ENDME // ME_57EE501C03B3 ErrorMessage
 
+ME ME_57FB848E0268
+ MEPROP UID '57FB848E0268'
+ MEPROP Name 'RejectedIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EE4F480370 // csMultiOperationReply
+ ;
+ MELINK Target HWL ME_57DB9F7F036F // DocIDWithComment
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiOperationReply_RejectedIDList'
+
+ENDME // ME_57FB848E0268 RejectedIDList
+
+ME ME_57FDE3F40108
+ MEPROP UID '57FDE3F40108'
+ MEPROP Name 'ProcessedCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EE4F480370 // csMultiOperationReply
+ ;
+ MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+ UP extprop:evd:NewTypeName 'csMultiOperationReply_ProcessedCount'
+
+ENDME // ME_57FDE3F40108 ProcessedCount
+
 %%InheritedBy ME_546B3F86038D ME_57EE4F480370
 
 ME ME_57EE4F480370
@@ -9113,6 +9146,8 @@ ME ME_57EE4F480370
  MELIST Attributes
    Seq: ( HWL ME_57EE501300C5 // IsSuccess
  HWL ME_57EE501C03B3 // ErrorMessage
+ HWL ME_57FB848E0268 // RejectedIDList
+ HWL ME_57FDE3F40108 // ProcessedCount
  )
  ; // Attributes
  MESTRINGLIST DiagramsNames
@@ -9143,25 +9178,6 @@ ME ME_57EE4F930134
 
 ENDME // ME_57EE4F930134 FamilyID
 
-ME ME_57EE4FA202C1
- MEPROP UID '57EE4FA202C1'
- MEPROP Name 'DocIDList'
- MEPROP Class class_Attribute
- MELINK Stereotype st_array::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57EE4F6402C7 // csMultiOperation
- ;
- MELINK Target HWL ME_48495E29035B // Address
- ;
- UP "Duplicates" 'Ignore'
- UP "HasStoreChildTrigger" false
- UP extprop:evd:NeedsOwnType true
- UP extprop:evd:NewTypeName 'csMultiOperation_DocIDList'
-
-ENDME // ME_57EE4FA202C1 DocIDList
-
 ME ME_57EE4FC10280
  MEPROP UID '57EE4FC10280'
  MEPROP Name 'Operation'
@@ -9177,6 +9193,25 @@ ME ME_57EE4FC10280
  UP extprop:evd:NewTypeName 'csMultiOperation_Operation'
 
 ENDME // ME_57EE4FC10280 Operation
+
+ME ME_57FF729C027F
+ MEPROP UID '57FF729C027F'
+ MEPROP Name 'DocumentIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EE4F6402C7 // csMultiOperation
+ ;
+ MELINK Target HWL ME_48495E29035B // Address
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiOperation_DocumentIDList'
+
+ENDME // ME_57FF729C027F DocumentIDList
 
 %%InheritedBy ME_57F25640029D ME_57EE4F6402C7
 
@@ -9196,8 +9231,8 @@ ME ME_57EE4F6402C7
  ; // Inherits
  MELIST Attributes
    Seq: ( HWL ME_57EE4F930134 // FamilyID
- HWL ME_57EE4FA202C1 // DocIDList
  HWL ME_57EE4FC10280 // Operation
+ HWL ME_57FF729C027F // DocumentIDList
  )
  ; // Attributes
  MESTRINGLIST DiagramsNames
@@ -9520,6 +9555,71 @@ ME ME_57F4D8850205
 
 ENDME // ME_57F4D8850205 DeliveryProfile
 
+FORWARD ME_57FF533A02E3
+
+ME ME_57FF534B00E4
+ MEPROP UID '57FF534B00E4'
+ MEPROP Name 'TaskType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_override::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FF533A02E3 // AutolinkerTask
+ ;
+ MEPROP Value 'Ord(cs_ttAutolinker)'
+ UP extprop:evd:NewTypeName 'AutolinkerTask_TaskType'
+ UP extprop:pas:Value 'Ord(cs_ttAutolinker)'
+
+ENDME // ME_57FF534B00E4 TaskType
+
+ME ME_57FF53BA033D
+ MEPROP UID '57FF53BA033D'
+ MEPROP Name 'ClearLinksBeforeRun'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FF533A02E3 // AutolinkerTask
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'AutolinkerTask_ClearLinksBeforeRun'
+
+ENDME // ME_57FF53BA033D ClearLinksBeforeRun
+
+%%InheritedBy ME_53A95D9F02E9 ME_57FF533A02E3
+
+ME ME_57FF533A02E3
+ MEPROP UID '57FF533A02E3'
+ MEPROP Name 'AutolinkerTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53A95D9F02E9 // ProcessTask
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FF534B00E4 // TaskType
+ HWL ME_57FF53BA033D // ClearLinksBeforeRun
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\AutolinkerTask_Const.pas'
+ UP extprop:pas:TypeName 'AutolinkerTaskTag'
+ UP extprop:pas:UnitName 'AutolinkerTask_Const'
+
+ENDME // ME_57FF533A02E3 AutolinkerTask
+
 %%InheritedBy ME_4849288E0078 ME_537DFE740339
 
 ME ME_537DFE740339
@@ -9640,6 +9740,7 @@ ME ME_537DFE740339
  HWL ME_57F2070C002F // MultiOperationRequest
  HWL ME_57BEA2A8025C // csDownloadDocStream
  HWL ME_57F4D8850205 // DeliveryProfile
+ HWL ME_57FF533A02E3 // AutolinkerTask
  )
  ; // Children
  MELIST Injected
@@ -9780,7 +9881,7 @@ ME ME_484D29B8022E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_484D270C03AD // WevFramePart
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
  ;
 
 ENDME // ME_484D29B8022E 
@@ -9852,7 +9953,7 @@ ME ME_484D353E00F3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_484D30E40278 // WevStyle
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
  ;
 
 ENDME // ME_484D353E00F3 
@@ -16692,7 +16793,7 @@ ME ME_485772B20284
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_484FDC4F013F // TextSegment
  ;
- MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_485772B20284 
@@ -17593,7 +17694,7 @@ ME ME_9BF3B20621DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_484A4725001D // evdNative
  ;
- MELINK Target WL 'ME_A15623CB6EA6' 'A15623CB6EA6.ms.model.script' // evdNative_AttrValues
+ MELINK Target WL? 'ME_A15623CB6EA6' // evdNative_AttrValues
  ;
 
 ENDME // ME_9BF3B20621DB 
@@ -17743,7 +17844,7 @@ ME ME_53C9308E01D7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53C3E67C0258 // WevdTask
  ;
- MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_53C9308E01D7 
@@ -17763,7 +17864,7 @@ ME ME_53C93FFA029B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53C3E67C0258 // WevdTask
  ;
- MELINK Target WL 'ME_4808A20402DC' '4808A20402DC.ms.model.script' // Math
+ MELINK Target WL? 'ME_4808A20402DC' // Math
  ;
 
 ENDME // ME_53C93FFA029B 
@@ -17857,7 +17958,7 @@ ME ME_484A470100DD
  %SUMMARY 'Схема документа EVD' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ MELINK Parent WL? 'ME_467A8734039C' // EVD
  ;
  MELIST Children
    Seq: ( HWL ME_537DFE740339 // evdTasks
@@ -17873,44 +17974,44 @@ ME ME_484A470100DD
  HWL ME_48622CC300B1 // TIevdFrame
  HWL ME_486235DF0200 // WevFrame
  HWL ME_484FD34600BA // WevPara
- WL 'ME_4FD091B803AB' '4FD091B803AB.ms.model.script' // evdStylesRes
+ WL? 'ME_4FD091B803AB' // evdStylesRes
  HWL ME_484D12CB0030 // TIevdStyle
  HWL ME_484A4725001D // evdNative
- WL 'ME_53A953FD016B' '53A953FD016B.ms.model.script' // evdTaskTypes
- WL 'ME_53AAEDC101AB' '53AAEDC101AB.ms.model.script' // evdDTTypes
- WL 'ME_53BD13B4023B' '53BD13B4023B.ms.model.script' // evdTasksHelpers
+ WL? 'ME_53A953FD016B' // evdTaskTypes
+ WL? 'ME_53AAEDC101AB' // evdDTTypes
+ WL? 'ME_53BD13B4023B' // evdTasksHelpers
  HWL ME_53C3E67C0258 // WevdTask
  HWL ME_53C4FA890339 // WevdProcessTask
- WL 'ME_5461F0A303D6' '5461F0A303D6.ms.model.script' // evdNcsTypes
- WL 'ME_A15623CB6EA6' 'A15623CB6EA6.ms.model.script' // evdNative_AttrValues
+ WL? 'ME_5461F0A303D6' // evdNcsTypes
+ WL? 'ME_A15623CB6EA6' // evdNative_AttrValues
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
- WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
- WL 'ME_467FC43F01F9' '467FC43F01F9.ms.model.script' // k2CoreObjects
- WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
- WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
- WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
- WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_4849284D0067' '4849284D0067.ms.model.script' // Standard
- WL 'ME_4860B0120014' '4860B0120014.ms.model.script' // Core Objects
- WL 'ME_49A5895D00AF' '49A5895D00AF.ms.model.script' // k2CoreMixins
- WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
- WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4E365B6002CA' '4E365B6002CA.ms.model.script' // Отображение списков
- WL 'ME_4E57B8C2010F' '4E57B8C2010F.ms.model.script' // Требования к схеме документа EVD
- WL 'ME_4E8587AE01D0' '4E8587AE01D0.ms.model.script' // Требования к диалоговым окнам
- WL 'ME_52669BFC024E' '52669BFC024E.ms.model.script' // CoreTypes
- WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
- WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4678137501EA' // k2Interfaces
+ WL? 'ME_4678193C009C' // l3Types
+ WL? 'ME_467FC43F01F9' // k2CoreObjects
+ WL? 'ME_469D0AC7005E' // Types
+ WL? 'ME_473C3BEE0334' // l3Canvas
+ WL? 'ME_476BE0350329' // Styles
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_4799EC9300AF' // l3Defaults
+ WL? 'ME_47A1D4C201E8' // l3Const
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_4849284D0067' // Standard
+ WL? 'ME_4860B0120014' // Core Objects
+ WL? 'ME_49A5895D00AF' // k2CoreMixins
+ WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ WL? 'ME_4AB0997B00A2' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4E365B6002CA' // Отображение списков
+ WL? 'ME_4E57B8C2010F' // Требования к схеме документа EVD
+ WL? 'ME_4E8587AE01D0' // Требования к диалоговым окнам
+ WL? 'ME_52669BFC024E' // CoreTypes
+ WL? 'ME_55C4AEC801CA' // Graphics
+ WL? 'ME_57BEAF780201' // l3MarshalledTypes
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

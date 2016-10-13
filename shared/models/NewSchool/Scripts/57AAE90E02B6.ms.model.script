@@ -273,8 +273,8 @@ ME ME_57B1F28B030D
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
- WL 'ME_57B6B5D00202' '57B6B5D00202.ms.model.script' // msmEventsSubscriber
- WL 'ME_57CEB0330239' '57CEB0330239.ms.model.script' // msmOperationsManaging
+ WL? 'ME_57B6B5D00202' // msmEventsSubscriber
+ WL? 'ME_57CEB0330239' // msmOperationsManaging
  )
  ; // Implements
  MELIST Attributes
@@ -868,7 +868,7 @@ ME ME_57B6BF1B0286
  MELINK Parent HWL ME_57AAE90E02B6 // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57AAE9AD018B' '57AAE9AD018B.ms.model.script' // msmConcreteModelOwnViewControllerMixin
+   Seq: ( WL? 'ME_57AAE9AD018B' // msmConcreteModelOwnViewControllerMixin
  )
  ; // Inherits
 
@@ -887,7 +887,7 @@ ME ME_57B6BFD4012E
  MELINK Parent HWL ME_57AAE90E02B6 // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57AB5C9A00F3' '57AB5C9A00F3.ms.model.script' // msmOwnViewController
+   Seq: ( WL? 'ME_57AB5C9A00F3' // msmOwnViewController
  )
  ; // Inherits
 
@@ -936,38 +936,38 @@ ME ME_57AAE90E02B6
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ MELINK Parent WL? 'ME_57B1DAE6030C' // msm$MVC
  ;
  MELIST Children
-   Seq: ( WL 'ME_57AAE9AD018B' '57AAE9AD018B.ms.model.script' // msmConcreteModelOwnViewControllerMixin
+   Seq: ( WL? 'ME_57AAE9AD018B' // msmConcreteModelOwnViewControllerMixin
  HWL ME_57B1F28B030D // TmsmController
  HWL ME_57AB0A810292 // TmsmViewController
  HWL ME_57ADB523009E // TmsmParentedViewController
- WL 'ME_57AB5C9A00F3' '57AB5C9A00F3.ms.model.script' // msmOwnViewController
- WL 'ME_57B179D70299' '57B179D70299.ms.model.script' // msmConcreteModelOwnViewController
- WL 'ME_57AE0566006E' '57AE0566006E.ms.model.script' // msmConcreteModelViewController
- WL 'ME_57B2B7FF03E4' '57B2B7FF03E4.ms.model.script' // msmConcreteModelController
- WL 'ME_57B2B8FA0333' '57B2B8FA0333.ms.model.script' // msmModelToModelBinding
- WL 'ME_57B45BA30322' '57B45BA30322.ms.model.script' // msmViewControllersUtils
+ WL? 'ME_57AB5C9A00F3' // msmOwnViewController
+ WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ WL? 'ME_57AE0566006E' // msmConcreteModelViewController
+ WL? 'ME_57B2B7FF03E4' // msmConcreteModelController
+ WL? 'ME_57B2B8FA0333' // msmModelToModelBinding
+ WL? 'ME_57B45BA30322' // msmViewControllersUtils
  HWL ME_57B6BF1B0286 // MmsmConcreteModelOwnViewController
  HWL ME_57B6BFD4012E // MmsmOwnViewController
  HWL ME_57DA78D6035A // TmsmParentedViewControllerWithOwnership
- WL 'ME_57DAAADC01B7' '57DAAADC01B7.ms.model.script' // msmConcreteModelAndConcreteViewController
+ WL? 'ME_57DAAADC01B7' // msmConcreteModelAndConcreteViewController
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57B5730D0123' '57B5730D0123.ms.model.script' // msmEvents
- WL 'ME_57CE85BE0100' '57CE85BE0100.ms.model.script' // Events
- WL 'ME_57CEABF60269' '57CEABF60269.ms.model.script' // msmOperations
- WL 'ME_57CEB008027D' '57CEB008027D.ms.model.script' // Operations
- WL 'ME_57CEB4640283' '57CEB4640283.ms.model.script' // msmModels
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_4AB0997B00A2' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_51612EBB02F5' // Ref Counting
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57B5730D0123' // msmEvents
+ WL? 'ME_57CE85BE0100' // Events
+ WL? 'ME_57CEABF60269' // msmOperations
+ WL? 'ME_57CEB008027D' // Operations
+ WL? 'ME_57CEB4640283' // msmModels
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

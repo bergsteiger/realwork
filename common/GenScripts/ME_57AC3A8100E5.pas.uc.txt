@@ -85,12 +85,29 @@ begin
     if not l3TestMask(l_V, nfExpanded) then
      Exit;
     l3ClearMask(l_V, nfExpanded);
-    for l_Index := 0 to Pred(aNode.ThisChildrenCount) do
+    l_N := aNode.Child;
+    while (l_N <> nil) do
+    // - переделал, т.к. дерево может быть не синхронизировано с нодами
+    begin
+     l_Index := f_Nodes.IndexOfNode(l_N);
+     if (l_Index >= 0) then
+     begin
+      DoChangeExpand(f_Nodes[l_Index], sbDeselect, false);
+      l_Index := f_Nodes.IndexOfNode(l_N);
+      if (l_Index >= 0) then
+      begin
+       f_Nodes.Delete(l_Index);
+       f_Flags.Delete(l_Index);
+      end;//l_Index >= 0
+     end;//l_Index >= 0
+     l_N := l_N.Next;
+    end;//while (l_N <> nil)
+(*    for l_Index := 0 to Pred(aNode.ThisChildrenCount) do
     begin
      DoChangeExpand(f_Nodes[l_I + 1], sbDeselect, false);
      f_Nodes.Delete(l_I + 1);
      f_Flags.Delete(l_I + 1);
-    end;//for l_Index
+    end;//for l_Index*)
    end;//sbDeselect
    else
     Assert(false);

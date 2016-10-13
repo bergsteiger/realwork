@@ -259,7 +259,8 @@ var
   end;//try..finally
  end;//with TmsmModelElementMethodValueCache.Instance
  Call([TtfwStackValue_C(l_V.rWord), TtfwStackValue_C(l_V.rName), aValue], 'SetElementVar');
- TmsmChangedElements.Instance.Add(l_V.rWord);
+ //if (aMethodName <> 'msm:Value') then
+  TmsmChangedElements.Instance.Add(l_V.rWord);
 //#UC END# *57D68123004E_57AA00BD022E_impl*
 //#UC START# *57D68123004E_57AA00BD022E_var*
 var
@@ -272,3 +273,18 @@ var
 //#UC END# *57D6815802B8_57AA00BD022E_impl*
 //#UC START# *57D6815802B8_57AA00BD022E_var*
 //#UC END# *57D6815802B8_57AA00BD022E_var*
+//#UC START# *57F4E39D0252_57AA00BD022E_impl*
+ Result := ItfwValueList(Call(aParameters, aMethodName).AsIntf);
+//#UC END# *57F4E39D0252_57AA00BD022E_impl*
+//#UC START# *57F4E39D0252_57AA00BD022E_var*
+//#UC END# *57F4E39D0252_57AA00BD022E_var*
+//#UC START# *57FBBAD9018B_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *57FBBAD9018B_57AA00BD022E_impl*
+//#UC START# *57FBBAD9018B_57AA00BD022E_var*
+//#UC END# *57FBBAD9018B_57AA00BD022E_var*
+//#UC START# *57FBBAFC02D9_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *57FBBAFC02D9_57AA00BD022E_impl*
+//#UC START# *57FBBAFC02D9_57AA00BD022E_var*
+//#UC END# *57FBBAFC02D9_57AA00BD022E_var*

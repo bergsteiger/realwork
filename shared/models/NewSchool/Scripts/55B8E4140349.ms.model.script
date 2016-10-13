@@ -16,6 +16,16 @@ ME ME_55B8E49D01F4
 
 ENDME // ME_55B8E49D01F4 Execute
 
+ME ME_57FB3E730151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B8E4140349 // ContainedActionsWordspack
+ ;
+ MELINK Target WL? 'ME_57FB3E5D00AD' // CustomActionWordpack
+ ;
+
+ENDME // ME_57FB3E730151 
+
 %%InheritedBy ME_47E76278025E ME_55B8E4140349
 
 ME ME_55B8E4140349
@@ -27,7 +37,7 @@ ME ME_55B8E4140349
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_50741A080229' '50741A080229.ms.model.script' // FormsProcessing
+ MELINK Parent WL? 'ME_50741A080229' // FormsProcessing
  ;
  MELIST Inherits
    Seq: ( WL 'ME_47E76278025E' '47E76250004C.ms.model.script' // TContainedAction
@@ -37,6 +47,10 @@ ME ME_55B8E4140349
    Seq: ( HWL ME_55B8E49D01F4 // Execute
  )
  ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57FB3E730151 // CustomActionWordpack
+ )
+ ; // Dependencies
  UP "ifndef" 'NoScripts'
  UP "need UC" true
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'

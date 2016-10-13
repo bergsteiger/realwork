@@ -1,0 +1,47 @@
+// l3MapPrim 57F7CE280389 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F7CE280389
+
+ME ME_47B07CF403D0_ME_57F7CE280389
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_57F7CE280389 IsSameItems
+
+ME ME_47B99D4503A2_ME_57F7CE280389
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_57F7CE280389 CompareExistingItems
+
+%%InheritedBy ME_560907E00134 ME_57F7CE280389
+
+ME ME_57F7CE280389
+ MEPROP UID '57F7CE280389'
+ MEPROP Name 'l3MapPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_560907E00134' // l3MapPrimPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_57F7CE280389 // IsSameItems
+ ME_47B99D4503A2_ME_57F7CE280389 // CompareExistingItems
+ )
+ ; // Implemented
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MapPrim.imp.pas'
+ UP extprop:pas:TypeName '_l3MapPrim_'
+ UP extprop:pas:UnitName 'l3MapPrim.imp'
+
+ENDME // ME_57F7CE280389 l3MapPrim

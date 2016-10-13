@@ -32,16 +32,16 @@
 //#UC START# *57B2B019009C_57B57EDB003Fset_var*
 //#UC END# *57B2B019009C_57B57EDB003Fset_var*
 //#UC START# *57B31CF301D2_57B57EDB003Fget_impl*
- Assert(f_Selection <> nil);
- Result := f_Selection.CurrentElement;
+ Assert(Selection <> nil);
+ Result := Selection.CurrentElement;
 //#UC END# *57B31CF301D2_57B57EDB003Fget_impl*
 //#UC START# *57B31CF301D2_57B57EDB003Fget_var*
 //#UC END# *57B31CF301D2_57B57EDB003Fget_var*
 //#UC START# *57B31CF301D2_57B57EDB003Fset_impl*
  if (f_Selection = nil) then
   f_Selection := TmsmElementSelection.Make(Self);
- Assert(f_Selection <> nil);
- f_Selection.CurrentElement := aValue;
+ Assert(Selection <> nil);
+ Selection.CurrentElement := aValue;
 //#UC END# *57B31CF301D2_57B57EDB003Fset_impl*
 //#UC START# *57B31CF301D2_57B57EDB003Fset_var*
 //#UC END# *57B31CF301D2_57B57EDB003Fset_var*
@@ -62,7 +62,7 @@ w:\common\components\gui\Garant\msm\msmListLikeModel.pas
 //#UC START# *57B6A4550271_57B57EDB003Fget_var*
 //#UC END# *57B6A4550271_57B57EDB003Fget_var*
 //#UC START# *57D8F1B70265_57B57EDB003Fget_impl*
- Result := f_Selection;
+ Result := Selection;
 //#UC END# *57D8F1B70265_57B57EDB003Fget_impl*
 //#UC START# *57D8F1B70265_57B57EDB003Fget_var*
 //#UC END# *57D8F1B70265_57B57EDB003Fget_var*
@@ -167,6 +167,15 @@ var
     )
    )
  else
+ if (f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements') then
+ begin
+  Self.Get_List.Owner.ElementProp['Viewed'].Call(
+   [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
+   'msm:AddToCollection: .' + f_ElementView.rListName
+  )
+ end//f_ElementView.rListName = 'Inherits'..
+ else
   Assert(false);
  Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
@@ -211,7 +220,111 @@ var
 //#UC START# *57F4FE8F022B_57B57EDB003F_impl*
  Assert(anElementName <> '');
  Assert(anElementStereotype <> nil);
- Assert(false, 'Add element: ' + anElementName + ' : ' + l3Str(anElementStereotype.Name));
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  l_E :=
+   TmsmModelElement.MakeFromValue(
+    Self.Get_List.Owner.Call(
+     [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
+      TtfwStackValue_C(anElementStereotype.MainWord),
+      TtfwStackValue_C(aKeyValues)],
+     'msm:Diagram:AddElement'
+    )
+   )
+ else
+  Assert(false);  
+ if (l_E <> nil) then
+ begin
+  Selection.Clear;
+  Selection.CurrentElement := l_E;
+ end;//l_E <> nil
 //#UC END# *57F4FE8F022B_57B57EDB003F_impl*
 //#UC START# *57F4FE8F022B_57B57EDB003F_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57F4FE8F022B_57B57EDB003F_var*
+//#UC START# *57F7B78D0250_57B57EDB003F_impl*
+ Assert(Selection <> nil);
+ Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+ Fire(ListContentChangedEvent.Instance);
+//#UC END# *57F7B78D0250_57B57EDB003F_impl*
+//#UC START# *57F7B78D0250_57B57EDB003F_var*
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin//DoElement
+  Result := true;
+  if not anElement.IsSameElement(Self.Get_List.Owner) then
+   anElement.Delete;
+ end;//DoElement
+
+//#UC END# *57F7B78D0250_57B57EDB003F_var*
+//#UC START# *57F7B79A0325_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit;
+ if (Self.Get_List.Owner = nil) then
+  Exit;
+ if not Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  Exit;
+ if (Selection = nil) then
+  Exit;
+ if Selection.Empty AND (Selection.CurrentElement = nil) then
+  Exit;
+ if (Selection.CurrentElement <> nil) then
+  if Selection.CurrentElement.IsSameElement(Self.Get_List.Owner) then
+   Exit;
+ Result := true;
+//#UC END# *57F7B79A0325_57B57EDB003F_impl*
+//#UC START# *57F7B79A0325_57B57EDB003F_var*
+//#UC END# *57F7B79A0325_57B57EDB003F_var*
+//#UC START# *57FC23270363_57B57EDB003F_impl*
+ Self.Get_CurrentElement.Call(
+  [TtfwStackValue_C(aKeyValues)],
+  'msm:ChangeProperties'
+ )
+//#UC END# *57FC23270363_57B57EDB003F_impl*
+//#UC START# *57FC23270363_57B57EDB003F_var*
+//#UC END# *57FC23270363_57B57EDB003F_var*
+//#UC START# *57FC23540116_57B57EDB003F_impl*
+ Result := false;
+(* if (Self.Get_List = nil) then
+  Exit;*) 
+ if (Self.Get_CurrentElement = nil) then
+  Exit; 
+(* if not Self.Get_CurrentElement.BoolProp['IsDiagram'] then
+  Exit;*)
+(* if (Self.Get_List.Owner.MEList['AllowedElements'].Count <= 0) then
+  Exit;*)
+ Result := true;
+//#UC END# *57FC23540116_57B57EDB003F_impl*
+//#UC START# *57FC23540116_57B57EDB003F_var*
+//#UC END# *57FC23540116_57B57EDB003F_var*
+//#UC START# *57FCC057014C_57B57EDB003F_impl*
+ Result := Self.Get_List.Owner.CallAndGetList([], 'msm:KeyValuesForNewElement');
+//#UC END# *57FCC057014C_57B57EDB003F_impl*
+//#UC START# *57FCC057014C_57B57EDB003F_var*
+//#UC END# *57FCC057014C_57B57EDB003F_var*
+//#UC START# *57FCC083017F_57B57EDB003F_impl*
+ Result := Self.Get_CurrentElement.CallAndGetList([], 'msm:GetProperties');
+//#UC END# *57FCC083017F_57B57EDB003F_impl*
+//#UC START# *57FCC083017F_57B57EDB003F_var*
+//#UC END# *57FCC083017F_57B57EDB003F_var*
+//#UC START# *57FF47AE00B4_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit;
+ if (Self.Get_List.Owner = nil) then
+  Exit;
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+ begin
+  Result := true;
+  Exit;
+ end;//Self.Get_List.Owner.BoolProp['IsDiagram']
+ if (f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements') then
+ begin
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Inherits'
+//#UC END# *57FF47AE00B4_57B57EDB003F_impl*
+//#UC START# *57FF47AE00B4_57B57EDB003F_var*
+//#UC END# *57FF47AE00B4_57B57EDB003F_var*

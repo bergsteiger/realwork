@@ -36,6 +36,10 @@ USES
  LoadOnDemand.ms.dict
 ;
 
+USES
+ MEPrefix.ms.dict
+;
+
 : DictionaryAndMainWordByName
   IN aDictName
  VAR l_Dict
@@ -43,7 +47,7 @@ USES
  VAR l_WordName
  aDictName sysutils:ExtractFileName >>> l_WordName
  '.' string:SplitTo! l_WordName >>> l_WordName
- 'ME_' l_WordName Cat >>> l_WordName
+ MEPrefix l_WordName Cat >>> l_WordName
  l_Dict
  WL l_WordName aDictName
 ; // DictionaryAndMainWordByName

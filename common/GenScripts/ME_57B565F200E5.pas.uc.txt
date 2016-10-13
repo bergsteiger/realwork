@@ -28,3 +28,13 @@
 //#UC START# *57B565F200E5_ext:FileName
 w:\common\components\gui\Garant\msm\msmElementViews.pas
 //#UC END# *57B565F200E5_ext:FileName
+//#UC START# *57F4ED230163_57B3262B00D2_impl*
+ if (Self.rElement = nil) OR not Self.rElement.IsSameElement(anOther.rElement) then
+  Result := l3ComparePointers(Pointer(Self.rElement), Pointer(anOther.rElement))
+ else
+  Result := 0;
+ if (Result = 0) then
+  Result := l3Compare(Self.rListName, anOther.rListName);  
+//#UC END# *57F4ED230163_57B3262B00D2_impl*
+//#UC START# *57F4ED230163_57B3262B00D2_var*
+//#UC END# *57F4ED230163_57B3262B00D2_var*

@@ -16,6 +16,10 @@ USES
  Log.ms.dict
 ;
 
+USES
+ ModelScriptExt.ms.dict
+;
+
 PROCEDURE CollectBackLinks
  CollectInAllDictionaries: 
  ( 
@@ -34,7 +38,7 @@ PROCEDURE CollectBackLinks
    .join> ( aWord .Inherits )
   end // ( aWord .IsScriptKeywordsPack )
  ) // CollectInAllDictionaries:
-  '.ms.model.script.inj' '_InjectedElements' .OutCollected
+  ModelScriptExt '.inj' Cat '_InjectedElements' .OutCollected
  
  CollectInAllDictionaries: 
  ( 
@@ -69,5 +73,5 @@ PROCEDURE CollectBackLinks
    ; // RULES   
   ) // .filter>
  ) // CollectInAllDictionaries:
-  '.ms.model.script.impl' '_Implementors' .OutCollected
+  ModelScriptExt '.impl' Cat '_Implementors' .OutCollected
 ; // CollectBackLinks

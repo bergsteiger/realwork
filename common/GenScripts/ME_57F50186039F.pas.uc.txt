@@ -1,14 +1,7 @@
 //#UC START# *57CEB1F602D1_57F50186039F_impl*
- l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(Model.List.Owner, 'AllowedElements'));
- l_ListContext := TmsmListViewtInitContext_C;
- l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
- TmsmModelElementSelectService.Instance.SelectElement(l_AllowedElements, l_ListContext);
- Model.AddNewElement('', nil);
+ TmsmModelElementSelectService.Instance.SelectElement(Self);
 //#UC END# *57CEB1F602D1_57F50186039F_impl*
 //#UC START# *57CEB1F602D1_57F50186039F_var*
-var
- l_AllowedElements : ImsmListModel;
- l_ListContext : TmsmListViewtInitContext;
 //#UC END# *57CEB1F602D1_57F50186039F_var*
 //#UC START# *57EB6D020381_57F50186039F_impl*
  Result := Model.CanAddNewElement;
@@ -29,3 +22,18 @@ w:\common\components\gui\Garant\msm\msmAddElement.pas
  , msmListModel
  , msmElementViews
 //#UC END# *57F50186039Fimpl_uses*
+//#UC START# *57F509AC007F_57F50186039F_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_57F50186039F_impl*
+//#UC START# *57F509AC007F_57F50186039F_var*
+//#UC END# *57F509AC007F_57F50186039F_var*
+//#UC START# *57FB8665023E_57F50186039F_impl*
+ Result := 'New element';
+//#UC END# *57FB8665023E_57F50186039F_impl*
+//#UC START# *57FB8665023E_57F50186039F_var*
+//#UC END# *57FB8665023E_57F50186039F_var*
+//#UC START# *57FB86B0027E_57F50186039F_impl*
+ Result := Model.PropertiesForNewElement;
+//#UC END# *57FB86B0027E_57F50186039F_impl*
+//#UC START# *57FB86B0027E_57F50186039F_var*
+//#UC END# *57FB86B0027E_57F50186039F_var*

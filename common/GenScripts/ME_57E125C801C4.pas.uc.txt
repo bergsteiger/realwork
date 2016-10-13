@@ -24,7 +24,7 @@
  try
   f_Canvas.Handle := DC;
   try
-   Paint;
+   Paint(False);
   finally
    f_Canvas.Handle := 0;
   end;
@@ -58,12 +58,12 @@ w:\common\components\gui\Garant\VT\vtAbstractDropDownWindow.pas
 //#UC START# *57E125C801C4impl*
 //#UC END# *57E125C801C4impl*
 //#UC START# *57E125C801C4impl_uses*
-   , l3MinMax
+ , l3MinMax
+ , Forms
 //#UC END# *57E125C801C4impl_uses*
 //#UC START# *57E125C801C4intf_uses*
 //#UC END# *57E125C801C4intf_uses*
 //#UC START# *57E125C801C4publ*
-    property AutoSize;
     property BorderWidth;
     property Constraints;
 //#UC END# *57E125C801C4publ*
@@ -80,7 +80,11 @@ var
 //#UC END# *57E12CDC0172_57E125C801C4_var*
 //#UC START# *57E14EBD0128_57E125C801C4set_impl*
  if (f_AllowResize <> aValue) then
+ begin
   f_AllowResize := aValue;
+  if f_AllowResize then
+   AutoSize := False;
+ end;
 //#UC END# *57E14EBD0128_57E125C801C4set_impl*
 //#UC START# *57E14EBD0128_57E125C801C4set_var*
 //#UC END# *57E14EBD0128_57E125C801C4set_var*
@@ -125,7 +129,7 @@ var
 //#UC END# *57E248100136_57E125C801C4_var*
 //#UC START# *57E24E360013_57E125C801C4_impl*
  f_Resize := False;
- RecreateWnd;
+ //RecreateWnd;
  AdjustPosition;
  l_OwnerHandle := GetOwnerHandle;
  ShowWindow(Handle, SW_SHOWNOACTIVATE);
@@ -138,7 +142,6 @@ var
    if (l_H <> l_OwnerHandle) then
     if not IsChild(l_H, l_OwnerHandle) or ((GetCapture <> l_OwnerHandle) and (GetCapture <> Handle)) then
      Break;
-
    case l_Msg.Message of
     WM_MOUSEMOVE,
     WM_LBUTTONDOWN,
@@ -157,7 +160,6 @@ var
       l_PtGlobal := l_Pt;
       MapWindowPoints(Handle, GetDesktopWindow, l_PtGlobal, 1);
       l_Msg.lParam := MakeLParam(Word(l_Pt.x), Word(l_Pt.y));
-      l_Msg.hwnd := Handle;
       l_HT := Perform(WM_NCHITTEST, 0, LongInt(PointToSmallPoint(l_PtGlobal)));
       case l_Msg.Message of
        WM_MOUSEMOVE: l_NCMsg := WM_NCMOUSEMOVE;
@@ -175,6 +177,7 @@ var
        l_NCMsg := 0;
       end;
       Perform(l_NCMsg, l_HT, l_Msg.lParam);
+      l_Msg.hwnd := Handle;
      end;
 
     WM_NCMOUSEMOVE,
@@ -198,6 +201,9 @@ var
     WM_SYSDEADCHAR:
      l_Msg.hwnd := Handle;
    end;
+
+    ???DefaultHandler(l_Msg);
+
    TranslateMessage(l_Msg);
    DispatchMessage(l_Msg);
    if f_Done then
@@ -232,7 +238,8 @@ var
 //#UC START# *57E2568B01E8_57E125C801C4_var*
 //#UC END# *57E2568B01E8_57E125C801C4_var*
 //#UC START# *57E25F5E0233_57E125C801C4_impl*
- //inherited;
+ DefaultHandler(Msg);
+
  with Msg.CalcSize_Params^ do
  begin
   InflateRect(rgrc[0], -BorderWidth, 0);
@@ -273,19 +280,196 @@ var
  dc: HDC;
 //#UC END# *57E53C0803A3_57E125C801C4_var*
 //#UC START# *57E53C6D0303_57E125C801C4_impl*
+ if not aNCArea then
+ begin
+  f_Canvas.Pen.Style := psClear;
+  f_Canvas.Brush.Style := bsSolid;
+  f_Canvas.Brush.Color := clRed;
+  f_Canvas.FillRect(ClientRect);
+  f_Canvas.Brush.Color := clGreen;
+  f_Canvas.FillRect(Rect(0, 0, GetTotalClientWidth, GetTotalClientHeight));
+ end else
+ if (BorderWidth > 0) then
+ begin
+  f_Canvas.Pen.Style := psSolid;
+  f_Canvas.Pen.Width := 1;
+  f_Canvas.Pen.Color := clBlue;
+  f_Canvas.Brush.Style := bsSolid;
+  f_Canvas.Brush.Color := clBlue;
+  f_Canvas.Rectangle(0, 0, BorderWidth, Height);
+  f_Canvas.Rectangle(Width - BorderWidth, 0, Width, Height);
+  if f_DropDirection = ddDown then
+  begin
+   f_Canvas.Rectangle(0, Height - BorderWidth, Width, Height);
+   if IsBorderNearOwnerVisible then
+    f_Canvas.Rectangle(0, 0, Width, BorderWidth);
+  end else
+  begin
+   if IsBorderNearOwnerVisible then
+    f_Canvas.Rectangle(0, Height - BorderWidth, Width, Height);
+   f_Canvas.Rectangle(0, 0, Width, BorderWidth);
+  end;
+ end;
 //#UC END# *57E53C6D0303_57E125C801C4_impl*
 //#UC START# *57E53C6D0303_57E125C801C4_var*
+var
+ r, cr: TRect;
 //#UC END# *57E53C6D0303_57E125C801C4_var*
 //#UC START# *57E55FCD0311_57E125C801C4_impl*
  inherited;
+ DC := GetWindowDC(Handle);
+ try
+  NCPaint(DC);
+ finally
+  ReleaseDC(Handle, DC);
+ end;//try..finally
 //#UC END# *57E55FCD0311_57E125C801C4_impl*
 //#UC START# *57E55FCD0311_57E125C801C4_var*
+var
+ DC: hDC;
 //#UC END# *57E55FCD0311_57E125C801C4_var*
 //#UC START# *57E8C60B0281_57E125C801C4_impl*
  inherited;
-
- Dx := GetSystemMetrics(SM_CXVSCROLL);
- Dy := GetSystemMetrics(SM_CYHSCROLL);
+ HitTest(Msg);
+// Perform(WM_SETCURSOR, WPARAM(Handle), MakeLParam(Msg.Result, WM_SETCURSOR));
+//#UC END# *57E8C60B0281_57E125C801C4_impl*
+//#UC START# *57E8C60B0281_57E125C801C4_var*
+//#UC END# *57E8C60B0281_57E125C801C4_var*
+//#UC START# *57ED160D00F8_57E125C801C4_impl*
+ inherited;
+ //DefaultHandler(Msg);
+ P := Point(Msg.XPos, Msg.YPos);
+ MapWindowPoints(Handle, GetDesktopWindow, P, 1);
+ if not PtInRect(BoundsRect, P) then
+ begin
+  Cursor := crDefault;
+  Windows.SetCursor(Screen.Cursors[crDefault]);
+ end;
+//#UC END# *57ED160D00F8_57E125C801C4_impl*
+//#UC START# *57ED160D00F8_57E125C801C4_var*
+var
+ P: TPoint;
+//#UC END# *57ED160D00F8_57E125C801C4_var*
+//#UC START# *57ED16320366_57E125C801C4_impl*
+ dc := BeginPaint(Handle, ps);
+ try
+  PaintWindow(dc);
+ finally
+  EndPaint(Handle, ps);
+ end;
+//#UC END# *57ED16320366_57E125C801C4_impl*
+//#UC START# *57ED16320366_57E125C801C4_var*
+var
+ ps: TPaintStruct;
+ dc: HDC;
+//#UC END# *57ED16320366_57E125C801C4_var*
+//#UC START# *57ED30370037_57E125C801C4_impl*
+ case Msg.HitTest of
+  HTRIGHT: rd := rdRight;
+  HTBOTTOM: rd := rdBottom;
+  HTTOP: rd := rdTop;
+  HTBOTTOMRIGHT: rd := rdBottomRight;
+  HTTOPRIGHT: rd := rdTopRight;
+ else
+  //DefaultHandler(Msg);
+  inherited;
+  Exit;
+ end;
+ BeginResize(rd, Msg.XCursor, Msg.YCursor);
+//#UC END# *57ED30370037_57E125C801C4_impl*
+//#UC START# *57ED30370037_57E125C801C4_var*
+var
+ rd: TvtResizeDirection;
+//#UC END# *57ED30370037_57E125C801C4_var*
+//#UC START# *57ED30620029_57E125C801C4_impl*
+ SetCapture(GetOwnerHandle);
+ f_ResizePoint := Point(PosX, PosY);
+ f_ResizeDirection := aResizeDirection;
+ f_Resize := True;
+ f_InitialBounds := BoundsRect;
+//#UC END# *57ED30620029_57E125C801C4_impl*
+//#UC START# *57ED30620029_57E125C801C4_var*
+//#UC END# *57ED30620029_57E125C801C4_var*
+//#UC START# *57ED3384013B_57E125C801C4_impl*
+ DefaultHandler(Msg);
+ ProcessResize(Msg.XCursor + Left, Msg.YCursor + Top);
+//#UC END# *57ED3384013B_57E125C801C4_impl*
+//#UC START# *57ED3384013B_57E125C801C4_var*
+//#UC END# *57ED3384013B_57E125C801C4_var*
+//#UC START# *57EE6C32020D_57E125C801C4_impl*
+ if f_Resize then
+ begin
+  B := BoundsRect;
+  case f_ResizeDirection of
+   rdRight: B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+   rdBottom: B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+   rdTop:
+    begin
+     B.Top := PosY - f_ResizePoint.Y;
+     if B.Top < B.Bottom - Constraints.MaxHeight then
+      B.Top := B.Bottom - Constraints.MaxHeight;
+     if B.Top > B.Bottom - Constraints.MinHeight then
+      B.Top := B.Bottom - Constraints.MinHeight;
+    end;
+   rdBottomRight:
+    begin
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+    end;
+   rdTopRight:
+    begin
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Top := PosY - f_ResizePoint.Y;
+     if B.Top < B.Bottom - Constraints.MaxHeight then
+      B.Top := B.Bottom - Constraints.MaxHeight;
+     if B.Top > B.Bottom - Constraints.MinHeight then
+      B.Top := B.Bottom - Constraints.MinHeight;
+    end;
+  end;
+  BoundsRect := B;
+ end;
+//#UC END# *57EE6C32020D_57E125C801C4_impl*
+//#UC START# *57EE6C32020D_57E125C801C4_var*
+var
+ B: TRect;
+//#UC END# *57EE6C32020D_57E125C801C4_var*
+//#UC START# *57EE6CDD00B2_57E125C801C4_impl*
+ if f_Resize then
+ begin
+  f_Resize := False;
+  SetCapture(GetOwnerHandle);
+ end;
+//#UC END# *57EE6CDD00B2_57E125C801C4_impl*
+//#UC START# *57EE6CDD00B2_57E125C801C4_var*
+//#UC END# *57EE6CDD00B2_57E125C801C4_var*
+//#UC START# *57EE706D00A3_57E125C801C4_impl*
+ FinishResize;
+//#UC END# *57EE706D00A3_57E125C801C4_impl*
+//#UC START# *57EE706D00A3_57E125C801C4_var*
+//#UC END# *57EE706D00A3_57E125C801C4_var*
+//#UC START# *57F23AD70393_57E125C801C4_impl*
+ Msg.Result := MA_NOACTIVATE;
+//#UC END# *57F23AD70393_57E125C801C4_impl*
+//#UC START# *57F23AD70393_57E125C801C4_var*
+//#UC END# *57F23AD70393_57E125C801C4_var*
+//#UC START# *57F62D6B0111_57E125C801C4_impl*
+ f_Canvas.Lock;
+ try
+  f_Canvas.Handle := aDC;
+  try
+   Paint(True);
+  finally
+   f_Canvas.Handle := 0;
+  end;
+ finally
+  f_Canvas.Unlock;
+ end;
+//#UC END# *57F62D6B0111_57E125C801C4_impl*
+//#UC START# *57F62D6B0111_57E125C801C4_var*
+//#UC END# *57F62D6B0111_57E125C801C4_var*
+//#UC START# *57F7B58F0176_57E125C801C4_impl*
+ Dx := GetSystemMetrics(SM_CXVSCROLL) + BorderWidth;
+ Dy := GetSystemMetrics(SM_CYHSCROLL) + BorderWidth;
 
  if not PtInRect(BoundsRect, Point(Msg.XPos, Msg.YPos)) then
  begin
@@ -355,9 +539,10 @@ var
  else
   Msg.Result := HTCLIENT;
 
- Perform(WM_SETCURSOR, WPARAM(Handle), MakeLParam(Msg.Result, WM_SETCURSOR));
-//#UC END# *57E8C60B0281_57E125C801C4_impl*
-//#UC START# *57E8C60B0281_57E125C801C4_var*
+ if not f_AllowResize and (Msg.Result in [HTLEFT..HTBOTTOMRIGHT]) then
+  Msg.Result := HTBORDER;
+//#UC END# *57F7B58F0176_57E125C801C4_impl*
+//#UC START# *57F7B58F0176_57E125C801C4_var*
  function lp_IsTop(X, Y: Integer): Boolean;
  begin
   if (f_DropDirection = ddDown) then
@@ -403,117 +588,14 @@ var
  X, Y, R: Integer;
  P: TPoint;
  H: THandle;
-//#UC END# *57E8C60B0281_57E125C801C4_var*
-//#UC START# *57ED160D00F8_57E125C801C4_impl*
- inherited;
- P := Point(Msg.XPos, Msg.YPos);
- MapWindowPoints(Handle, GetDesktopWindow, P, 1);
- if not PtInRect(BoundsRect, P) then
- begin
-  Cursor := crDefault;
-  Windows.SetCursor(Screen.Cursors[crDefault]);
- end;
-//#UC END# *57ED160D00F8_57E125C801C4_impl*
-//#UC START# *57ED160D00F8_57E125C801C4_var*
-var
- P: TPoint;
-//#UC END# *57ED160D00F8_57E125C801C4_var*
-//#UC START# *57ED16320366_57E125C801C4_impl*
- dc := BeginPaint(Handle, ps);
- try
-  PaintWindow(dc);
- finally
-  EndPaint(Handle, ps);
- end;
-//#UC END# *57ED16320366_57E125C801C4_impl*
-//#UC START# *57ED16320366_57E125C801C4_var*
-var
- ps: TPaintStruct;
- dc: HDC;
-//#UC END# *57ED16320366_57E125C801C4_var*
-//#UC START# *57ED30370037_57E125C801C4_impl*
- case Msg.HitTest of
-  HTRIGHT: rd := rdRight;
-  HTBOTTOM: rd := rdBottom;
-  HTTOP: rd := rdTop;
-  HTBOTTOMRIGHT: rd := rdBottomRight;
-  HTTOPRIGHT: rd := rdTopRight;
- else
-  Exit;
- end;
- BeginResize(rd, Msg.XCursor, Msg.YCursor);
-//#UC END# *57ED30370037_57E125C801C4_impl*
-//#UC START# *57ED30370037_57E125C801C4_var*
-var
- rd: TvtResizeDirection;
-//#UC END# *57ED30370037_57E125C801C4_var*
-//#UC START# *57ED30620029_57E125C801C4_impl*
- SetCapture(GetOwnerHandle);
- f_ResizePoint := Point(PosX, PosY);
- f_ResizeDirection := aResizeDirection;
- f_Resize := True;
- f_InitialBounds := BoundsRect;
-//#UC END# *57ED30620029_57E125C801C4_impl*
-//#UC START# *57ED30620029_57E125C801C4_var*
-//#UC END# *57ED30620029_57E125C801C4_var*
-//#UC START# *57ED3384013B_57E125C801C4_impl*
- ProcessResize(Msg.XCursor + Left, Msg.YCursor + Top);
-//#UC END# *57ED3384013B_57E125C801C4_impl*
-//#UC START# *57ED3384013B_57E125C801C4_var*
-//#UC END# *57ED3384013B_57E125C801C4_var*
-//#UC START# *57EE6C32020D_57E125C801C4_impl*
- if f_Resize then
- begin
-  B := BoundsRect;
-  case f_ResizeDirection of
-   rdRight: B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-   rdBottom: B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
-   rdTop:
-    begin
-     B.Top := PosY - f_ResizePoint.Y;
-     if B.Top < B.Bottom - Constraints.MaxHeight then
-      B.Top := B.Bottom - Constraints.MaxHeight;
-     if B.Top > B.Bottom - Constraints.MinHeight then
-      B.Top := B.Bottom - Constraints.MinHeight;
-    end;
-   rdBottomRight:
-    begin
-     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
-    end;
-   rdTopRight:
-    begin
-     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Top := PosY - f_ResizePoint.Y;
-     if B.Top < B.Bottom - Constraints.MaxHeight then
-      B.Top := B.Bottom - Constraints.MaxHeight;
-     if B.Top > B.Bottom - Constraints.MinHeight then
-      B.Top := B.Bottom - Constraints.MinHeight;
-    end;
-  end;
-  BoundsRect := B;
- end;
-//#UC END# *57EE6C32020D_57E125C801C4_impl*
-//#UC START# *57EE6C32020D_57E125C801C4_var*
-var
- B: TRect;
-//#UC END# *57EE6C32020D_57E125C801C4_var*
-//#UC START# *57EE6CDD00B2_57E125C801C4_impl*
- if f_Resize then
- begin
-  f_Resize := False;
-  SetCapture(GetOwnerHandle);
- end;
-//#UC END# *57EE6CDD00B2_57E125C801C4_impl*
-//#UC START# *57EE6CDD00B2_57E125C801C4_var*
-//#UC END# *57EE6CDD00B2_57E125C801C4_var*
-//#UC START# *57EE706D00A3_57E125C801C4_impl*
- FinishResize;
-//#UC END# *57EE706D00A3_57E125C801C4_impl*
-//#UC START# *57EE706D00A3_57E125C801C4_var*
-//#UC END# *57EE706D00A3_57E125C801C4_var*
-//#UC START# *57F23AD70393_57E125C801C4_impl*
- Msg.Result := MA_NOACTIVATE;
-//#UC END# *57F23AD70393_57E125C801C4_impl*
-//#UC START# *57F23AD70393_57E125C801C4_var*
-//#UC END# *57F23AD70393_57E125C801C4_var*
+//#UC END# *57F7B58F0176_57E125C801C4_var*
+//#UC START# *57F7C311037A_57E125C801C4get_impl*
+ Result := inherited AutoSize;
+//#UC END# *57F7C311037A_57E125C801C4get_impl*
+//#UC START# *57F7C311037A_57E125C801C4get_var*
+//#UC END# *57F7C311037A_57E125C801C4get_var*
+//#UC START# *57F7C311037A_57E125C801C4set_impl*
+ inherited AutoSize := aValue;
+//#UC END# *57F7C311037A_57E125C801C4set_impl*
+//#UC START# *57F7C311037A_57E125C801C4set_var*
+//#UC END# *57F7C311037A_57E125C801C4set_var*

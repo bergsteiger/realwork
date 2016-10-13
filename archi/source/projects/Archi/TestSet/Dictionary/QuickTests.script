@@ -7,6 +7,7 @@ USES
  BlockTools.script
  EditorTools.script 
  MainFormUtils.script
+ axiom:filter
  @\TestExecuteCommand.script 
  QuickTestsUtils.script
 ;
@@ -107,15 +108,15 @@ PROCEDURE "Тест отрисовки с Zoom =" IN aZoom
  "Отрисовка с Zoom = {(aZoom)}" 
 ;
 
-/* USES
+USES
  @\TestUtils.script
 ;
 
-: "Тест автопростановки ссылок"
+PROCEDURE "Тест автопростановки ссылок"
  filter:AutolinkFilter
  TRY
   "Прогнать через фильтр и сравнить с эталоном"
  FINALLY 
   filter:CleanAutolinkFilter
  END 
-;*/
+;

@@ -1,0 +1,21 @@
+USES
+	axiom:SpinEdit
+	QuickTestsUtils.script
+;
+
+CONST DEF_NORMAL_SIZE 12
+
+PROCEDURE "Выставить размер шрифта 12"
+    "Контрол по имени {("Поле размера шрифта")}" pop:SpinEdit:Value	:= DEF_NORMAL_SIZE
+	"Нажать ОКBtn"
+;
+
+Тест StyleDialogTest
+	Параметры: ( "Не открывать документ" )
+	Выполнить ( 
+			@ ( "Вызвать редактор стилей" ) MODAL "Выставить размер шрифта 12" 			
+		)
+;
+
+StyleDialogTest
+

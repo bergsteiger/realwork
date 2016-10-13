@@ -819,6 +819,26 @@ ME ME_57F501D003D3
 
 ENDME // ME_57F501D003D3 
 
+ME ME_57F7B74E03CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57F7B70C0310' '57CEBB9200EA.ms.model.script' // TmsmDeleteSelection
+ ;
+
+ENDME // ME_57F7B74E03CF 
+
+ME ME_57FC272800A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57FC269F03B2' '57CEBB9200EA.ms.model.script' // TmsmChangeProperties
+ ;
+
+ENDME // ME_57FC272800A7 
+
 ME ME_479731C50290_ME_57D2DF7E00CE
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -852,7 +872,7 @@ ME ME_57D2DF7E00CE
  MELINK Parent HWL ME_57D2A81702E7 // ConcreteUseCases
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57EA6BAE038E' '57EA6BAE038E.ms.model.script' // msmUseCaseView
+   Seq: ( WL? 'ME_57EA6BAE038E' // msmUseCaseView
  )
  ; // Inherits
  MELIST Implements
@@ -892,6 +912,8 @@ ME ME_57D2DF7E00CE
  ME_57EA4F4E017F // TmsmMultiPanelViewParent
  ME_57EAA18B0044 // TmsmButtonEditViewController
  ME_57F501D003D3 // TmsmAddElement
+ ME_57F7B74E03CF // TmsmDeleteSelection
+ ME_57FC272800A7 // TmsmChangeProperties
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
@@ -913,7 +935,7 @@ ME ME_57D2A81702E7
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ MELINK Parent WL? 'ME_57A9C7A301DF' // msm$Lib
  ;
  MELIST Children
    Seq: ( HWL ME_57D2A86F0082 // TmsmDrawingUseCase
@@ -921,23 +943,23 @@ ME ME_57D2A81702E7
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
- WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
- WL 'ME_57AE0D6601AE' '57AE0D6601AE.ms.model.script' // ConcreteModels
- WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
- WL 'ME_57B1B48C00F8' '57B1B48C00F8.ms.model.script' // Models
- WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
- WL 'ME_57B2D67D038F' '57B2D67D038F.ms.model.script' // WordsCache
- WL 'ME_57B30E930154' '57B30E930154.ms.model.script' // StringLists
- WL 'ME_57B41F3C01C4' '57B41F3C01C4.ms.model.script' // ViewParents
- WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
- WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
- WL 'ME_57CD2BB003D3' '57CD2BB003D3.ms.model.script' // ConcreteBindings
- WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
- WL 'ME_57CEBB9200EA' '57CEBB9200EA.ms.model.script' // ConcreteOperations
- WL 'ME_57D2DB49000A' '57D2DB49000A.ms.model.script' // msmConcreteUseCases
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57AAE90E02B6' // Controllers
+ WL? 'ME_57ADC53E00B6' // msmConcreteModels
+ WL? 'ME_57AE0D6601AE' // ConcreteModels
+ WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ WL? 'ME_57B1B48C00F8' // Models
+ WL? 'ME_57B1B6AE0204' // UseCases
+ WL? 'ME_57B2D67D038F' // WordsCache
+ WL? 'ME_57B30E930154' // StringLists
+ WL? 'ME_57B41F3C01C4' // ViewParents
+ WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ WL? 'ME_57B565F200E5' // msmElementViews
+ WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ WL? 'ME_57CEAF3602AB' // msmUseCases
+ WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ WL? 'ME_57D2DB49000A' // msmConcreteUseCases
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

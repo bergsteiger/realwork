@@ -37,3 +37,54 @@ var
  l_Index : Integer;
  l_List : TmsmModelElementList;
 //#UC END# *57F4F4FD005D_57F4EE560075_var*
+//#UC START# *57FE4D6400C4_57F4EE560075_impl*
+ Lock;
+ try
+  for l_Index := 0 to Pred(Count) do
+   Items[l_Index].Reget;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57FE4D6400C4_57F4EE560075_impl*
+//#UC START# *57FE4D6400C4_57F4EE560075_var*
+var
+ l_Index : Integer;
+//#UC END# *57FE4D6400C4_57F4EE560075_var*
+//#UC START# *57FF6C9C020B_57F4EE560075_impl*
+ Lock;
+ try
+  for l_Index := 0 to Pred(Count) do
+  begin
+   l_List := Items[l_Index];
+   if (l_List.Element.rElement = nil) then
+    continue;
+   if (l_List.Element.rElement.MainWord = nil) then
+    continue; 
+   if (l_List.Element.rElement.MainWord.GetRefForCompare = aWord) then
+    continue;
+   if not l_List.Element.rElement.BoolProp['IsSomeView'] then
+    continue;
+   if l_List.Element.rElement.IsSameElementView(TmsmModelElement.MakeFromWord(aWord)) then
+    l_List.Reget;
+  end;//for l_Index
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57FF6C9C020B_57F4EE560075_impl*
+//#UC START# *57FF6C9C020B_57F4EE560075_var*
+var
+ l_Index : Integer;
+ l_List : TmsmModelElementList; 
+//#UC END# *57FF6C9C020B_57F4EE560075_var*
+//#UC START# *80F135399528_57FE4E3A03C2_impl*
+ if TmsmModelElementListFactory.Exists then
+  TmsmModelElementListFactory.Instance.Reget;
+//#UC END# *80F135399528_57FE4E3A03C2_impl*
+//#UC START# *80F135399528_57FE4E3A03C2_var*
+//#UC END# *80F135399528_57FE4E3A03C2_var*
+//#UC START# *F7EFF4FD47C2_57FE4E3A03C2_impl*
+ if TmsmModelElementListFactory.Exists then
+  TmsmModelElementListFactory.Instance.RegetViewedListsFor(aWord);
+//#UC END# *F7EFF4FD47C2_57FE4E3A03C2_impl*
+//#UC START# *F7EFF4FD47C2_57FE4E3A03C2_var*
+//#UC END# *F7EFF4FD47C2_57FE4E3A03C2_var*

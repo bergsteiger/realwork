@@ -56,6 +56,14 @@ USES
  GarantMetaModel.ms.dict
 ;
 
+USES
+ ModelRoot.ms.dict
+;
+
+USES
+ DiagramExt.ms.dict
+;
+
 elem_generator diagram.script
 
  Inherits .model.script
@@ -85,12 +93,12 @@ elem_generator diagram.script
 
  STRING elem_func FinalFileNamePrim
   [
-   '\shared\models\NewSchool\Scripts\Models\'
+   ModelRoot
    if ( Self .LUID .IsNil ) then
     ( Self .Name )
    else
     ( Self .LUID )
-   '.ms.diagram.script'
+   DiagramExt
   ] strings:Cat >>> Result
  ; // FinalFileNamePrim
  

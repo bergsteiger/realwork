@@ -84,10 +84,6 @@ elem_iterator Forwarded
  Self 'Forwarded' .ElemList >>> Result
 ; // Forwarded
 
-elem_iterator Attributes
- Self 'Attributes' .ElemList >>> Result
-; // Attributes
-
 elem_iterator Parameters
  Self 'Parameters' .ElemList >>> Result
 ; // Parameters
@@ -103,14 +99,6 @@ elem_iterator Overridden
 elem_iterator Implemented
  Self 'Implemented' .ElemList >>> Result
 ; // Implemented
-
-elem_iterator Inherits
- Self 'Inherits' .ElemList >>> Result
-; // Inherits
-
-elem_iterator Implements
- Self 'Implements' .ElemList >>> Result
-; // Implements
 
 elem_iterator CanRaise
  Self 'CanRaise' .ElemList >>> Result
@@ -155,20 +143,6 @@ USES
 USES
  IsNil.ms.dict
 ;
-
-ModelElement STRING elem_func StereotypeInModel
- RULES
-  //( Self .IsStereotype st_MDACategory )
-  // Self
-  //( Self .IsStereotype st_MDAClass )
-  // Self
-  ( Self 'StereotypeInModel' .ElemWord .IsNil )
-   Self
-  DEFAULT
-   ( Self 'StereotypeInModel' .ElemWord )
- ; // RULES  
- >>> Result
-; // StereotypeInModel
 
 USES
  DoCache.ms.dict
@@ -293,6 +267,10 @@ USES
  ref.ms.dict
 ;
 
+USES
+ MEPrefix.ms.dict
+;
+
 BOOLEAN elem_func IsUP
  RULES
   ( 'uc:' Self .WordName StartsStr )
@@ -303,7 +281,7 @@ BOOLEAN elem_func IsUP
    false
   ( 'cache:' Self .WordName StartsStr )
    false
-  ( 'ME_' Self .WordName StartsStr )
+  ( MEPrefix Self .WordName StartsStr )
    false
   ( 'IsSummoned' Self .WordName == )
    true
@@ -335,7 +313,10 @@ USES
 
 elem_iterator UpList
  RULES
-  ( Self .IsSomeView )
+  (
+   ( Self .IsSomeView )
+   AND ( Self .Viewed Self ?!= )
+  ) 
    ( Self .Viewed call.me )
   DEFAULT
    begin

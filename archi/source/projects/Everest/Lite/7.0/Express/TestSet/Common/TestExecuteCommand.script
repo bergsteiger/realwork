@@ -104,25 +104,31 @@ PROCEDURE "Выполнить завершающее действие"
 
 PROCEDURE "Создать или открыть"	
     g_DocumentIDToOpen CASE		
-      cnNewDocID ( Создать )
-      cnNewEmptyDocID ( Создать_пустой )
-      cnNewNSR ( "Создать из NSR" )
-	  cnNewRTF ( "Создать из RTF" )
-	  cnNewDOC ( "Создать из DOC" )
-	  cnNewDOCX ( "Создать из DOCX" )
-	  cnNewHTML ( "Создать из HTML" )	  
-      DEFAULT ( false ASSERT )
+		cnWithOutDocument (  )	
+		cnNewDocID ( Создать )
+		cnNewEmptyDocID ( Создать_пустой )
+		cnNewNSR ( "Создать из NSR" )
+		cnNewRTF ( "Создать из RTF" )
+		cnNewDOC ( "Создать из DOC" )
+		cnNewDOCX ( "Создать из DOCX" )
+		cnNewHTML ( "Создать из HTML" )	  
+		DEFAULT ( false ASSERT )
     END
+;
+
+PROCEDURE "Подготовка дочернего окна"
+	Если ( g_DocumentIDToOpen БОЛЬШЕ cnWithOutDocument ) то
+		( "Развернуть редактор" )
 ;
 
 PROCEDURE "Подготовка"
 	"Подготовить главную форму" 
-	"Развернуть редактор"  
+	"Подготовка дочернего окна"
 ;
 
 PROCEDURE "Подготовка к вставке разрыва"
   "Подготовить главную форму для вставки разрыва"
-  "Развернуть редактор"  
+  "Подготовка дочернего окна"
 ;
 
 PROCEDURE "Подготовка к отрисовке" 
@@ -161,7 +167,7 @@ PROCEDURE "Изменить размеры"
 		cnOnlyMainForm ( "Подготовить главную форму" )
 		cnSetHeight ( "Подготовить главную форму с высотой" )
 		cnThinFormSize ( "Подготовить для горизонтальной прокрутки" )
-        END
+    END
 ;
 
 PROCEDURE "только с учетом параметров" // Необязательная заглушка
@@ -172,7 +178,11 @@ PROCEDURE "Перерисовать и сравнить с эталоном в текущем редакторе"
 	focused:control:push pop:editor:RepaintAndCheckWithEtalon     
 ;
 
-PROCEDURE "Сохранить изображение и сравнить с эталоном" INTEGER IN aHeight INTEGER IN aWidth INTEGER IN aTop INTEGER IN aLeft INTEGER IN aHandle
+PROCEDURE "Сохранить изображение и сравнить с эталоном" INTEGER IN aHeight 
+														INTEGER IN aWidth 
+														INTEGER IN aTop 
+														INTEGER IN aLeft 
+														INTEGER IN aHandle
 	STRING VAR l_FileName
 	script:FileName '.bmp' sysutils:ChangeFileExt
 	sysutils:ExtractFileName >>> l_FileName		
@@ -256,7 +266,7 @@ PROCEDURE "Подготовка теста"
 ;
 
 VOID WORDWORKER Выполнить			
-	Если ( ( g_WasInit IsVoid ) ИЛИ ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
+	Если (  g_WasInit =0 ) то ( "Первоначальные параметры" )	
 	"Подготовка теста"
 	TRY
 		"Создать или открыть"
