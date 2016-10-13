@@ -4,7 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_48C78D6601CC
 %%Inner ME_4AE858B300E5
-%%Inner ME_4D5E5A3A0186
+%%Inner ME_57FD6C140389
 %%Inner ME_4DF7762A02B0
 %%Inner ME_4F29268F035C
 %%Inner ME_4F69BC9C014A
@@ -19,6 +19,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_52148BC6031D
 %%Inner ME_522F5DBC01E5
 %%Inner ME_517C0FF50380
+%%Inner ME_4D5E5A3A0186
 
 FORWARD ME_48C78D5402A6
 
@@ -108,9 +109,11 @@ ME ME_4AE858B300E5
 
 ENDME // ME_4AE858B300E5 TCheckBoxState
 
-ME ME_4D5E5A3A0186
- MEPROP UID '4D5E5A3A0186'
- MEPROP Name 'TButton'
+%%InheritedBy ME_47E124E90272 ME_57FD6C140389
+
+ME ME_57FD6C140389
+ MEPROP UID '57FD6C140389'
+ MEPROP Name 'TButtonControl'
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
  MEPROP Kind kind_NormalClass
@@ -118,10 +121,14 @@ ME ME_4D5E5A3A0186
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ )
+ ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:SelfName 'ButtonControl'
 
-ENDME // ME_4D5E5A3A0186 TButton
+ENDME // ME_57FD6C140389 TButtonControl
 
 ME ME_4DF7762A02B0
  MEPROP UID '4DF7762A02B0'
@@ -591,6 +598,27 @@ ME ME_517C0FF50380
 
 ENDME // ME_517C0FF50380 TEdit
 
+%%InheritedBy ME_57FD6C140389 ME_4D5E5A3A0186
+
+ME ME_4D5E5A3A0186
+ MEPROP UID '4D5E5A3A0186'
+ MEPROP Name 'TButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57FD6C140389 // TButtonControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Button'
+
+ENDME // ME_4D5E5A3A0186 TButton
+
 ME ME_48C78D5402A6
  MEPROP UID '48C78D5402A6'
  MEPROP Name 'StdCtrls'
@@ -600,12 +628,12 @@ ME ME_48C78D5402A6
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ MELINK Parent WL? 'ME_4799D29F033F' // Implementation
  ;
  MELIST Children
    Seq: ( HWL ME_48C78D6601CC // TScrollStyle
  HWL ME_4AE858B300E5 // TCheckBoxState
- HWL ME_4D5E5A3A0186 // TButton
+ HWL ME_57FD6C140389 // TButtonControl
  HWL ME_4DF7762A02B0 // TScrollBar
  HWL ME_4F29268F035C // TCustomLabel
  HWL ME_4F69BC9C014A // TRadioButton
@@ -620,6 +648,7 @@ ME ME_48C78D5402A6
  HWL ME_52148BC6031D // TComboBoxStyle
  HWL ME_522F5DBC01E5 // TListBox
  HWL ME_517C0FF50380 // TEdit
+ HWL ME_4D5E5A3A0186 // TButton
  )
  ; // Children
  MESTRINGLIST DiagramsNames

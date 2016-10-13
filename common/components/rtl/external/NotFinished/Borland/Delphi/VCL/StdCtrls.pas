@@ -25,8 +25,8 @@ type
  TCheckBoxState = (
  );//TCheckBoxState
 
- TButton = class
- end;//TButton
+ TButtonControl = class(TWinControl)
+ end;//TButtonControl
 
  TScrollBar = class
  end;//TScrollBar
@@ -79,6 +79,9 @@ type
 
  TEdit = class(TCustomEdit)
  end;//TEdit
+
+ TButton = class(TButtonControl)
+ end;//TButton
 {$IfEnd} // NOT Defined(NoVCL)
 
 implementation
@@ -140,6 +143,10 @@ end;//TCustomEdit.Change
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TButtonControl);
+ {* Регистрация TButtonControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomLabel);
  {* Регистрация TCustomLabel }
 {$IfEnd} // NOT Defined(NoScripts)
@@ -154,6 +161,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TEdit);
  {* Регистрация TEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TButton);
+ {* Регистрация TButton }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 

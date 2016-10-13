@@ -72,6 +72,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , CustomActionWordpack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , ActionListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *47E76250004Cimpl_uses*

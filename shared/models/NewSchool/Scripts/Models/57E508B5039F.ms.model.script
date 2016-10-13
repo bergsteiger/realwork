@@ -2,54 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_57E508B5039F
-
-FORWARD ME_57E50D7500A3
-
-ME ME_57E50D8C0241
- MEPROP Name 'aA'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_560908710273' '560907E00134.ms.model.script' // ValueType
- ;
-
-ENDME // ME_57E50D8C0241 aA
-
-ME ME_57E50D8C027D
- MEPROP Name 'aB'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_560908710273' '560907E00134.ms.model.script' // ValueType
- ;
-
-ENDME // ME_57E50D8C027D aB
-
-ME ME_57E50D7500A3
- MEPROP UID '57E50D7500A3'
- MEPROP Name 'CompareValues'
- MEPROP Class class_Operation
- MELINK Stereotype st_inline::Operation ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57E508B5039F // l3MultiMap
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
- ;
- MELIST Parameters
-   Seq: ( ME_57E50D8C0241 // aA
- ME_57E50D8C027D // aB
- )
- ; // Parameters
-
-ENDME // ME_57E50D7500A3 CompareValues
-
 ME ME_47A042E100E2_ME_57E508B5039F
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_57E508B5039F InitFields
 
-%%InheritedBy ME_5609096C03BE ME_57E508B5039F
+%%ImplementedBy ME_57F7D217018F ME_57E508B5039F
+
+%%InheritedBy ME_4A54DD4E036F ME_57E508B5039F
 
 ME ME_57E508B5039F
  MEPROP UID '57E508B5039F'
@@ -60,16 +21,16 @@ ME ME_57E508B5039F
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5609096C03BE' '5609096C03BE.ms.model.script' // l3Map
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_57E50D7500A3 // CompareValues
+ MELIST Implements
+   Seq: ( WL? 'ME_57F7D217018F' // l3MultiMapPrim
  )
- ; // Operations
+ ; // Implements
  MELIST Overridden
    Seq: ( ME_47A042E100E2_ME_57E508B5039F // InitFields
  )

@@ -127,6 +127,33 @@ ME ME_55AE84FA0076
 
 ENDME // ME_55AE84FA0076 RemoveFromCache
 
+FORWARD ME_57F665430181
+
+ME ME_57F66568023D
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57F66568023D aName
+
+ME ME_57F665430181
+ MEPROP UID '57F665430181'
+ MEPROP Name 'CheckNamedDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE5A8C035D // tfwDictionaryExWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F66568023D // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57F665430181 CheckNamedDictionary
+
 ME ME_55AE5C980270
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -212,7 +239,7 @@ ME ME_55E7280A00D8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55AE5A8C035D // tfwDictionaryExWordsPack
  ;
- MELINK Target WL 'ME_55E727F40334' '55E727F40334.ms.model.script' // tfwDictionaryWordsPack
+ MELINK Target WL? 'ME_55E727F40334' // tfwDictionaryWordsPack
  ;
 
 ENDME // ME_55E7280A00D8 
@@ -238,7 +265,7 @@ ME ME_55AE5A8C035D
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4F43A0A401E6' '4F43A0A401E6.ms.model.script' // Basics
+ MELINK Parent WL? 'ME_4F43A0A401E6' // Basics
  ;
  MELIST Inherits
    Seq: ( WL 'ME_559E8B2E0385' '4F2275C00012.ms.model.script' // TtfwDictionaryEx
@@ -252,6 +279,7 @@ ME ME_55AE5A8C035D
  HWL ME_55AE661B00DA // UseDictionary
  HWL ME_55AE66560055 // FileDateTime
  HWL ME_55AE84FA0076 // RemoveFromCache
+ HWL ME_57F665430181 // CheckNamedDictionary
  )
  ; // Operations
  MELIST Dependencies
