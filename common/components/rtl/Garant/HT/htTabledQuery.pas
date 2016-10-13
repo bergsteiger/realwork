@@ -44,9 +44,7 @@ uses
  l3ImplUses
  , htFromTable
  , daTypes
- {$If NOT Defined(Nemesis)}
  , HT_Const
- {$IfEnd} // NOT Defined(Nemesis)
  , htResultSet
  , l3Base
  {$If NOT Defined(Nemesis)}

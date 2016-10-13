@@ -1,9 +1,15 @@
 unit l3AsincMessageWindow;
 {* Вывод ассинхронного окна с сообщением в отдельной триаде }
 
-// $Id: l3AsincMessageWindow.pas,v 1.27 2014/04/21 17:50:30 lulin Exp $
+// $Id: l3AsincMessageWindow.pas,v 1.29 2016/10/06 14:51:54 lulin Exp $
 
 // $Log: l3AsincMessageWindow.pas,v $
+// Revision 1.29  2016/10/06 14:51:54  lulin
+// - подтачиваем.
+//
+// Revision 1.28  2016/10/06 14:40:54  lulin
+// - подтачиваем.
+//
 // Revision 1.27  2014/04/21 17:50:30  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -315,20 +321,29 @@ begin
  end;//f_Attached
  if not f_Attached then
  begin
-  l_Form := Application.MainForm;
+  if (Application = nil) then
+   l_Form := nil
+  else
+   l_Form := Application.MainForm;
   if Assigned(l_Form) then
   begin
    l_FormHandle := l_Form.Handle;
    if not GetWindowRect(l_FormHandle,l_Rect) then
    begin
     l_FormHandle := 0;
-    GetWindowRect(Application.Handle,l_Rect);
+    if (Application <> nil) then
+     GetWindowRect(Application.Handle, l_Rect)
+    else
+     l3FillChar(l_Rect, SizeOf(l_Rect), 0);
    end;//not GetWindowRect(l_FormHandle,l_Rect)
   end//Assigned(l_Form)
   else
   begin
    l_FormHandle := 0;
-   GetWindowRect(Application.Handle,l_Rect);
+   if (Application <> nil) then
+    GetWindowRect(Application.Handle,l_Rect)
+   else
+    l3FillChar(l_Rect, SizeOf(l_Rect), 0);
   end;//Assigned(l_Form)
   f_WindowOrigin := l_Rect.TopLeft;
   l_MonInfo.cbSize := SizeOf(l_MonInfo);

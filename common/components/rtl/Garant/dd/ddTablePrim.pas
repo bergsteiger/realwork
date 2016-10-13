@@ -417,25 +417,47 @@ end;//TddTablePrim.CloseCell
 procedure TddTablePrim.AdjustWidth(aNewWidth: Integer);
 //#UC START# *5193538A0211_4FACE16602E1_var*
 var
- i, j : Integer;
- l_R: TddTableRow;
- l_OldWidth : Integer;
+ i, j            : Integer;
+ l_R             : TddTableRow;
+ l_OldWidth      : Integer;
+ l_NewWidth      : Integer;
+ l_NewOffset     : Integer;
+ l_CanIdentical  : Boolean;
+ l_MakeIdentical : Boolean;
 //#UC END# *5193538A0211_4FACE16602E1_var*
 begin
 //#UC START# *5193538A0211_4FACE16602E1_impl*
+ l_MakeIdentical := False;
+ l_CanIdentical := (RowList.Count = 1) and ((aNewWidth div RowList.Items[0].CellCount) > l3AlingDelta);
  for i := 0 to RowList.Hi do
  begin
-  l_R := TddTableRow(RowList.Items[i]);
+  l_R := RowList.Items[i];
   l_OldWidth := 0;
-  for j := 0 to Pred(l_R.CellCount) do
+  for j := 0 to l_R.CellCount - 1 do
   begin
+   if ((l_R.Cells[j].Props.CellOffset - l_OldWidth) < l3AlingDelta) and l_CanIdentical then
+   begin
+    l_MakeIdentical := True;
+    Break;
+   end; // if ((l_R.Cells[j].Props.CellOffset - l_OldWidth) < l3AlingDelta) and (RowList.Count = 1) then
    Inc(l_OldWidth, l_R.Cells[j].Props.CellOffset);
    if j > 0 then
-    Dec(l_OldWidth, l_R.Cells[Pred(j)].Props.CellOffset);
+    Dec(l_OldWidth, l_R.Cells[j-1].Props.CellOffset);
   end; // for j
-  if (l_OldWidth > aNewWidth) or (l_OldWidth = 0) then
-   for j := 0 to Pred(l_R.CellCount) do
-    l_R.Cells[j].Props.CellOffset := l3MulDiv(l_R.Cells[j].Props.CellOffset, aNewWidth, l_OldWidth);
+  if l_MakeIdentical then
+  begin
+   l_NewWidth := (aNewWidth div RowList.Items[0].CellCount);
+   l_NewOffset := 0;
+   for j := 0 to l_R.CellCount - 1 do
+   begin
+    Inc(l_NewOffset, l_NewWidth);
+    l_R.Cells[j].Props.CellOffset := l_NewOffset
+   end; // for j := 0 to l_R.CellCount - 1 do
+  end // if l_MakeIdentical then
+  else
+   if (l_OldWidth > aNewWidth) or (l_OldWidth = 0) then
+    for j := 0 to l_R.CellCount - 1 do
+     l_R.Cells[j].Props.CellOffset := l3MulDiv(l_R.Cells[j].Props.CellOffset, aNewWidth, l_OldWidth);
  end; // for i
 //#UC END# *5193538A0211_4FACE16602E1_impl*
 end;//TddTablePrim.AdjustWidth

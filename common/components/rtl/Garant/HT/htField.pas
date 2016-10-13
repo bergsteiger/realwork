@@ -12,9 +12,7 @@ uses
  l3IntfUses
  , l3ProtoObject
  , daInterfaces
- {$If NOT Defined(Nemesis)}
  , HT_Const
- {$IfEnd} // NOT Defined(Nemesis)
  , htInterfaces
  , daTypes
  , l3Date

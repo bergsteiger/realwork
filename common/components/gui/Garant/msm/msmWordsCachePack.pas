@@ -25,6 +25,8 @@ uses
  , TypInfo
  , msmWordsCache
  , msmModelElementMethodValueCache
+ , msmLostWords
+ , msmElementListsService
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
@@ -85,6 +87,48 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwMsmDoCache
 
+ TkwMsmDeleteWordCachedValues = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта msm:DeleteWordCachedValues }
+  private
+   procedure msm_DeleteWordCachedValues(const aCtx: TtfwContext;
+    aWord: TtfwWord);
+    {* Реализация слова скрипта msm:DeleteWordCachedValues }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwMsmDeleteWordCachedValues
+
+ TkwMsmClearCachedValues = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта msm:ClearCachedValues }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwMsmClearCachedValues
+
+ TkwMsmRegetViewedLists = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта msm:RegetViewedLists }
+  private
+   procedure msm_RegetViewedLists(const aCtx: TtfwContext;
+    aWord: TtfwWord;
+    const aListName: AnsiString);
+    {* Реализация слова скрипта msm:RegetViewedLists }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwMsmRegetViewedLists
+
 function TkwMsmWordFromCache.msm_WordFromCache(const aCtx: TtfwContext;
  const aName: Il3CString): Boolean;
  {* Реализация слова скрипта msm:WordFromCache }
@@ -105,6 +149,20 @@ begin
    Unlock;
   end;//try..finally
  end;//with TmsmWordsCache.Instance
+ if not Result then
+ begin
+  with TmsmLostWords.Instance do
+  begin
+   Lock;
+   try
+    Result := FindData(aName, l_Index);
+    if Result then
+     aCtx.rEngine.PushObj(nil);
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmLostWords.Instance
+ end;//not Result 
 //#UC END# *57B2D71E02B8_57B2D71E02B8_Word_impl*
 end;//TkwMsmWordFromCache.msm_WordFromCache
 
@@ -151,11 +209,13 @@ procedure TkwMsmWordToCache.msm_WordToCache(const aCtx: TtfwContext;
 //#UC END# *57B2D7420034_57B2D7420034_Word_var*
 begin
 //#UC START# *57B2D7420034_57B2D7420034_Word_impl*
- if (aWord <> nil) then
+ if (aWord = nil) then
+  TmsmLostWords.Instance.Add(aName)
+ else
  begin
   Assert(l3Same(aName, aWord.Key.AsCStr));
   TmsmWordsCache.Instance.Add(aWord);
- end;//aWord <> nil
+ end;//aWord = nil
 //#UC END# *57B2D7420034_57B2D7420034_Word_impl*
 end;//TkwMsmWordToCache.msm_WordToCache
 
@@ -328,6 +388,138 @@ begin
  msm_DoCache(aCtx, l_aLambda, l_aDefault, l_aKey, l_aCacheWhere);
 end;//TkwMsmDoCache.DoDoIt
 
+procedure TkwMsmDeleteWordCachedValues.msm_DeleteWordCachedValues(const aCtx: TtfwContext;
+ aWord: TtfwWord);
+ {* Реализация слова скрипта msm:DeleteWordCachedValues }
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_var*
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_var*
+begin
+//#UC START# *57F67D3000FE_57F67D3000FE_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValues(aWord);
+//#UC END# *57F67D3000FE_57F67D3000FE_Word_impl*
+end;//TkwMsmDeleteWordCachedValues.msm_DeleteWordCachedValues
+
+class function TkwMsmDeleteWordCachedValues.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'msm:DeleteWordCachedValues';
+end;//TkwMsmDeleteWordCachedValues.GetWordNameForRegister
+
+function TkwMsmDeleteWordCachedValues.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwMsmDeleteWordCachedValues.GetResultTypeInfo
+
+function TkwMsmDeleteWordCachedValues.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwMsmDeleteWordCachedValues.GetAllParamsCount
+
+function TkwMsmDeleteWordCachedValues.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+end;//TkwMsmDeleteWordCachedValues.ParamsTypes
+
+procedure TkwMsmDeleteWordCachedValues.DoDoIt(const aCtx: TtfwContext);
+var l_aWord: TtfwWord;
+begin
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ msm_DeleteWordCachedValues(aCtx, l_aWord);
+end;//TkwMsmDeleteWordCachedValues.DoDoIt
+
+class function TkwMsmClearCachedValues.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'msm:ClearCachedValues';
+end;//TkwMsmClearCachedValues.GetWordNameForRegister
+
+function TkwMsmClearCachedValues.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwMsmClearCachedValues.GetResultTypeInfo
+
+function TkwMsmClearCachedValues.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwMsmClearCachedValues.GetAllParamsCount
+
+function TkwMsmClearCachedValues.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwMsmClearCachedValues.ParamsTypes
+
+procedure TkwMsmClearCachedValues.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_var*
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_var*
+begin
+//#UC START# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.Clear;
+//#UC END# *4DAEEDE10285_57FC1BA5030E_Word_impl*
+end;//TkwMsmClearCachedValues.DoDoIt
+
+procedure TkwMsmRegetViewedLists.msm_RegetViewedLists(const aCtx: TtfwContext;
+ aWord: TtfwWord;
+ const aListName: AnsiString);
+ {* Реализация слова скрипта msm:RegetViewedLists }
+//#UC START# *57FF6B330005_57FF6B330005_Word_var*
+//#UC END# *57FF6B330005_57FF6B330005_Word_var*
+begin
+//#UC START# *57FF6B330005_57FF6B330005_Word_impl*
+ TmsmElementListsService.Instance.RegetViewedListsFor(aWord, aListName);
+//#UC END# *57FF6B330005_57FF6B330005_Word_impl*
+end;//TkwMsmRegetViewedLists.msm_RegetViewedLists
+
+class function TkwMsmRegetViewedLists.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'msm:RegetViewedLists';
+end;//TkwMsmRegetViewedLists.GetWordNameForRegister
+
+function TkwMsmRegetViewedLists.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwMsmRegetViewedLists.GetResultTypeInfo
+
+function TkwMsmRegetViewedLists.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwMsmRegetViewedLists.GetAllParamsCount
+
+function TkwMsmRegetViewedLists.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord), @tfw_tiString]);
+end;//TkwMsmRegetViewedLists.ParamsTypes
+
+procedure TkwMsmRegetViewedLists.DoDoIt(const aCtx: TtfwContext);
+var l_aWord: TtfwWord;
+var l_aListName: AnsiString;
+begin
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aListName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aListName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ msm_RegetViewedLists(aCtx, l_aWord, l_aListName);
+end;//TkwMsmRegetViewedLists.DoDoIt
+
 initialization
  TkwMsmWordFromCache.RegisterInEngine;
  {* Регистрация msm_WordFromCache }
@@ -335,6 +527,12 @@ initialization
  {* Регистрация msm_WordToCache }
  TkwMsmDoCache.RegisterInEngine;
  {* Регистрация msm_DoCache }
+ TkwMsmDeleteWordCachedValues.RegisterInEngine;
+ {* Регистрация msm_DeleteWordCachedValues }
+ TkwMsmClearCachedValues.RegisterInEngine;
+ {* Регистрация msm_ClearCachedValues }
+ TkwMsmRegetViewedLists.RegisterInEngine;
+ {* Регистрация msm_RegetViewedLists }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
@@ -343,6 +541,8 @@ initialization
  {* Регистрация типа TtfwWord }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwStackValue }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

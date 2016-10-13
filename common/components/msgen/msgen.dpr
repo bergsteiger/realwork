@@ -539,6 +539,9 @@ uses
  , ContainedActionsWordspack in 'w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomActionWordpack in 'w:\common\components\rtl\Garant\ScriptEngine\CustomActionWordpack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ActionListWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -1056,6 +1059,8 @@ uses
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
  , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
+ , msmElementListsService in 'w:\common\components\gui\Garant\msm\msmElementListsService.pas'
+ , msmLostWords in 'w:\common\components\gui\Garant\msm\msmLostWords.pas'
  //#UC START# *57B6E36B01C8manualuses*
  //#UC END# *57B6E36B01C8manualuses*
 ;

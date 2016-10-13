@@ -26,6 +26,7 @@ type
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
    class function Make(const anElement: TmsmModelElementView): ImsmModelElementList;
+   procedure Reget;
    function IndexOfElementView(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementList
 
@@ -35,6 +36,7 @@ uses
  l3ImplUses
  , msmModelElement
  , msmModelElementListFactory
+ , msmModelElementMethodValueCache
  //#UC START# *57AADABA0154impl_uses*
  //#UC END# *57AADABA0154impl_uses*
 ;
@@ -57,6 +59,18 @@ begin
  Result := TmsmModelElementListFactory.Make(anElement);
 //#UC END# *57AADC3E007E_57AADABA0154_impl*
 end;//TmsmModelElementList.Make
+
+procedure TmsmModelElementList.Reget;
+//#UC START# *57FE4D3B0255_57AADABA0154_var*
+//#UC END# *57FE4D3B0255_57AADABA0154_var*
+begin
+//#UC START# *57FE4D3B0255_57AADABA0154_impl*
+ List := nil;
+ Assert(Self.Element.rElement <> nil);
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValue(Self.Element.rElement.MainWord, Self.Element.rListName);
+ List;
+//#UC END# *57FE4D3B0255_57AADABA0154_impl*
+end;//TmsmModelElementList.Reget
 
 function TmsmModelElementList.Get_Item(anIndex: Integer): ImsmModelElement;
 //#UC START# *57AAD86403AD_57AADABA0154get_var*
@@ -105,7 +119,7 @@ begin
   for l_Index := 0 to Pred(Get_Count) do
   begin
    l_E := Get_Item(l_Index);
-   if l_E.IsSameElement(anElement) then
+   if (l_E <> nil) AND l_E.IsSameElement(anElement) then
    begin
     Result := l_Index;
     Exit;
@@ -114,7 +128,7 @@ begin
   for l_Index := 0 to Pred(Get_Count) do
   begin
    l_E := Get_Item(l_Index);
-   if l_E.IsSameElementView(anElement) then
+   if (l_E <> nil) AND l_E.IsSameElementView(anElement) then
    begin
     Result := l_Index;
     Exit;

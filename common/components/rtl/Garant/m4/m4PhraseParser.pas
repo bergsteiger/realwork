@@ -18,7 +18,7 @@ uses
   cNumDictID        = -2;//High(Longint) - 1;
   cTextDictID       = -3;//
   cLawcaseNumDictID = -4;
-  cGostDictID       = -5;
+  cSpecNumDictID    = -5; // ГОСТы и СНИПы
 
  // разбирает строку на словарные элементы aDictScanner'ом + дату и номер
  // дата передается как TSTDate в aDictItemID.ID и aDictItemID.rDictionaryID = cDateDictID
@@ -132,7 +132,7 @@ procedure DoParsePhrase(const aPhrase : Tl3WString; aDictScanner : Tm4DictScanne
   if gRegSrchForGost.SearchInString(lStr, lREPosition) then
   begin
    lf_ExtractNum(gRegSrchForGost, False);
-   aDictItemID := Tm4DictItemAddr_C(0, cGostDictID);
+   aDictItemID := Tm4DictItemAddr_C(0, cSpecNumDictID);
    Result := False; //остановить обработку токена
   end
   else

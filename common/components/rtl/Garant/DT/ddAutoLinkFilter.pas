@@ -1,8 +1,11 @@
 unit ddAutoLinkFilter;
 
-{ $Id: ddAutoLinkFilter.pas,v 1.43 2016/08/24 09:11:13 fireton Exp $ }
+{ $Id: ddAutoLinkFilter.pas,v 1.44 2016/10/10 14:20:14 fireton Exp $ }
 
 // $Log: ddAutoLinkFilter.pas,v $
+// Revision 1.44  2016/10/10 14:20:14  fireton
+// - правильно передаём строку в автопростановщик, учитывая кодировки
+//
 // Revision 1.43  2016/08/24 09:11:13  fireton
 // - автопростановка ссылок, рефакторинг и доработка
 //
@@ -894,20 +897,23 @@ procedure TddDocumentLinker.FindAndSetLinks(aPara           : Tl3Variant;
 var
  I: Integer;
  l_Finder: TddCustomLinkFinder;
+ l_Text  : Tl3WString;
 begin
  Assert((f_FinderList <> nil) and (f_FinderList.Count > 0), 'TddDocumentLinker: no link finders has been added!');
- if aPara.IsValid and (not l3IsNil(aPara.PCharLenA[k2_tiText])) and
-    (aPara.IntA[k2_tiStyle] <> ev_saTxtHeader1) and (aPara.IntA[k2_tiStyle] <> ev_saTxtComment) and
-    (aPara.IntA[k2_tiStyle] <> ev_saTechComment) then
+ if aPara.IsValid and
+   (aPara.IntA[k2_tiStyle] <> ev_saTxtHeader1) and (aPara.IntA[k2_tiStyle] <> ev_saTxtComment) and
+   (aPara.IntA[k2_tiStyle] <> ev_saTechComment) then
  begin
-  f_Text := aPara.StrA[k2_tiText];
-  if Trim(f_Text) = '' then
-   Exit;
-  aPara.SetRef(f_Para);
-  for I := 0 to Pred(f_FinderList.Count) do
+  l_Text := aPara.PCharLenA[k2_tiText];
+  if not l3IsNil(l3Trim(l_Text)) then
   begin
-   l_Finder := TddCustomLinkFinder(f_FinderList.Items[I]);
-   l_Finder.FindLinks(f_Text, aMasterDocID, aMasterDocDate, aCaseCode, SetLinkCallback);
+   f_Text := l3PCharLen2String(l_Text, CP_ANSI);
+   aPara.SetRef(f_Para);
+   for I := 0 to Pred(f_FinderList.Count) do
+   begin
+    l_Finder := TddCustomLinkFinder(f_FinderList.Items[I]);
+    l_Finder.FindLinks(f_Text, aMasterDocID, aMasterDocDate, aCaseCode, SetLinkCallback);
+   end;
   end;
  end;
 end;

@@ -134,6 +134,8 @@ type
     procedure SaveTaskToPipe(aPipe: TCsDataPipe);
     function IsHiddenFromUser: Boolean; virtual;
     function IsUnimportant(aNow: TDateTime = 0; MaxDayAge: Integer = 2): Boolean;
+    function DeliverySourceFolder: AnsiString; virtual;
+    function DeliveryTargetFolder: AnsiString; virtual;
     property RunProgress: Long read f_RunProgress;
     property RunComment: AnsiString read f_RunComment;
     property TaskResult: TcsTaskResult read f_TaskResult;
@@ -750,6 +752,18 @@ begin
  if aNow = 0 then
   aNow := Now;
  Result := (Status in [cs_tsDone]) and (IsHiddenFromUser or ((aNow - Self.Date) >= MaxDayAge));
+end;
+
+function TddProcessTask.DeliverySourceFolder: AnsiString;
+begin
+ Result := '';
+ Assert(not RequireDelivery);
+end;
+
+function TddProcessTask.DeliveryTargetFolder: AnsiString;
+begin
+ Result := '';
+ Assert(not RequireDelivery);
 end;
 
 end.

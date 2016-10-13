@@ -3869,11 +3869,21 @@ begin
  Result := SysUtils.IntToHex(Trunc(l_Hash), 6);*)
  for l_Index := 1 to Length(l_S) do
  begin
-  l_Hash := (a*l_Hash + Int64(Ord(l_S[l_Index]))) mod M;
+  l_Hash := (a*l_Hash +
+   Int64(
+   // - чтобы избежать переполнени€
+    ShortInt(
+    // - потому, что в C++ символы - «Ќј ќ¬џ≈
+     Ord(l_S[l_Index])
+    )
+   )
+   ) mod M;
   a := (a*b) mod (M - 1);
  end;//for l_Index
 // l_Hash := _hash48(@l_S);
- Result := SysUtils.IntToHex(l_Hash, 6);
+ l_Hash := l_Hash AND M;
+ // - маскируем старшие FF, которые почему-то по€вл€ютс€
+ Result := SysUtils.IntToHex(l_Hash, 12);
 //#UC END# *5739908903BB_5739908903BB_46780DA40383_Word_impl*
 end;//TkwStringHash48.string_Hash48
 

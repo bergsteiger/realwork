@@ -1,9 +1,12 @@
 unit csTaskTypes;
 { Типы задач }
 
-{ $Id: csTaskTypes.pas,v 1.58 2016/10/05 12:05:21 lukyanets Exp $ }
+{ $Id: csTaskTypes.pas,v 1.59 2016/10/13 13:17:18 lukyanets Exp $ }
 
 // $Log: csTaskTypes.pas,v $
+// Revision 1.59  2016/10/13 13:17:18  lukyanets
+// Готовимся переделывать автолинкер как задачу
+//
 // Revision 1.58  2016/10/05 12:05:21  lukyanets
 // Заготовка задачи
 //
@@ -243,6 +246,7 @@ const
  cs_ttMultiClearAttributes = evdTaskTypes.cs_ttMultiClearAttributes;
  cs_ttMultiOperation = evdTaskTypes.cs_ttMultiOperation;
  cs_ttDeliveryProfile = evdTaskTypes.cs_ttDeliveryProfile;
+ cs_ttAutolinker = evdTaskTypes.cs_ttAutolinker;
 
 (*  TcsFileRenameMode = (cs_frmUnique//, // создать уникальное имя Для нового файла
                        //cs_frmBackup, // создать bak-копию старого файла

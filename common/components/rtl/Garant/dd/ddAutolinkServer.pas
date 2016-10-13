@@ -1,8 +1,11 @@
 unit ddAutolinkServer;
 
-{ $Id: ddAutolinkServer.pas,v 1.12 2016/06/16 05:40:04 lukyanets Exp $ }
+{ $Id: ddAutolinkServer.pas,v 1.13 2016/10/13 09:46:58 fireton Exp $ }
 
 // $Log: ddAutolinkServer.pas,v $
+// Revision 1.13  2016/10/13 09:46:58  fireton
+// - прибиваем кэшированные в сервере таблицы по нотификации от GlobalHtServer
+//
 // Revision 1.12  2016/06/16 05:40:04  lukyanets
 // Пересаживаем UserManager на новые рельсы
 //
@@ -42,6 +45,7 @@ unit ddAutolinkServer;
 
 interface
 uses
+ l3Interfaces,
  l3ProtoObject,
  l3Except,
 
@@ -54,13 +58,17 @@ const
  sEnableAutolinkParam = 'EnableAL';
 
 type
- TddAutolinkServer = class(Tl3ProtoObject)
+ TddAutolinkServer = class(Tl3ProtoObject, Il3ItemNotifyRecipient)
  private
   f_Family: TdaFamilyID;
   f_MainTbl: array [TddAutolinkCacheType] of ITblInfo;
   f_VerTbl : array [TddAutolinkCacheType] of ITblInfo;
   procedure pm_SetFamily(const Value: TdaFamilyID);
+ protected
+  procedure Cleanup; override;
+  procedure Notify(const aNotifier: Il3ChangeNotifier; aOperation: Integer; aIndex: Integer);
  public
+  constructor Create;
   procedure DropTables;
   function GetAutolinkCacheMainTableInfo(aType: TddAutolinkCacheType): ITblInfo;
   function GetAutolinkCacheVersionsTableInfo(aType: TddAutolinkCacheType): ITblInfo;
@@ -107,6 +115,18 @@ begin
  end;
  g_AutolinkServer.Family := aFamily;
  Result := g_AutolinkServer;
+end;
+
+constructor TddAutolinkServer.Create;
+begin
+ inherited Create;
+ Il3ChangeNotifier(GlobalHtServer).Subscribe(Il3ItemNotifyRecipient(Self));
+end;
+
+procedure TddAutolinkServer.Cleanup;
+begin
+ DropTables;
+ inherited;
 end;
 
 procedure TddAutolinkServer.DropTables;
@@ -175,6 +195,12 @@ begin
   end;
  end;
  Result := f_VerTbl[aType];
+end;
+
+procedure TddAutolinkServer.Notify(const aNotifier: Il3ChangeNotifier; aOperation: Integer; aIndex: Integer);
+begin
+ if aOperation = sni_Destroy then
+  DropTables;
 end;
 
 initialization

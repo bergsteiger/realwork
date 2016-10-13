@@ -21,23 +21,23 @@ type
   protected
    function pm_GetFamilyID: Integer;
    procedure pm_SetFamilyID(aValue: Integer);
-   function pm_GetDocIDList: DocIDListHelper;
    function pm_GetAttributes: AttributesHelper;
    function pm_GetRightsNeeded: Integer;
    procedure pm_SetRightsNeeded(aValue: Integer);
+   function pm_GetDocumentIDList: DocumentIDListHelper;
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
    property FamilyID: Integer
     read pm_GetFamilyID
     write pm_SetFamilyID;
-   property DocIDList: DocIDListHelper
-    read pm_GetDocIDList;
    property Attributes: AttributesHelper
     read pm_GetAttributes;
    property RightsNeeded: Integer
     read pm_GetRightsNeeded
     write pm_SetRightsNeeded;
+   property DocumentIDList: DocumentIDListHelper
+    read pm_GetDocumentIDList;
  end;//TcsMultiClearAttributes
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -63,13 +63,6 @@ begin
  TaggedData.IntW[k2_attrFamilyID, nil] := (aValue);
 end;//TcsMultiClearAttributes.pm_SetFamilyID
 
-function TcsMultiClearAttributes.pm_GetDocIDList: DocIDListHelper;
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TDocIDListHelper.Make(TaggedData.cAtom(k2_attrDocIDList));
-end;//TcsMultiClearAttributes.pm_GetDocIDList
-
 function TcsMultiClearAttributes.pm_GetAttributes: AttributesHelper;
 begin
  Assert(Self <> nil);
@@ -88,6 +81,13 @@ procedure TcsMultiClearAttributes.pm_SetRightsNeeded(aValue: Integer);
 begin
  TaggedData.IntW[k2_attrRightsNeeded, nil] := (aValue);
 end;//TcsMultiClearAttributes.pm_SetRightsNeeded
+
+function TcsMultiClearAttributes.pm_GetDocumentIDList: DocumentIDListHelper;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
+end;//TcsMultiClearAttributes.pm_GetDocumentIDList
 
 class function TcsMultiClearAttributes.GetTaggedDataType: Tk2Type;
 begin

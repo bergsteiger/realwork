@@ -74,6 +74,8 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Doc
  {$IfEnd} // NOT Defined(Nemesis)
+ , evdTasksHelpers
+ , l3DatLst
  , MultiOperationRequest_Const
  //#UC START# *57F206DC02EBimpl_uses*
  //#UC END# *57F206DC02EBimpl_uses*
@@ -116,6 +118,10 @@ var
  l_Helper: TarDirectMultiOperationHelper;
  l_Counter: Tl3StopWatch;
  l_Sab: ISab;
+ l_RejectedList: RejectedIDListHelper;
+ l_DataList: Tl3StringDataList;
+ l_ID: Cardinal;
+ l_IDX: Integer;
 //#UC END# *53A2EEE90097_57F206DC02EB_var*
 begin
 //#UC START# *53A2EEE90097_57F206DC02EB_impl*
@@ -124,7 +130,7 @@ begin
  try
   try
    DocumentServer.Family := f_Message.FamilyID;
-   l_Sab := MakeValueSet(DocumentServer.FileTbl, fID_Fld, f_Message.DocIDList);
+   l_Sab := MakeValueSet(DocumentServer.FileTbl, fID_Fld, f_Message.DocumentIDList);
    try
     l_Helper := TarDirectMultiOperationHelper.Create(f_Message.FamilyID, f_Message.Operation, l_Sab);
    finally
@@ -132,6 +138,25 @@ begin
    end;
    try
     l_Helper.ModifyDocs;
+    f_Reply.ProcessedCount := l_Helper.ProcessedDocsCount;
+    if l_Helper.HasErrorDocs then
+    begin
+     l_RejectedList := f_Reply.RejectedIDList;
+     l_DataList := Tl3StringDataList.Create;
+     try
+      l_Helper.FillErrorDocsList(l_DataList);
+      Assert(l_DataList.DataSize <= SizeOf(l_ID));
+      for l_IDX := 0 to l_DataList.Count - 1 do
+      begin
+        l_ID := 0;
+        System.Move(l_DataList.Data[l_IDX]^, l_ID, l_DataList.DataSize);
+        l_RejectedList.Add(l_ID, l_DataList.PasStr[l_IDX]);
+      end;
+     finally
+      FreeAndNil(l_DataList);
+     end;
+    end;
+
    finally
     FreeAndNil(l_Helper);
    end;

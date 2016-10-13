@@ -2,9 +2,12 @@ unit dt_SrchQueries;
 
 // Фабрики спецпоисков
 
-{ $Id: dt_SrchQueries.pas,v 1.18 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: dt_SrchQueries.pas,v 1.19 2016/10/10 14:18:12 fireton Exp $ }
 
 // $Log: dt_SrchQueries.pas,v $
+// Revision 1.19  2016/10/10 14:18:12  fireton
+// - переименовал id для ГОСТов (потому что не только ГОСТы там)
+//
 // Revision 1.18  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -330,12 +333,12 @@ var
      l_ToDate   := aDictItemID.rID;
     end;
 
-   cNumDictID, cGostDictID:
+   cNumDictID, cSpecNumDictID:
     begin
      if l_NumMask <> '' then
       Exit;
      l_NumMask := l3MakeSimpleANSIStr(l3Str(l3PcharLen(lText.S + aSegment.rOffs, aSegment.rLen, lText.SCodePage)));
-     l_NumIsGOST := (aDictItemID.rDictionaryID = cGostDictID);
+     l_NumIsGOST := (aDictItemID.rDictionaryID = cSpecNumDictID);
     end;
 
    cLawcaseNumDictID:

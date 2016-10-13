@@ -1,7 +1,16 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.173 2016/10/05 12:04:40 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.176 2016/10/13 13:16:43 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.176  2016/10/13 13:16:43  lukyanets
+// Готовимся переделывать автолинкер как задачу
+//
+// Revision 1.175  2016/10/10 10:31:20  lukyanets
+// Дорасставляем секундомеры
+//
+// Revision 1.174  2016/10/10 10:27:22  lukyanets
+// Дорасставляем секундомеры
+//
 // Revision 1.173  2016/10/05 12:04:40  lukyanets
 // Заготовка задачи
 //
@@ -1501,7 +1510,8 @@ const
    cs_ttDossierMake, cs_ttCaseCode, cs_ttSpellCheck, cs_ttAutoSpellCheck,
    cs_ttAACImport, cs_ttUnregistered, cs_ttRelPublish, cs_ttAnoncedExport,
    cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
-   cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport, cs_ttDeliveryProfile];
+   cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport, cs_ttDeliveryProfile,
+   cs_ttAutolinker];
  alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
    cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc, cs_ttMultiModifyDocs,
    cs_ttMultiClearAttributes, cs_ttMultiOperation];
@@ -3232,15 +3242,22 @@ begin
   l3System.Msg2Log('Доставка результатов для %s(%d). Затраченное время - %s ms. Объем - %s kb. Скорость - %s kb/s',
     [GlobalDataProvider.UserManager.GetUserName(aPipe.ClientID), aPipe.ClientID, FormatFloat('#,##0.000', l_Watch.Time * 1000),
     FormatFloat('#,##0', l_Counter.BytesProcessed / 1024), FormatFloat('#,##0.000', l_Counter.BytesProcessed / 1024 / (l_Watch.Time))]);
-  l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
-  l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
-  l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
-  l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
-  l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
-  l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
-  l3System.Msg2Log('SEND FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
-  l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
-  l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
+  if l_Counter.BytesProcessed > 0 then
+  begin
+   l3System.Msg2Log('  Объем - %s kb', [FormatFloat('#,##0', l_Counter.BytesProcessed / 1024)]);
+   l3System.Msg2Log('  Скорость - %s kb/s', [FormatFloat('#,##0.000', l_Counter.BytesProcessed / 1024 / (l_Watch.Time))]);
+   l3System.Msg2Log('    Чистое время - %s ms', [FormatFloat('#,##0.000', l_Counter.ProcessingTime * 1000)], 5);
+   l3System.Msg2Log('    Чистая скорость - %s kb/s', [FormatFloat('#,##0.000', l_Counter.BytesProcessed / 1024 / (l_Counter.ProcessingTime))], 5);
+   l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
+   l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
+   l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
+   l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
+   l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
+   l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
+   l3System.Msg2Log('SEND FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
+   l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
+   l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
+  end;
  finally
   l_Counter := nil;
  end;

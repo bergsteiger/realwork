@@ -92,7 +92,8 @@ type
                 cs_ttMultiModifyDocs,
                 cs_ttMultiClearAttributes,
                 cs_ttMultiOperation,
-                cs_ttDeliveryProfile
+                cs_ttDeliveryProfile,
+                cs_ttAutolinker
                 );
 
  TCsNotificationType = (ntEmpty,

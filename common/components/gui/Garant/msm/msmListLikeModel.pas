@@ -18,10 +18,11 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
+ , msmDefaultModels
 ;
 
 type
- TmsmListLikeModel = {abstract} class(TmsmModel, ImsmListLikeModel, ImsmCaptionModel)
+ TmsmListLikeModel = {abstract} class(TmsmModel, ImsmListLikeModel, ImsmCaptionModel, ImsmDragAndDropModel)
   private
    f_Selection: ImsmElementSelection;
    f_ElementToAction: ImsmModelElement;
@@ -31,6 +32,8 @@ type
    function DoGetList: ImsmModelElementStringList; virtual; abstract;
    procedure DoShowElementAsList(const anElement: ImsmModelElement); virtual; abstract;
    function DoGetCaption: AnsiString; virtual;
+   function As_ImsmDragAndDropModel: ImsmDragAndDropModel;
+    {* Метод приведения нашего интерфейса к ImsmDragAndDropModel }
    procedure ShowElementAsList(const anElement: ImsmModelElement);
    function Get_Caption: Il3CString;
    procedure Set_Caption(const aValue: Il3CString);
@@ -40,24 +43,33 @@ type
    procedure Set_CurrentElement(const aValue: ImsmModelElement);
    function Get_List: ImsmModelElementStringList;
    function Get_Selection: ImsmElementSelection;
-   procedure InitFields; override;
-   procedure ClearFields; override;
-  public
-   constructor Create(const anElementView: TmsmModelElementView); reintroduce;
    procedure Paste(const aSelection: ImsmElementSelection); overload;
    procedure Paste(const aDataObject: IDataObject); overload;
    procedure Paste; overload;
    procedure Paste(const anArray: ItfwArray); overload;
-   function Drop(aFormat: Tl3ClipboardFormat;
-    const aMedium: Tl3StoragePlace;
-    var dwEffect: Integer;
-    const aPoint: Tl3SPoint): Boolean; overload;
    function Drop(const anElement: ImsmModelElement;
     const aPoint: Tl3SPoint): Boolean; overload;
    function CanPaste(const aSelection: ImsmElementSelection): Boolean;
    function CanAddNewElement: Boolean;
    procedure AddNewElement(const anElementName: AnsiString;
-    const anElementStereotype: ImsmModelElement);
+    const anElementStereotype: ImsmModelElement;
+    const aKeyValues: ItfwArray);
+   procedure DeleteSelection;
+   function CanDeleteSelection: Boolean;
+   procedure ChangeProperties(const aKeyValues: ItfwArray);
+   function CanChangeProperties: Boolean;
+   function PropertiesForNewElement: ItfwArray;
+   function Properties: ItfwArray;
+   procedure InitFields; override;
+   procedure ClearFields; override;
+  public
+   constructor Create(const anElementView: TmsmModelElementView); reintroduce;
+   function Drop(aFormat: Tl3ClipboardFormat;
+    const aMedium: Tl3StoragePlace;
+    var dwEffect: Integer;
+    const aPoint: Tl3SPoint): Boolean; overload;
+   function DragOver(const aData: IDataObject;
+    const aPoint: TPoint): Boolean;
   public
    property Selection: ImsmElementSelection
     read f_Selection;
@@ -113,6 +125,12 @@ begin
 //#UC END# *57E410A500DD_57B57EDB003F_impl*
 end;//TmsmListLikeModel.Create
 
+function TmsmListLikeModel.As_ImsmDragAndDropModel: ImsmDragAndDropModel;
+ {* Метод приведения нашего интерфейса к ImsmDragAndDropModel }
+begin
+ Result := Self;
+end;//TmsmListLikeModel.As_ImsmDragAndDropModel
+
 procedure TmsmListLikeModel.ShowElementAsList(const anElement: ImsmModelElement);
 //#UC START# *57B1A3DA0382_57B57EDB003F_var*
 //#UC END# *57B1A3DA0382_57B57EDB003F_var*
@@ -164,8 +182,8 @@ function TmsmListLikeModel.Get_CurrentElement: ImsmModelElement;
 //#UC END# *57B31CF301D2_57B57EDB003Fget_var*
 begin
 //#UC START# *57B31CF301D2_57B57EDB003Fget_impl*
- Assert(f_Selection <> nil);
- Result := f_Selection.CurrentElement;
+ Assert(Selection <> nil);
+ Result := Selection.CurrentElement;
 //#UC END# *57B31CF301D2_57B57EDB003Fget_impl*
 end;//TmsmListLikeModel.Get_CurrentElement
 
@@ -176,8 +194,8 @@ begin
 //#UC START# *57B31CF301D2_57B57EDB003Fset_impl*
  if (f_Selection = nil) then
   f_Selection := TmsmElementSelection.Make(Self);
- Assert(f_Selection <> nil);
- f_Selection.CurrentElement := aValue;
+ Assert(Selection <> nil);
+ Selection.CurrentElement := aValue;
 //#UC END# *57B31CF301D2_57B57EDB003Fset_impl*
 end;//TmsmListLikeModel.Set_CurrentElement
 
@@ -195,7 +213,7 @@ function TmsmListLikeModel.Get_Selection: ImsmElementSelection;
 //#UC END# *57D8F1B70265_57B57EDB003Fget_var*
 begin
 //#UC START# *57D8F1B70265_57B57EDB003Fget_impl*
- Result := f_Selection;
+ Result := Selection;
 //#UC END# *57D8F1B70265_57B57EDB003Fget_impl*
 end;//TmsmListLikeModel.Get_Selection
 
@@ -315,6 +333,24 @@ begin
     )
    )
  else
+ if (f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements') then
+ begin
+  Self.Get_List.Owner.ElementProp['Viewed'].Call(
+   [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
+   'msm:AddToCollection: .' + f_ElementView.rListName
+  );
+  l_E := anElement;
+ end//f_ElementView.rListName = 'Inherits'..
+ else
+ if (f_ElementView.rListName = 'Overridden') then
+ begin
+  Self.Get_List.Owner.ElementProp['Viewed'].Call(
+   [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
+   'msm:AddOverride'
+  );
+ end//(f_ElementView.rListName = 'Overridden')
+ else
   Assert(false);
  Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
@@ -363,7 +399,8 @@ begin
 end;//TmsmListLikeModel.CanAddNewElement
 
 procedure TmsmListLikeModel.AddNewElement(const anElementName: AnsiString;
- const anElementStereotype: ImsmModelElement);
+ const anElementStereotype: ImsmModelElement;
+ const aKeyValues: ItfwArray);
 //#UC START# *57F4FE8F022B_57B57EDB003F_var*
 var
  l_E : ImsmModelElement;
@@ -377,7 +414,8 @@ begin
    TmsmModelElement.MakeFromValue(
     Self.Get_List.Owner.Call(
      [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
-      TtfwStackValue_C(anElementStereotype.MainWord)],
+      TtfwStackValue_C(anElementStereotype.MainWord),
+      TtfwStackValue_C(aKeyValues)],
      'msm:Diagram:AddElement'
     )
    )
@@ -390,6 +428,124 @@ begin
  end;//l_E <> nil
 //#UC END# *57F4FE8F022B_57B57EDB003F_impl*
 end;//TmsmListLikeModel.AddNewElement
+
+procedure TmsmListLikeModel.DeleteSelection;
+//#UC START# *57F7B78D0250_57B57EDB003F_var*
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin//DoElement
+  Result := true;
+  if not anElement.IsSameElement(Self.Get_List.Owner) then
+   anElement.Delete;
+ end;//DoElement
+
+//#UC END# *57F7B78D0250_57B57EDB003F_var*
+begin
+//#UC START# *57F7B78D0250_57B57EDB003F_impl*
+ Assert(Selection <> nil);
+ Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+ Fire(ListContentChangedEvent.Instance);
+//#UC END# *57F7B78D0250_57B57EDB003F_impl*
+end;//TmsmListLikeModel.DeleteSelection
+
+function TmsmListLikeModel.CanDeleteSelection: Boolean;
+//#UC START# *57F7B79A0325_57B57EDB003F_var*
+//#UC END# *57F7B79A0325_57B57EDB003F_var*
+begin
+//#UC START# *57F7B79A0325_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit;
+ if (Self.Get_List.Owner = nil) then
+  Exit;
+ if (Selection = nil) then
+  Exit;
+ if Selection.Empty AND (Selection.CurrentElement = nil) then
+  Exit;
+ if (Selection.CurrentElement <> nil) then
+  if Selection.CurrentElement.IsSameElement(Self.Get_List.Owner) then
+   Exit;
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+ begin
+  Result := true;
+  Exit;
+ end;//Self.Get_List.Owner.BoolProp['IsDiagram']
+//#UC END# *57F7B79A0325_57B57EDB003F_impl*
+end;//TmsmListLikeModel.CanDeleteSelection
+
+procedure TmsmListLikeModel.ChangeProperties(const aKeyValues: ItfwArray);
+//#UC START# *57FC23270363_57B57EDB003F_var*
+//#UC END# *57FC23270363_57B57EDB003F_var*
+begin
+//#UC START# *57FC23270363_57B57EDB003F_impl*
+ Self.Get_CurrentElement.Call(
+  [TtfwStackValue_C(aKeyValues)],
+  'msm:ChangeProperties'
+ )
+//#UC END# *57FC23270363_57B57EDB003F_impl*
+end;//TmsmListLikeModel.ChangeProperties
+
+function TmsmListLikeModel.CanChangeProperties: Boolean;
+//#UC START# *57FC23540116_57B57EDB003F_var*
+//#UC END# *57FC23540116_57B57EDB003F_var*
+begin
+//#UC START# *57FC23540116_57B57EDB003F_impl*
+ Result := false;
+(* if (Self.Get_List = nil) then
+  Exit;*) 
+ if (Self.Get_CurrentElement = nil) then
+  Exit; 
+(* if not Self.Get_CurrentElement.BoolProp['IsDiagram'] then
+  Exit;*)
+(* if (Self.Get_List.Owner.MEList['AllowedElements'].Count <= 0) then
+  Exit;*)
+ Result := true;
+//#UC END# *57FC23540116_57B57EDB003F_impl*
+end;//TmsmListLikeModel.CanChangeProperties
+
+function TmsmListLikeModel.PropertiesForNewElement: ItfwArray;
+//#UC START# *57FCC057014C_57B57EDB003F_var*
+//#UC END# *57FCC057014C_57B57EDB003F_var*
+begin
+//#UC START# *57FCC057014C_57B57EDB003F_impl*
+ Result := Self.Get_List.Owner.CallAndGetList([], 'msm:KeyValuesForNewElement');
+//#UC END# *57FCC057014C_57B57EDB003F_impl*
+end;//TmsmListLikeModel.PropertiesForNewElement
+
+function TmsmListLikeModel.Properties: ItfwArray;
+//#UC START# *57FCC083017F_57B57EDB003F_var*
+//#UC END# *57FCC083017F_57B57EDB003F_var*
+begin
+//#UC START# *57FCC083017F_57B57EDB003F_impl*
+ Result := Self.Get_CurrentElement.CallAndGetList([], 'msm:GetProperties');
+//#UC END# *57FCC083017F_57B57EDB003F_impl*
+end;//TmsmListLikeModel.Properties
+
+function TmsmListLikeModel.DragOver(const aData: IDataObject;
+ const aPoint: TPoint): Boolean;
+//#UC START# *57FF47AE00B4_57B57EDB003F_var*
+//#UC END# *57FF47AE00B4_57B57EDB003F_var*
+begin
+//#UC START# *57FF47AE00B4_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit;
+ if (Self.Get_List.Owner = nil) then
+  Exit;
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+ begin
+  Result := true;
+  Exit;
+ end;//Self.Get_List.Owner.BoolProp['IsDiagram']
+ if (f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    OR (f_ElementView.rListName = 'Overridden') then
+ begin
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Inherits'
+//#UC END# *57FF47AE00B4_57B57EDB003F_impl*
+end;//TmsmListLikeModel.DragOver
 
 procedure TmsmListLikeModel.InitFields;
 //#UC START# *47A042E100E2_57B57EDB003F_var*

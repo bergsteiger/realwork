@@ -537,6 +537,9 @@ uses
  , ContainedActionsWordspack in 'w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomActionWordpack in 'w:\common\components\rtl\Garant\ScriptEngine\CustomActionWordpack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ActionListWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -695,6 +698,7 @@ uses
  , msmRunner in 'w:\common\components\msm\msmRunner.pas'
  , msmMainForm in 'w:\common\components\gui\Garant\msm\msmMainForm.pas'
  , msmAppForm in 'w:\common\components\gui\Garant\msm\msmAppForm.pas'
+ , msmRefcountedForm in 'w:\common\components\gui\Garant\msm\msmRefcountedForm.pas'
  , l3Forms in 'w:\common\components\rtl\Garant\L3\l3Forms.pas'
  , msmPanel in 'w:\common\components\gui\Garant\msm\msmPanel.pas'
  , vtPanel in 'w:\common\components\gui\Garant\VT\vtPanel.pas'
@@ -1618,6 +1622,8 @@ uses
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
  , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
+ , msmElementListsService in 'w:\common\components\gui\Garant\msm\msmElementListsService.pas'
+ , msmLostWords in 'w:\common\components\gui\Garant\msm\msmLostWords.pas'
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread in 'w:\common\components\gui\Garant\msm\msmModelLoadingThread.pas'
  {$IfEnd} // Defined(seThreadSafe)
@@ -1631,10 +1637,12 @@ uses
  , msmModelLoadingThreadPrimList in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas'
  {$IfEnd} // Defined(seThreadSafe)
  , l3PointerUtils in 'w:\common\components\rtl\Garant\L3\l3PointerUtils.pas'
- , msmChangedElements in 'w:\common\components\gui\Garant\msm\msmChangedElements.pas'
+ , msmChangedElementsPrim in 'w:\common\components\gui\Garant\msm\msmChangedElementsPrim.pas'
  {$If NOT Defined(NoScripts)}
  , msmChangedElementsPack in 'w:\common\components\gui\Garant\msm\msmChangedElementsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , msmChangedElements in 'w:\common\components\gui\Garant\msm\msmChangedElements.pas'
+ , msmDeletedElements in 'w:\common\components\gui\Garant\msm\msmDeletedElements.pas'
  {$If NOT Defined(NoScripts)}
  , msmModelElementMethodCallerPack in 'w:\common\components\gui\Garant\msm\msmModelElementMethodCallerPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1748,6 +1756,7 @@ uses
  , tfwDebugService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDebugService.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , msmOpenService in 'w:\common\components\gui\Garant\msm\msmOpenService.pas'
+ , msmModelElementSelectService in 'w:\common\components\gui\Garant\msm\msmModelElementSelectService.pas'
  , msmModelLoader in 'w:\common\components\gui\Garant\msm\msmModelLoader.pas'
  , msmModelElement in 'w:\common\components\gui\Garant\msm\msmModelElement.pas'
  , msmBaseModelElement in 'w:\common\components\gui\Garant\msm\msmBaseModelElement.pas'
@@ -1755,6 +1764,8 @@ uses
  , msmViewOfModelElementList in 'w:\common\components\gui\Garant\msm\msmViewOfModelElementList.pas'
  , msmViewOfModelElement in 'w:\common\components\gui\Garant\msm\msmViewOfModelElement.pas'
  , msmElementViews in 'w:\common\components\gui\Garant\msm\msmElementViews.pas'
+ , msmModelElementListFactory in 'w:\common\components\gui\Garant\msm\msmModelElementListFactory.pas'
+ , msmModelElementListFactoryPrim in 'w:\common\components\gui\Garant\msm\msmModelElementListFactoryPrim.pas'
  , msmModelElementFactory in 'w:\common\components\gui\Garant\msm\msmModelElementFactory.pas'
  , msmModelElementFactoryPrim in 'w:\common\components\gui\Garant\msm\msmModelElementFactoryPrim.pas'
  , msmModelService in 'w:\common\components\gui\Garant\msm\msmModelService.pas'
@@ -1766,6 +1777,7 @@ uses
  , vtOutlinerWithDragDrop in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDrop.pas'
  , vtOutlinerWithDragDropRes in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
  , msmConcreteModels in 'w:\common\components\gui\Garant\msm\msmConcreteModels.pas'
+ , msmDefaultModels in 'w:\common\components\gui\Garant\msm\msmDefaultModels.pas'
  , msmListAndTreeViewUtils in 'w:\common\components\gui\Garant\msm\msmListAndTreeViewUtils.pas'
  , msmParentedViewController in 'w:\common\components\gui\Garant\msm\msmParentedViewController.pas'
  , msmViewController in 'w:\common\components\gui\Garant\msm\msmViewController.pas'
@@ -1817,7 +1829,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , msmTabCaptionController in 'w:\common\components\gui\Garant\msm\msmTabCaptionController.pas'
  , msmNavigatorForm in 'w:\common\components\gui\Garant\msm\msmNavigatorForm.pas'
- , msmForm in 'w:\common\components\gui\Garant\msm\msmForm.pas'
  , msmListOwnerToCurrentElementBinding in 'w:\common\components\gui\Garant\msm\msmListOwnerToCurrentElementBinding.pas'
  , msmListOwnerNameToCaptionBinding in 'w:\common\components\gui\Garant\msm\msmListOwnerNameToCaptionBinding.pas'
  , msmListToCaptionBinding in 'w:\common\components\gui\Garant\msm\msmListToCaptionBinding.pas'
@@ -1868,6 +1879,18 @@ uses
  , msmMultiPanelViewParentVert in 'w:\common\components\gui\Garant\msm\msmMultiPanelViewParentVert.pas'
  , msmButtonEditViewController in 'w:\common\components\gui\Garant\msm\msmButtonEditViewController.pas'
  , msmButtonEdit in 'w:\common\components\gui\Garant\msm\msmButtonEdit.pas'
+ , msmAddElement in 'w:\common\components\gui\Garant\msm\msmAddElement.pas'
+ , msmDeleteSelection in 'w:\common\components\gui\Garant\msm\msmDeleteSelection.pas'
+ , msmChangeProperties in 'w:\common\components\gui\Garant\msm\msmChangeProperties.pas'
+ , msmSelectElementForm in 'w:\common\components\gui\Garant\msm\msmSelectElementForm.pas'
+ , msmValuesForSelect in 'w:\common\components\gui\Garant\msm\msmValuesForSelect.pas'
+ , msmListControllerWithExternalView in 'w:\common\components\gui\Garant\msm\msmListControllerWithExternalView.pas'
+ , msmEditViewController in 'w:\common\components\gui\Garant\msm\msmEditViewController.pas'
+ , msmEdit in 'w:\common\components\gui\Garant\msm\msmEdit.pas'
+ , evEdit in 'w:\common\components\gui\Garant\Everest\evEdit.pas'
+ , msmMemoViewController in 'w:\common\components\gui\Garant\msm\msmMemoViewController.pas'
+ , msmMemo in 'w:\common\components\gui\Garant\msm\msmMemo.pas'
+ , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
  //#UC START# *57A9BB9101F5manualuses*
  //#UC END# *57A9BB9101F5manualuses*
 ;

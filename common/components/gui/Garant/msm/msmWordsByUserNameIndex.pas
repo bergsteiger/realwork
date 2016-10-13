@@ -86,11 +86,24 @@ end;//CompareKeys
 function CompareValues(const aA: _ValueType_;
  const aB: _ValueType_): Integer;
 //#UC START# *57E50D7500A3_57E50B7A0140_var*
+
+ function GetRef(aW : TtfwWord): Pointer;
+ begin//GetRef
+  if (aW = nil) then
+   Result := nil
+  else
+   Result := aW.GetRefForCompare;
+ end;//GetRef
+ 
 //#UC END# *57E50D7500A3_57E50B7A0140_var*
 begin
 //#UC START# *57E50D7500A3_57E50B7A0140_impl*
- Result := l3ComparePointers(aA.GetRefForCompare, aB.GetRefForCompare);
- Assert(false);
+ if (aB = nil) then
+ // - чтобы поиск работал, а вообще это заплатка конечно
+  Result := 0
+ else
+  Result := l3ComparePointers(GetRef(aA), GetRef(aB));
+ //Assert(false);
 //#UC END# *57E50D7500A3_57E50B7A0140_impl*
 end;//CompareValues
 

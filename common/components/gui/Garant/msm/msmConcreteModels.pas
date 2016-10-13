@@ -19,6 +19,7 @@ uses
  , msmElementViews
  , msmUsualData
  , msmModels
+ , msmDefaultModels
  , msmEvents
 ;
 
@@ -48,65 +49,38 @@ type
    write Set_CurrentElement;
  end;//ImsmElementSelection
 
- (*
- MmsmListLike = interface
-  function Get_ElementToAction: ImsmModelElement;
-  procedure Set_ElementToAction(const aValue: ImsmModelElement);
-  function Get_CurrentElement: ImsmModelElement;
-  procedure Set_CurrentElement(const aValue: ImsmModelElement);
-  function Get_Selection: ImsmElementSelection;
-  procedure Paste(const aSelection: ImsmElementSelection); overload;
-  procedure Paste(const aDataObject: IDataObject); overload;
-  procedure Paste; overload;
-  procedure Paste(const anArray: ItfwArray); overload;
-  function Drop(aFormat: Tl3ClipboardFormat;
-   const aMedium: Tl3StoragePlace;
-   var dwEffect: Integer;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function Drop(const anElement: ImsmModelElement;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
-  function CanAddNewElement: Boolean;
-  procedure AddNewElement(const anElementName: AnsiString;
-   const anElementStereotype: ImsmModelElement);
-  property ElementToAction: ImsmModelElement
-   read Get_ElementToAction
-   write Set_ElementToAction;
-  property CurrentElement: ImsmModelElement
-   read Get_CurrentElement
-   write Set_CurrentElement;
-  property Selection: ImsmElementSelection
-   read Get_Selection;
- end;//MmsmListLike
- *)
-
  ImsmCaptionModel = msmControllers.ImsmCaptionModel;
 
- ImsmListLikeModel = interface(ImsmCaptionModel)
-  ['{23235321-6626-4491-B79E-CC6CB840C9DE}']
-  function Get_List: ImsmModelElementStringList;
+ ImsmListLikeModelPrim = interface(ImsmCaptionModel)
+  ['{4206D8FC-70C8-44A4-B35C-C6EB9AA41961}']
   function Get_ElementToAction: ImsmModelElement;
   procedure Set_ElementToAction(const aValue: ImsmModelElement);
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
-  procedure ShowElementAsList(const anElement: ImsmModelElement);
   procedure Paste(const aSelection: ImsmElementSelection); overload;
   procedure Paste(const aDataObject: IDataObject); overload;
   procedure Paste; overload;
   procedure Paste(const anArray: ItfwArray); overload;
-  function Drop(aFormat: Tl3ClipboardFormat;
-   const aMedium: Tl3StoragePlace;
-   var dwEffect: Integer;
-   const aPoint: Tl3SPoint): Boolean; overload;
   function Drop(const anElement: ImsmModelElement;
    const aPoint: Tl3SPoint): Boolean; overload;
   function CanPaste(const aSelection: ImsmElementSelection): Boolean;
   function CanAddNewElement: Boolean;
   procedure AddNewElement(const anElementName: AnsiString;
-   const anElementStereotype: ImsmModelElement);
-  property List: ImsmModelElementStringList
-   read Get_List;
+   const anElementStereotype: ImsmModelElement;
+   const aKeyValues: ItfwArray);
+  procedure DeleteSelection;
+  function CanDeleteSelection: Boolean;
+  procedure ChangeProperties(const aKeyValues: ItfwArray);
+  function CanChangeProperties: Boolean;
+  function PropertiesForNewElement: ItfwArray;
+  function Properties: ItfwArray;
+  function Drop(aFormat: Tl3ClipboardFormat;
+   const aMedium: Tl3StoragePlace;
+   var dwEffect: Integer;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function DragOver(const aData: IDataObject;
+   const aPoint: TPoint): Boolean;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -115,72 +89,28 @@ type
    write Set_CurrentElement;
   property Selection: ImsmElementSelection
    read Get_Selection;
+ end;//ImsmListLikeModelPrim
+
+ ImsmListLikeModel = interface(ImsmListLikeModelPrim)
+  ['{23235321-6626-4491-B79E-CC6CB840C9DE}']
+  function Get_List: ImsmModelElementStringList;
+  procedure ShowElementAsList(const anElement: ImsmModelElement);
+  function As_ImsmDragAndDropModel: ImsmDragAndDropModel;
+   {* Метод приведения нашего интерфейса к ImsmDragAndDropModel }
+  property List: ImsmModelElementStringList
+   read Get_List;
  end;//ImsmListLikeModel
 
  ImsmListModel = interface(ImsmListLikeModel)
   ['{6FDB2833-1A88-49C8-9015-D0240B72FBB3}']
-  function Get_ElementToAction: ImsmModelElement;
-  procedure Set_ElementToAction(const aValue: ImsmModelElement);
-  function Get_CurrentElement: ImsmModelElement;
-  procedure Set_CurrentElement(const aValue: ImsmModelElement);
-  function Get_Selection: ImsmElementSelection;
   procedure SetList(const aList: ImsmModelElementStringList);
-  procedure Paste(const aSelection: ImsmElementSelection); overload;
-  procedure Paste(const aDataObject: IDataObject); overload;
-  procedure Paste; overload;
-  procedure Paste(const anArray: ItfwArray); overload;
-  function Drop(aFormat: Tl3ClipboardFormat;
-   const aMedium: Tl3StoragePlace;
-   var dwEffect: Integer;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function Drop(const anElement: ImsmModelElement;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
-  function CanAddNewElement: Boolean;
-  procedure AddNewElement(const anElementName: AnsiString;
-   const anElementStereotype: ImsmModelElement);
-  property ElementToAction: ImsmModelElement
-   read Get_ElementToAction
-   write Set_ElementToAction;
-  property CurrentElement: ImsmModelElement
-   read Get_CurrentElement
-   write Set_CurrentElement;
-  property Selection: ImsmElementSelection
-   read Get_Selection;
  end;//ImsmListModel
 
  ImsmTreeModel = interface(ImsmListLikeModel)
   ['{D4BC6105-5126-472E-B6F1-C01B4AB7E068}']
   function Get_Tree: ImsmModelElementTree;
-  function Get_ElementToAction: ImsmModelElement;
-  procedure Set_ElementToAction(const aValue: ImsmModelElement);
-  function Get_CurrentElement: ImsmModelElement;
-  procedure Set_CurrentElement(const aValue: ImsmModelElement);
-  function Get_Selection: ImsmElementSelection;
-  procedure Paste(const aSelection: ImsmElementSelection); overload;
-  procedure Paste(const aDataObject: IDataObject); overload;
-  procedure Paste; overload;
-  procedure Paste(const anArray: ItfwArray); overload;
-  function Drop(aFormat: Tl3ClipboardFormat;
-   const aMedium: Tl3StoragePlace;
-   var dwEffect: Integer;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function Drop(const anElement: ImsmModelElement;
-   const aPoint: Tl3SPoint): Boolean; overload;
-  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
-  function CanAddNewElement: Boolean;
-  procedure AddNewElement(const anElementName: AnsiString;
-   const anElementStereotype: ImsmModelElement);
   property Tree: ImsmModelElementTree
    read Get_Tree;
-  property ElementToAction: ImsmModelElement
-   read Get_ElementToAction
-   write Set_ElementToAction;
-  property CurrentElement: ImsmModelElement
-   read Get_CurrentElement
-   write Set_CurrentElement;
-  property Selection: ImsmElementSelection
-   read Get_Selection;
  end;//ImsmTreeModel
 
  SelectionChangedEvent = {final} class(TmsmModelEvent)

@@ -5,9 +5,12 @@ unit msmAppForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: msmAppForm -     }
 { Начат: 14.09.2001 14:13 }
-{ $Id: msmAppForm.pas,v 1.2 2016/09/28 08:14:04 lulin Exp $ }
+{ $Id: msmAppForm.pas,v 1.3 2016/10/07 16:17:55 lulin Exp $ }
 
 // $Log: msmAppForm.pas,v $
+// Revision 1.3  2016/10/07 16:17:55  lulin
+// - подтачиваем.
+//
 // Revision 1.2  2016/09/28 08:14:04  lulin
 // - подтачиваем.
 //
@@ -47,11 +50,13 @@ uses
   l3Types,
   l3Base,
 
-  l3Forms
+  l3Forms,
+  
+  msmRefcountedForm
   ;
 
 type
-  TmsmAppForm = class(Tl3Form)
+  TmsmAppForm = class(TmsmRefcountedForm)
    {* Форма ведущая себя как отдельное окно приложения. }
     private
     // message handlers

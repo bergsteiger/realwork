@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , msmForm
+ , msmRefcountedForm
  //#UC START# *57B6C2D500AEintf_uses*
  //#UC END# *57B6C2D500AEintf_uses*
 ;
@@ -20,7 +20,7 @@ type
  //#UC END# *57B6C2D500AEci*
  //#UC START# *57B6C2D500AEcit*
  //#UC END# *57B6C2D500AEcit*
- TmsmNavigatorForm = class(TmsmForm)
+ TmsmNavigatorForm = class(TmsmRefcountedForm)
  //#UC START# *57B6C2D500AEpubl*
  //#UC END# *57B6C2D500AEpubl*
  end;//TmsmNavigatorForm

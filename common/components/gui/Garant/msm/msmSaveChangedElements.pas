@@ -26,6 +26,7 @@ implementation
 
 uses
  l3ImplUses
+ , msmChangedElementsPrim
  , msmChangedElements
  //#UC START# *57E10D840208impl_uses*
  //#UC END# *57E10D840208impl_uses*

@@ -17,11 +17,9 @@ type
  TalcuDeliveryProfileTask = class(TcsDeliveryProfileTask)
  private
  protected
-  function RequireDelivery: Boolean; override;
   procedure DoRun(const aContext: TddRunContext); override;
  public
   class function CanAsyncRun: Boolean; override;
-  function IsHiddenFromUser: Boolean; override;
  end;//TalcuDeliveryProfileTask
 
 implementation
@@ -45,16 +43,6 @@ end;
 procedure TalcuDeliveryProfileTask.DoRun(const aContext: TddRunContext);
 begin
 // DoNothing
-end;
-
-function TalcuDeliveryProfileTask.IsHiddenFromUser: Boolean;
-begin
- Result := True;
-end;
-
-function TalcuDeliveryProfileTask.RequireDelivery: Boolean;
-begin
- Result := True;
 end;
 
 initialization

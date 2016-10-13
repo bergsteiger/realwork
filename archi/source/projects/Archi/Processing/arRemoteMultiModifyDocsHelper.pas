@@ -83,7 +83,7 @@ begin
  f_Message.FamilyID := aFamily;
  f_Message.ActionType := OperType;
  f_Message.AnouncedDate := anAnouncedDate;
- dtCopyValuesSabToList(aDocIDList, f_Message.DocIDList);
+ dtCopyValuesSabToList(aDocIDList, f_Message.DocumentIDList);
  TevdNativeWriter.SetTo(f_Generator);
  f_Filer := MakeFilerForMessage(f_Message.Data);
  TevdNativeWriter(f_Generator).Filer := f_Filer;

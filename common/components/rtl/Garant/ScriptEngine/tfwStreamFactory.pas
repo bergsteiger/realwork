@@ -45,6 +45,7 @@ function TtfwStreamFactory.FileName: AnsiString;
 //#UC END# *52F4E6D60067_52F4E6AA02BB_var*
 begin
 //#UC START# *52F4E6D60067_52F4E6AA02BB_impl*
+ Assert(Self <> nil);
  Result := f_FileName;
 //#UC END# *52F4E6D60067_52F4E6AA02BB_impl*
 end;//TtfwStreamFactory.FileName

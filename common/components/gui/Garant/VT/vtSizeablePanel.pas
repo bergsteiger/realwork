@@ -1,8 +1,11 @@
 unit vtSizeablePanel;
 
-{ $Id: vtSizeablePanel.pas,v 1.26 2013/01/22 15:51:48 kostitsin Exp $ }
+{ $Id: vtSizeablePanel.pas,v 1.27 2016/10/11 21:20:14 lulin Exp $ }
 
 // $Log: vtSizeablePanel.pas,v $
+// Revision 1.27  2016/10/11 21:20:14  lulin
+// - подтачиваем.
+//
 // Revision 1.26  2013/01/22 15:51:48  kostitsin
 // [$424399029]
 //
@@ -93,6 +96,7 @@ type
   f_ResizeAreaWidth: TResizeAreaWidth;
   f_OnQueryResize: TvtOnQueryResize;
   f_OuterConstraints: TSizeConstraints;
+  f_InheritedPaint : Boolean;
  private
   procedure pm_SetResizeStyle(const aValue: TResizeStyle);
     {-}
@@ -186,6 +190,9 @@ type
       read f_OnQueryResize
      write f_OnQueryResize;
     {-}
+  property InheritedPaint : Boolean
+    read f_InheritedPaint
+    write f_InheritedPaint;
  end;//TvtCustomSizeablePanel
 
   TvtSizeablePanel = class(TvtCustomSizeablePanel)
@@ -613,45 +620,49 @@ begin
  if f_SizeableSides = [] then
   inherited
  else
- with CN do
  begin
-  CalcRealClientRect(Rect);
-  if BevelOuter <> bvNone then
+  with CN do
   begin
-   AdjustColors(BevelOuter, TopColor, BottomColor);
-   Frame3D(Canvas, Rect, TopColor, BottomColor, BevelWidth);
-  end;
-  Frame3D(Canvas, Rect, Color, Color, BorderWidth);
-  if BevelInner <> bvNone then
-  begin
-   AdjustColors(BevelInner, TopColor, BottomColor);
-   Frame3D(Canvas, Rect, TopColor, BottomColor, BevelWidth);
-  end;
-  with Canvas do
-  begin
-  {$IfDef Delphi7}
-   if not ThemeServices.ThemesEnabled or not ParentBackground then
-  {$EndIf}
+   CalcRealClientRect(Rect);
+   if BevelOuter <> bvNone then
    begin
-    Brush.Color := Color;
-    FillRect(Rect);
+    AdjustColors(BevelOuter, TopColor, BottomColor);
+    Frame3D(Canvas, Rect, TopColor, BottomColor, BevelWidth);
    end;
-   if (f_ResizeStyle = rsUpdate) and f_Resizing then
+   Frame3D(Canvas, Rect, Color, Color, BorderWidth);
+   if BevelInner <> bvNone then
    begin
-    CalcResizeBandRect(f_ResizingSide, Rect);
-    Pen.Style := psDot;
-    Pen.Mode := pmXor;
-    Pen.Color := XorColor;
-    Brush.Style := bsClear;
-    Rectangle(Rect);
-    Pen.Style := psSolid;
-    Pen.Mode := pmCopy;
+    AdjustColors(BevelInner, TopColor, BottomColor);
+    Frame3D(Canvas, Rect, TopColor, BottomColor, BevelWidth);
    end;
-   AdjustColors(f_SplitterBevel, TopColor, BottomColor);
-   for aSide := szLeft to szBottom do
-    DrawBand(aSide);
-  end;
- end;
+   with Canvas do
+   begin
+   {$IfDef Delphi7}
+    if not ThemeServices.ThemesEnabled or not ParentBackground then
+   {$EndIf}
+    begin
+     Brush.Color := Color;
+     FillRect(Rect);
+    end;
+    if (f_ResizeStyle = rsUpdate) and f_Resizing then
+    begin
+     CalcResizeBandRect(f_ResizingSide, Rect);
+     Pen.Style := psDot;
+     Pen.Mode := pmXor;
+     Pen.Color := XorColor;
+     Brush.Style := bsClear;
+     Rectangle(Rect);
+     Pen.Style := psSolid;
+     Pen.Mode := pmCopy;
+    end;
+    AdjustColors(f_SplitterBevel, TopColor, BottomColor);
+    for aSide := szLeft to szBottom do
+     DrawBand(aSide);
+   end;
+  end;//with CN
+  if f_InheritedPaint then
+   inherited;
+ end;//else
 end;
 
 procedure TvtCustomSizeablePanel.CheckOuterConstraints(var aWidth: Integer; aHeight: Integer);
@@ -768,6 +779,7 @@ begin
  f_ResizeAreaWidth := cDefaultResizeAreaWidth;
  f_OuterConstraints := TSizeConstraints.Create(Self);
  f_OuterConstraints.OnChange := DoOuterConstraintsChange;
+ f_InheritedPaint := false;
 end;
 
 procedure TvtCustomSizeablePanel.ConsiderConstrains(Control: TControl; var Delta: Integer);

@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , csPersonificatedMessage
- , evdTasksHelpers
  , l3MarshalledTypes
+ , evdTasksHelpers
  , k2Base
 ;
 
@@ -22,20 +22,20 @@ type
   protected
    function pm_GetFamilyID: Integer;
    procedure pm_SetFamilyID(aValue: Integer);
-   function pm_GetDocIDList: DocIDListHelper;
    function pm_GetOperation: TarMultiOperation;
    procedure pm_SetOperation(aValue: TarMultiOperation);
+   function pm_GetDocumentIDList: DocumentIDListHelper;
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
    property FamilyID: Integer
     read pm_GetFamilyID
     write pm_SetFamilyID;
-   property DocIDList: DocIDListHelper
-    read pm_GetDocIDList;
    property Operation: TarMultiOperation
     read pm_GetOperation
     write pm_SetOperation;
+   property DocumentIDList: DocumentIDListHelper
+    read pm_GetDocumentIDList;
  end;//TcsMultiOperation
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -61,13 +61,6 @@ begin
  TaggedData.IntW[k2_attrFamilyID, nil] := (aValue);
 end;//TcsMultiOperation.pm_SetFamilyID
 
-function TcsMultiOperation.pm_GetDocIDList: DocIDListHelper;
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TDocIDListHelper.Make(TaggedData.cAtom(k2_attrDocIDList));
-end;//TcsMultiOperation.pm_GetDocIDList
-
 function TcsMultiOperation.pm_GetOperation: TarMultiOperation;
 begin
  Assert(Self <> nil);
@@ -79,6 +72,13 @@ procedure TcsMultiOperation.pm_SetOperation(aValue: TarMultiOperation);
 begin
  TaggedData.IntW[k2_attrOperation, nil] := Ord(aValue);
 end;//TcsMultiOperation.pm_SetOperation
+
+function TcsMultiOperation.pm_GetDocumentIDList: DocumentIDListHelper;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
+end;//TcsMultiOperation.pm_GetDocumentIDList
 
 class function TcsMultiOperation.GetTaggedDataType: Tk2Type;
 begin

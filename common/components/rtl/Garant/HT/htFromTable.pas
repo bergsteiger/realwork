@@ -12,9 +12,7 @@ uses
  l3IntfUses
  , daFromTable
  , htInterfaces
- {$If NOT Defined(Nemesis)}
  , HT_Const
- {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 type

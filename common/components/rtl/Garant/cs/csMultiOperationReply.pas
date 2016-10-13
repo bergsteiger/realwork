@@ -12,6 +12,7 @@ interface
 uses
  l3IntfUses
  , ncsMessage
+ , evdTasksHelpers
  , k2Base
 ;
 
@@ -22,6 +23,9 @@ type
    procedure pm_SetIsSuccess(aValue: Boolean);
    function pm_GetErrorMessage: AnsiString;
    procedure pm_SetErrorMessage(const aValue: AnsiString);
+   function pm_GetRejectedIDList: RejectedIDListHelper;
+   function pm_GetProcessedCount: Integer;
+   procedure pm_SetProcessedCount(aValue: Integer);
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
@@ -31,6 +35,11 @@ type
    property ErrorMessage: AnsiString
     read pm_GetErrorMessage
     write pm_SetErrorMessage;
+   property RejectedIDList: RejectedIDListHelper
+    read pm_GetRejectedIDList;
+   property ProcessedCount: Integer
+    read pm_GetProcessedCount
+    write pm_SetProcessedCount;
  end;//TcsMultiOperationReply
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -67,6 +76,25 @@ procedure TcsMultiOperationReply.pm_SetErrorMessage(const aValue: AnsiString);
 begin
  TaggedData.StrW[k2_attrErrorMessage, nil] := (aValue);
 end;//TcsMultiOperationReply.pm_SetErrorMessage
+
+function TcsMultiOperationReply.pm_GetRejectedIDList: RejectedIDListHelper;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TRejectedIDListHelper.Make(TaggedData.cAtom(k2_attrRejectedIDList));
+end;//TcsMultiOperationReply.pm_GetRejectedIDList
+
+function TcsMultiOperationReply.pm_GetProcessedCount: Integer;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrProcessedCount]);
+end;//TcsMultiOperationReply.pm_GetProcessedCount
+
+procedure TcsMultiOperationReply.pm_SetProcessedCount(aValue: Integer);
+begin
+ TaggedData.IntW[k2_attrProcessedCount, nil] := (aValue);
+end;//TcsMultiOperationReply.pm_SetProcessedCount
 
 class function TcsMultiOperationReply.GetTaggedDataType: Tk2Type;
 begin

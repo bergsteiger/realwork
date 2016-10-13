@@ -11,8 +11,9 @@ interface
 uses
  l3IntfUses
  , l3ProtoObject
- , msmConcreteModels
- , msmListAndTreeViewUtils
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
  , msmModelElements
 ;
 
@@ -20,23 +21,22 @@ type
  ImsmElementSelector = interface
   ['{BB24B3A1-7520-46D9-80C2-696EE7386AD5}']
   procedure SelectElement(const anElementName: AnsiString;
-   const anElementStereotype: ImsmModelElement);
+   const anElementStereotype: ImsmModelElement;
+   const aKeyValues: ItfwArray);
+  function SelectFormCaption: AnsiString;
+  function KeyValues: ItfwArray;
  end;//ImsmElementSelector
 
  (*
  MmsmModelElementSelectService = interface
   {* Контракт сервиса TmsmModelElementSelectService }
-  procedure SelectElement(const aList: ImsmListModel;
-   const aListContext: TmsmListViewtInitContext;
-   const aSelector: ImsmElementSelector);
+  procedure SelectElement(const aSelector: ImsmElementSelector);
  end;//MmsmModelElementSelectService
  *)
 
  ImsmModelElementSelectService = interface
   {* Интерфейс сервиса TmsmModelElementSelectService }
-  procedure SelectElement(const aList: ImsmListModel;
-   const aListContext: TmsmListViewtInitContext;
-   const aSelector: ImsmElementSelector);
+  procedure SelectElement(const aSelector: ImsmElementSelector);
  end;//ImsmModelElementSelectService
 
  TmsmModelElementSelectService = {final} class(Tl3ProtoObject)
@@ -47,9 +47,7 @@ type
    procedure pm_SetAlien(const aValue: ImsmModelElementSelectService);
    procedure ClearFields; override;
   public
-   procedure SelectElement(const aList: ImsmListModel;
-    const aListContext: TmsmListViewtInitContext;
-    const aSelector: ImsmElementSelector);
+   procedure SelectElement(const aSelector: ImsmElementSelector);
    class function Instance: TmsmModelElementSelectService;
     {* Метод получения экземпляра синглетона TmsmModelElementSelectService }
    class function Exists: Boolean;
@@ -85,15 +83,13 @@ begin
  f_Alien := aValue;
 end;//TmsmModelElementSelectService.pm_SetAlien
 
-procedure TmsmModelElementSelectService.SelectElement(const aList: ImsmListModel;
- const aListContext: TmsmListViewtInitContext;
- const aSelector: ImsmElementSelector);
+procedure TmsmModelElementSelectService.SelectElement(const aSelector: ImsmElementSelector);
 //#UC START# *BBCBB8731EE0_57F5040203B0_var*
 //#UC END# *BBCBB8731EE0_57F5040203B0_var*
 begin
 //#UC START# *BBCBB8731EE0_57F5040203B0_impl*
  if (f_Alien <> nil) then
-  f_Alien.SelectElement(aList, aListContext, aSelector)
+  f_Alien.SelectElement(aSelector)
  else
   Assert(false); 
 //#UC END# *BBCBB8731EE0_57F5040203B0_impl*

@@ -1,8 +1,11 @@
 unit ddAutoLinker;
 
-{ $Id: ddAutoLinker.pas,v 1.23 2016/07/26 09:26:00 fireton Exp $ }
+{ $Id: ddAutoLinker.pas,v 1.24 2016/10/13 13:17:20 lukyanets Exp $ }
 
 // $Log: ddAutoLinker.pas,v $
+// Revision 1.24  2016/10/13 13:17:20  lukyanets
+// Готовимся переделывать автолинкер как задачу
+//
 // Revision 1.23  2016/07/26 09:26:00  fireton
 // - переделка автолинкера
 //
@@ -114,6 +117,7 @@ type
  public
   constructor Create;
   procedure SetLinks(aDocList: ISab; aProgressor: TddProgressObject = nil; aClearLinks: Boolean = False);
+  procedure AbortProcess;
   // aClearLinks - удалять ли все ссылки перед авторасстановкой
  end;
 
@@ -221,6 +225,12 @@ begin
  f_OutPipe.Progressor := aProgressor;
  f_OutPipe.Attributes := [atDateNums, atHLink, atSub];
  f_OutPipe.Execute;
+end;
+
+procedure TddAutoLinker.AbortProcess;
+begin
+ if Assigned(f_OutPipe) then
+  f_OutPipe.Aborted := True;
 end;
 
 initialization

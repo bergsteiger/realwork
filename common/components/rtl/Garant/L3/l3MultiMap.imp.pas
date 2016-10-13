@@ -7,8 +7,10 @@
 
 {$Define l3MultiMap_imp}
 
- {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
- _l3MultiMap_ = class(_l3Map_)
+ _l3MultiMapPrim_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include w:\common\components\rtl\Garant\L3\l3MultiMapPrim.imp.pas}
+ _l3MultiMap_ = class(_l3MultiMapPrim_)
   protected
    procedure InitFields; override;
  end;//_l3MultiMap_
@@ -19,7 +21,7 @@
 
 {$Define l3MultiMap_imp_impl}
 
-{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3MultiMapPrim.imp.pas}
 
 procedure _l3MultiMap_.InitFields;
 //#UC START# *47A042E100E2_57E508B5039F_var*
@@ -27,7 +29,8 @@ procedure _l3MultiMap_.InitFields;
 begin
 //#UC START# *47A042E100E2_57E508B5039F_impl*
  inherited;
- Duplicates := l3_dupAccept;
+ //Duplicates := l3_dupAccept;
+ Duplicates := l3_dupIgnore;
 //#UC END# *47A042E100E2_57E508B5039F_impl*
 end;//_l3MultiMap_.InitFields
 

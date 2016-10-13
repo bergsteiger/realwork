@@ -14,6 +14,7 @@ uses
  , l3ProtoObject
  , nsSaveDialog
  , nsTypes
+ , PresentationInterfaces
 ;
 
  (*
@@ -22,6 +23,9 @@ uses
   function Call(aDialog: TnsSaveDialog): Boolean;
   function GetFileName: AnsiString;
   procedure SetFileFormat(aFileFormat: TnsFileFormat);
+  procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
+  procedure SetMergeFiles(aValue: Boolean);
+  procedure SetSelectedOnly(aValue: Boolean);
  end;//MnsSaveDialogExecutor
  *)
 
@@ -31,6 +35,9 @@ type
   function Call(aDialog: TnsSaveDialog): Boolean;
   function GetFileName: AnsiString;
   procedure SetFileFormat(aFileFormat: TnsFileFormat);
+  procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
+  procedure SetMergeFiles(aValue: Boolean);
+  procedure SetSelectedOnly(aValue: Boolean);
  end;//InsSaveDialogExecutor
 
  TnsSaveDialogExecutor = {final} class(Tl3ProtoObject)
@@ -44,6 +51,9 @@ type
    function Call(aDialog: TnsSaveDialog): Boolean;
    function GetFileName: AnsiString;
    procedure SetFileFormat(aFileFormat: TnsFileFormat);
+   procedure SetSaveObjects(aValue: TnsSaveDialogListTarget);
+   procedure SetMergeFiles(aValue: Boolean);
+   procedure SetSelectedOnly(aValue: Boolean);
    class function Instance: TnsSaveDialogExecutor;
     {* Метод получения экземпляра синглетона TnsSaveDialogExecutor }
    class function Exists: Boolean;
@@ -122,6 +132,42 @@ begin
   Assert(False);
 //#UC END# *593F1F6D46A5_573A0A7E0387_impl*
 end;//TnsSaveDialogExecutor.SetFileFormat
+
+procedure TnsSaveDialogExecutor.SetSaveObjects(aValue: TnsSaveDialogListTarget);
+//#UC START# *4020F60E166B_573A0A7E0387_var*
+//#UC END# *4020F60E166B_573A0A7E0387_var*
+begin
+//#UC START# *4020F60E166B_573A0A7E0387_impl*
+ if Assigned(f_Alien) then
+  f_Alien.SetSaveObjects(aValue)
+ else
+  Assert(False);
+//#UC END# *4020F60E166B_573A0A7E0387_impl*
+end;//TnsSaveDialogExecutor.SetSaveObjects
+
+procedure TnsSaveDialogExecutor.SetMergeFiles(aValue: Boolean);
+//#UC START# *8E9943B92E87_573A0A7E0387_var*
+//#UC END# *8E9943B92E87_573A0A7E0387_var*
+begin
+//#UC START# *8E9943B92E87_573A0A7E0387_impl*
+ if Assigned(f_Alien) then
+  f_Alien.SetMergeFiles(aValue)
+ else
+  Assert(False);
+//#UC END# *8E9943B92E87_573A0A7E0387_impl*
+end;//TnsSaveDialogExecutor.SetMergeFiles
+
+procedure TnsSaveDialogExecutor.SetSelectedOnly(aValue: Boolean);
+//#UC START# *242B3CA0CFEF_573A0A7E0387_var*
+//#UC END# *242B3CA0CFEF_573A0A7E0387_var*
+begin
+//#UC START# *242B3CA0CFEF_573A0A7E0387_impl*
+ if Assigned(f_Alien) then
+  f_Alien.SetSelectedOnly(aValue)
+ else
+  Assert(False);
+//#UC END# *242B3CA0CFEF_573A0A7E0387_impl*
+end;//TnsSaveDialogExecutor.SetSelectedOnly
 
 class function TnsSaveDialogExecutor.Instance: TnsSaveDialogExecutor;
  {* Метод получения экземпляра синглетона TnsSaveDialogExecutor }

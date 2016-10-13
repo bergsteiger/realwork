@@ -31,6 +31,8 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57B4565F007Cimpl_uses*
+ , Controls
+ , Forms
  //#UC END# *57B4565F007Cimpl_uses*
 ;
 
@@ -50,6 +52,10 @@ constructor TmsmTreeView.Create(AOwner: TComponent);
 begin
 //#UC START# *47D1602000C6_57B4565F007C_impl*
  inherited;
+ Self.BorderStyle := bsNone;
+ Self.BevelInner := bvNone;
+ Self.BevelOuter := bvNone;
+ Self.Ctl3D := false;
  Self.DragAndDropSupported := true;
 //#UC END# *47D1602000C6_57B4565F007C_impl*
 end;//TmsmTreeView.Create

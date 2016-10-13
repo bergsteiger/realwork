@@ -50,6 +50,7 @@ uses
  , msmWaitCursor
  , msmImages
  , msmMEImages
+ , msmModelElements
  //#UC START# *57AB57E20079impl_uses*
  , Graphics
  , l3Tree_TLB

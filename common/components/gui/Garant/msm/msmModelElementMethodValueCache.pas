@@ -41,6 +41,9 @@ type
     out theIndex: Integer): Boolean;
    procedure DeleteWordCachedValues(aWord: TtfwWord);
    class function ScriptName(const aMethodName: Il3CString): Il3CString;
+   procedure Clear;
+   procedure DeleteWordCachedValue(aWord: TtfwWord;
+    const aName: AnsiString);
    class function Instance: TmsmModelElementMethodValueCache;
     {* Метод получения экземпляра синглетона TmsmModelElementMethodValueCache }
    class function Exists: Boolean;
@@ -55,6 +58,7 @@ uses
  , tfwWordDeleteListeners
  {$IfEnd} // NOT Defined(NoScripts)
  , msmWordsByName
+ , msmElementListsService
  , SysUtils
  {$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
  , tfwMainDictionaryCache
@@ -190,22 +194,27 @@ begin
  l_NeedClear := CanCacheWord(aWord);
  if l_NeedClear then
  begin
-  l_Index := 0;
-  FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
-  {if (l_Index > 0) then
-   Dec(l_Index);}
-  while (l_Index < Count) do
-  begin
-   if ItemSlot(l_Index).rWord = aWord then
+  Lock;
+  try
+   l_Index := 0;
+   FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
+   {if (l_Index > 0) then
+    Dec(l_Index);}
+   while (l_Index < Count) do
    begin
-    while (ItemSlot(l_Index).rWord = aWord) do
-     Delete(l_Index);
-    Exit;
-   end//ItemSlot(l_Index).rWord = aWord
-   else
-    Inc(l_Index);
-   break;
-  end;//while (l_Index < Count)
+    if ItemSlot(l_Index).rWord = aWord then
+    begin
+     while (ItemSlot(l_Index).rWord = aWord) do
+      Delete(l_Index);
+     Exit;
+    end//ItemSlot(l_Index).rWord = aWord
+    else
+     Inc(l_Index);
+    break;
+   end;//while (l_Index < Count)
+  finally
+   Unlock;
+  end;//try..finally
  end;//l_NeedClear
 //#UC END# *57D25F960241_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.DeleteWordCachedValues
@@ -220,6 +229,60 @@ begin
  Result := TtfwCStringFactory.C(ConcatDirName(cPath, AnsiReplaceStr(AnsiReplaceStr(l3Str(aMethodName), ':', '_'), #32, '_')) + '.stub.script');
 //#UC END# *57D66CDF00D6_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.ScriptName
+
+procedure TmsmModelElementMethodValueCache.Clear;
+//#UC START# *57FC1F460358_57B2E6B90102_var*
+//#UC END# *57FC1F460358_57B2E6B90102_var*
+begin
+//#UC START# *57FC1F460358_57B2E6B90102_impl*
+ Lock;
+ try
+  inherited Clear;
+  TmsmElementListsService.Instance.RegetLists;
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57FC1F460358_57B2E6B90102_impl*
+end;//TmsmModelElementMethodValueCache.Clear
+
+procedure TmsmModelElementMethodValueCache.DeleteWordCachedValue(aWord: TtfwWord;
+ const aName: AnsiString);
+//#UC START# *57FF8D3B02C8_57B2E6B90102_var*
+var
+ l_Index : Integer;
+ l_NeedClear : Boolean;
+//#UC END# *57FF8D3B02C8_57B2E6B90102_var*
+begin
+//#UC START# *57FF8D3B02C8_57B2E6B90102_impl*
+ l_NeedClear := true;
+ l_NeedClear := CanCacheWord(aWord);
+ if l_NeedClear then
+ begin
+  Lock;
+  try
+   l_Index := 0;
+   if FindData(TmsmModelElementMethodValue_C(aWord, TtfwCStringFactory.C('.' + aName)), l_Index) then
+    Delete(l_Index);
+   {if (l_Index > 0) then
+    Dec(l_Index);}
+(*   while (l_Index < Count) do
+   begin
+    if ItemSlot(l_Index).rWord = aWord then
+    begin
+     while (ItemSlot(l_Index).rWord = aWord) do
+      Delete(l_Index);
+     Exit;
+    end//ItemSlot(l_Index).rWord = aWord
+    else
+     Inc(l_Index);
+    break;
+   end;//while (l_Index < Count)*)
+  finally
+   Unlock;
+  end;//try..finally
+ end;//l_NeedClear
+//#UC END# *57FF8D3B02C8_57B2E6B90102_impl*
+end;//TmsmModelElementMethodValueCache.DeleteWordCachedValue
 
 {$If NOT Defined(NoScripts)}
 procedure TmsmModelElementMethodValueCache.Notify(aWord: TtfwWord);

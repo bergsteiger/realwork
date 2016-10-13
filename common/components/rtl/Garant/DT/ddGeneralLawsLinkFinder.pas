@@ -1,6 +1,6 @@
 unit ddGeneralLawsLinkFinder;
 
-{ $Id: ddGeneralLawsLinkFinder.pas,v 1.8 2016/09/27 11:53:30 fireton Exp $ }
+{ $Id: ddGeneralLawsLinkFinder.pas,v 1.11 2016/10/12 11:43:47 fireton Exp $ }
 
 interface
 
@@ -12,6 +12,7 @@ uses
 
 function ddGetGeneralLawsLinkFinder(aAllowedSources: Tl3LongintList; const aDataFileName: AnsiString): TddCustomLinkFinder;
 function ddGetGeneralLawsLinkFinderDef: TddCustomLinkFinder;
+procedure ddGeneralLawsLinkFinderCleanup;
 
 implementation
 uses
@@ -799,6 +800,7 @@ var
      if not l3IsNil(l_FoundNum) then
       WorkoutChain;
      l_FoundNum := l3Upper(l3CStr(l3PcharLen(PAnsiChar(aText) + aSegment.rOffs, aSegment.rLen)));
+     l3Replace(l_FoundNum, [cc_SoftSpace], cc_HardSpace); // иногда в тексте они с неразрывными пробелами, поэтому не ищутся
      l_NumPos := aSegment;
     end;
 
@@ -810,7 +812,7 @@ var
      //l_NumPos := aSegment; // пока непонятно, нужна ли нам позиция кейскода
     end;
 
-   cGostDictID :
+   cSpecNumDictID :
     begin
      // это - совсем отдельный тип документа, поэтому и обрабатывать его надо по-особому
      // для начала, обработаем уже накопленное (если что-то было накоплено)
@@ -820,6 +822,7 @@ var
       l_FoundType := f_GostType; // тип строго определён
       l_TypePos := aSegment; // ссылка будет ставиться на всю строку
       l_FoundNum := l3Upper(l3CStr(l3PcharLen(PAnsiChar(aText) + aSegment.rOffs, aSegment.rLen))); // и она же используется как номер документа
+      l3Replace(l_FoundNum, [cc_SoftSpace], cc_HardSpace); // иногда в тексте они с неразрывными пробелами, поэтому не ищутся
       lp_UpdateChain;
       WorkoutChain; // дальше там ничего нет, обрабатываем цепочку
      end;
@@ -1042,6 +1045,12 @@ end;
 function ddGetGeneralLawsLinkFinderDef: TddCustomLinkFinder;
 begin
  Result := ddGetGeneralLawsLinkFinder(nil,  ConcatDirName(GlobalHtServer.Family[CurrentFamily].Path, sAutolinkDataFN))
+end;
+
+procedure ddGeneralLawsLinkFinderCleanup;
+begin
+ if g_GeneralLawsLinkFinderBox <> nil then
+  g_GeneralLawsLinkFinderBox.KillFinder;
 end;
 
 initialization

@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , ElPgCtl
+ , Classes
  //#UC START# *57B4437D02DCintf_uses*
  //#UC END# *57B4437D02DCintf_uses*
 ;
@@ -23,6 +24,8 @@ type
  //#UC START# *57B4437D02DCcit*
  //#UC END# *57B4437D02DCcit*
  TmsmPageControl = class(TElCustomPageControl)
+  public
+   constructor Create(AOwner: TComponent); override;
  //#UC START# *57B4437D02DCpubl*
   public
    property ParentColor;
@@ -40,6 +43,15 @@ uses
  //#UC START# *57B4437D02DCimpl_uses*
  //#UC END# *57B4437D02DCimpl_uses*
 ;
+
+constructor TmsmPageControl.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_57B4437D02DC_var*
+//#UC END# *47D1602000C6_57B4437D02DC_var*
+begin
+//#UC START# *47D1602000C6_57B4437D02DC_impl*
+ inherited;
+//#UC END# *47D1602000C6_57B4437D02DC_impl*
+end;//TmsmPageControl.Create
 
 //#UC START# *57B4437D02DCimpl*
 //#UC END# *57B4437D02DCimpl*

@@ -23,12 +23,16 @@ type
   protected
    procedure DoRun(const aContext: TddRunContext); virtual;
    procedure GetTaskResultClass : TcsClassResultClass; virtual;
+   function RequireDelivery: Boolean; virtual;
    procedure DoAbort; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    procedure RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor);
    procedure UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor);
+   function DeliverySourceFolder: AnsiString; virtual;
+   function DeliveryTargetFolder: AnsiString; virtual;
+   function GetDescription: AnsiString; virtual;
   public
    property TaskResult: TcsTaskResult
     read f_TaskResult;
@@ -99,6 +103,42 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53E1CB0C03C9_52F8C2BF0110_impl*
 end;//TddProcessTask.GetTaskResultClass : TcsClassResultClass
+
+function TddProcessTask.RequireDelivery: Boolean;
+//#UC START# *57F603C6018A_52F8C2BF0110_var*
+//#UC END# *57F603C6018A_52F8C2BF0110_var*
+begin
+//#UC START# *57F603C6018A_52F8C2BF0110_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57F603C6018A_52F8C2BF0110_impl*
+end;//TddProcessTask.RequireDelivery
+
+function TddProcessTask.DeliverySourceFolder: AnsiString;
+//#UC START# *57F603E20074_52F8C2BF0110_var*
+//#UC END# *57F603E20074_52F8C2BF0110_var*
+begin
+//#UC START# *57F603E20074_52F8C2BF0110_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57F603E20074_52F8C2BF0110_impl*
+end;//TddProcessTask.DeliverySourceFolder
+
+function TddProcessTask.DeliveryTargetFolder: AnsiString;
+//#UC START# *57F6040302FE_52F8C2BF0110_var*
+//#UC END# *57F6040302FE_52F8C2BF0110_var*
+begin
+//#UC START# *57F6040302FE_52F8C2BF0110_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57F6040302FE_52F8C2BF0110_impl*
+end;//TddProcessTask.DeliveryTargetFolder
+
+function TddProcessTask.GetDescription: AnsiString;
+//#UC START# *57F639C2025B_52F8C2BF0110_var*
+//#UC END# *57F639C2025B_52F8C2BF0110_var*
+begin
+//#UC START# *57F639C2025B_52F8C2BF0110_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57F639C2025B_52F8C2BF0110_impl*
+end;//TddProcessTask.GetDescription
 
 procedure TddProcessTask.DoAbort;
 //#UC START# *57C4135700F7_52F8C2BF0110_var*

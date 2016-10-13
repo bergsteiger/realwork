@@ -10,11 +10,14 @@ interface
 
 uses
  l3IntfUses
- , l3Forms
+ , msmRefcountedForm
+ , Classes
 ;
 
 type
- TmsmAppForm = class(Tl3Form)
+ TmsmAppForm = class(TmsmRefcountedForm)
+  public
+   constructor Create(AOwner: TComponent); override;
  end;//TmsmAppForm
 
 implementation
@@ -27,6 +30,15 @@ uses
  //#UC START# *57CD56D802A2impl_uses*
  //#UC END# *57CD56D802A2impl_uses*
 ;
+
+constructor TmsmAppForm.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_57CD56D802A2_var*
+//#UC END# *47D1602000C6_57CD56D802A2_var*
+begin
+//#UC START# *47D1602000C6_57CD56D802A2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47D1602000C6_57CD56D802A2_impl*
+end;//TmsmAppForm.Create
 
 initialization
 {$If NOT Defined(NoScripts)}

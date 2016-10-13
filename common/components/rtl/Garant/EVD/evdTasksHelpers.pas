@@ -230,10 +230,6 @@ type
    class function Make(aValue: Tl3Tag): FoundSelectorHelper; reintroduce;
  end;//TFoundSelectorHelper
 
- DocIDListHelper = DocumentIDListHelper;
-
- TDocIDListHelper = TDocumentIDListHelper;
-
  TImportedDocListHelper = TDocumentIDListHelper;
 
  TRejectedIDListHelper = class(TevdTagHelper, RejectedIDListHelper)

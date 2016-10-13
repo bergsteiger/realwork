@@ -16,6 +16,7 @@ uses
  , dtIntf
  {$IfEnd} // NOT Defined(Nemesis)
  , daTypes
+ , l3DatLst
 ;
 
 type
@@ -31,6 +32,9 @@ type
     anOperation: TarMultiOperation;
     const aDocsList: ISab); reintroduce;
    procedure ModifyDocs; virtual; abstract;
+   function HasErrorDocs: Boolean; virtual; abstract;
+   procedure FillErrorDocsList(aList: Tl3StringDataList); virtual; abstract;
+   function ProcessedDocsCount: Integer; virtual; abstract;
   protected
    property Operation: TarMultiOperation
     read f_Operation;

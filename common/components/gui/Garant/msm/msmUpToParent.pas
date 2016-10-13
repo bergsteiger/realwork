@@ -27,21 +27,36 @@ implementation
 uses
  l3ImplUses
  //#UC START# *57D175C401BDimpl_uses*
+ , msmModelElements
  //#UC END# *57D175C401BDimpl_uses*
 ;
 
 procedure TmsmUpToParent.DoDoIt;
 //#UC START# *57CEB1F602D1_57D175C401BD_var*
+var
+ l_Owner : ImsmModelElement;
+ l_Index : Integer;
 //#UC END# *57CEB1F602D1_57D175C401BD_var*
 begin
 //#UC START# *57CEB1F602D1_57D175C401BD_impl*
  if (Self.Model.List = nil) then
   Exit;
- if (Self.Model.List.Owner = nil) then
+ l_Owner := Self.Model.List.Owner; 
+ if (l_Owner = nil) then
   Exit;
- if (Self.Model.List.Owner.Parent = nil) then
+ if (l_Owner.Parent = nil) then
   Exit;
- Self.Model.ShowElementAsList(Self.Model.List.Owner.Parent);
+ Self.Model.ShowElementAsList(l_Owner.Parent);
+
+ if (Self.Model.List <> nil) then
+ begin
+  l_Index := Self.Model.List.IndexOfElementView(l_Owner);
+  if (l_Index >= 0) then
+   Self.Model.CurrentElement := Self.Model.List[l_Index]
+  else
+   Self.Model.CurrentElement := l_Owner;
+  // - типа чтобы выбрать наш элемент как текущий
+ end;//Self.Model.List <> nil
 //#UC END# *57CEB1F602D1_57D175C401BD_impl*
 end;//TmsmUpToParent.DoDoIt
 

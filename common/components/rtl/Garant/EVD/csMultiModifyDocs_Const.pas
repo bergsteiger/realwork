@@ -24,19 +24,19 @@ uses
   evdTasks_Schema
   ;
 
-function k2_typcsMultiModifyDocs_DocIDList: csMultiModifyDocs_DocIDList_Tag;
-
 function k2_typcsMultiModifyDocs_ActionType: csMultiModifyDocs_ActionType_Tag;
+
+function k2_typcsMultiModifyDocs_DocumentIDList: csMultiModifyDocs_DocumentIDList_Tag;
 
 function k2_attrData: Integer;
 
 function k2_attrFamilyID: Integer;
 
-function k2_attrDocIDList: Integer;
-
 function k2_attrActionType: Integer;
 
 function k2_attrAnouncedDate: Integer;
+
+function k2_attrDocumentIDList: Integer;
 function k2_typcsMultiModifyDocs: csMultiModifyDocsTag;
 
 implementation
@@ -81,16 +81,6 @@ begin
 end;
 
 var
- g_k2_attrDocIDList: Integer = -1;
-
-function k2_attrDocIDList: Integer;
-begin
- if (g_k2_attrDocIDList = -1) then
-  g_k2_attrDocIDList :=  Tk2Attributes.Instance.CheckIDByName('DocIDList');
- Result := g_k2_attrDocIDList;
-end;
-
-var
  g_k2_attrActionType: Integer = -1;
 
 function k2_attrActionType: Integer;
@@ -110,21 +100,16 @@ begin
  Result := g_k2_attrAnouncedDate;
 end;
 
-
 var
- g_csMultiModifyDocs_DocIDList : csMultiModifyDocs_DocIDList_Tag = nil;
+ g_k2_attrDocumentIDList: Integer = -1;
 
-// start class DocIDList
-
-function k2_typcsMultiModifyDocs_DocIDList: csMultiModifyDocs_DocIDList_Tag;
+function k2_attrDocumentIDList: Integer;
 begin
- if (g_csMultiModifyDocs_DocIDList = nil) then
- begin
-  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
-  g_csMultiModifyDocs_DocIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiModifyDocs_DocIDList;
- end;//g_csMultiModifyDocs = nil
- Result := g_csMultiModifyDocs_DocIDList;
+ if (g_k2_attrDocumentIDList = -1) then
+  g_k2_attrDocumentIDList :=  Tk2Attributes.Instance.CheckIDByName('DocumentIDList');
+ Result := g_k2_attrDocumentIDList;
 end;
+
 
 var
  g_csMultiModifyDocs_ActionType : csMultiModifyDocs_ActionType_Tag = nil;
@@ -139,6 +124,21 @@ begin
   g_csMultiModifyDocs_ActionType := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiModifyDocs_ActionType;
  end;//g_csMultiModifyDocs = nil
  Result := g_csMultiModifyDocs_ActionType;
+end;
+
+var
+ g_csMultiModifyDocs_DocumentIDList : csMultiModifyDocs_DocumentIDList_Tag = nil;
+
+// start class DocumentIDList
+
+function k2_typcsMultiModifyDocs_DocumentIDList: csMultiModifyDocs_DocumentIDList_Tag;
+begin
+ if (g_csMultiModifyDocs_DocumentIDList = nil) then
+ begin
+  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
+  g_csMultiModifyDocs_DocumentIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiModifyDocs_DocumentIDList;
+ end;//g_csMultiModifyDocs = nil
+ Result := g_csMultiModifyDocs_DocumentIDList;
 end;
 
 

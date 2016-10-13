@@ -52,6 +52,7 @@ uses
  //#UC START# *57B3468D0000impl_uses*
  , SysUtils
  , vtSizeablePanel
+ //, msmSizeablePanel
  //#UC END# *57B3468D0000impl_uses*
 ;
 
@@ -91,7 +92,7 @@ procedure TmsmMultiPanelViewParent.InsertView(aView: TmsmView;
  const aContext: TmsmViewContext);
 //#UC START# *57B345EC0195_57B3468D0000_var*
 var
- l_Panel : TvtSizeablePanel;
+ l_Panel : TmsmSizeablePanel;
  l_Extent : Integer;
  l_ViewCount : Integer;
  l_Index : Integer;
@@ -129,7 +130,7 @@ begin
    end;//IsVert
    l_View.Align := alNone;
    l_View.Parent := nil;
-   l_Panel := TvtSizeablePanel.Create(f_Parent);
+   l_Panel := TmsmSizeablePanel.Create(f_Parent);
    l_Panel.Parent := f_Parent;
    if IsVert then
    begin

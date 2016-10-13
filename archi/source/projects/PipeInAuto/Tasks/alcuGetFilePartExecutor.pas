@@ -56,9 +56,6 @@ uses
  , l3Types
  , SysUtils
  {$If NOT Defined(Nemesis)}
- , csExport
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
  , ncsPushFilePart
  {$IfEnd} // NOT Defined(Nemesis)
  , Math
@@ -69,6 +66,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , ncsTrafficCounter
  {$IfEnd} // NOT Defined(Nemesis)
+ , l3StopWatch
  //#UC START# *54759BFB02B4impl_uses*
  //#UC END# *54759BFB02B4impl_uses*
 ;
@@ -92,10 +90,10 @@ var
  l_Message: TncsGetFilePart;
  l_Reply: TncsGetFilePartReply;
  l_Counter: IncsTrafficCounter;
+ l_Watch: Tl3StopWatch;
 
  function DoProcess(anItem: TddProcessTask): Boolean;
  var
-  l_Task: TcsExport;
   l_Stream: TStream;
   l_FileName: AnsiString;
   l_ToCopyCount: Int64;
@@ -104,8 +102,7 @@ var
   g_ReceivePartFile.Start;
   try
    Result := False;
-   l_Task := anItem as TcsExport;
-   l_FileName := IncludeTrailingPathDelimiter(l_Task.TaskFolder) + l_Message.FileName;
+   l_FileName := IncludeTrailingPathDelimiter(anItem.DeliverySourceFolder) + l_Message.FileName;
    if FileExists(l_FileName) then
    begin
     l_Stream := Tl3FileStream.Create(l_FileName, l3_fmRead);
@@ -162,14 +159,22 @@ var
 //#UC END# *54607DDC0159_54759BFB02B4_var*
 begin
 //#UC START# *54607DDC0159_54759BFB02B4_impl*
+ l_Watch.Reset;
  Supports(aContext.rTransporter, IncsTrafficCounter, l_Counter);
  try
   l_Message := aContext.rMessage as TncsGetFilePart;
   l_Reply := TncsGetFilePartReply.Create(l_Message);
   try
    l_Reply.IsSuccess := False;
-   if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
-    l3System.Msg2Log('Задача с идентификатором %s не найдена (запрос файла)', [l_Message.TaskID]);
+   l_Watch.Start;
+   try
+    if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
+     l3System.Msg2Log('Задача с идентификатором %s не найдена (запрос файла)', [l_Message.TaskID]);
+   finally
+    l_Watch.Stop;
+    if Assigned(l_Counter) then
+     l_Counter.AddWatch(l_Watch);
+   end;
    aContext.rTransporter.Send(l_Reply);
   finally
    FreeAndNil(l_Reply);

@@ -70,6 +70,8 @@ uses
  , msmMultiPanelViewParent
  , msmButtonEditViewController
  , msmAddElement
+ , msmDeleteSelection
+ , msmChangeProperties
  , l3Memory
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
@@ -115,8 +117,11 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmCopySelection.Make('Copy', aModel));
   aController.AddOperation(TmsmPaste.Make('Paste', aModel));
+  aController.AddOperation(TmsmDeleteSelection.Make('Delete', aModel));
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmAddElement.Make('Add element', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmChangeProperties.Make('Properties', aModel));
   Result := aController;
  end;//AddNavigatorOperations
 
@@ -163,7 +168,7 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
   Result := aController;
  end;//DisableActionElementEvent
 
- procedure AddChildView(const aChildModel: ImsmListModel; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext);
+ procedure AddChildView(const aChildModel: ImsmListModel; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext); overload;
  begin//AddChildView
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
@@ -181,19 +186,29 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
   );
  end;//AddChildView
 
+ procedure AddChildView(const aView: TmsmModelElementView; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext); overload;
+ begin//AddChildView
+  AddChildView(TmsmListModel.MakeListForViewed(aView), aParent, aContext);
+ end;//AddChildView
+
+ procedure AddChildView(const aName: String; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext); overload;
+ begin//AddChildView
+  AddChildView(TmsmModelElementView_C(aName), aParent, aContext);
+ end;//AddChildView
+
  procedure AddChildViews(const aNames: array of String; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext);
  var
   l_Index : Integer;
  begin//AddChildViews
   for l_Index := Low(aNames) to High(aNames) do
-   AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C(aNames[l_Index])), aParent, aContext);
+   AddChildView(aNames[l_Index], aParent, aContext);
  end;//AddChildViews
  
 var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
  l_AllWords : ImsmListModel;
- l_AllowedElements : ImsmListModel;
+ //l_AllowedElements : ImsmListModel;
  l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 begin
@@ -254,15 +269,15 @@ begin
  if (aChildZone <> nil) then
  begin
   l_ListContext := TmsmListViewtInitContext_C;
-  AddChildViews(['Depends', 'Inherits', 'Implements', 'Inner', 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
                 aChildZone,
                 l_ListContext
                 );
-  AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('UpList', 'UpText')),
+  AddChildView(TmsmModelElementView_C('UpList', 'UpText'),
                aChildZone,
                l_ListContext);
   l_ListContext.rMultiStrokeItem := true;
-  AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty')),
+  AddChildView(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty'),
                aChildZone,
                l_ListContext);
  end;//aChildZone <> nil
@@ -308,12 +323,17 @@ begin
    );
    Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
   end;//false
-  
+
   if true then
   begin
-   Assert(aUseCase.Drawing.List <> nil);
-   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
-   l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
+   l_ListContext := TmsmListViewtInitContext_C;
+   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+   AddChildView('AllowedElements', aFloatingZone, l_ListContext);
+   l_ListContext := TmsmListViewtInitContext_C;
+   AddChildView('CanOverride', aFloatingZone, l_ListContext);
+(*   Assert(aUseCase.Drawing.List <> nil);
+   l_AllowedElements := TmsmListModel.MakeListForViewed(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
+   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
    // - иначе туда дают сделать Add element
    l_ListContext := TmsmListViewtInitContext_C;
    l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
@@ -327,9 +347,9 @@ begin
     )
    );
    Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
-   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
-   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
-   // - иначе туда дают сделать Add element
+   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
+   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
+   // - иначе туда дают сделать Add element*)
   end;//true
  end;//aFloatingZone <> nil
 

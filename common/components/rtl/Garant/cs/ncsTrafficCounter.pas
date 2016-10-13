@@ -11,6 +11,7 @@ interface
 {$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
+ , l3StopWatch
  , l3ProtoObject
 ;
 
@@ -18,19 +19,26 @@ type
  IncsTrafficCounter = interface
   ['{A75CEBEC-F0A7-4C0F-9464-84EDD9E2013E}']
   function Get_BytesProcessed: Int64;
+  function Get_ProcessingTime: TDateTime;
   procedure Reset;
   procedure DoProgress(aDelta: Int64);
+  procedure AddWatch(const aWatch: Tl3StopWatch);
   property BytesProcessed: Int64
    read Get_BytesProcessed;
+  property ProcessingTime: TDateTime
+   read Get_ProcessingTime;
  end;//IncsTrafficCounter
 
  TncsTrafficCounter = class(Tl3ProtoObject, IncsTrafficCounter)
   private
    f_Counter: Int64;
+   f_Watch: Tl3StopWatch;
   protected
    function Get_BytesProcessed: Int64;
    procedure Reset;
    procedure DoProgress(aDelta: Int64);
+   function Get_ProcessingTime: TDateTime;
+   procedure AddWatch(const aWatch: Tl3StopWatch);
   public
    constructor Create; reintroduce;
    class function Make: IncsTrafficCounter; reintroduce;
@@ -83,6 +91,7 @@ procedure TncsTrafficCounter.Reset;
 begin
 //#UC START# *57F382CC017D_57F3830802F2_impl*
  f_Counter := 0;
+ f_Watch.Reset;
 //#UC END# *57F382CC017D_57F3830802F2_impl*
 end;//TncsTrafficCounter.Reset
 
@@ -94,6 +103,24 @@ begin
  Inc(f_Counter, aDelta);
 //#UC END# *57F382DC01D1_57F3830802F2_impl*
 end;//TncsTrafficCounter.DoProgress
+
+function TncsTrafficCounter.Get_ProcessingTime: TDateTime;
+//#UC START# *57FB5C8F0014_57F3830802F2get_var*
+//#UC END# *57FB5C8F0014_57F3830802F2get_var*
+begin
+//#UC START# *57FB5C8F0014_57F3830802F2get_impl*
+ Result := f_Watch.Time;
+//#UC END# *57FB5C8F0014_57F3830802F2get_impl*
+end;//TncsTrafficCounter.Get_ProcessingTime
+
+procedure TncsTrafficCounter.AddWatch(const aWatch: Tl3StopWatch);
+//#UC START# *57FB5CB90232_57F3830802F2_var*
+//#UC END# *57FB5CB90232_57F3830802F2_var*
+begin
+//#UC START# *57FB5CB90232_57F3830802F2_impl*
+ f_Watch.Add(aWatch);
+//#UC END# *57FB5CB90232_57F3830802F2_impl*
+end;//TncsTrafficCounter.AddWatch
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

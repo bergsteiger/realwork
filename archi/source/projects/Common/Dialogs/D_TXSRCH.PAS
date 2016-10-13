@@ -1347,7 +1347,7 @@ begin
  while lIdx > 0 do
  begin
   if lIdx = Length(aStr) then //последний символ "крышка" так ее и оставим
-   //
+   Break               
   else
   case aStr[lIdx+1] of
    spsTab: ReplaceSubstr(aStr, lIdx, 2, cc_Tab);

@@ -36,6 +36,8 @@ type
 
  PdaUserGroupAccessMask = ^TdaUserGroupAccessMask;
 
+ PdaDocID = ^TdaDocID;
+
  TdaUserID = LongWord;
 
  TGetLoginPasswordProc = function(var aLogin: AnsiString;

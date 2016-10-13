@@ -44,6 +44,9 @@ uses
  , VMailWin
  , l3ClipSpyService
  , vtClipSpyService
+ {$If NOT Defined(Nemesis)}
+ , ddAutoLinkServices
+ {$IfEnd} // NOT Defined(Nemesis)
  //#UC START# *4DFB4D3C01B5impl_uses*
  //#UC END# *4DFB4D3C01B5impl_uses*
 ;

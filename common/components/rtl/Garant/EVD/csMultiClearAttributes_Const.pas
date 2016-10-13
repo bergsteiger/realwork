@@ -24,17 +24,17 @@ uses
   evdTasks_Schema
   ;
 
-function k2_typcsMultiClearAttributes_DocIDList: csMultiClearAttributes_DocIDList_Tag;
-
 function k2_typcsMultiClearAttributes_Attributes: csMultiClearAttributes_Attributes_Tag;
 
-function k2_attrFamilyID: Integer;
+function k2_typcsMultiClearAttributes_DocumentIDList: csMultiClearAttributes_DocumentIDList_Tag;
 
-function k2_attrDocIDList: Integer;
+function k2_attrFamilyID: Integer;
 
 function k2_attrAttributes: Integer;
 
 function k2_attrRightsNeeded: Integer;
+
+function k2_attrDocumentIDList: Integer;
 function k2_typcsMultiClearAttributes: csMultiClearAttributesTag;
 
 implementation
@@ -69,16 +69,6 @@ begin
 end;
 
 var
- g_k2_attrDocIDList: Integer = -1;
-
-function k2_attrDocIDList: Integer;
-begin
- if (g_k2_attrDocIDList = -1) then
-  g_k2_attrDocIDList :=  Tk2Attributes.Instance.CheckIDByName('DocIDList');
- Result := g_k2_attrDocIDList;
-end;
-
-var
  g_k2_attrAttributes: Integer = -1;
 
 function k2_attrAttributes: Integer;
@@ -98,21 +88,16 @@ begin
  Result := g_k2_attrRightsNeeded;
 end;
 
-
 var
- g_csMultiClearAttributes_DocIDList : csMultiClearAttributes_DocIDList_Tag = nil;
+ g_k2_attrDocumentIDList: Integer = -1;
 
-// start class DocIDList
-
-function k2_typcsMultiClearAttributes_DocIDList: csMultiClearAttributes_DocIDList_Tag;
+function k2_attrDocumentIDList: Integer;
 begin
- if (g_csMultiClearAttributes_DocIDList = nil) then
- begin
-  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
-  g_csMultiClearAttributes_DocIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiClearAttributes_DocIDList;
- end;//g_csMultiClearAttributes = nil
- Result := g_csMultiClearAttributes_DocIDList;
+ if (g_k2_attrDocumentIDList = -1) then
+  g_k2_attrDocumentIDList :=  Tk2Attributes.Instance.CheckIDByName('DocumentIDList');
+ Result := g_k2_attrDocumentIDList;
 end;
+
 
 var
  g_csMultiClearAttributes_Attributes : csMultiClearAttributes_Attributes_Tag = nil;
@@ -127,6 +112,21 @@ begin
   g_csMultiClearAttributes_Attributes := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiClearAttributes_Attributes;
  end;//g_csMultiClearAttributes = nil
  Result := g_csMultiClearAttributes_Attributes;
+end;
+
+var
+ g_csMultiClearAttributes_DocumentIDList : csMultiClearAttributes_DocumentIDList_Tag = nil;
+
+// start class DocumentIDList
+
+function k2_typcsMultiClearAttributes_DocumentIDList: csMultiClearAttributes_DocumentIDList_Tag;
+begin
+ if (g_csMultiClearAttributes_DocumentIDList = nil) then
+ begin
+  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
+  g_csMultiClearAttributes_DocumentIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiClearAttributes_DocumentIDList;
+ end;//g_csMultiClearAttributes = nil
+ Result := g_csMultiClearAttributes_DocumentIDList;
 end;
 
 

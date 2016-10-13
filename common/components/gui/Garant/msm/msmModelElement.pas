@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , WordsRTTIPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Interfaces
 ;
 
@@ -26,11 +29,15 @@ type
    function IsSameElement(const anOther: ImsmModelElement): Boolean;
    function Get_MEList(const aName: AnsiString): ImsmModelElementList;
    function Get_StringProp(const aName: AnsiString): Il3CString;
+   procedure Set_StringProp(const aName: AnsiString;
+    const aValue: Il3CString);
    function Get_IntProp(const aName: AnsiString): Integer;
    procedure Set_IntProp(const aName: AnsiString;
     aValue: Integer);
    function Get_BoolProp(const aName: AnsiString): Boolean;
    function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
+   procedure Set_ElementProp(const aName: AnsiString;
+    const aValue: ImsmModelElement);
    function Get_MainWord: TtfwWord;
    function IsView: Boolean;
    function Get_ListProp(const aName: AnsiString): ItfwValueList;
@@ -40,6 +47,8 @@ type
     const aMethodName: AnsiString): TtfwStackValue;
    function CallAndGetList(const aParameters: array of TtfwStackValue;
     const aMethodName: AnsiString): ItfwArray;
+   function IsDeleted: Boolean;
+   procedure Delete;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -49,6 +58,7 @@ type
    class function MakeFromValue(const aValue: TtfwStackValue): ImsmModelElement;
    class function tfwCatValueArray(const A: array of TtfwStackValue;
     const B: array of TtfwStackValue): TtfwStackValuesArray;
+   class function MakeFromBox(const aBox: ItfwWordBox): ImsmModelElement;
  end;//TmsmModelElement
 
 implementation
@@ -58,10 +68,13 @@ uses
  , msmModelElementList
  , msmModelElementFactory
  , msmElementViews
+ , msmDeletedElements
+ , msmChangedElements
  //#UC START# *57A9F5170275impl_uses*
  , SysUtils
  , l3InterfacesMisc
  , l3String
+ //, WordsRTTIPack
  //#UC END# *57A9F5170275impl_uses*
 ;
 
@@ -103,7 +116,19 @@ class function TmsmModelElement.MakeFromValue(const aValue: TtfwStackValue): Ims
 //#UC END# *57E30FCD03DF_57A9F5170275_var*
 begin
 //#UC START# *57E30FCD03DF_57A9F5170275_impl*
- Result := MakeFromObj(aValue.AsObject);
+ Case aValue.rType of
+  tfw_vtIntf:
+   Result := MakeFromBox(aValue.AsIntf As ItfwWordBox);
+  tfw_vtObj:
+   Result := MakeFromObj(aValue.AsObject);
+  tfw_vtNil:
+   Result := nil; 
+  else
+  begin
+   Result := nil;
+   Assert(false);
+  end;//else
+ end;//Case aValue.rType
 //#UC END# *57E30FCD03DF_57A9F5170275_impl*
 end;//TmsmModelElement.MakeFromValue
 
@@ -126,6 +151,16 @@ begin
   Result[l_ALen + l_Index] := B[l_Index];
 //#UC END# *57F4E41301BA_57A9F5170275_impl*
 end;//TmsmModelElement.tfwCatValueArray
+
+class function TmsmModelElement.MakeFromBox(const aBox: ItfwWordBox): ImsmModelElement;
+//#UC START# *57FB927001F2_57A9F5170275_var*
+//#UC END# *57FB927001F2_57A9F5170275_var*
+begin
+//#UC START# *57FB927001F2_57A9F5170275_impl*
+ Assert(aBox <> nil);
+ Result := MakeFromWord(aBox.Boxed);
+//#UC END# *57FB927001F2_57A9F5170275_impl*
+end;//TmsmModelElement.MakeFromBox
 
 function TmsmModelElement.Get_Parent: ImsmModelElement;
 //#UC START# *57AA0B890200_57A9F5170275get_var*
@@ -173,6 +208,16 @@ begin
 //#UC END# *57B301FD025C_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_StringProp
 
+procedure TmsmModelElement.Set_StringProp(const aName: AnsiString;
+ const aValue: Il3CString);
+//#UC START# *57B301FD025C_57A9F5170275set_var*
+//#UC END# *57B301FD025C_57A9F5170275set_var*
+begin
+//#UC START# *57B301FD025C_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallStrSetter(MainWord, aName, aValue);
+//#UC END# *57B301FD025C_57A9F5170275set_impl*
+end;//TmsmModelElement.Set_StringProp
+
 function TmsmModelElement.Get_IntProp(const aName: AnsiString): Integer;
 //#UC START# *57B47A88013F_57A9F5170275get_var*
 //#UC END# *57B47A88013F_57A9F5170275get_var*
@@ -209,6 +254,16 @@ begin
  Result := MakeFromObj(TmsmModelElementMethodCaller.CallAndGetObj(MainWord, aName));
 //#UC END# *57B5E9BE022F_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_ElementProp
+
+procedure TmsmModelElement.Set_ElementProp(const aName: AnsiString;
+ const aValue: ImsmModelElement);
+//#UC START# *57B5E9BE022F_57A9F5170275set_var*
+//#UC END# *57B5E9BE022F_57A9F5170275set_var*
+begin
+//#UC START# *57B5E9BE022F_57A9F5170275set_impl*
+ TmsmModelElementMethodCaller.CallWordSetter(MainWord, aName, aValue.MainWord);
+//#UC END# *57B5E9BE022F_57A9F5170275set_impl*
+end;//TmsmModelElement.Set_ElementProp
 
 function TmsmModelElement.Get_MainWord: TtfwWord;
 //#UC START# *57C3E90C0177_57A9F5170275get_var*
@@ -283,6 +338,31 @@ begin
  Result := TmsmModelElementMethodCaller.CallAndGetList(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
 //#UC END# *57F4E3E001E9_57A9F5170275_impl*
 end;//TmsmModelElement.CallAndGetList
+
+function TmsmModelElement.IsDeleted: Boolean;
+//#UC START# *57F7BC19011F_57A9F5170275_var*
+var
+ l_Index : Integer;
+//#UC END# *57F7BC19011F_57A9F5170275_var*
+begin
+//#UC START# *57F7BC19011F_57A9F5170275_impl*
+ Result := TmsmDeletedElements.Instance.FindData(Self.MainWord, l_Index);
+//#UC END# *57F7BC19011F_57A9F5170275_impl*
+end;//TmsmModelElement.IsDeleted
+
+procedure TmsmModelElement.Delete;
+//#UC START# *57F7BE0102D2_57A9F5170275_var*
+var
+ l_P : ImsmModelElement;
+//#UC END# *57F7BE0102D2_57A9F5170275_var*
+begin
+//#UC START# *57F7BE0102D2_57A9F5170275_impl*
+ TmsmDeletedElements.Instance.Add(Self.MainWord);
+ l_P := Self.Get_Parent;
+ if (l_P <> nil) then
+  TmsmChangedElements.Instance.Add(l_P.MainWord);
+//#UC END# *57F7BE0102D2_57A9F5170275_impl*
+end;//TmsmModelElement.Delete
 
 procedure TmsmModelElement.Cleanup;
  {* Функция очистки полей объекта. }

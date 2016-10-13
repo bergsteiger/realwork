@@ -22,7 +22,11 @@ type
    procedure pm_SetTargetFolder(const aValue: AnsiString);
    function pm_GetSourceFolder: AnsiString;
    procedure pm_SetSourceFolder(const aValue: AnsiString);
+   function RequireDelivery: Boolean; override;
   public
+   function DeliverySourceFolder: AnsiString; override;
+   function DeliveryTargetFolder: AnsiString; override;
+   function GetDescription: AnsiString; override;
    class function GetTaggedDataType: Tk2Type; override;
   public
    property TargetFolder: AnsiString
@@ -67,6 +71,42 @@ procedure TcsDeliveryProfileTask.pm_SetSourceFolder(const aValue: AnsiString);
 begin
  TaggedData.StrW[k2_attrSourceFolder, nil] := (aValue);
 end;//TcsDeliveryProfileTask.pm_SetSourceFolder
+
+function TcsDeliveryProfileTask.RequireDelivery: Boolean;
+//#UC START# *57F603C6018A_57F4DAED0254_var*
+//#UC END# *57F603C6018A_57F4DAED0254_var*
+begin
+//#UC START# *57F603C6018A_57F4DAED0254_impl*
+ Result := True;
+//#UC END# *57F603C6018A_57F4DAED0254_impl*
+end;//TcsDeliveryProfileTask.RequireDelivery
+
+function TcsDeliveryProfileTask.DeliverySourceFolder: AnsiString;
+//#UC START# *57F603E20074_57F4DAED0254_var*
+//#UC END# *57F603E20074_57F4DAED0254_var*
+begin
+//#UC START# *57F603E20074_57F4DAED0254_impl*
+ Result := SourceFolder;
+//#UC END# *57F603E20074_57F4DAED0254_impl*
+end;//TcsDeliveryProfileTask.DeliverySourceFolder
+
+function TcsDeliveryProfileTask.DeliveryTargetFolder: AnsiString;
+//#UC START# *57F6040302FE_57F4DAED0254_var*
+//#UC END# *57F6040302FE_57F4DAED0254_var*
+begin
+//#UC START# *57F6040302FE_57F4DAED0254_impl*
+ Result := TargetFolder;
+//#UC END# *57F6040302FE_57F4DAED0254_impl*
+end;//TcsDeliveryProfileTask.DeliveryTargetFolder
+
+function TcsDeliveryProfileTask.GetDescription: AnsiString;
+//#UC START# *57F639C2025B_57F4DAED0254_var*
+//#UC END# *57F639C2025B_57F4DAED0254_var*
+begin
+//#UC START# *57F639C2025B_57F4DAED0254_impl*
+ Result := 'Проверка достваки папка: ' + TargetFolder;
+//#UC END# *57F639C2025B_57F4DAED0254_impl*
+end;//TcsDeliveryProfileTask.GetDescription
 
 class function TcsDeliveryProfileTask.GetTaggedDataType: Tk2Type;
 begin

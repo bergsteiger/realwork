@@ -182,17 +182,41 @@ end;//TmsmModelElementNodeList.RemoveNode
 
 function TmsmModelElementNodeList.IndexOf(anItem: TmsmModelElementNode): Integer;
 //#UC START# *57DFBB530171_57AC61D402B3_var*
+
+ function CheckNearest(anIndex: Integer): Boolean;
+ begin//CheckNearest
+  Result := false;
+  if (anIndex >= 0) AND (anIndex < Count) then
+  begin
+   if Il3SimpleNode(Items[anIndex]).IsSame(anItem) then
+   begin
+    IndexOf := anIndex;
+    Result := true;
+    Exit;
+   end;//Il3SimpleNode(Items[anIndex]).IsSame(anItem)
+  end;//anIndex >= 0..
+ end;//CheckNearest
+
+var
+ l_I : Integer;
 //#UC END# *57DFBB530171_57AC61D402B3_var*
 begin
 //#UC START# *57DFBB530171_57AC61D402B3_impl*
- if (f_LastAccessedElementIndex >= 0) AND (f_LastAccessedElementIndex < Count) then
- begin
-  if Il3SimpleNode(Items[f_LastAccessedElementIndex]).IsSame(anItem) then
-  begin
-   Result := f_LastAccessedElementIndex;
-   Exit;
-  end;//Il3SimpleNode(Items[f_LastAccessedElementIndex]).IsSame(anItem)
- end;//f_LastAccessedElementIndex >= 0..
+ l_I := f_LastAccessedElementIndex;
+ if CheckNearest(l_I) then
+  Exit;
+ if CheckNearest(l_I-1) then
+  Exit;
+ if CheckNearest(l_I+1) then
+  Exit;
+ if CheckNearest(l_I-2) then
+  Exit;
+ if CheckNearest(l_I+2) then
+  Exit;
+ if CheckNearest(l_I-3) then
+  Exit;
+ if CheckNearest(l_I+3) then
+  Exit;
  Result := inherited IndexOf(anItem);
 //#UC END# *57DFBB530171_57AC61D402B3_impl*
 end;//TmsmModelElementNodeList.IndexOf

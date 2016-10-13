@@ -37,6 +37,7 @@ uses
  , SysUtils
  , l3Base
  //#UC START# *552BF78902EEimpl_uses*
+ , ddGeneralLawsLinkFinder
  //#UC END# *552BF78902EEimpl_uses*
 ;
 
@@ -51,10 +52,18 @@ end;//TddAutolinkServiceFree
 
 function TddAutolinkService.GetAutolinkFilter: Ik2TagGenerator;
 //#UC START# *27BE83734EFD_552BF7B201EE_var*
+var
+ l_Filter: TddAutoLinkFilter;
 //#UC END# *27BE83734EFD_552BF7B201EE_var*
 begin
 //#UC START# *27BE83734EFD_552BF7B201EE_impl*
- Result := ddAutoLinkFilter.GetAutolinkFilter;
+ l_Filter := TddAutoLinkFilter.Create(nil);
+ try
+  l_Filter.AddLinkFinder(ddGetGeneralLawsLinkFinderDef);
+  Result := l_Filter;
+ finally
+  FreeAndNil(l_Filter);
+ end;
 //#UC END# *27BE83734EFD_552BF7B201EE_impl*
 end;//TddAutolinkService.GetAutolinkFilter
 
@@ -63,7 +72,7 @@ procedure TddAutolinkService.CleanAutolinkFilter;
 //#UC END# *A18BB0B1A222_552BF7B201EE_var*
 begin
 //#UC START# *A18BB0B1A222_552BF7B201EE_impl*
- ddAutoLinkFilter.CleanAutolinkFilter;
+ ddGeneralLawsLinkFinderCleanup;
 //#UC END# *A18BB0B1A222_552BF7B201EE_impl*
 end;//TddAutolinkService.CleanAutolinkFilter
 

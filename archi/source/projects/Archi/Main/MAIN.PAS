@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.133 2016/09/13 10:35:12 dinishev Exp $ }
+{ $Id: MAIN.PAS,v 1.135 2016/10/13 14:14:30 dinishev Exp $ }
 
 {$I arDefine.inc }
 
@@ -333,6 +333,13 @@ type
     acFindByCloneInPubIn: TAction;
     N29: TMenuItem;
     miTestDebug: TMenuItem;
+    acDeliveryProfile: TAction;
+    N30: TMenuItem;
+    acSuperscript: TevAction;
+    acSubscript: TevAction;
+    ToolbarSep9715: TToolbarSep97;
+    sbSupScript: TevButton;
+    sbSuperScript: TevButton;
     procedure FormCreate(Sender: TObject);
     procedure WindowCascadeItemClick(Sender: TObject);
     procedure UpdateMenuItems(Sender: TObject);
@@ -493,6 +500,7 @@ type
     procedure miChangeDocReportClick(Sender: TObject);
     procedure miTestDebugClick(Sender: TObject);
     procedure miUncorrectRELClick(Sender: TObject);
+    procedure acDeliveryProfileExecute(Sender: TObject);
   private
     f_CForm: TForm;
     fFirstShow        : boolean;
@@ -673,6 +681,7 @@ uses
      d_DateEdit, d_DeltaKWFileEdit,
      D_TxSrch, D_Style,
      D_FindAlarm,
+     d_DeliveryProvile,
      DictMetaForm, TreeDWin, InsDWin,
      DeferDeleletedItemsWin,
 
@@ -682,6 +691,7 @@ uses
      //DocIntf,
      imageenio,
      ArchiUserRequestManager,
+     csDeliveryProfileTask,
      ddAutoImportClient,
      ClosingWin,
      WinList,
@@ -734,7 +744,7 @@ uses
      SavedQuery,
      vtDebug,
      D_CorrectExportFolder,
-     arSpeller;
+     arSpeller, ddBaseEngine;
 
 resourcestring
  sidStyleFileName = 'Style.evs';
@@ -1101,6 +1111,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
    acShowSelect       .Checked := IniRec.ShowFoundWordLighting;
    actAACImport.Visible:= bfAAC in g_BaseEngine.BaseFlags;
    AutoComplete := TevAutoComplete.Create(ConcatDirName(GlobalDataProvider.CurHomePath, 'acomplete.ini'));
+   acDeliveryProfile.Visible:= g_BaseEngine.IsDeveloper;
   finally
    l3Free(l_Logo);
   end;
@@ -4375,6 +4386,7 @@ begin
  acDocImport.Enabled := aIsOnline;
  acAnnoImportFromRTF.Enabled := aIsOnline;
  actAACImport.Enabled := aIsOnline;
+ acDeliveryProfile.Enabled := aIsOnline;
 // acCorrectMissPrints.Enabled := aIsOnline;
 
  acCorrectMissPrints.Enabled := False;
@@ -4385,11 +4397,13 @@ begin
   ArchiRequestManager.FillServerMenu(miServerMenu);
   ilOffice.GetBitmap(imiServerOn, StatusBar.Panels[sbiServerStatus].Glyph.Bitmap);
   StatusBar.Panels[sbiServerStatus].Hint := 'Ñåðâåð äîñòóïåí';
+  l3System.Msg2Log('ÑÂßÇÜ ÂÎÑÑÒÀÍÎÂËÅÍÀ');
  end
  else
  begin
   ilOffice.GetBitmap(imiServerOff, StatusBar.Panels[sbiServerStatus].Glyph.Bitmap);
   StatusBar.Panels[sbiServerStatus].Hint := 'Ñåðâåð íåäîñòóïåí';
+  l3System.Msg2Log('ÑÂßÇÜ ÎÁÎÐÂÀÍÀ');
  end;
  StatusBar.Invalidate;
  l_Num := MDIChildCount;
@@ -4527,6 +4541,29 @@ procedure TMainForm.CheckCurrChild(aForm: TForm);
 begin
  if fCurrentChild = aForm then
   fCurrentChild := nil;
+end;
+
+procedure TMainForm.acDeliveryProfileExecute(Sender: TObject);
+var
+ l_Task: TcsDeliveryProfileTask;
+ l_Dlg: TDeliveryProvileDlg;
+begin
+ l_Dlg := TDeliveryProvileDlg.Create(nil);
+ try
+  if l_Dlg.Execute then
+  begin
+   l_Task := TcsDeliveryProfileTask.Create(g_BaseEngine.DataProvider.UserID);
+   try
+    l_Task.SourceFolder := l_Dlg.SourceFolder;
+    l_Task.TargetFolder := l_Dlg.TargetFolder;
+    ArchiRequestManager.SendTask(l_Task);
+   finally
+    FreeAndNil(l_Task);
+   end;
+  end;
+ finally
+  FreeAndNil(l_Dlg);
+ end;
 end;
 
 end.

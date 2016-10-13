@@ -18,38 +18,8 @@ uses
 type
   TcsExport = class(TcsExportTaskPrim)
   private
-    //f_AdditionalProcess: AnsiString;
-    //f_AnnoTopicFileName: AnsiString;
-    //f_DiapasonType: TDiapType;
-    //f_DocID: TDocID;
     f_DocSab: ISab;
-    //f_DocumentFileNameMask: AnsiString;
-(*    f_ExportAnnoTopics: Boolean;
-    f_ExportDirectory: AnsiString;
-    f_ExportDocImage: Boolean;
-    f_ExportDocument: Boolean;
-    f_ExportEditions: Boolean;
-    f_ExportEmptyKW: Boolean;
-    f_ExportKW: Boolean;
-    f_ExportReferences: Boolean;
-    f_ExportRTFBody: Boolean;
-    f_Family: Integer;
-    f_FormulaAsPicture: Boolean;
-    f_InternalFormat: Boolean;
-    f_KWFileName: AnsiString;
-    f_MultiUser: Boolean;
-    f_ObjTopicFileName: AnsiString;
-    f_OnlyStructure: Boolean;
-    f_OutFileType: LongInt;
-    f_OutputFileSize: LongInt;
-    f_ReferenceFileNameMask: AnsiString;*)
-    //f_SABStream: TStream;
-//    f_SeparateFiles: LongInt;
-    //f_ServerSide: Boolean;
-    //f_StartNumber: Integer;
-//    f_ToRegion: TDictID;
     procedure pm_SetDocSab(Value: ISab);
-(*    procedure pm_SetExportDirectory(const Value: AnsiString);*)
   protected
     function RequireDelivery: Boolean; override;
     procedure Cleanup; override;
@@ -63,52 +33,11 @@ type
   {$IfEnd defined(AppServerSide)}
     procedure MakeSab;
     procedure DoSaveTo(aStream: TStream; aIsPipe: Boolean); override;
-(*    procedure WriteResult(aStream: TStream); overload; override;*)
     procedure DoWriteResult(aPipe: TcsDataPipe); {overload; }override;
     function DefaultDescription: AnsiString;
-(*    property AdditionalProcess: AnsiString
-     read f_AdditionalProcess
-     write f_AdditionalProcess;*)
-(*    property AnnoTopicFileName: AnsiString read f_AnnoTopicFileName write
-            f_AnnoTopicFileName;*)
-(*    property DiapasonType: TDiapType read f_DiapasonType write f_DiapasonType;*)
-//    property DocID: TDocID read f_DocID write f_DocID;
+    function DeliverySourceFolder: AnsiString; override;
+    function DeliveryTargetFolder: AnsiString; override;
     property DocSab: ISab read f_DocSab write pm_SetDocSab;
-(*    property DocumentFileNameMask: AnsiString read f_DocumentFileNameMask write
-            f_DocumentFileNameMask;
-    property ExportAnnoTopics: Boolean read f_ExportAnnoTopics write
-            f_ExportAnnoTopics;
-    property ExportDirectory: AnsiString read f_ExportDirectory write
-        pm_SetExportDirectory;
-    property ExportDocImage: Boolean read f_ExportDocImage write
-            f_ExportDocImage;
-    property ExportDocument: Boolean read f_ExportDocument write
-            f_ExportDocument;
-    property ExportEditions: Boolean read f_ExportEditions write f_ExportEditions;
-    property ExportEmptyKW: Boolean read f_ExportEmptyKW write f_ExportEmptyKW;
-    property ExportKW: Boolean read f_ExportKW write f_ExportKW;
-    property ExportReferences: Boolean read f_ExportReferences write f_ExportReferences;
-    property ExportRTFBody: Boolean read f_ExportRTFBody write f_ExportRTFBody;
-    property Family: Integer read f_Family write f_Family;
-    property FormulaAsPicture: Boolean read f_FormulaAsPicture write
-        f_FormulaAsPicture;
-    property InternalFormat: Boolean read f_InternalFormat write
-            f_InternalFormat;
-    property KWFileName: AnsiString read f_KWFileName write f_KWFileName;
-    property MultiUser: Boolean read f_MultiUser write f_MultiUser;
-    property ObjTopicFileName: AnsiString read f_ObjTopicFileName write
-            f_ObjTopicFileName;
-    property OnlyStructure: Boolean read f_OnlyStructure write f_OnlyStructure;
-    property OutFileType: LongInt read f_OutFileType write f_OutFileType;
-    property OutputFileSize: LongInt read f_OutputFileSize write
-            f_OutputFileSize;
-    property ReferenceFileNameMask: AnsiString read f_ReferenceFileNameMask write
-            f_ReferenceFileNameMask;*)
-//    property SABStream: TStream read f_SABStream{ write f_SABStream};
-(*    property SeparateFiles: LongInt read f_SeparateFiles write f_SeparateFiles;
-    //property ServerSide: Boolean read f_ServerSide write f_ServerSide;*)
-//    property StartNumber: Integer read f_StartNumber write f_StartNumber;
-(*    property ToRegion: TDictID read f_ToRegion write f_ToRegion;*)
   end;//TcsExport
 
 implementation
@@ -131,10 +60,7 @@ uses
 constructor TcsExport.Create(aUserID: TdaUserID);
 begin
   inherited;
-  //TaskType := cs_ttExport;
   VersionW := 4;
-//  f_SABStream := Tl3TempMemoryStream.Create;
-  //ServerSide:= False;
   ToRegion:= cUndefDictID;
   FormulaAsPicture:= False;
 end;
@@ -142,7 +68,6 @@ end;
 procedure TcsExport.Cleanup;
 begin
  f_DocSab:= nil;
-// FreeAndNil(f_SABStream);
  inherited;
 end;
 
@@ -166,7 +91,7 @@ begin
                                      [ExportDirectory,
                                      SupportFileTypeNames[TepSupportFileType(OutFileType)]]);
  if ExportDocImage then
-  Result := Result + ', с графическими образами';                                    
+  Result := Result + ', с графическими образами';
 end;
 
 procedure TcsExport.DoLoadFrom(aStream: TStream; aIsPipe: Boolean);
@@ -315,6 +240,16 @@ end;
 function TcsExport.DefaultDescription: AnsiString;
 begin
  Result := GetDescription;
+end;
+
+function TcsExport.DeliverySourceFolder: AnsiString;
+begin
+ Result := TaskFolder;
+end;
+
+function TcsExport.DeliveryTargetFolder: AnsiString;
+begin
+ Result := ExportDirectory;
 end;
 
 end.

@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.317 2016/09/30 12:27:10 lukyanets Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.323 2016/10/13 13:16:43 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -346,7 +346,7 @@ uses
 
  DocAttrIntf, DocAttrToolsIntf,
  ArchiUserRequestManager, csUserDefinedExport, k2TagGen,
- csAutoSpell, csUserRequestManager,
+ csAutoSpell, csUserRequestManager, csAutolinkerTask,
  arVAnouncedBlackList;
 
 const
@@ -362,7 +362,9 @@ const
  cAvarageTimeOfProcessing = 'Среднее время обработки %d суток';
  cCountOfIncludedDocs = 'Учтена информация %d документов';
 
- sKTFilename = 'kthemes.csv';
+//!! !! к убиению
+// sKTFilename = 'kthemes.csv';
+//!! !! к убиению
 
 resourceString
  sidQstDeleteAllHyperLinks = 'Эта функция удалит все гипессылки с документов текущей выборки,'^M+'Хотите продолжить?';
@@ -1743,10 +1745,35 @@ end;
 
 procedure TSearchWin.actIZMExecute(Sender: TObject);
 var
+(*
  l_Count: Integer;
  lIZMIDs : ISab;
  lValue : Byte;
+*)
+ l_Helper: TarCustomMultiOperationHelper;
 begin
+
+ if IniRec.DirectDocStorageAccess then
+  l_Helper := TarDirectMultiOperationHelper.Create(Family, ar_moTouchIZM, DocList.QueryProvider.MakeDocIDList)
+ else
+  l_Helper := TarRemoteMultiOperationHelper.Create(Family, ar_moTouchIZM, DocList.QueryProvider.MakeDocIDList);
+ try
+  Screen.Cursor := crHourglass;
+  try
+   l_Helper.ModifyDocs;
+  finally
+   Screen.Cursor := crDefault;
+  end;
+  if l_Helper.ProcessedDocsCount = 0 then
+   vtMessageDlg(l3CStr('Документов не найдено'), mtInformation)
+  else
+   vtMessageDlg(l3CStr(Format('В %d документах проставлено IZM', [l_Helper.ProcessedDocsCount])), mtInformation);
+ finally
+  FreeAndNil(l_Helper);
+ end;
+
+
+(*
  Screen.Cursor := crHourglass;
  try
   l_Count := GetIZMChecker.CheckoutForIZM(DocList.Query.FoundList, lIZMIDs);
@@ -1773,6 +1800,8 @@ begin
    vtMessageDlg(l3CStr('Сделано'), mtInformation);
   end;
  end;
+*)
+
 end;
 
 procedure TSearchWin.acRefreshResultExecute(Sender: TObject);
@@ -1821,16 +1850,34 @@ end;
 
 procedure TSearchWin.acKTDocNameChangeExecute(Sender: TObject);
 var
+(*
  l_OutPipe  : TSewerPipe;
  l_KTFilter : TddKTExtractorTermFilter;
  l_DocNameFilter: TddDocNameUpdateFilter;
  l_Filename: AnsiString;
  l_Sab: ISab;
+*)
+
+ l_Helper: TarCustomMultiOperationHelper;
 begin
  if DocList.Query.IsEmpty then
   Exit;
  Screen.Cursor := crHourglass;
  try
+
+  if IniRec.DirectDocStorageAccess then
+   l_Helper := TarDirectMultiOperationHelper.Create(Family, ar_moChangeKeywords, DocList.QueryProvider.MakeDocIDList(False))
+  else
+   l_Helper := TarRemoteMultiOperationHelper.Create(Family, ar_moChangeKeywords, DocList.QueryProvider.MakeDocIDList(False));
+  try
+   l_Helper.ModifyDocs;
+   DocList.RefreshQueryResults;
+  finally
+   FreeAndNil(l_Helper);
+  end;
+
+
+(*
   l_Filename := ConcatDirName(GlobalHtServer.Family[CurrentFamily].Path, sKTFilename);
   LoadKTScan(l_Filename);
   l_OutPipe := TSewerPipe.Create;
@@ -1858,7 +1905,7 @@ begin
       end;
      finally
       l_Sab := nil;
-     end; 
+     end;
     finally
      FreeAndNil(l_DocNameFilter);
     end;
@@ -1866,9 +1913,10 @@ begin
     FreeAndNil(l_KTFilter);
    end;
   finally
-   FreeAndNil(l_OutPipe);                                 
+   FreeAndNil(l_OutPipe);
   end;
   DocList.RefreshQueryResults;
+*)
  finally
   Screen.Cursor := crDefault;
  end;
@@ -1895,16 +1943,30 @@ end;
 procedure TSearchWin.actGroupAutolinkExecute(Sender: TObject);
 var
  l_Answer: Integer;
+ l_Task: TcsAutolinkerTask;
 begin
  if DocList.SrchResultLister.Total = 0 then Exit;
  l_Answer := vtMessageDlg(l3CStr('Перед расстановкой, удалить существующие ссылки в документах?'), mtConfirmation, [mbYes, mbNo, mbCancel], 0, mbNo);
  if l_Answer = mrCancel then
   Exit;
+(*
+ l_Task := TcsAutolinkerTask.Create;
+ try
+  l_Task.ClearLinksBeforeRun := l_Answer = mrYes;
+  dtCopyValuesSabToList(DocList.QueryProvider.MakeDocIDList, l_Task.DocumentIDList);
+  ArchiRequestManager.SendTask(l_Task);
+ finally
+  FreeAndNil(l_Task);
+ end;
+*)
+
  try
   ReAutolinkDocs(l_Answer = mrYes);
  finally
   CleanupAutolinkServer;
  end;
+
+ 
 end;
 
 procedure TSearchWin.actGroupSetCloneExecute(Sender: TObject);
@@ -1955,12 +2017,15 @@ end;
 
 procedure TSearchWin.SetCloneToPublishedIns;
 var
+(*
  l_LinkList: ISab;
  l_BadDocList: ISab;
  l_BadLinkList: ISab;
- l_ErrWin: TAccessErrorWin;
  l_AccProc: TdtRecAccessProc;
-
+*)
+ l_ErrWin: TAccessErrorWin;
+ l_Helper: TarCustomMultiOperationHelper;
+(*
  function l_AddErrorDocs(aDocID : PDocID) : Boolean; register;
  var
   l_ImpId: TDocID;
@@ -1970,9 +2035,37 @@ var
   l_Msg := IntToStr(l_ImpId);
   l_ErrWin.ItemList.Items.AddStr(l_Msg, @l_ImpId);
  end;
+*)
 begin
  Screen.Cursor := crHourglass;
  try
+
+
+  if IniRec.DirectDocStorageAccess then
+   l_Helper := TarDirectMultiOperationHelper.Create(Family, ar_moSetClonePublishedin, DocList.Query.FoundList)
+  else
+   l_Helper := TarRemoteMultiOperationHelper.Create(Family, ar_moSetClonePublishedin, DocList.Query.FoundList);
+  try
+   l_Helper.ModifyDocs;
+   if l_Helper.HasErrorDocs then
+   begin
+    // выводим список документов, у которых больше одного источника опубликования => нельзя ставить пометку
+    l_ErrWin := TAccessErrorWin.Create(Self);
+    try
+     l_ErrWin.ItemList.Items.DataSize := SizeOf(Longint);
+     l_ErrWin.Caption := 'ОШИБКИ: Не удалось установить пометку "клон" (несколько ИО)';
+     l_Helper.FillErrorDocsList(l_ErrWin.ItemList.Items);
+     Screen.Cursor := crDefault;
+     l_ErrWin.ShowModal;
+    finally
+     FreeAndNil(l_ErrWin);
+    end;
+   end;
+  finally
+   FreeAndNil(l_Helper);
+  end;
+
+(*
   // найдём список всех линков источников опубликования к документам
   l_LinkList := MakeSabCopy(DocList.Query.FoundList);
   l_LinkList.ValuesOfKey(fId_Fld);
@@ -2018,6 +2111,8 @@ begin
     FreeAndNil(l_ErrWin);
    end;
   end;
+*)
+
  finally
   Screen.Cursor := crDefault;
  end;

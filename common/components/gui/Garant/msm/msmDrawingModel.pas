@@ -17,6 +17,10 @@ uses
 
 type
  TmsmDrawingModel = class(TmsmListModel, ImsmDrawingModel)
+  protected
+   procedure CheckUnexisting(const anElement: ImsmModelElement;
+    var theNewElement: ImsmModelElement;
+    var theElementToSelect: ImsmModelElement); override;
   public
    constructor Create(const anElement: ImsmModelElement); reintroduce;
    class function Make(const anElement: ImsmModelElement): ImsmDrawingModel; reintroduce;
@@ -52,5 +56,29 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TmsmDrawingModel.Make
+
+procedure TmsmDrawingModel.CheckUnexisting(const anElement: ImsmModelElement;
+ var theNewElement: ImsmModelElement;
+ var theElementToSelect: ImsmModelElement);
+//#UC START# *57F79A4F032E_57D27E6802A5_var*
+//#UC END# *57F79A4F032E_57D27E6802A5_var*
+begin
+//#UC START# *57F79A4F032E_57D27E6802A5_impl*
+ if (anElement <> nil) then
+ begin
+  if (theNewElement = nil) then
+  begin
+   anElement.Call([], 'CheckMainDiagram');
+   theNewElement := anElement.ElementProp[f_SubElementName];
+   if (theNewElement <> nil) then
+   begin
+    theElementToSelect := nil;
+    Exit;
+   end;//theNewElement <> nil
+  end;//theNewElement = nil
+ end;//anElement <> nil 
+ inherited;
+//#UC END# *57F79A4F032E_57D27E6802A5_impl*
+end;//TmsmDrawingModel.CheckUnexisting
 
 end.

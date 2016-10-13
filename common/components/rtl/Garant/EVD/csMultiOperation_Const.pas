@@ -24,15 +24,15 @@ uses
   evdTasks_Schema
   ;
 
-function k2_typcsMultiOperation_DocIDList: csMultiOperation_DocIDList_Tag;
-
 function k2_typcsMultiOperation_Operation: csMultiOperation_Operation_Tag;
+
+function k2_typcsMultiOperation_DocumentIDList: csMultiOperation_DocumentIDList_Tag;
 
 function k2_attrFamilyID: Integer;
 
-function k2_attrDocIDList: Integer;
-
 function k2_attrOperation: Integer;
+
+function k2_attrDocumentIDList: Integer;
 function k2_typcsMultiOperation: csMultiOperationTag;
 
 implementation
@@ -67,16 +67,6 @@ begin
 end;
 
 var
- g_k2_attrDocIDList: Integer = -1;
-
-function k2_attrDocIDList: Integer;
-begin
- if (g_k2_attrDocIDList = -1) then
-  g_k2_attrDocIDList :=  Tk2Attributes.Instance.CheckIDByName('DocIDList');
- Result := g_k2_attrDocIDList;
-end;
-
-var
  g_k2_attrOperation: Integer = -1;
 
 function k2_attrOperation: Integer;
@@ -86,21 +76,16 @@ begin
  Result := g_k2_attrOperation;
 end;
 
-
 var
- g_csMultiOperation_DocIDList : csMultiOperation_DocIDList_Tag = nil;
+ g_k2_attrDocumentIDList: Integer = -1;
 
-// start class DocIDList
-
-function k2_typcsMultiOperation_DocIDList: csMultiOperation_DocIDList_Tag;
+function k2_attrDocumentIDList: Integer;
 begin
- if (g_csMultiOperation_DocIDList = nil) then
- begin
-  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
-  g_csMultiOperation_DocIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiOperation_DocIDList;
- end;//g_csMultiOperation = nil
- Result := g_csMultiOperation_DocIDList;
+ if (g_k2_attrDocumentIDList = -1) then
+  g_k2_attrDocumentIDList :=  Tk2Attributes.Instance.CheckIDByName('DocumentIDList');
+ Result := g_k2_attrDocumentIDList;
 end;
+
 
 var
  g_csMultiOperation_Operation : csMultiOperation_Operation_Tag = nil;
@@ -115,6 +100,21 @@ begin
   g_csMultiOperation_Operation := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiOperation_Operation;
  end;//g_csMultiOperation = nil
  Result := g_csMultiOperation_Operation;
+end;
+
+var
+ g_csMultiOperation_DocumentIDList : csMultiOperation_DocumentIDList_Tag = nil;
+
+// start class DocumentIDList
+
+function k2_typcsMultiOperation_DocumentIDList: csMultiOperation_DocumentIDList_Tag;
+begin
+ if (g_csMultiOperation_DocumentIDList = nil) then
+ begin
+  Assert(Tk2TypeTable.GetInstance Is TevdTasksSchema);
+  g_csMultiOperation_DocumentIDList := TevdTasksSchema(Tk2TypeTable.GetInstance).t_csMultiOperation_DocumentIDList;
+ end;//g_csMultiOperation = nil
+ Result := g_csMultiOperation_DocumentIDList;
 end;
 
 

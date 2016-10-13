@@ -636,11 +636,21 @@ end;//TdsMedicFirmList.Cleanup
 
 procedure TdsMedicFirmList.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_49257BB801C7_var*
+var
+ l_Node: INodeBase;
+ l_Root: INodeBase;
 //#UC END# *47EA4E9002C6_49257BB801C7_var*
 begin
 //#UC START# *47EA4E9002C6_49257BB801C7_impl*
  inherited;
- DoOnCurrentFirmChanged(inherited Current, True); 
+ if Supports(pm_GetSimpleTree.RootNode, INodeBase, l_Root) then
+ begin
+  l_Root.FindNode(f_Current, l_Node);
+  if not Assigned(l_Node) then
+   l_Root.GetByVisibleIndex(1, l_Node);
+  inherited Current := TnsNewCachableNode.Make(l_Node);
+ end;
+ DoOnCurrentFirmChanged(inherited Current, True);
 //#UC END# *47EA4E9002C6_49257BB801C7_impl*
 end;//TdsMedicFirmList.FinishDataUpdate
 

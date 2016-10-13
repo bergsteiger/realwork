@@ -13,6 +13,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
 ;
 
 type
@@ -20,6 +21,8 @@ type
  TForm
  {$IfEnd} // NOT Defined(NoVCL)
  )
+  public
+   constructor Create(AOwner: TComponent); override;
  end;//TmsmForm
 
 implementation
@@ -34,6 +37,15 @@ uses
 ;
 
 {$If NOT Defined(NoVCL)}
+constructor TmsmForm.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_57AB4B6D0236_var*
+//#UC END# *47D1602000C6_57AB4B6D0236_var*
+begin
+//#UC START# *47D1602000C6_57AB4B6D0236_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47D1602000C6_57AB4B6D0236_impl*
+end;//TmsmForm.Create
+
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TmsmForm);

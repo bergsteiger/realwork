@@ -539,6 +539,9 @@ uses
  , ContainedActionsWordspack in 'w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomActionWordpack in 'w:\common\components\rtl\Garant\ScriptEngine\CustomActionWordpack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ActionListWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -2248,6 +2251,16 @@ uses
  , l3ClipSpyService in 'w:\common\components\rtl\Garant\L3\l3ClipSpyService.pas'
  , vtClipSpyService in 'w:\common\components\gui\Garant\VT\vtClipSpyService.pas'
  , vtClipSpy in 'w:\common\components\gui\Garant\VT\vtClipSpy.pas'
+ {$If NOT Defined(Nemesis)}
+ , ddAutoLinkServices in 'w:\common\components\rtl\Garant\DT\ddAutoLinkServices.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3AutolinkService in 'w:\common\components\rtl\Garant\L3\l3AutolinkService.pas'
+ {$If Defined(Archi) AND NOT Defined(NoScripts)}
+ , AutolinkFilterWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\AutolinkFilterWordsPack.pas'
+ {$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
+ {$If NOT Defined(Nemesis)}
+ , ddAutoLinkFilter in 'w:\common\components\rtl\Garant\DT\ddAutoLinkFilter.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(AppClientSide)}
  , Editwin in 'w:\archi\source\projects\Archi\Main\Editwin.pas'
  {$IfEnd} // Defined(AppClientSide)
@@ -3014,7 +3027,8 @@ uses
   arRemoteMultiClearAttributesHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiClearAttributesHelper.pas',
   arCustomMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas',
   arDirectMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas',
-  arRemoteMultiOperationHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiOperationHelper.pas' 
+  arRemoteMultiOperationHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiOperationHelper.pas',
+  d_DeliveryProvile in 'Dlg\d_DeliveryProvile.pas' {DeliveryProvileDlg} 
  //#UC END# *4DE4A1D0031Emanualuses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)

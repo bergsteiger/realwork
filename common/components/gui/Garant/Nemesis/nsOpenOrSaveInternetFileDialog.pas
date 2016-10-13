@@ -36,6 +36,7 @@ type
 
 implementation
 uses
+ nsDownloaderRes,
  StrUtils,
  ShellApi,
 
@@ -88,6 +89,14 @@ begin
  lblURL.Caption := lp_GetRoot(Params.URL);
  lblURL.Hint := lblURL.Caption;
  imgFileTypeIcon.Picture.Icon.Handle := Params.FileIcon;
+
+ lblPrompt.Caption := str_OpenOrDownloadQuestion.AsStr;
+ lblFileNameCaption.Caption := str_FileName.AsStr;
+ lblFileTypeCaption.Caption := str_Type.AsStr;
+ lblURLCaption.Caption := str_From.AsStr;
+ btnOpen.Caption := str_Open.AsStr;
+ btnSave.Caption := str_Download.AsStr;
+ btnCancel.Caption := str_Cancel.AsStr;
 end;
 
 function TnsOpenOrSaveInternetFileDialog.GetParams: InsDownloadParams;

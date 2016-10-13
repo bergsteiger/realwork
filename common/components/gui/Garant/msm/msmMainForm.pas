@@ -70,8 +70,6 @@ uses
  , l3Core
  , l3Filer
  , msmModelElementSelectService
- , msmConcreteModels
- , msmListAndTreeViewUtils
  , msmModelLoader
  , msmTreeViewController
  , msmListViewController
@@ -81,6 +79,7 @@ uses
  , msmTreeModel
  , msmMultiPanelViewParent
  , msmSingleViewParent
+ , msmListAndTreeViewUtils
  , msmTabbedViewParent
  , msmNavigatorForm
  {$If Defined(seThreadSafe)}
@@ -170,9 +169,7 @@ type
 
  TmsmModelElementSelectServiceImp = {final} class(Tl3ProtoObject, ImsmModelElementSelectService)
   public
-   procedure SelectElement(const aList: ImsmListModel;
-    const aListContext: TmsmListViewtInitContext;
-    const aSelector: ImsmElementSelector);
+   procedure SelectElement(const aSelector: ImsmElementSelector);
    class function Instance: TmsmModelElementSelectServiceImp;
     {* Метод получения экземпляра синглетона TmsmModelElementSelectServiceImp }
    class function Exists: Boolean;
@@ -329,14 +326,12 @@ end;//TmsmParserProgressServiceImpl.ClearFields
 //#UC START# *57EE7F1302F9impl*
 //#UC END# *57EE7F1302F9impl*
 
-procedure TmsmModelElementSelectServiceImp.SelectElement(const aList: ImsmListModel;
- const aListContext: TmsmListViewtInitContext;
- const aSelector: ImsmElementSelector);
+procedure TmsmModelElementSelectServiceImp.SelectElement(const aSelector: ImsmElementSelector);
 //#UC START# *BBCBB8731EE0_57F50B110031_var*
 //#UC END# *BBCBB8731EE0_57F50B110031_var*
 begin
 //#UC START# *BBCBB8731EE0_57F50B110031_impl*
- TmsmSelectElementForm.SelectElement(aList, aListContext, aSelector);
+ TmsmSelectElementForm.SelectElement(aSelector);
 //#UC END# *BBCBB8731EE0_57F50B110031_impl*
 end;//TmsmModelElementSelectServiceImp.SelectElement
 
@@ -387,7 +382,8 @@ begin
  f_ClientPanel.Parent := Self;
  f_ClientPanel.Align := alClient;
 
- if false then
+ if true{false} then
+ // - вкладки снизу
  begin
   f_ChildPanel := TmsmSizeablePanel.Create(f_ClientPanel);
   f_ChildPanel.Name := 'ChildPanel';

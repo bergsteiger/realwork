@@ -1,9 +1,12 @@
 Unit Dt_Serv;
 {$DEFINE UseCommServer}
 
-{ $Id: Dt_Serv.pas,v 1.344 2016/09/28 08:00:55 lukyanets Exp $ }
+{ $Id: Dt_Serv.pas,v 1.345 2016/10/13 09:17:19 lukyanets Exp $ }
 
 // $Log: Dt_Serv.pas,v $
+// Revision 1.345  2016/10/13 09:17:19  lukyanets
+// Подправляем очистку
+//
 // Revision 1.344  2016/09/28 08:00:55  lukyanets
 // Не собиралось
 //
@@ -1330,6 +1333,7 @@ uses
   Dt_List,
   DT_DocImages,
   Dt_DictTree,
+  ddAutolinkServer,
   
   vtVerInf,
   vtDialogs,
@@ -1475,6 +1479,7 @@ Procedure DestroyHt;
 Begin
  if GlobalHtServer <> nil then
   GlobalHtServer.GoingToDie;
+ CleanupAutolinkServer;
  SetDocImagePath('', '');
  FreeLinkServer;
  l3Free(LockServer);

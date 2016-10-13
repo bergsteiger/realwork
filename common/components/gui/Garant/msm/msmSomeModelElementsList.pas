@@ -105,19 +105,31 @@ end;//TmsmSomeModelElementsList.Get_Owner
 
 function TmsmSomeModelElementsList.Get_Strings(anIndex: Integer): Il3CString;
 //#UC START# *57AEBED1018D_57E54DCD0141get_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57AEBED1018D_57E54DCD0141get_var*
 begin
 //#UC START# *57AEBED1018D_57E54DCD0141get_impl*
- Result := Get_Item(anIndex).StringProp['DefaultText'];
+ l_E := Get_Item(anIndex);
+ if (l_E = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := l_E.StringProp['DefaultText'];
 //#UC END# *57AEBED1018D_57E54DCD0141get_impl*
 end;//TmsmSomeModelElementsList.Get_Strings
 
 function TmsmSomeModelElementsList.Get_StringsToFind(anIndex: Integer): Il3CString;
 //#UC START# *57B6C7D40215_57E54DCD0141get_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57B6C7D40215_57E54DCD0141get_var*
 begin
 //#UC START# *57B6C7D40215_57E54DCD0141get_impl*
- Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
+ l_E := Get_Item(anIndex);
+ if (l_E = nil) then
+  Result := TtfwCStringFactory.C('(unexisting)')
+ else
+  Result := l_E.StringProp['DefaultSearchText'];
 //#UC END# *57B6C7D40215_57E54DCD0141get_impl*
 end;//TmsmSomeModelElementsList.Get_StringsToFind
 

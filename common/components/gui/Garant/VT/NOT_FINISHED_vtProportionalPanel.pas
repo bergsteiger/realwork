@@ -10,12 +10,13 @@ interface
 
 uses
  l3IntfUses
+ , vtPanel
 ;
 
 type
  TvtProportionalCustomPanel = class;
 
- TvtProportionalPanel = class
+ TvtProportionalPanel = class(TvtCustomPanel)
  end;//TvtProportionalPanel
 
  TvtProportionalCustomPanel = class(TvtProportionalPanel)

@@ -51,6 +51,12 @@ type
     aValue: Integer);
    class function CallAndGetList(const aParameters: array of TtfwStackValue;
     const aMethodName: AnsiString): ItfwArray; overload;
+   class procedure CallStrSetter(aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    const aValue: Il3CString);
+   class procedure CallWordSetter(aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    aValue: TtfwWord);
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -66,6 +72,7 @@ uses
  , msmModelLoadingThread
  {$IfEnd} // Defined(seThreadSafe)
  , msmWordsByName
+ , msmChangedElementsPrim
  , msmChangedElements
  {$If NOT Defined(NoScripts)}
  , msmModelElementMethodCallerPack
@@ -437,7 +444,8 @@ begin
   end;//try..finally
  end;//with TmsmModelElementMethodValueCache.Instance
  Call([TtfwStackValue_C(l_V.rWord), TtfwStackValue_C(l_V.rName), aValue], 'SetElementVar');
- TmsmChangedElements.Instance.Add(l_V.rWord);
+ //if (aMethodName <> 'msm:Value') then
+  TmsmChangedElements.Instance.Add(l_V.rWord);
 //#UC END# *57D68123004E_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallSetter
 
@@ -461,5 +469,27 @@ begin
  Result := ItfwValueList(Call(aParameters, aMethodName).AsIntf);
 //#UC END# *57F4E39D0252_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallAndGetList
+
+class procedure TmsmModelElementMethodCaller.CallStrSetter(aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ const aValue: Il3CString);
+//#UC START# *57FBBAD9018B_57AA00BD022E_var*
+//#UC END# *57FBBAD9018B_57AA00BD022E_var*
+begin
+//#UC START# *57FBBAD9018B_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *57FBBAD9018B_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallStrSetter
+
+class procedure TmsmModelElementMethodCaller.CallWordSetter(aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ aValue: TtfwWord);
+//#UC START# *57FBBAFC02D9_57AA00BD022E_var*
+//#UC END# *57FBBAFC02D9_57AA00BD022E_var*
+begin
+//#UC START# *57FBBAFC02D9_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *57FBBAFC02D9_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallWordSetter
 
 end.

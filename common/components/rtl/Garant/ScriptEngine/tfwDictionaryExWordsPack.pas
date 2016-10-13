@@ -43,6 +43,9 @@ uses
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *55AE5A8C035Dimpl_uses*
+ , l3String
+ , tfwAutoregisteredDiction
+ , tfwFileStreamFactory
  //#UC END# *55AE5A8C035Dimpl_uses*
 ;
 
@@ -153,6 +156,21 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopDictionaryExRemoveFromCache
+
+ TkwDictionaryExCheckNamedDictionary = {final} class(TtfwClassLike)
+  {* Слово скрипта DictionaryEx:CheckNamedDictionary }
+  private
+   function CheckNamedDictionary(const aCtx: TtfwContext;
+    const aName: Il3CString): TtfwDictionaryEx;
+    {* Реализация слова скрипта DictionaryEx:CheckNamedDictionary }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwDictionaryExCheckNamedDictionary
 
  TtfwDictionaryExWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
@@ -520,6 +538,80 @@ begin
  RemoveFromCache(aCtx, l_aDictionaryEx);
 end;//TkwPopDictionaryExRemoveFromCache.DoDoIt
 
+function TkwDictionaryExCheckNamedDictionary.CheckNamedDictionary(const aCtx: TtfwContext;
+ const aName: Il3CString): TtfwDictionaryEx;
+ {* Реализация слова скрипта DictionaryEx:CheckNamedDictionary }
+//#UC START# *57F665430181_57F665430181_559E8B2E0385_Word_var*
+var
+ l_D : TtfwDictionaryEx;
+ l_Name : Il3CString;
+ l_F : TtfwFileStreamFactory;
+//#UC END# *57F665430181_57F665430181_559E8B2E0385_Word_var*
+begin
+//#UC START# *57F665430181_57F665430181_559E8B2E0385_Word_impl*
+ with TtfwDictionaryCache.Instance do
+ begin
+  Lock;
+  try
+   l_Name := TtfwCStringFactory.C(aCtx.ResolveIncludedFilePath(l3Str(aName)));
+   Result := FindDictionary(l_Name);
+   if (Result = nil) then
+   begin
+    l_F := TtfwFileStreamFactory.Create(l3Str(l_Name));
+    try
+     l_D := TtfwDictionaryEx.Create(l_F, [TtfwAutoregisteredDiction.Instance]);
+     try
+      Add(l_D);
+      Result := l_D;
+     finally
+      FreeAndNil(l_D);
+     end;//try..finally
+    finally
+     FreeAndNil(l_F);
+    end;//try..finally
+   end;//Result = nil
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TtfwDictionaryCache.Instance
+//#UC END# *57F665430181_57F665430181_559E8B2E0385_Word_impl*
+end;//TkwDictionaryExCheckNamedDictionary.CheckNamedDictionary
+
+class function TkwDictionaryExCheckNamedDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DictionaryEx:CheckNamedDictionary';
+end;//TkwDictionaryExCheckNamedDictionary.GetWordNameForRegister
+
+function TkwDictionaryExCheckNamedDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwDictionaryEx);
+end;//TkwDictionaryExCheckNamedDictionary.GetResultTypeInfo
+
+function TkwDictionaryExCheckNamedDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwDictionaryExCheckNamedDictionary.GetAllParamsCount
+
+function TkwDictionaryExCheckNamedDictionary.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), @tfw_tiString]);
+end;//TkwDictionaryExCheckNamedDictionary.ParamsTypes
+
+procedure TkwDictionaryExCheckNamedDictionary.DoDoIt(const aCtx: TtfwContext);
+var l_aName: Il3CString;
+begin
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CheckNamedDictionary(aCtx, l_aName));
+end;//TkwDictionaryExCheckNamedDictionary.DoDoIt
+
 class function TtfwDictionaryExWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'tfwDictionaryExWordsPack';
@@ -542,6 +634,8 @@ initialization
  {* Регистрация pop_DictionaryEx_FileDateTime }
  TkwPopDictionaryExRemoveFromCache.RegisterInEngine;
  {* Регистрация pop_DictionaryEx_RemoveFromCache }
+ TkwDictionaryExCheckNamedDictionary.RegisterInEngine;
+ {* Регистрация DictionaryEx_CheckNamedDictionary }
  TtfwDictionaryExWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwDictionaryEx));

@@ -24,6 +24,9 @@ type
    f_IsDir: Boolean;
    f_SubElementName: AnsiString;
   protected
+   procedure CheckUnexisting(const anElement: ImsmModelElement;
+    var theNewElement: ImsmModelElement;
+    var theElementToSelect: ImsmModelElement); virtual;
    function DoGetList: ImsmModelElementStringList; override;
    procedure DoShowElementAsList(const anElement: ImsmModelElement); override;
    procedure SetList(const aList: ImsmModelElementStringList);
@@ -53,6 +56,27 @@ uses
  //#UC END# *57B189990202impl_uses*
 ;
 
+procedure TmsmListModelPrim.CheckUnexisting(const anElement: ImsmModelElement;
+ var theNewElement: ImsmModelElement;
+ var theElementToSelect: ImsmModelElement);
+//#UC START# *57F79A4F032E_57B189990202_var*
+var
+ l_Parent : ImsmModelElement;
+//#UC END# *57F79A4F032E_57B189990202_var*
+begin
+//#UC START# *57F79A4F032E_57B189990202_impl*
+ l_Parent := anElement.Parent;
+ while (theNewElement = nil) AND (l_Parent <> nil) do
+ begin
+  theNewElement := l_Parent.ElementProp[f_SubElementName];
+  if (theNewElement <> nil) then
+   break;
+  theElementToSelect := l_Parent; 
+  l_Parent := l_Parent.Parent;
+ end;//theNewElement = nil
+//#UC END# *57F79A4F032E_57B189990202_impl*
+end;//TmsmListModelPrim.CheckUnexisting
+
 function TmsmListModelPrim.DoGetList: ImsmModelElementStringList;
 //#UC START# *57D271E300C2_57B189990202_var*
 //#UC END# *57D271E300C2_57B189990202_var*
@@ -66,7 +90,6 @@ procedure TmsmListModelPrim.DoShowElementAsList(const anElement: ImsmModelElemen
 //#UC START# *57D2A7D900FE_57B189990202_var*
 var
  l_NewElement : ImsmModelElement;
- l_Parent : ImsmModelElement;
  l_ElementToSelect : ImsmModelElement;
 //#UC END# *57D2A7D900FE_57B189990202_var*
 begin
@@ -100,15 +123,7 @@ begin
    // - тут ищем диаграмму от родителя
    begin
     l_ElementToSelect := anElement;
-    l_Parent := anElement.Parent;
-    while (l_NewElement = nil) AND (l_Parent <> nil) do
-    begin
-     l_NewElement := l_Parent.ElementProp[f_SubElementName];
-     if (l_NewElement <> nil) then
-      break;
-     l_ElementToSelect := l_Parent; 
-     l_Parent := l_Parent.Parent;
-    end;//l_NewElement = nil
+    CheckUnexisting(anElement, l_NewElement, l_ElementToSelect);
    end;//l_NewElement = nil
   end;//f_SubElementName <> ''
  end;//f_IsDir
@@ -149,7 +164,7 @@ function TmsmListModelPrim.DoGetCaption: AnsiString;
 //#UC END# *57E331B90378_57B189990202_var*
 begin
 //#UC START# *57E331B90378_57B189990202_impl*
- if (f_SubElementName = '') then
+ if (f_SubElementName = '') OR (f_SubElementName = 'Viewed') then
   Result := inherited DoGetCaption
  else
  if (f_ElementView.rElement <> nil) then

@@ -114,6 +114,7 @@ procedure TmsmListViewController.InitOwnView;
 begin
 //#UC START# *57ADFB33027D_57AAF18F0065_impl*
  inherited;
+ OwnView.Model := Self.Model.As_ImsmDragAndDropModel;
  OwnView.OnGetTotal := Self.DoGetTotal;
  OwnView.OnGetNode := Self.DoGetNode;
 //#UC END# *57ADFB33027D_57AAF18F0065_impl*

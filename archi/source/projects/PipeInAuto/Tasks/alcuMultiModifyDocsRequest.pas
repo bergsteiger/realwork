@@ -127,7 +127,7 @@ begin
  try
   l_IDList := Tl3IDList.Create;
   try
-   f_Message.DocIDList.ToList(l_IDList);
+   f_Message.DocumentIDList.ToList(l_IDList);
    l_Helper := TarDirectMultiModifyDocsHelper.Create(f_Message.ActionType,
     f_Message.FamilyID, f_Message.AnouncedDate, l_IDList as Il3IDList);
   finally

@@ -539,6 +539,9 @@ uses
  , ContainedActionsWordspack in 'w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomActionWordpack in 'w:\common\components\rtl\Garant\ScriptEngine\CustomActionWordpack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ActionListWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -2357,13 +2360,6 @@ uses
  , FileDesc_Const in 'w:\common\components\rtl\Garant\EVD\FileDesc_Const.pas'
  , csGetTaskDescriptionReply_Const in 'w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas'
  {$If NOT Defined(Nemesis)}
- , csExport in 'w:\common\components\rtl\Garant\cs\csExport.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
- , csExportTaskPrim in 'w:\common\components\rtl\Garant\cs\csExportTaskPrim.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , ExportTask_Const in 'w:\common\components\rtl\Garant\EVD\ExportTask_Const.pas'
- {$If NOT Defined(Nemesis)}
  , ncsFileDesc in 'w:\common\components\rtl\Garant\cs\ncsFileDesc.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ddFileIterator in 'w:\common\components\rtl\Garant\dd\ddFileIterator.pas'
@@ -2454,6 +2450,13 @@ uses
  , ncsCorrectFolder in 'w:\common\components\rtl\Garant\cs\ncsCorrectFolder.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csCorrectFolder_Const in 'w:\common\components\rtl\Garant\EVD\csCorrectFolder_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csExport in 'w:\common\components\rtl\Garant\cs\csExport.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csExportTaskPrim in 'w:\common\components\rtl\Garant\cs\csExportTaskPrim.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ExportTask_Const in 'w:\common\components\rtl\Garant\EVD\ExportTask_Const.pas'
  {$If Defined(ServerTasks)}
  , alcuDetachedExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
@@ -2610,6 +2613,9 @@ uses
  {$IfEnd} // Defined(ServerTasks)
  , arDirectMultiOperationHelper in 'w:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas'
  , arCustomMultiOperationHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas'
+ , SewerPipe in 'w:\common\components\rtl\Garant\dd\PipeOut\SewerPipe.pas'
+ , dt_AttrSchema in 'w:\common\components\rtl\Garant\dd\dt_AttrSchema.pas'
+ , HT_Const in 'w:\common\components\rtl\Garant\dd\HT_Const.pas'
  , MultiOperationRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiOperationRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}

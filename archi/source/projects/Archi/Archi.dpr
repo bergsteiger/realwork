@@ -1,5 +1,5 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.145 2016/09/30 12:27:10 lukyanets Exp $ }
+{ $Id: Archi.dpr,v 1.146 2016/10/06 13:19:10 lukyanets Exp $ }
 
 //$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
@@ -38,7 +38,7 @@
   D_getnum in 'DLG\D_GETNUM.PAS' {21.GetNumberDlg _V},
   D_srch in 'DLG\D_SRCH.PAS' {21.DocSearchDlg _V},
   D_schres in 'DLG\D_SCHRES.PAS' {21.SearchResultDlg _V},
-  D_export in 'DLG\D_EXPORT.PAS' {ExportDlg},
+  D_export in 'DLG\D_Export.pas' {ExportDlg},
   D_ShowInfo in 'DLG\D_ShowInfo.pas' {D_ShowInfo},
   CustEditWin in 'Main\CustEditWin.pas',
   DictEntryWin in 'DictEntryWin.pas' {DictEntryWindow},
@@ -131,21 +131,21 @@
   D_TemplateEditor in 'Dlg\D_TemplateEditor.pas' {TemplateEditor},
   D_CorrectExportFolder in 'Dlg\D_CorrectExportFolder.pas' {TCorrectExportFolder},
   D_Autolink in 'Dlg\D_Autolink.pas' {AutolinkDlg},
-  arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
-  arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas',
-  arCustomSaveDocumentHelper in 'W:\archi\source\projects\Common\Utils\arCustomSaveDocumentHelper.pas',
-  arDirectSaveDocumentHelper in 'W:\archi\source\projects\Common\Utils\arDirectSaveDocumentHelper.pas',
-  arRemoteSaveDocumentHelper in 'w:\archi\source\projects\archi\Processing\arRemoteSaveDocumentHelper.pas',
-  arCustomMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiModifyDocsHelper.pas',
-  arDirectMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiModifyDocsHelper.pas',
-  arRemoteMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiModifyDocsHelper.pas',
-  arCustomMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiClearAttributesHelper.pas',
-  arDirectMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiClearAttributesHelper.pas',
-  arRemoteMultiClearAttributesHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiClearAttributesHelper.pas',
-  arCustomMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas',
-  arDirectMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas',
-  arRemoteMultiOperationHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiOperationHelper.pas' 
-  ;
+  arDocObjectMixer in '..\Common\Utils\arDocObjectMixer.pas',
+  arFoundSelectionFilter in '..\Common\Utils\arFoundSelectionFilter.pas',
+  arCustomSaveDocumentHelper in '..\Common\Utils\arCustomSaveDocumentHelper.pas',
+  arDirectSaveDocumentHelper in '..\Common\Utils\arDirectSaveDocumentHelper.pas',
+  arRemoteSaveDocumentHelper in 'Processing\arRemoteSaveDocumentHelper.pas',
+  arCustomMultiModifyDocsHelper in '..\Common\Utils\arCustomMultiModifyDocsHelper.pas',
+  arDirectMultiModifyDocsHelper in '..\Common\Utils\arDirectMultiModifyDocsHelper.pas',
+  arRemoteMultiModifyDocsHelper in 'Processing\arRemoteMultiModifyDocsHelper.pas',
+  arCustomMultiClearAttributesHelper in '..\Common\Utils\arCustomMultiClearAttributesHelper.pas',
+  arDirectMultiClearAttributesHelper in '..\Common\Utils\arDirectMultiClearAttributesHelper.pas',
+  arRemoteMultiClearAttributesHelper in 'Processing\arRemoteMultiClearAttributesHelper.pas',
+  arCustomMultiOperationHelper in '..\Common\Utils\arCustomMultiOperationHelper.pas',
+  arDirectMultiOperationHelper in '..\Common\Utils\arDirectMultiOperationHelper.pas',
+  arRemoteMultiOperationHelper in 'Processing\arRemoteMultiOperationHelper.pas',
+  d_DeliveryProvile in 'Dlg\d_DeliveryProvile.pas' {DeliveryProvileDlg};
 
 //d_ReplCorresp in 'DLG\d_ReplCorresp.pas';
 

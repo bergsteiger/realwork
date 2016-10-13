@@ -37,11 +37,15 @@ type
   function Get_Parent: ImsmModelElement;
   function Get_MEList(const aName: AnsiString): ImsmModelElementList;
   function Get_StringProp(const aName: AnsiString): Il3CString;
+  procedure Set_StringProp(const aName: AnsiString;
+   const aValue: Il3CString);
   function Get_IntProp(const aName: AnsiString): Integer;
   procedure Set_IntProp(const aName: AnsiString;
    aValue: Integer);
   function Get_BoolProp(const aName: AnsiString): Boolean;
   function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
+  procedure Set_ElementProp(const aName: AnsiString;
+   const aValue: ImsmModelElement);
   function Get_MainWord: TtfwWord;
   function Get_ListProp(const aName: AnsiString): ItfwValueList;
   function IsView: Boolean;
@@ -52,19 +56,23 @@ type
    const aMethodName: AnsiString): TtfwStackValue;
   function CallAndGetList(const aParameters: array of TtfwStackValue;
    const aMethodName: AnsiString): ItfwArray;
+  function IsDeleted: Boolean;
+  procedure Delete;
   property Parent: ImsmModelElement
    read Get_Parent;
   property MEList[const aName: AnsiString]: ImsmModelElementList
    read Get_MEList;
   property StringProp[const aName: AnsiString]: Il3CString
-   read Get_StringProp;
+   read Get_StringProp
+   write Set_StringProp;
   property IntProp[const aName: AnsiString]: Integer
    read Get_IntProp
    write Set_IntProp;
   property BoolProp[const aName: AnsiString]: Boolean
    read Get_BoolProp;
   property ElementProp[const aName: AnsiString]: ImsmModelElement
-   read Get_ElementProp;
+   read Get_ElementProp
+   write Set_ElementProp;
   property MainWord: TtfwWord
    read Get_MainWord;
   property ListProp[const aName: AnsiString]: ItfwValueList

@@ -27,18 +27,24 @@ procedure _msmMEListLikeViewController_.DoGetItemFont(Sender: TObject;
  Index: LongInt;
  const aFont: Il3Font);
 //#UC START# *57B47A2102DE_57C977AE0264_var*
+var
+ l_E : ImsmModelElement;
 //#UC END# *57B47A2102DE_57C977AE0264_var*
 begin
 //#UC START# *57B47A2102DE_57C977AE0264_impl*
  inherited;
  if (Index < 0) then
   Exit;
- with Self.Model.List[Index] do
- begin
-  aFont.Italic := BoolProp['IsSummoned'];
-  aFont.Strikeout := not BoolProp['IsFinished'];
-  aFont.ForeColor := IntProp['msm:View:ForeColor'];
- end;//with Self.Model.List[Index]
+ l_E := Self.Model.List[Index];
+ if (l_E <> nil) then
+  with l_E do
+  begin
+   aFont.Italic := BoolProp['IsSummoned'];
+   aFont.Strikeout := not BoolProp['IsFinished'];
+   if IsDeleted then
+    aFont.Strikeout := true;
+   aFont.ForeColor := IntProp['msm:View:ForeColor'];
+  end;//with l_E
 //#UC END# *57B47A2102DE_57C977AE0264_impl*
 end;//_msmMEListLikeViewController_.DoGetItemFont
 

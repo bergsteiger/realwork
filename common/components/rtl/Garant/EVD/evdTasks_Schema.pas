@@ -1904,13 +1904,6 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csMultiModifyDocsTag
 
- csMultiModifyDocs_DocIDList_Tag = class(Tk2AutoType)
- protected
-   function GetAsPCharLen: Tl3PCharLenPrim; override;
-   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
-   function DoMakeTag(aRef : Integer): Il3TagRef; override;
- end;//csMultiModifyDocs_DocIDList_Tag
-
  csMultiModifyDocs_ActionType_TagClass = class(Tk2TypedAtomicTag)
   {* Класс реализации тега "csMultiModifyDocs_ActionType" }
  protected
@@ -1925,6 +1918,13 @@ type
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
    function DoMakeTag(aRef : Integer): Il3TagRef; override;
  end;//csMultiModifyDocs_ActionType_Tag
+
+ csMultiModifyDocs_DocumentIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiModifyDocs_DocumentIDList_Tag
 
  DocIDWithCommentTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "DocIDWithComment" }
@@ -1997,19 +1997,19 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csMultiClearAttributesTag
 
- csMultiClearAttributes_DocIDList_Tag = class(Tk2AutoType)
- protected
-   function GetAsPCharLen: Tl3PCharLenPrim; override;
-   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
-   function DoMakeTag(aRef : Integer): Il3TagRef; override;
- end;//csMultiClearAttributes_DocIDList_Tag
-
  csMultiClearAttributes_Attributes_Tag = class(Tk2AutoType)
  protected
    function GetAsPCharLen: Tl3PCharLenPrim; override;
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
    function DoMakeTag(aRef : Integer): Il3TagRef; override;
  end;//csMultiClearAttributes_Attributes_Tag
+
+ csMultiClearAttributes_DocumentIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiClearAttributes_DocumentIDList_Tag
 
  csMultiClearAttributesReplyTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "csMultiClearAttributesReply" }
@@ -2066,6 +2066,13 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csMultiOperationReplyTag
 
+ csMultiOperationReply_RejectedIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiOperationReply_RejectedIDList_Tag
+
  csMultiOperationTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "csMultiOperation" }
  protected
@@ -2082,13 +2089,6 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csMultiOperationTag
 
- csMultiOperation_DocIDList_Tag = class(Tk2AutoType)
- protected
-   function GetAsPCharLen: Tl3PCharLenPrim; override;
-   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
-   function DoMakeTag(aRef : Integer): Il3TagRef; override;
- end;//csMultiOperation_DocIDList_Tag
-
  csMultiOperation_Operation_TagClass = class(Tk2TypedAtomicTag)
   {* Класс реализации тега "csMultiOperation_Operation" }
  protected
@@ -2103,6 +2103,13 @@ type
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
    function DoMakeTag(aRef : Integer): Il3TagRef; override;
  end;//csMultiOperation_Operation_Tag
+
+ csMultiOperation_DocumentIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiOperation_DocumentIDList_Tag
 
  MultiOperationRequestTagClass = class(Tk2ParentedTypedSmallLeafTag)
   {* Класс реализации тега "MultiOperationRequest" }
@@ -2188,6 +2195,22 @@ type
  public
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//DeliveryProfileTag
+
+ AutolinkerTaskTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "AutolinkerTask" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//AutolinkerTaskTagClass
+
+ AutolinkerTaskTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//AutolinkerTaskTag
 
  TevdTasksSchema = class(Tk2NativeSchema)
  public
@@ -2330,28 +2353,30 @@ type
    t_csUploadDocStreamReply : csUploadDocStreamReplyTag;
    t_UploadDocRequest : UploadDocRequestTag;
    t_csMultiModifyDocs : csMultiModifyDocsTag;
-   t_csMultiModifyDocs_DocIDList : csMultiModifyDocs_DocIDList_Tag;
    t_csMultiModifyDocs_ActionType : csMultiModifyDocs_ActionType_Tag;
+   t_csMultiModifyDocs_DocumentIDList : csMultiModifyDocs_DocumentIDList_Tag;
    t_DocIDWithComment : DocIDWithCommentTag;
    t_csMultiModifyDocsReply : csMultiModifyDocsReplyTag;
    t_csMultiModifyDocsReply_RejectedIDList : csMultiModifyDocsReply_RejectedIDList_Tag;
    t_MultiModifyDocsRequest : MultiModifyDocsRequestTag;
    t_csMultiClearAttributes : csMultiClearAttributesTag;
-   t_csMultiClearAttributes_DocIDList : csMultiClearAttributes_DocIDList_Tag;
    t_csMultiClearAttributes_Attributes : csMultiClearAttributes_Attributes_Tag;
+   t_csMultiClearAttributes_DocumentIDList : csMultiClearAttributes_DocumentIDList_Tag;
    t_csMultiClearAttributesReply : csMultiClearAttributesReplyTag;
    t_csMultiClearAttributesReply_RejectedIDList : csMultiClearAttributesReply_RejectedIDList_Tag;
    t_MultiClearAttributesRequest : MultiClearAttributesRequestTag;
    t_csMultiOperationReply : csMultiOperationReplyTag;
+   t_csMultiOperationReply_RejectedIDList : csMultiOperationReply_RejectedIDList_Tag;
    t_csMultiOperation : csMultiOperationTag;
-   t_csMultiOperation_DocIDList : csMultiOperation_DocIDList_Tag;
    t_csMultiOperation_Operation : csMultiOperation_Operation_Tag;
+   t_csMultiOperation_DocumentIDList : csMultiOperation_DocumentIDList_Tag;
    t_MultiOperationRequest : MultiOperationRequestTag;
    t_csDownloadDocStream : csDownloadDocStreamTag;
    t_csDownloadDocStream_FoundSelector : csDownloadDocStream_FoundSelector_Tag;
    t_csDownloadDocStream_DocPart : csDownloadDocStream_DocPart_Tag;
    t_csDownloadDocStream_DocPartSel : csDownloadDocStream_DocPartSel_Tag;
    t_DeliveryProfile : DeliveryProfileTag;
+   t_AutolinkerTask : AutolinkerTaskTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2464,6 +2489,7 @@ uses
   MultiOperationRequest_Const,
   csDownloadDocStream_Const,
   DeliveryProfile_Const,
+  AutolinkerTask_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -5149,21 +5175,6 @@ begin
  Result := UploadDocRequestTagClass.Make(Self);
 end;
 
-function csMultiModifyDocs_DocIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
-begin
- Result := l3PCharLen(AnsiString('csMultiModifyDocs_DocIDList'));
-end;
-
-function csMultiModifyDocs_DocIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
-begin
- Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
-end;
-
-function csMultiModifyDocs_DocIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
-begin
- Result := Tk2List.Make(Self);
-end;
-
 function csMultiModifyDocs_ActionType_Tag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
  Result := l3PCharLen(AnsiString('csMultiModifyDocs_ActionType'));
@@ -5182,6 +5193,21 @@ end;//ActionTypeClass.TagType
 function csMultiModifyDocs_ActionType_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
 begin
  Result := Self.MakeFromInt(aRef, csMultiModifyDocs_ActionType_TagClass);
+end;
+
+function csMultiModifyDocs_DocumentIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocs_DocumentIDList'));
+end;
+
+function csMultiModifyDocs_DocumentIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocs_DocumentIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
 end;
 
 function csMultiModifyDocsTagClass.GetTagType: Tl3Type;
@@ -5283,21 +5309,6 @@ begin
  Result := MultiModifyDocsRequestTagClass.Make(Self);
 end;
 
-function csMultiClearAttributes_DocIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
-begin
- Result := l3PCharLen(AnsiString('csMultiClearAttributes_DocIDList'));
-end;
-
-function csMultiClearAttributes_DocIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
-begin
- Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
-end;
-
-function csMultiClearAttributes_DocIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
-begin
- Result := Tk2List.Make(Self);
-end;
-
 function csMultiClearAttributes_Attributes_Tag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
  Result := l3PCharLen(AnsiString('csMultiClearAttributes_Attributes'));
@@ -5309,6 +5320,21 @@ begin
 end;
 
 function csMultiClearAttributes_Attributes_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function csMultiClearAttributes_DocumentIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiClearAttributes_DocumentIDList'));
+end;
+
+function csMultiClearAttributes_DocumentIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiClearAttributes_DocumentIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
 begin
  Result := Tk2List.Make(Self);
 end;
@@ -5391,6 +5417,21 @@ begin
  Result := MultiClearAttributesRequestTagClass.Make(Self);
 end;
 
+function csMultiOperationReply_RejectedIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiOperationReply_RejectedIDList'));
+end;
+
+function csMultiOperationReply_RejectedIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiOperationReply_RejectedIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
 function csMultiOperationReplyTagClass.GetTagType: Tl3Type;
 begin
  Result := k2_typcsMultiOperationReply;
@@ -5412,21 +5453,6 @@ begin
  Result := csMultiOperationReplyTagClass.Make(Self);
 end;
 
-function csMultiOperation_DocIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
-begin
- Result := l3PCharLen(AnsiString('csMultiOperation_DocIDList'));
-end;
-
-function csMultiOperation_DocIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
-begin
- Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
-end;
-
-function csMultiOperation_DocIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
-begin
- Result := Tk2List.Make(Self);
-end;
-
 function csMultiOperation_Operation_Tag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
  Result := l3PCharLen(AnsiString('csMultiOperation_Operation'));
@@ -5445,6 +5471,21 @@ end;//OperationClass.TagType
 function csMultiOperation_Operation_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
 begin
  Result := Self.MakeFromInt(aRef, csMultiOperation_Operation_TagClass);
+end;
+
+function csMultiOperation_DocumentIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiOperation_DocumentIDList'));
+end;
+
+function csMultiOperation_DocumentIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiOperation_DocumentIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
 end;
 
 function csMultiOperationTagClass.GetTagType: Tl3Type;
@@ -5584,6 +5625,27 @@ end;
 function DeliveryProfileTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
  Result := DeliveryProfileTagClass.Make(Self);
+end;
+
+function AutolinkerTaskTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typAutolinkerTask;
+end;//AutolinkerTaskTagClass.TagType
+
+function AutolinkerTaskTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('AutolinkerTask'));
+end;
+
+function AutolinkerTaskTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function AutolinkerTaskTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := AutolinkerTaskTagClass.Make(Self);
 end;
 
 constructor TevdTasksSchema.Create;
@@ -7575,17 +7637,6 @@ begin
   with DefineProperty(k2_attrFamilyID, t_Long, '') do
   begin
   end;//FamilyID
-  t_csMultiModifyDocs_DocIDList := DefineAutoType([t_OList], 'csMultiModifyDocs DocIDList', csMultiModifyDocs_DocIDList_Tag) As csMultiModifyDocs_DocIDList_Tag;
-  try
-   t_csMultiModifyDocs_DocIDList.DefineChildren(t_Address);
-   DefineProperty(k2_attrDocIDList, t_csMultiModifyDocs_DocIDList, '');
-   t_csMultiModifyDocs_DocIDList.Recalc;
-  except
-   FreeAndNil(t_csMultiModifyDocs_DocIDList);
-  end;//try..except
-  with t_csMultiModifyDocs_DocIDList.ArrayProp[k2_tiChildren] do
-  begin
-  end;//DocIDList
   t_csMultiModifyDocs_ActionType := DefineAutoType([t_Enum], 'csMultiModifyDocs ActionType', csMultiModifyDocs_ActionType_Tag) As csMultiModifyDocs_ActionType_Tag;
   try
    t_csMultiModifyDocs_ActionType.AtomType := TypeInfo(TOperActionType);
@@ -7600,6 +7651,17 @@ begin
   with DefineProperty(k2_attrAnouncedDate, t_DateTime, '') do
   begin
   end;//AnouncedDate
+  t_csMultiModifyDocs_DocumentIDList := DefineAutoType([t_OList], 'csMultiModifyDocs DocumentIDList', csMultiModifyDocs_DocumentIDList_Tag) As csMultiModifyDocs_DocumentIDList_Tag;
+  try
+   t_csMultiModifyDocs_DocumentIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrDocumentIDList, t_csMultiModifyDocs_DocumentIDList, '');
+   t_csMultiModifyDocs_DocumentIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiModifyDocs_DocumentIDList);
+  end;//try..except
+  with t_csMultiModifyDocs_DocumentIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//DocumentIDList
  end;//csMultiModifyDocs
  // DocIDWithComment
  t_DocIDWithComment := DefineAutoType([t_Tag], '', DocIDWithCommentTag) As DocIDWithCommentTag;
@@ -7654,17 +7716,6 @@ begin
   with DefineProperty(k2_attrFamilyID, t_Long, '') do
   begin
   end;//FamilyID
-  t_csMultiClearAttributes_DocIDList := DefineAutoType([t_OList], 'csMultiClearAttributes DocIDList', csMultiClearAttributes_DocIDList_Tag) As csMultiClearAttributes_DocIDList_Tag;
-  try
-   t_csMultiClearAttributes_DocIDList.DefineChildren(t_Address);
-   DefineProperty(k2_attrDocIDList, t_csMultiClearAttributes_DocIDList, '');
-   t_csMultiClearAttributes_DocIDList.Recalc;
-  except
-   FreeAndNil(t_csMultiClearAttributes_DocIDList);
-  end;//try..except
-  with t_csMultiClearAttributes_DocIDList.ArrayProp[k2_tiChildren] do
-  begin
-  end;//DocIDList
   t_csMultiClearAttributes_Attributes := DefineAutoType([t_OList], 'csMultiClearAttributes Attributes', csMultiClearAttributes_Attributes_Tag) As csMultiClearAttributes_Attributes_Tag;
   try
    t_csMultiClearAttributes_Attributes.DefineChildren(t_Address);
@@ -7679,6 +7730,17 @@ begin
   with DefineProperty(k2_attrRightsNeeded, t_Long, '') do
   begin
   end;//RightsNeeded
+  t_csMultiClearAttributes_DocumentIDList := DefineAutoType([t_OList], 'csMultiClearAttributes DocumentIDList', csMultiClearAttributes_DocumentIDList_Tag) As csMultiClearAttributes_DocumentIDList_Tag;
+  try
+   t_csMultiClearAttributes_DocumentIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrDocumentIDList, t_csMultiClearAttributes_DocumentIDList, '');
+   t_csMultiClearAttributes_DocumentIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiClearAttributes_DocumentIDList);
+  end;//try..except
+  with t_csMultiClearAttributes_DocumentIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//DocumentIDList
  end;//csMultiClearAttributes
  // csMultiClearAttributesReply
  t_csMultiClearAttributesReply := DefineAutoType([t_csReply], '', csMultiClearAttributesReplyTag) As csMultiClearAttributesReplyTag;
@@ -7724,6 +7786,20 @@ begin
   with DefineProperty(k2_attrErrorMessage, t_String, '') do
   begin
   end;//ErrorMessage
+  t_csMultiOperationReply_RejectedIDList := DefineAutoType([t_OList], 'csMultiOperationReply RejectedIDList', csMultiOperationReply_RejectedIDList_Tag) As csMultiOperationReply_RejectedIDList_Tag;
+  try
+   t_csMultiOperationReply_RejectedIDList.DefineChildren(t_DocIDWithComment);
+   DefineProperty(k2_attrRejectedIDList, t_csMultiOperationReply_RejectedIDList, '');
+   t_csMultiOperationReply_RejectedIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiOperationReply_RejectedIDList);
+  end;//try..except
+  with t_csMultiOperationReply_RejectedIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//RejectedIDList
+  with DefineProperty(k2_attrProcessedCount, t_Long, '') do
+  begin
+  end;//ProcessedCount
  end;//csMultiOperationReply
  // csMultiOperation
  t_csMultiOperation := DefineAutoType([t_csPersonificatedMessage], '', csMultiOperationTag) As csMultiOperationTag;
@@ -7733,17 +7809,6 @@ begin
   with DefineProperty(k2_attrFamilyID, t_Long, '') do
   begin
   end;//FamilyID
-  t_csMultiOperation_DocIDList := DefineAutoType([t_OList], 'csMultiOperation DocIDList', csMultiOperation_DocIDList_Tag) As csMultiOperation_DocIDList_Tag;
-  try
-   t_csMultiOperation_DocIDList.DefineChildren(t_Address);
-   DefineProperty(k2_attrDocIDList, t_csMultiOperation_DocIDList, '');
-   t_csMultiOperation_DocIDList.Recalc;
-  except
-   FreeAndNil(t_csMultiOperation_DocIDList);
-  end;//try..except
-  with t_csMultiOperation_DocIDList.ArrayProp[k2_tiChildren] do
-  begin
-  end;//DocIDList
   t_csMultiOperation_Operation := DefineAutoType([t_Enum], 'csMultiOperation Operation', csMultiOperation_Operation_Tag) As csMultiOperation_Operation_Tag;
   try
    t_csMultiOperation_Operation.AtomType := TypeInfo(TarMultiOperation);
@@ -7755,6 +7820,17 @@ begin
   with Tk2CustomProperty(Prop[k2_attrOperation]) do
   begin
   end;//Operation
+  t_csMultiOperation_DocumentIDList := DefineAutoType([t_OList], 'csMultiOperation DocumentIDList', csMultiOperation_DocumentIDList_Tag) As csMultiOperation_DocumentIDList_Tag;
+  try
+   t_csMultiOperation_DocumentIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrDocumentIDList, t_csMultiOperation_DocumentIDList, '');
+   t_csMultiOperation_DocumentIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiOperation_DocumentIDList);
+  end;//try..except
+  with t_csMultiOperation_DocumentIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//DocumentIDList
  end;//csMultiOperation
  // MultiOperationRequest
  t_MultiOperationRequest := DefineAutoType([t_ProcessTask], '', MultiOperationRequestTag) As MultiOperationRequestTag;
@@ -7839,6 +7915,19 @@ begin
   begin
   end;//SourceFolder
  end;//DeliveryProfile
+ // AutolinkerTask
+ t_AutolinkerTask := DefineAutoType([t_ProcessTask], '', AutolinkerTaskTag) As AutolinkerTaskTag;
+ with t_AutolinkerTask do
+ begin
+  AtomClass := AutolinkerTaskTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttAutolinker);
+  end;//TaskType
+  with DefineProperty(k2_attrClearLinksBeforeRun, t_Bool, '') do
+  begin
+  end;//ClearLinksBeforeRun
+ end;//AutolinkerTask
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -7941,6 +8030,7 @@ begin
  t_MultiOperationRequest.Recalc;
  t_csDownloadDocStream.Recalc;
  t_DeliveryProfile.Recalc;
+ t_AutolinkerTask.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -8086,28 +8176,30 @@ begin
  t_csUploadDocStreamReply.InterfaceFactory := nil;
  t_UploadDocRequest.InterfaceFactory := nil;
  t_csMultiModifyDocs.InterfaceFactory := nil;
- t_csMultiModifyDocs_DocIDList.InterfaceFactory := nil;
  t_csMultiModifyDocs_ActionType.InterfaceFactory := nil;
+ t_csMultiModifyDocs_DocumentIDList.InterfaceFactory := nil;
  t_DocIDWithComment.InterfaceFactory := nil;
  t_csMultiModifyDocsReply.InterfaceFactory := nil;
  t_csMultiModifyDocsReply_RejectedIDList.InterfaceFactory := nil;
  t_MultiModifyDocsRequest.InterfaceFactory := nil;
  t_csMultiClearAttributes.InterfaceFactory := nil;
- t_csMultiClearAttributes_DocIDList.InterfaceFactory := nil;
  t_csMultiClearAttributes_Attributes.InterfaceFactory := nil;
+ t_csMultiClearAttributes_DocumentIDList.InterfaceFactory := nil;
  t_csMultiClearAttributesReply.InterfaceFactory := nil;
  t_csMultiClearAttributesReply_RejectedIDList.InterfaceFactory := nil;
  t_MultiClearAttributesRequest.InterfaceFactory := nil;
  t_csMultiOperationReply.InterfaceFactory := nil;
+ t_csMultiOperationReply_RejectedIDList.InterfaceFactory := nil;
  t_csMultiOperation.InterfaceFactory := nil;
- t_csMultiOperation_DocIDList.InterfaceFactory := nil;
  t_csMultiOperation_Operation.InterfaceFactory := nil;
+ t_csMultiOperation_DocumentIDList.InterfaceFactory := nil;
  t_MultiOperationRequest.InterfaceFactory := nil;
  t_csDownloadDocStream.InterfaceFactory := nil;
  t_csDownloadDocStream_FoundSelector.InterfaceFactory := nil;
  t_csDownloadDocStream_DocPart.InterfaceFactory := nil;
  t_csDownloadDocStream_DocPartSel.InterfaceFactory := nil;
  t_DeliveryProfile.InterfaceFactory := nil;
+ t_AutolinkerTask.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -8246,28 +8338,30 @@ begin
  FreeAndNil(t_csUploadDocStreamReply);
  FreeAndNil(t_UploadDocRequest);
  FreeAndNil(t_csMultiModifyDocs);
- FreeAndNil(t_csMultiModifyDocs_DocIDList);
  FreeAndNil(t_csMultiModifyDocs_ActionType);
+ FreeAndNil(t_csMultiModifyDocs_DocumentIDList);
  FreeAndNil(t_DocIDWithComment);
  FreeAndNil(t_csMultiModifyDocsReply);
  FreeAndNil(t_csMultiModifyDocsReply_RejectedIDList);
  FreeAndNil(t_MultiModifyDocsRequest);
  FreeAndNil(t_csMultiClearAttributes);
- FreeAndNil(t_csMultiClearAttributes_DocIDList);
  FreeAndNil(t_csMultiClearAttributes_Attributes);
+ FreeAndNil(t_csMultiClearAttributes_DocumentIDList);
  FreeAndNil(t_csMultiClearAttributesReply);
  FreeAndNil(t_csMultiClearAttributesReply_RejectedIDList);
  FreeAndNil(t_MultiClearAttributesRequest);
  FreeAndNil(t_csMultiOperationReply);
+ FreeAndNil(t_csMultiOperationReply_RejectedIDList);
  FreeAndNil(t_csMultiOperation);
- FreeAndNil(t_csMultiOperation_DocIDList);
  FreeAndNil(t_csMultiOperation_Operation);
+ FreeAndNil(t_csMultiOperation_DocumentIDList);
  FreeAndNil(t_MultiOperationRequest);
  FreeAndNil(t_csDownloadDocStream);
  FreeAndNil(t_csDownloadDocStream_FoundSelector);
  FreeAndNil(t_csDownloadDocStream_DocPart);
  FreeAndNil(t_csDownloadDocStream_DocPartSel);
  FreeAndNil(t_DeliveryProfile);
+ FreeAndNil(t_AutolinkerTask);
  inherited;
 end;
 

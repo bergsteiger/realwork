@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.123 2016/10/05 12:04:41 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.124 2016/10/13 13:16:43 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.124  2016/10/13 13:16:43  lukyanets
+// Готовимся переделывать автолинкер как задачу
+//
 // Revision 1.123  2016/10/05 12:04:41  lukyanets
 // Заготовка задачи
 //
@@ -690,7 +693,7 @@ Uses
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
-  csUploadDocStreamReply, csDeliveryProfileTask,
+  csUploadDocStreamReply, csDeliveryProfileTask, csAutolinkerTask,
  StrShop,
  AutoClassTask_Const,
  k2Base,
@@ -1065,6 +1068,7 @@ begin
  RegisterTaskClass(cs_ttContainer, TcsContainerTask, 'Групповая задача');
  RegisterTaskClass(cs_ttSchedulerProxy, TcsSchedulerProxyTask, 'Задание планировщика');
  RegisterTaskClass(cs_ttDeliveryProfile, TcsDeliveryProfileTask, 'Проверка скорости доставки');
+ RegisterTaskClass(cs_ttAutolinker, TcsAutolinkerTask, 'Автоматическая простановка гиперссылок');
 end;
 
 procedure TArchiUserRequestManager.RequestUsersList;

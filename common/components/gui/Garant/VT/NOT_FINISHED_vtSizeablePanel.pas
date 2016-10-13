@@ -10,10 +10,11 @@ interface
 
 uses
  l3IntfUses
+ , vtPanel
 ;
 
 type
- TvtSizeablePanel = class
+ TvtSizeablePanel = class(TvtCustomPanel)
  end;//TvtSizeablePanel
 
 implementation

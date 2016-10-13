@@ -25,6 +25,7 @@ uses
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , CustomActionWordpack
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes

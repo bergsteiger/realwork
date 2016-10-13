@@ -13,9 +13,7 @@ uses
  , daTypes
  , daInterfaces
  , ddAppConfig
- {$If NOT Defined(Nemesis)}
  , HT_Const
- {$IfEnd} // NOT Defined(Nemesis)
  , l3Date
 ;
 

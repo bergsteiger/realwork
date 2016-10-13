@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , csPersonificatedMessage
  , k2SizedMemoryPool
- , evdTasksHelpers
  , l3MarshalledTypes
+ , evdTasksHelpers
  , k2Base
 ;
 
@@ -25,11 +25,11 @@ type
    procedure pm_SetData(aValue: Tk2RawData);
    function pm_GetFamilyID: Integer;
    procedure pm_SetFamilyID(aValue: Integer);
-   function pm_GetDocIDList: DocIDListHelper;
    function pm_GetActionType: TOperActionType;
    procedure pm_SetActionType(aValue: TOperActionType);
    function pm_GetAnouncedDate: TDateTime;
    procedure pm_SetAnouncedDate(aValue: TDateTime);
+   function pm_GetDocumentIDList: DocumentIDListHelper;
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
@@ -39,14 +39,14 @@ type
    property FamilyID: Integer
     read pm_GetFamilyID
     write pm_SetFamilyID;
-   property DocIDList: DocIDListHelper
-    read pm_GetDocIDList;
    property ActionType: TOperActionType
     read pm_GetActionType
     write pm_SetActionType;
    property AnouncedDate: TDateTime
     read pm_GetAnouncedDate
     write pm_SetAnouncedDate;
+   property DocumentIDList: DocumentIDListHelper
+    read pm_GetDocumentIDList;
  end;//TcsMultiModifyDocs
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -84,13 +84,6 @@ begin
  TaggedData.IntW[k2_attrFamilyID, nil] := (aValue);
 end;//TcsMultiModifyDocs.pm_SetFamilyID
 
-function TcsMultiModifyDocs.pm_GetDocIDList: DocIDListHelper;
-begin
- Assert(Self <> nil);
- Assert(TaggedData <> nil);
- Result := TDocIDListHelper.Make(TaggedData.cAtom(k2_attrDocIDList));
-end;//TcsMultiModifyDocs.pm_GetDocIDList
-
 function TcsMultiModifyDocs.pm_GetActionType: TOperActionType;
 begin
  Assert(Self <> nil);
@@ -114,6 +107,13 @@ procedure TcsMultiModifyDocs.pm_SetAnouncedDate(aValue: TDateTime);
 begin
  TaggedData.DateTimeW[k2_attrAnouncedDate, nil] := (aValue);
 end;//TcsMultiModifyDocs.pm_SetAnouncedDate
+
+function TcsMultiModifyDocs.pm_GetDocumentIDList: DocumentIDListHelper;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
+end;//TcsMultiModifyDocs.pm_GetDocumentIDList
 
 class function TcsMultiModifyDocs.GetTaggedDataType: Tk2Type;
 begin

@@ -197,7 +197,10 @@ function TmsmDrawingView.DoDoDragOver(const aData: IDataObject;
 //#UC END# *48BFA1300211_57D00ACC01B0_var*
 begin
 //#UC START# *48BFA1300211_57D00ACC01B0_impl*
- Result := (Model <> nil);
+ if (Model = nil) then
+  Result := false
+ else
+  Result := Model.DragOver(aData, aPoint);
  //Result := inherited DoDoDragOver(aData, aPoint);
 //#UC END# *48BFA1300211_57D00ACC01B0_impl*
 end;//TmsmDrawingView.DoDoDragOver
@@ -323,7 +326,10 @@ var
   l_Rect := aRect;
   SetBrush;
   l_IsCategory := anElement.BoolProp['IsCategory'];
-  l_PenColor := clBlack;
+  if (l_TextColor <> clWhite) then
+   l_PenColor := l_TextColor
+  else
+   l_PenColor := clBlack;
   if l_IsCategory then
   begin
    l_Rect.Right := l_Rect.Left + (l_Rect.Right - l_Rect.Left) div 3;
@@ -382,6 +388,26 @@ var
    CN.PopClipRect;
   end;//try..finally
 
+  l_N := anElement.StringProp['msm:View:VisibilityLabel'];
+  if not l3IsNil(l_N) then
+  begin
+   CN.PushClipRect;
+   try
+    CN.Font.ForeColor := clRed;
+    CN.Font.Bold := false;
+    CN.Font.Italic := false;
+    l_TextRect := l_Rect;
+    l_TextRect.Inflate1(-3);
+    l_TextRect.Top := l_TextRect.Bottom - CN.LP2DP(CN.TextExtent(l3PCharLen(l_N))).Y {- 1};
+    CN.ClipRect := CN.DR2LR(l_TextRect);
+    l_WR := l_TextRect.R.WR;
+    CN.DrawText(l3PCharLen(l_N), l_WR, {DT_CENTER or }DT_SINGLELINE or DT_END_ELLIPSIS);
+    //l_TextRect.Top := l_TextRect.Top + CN.LP2DP(CN.TextExtent(l3PCharLen(l_N))).Y + 3;
+   finally
+    CN.PopClipRect;
+   end;//try..finally
+  end;//not l3IsNil(l_N)
+  
   SetPen;
   CN.Canvas.FrameRect(l_Rect.R.WR);
   if aSelection.IsElementSelectedOrCurrent(anElement) then
@@ -507,9 +533,11 @@ begin
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
-    if (l_E <> nil) AND l_E.IsView then
+    if (l_E <> nil) AND not l_E.IsDeleted AND l_E.IsView then
     begin
-     l_TextColor := clBlack;
+     l_TextColor := l_E.IntProp['msm:View:TextColor']{clBlack};
+     if (l_TextColor = clDefault) then
+      l_TextColor := clBlack;
      l_FillColor := l_E.IntProp['msm:View:BackColor'];
      if (l_FillColor = clDefault) then
       l_FillColor := clYellow;
@@ -526,7 +554,7 @@ begin
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
-    if (l_E <> nil) AND l_E.IsViewLink then
+    if (l_E <> nil) AND not l_E.IsDeleted AND l_E.IsViewLink then
      DrawLink(l_E, ElementRect(l_E), l_Selection);
    end;//for l_Index
    Exit;
@@ -769,7 +797,9 @@ begin
  begin
   l_From := anElement.ElementProp['msm:View:From'];
   l_To := anElement.ElementProp['msm:View:To'];
-  if (l_From <> nil) AND (l_To <> nil) then
+  if (l_From <> nil) AND (l_To <> nil)
+     AND not l_From.IsDeleted AND not l_To.IsDeleted
+     then
   begin
    l_FromR := ElementRect(l_From);
    l_ToR := ElementRect(l_To);
@@ -861,7 +891,7 @@ begin
    for l_Index := Pred(l_List.Count) downto 0 do
    begin
     l_E := l_List[l_Index];
-    if (l_E <> nil) then
+    if (l_E <> nil) AND not l_E.IsDeleted then
     begin
      if l_E.IsView then
      begin

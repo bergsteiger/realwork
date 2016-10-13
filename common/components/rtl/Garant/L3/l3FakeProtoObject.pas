@@ -14,10 +14,15 @@ uses
 ;
 
 type
+ TNestedClass = class
+ end;//TNestedClass
+
  Tl3FakeProtoObject = class(Tl3ProtoObject)
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+  public
+   procedure SomeOperation; virtual;
  end;//Tl3FakeProtoObject
 
 implementation
@@ -27,6 +32,15 @@ uses
  //#UC START# *57EBE76D0357impl_uses*
  //#UC END# *57EBE76D0357impl_uses*
 ;
+
+procedure Tl3FakeProtoObject.SomeOperation;
+//#UC START# *MSM35A46AA0F584_57EBE76D0357_var*
+//#UC END# *MSM35A46AA0F584_57EBE76D0357_var*
+begin
+//#UC START# *MSM35A46AA0F584_57EBE76D0357_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *MSM35A46AA0F584_57EBE76D0357_impl*
+end;//Tl3FakeProtoObject.SomeOperation
 
 procedure Tl3FakeProtoObject.Cleanup;
  {* Функция очистки полей объекта. }

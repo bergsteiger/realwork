@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.64 2016/09/23 09:34:35 voba Exp $ }
+{ $Id: dt_Table.pas,v 1.65 2016/10/13 15:15:15 voba Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.65  2016/10/13 15:15:15  voba
+// no message
+//
 // Revision 1.64  2016/09/23 09:34:35  voba
 // no message
 //
@@ -344,7 +347,7 @@ implementation
   DT_Err, DT_Misc{, l3Filer};
 
 const
- cRecordsAdditionCriteria = 100;
+ cRecordsAdditionCriteria = 10;
 
  c_EmptyTrId: HT_Const.TRID = (mTrID:((0),(0),(0),(0),(0),(0)));
 

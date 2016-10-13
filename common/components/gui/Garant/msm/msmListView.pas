@@ -13,6 +13,8 @@ uses
  , vtLister
  , l3ControlsTypes
  , Classes
+ , msmDefaultModels
+ , l3Interfaces
  , l3TreeInterfaces
  //#UC START# *57B4564702F8intf_uses*
  , Types
@@ -34,6 +36,7 @@ type
    f_OnGetItemImage: Tl3GetItemImage;
    f_OnGetTotal: TNotifyEvent;
    f_OnGetNode: TmsmGetNodeEvent;
+   f_Model: ImsmDragAndDropModel;
   private
    function DoGetItemImageIndex(Sender: TObject;
     Index: LongInt): Integer;
@@ -43,11 +46,18 @@ type
   protected
    procedure Invalidate;
     {* Запрос на перерисовку. }
+   function DoDoDragOver(const aData: IDataObject;
+    const aPoint: TPoint): Boolean; override;
+   function DoGetAcceptableFormats: Tl3ClipboardFormats; override;
+   function DoDoDrop(aFormat: Tl3ClipboardFormat;
+    const aMedium: Tl3StoragePlace;
+    var dwEffect: Integer): Boolean; override;
    function pm_GetTotal: LongInt; override;
    procedure pm_SetTotal(aValue: LongInt); override;
    function GetDragAndDropSupported: Boolean; override;
    procedure TryDragAndDrop(aNodeIndex: Integer;
     aKey: Integer); override;
+   procedure ClearFields; override;
   public
    procedure CallDropDrawPoints;
    constructor Create(AOwner: TComponent); override;
@@ -61,6 +71,9 @@ type
    property OnGetNode: TmsmGetNodeEvent
     read f_OnGetNode
     write f_OnGetNode;
+   property Model: ImsmDragAndDropModel
+    read f_Model
+    write f_Model;
  //#UC START# *57B4564702F8publ*
   private
    f_MousePos: TPoint;
@@ -93,12 +106,13 @@ uses
  , Controls
  , Forms
  , ImgList
- , l3Interfaces
+ //, l3Interfaces
  , l3BitmapContainer
  //, l3TreeInterfaces
  , l3InternalInterfaces
  , l3Units
  , l3Base
+ , l3TreeConst
  , evNodeData
  //#UC END# *57B4564702F8impl_uses*
 ;
@@ -226,10 +240,62 @@ constructor TmsmListView.Create(AOwner: TComponent);
 begin
 //#UC START# *47D1602000C6_57B4564702F8_impl*
  inherited;
+ Self.BorderStyle := bsNone;
+ Self.BevelInner := bvNone;
+ Self.BevelOuter := bvNone;
+ Self.Ctl3D := false;
  Self.OnGetItemImageIndex := Self.DoGetItemImageIndex;
  Self.OnQuickSearchStrChanged := Self.QuickSearchHandler;
 //#UC END# *47D1602000C6_57B4564702F8_impl*
 end;//TmsmListView.Create
+
+function TmsmListView.DoDoDragOver(const aData: IDataObject;
+ const aPoint: TPoint): Boolean;
+//#UC START# *48BFA1300211_57B4564702F8_var*
+//#UC END# *48BFA1300211_57B4564702F8_var*
+begin
+//#UC START# *48BFA1300211_57B4564702F8_impl*
+ if (Model = nil) then
+  Result := false
+ else
+  Result := Model.DragOver(aData, aPoint);
+//#UC END# *48BFA1300211_57B4564702F8_impl*
+end;//TmsmListView.DoDoDragOver
+
+function TmsmListView.DoGetAcceptableFormats: Tl3ClipboardFormats;
+//#UC START# *48BFB42C002A_57B4564702F8_var*
+//#UC END# *48BFB42C002A_57B4564702F8_var*
+begin
+//#UC START# *48BFB42C002A_57B4564702F8_impl*
+ if (Model <> nil) then
+  Result := l3CatFormatArray(inherited DoGetAcceptableFormats,
+   [{CF_TreeNodes, }CF_TreeNode])
+ else
+  Result := inherited DoGetAcceptableFormats;
+//#UC END# *48BFB42C002A_57B4564702F8_impl*
+end;//TmsmListView.DoGetAcceptableFormats
+
+function TmsmListView.DoDoDrop(aFormat: Tl3ClipboardFormat;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
+//#UC START# *48BFB6D800B3_57B4564702F8_var*
+//#UC END# *48BFB6D800B3_57B4564702F8_var*
+begin
+//#UC START# *48BFB6D800B3_57B4564702F8_impl*
+ if (Model <> nil) then
+ begin
+  (*l_Pt.GetCursorPos;
+  l_Pt.Convert(ScreenToClient);*)
+  //Result := Model.Drop(aFormat, aMedium, dwEffect, l_Pt.Add(f_Origin));
+  Result := Model.Drop(aFormat, aMedium, dwEffect, l3SPoint(0, 0));
+  if Result then
+   if CanFocus then
+    SetFocus;
+ end//Model <> nil
+ else
+  Result := inherited DoDoDrop(aFormat, aMedium, dwEffect);
+//#UC END# *48BFB6D800B3_57B4564702F8_impl*
+end;//TmsmListView.DoDoDrop
 
 function TmsmListView.pm_GetTotal: LongInt;
 //#UC START# *514C89A601FE_57B4564702F8get_var*
@@ -398,6 +464,12 @@ begin
  end;//try..finally
 //#UC END# *5152C18C00BA_57B4564702F8_impl*
 end;//TmsmListView.TryDragAndDrop
+
+procedure TmsmListView.ClearFields;
+begin
+ Model := nil;
+ inherited;
+end;//TmsmListView.ClearFields
 
 //#UC START# *57B4564702F8impl*
 {$IfNDef DesignTimeLibrary}

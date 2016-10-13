@@ -405,6 +405,13 @@ begin
 
  Report('Table : ' + l_HTTable, True);
 
+ if (aKind in [da_ftAutolinkDocumentsLocal, da_ftAutolinkEditionsLocal, da_ftAutolinkDocumentsRemote, da_ftAutolinkEditionsRemote]) and
+   not FileExists(ChangeFileExt(l_HTTable, '.htb')) then
+ begin
+  Report('Autolinker table not exists - skipping');
+  Exit;
+ end;
+
  l_HTTableOut := ChangeFileExt(l_HTTable, '.txt');
 
  l_Table := TdtTable.CreateWithOpen(ExtractFilePath(l_HTTable), f_Helper.TablePassword(aKind), ExtractOnlyFileName(l_HTTable), TAB_SHARE);

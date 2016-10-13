@@ -79,7 +79,7 @@ begin
  f_Message := TcsMultiClearAttributes.Create;
  f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.FamilyID := aFamilyID;
- dtCopyValuesSabToList(aDocsToLock, f_Message.DocIDList);
+ dtCopyValuesSabToList(aDocsToLock, f_Message.DocumentIDList);
  f_Message.RightsNeeded := RightsNeeded;
  l_Helper := f_Message.Attributes;
  for l_IDX := Low(aSelected) to High(aSelected) do
@@ -108,7 +108,7 @@ function TarRemoteMultiClearAttributesHelper.HasRejectedDocs: Boolean;
 //#UC END# *57EA22B10150_57EBA2190344_var*
 begin
 //#UC START# *57EA22B10150_57EBA2190344_impl*
- Result := f_Reply.RejectedIDList.Count > 0;
+ Result := Assigned(f_Reply) and (f_Reply.RejectedIDList.Count > 0);
 //#UC END# *57EA22B10150_57EBA2190344_impl*
 end;//TarRemoteMultiClearAttributesHelper.HasRejectedDocs
 
