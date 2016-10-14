@@ -42,8 +42,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_54646EB103D5
 %%Inner ME_53DB62E10109
 %%Inner ME_57BEADEE00FC
-%%Inner ME_57DA8247013D
-%%Inner ME_57DA82680196
 %%Inner ME_53E0CA970184
 %%Inner ME_57DB9ED80225
 %%Inner ME_57EB9A4601EC
@@ -2787,53 +2785,6 @@ ME ME_57BEADEE00FC
 
 ENDME // ME_57BEADEE00FC TFoundSelectorHelper
 
-%%ImplementedBy ME_48495E29035B ME_57DA8247013D
-
-%%InheritedBy ME_53BD2DEA02B3 ME_57DA8247013D
-
-ME ME_57DA8247013D
- MEPROP UID '57DA8247013D'
- MEPROP Name 'DocIDListHelper'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BD13B4023B // evdTasksHelpers
- ;
- MELIST Inherits
-   Seq: ( HWL ME_53BD2DEA02B3 // DocumentIDListHelper
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_48495E29035B' '484A470100DD.ms.model.script' // Address
- )
- ; // Implements
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_57DA8247013D DocIDListHelper
-
-%%InheritedBy ME_53BD13DC0048 ME_57DA82680196
-
-ME ME_57DA82680196
- MEPROP UID '57DA82680196'
- MEPROP Name 'TDocIDListHelper'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BD13B4023B // evdTasksHelpers
- ;
- MELIST Inherits
-   Seq: ( HWL ME_53BD13DC0048 // TDocumentIDListHelper
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'DocIDListHelper'
-
-ENDME // ME_57DA82680196 TDocIDListHelper
-
 %%InheritedBy ME_53BD13DC0048 ME_53E0CA970184
 
 ME ME_53E0CA970184
@@ -3011,7 +2962,7 @@ ME ME_53BD13B4023B
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
  ;
  MELIST Children
    Seq: ( HWL ME_53DA2F9A03A3 // MIntegerListTransformator
@@ -3054,8 +3005,6 @@ ME ME_53BD13B4023B
  HWL ME_54646EB103D5 // TTasksIDListHelper
  HWL ME_53DB62E10109 // TAccGroupsIDListHelper
  HWL ME_57BEADEE00FC // TFoundSelectorHelper
- HWL ME_57DA8247013D // DocIDListHelper
- HWL ME_57DA82680196 // TDocIDListHelper
  HWL ME_53E0CA970184 // TImportedDocListHelper
  HWL ME_57DB9ED80225 // TRejectedIDListHelper
  HWL ME_57EB9A4601EC // AttributesHelper

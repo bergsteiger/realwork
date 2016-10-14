@@ -84,7 +84,7 @@ ME ME_49192D0702C5
  MELINK Parent HWL ME_481DB8210016 // Document
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B9AF6E0228' '47B9AF6E0228.ms.model.script' // l3InterfaceRefListPrim
+   Seq: ( WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -123,7 +123,7 @@ ME ME_4919361700A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49180FCE035B // TnevSectionBreakList
  ;
- MELINK Target WL 'ME_480CA9AD0198' '480CA9AD0198.ms.model.script' // evSectionPara
+ MELINK Target WL? 'ME_480CA9AD0198' // evSectionPara
  ;
 
 ENDME // ME_4919361700A2 
@@ -222,7 +222,7 @@ ME ME_5329C2B80259
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53270D0E02E4 // TnevDocumentContainerPrimPrim
  ;
- MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_5329C2B80259 
@@ -298,7 +298,7 @@ ME ME_4A8D51A6038B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A69D7830067 // TnevDocumentContainerPrim
  ;
- MELINK Target WL 'ME_480DBA760390' '480DBA760390.ms.model.script' // k2Facade
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
  ;
 
 ENDME // ME_4A8D51A6038B 
@@ -778,7 +778,7 @@ ME ME_48185FA90140
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48185C4002DC // TnevObjectHolderPrim
  ;
- MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_48185FA90140 
@@ -962,14 +962,14 @@ ME ME_48185C4002DC
  MELINK Parent HWL ME_481DB8210016 // Document
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F07B3E02E4' '47F07B3E02E4.ms.model.script' // l3Notifier
- WL 'ME_480DA68701CE' '480DA68701CE.ms.model.script' // evStyleTableListener
+   Seq: ( WL? 'ME_47F07B3E02E4' // l3Notifier
+ WL? 'ME_480DA68701CE' // evStyleTableListener
  HWL ME_4A69D7830067 // TnevDocumentContainerPrim
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
- WL 'ME_4F33E5FD009E' '4F33E5FD009E.ms.model.script' // nevDocumentContainerDecorationRules
+ WL? 'ME_4F33E5FD009E' // nevDocumentContainerDecorationRules
  )
  ; // Implements
  MELIST Attributes
@@ -1193,7 +1193,7 @@ ME ME_481DB8210016
  %SUMMARY 'На самом деле это не Document, а работа с ObjectHolder''ами. Которые вообще наверное можно выделить куда-то из библиотеки Everest' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ MELINK Parent WL? 'ME_4797632D0273' // Everest
  ;
  MELIST Children
    Seq: ( HWL ME_49192D0702C5 // TnevSectionBreakListPrim
@@ -1205,28 +1205,28 @@ ME ME_481DB8210016
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
- WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
- WL 'ME_467FC43F01F9' '467FC43F01F9.ms.model.script' // k2CoreObjects
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
- WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
- WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
- WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
- WL 'ME_480DBA6900E6' '480DBA6900E6.ms.model.script' // k2Facade
- WL 'ME_48185390010A' '48185390010A.ms.model.script' // Rendering
- WL 'ME_4849284D0067' '4849284D0067.ms.model.script' // Standard
- WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
- WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
- WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4F4B48E5029E' '4F4B48E5029E.ms.model.script' // Aspects
- WL 'ME_52669BFC024E' '52669BFC024E.ms.model.script' // CoreTypes
- WL 'ME_5326D70401F3' '5326D70401F3.ms.model.script' // l3Variants
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4678137501EA' // k2Interfaces
+ WL? 'ME_4678209200A6' // nevBase
+ WL? 'ME_467FC43F01F9' // k2CoreObjects
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_47BB24D30205' // Стандартные примеси
+ WL? 'ME_47C5207602D1' // nevTools
+ WL? 'ME_47C52679006D' // nevUtils
+ WL? 'ME_47ECB2870309' // StyleTable
+ WL? 'ME_480DBA6900E6' // k2Facade
+ WL? 'ME_48185390010A' // Rendering
+ WL? 'ME_4849284D0067' // Standard
+ WL? 'ME_48492FC0029D' // Standard
+ WL? 'ME_484A470100DD' // Standard
+ WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4F4B48E5029E' // Aspects
+ WL? 'ME_52669BFC024E' // CoreTypes
+ WL? 'ME_5326D70401F3' // l3Variants
+ WL? 'ME_54B90AC6014B' // StringUtils
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

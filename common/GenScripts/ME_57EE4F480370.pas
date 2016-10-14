@@ -14,6 +14,8 @@ uses
  , csReply_Const
  , k2Bool_Const
  , k2String_Const
+ , DocIDWithComment_Const
+ , k2Long_Const
 ;
 
  // csMultiOperationReplyTag
