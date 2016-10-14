@@ -467,18 +467,31 @@ ENDME // ME_57E3CB0F00A9 CloseUp
 
 FORWARD ME_57E53C6D0303
 
-ME ME_E96D07BF6F65
- MEPROP UID 'E96D07BF6F65'
+FORWARD ME_57F6449C03A2
+
+ME ME_57F644AB0359
+ MEPROP Name 'aNCArea'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57F644AB0359 aNCArea
+
+ME ME_57F6449C03A2
+ MEPROP UID '57F6449C03A2'
  MEPROP Name 'DoIt'
- UP IsSummoned true
  MEPROP Class class_Operation
- %SUMMARY 'Сигнатура метода Paint' ;
- MEPROP Visibility PublicAccess
+ MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57E53C6D0303 // Paint
  ;
+ MELIST Parameters
+   Seq: ( ME_57F644AB0359 // aNCArea
+ )
+ ; // Parameters
 
-ENDME // ME_E96D07BF6F65 DoIt
+ENDME // ME_57F6449C03A2 DoIt
 
 ME ME_57E53C6D0303
  MEPROP UID '57E53C6D0303'
@@ -491,7 +504,7 @@ ME ME_57E53C6D0303
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
  ;
  MELIST Operations
-   Seq: ( HWL ME_E96D07BF6F65 // DoIt
+   Seq: ( HWL ME_57F6449C03A2 // DoIt
  )
  ; // Operations
 
@@ -650,6 +663,96 @@ ME ME_57EE6CDD00B2
  ; // Operations
 
 ENDME // ME_57EE6CDD00B2 FinishResize
+
+FORWARD ME_57F62D6B0111
+
+FORWARD ME_57F62D7B03B2
+
+ME ME_57F62D8103BC
+ MEPROP Name 'aDC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A46A35004F' '48A41FF10094.ms.model.script' // hDC
+ ;
+
+ENDME // ME_57F62D8103BC aDC
+
+ME ME_57F62D7B03B2
+ MEPROP UID '57F62D7B03B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F62D6B0111 // NCPaint
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F62D8103BC // aDC
+ )
+ ; // Parameters
+
+ENDME // ME_57F62D7B03B2 DoIt
+
+ME ME_57F62D6B0111
+ MEPROP UID '57F62D6B0111'
+ MEPROP Name 'NCPaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F62D7B03B2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F62D6B0111 NCPaint
+
+FORWARD ME_57F7B58F0176
+
+FORWARD ME_57F7B599023D
+
+ME ME_57F7B8E1002B
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
+ ;
+
+ENDME // ME_57F7B8E1002B Msg
+
+ME ME_57F7B599023D
+ MEPROP UID '57F7B599023D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F7B58F0176 // HitTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F7B8E1002B // Msg
+ )
+ ; // Parameters
+
+ENDME // ME_57F7B599023D DoIt
+
+ME ME_57F7B58F0176
+ MEPROP UID '57F7B58F0176'
+ MEPROP Name 'HitTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F7B599023D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F7B58F0176 HitTest
 
 FORWARD ME_57E25F5E0233
 
@@ -952,14 +1055,14 @@ ME ME_57E125C801C4
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_57E1256601B2' '57E1256601B2.ms.model.script' // DropDown
+ MELINK Parent WL? 'ME_57E1256601B2' // DropDown
  ;
  MELIST Inherits
    Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+   Seq: ( WL? 'ME_47913F970159' // l3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -986,6 +1089,8 @@ ME ME_57E125C801C4
  HWL ME_57ED30620029 // BeginResize
  HWL ME_57EE6C32020D // ProcessResize
  HWL ME_57EE6CDD00B2 // FinishResize
+ HWL ME_57F62D6B0111 // NCPaint
+ HWL ME_57F7B58F0176 // HitTest
  HWL ME_57E25F5E0233 // WMNCCalcSize
  HWL ME_57E55FCD0311 // WMNCPaint
  HWL ME_57E8C60B0281 // WMNCHitTest
