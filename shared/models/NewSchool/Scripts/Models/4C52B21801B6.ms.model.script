@@ -9,7 +9,7 @@ ME ME_4C52B30B00BA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C52B21801B6 // PrimStyleEditorContainerOptions
  ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
  ;
 
 ENDME // ME_4C52B30B00BA 
@@ -124,6 +124,12 @@ ME ME_4C762AB601E1_ME_4C52B21801B6
  UP "ShowInToolbar" True
 ENDME // ME_4C762AB601E1_ME_4C52B21801B6 Cancel
 
+%%ImplementedBy ME_4A8AD409003A ME_4C52B21801B6
+%%ImplementedBy ME_4A97EBC80201 ME_4C52B21801B6
+%%ImplementedBy ME_4C52B3310159 ME_4C52B21801B6
+
+%%InheritedBy ME_4AC6402401E4 ME_4C52B21801B6
+
 ME ME_4C52B21801B6
  MEPROP UID '4C52B21801B6'
  MEPROP Name 'PrimStyleEditorContainerOptions'
@@ -134,10 +140,10 @@ ME ME_4C52B21801B6
  %SUMMARY 'Редактор стилей' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ MELINK Parent WL? 'ME_4AA79F630309' // Settings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AC6402401E4' '4AC6402401E4.ms.model.script' // PrimStyleEditorContainer
+   Seq: ( WL? 'ME_4AC6402401E4' // PrimStyleEditorContainer
  )
  ; // Inherits
  MELIST Implements
@@ -161,6 +167,9 @@ ME ME_4C52B21801B6
  ME_526A57CE013A // Result$Ok
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

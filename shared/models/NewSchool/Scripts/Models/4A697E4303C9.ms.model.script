@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%ImplementedBy ME_49EC560D03E0 ME_4A697E4303C9
+
+%%InheritedBy ME_4A6971B802A6 ME_4A697E4303C9
+
 ME ME_4A697E4303C9
  MEPROP UID '4A697E4303C9'
  MEPROP Name 'Chat'
@@ -13,16 +17,19 @@ ME ME_4A697E4303C9
  %SUMMARY 'Чат' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A66B8720216' '4A66B8720216.ms.model.script' // Chat
+ MELINK Parent WL? 'ME_4A66B8720216' // Chat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+   Seq: ( WL? 'ME_4A6971B802A6' // BaseChat
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_49EC560D03E0' '484F80CF0274.ms.model.script' // Совещание онлайн
  )
  ; // Implements
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'Admin,Monitorings'
  UP extprop:pas:TypeName 'Tmo_Chat'
  UP extprop:pas:UnitName 'moChat'

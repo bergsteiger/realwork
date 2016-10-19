@@ -1,0 +1,118 @@
+// nsSettingsUtils 4AD5BB450335 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD5BB450335
+
+FORWARD ME_4E32B50601F3
+
+ME ME_4E32B5130231
+ MEPROP UID '4E32B5130231'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ ;
+
+ENDME // ME_4E32B5130231 DoIt
+
+ME ME_4E32B50601F3
+ MEPROP UID '4E32B50601F3'
+ MEPROP Name 'InitialLoadStyleTableFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E32B5130231 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E32B50601F3 InitialLoadStyleTableFromSettings
+
+ME ME_4AD5BB7002A2
+ MEPROP UID '4AD5BB7002A2'
+ MEPROP Name 'LoadStyleTableFromSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+
+ENDME // ME_4AD5BB7002A2 LoadStyleTableFromSettings
+
+ME ME_4AD5BB7F00E5
+ MEPROP UID '4AD5BB7F00E5'
+ MEPROP Name 'SaveStyleTableToSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+
+ENDME // ME_4AD5BB7F00E5 SaveStyleTableToSettings
+
+ME ME_4AD5BC670387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target WL 'ME_4991656C024F' '499164F501ED.ms.model.script' // InsEditSettingsInfo
+ ;
+
+ENDME // ME_4AD5BC670387 
+
+ME ME_4AD5BECA02D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target WL 'ME_4ABA139D014D' '4ABA13880316.ms.model.script' // TnsStyleTableSettingsInfo
+ ;
+
+ENDME // ME_4AD5BECA02D1 
+
+ME ME_4E32B4A20220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target WL 'ME_4E31743D01F8' '47ECB2870309.ms.model.script' // TevDefaultStylesFontSizes
+ ;
+
+ENDME // ME_4E32B4A20220 
+
+ME ME_4AD5BB450335
+ MEPROP UID '4AD5BB450335'
+ MEPROP Name 'nsSettingsUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F7D8B3A03A0' // SettingsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ HWL ME_4AD5BB7002A2 // LoadStyleTableFromSettings
+ HWL ME_4AD5BB7F00E5 // SaveStyleTableToSettings
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AD5BC670387 // InsEditSettingsInfo
+ ME_4AD5BECA02D1 // TnsStyleTableSettingsInfo
+ ME_4E32B4A20220 // TevDefaultStylesFontSizes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'SettingsUtils'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsSettingsUtils.pas'
+
+ENDME // ME_4AD5BB450335 nsSettingsUtils

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A97FFE30274
+%%Inner ME_4AFAEBDF039C
+
 FORWARD ME_4A97FFC40154
 
 FORWARD ME_4A97FFE30274
@@ -174,6 +177,9 @@ ME ME_4C765D0002E2
  HWL ME_4C766B5E0089 // FolderSave
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -256,6 +262,9 @@ ME ME_4C7672F903BF
  HWL ME_4C7673360193 // Query
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -305,6 +314,9 @@ ME ME_4AFAEBDF039C
  HWL ME_4AFAEBEA0018 // Cancel
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AFAEBDF039C ResultExt
 
@@ -317,7 +329,7 @@ ME ME_4A97FFC40154
  %SUMMARY 'Результат диалога' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A69C1290139' '4A69C1290139.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A69C1290139' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4A97FFE30274 // Result
@@ -325,9 +337,12 @@ ME ME_4A97FFC40154
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'Folders_Result_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders_Result_Controls.pas'

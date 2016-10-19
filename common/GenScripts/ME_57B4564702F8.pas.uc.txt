@@ -15,19 +15,35 @@
 //#UC START# *47D1602000C6_57B4564702F8_var*
 //#UC END# *47D1602000C6_57B4564702F8_var*
 //#UC START# *48BFA1300211_57B4564702F8_impl*
- Result := true;
+ if (Model = nil) then
+  Result := false
+ else
+  Result := Model.DragOver(aData, aPoint);
 //#UC END# *48BFA1300211_57B4564702F8_impl*
 //#UC START# *48BFA1300211_57B4564702F8_var*
 //#UC END# *48BFA1300211_57B4564702F8_var*
 //#UC START# *48BFB42C002A_57B4564702F8_impl*
- Result := l3CatFormatArray(inherited DoGetAcceptableFormats,
-  [{CF_TreeNodes, }CF_TreeNode]);
- //Result := inherited DoGetAcceptableFormats;
+ if (Model <> nil) then
+  Result := l3CatFormatArray(inherited DoGetAcceptableFormats,
+   [{CF_TreeNodes, }CF_TreeNode])
+ else
+  Result := inherited DoGetAcceptableFormats;
 //#UC END# *48BFB42C002A_57B4564702F8_impl*
 //#UC START# *48BFB42C002A_57B4564702F8_var*
 //#UC END# *48BFB42C002A_57B4564702F8_var*
 //#UC START# *48BFB6D800B3_57B4564702F8_impl*
- Result := inherited DoDoDrop(aFormat, aMedium, dwEffect);
+ if (Model <> nil) then
+ begin
+  (*l_Pt.GetCursorPos;
+  l_Pt.Convert(ScreenToClient);*)
+  //Result := Model.Drop(aFormat, aMedium, dwEffect, l_Pt.Add(f_Origin));
+  Result := Model.Drop(aFormat, aMedium, dwEffect, l3SPoint(0, 0));
+  if Result then
+   if CanFocus then
+    SetFocus;
+ end//Model <> nil
+ else
+  Result := inherited DoDoDrop(aFormat, aMedium, dwEffect);
 //#UC END# *48BFB6D800B3_57B4564702F8_impl*
 //#UC START# *48BFB6D800B3_57B4564702F8_var*
 //#UC END# *48BFB6D800B3_57B4564702F8_var*

@@ -118,6 +118,10 @@ ME ME_4ED8CF5700E7_ME_4ED8D48C0329
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_4ED8CF5700E7_ME_4ED8D48C0329 OpenRedactionListFrmAct
 
+%%ImplementedBy ME_4A8EF4AD0348 ME_4ED8D48C0329
+%%ImplementedBy ME_4ED8FE60030D ME_4ED8D48C0329
+%%ImplementedBy ME_4EDCC613037B ME_4ED8D48C0329
+
 ME ME_4ED8D48C0329
  MEPROP UID '4ED8D48C0329'
  MEPROP Name 'EditionsListCaller'
@@ -128,7 +132,7 @@ ME ME_4ED8D48C0329
  %SUMMARY 'Форма вызывающая список редакций' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4EDCC335011E' '4EDCC335011E.ms.model.script' // Editions$Forms
+ MELINK Parent WL? 'ME_4EDCC335011E' // Editions$Forms
  ;
  MELIST Implements
    Seq: ( WL 'ME_4A8EF4AD0348' '4AEEE2A40281.ms.model.script' // Redactions
@@ -153,6 +157,9 @@ ME ME_4ED8D48C0329
    Seq: ( ME_57A0AC1D0131 // TDocumentService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

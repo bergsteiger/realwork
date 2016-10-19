@@ -1,0 +1,67 @@
+// MainMenuProcessingWordsPack 571E23FB01C3 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DAF1471030D
+
+FORWARD ME_571E23FB01C3
+
+ME ME_4DAF1471030D
+ MEPROP UID '4DAF1471030D'
+ MEPROP Name 'MainMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571E23FB01C3 // MainMenuProcessingWordsPack
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'ОсновноеМеню'
+ UP "no hands" True
+ UP "started" '20.04.2011 21:14'
+ UP extprop:pas:TypeName 'TkwMainMenu'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenu'
+
+ENDME // ME_4DAF1471030D MainMenu
+
+ME ME_571E2409028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571E23FB01C3 // MainMenuProcessingWordsPack
+ ;
+ MELINK Target WL? 'ME_4AA7A1F80027' // MainMenu$FP
+ ;
+
+ENDME // ME_571E2409028C 
+
+%%InjectedBy ME_4AA7A1F80027 ME_571E23FB01C3
+
+ME ME_571E23FB01C3
+ MEPROP UID '571E23FB01C3'
+ MEPROP Name 'MainMenuProcessingWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4958DD470101' // MainMenu
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DAF1471030D // MainMenu
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571E2409028C // MainMenu$FP
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuProcessingWordsPack.pas'
+
+ENDME // ME_571E23FB01C3 MainMenuProcessingWordsPack

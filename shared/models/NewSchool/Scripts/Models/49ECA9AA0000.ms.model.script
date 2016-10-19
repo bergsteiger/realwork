@@ -24,7 +24,7 @@ ME ME_49EDE54203D9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49ECA9AA0000 // TdsInternetAgent
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_49EDE54203D9 
@@ -36,6 +36,10 @@ ME ME_49EDE45A02EB_ME_49ECA9AA0000
  UP "pm" False
 ENDME // ME_49EDE45A02EB_ME_49ECA9AA0000 URL
 
+%%ImplementedBy ME_49EC6E080148 ME_49ECA9AA0000
+
+%%InheritedBy ME_492ACB4100B2 ME_49ECA9AA0000
+
 ME ME_49ECA9AA0000
  MEPROP UID '49ECA9AA0000'
  MEPROP Name 'TdsInternetAgent'
@@ -46,10 +50,10 @@ ME ME_49ECA9AA0000
  %SUMMARY 'Реализация области вывода Интернет-агента' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_49EC6DB703E5' '49EC6DB703E5.ms.model.script' // InternetAgent
+ MELINK Parent WL? 'ME_49EC6DB703E5' // InternetAgent
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+   Seq: ( WL? 'ME_492ACB4100B2' // vcmFormDataSource
  )
  ; // Inherits
  MELIST Implements
@@ -68,6 +72,9 @@ ME ME_49ECA9AA0000
    Seq: ( ME_49EDE54203D9 // l3String
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'dsInternetAgent'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'dsInternetAgent'

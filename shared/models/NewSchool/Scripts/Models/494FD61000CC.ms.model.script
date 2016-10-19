@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_494FD63D011D
+%%Inner ME_49EC752D0122
+%%Inner ME_4AFB01B0002C
+
 FORWARD ME_494FD61000CC
 
 FORWARD ME_494FD63D011D
@@ -57,6 +61,9 @@ ME ME_4C7CDF1B0192
  HWL ME_4C7CDF3B00BA // MultiUsers
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -122,6 +129,9 @@ ME ME_4C7CDF570361
  HWL ME_4C7CDFA20226 // Disabled
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -187,6 +197,9 @@ ME ME_4C7CDFE10330
  HWL ME_4C7CE0100153 // Disabled
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -250,6 +263,9 @@ ME ME_4C7CE03100BF
  HWL ME_4C7CE05201E7 // SingleUser
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -313,6 +329,9 @@ ME ME_4C7CE0710199
  HWL ME_4C7CE08B003A // SingleUser
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -390,6 +409,8 @@ ME ME_4C7CEDC20353
  UP "ShowInToolbar" 'undefined'
 
 ENDME // ME_4C7CEDC20353 EnableConsulting
+
+%%ImplementedBy ME_4E8079840038 ME_4E807746035F
 
 ME ME_4E807746035F
  MEPROP UID '4E807746035F'
@@ -487,6 +508,9 @@ ME ME_494FD63D011D
  HWL ME_494FD65902BF // Add
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_494FD63D011D Users
 
@@ -610,6 +634,9 @@ ME ME_4C7BB8DD0057
    Seq: ( HWL ME_4C7BB8EE00D0 // Create
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -657,6 +684,9 @@ ME ME_4AFB01B0002C
  HWL ME_4AFB01B903B0 // Save
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AFB01B0002C Result
 
@@ -669,7 +699,7 @@ ME ME_494FD61000CC
  %SUMMARY 'Операции для работ с учётными записями пользователей' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4954D3CD0185' '4954D3CD0185.ms.model.script' // View
+ MELINK Parent WL? 'ME_4954D3CD0185' // View
  ;
  MELIST Children
    Seq: ( HWL ME_494FD63D011D // Users
@@ -678,10 +708,13 @@ ME ME_494FD61000CC
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_481F0CA6017E' '481F0CA6017E.ms.model.script' // Интерфейс Администратора
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_481F0CA6017E' // Интерфейс Администратора
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "is namespace" True
  UP "no hands" True

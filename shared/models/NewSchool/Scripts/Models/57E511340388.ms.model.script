@@ -1,0 +1,89 @@
+// msmWordsIndexPack 57E511340388 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E511340388
+
+FORWARD ME_57E511610278
+
+ME ME_57E511750289
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57E511750289 aWord
+
+ME ME_57E5117502D9
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E5117502D9 aName
+
+ME ME_57E511610278
+ MEPROP UID '57E511610278'
+ MEPROP Name 'msm_AddWordToIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E511340388 // msmWordsIndexPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E511750289 // aWord
+ ME_57E5117502D9 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57E511610278 msm_AddWordToIndex
+
+ME ME_57E5114F0097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E511340388 // msmWordsIndexPack
+ ;
+ MELINK Target WL 'ME_57E50B7A0140' '57B2D67D038F.ms.model.script' // TmsmWordsByUserNameIndex
+ ;
+
+ENDME // ME_57E5114F0097 
+
+ME ME_57E5115500A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57E511340388 // msmWordsIndexPack
+ ;
+ MELINK Target WL 'ME_57E50B7A0140' '57B2D67D038F.ms.model.script' // TmsmWordsByUserNameIndex
+ ;
+
+ENDME // ME_57E5115500A8 
+
+%%InjectedBy ME_57E50B7A0140 ME_57E511340388
+
+ME ME_57E511340388
+ MEPROP UID '57E511340388'
+ MEPROP Name 'msmWordsIndexPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E511610278 // msm_AddWordToIndex
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57E5114F0097 // TmsmWordsByUserNameIndex
+ ME_57E5115500A8 // TmsmWordsByUserNameIndex
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWordsIndexPack.pas'
+
+ENDME // ME_57E511340388 msmWordsIndexPack

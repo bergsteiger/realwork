@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B20DEB600D5
+
 FORWARD ME_4B20DE9B0154
 
 FORWARD ME_4B20DEB600D5
@@ -65,6 +67,9 @@ ME ME_4B20DEB600D5
  HWL ME_4C46EB11016B // CopyToNewList
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4B20DEB600D5 Selection
 
@@ -76,16 +81,19 @@ ME ME_4B20DE9B0154
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9BEFA00301' '4A9BEFA00301.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A9BEFA00301' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4B20DEB600D5 // Selection
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'WorkWithList_StatusBar_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_StatusBar_Controls.pas'

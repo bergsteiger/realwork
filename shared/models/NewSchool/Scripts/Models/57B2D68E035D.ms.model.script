@@ -1,0 +1,289 @@
+// msmWordsCachePack 57B2D68E035D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B2D68E035D
+
+FORWARD ME_57B2D71E02B8
+
+ME ME_57B2D732039E
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57B2D732039E aName
+
+ME ME_57B2D71E02B8
+ MEPROP UID '57B2D71E02B8'
+ MEPROP Name 'msm_WordFromCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B2D732039E // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57B2D71E02B8 msm_WordFromCache
+
+FORWARD ME_57B2D7420034
+
+ME ME_57B2D768005F
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57B2D768005F aWord
+
+ME ME_57B2D7680082
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57B2D7680082 aName
+
+ME ME_57B2D7420034
+ MEPROP UID '57B2D7420034'
+ MEPROP Name 'msm_WordToCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B2D768005F // aWord
+ ME_57B2D7680082 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57B2D7420034 msm_WordToCache
+
+FORWARD ME_57B2DFE201B1
+
+ME ME_57B2E058005C
+ MEPROP Name 'aLambda'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57B2E058005C aLambda
+
+ME ME_57B2E0580098
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55C0A4F9013F' '4DAF19F600C5.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57B2E0580098 aDefault
+
+ME ME_57B2E05800C5
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57B2E05800C5 aKey
+
+ME ME_57B2E05800EF
+ MEPROP Name 'aCacheWhere'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55C0A4F9013F' '4DAF19F600C5.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57B2E05800EF aCacheWhere
+
+ME ME_57B2DFE201B1
+ MEPROP UID '57B2DFE201B1'
+ MEPROP Name 'msm_DoCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B2E058005C // aLambda
+ ME_57B2E0580098 // aDefault
+ ME_57B2E05800C5 // aKey
+ ME_57B2E05800EF // aCacheWhere
+ )
+ ; // Parameters
+
+ENDME // ME_57B2DFE201B1 msm_DoCache
+
+FORWARD ME_57F67D3000FE
+
+ME ME_57F67D4400AF
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57F67D4400AF aWord
+
+ME ME_57F67D3000FE
+ MEPROP UID '57F67D3000FE'
+ MEPROP Name 'msm_DeleteWordCachedValues'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F67D4400AF // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57F67D3000FE msm_DeleteWordCachedValues
+
+ME ME_57FC1BA5030E
+ MEPROP UID '57FC1BA5030E'
+ MEPROP Name 'msm_ClearCachedValues'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+
+ENDME // ME_57FC1BA5030E msm_ClearCachedValues
+
+FORWARD ME_57FF6B330005
+
+ME ME_57FF6B450284
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57FF6B450284 aWord
+
+ME ME_57FF7447006D
+ MEPROP Name 'aListName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57FF7447006D aListName
+
+ME ME_57FF6B330005
+ MEPROP UID '57FF6B330005'
+ MEPROP Name 'msm_RegetViewedLists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FF6B450284 // aWord
+ ME_57FF7447006D // aListName
+ )
+ ; // Parameters
+
+ENDME // ME_57FF6B330005 msm_RegetViewedLists
+
+ME ME_57B2D6AF0088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57A9D663008F' '57AB4243034B.ms.model.script' // TmsmScriptCaller
+ ;
+
+ENDME // ME_57B2D6AF0088 
+
+ME ME_57B2D8DD0075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57B2D8C90390' '57B2D67D038F.ms.model.script' // TmsmWordsCache
+ ;
+
+ENDME // ME_57B2D8DD0075 
+
+ME ME_57BAD6FA0176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57B2E6B90102' '57AB4243034B.ms.model.script' // TmsmModelElementMethodValueCache
+ ;
+
+ENDME // ME_57BAD6FA0176 
+
+ME ME_57F642D200A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57F642A60339' '57B2D67D038F.ms.model.script' // TmsmLostWords
+ ;
+
+ENDME // ME_57F642D200A0 
+
+ME ME_57FE4DC50106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57FE4DA6014A' '57AB4243034B.ms.model.script' // TmsmElementListsService
+ ;
+
+ENDME // ME_57FE4DC50106 
+
+%%InjectedBy ME_57A9D663008F ME_57B2D68E035D
+
+ME ME_57B2D68E035D
+ MEPROP UID '57B2D68E035D'
+ MEPROP Name 'msmWordsCachePack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B2D71E02B8 // msm_WordFromCache
+ HWL ME_57B2D7420034 // msm_WordToCache
+ HWL ME_57B2DFE201B1 // msm_DoCache
+ HWL ME_57F67D3000FE // msm_DeleteWordCachedValues
+ HWL ME_57FC1BA5030E // msm_ClearCachedValues
+ HWL ME_57FF6B330005 // msm_RegetViewedLists
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57B2D6AF0088 // TmsmScriptCaller
+ ME_57B2D8DD0075 // TmsmWordsCache
+ ME_57BAD6FA0176 // TmsmModelElementMethodValueCache
+ ME_57F642D200A0 // TmsmLostWords
+ ME_57FE4DC50106 // TmsmElementListsService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWordsCachePack.pas'
+
+ENDME // ME_57B2D68E035D msmWordsCachePack

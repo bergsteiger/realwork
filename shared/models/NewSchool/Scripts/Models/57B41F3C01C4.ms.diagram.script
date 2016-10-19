@@ -6,7 +6,7 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
 
  MEDIAGRAM ME_57B41F3C01C4_main
   MEPROP Name 'main'
-  MELINK Original WL 'ME_57B41F3C01C4' '57B41F3C01C4.ms.model.script' ; // ViewParents
+  MELINK Original WL? 'ME_57B41F3C01C4' ; // ViewParents
 
   MEVIEW ME_57B420A601C7_view
    MELINK Original WL 'ME_57B420A601C7' '57B41F3C01C4.ms.model.script' ; // TmsmViewList
@@ -50,6 +50,18 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57B3468D0000_view
 
+  MEVIEW ME_57EA4EE80184_view
+   MELINK Original WL 'ME_57EA4EE80184' '57B41F3C01C4.ms.model.script' ; // TmsmMultiPanelViewParentHorz
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EA4EE80184_view
+
+  MEVIEW ME_57EA4EF3035E_view
+   MELINK Original WL 'ME_57EA4EF3035E' '57B41F3C01C4.ms.model.script' ; // TmsmMultiPanelViewParentVert
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EA4EF3035E_view
+
   MEVIEWLINK ME_57B435880088_ME_57DAB7CC02AF_Inherits
    MELINK From ME_57B435880088_view ;
    MELINK To ME_57DAB7CC02AF_view ;
@@ -86,6 +98,18 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
    MELINK To ME_57B420A601C7_view ;
   ENDMEVIEWLINK // ME_57B4215E00ED_viewlink
 
+  MEVIEWLINK ME_57EA4EE80184_ME_57B3468D0000_Inherits
+   MELINK From ME_57EA4EE80184_view ;
+   MELINK To ME_57B3468D0000_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57EA4EE80184_ME_57B3468D0000_Inherits
+
+  MEVIEWLINK ME_57EA4EF3035E_ME_57B3468D0000_Inherits
+   MELINK From ME_57EA4EF3035E_view ;
+   MELINK To ME_57B3468D0000_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57EA4EF3035E_ME_57B3468D0000_Inherits
+
   MELIST Views
    Seq: ( ME_57B420A601C7_view // TmsmViewList
    ME_57B420C602B2_view // TmsmViewParentControlList
@@ -94,12 +118,16 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
    ME_57B4802B0112_view // TmsmTabbedViewParent
    ME_57DAA6FB0365_view // TmsmTabCaptionController
    ME_57B3468D0000_view // TmsmMultiPanelViewParent
+   ME_57EA4EE80184_view // TmsmMultiPanelViewParentHorz
+   ME_57EA4EF3035E_view // TmsmMultiPanelViewParentVert
    ME_57B435880088_ME_57DAB7CC02AF_Inherits // TmsmSingleViewParent -> TmsmViewParentPrim
    ME_57B4802B0112_ME_57DAB7CC02AF_Inherits // TmsmTabbedViewParent -> TmsmViewParentPrim
    ME_57DAA7130225_viewlink // TmsmTabbedViewParent -> TmsmTabCaptionController
    ME_57B3468D0000_ME_57DAB7CC02AF_Inherits // TmsmMultiPanelViewParent -> TmsmViewParentPrim
    ME_57B4214F03AE_viewlink // TmsmMultiPanelViewParent -> TmsmViewParentControlList
    ME_57B4215E00ED_viewlink // TmsmMultiPanelViewParent -> TmsmViewList
+   ME_57EA4EE80184_ME_57B3468D0000_Inherits // TmsmMultiPanelViewParentHorz -> TmsmMultiPanelViewParent
+   ME_57EA4EF3035E_ME_57B3468D0000_Inherits // TmsmMultiPanelViewParentVert -> TmsmMultiPanelViewParent
    )
   ; // Views
  ENDMEDIAGRAM // ME_57B41F3C01C4_main

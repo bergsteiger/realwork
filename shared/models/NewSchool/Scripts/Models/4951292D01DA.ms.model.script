@@ -1,0 +1,69 @@
+// nsTrialSupport 4951292D01DA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4951292D01DA
+
+FORWARD ME_495260290250
+
+ME ME_4952602D0225
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_4952602D0225 aParams
+
+ME ME_495260290250
+ MEPROP UID '495260290250'
+ MEPROP Name 'nsDisableOperationInTrialMode'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4951292D01DA // nsTrialSupport
+ ;
+ MELIST Parameters
+   Seq: ( ME_4952602D0225 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_495260290250 nsDisableOperationInTrialMode
+
+ME ME_49526055015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4951292D01DA // nsTrialSupport
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_49526055015E 
+
+ME ME_4951292D01DA
+ MEPROP UID '4951292D01DA'
+ MEPROP Name 'nsTrialSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4ABB68530117' // Printing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_495260290250 // nsDisableOperationInTrialMode
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49526055015E // DataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:rc:SelfName 'TrialSupport'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsTrialSupport.pas'
+
+ENDME // ME_4951292D01DA nsTrialSupport

@@ -1,0 +1,44 @@
+// VScroll 4B548BE50138 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4A79AB290196_ME_4B548BE50138
+ MELINK Original WL 'ME_4A79AB290196' '4A6D56B00065.ms.model.script' // Sync
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A79AB290196_ME_4B548BE50138 Sync
+
+ME ME_4B54676B0132_ME_4B548BE50138
+ MELINK Original WL 'ME_4B54676B0132' '4A6D56B00065.ms.model.script' // CurrentChangedFragmentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B54676B0132_ME_4B548BE50138 CurrentChangedFragmentChanged
+
+%%ImplementedBy ME_4A79AB0A0359 ME_4B548BE50138
+
+ME ME_4B548BE50138
+ MEPROP UID '4B548BE50138'
+ MEPROP Name 'VScroll'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация чистой примеси VScroll транслирующая вызовы к своим подписчикам в виде InsVScrollListener' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A79AB0A0359' '4A6D56B00065.ms.model.script' // VScroll
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A79AB290196_ME_4B548BE50138 // Sync
+ ME_4B54676B0132_ME_4B548BE50138 // CurrentChangedFragmentChanged
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_VScroll_'
+ UP extprop:pas:UnitName 'VScroll.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas'
+
+ENDME // ME_4B548BE50138 VScroll

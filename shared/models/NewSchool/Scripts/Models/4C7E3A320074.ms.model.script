@@ -9,7 +9,7 @@ ME ME_4C7E3EFC0091
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E3A320074 // PrimMedicFirmListOptions
  ;
- MELINK Target WL 'ME_4C4EB1F60105' '48F747EC0073.ms.model.script' // nsNewWindow
+ MELINK Target WL 'ME_4C4EB1F60105' '490C47C70210.ms.model.script' // nsNewWindow
  ;
 
 ENDME // ME_4C7E3EFC0091 
@@ -19,7 +19,7 @@ ME ME_4C7E479F0043
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E3A320074 // PrimMedicFirmListOptions
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4C7E479F0043 
@@ -29,7 +29,7 @@ ME ME_4C7E47CC023D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E3A320074 // PrimMedicFirmListOptions
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
  ;
 
 ENDME // ME_4C7E47CC023D 
@@ -39,7 +39,7 @@ ME ME_4C7E47E30223
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E3A320074 // PrimMedicFirmListOptions
  ;
- MELINK Target WL 'ME_4AB882990057' '47F2170002B2.ms.model.script' // nsCStr
+ MELINK Target WL 'ME_4AB882990057' '4A6854C70390.ms.model.script' // nsCStr
  ;
 
 ENDME // ME_4C7E47E30223 
@@ -260,6 +260,15 @@ ME ME_54A2AF9C0157_ME_4C7E3A320074
  UP "ShowInToolbar" False
 ENDME // ME_54A2AF9C0157_ME_4C7E3A320074 OpenInNewTab
 
+%%ImplementedBy ME_494F89AA0017 ME_4C7E3A320074
+%%ImplementedBy ME_4951282D0269 ME_4C7E3A320074
+%%ImplementedBy ME_498860B50287 ME_4C7E3A320074
+%%ImplementedBy ME_4BDAF7790158 ME_4C7E3A320074
+%%ImplementedBy ME_4C4EABF20367 ME_4C7E3A320074
+%%ImplementedBy ME_4C7E415800A1 ME_4C7E3A320074
+
+%%InheritedBy ME_497EE4EB00CB ME_4C7E3A320074
+
 ME ME_4C7E3A320074
  MEPROP UID '4C7E3A320074'
  MEPROP Name 'PrimMedicFirmListOptions'
@@ -269,10 +278,10 @@ ME ME_4C7E3A320074
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E49A023A' '4958E49A023A.ms.model.script' // Inpharm
+ MELINK Parent WL? 'ME_4958E49A023A' // Inpharm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497EE4EB00CB' '497EE4EB00CB.ms.model.script' // PrimMedicFirmList
+   Seq: ( WL? 'ME_497EE4EB00CB' // PrimMedicFirmList
  )
  ; // Inherits
  MELIST Implements
@@ -309,6 +318,9 @@ ME ME_4C7E3A320074
  ME_51D55E0B0374 // Tree
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

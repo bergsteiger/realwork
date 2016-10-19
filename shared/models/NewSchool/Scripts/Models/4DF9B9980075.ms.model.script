@@ -1,0 +1,125 @@
+// nsOpenContents 4DF9B9980075 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF9B9980075
+
+ME ME_4DF9BA41000E
+ MEPROP UID '4DF9BA41000E'
+ MEPROP Name 'f_MustKepContentsTree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF9B9980075 // nsOpenContents
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DF9BA41000E f_MustKepContentsTree
+
+ME ME_4DF9BA850239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF9B9980075 // nsOpenContents
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_4DF9BA850239 
+
+ME ME_4DF9BAB8038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF9B9980075 // nsOpenContents
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4DF9BAB8038E 
+
+ME ME_4DF9DA5C0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF9B9980075 // nsOpenContents
+ ;
+ MELINK Target WL 'ME_4DF9D62701AD' '4B1FC2FF03CD.ms.model.script' // IdeDocInfoProvider
+ ;
+
+ENDME // ME_4DF9DA5C0324 
+
+ME ME_4DF9DA770153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF9B9980075 // nsOpenContents
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4DF9DA770153 
+
+ME ME_4953D3B20211_ME_4DF9B9980075
+ MELINK Original WL 'ME_4953D3B20211' '491B305A0096.ms.model.script' // OpenContents
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4953D3B20211_ME_4DF9B9980075 OpenContents
+
+ME ME_4925B7F00156_ME_4DF9B9980075
+ MELINK Original WL 'ME_4925B7F00156' '47EA106D035E.ms.model.script' // ClearAllDS
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4925B7F00156_ME_4DF9B9980075 ClearAllDS
+
+ME ME_493D51ED0329_ME_4DF9B9980075
+ MELINK Original WL 'ME_493D51ED0329' '47EA106D035E.ms.model.script' // FillState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_493D51ED0329_ME_4DF9B9980075 FillState
+
+%%ImplementedBy ME_4953D2FA030F ME_4DF9B9980075
+%%ImplementedBy ME_4DF9B9AE016B ME_4DF9B9980075
+
+ME ME_4DF9B9980075
+ MEPROP UID '4DF9B9980075'
+ MEPROP Name 'nsOpenContents'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4953D2FA030F' '491B305A0096.ms.model.script' // Contents
+ WL 'ME_4DF9B9AE016B' '47EA50050263.ms.model.script' // MsdsBaseDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DF9BA41000E // f_MustKepContentsTree
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4953D3B20211_ME_4DF9B9980075 // OpenContents
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4925B7F00156_ME_4DF9B9980075 // ClearAllDS
+ ME_493D51ED0329_ME_4DF9B9980075 // FillState
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DF9BA850239 // afwFacade
+ ME_4DF9BAB8038E // vcmDispatcher
+ ME_4DF9DA5C0324 // IdeDocInfoProvider
+ ME_4DF9DA770153 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nsOpenContents_'
+ UP extprop:pas:UnitName 'nsOpenContents.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas'
+
+ENDME // ME_4DF9B9980075 nsOpenContents

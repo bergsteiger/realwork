@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4ABCD2BC0302
+%%Inner ME_4CB6DBE6009F
+
 FORWARD ME_4CCAA9E50274
 
 ME ME_4CCAC1A0029A
@@ -49,7 +52,7 @@ ME ME_4CB6FAEF0172
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CCAA9E50274 // Filters$FP
  ;
- MELINK Target WL 'ME_4CB6C9B20187' '4CB6C9B20187.ms.model.script' // TdsCreateFilter
+ MELINK Target WL? 'ME_4CB6C9B20187' // TdsCreateFilter
  ;
 
 ENDME // ME_4CB6FAEF0172 
@@ -69,7 +72,7 @@ ME ME_4AC09FE302F5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CCAA9E50274 // Filters$FP
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4AC09FE302F5 
@@ -79,7 +82,7 @@ ME ME_4AC09FFD0198
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CCAA9E50274 // Filters$FP
  ;
- MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ MELINK Target WL 'ME_4A93BA1802CE' '47F25BC801DB.ms.model.script' // vcmParams
  ;
 
 ENDME // ME_4AC09FFD0198 
@@ -104,11 +107,11 @@ ME ME_4CCAA9E50274
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4CCAA9D8007E' '4CCAA9D8007E.ms.model.script' // Filters
+ MELINK Parent WL? 'ME_4CCAA9D8007E' // Filters
  ;
  MELIST Children
-   Seq: ( WL 'ME_4ABCD2BC0302' '4ABCD2BC0302.ms.model.script' // Filters
- WL 'ME_4CB6DBE6009F' '4CB6DBE6009F.ms.model.script' // CreateFilter$Form
+   Seq: ( WL? 'ME_4ABCD2BC0302' // Filters
+ WL? 'ME_4CB6DBE6009F' // CreateFilter$Form
  )
  ; // Children
  MELIST Dependencies
@@ -123,6 +126,9 @@ ME ME_4CCAA9E50274
  ME_57975EB90265 // IvcmEntityForm
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '29.10.2010 15:00'

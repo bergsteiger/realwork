@@ -2,7 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F7C1E890190
+%%Inner ME_4F7C1E96000A
+
 FORWARD ME_4F7C1E2803C5
+
+%%InheritedBy ME_4C8A210E018C ME_4F7C1E890190
 
 ME ME_4F7C1E890190
  MEPROP UID '4F7C1E890190'
@@ -15,97 +20,11 @@ ME ME_4F7C1E890190
  MELINK Parent HWL ME_4F7C1E2803C5 // MainForm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C8A210E018C' '4C8A210E018C.ms.model.script' // PrimMainOptions
+   Seq: ( WL? 'ME_4C8A210E018C' // PrimMainOptions
  )
  ; // Inherits
 
 ENDME // ME_4F7C1E890190 MPrimMainOptions
-
-FORWARD ME_4F7C1E96000A
-
-ME ME_4F7C1F0901CB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F7C1E96000A // AdminAndMonitoringsMainForm
- ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
- ;
-
-ENDME // ME_4F7C1F0901CB 
-
-ME ME_4F7C1F3A0237
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F7C1E96000A // AdminAndMonitoringsMainForm
- ;
- MELINK Target WL 'ME_4E01F29C0139' '47D0E1500033.ms.model.script' // vcmSettings
- ;
-
-ENDME // ME_4F7C1F3A0237 
-
-ME ME_4F7C1F87022A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F7C1E96000A // AdminAndMonitoringsMainForm
- ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
- ;
-
-ENDME // ME_4F7C1F87022A 
-
-ME ME_4F7C1F8F0294
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F7C1E96000A // AdminAndMonitoringsMainForm
- ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
- ;
-
-ENDME // ME_4F7C1F8F0294 
-
-ME ME_49803F5503AA_ME_4F7C1E96000A
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4F7C1E96000A DoInit
-
-ME ME_4F7B0815025A_ME_4F7C1E96000A
- MELINK Original WL 'ME_4F7B0815025A' '4F6B382E00D9.ms.model.script' // LoadSettings
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4F7B0815025A_ME_4F7C1E96000A LoadSettings
-
-ME ME_4F7C1E96000A
- MEPROP UID '4F7C1E96000A'
- MEPROP Name 'AdminAndMonitoringsMainForm'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4F7C1E2803C5 // MainForm
- ;
- MELIST Implements
-   Seq: ( HWL ME_4F7C1E890190 // MPrimMainOptions
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_49803F5503AA_ME_4F7C1E96000A // DoInit
- ME_4F7B0815025A_ME_4F7C1E96000A // LoadSettings
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4F7C1F0901CB // StdRes
- ME_4F7C1F3A0237 // vcmSettings
- ME_4F7C1F87022A // Controls
- ME_4F7C1F8F0294 // Forms
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_AdminAndMonitoringsMainForm_'
- UP extprop:pas:UnitName 'AdminAndMonitoringsMainForm.imp'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas'
-
-ENDME // ME_4F7C1E96000A AdminAndMonitoringsMainForm
 
 ME ME_4F7C1E2803C5
  MEPROP UID '4F7C1E2803C5'
@@ -115,20 +34,23 @@ ME ME_4F7C1E2803C5
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.ms.model.script' // View
+ MELINK Parent WL? 'ME_4F7C1DF701C7' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4F7C1E890190 // MPrimMainOptions
- HWL ME_4F7C1E96000A // AdminAndMonitoringsMainForm
+ WL? 'ME_4F7C1E96000A' // AdminAndMonitoringsMainForm
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
- WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+   Seq: ( WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_4986ECDF01F4' // View
+ WL? 'ME_521C9DA50125' // Application Resources
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4F7C1E2803C5 MainForm

@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4ACB5740039A
+%%Inner ME_4ACB57C4023E
+%%Inner ME_4B13B3BD01CD
+%%Inner ME_4B13B90D007E
+%%Inner ME_4B13B9AA029F
+%%Inner ME_4D7A37D90398
+
 FORWARD ME_4AB791130260
 
 FORWARD ME_4ACB5740039A
@@ -38,6 +45,10 @@ ME ME_57DA8F3102AE
 
 ENDME // ME_57DA8F3102AE SearcherState
 
+%%ImplementedBy ME_4683CEAD00CF ME_4ACB5740039A
+%%ImplementedBy ME_4EB7BA320128 ME_4ACB5740039A
+%%ImplementedBy ME_4EB7CCF90203 ME_4ACB5740039A
+
 ME ME_4ACB5740039A
  MEPROP UID '4ACB5740039A'
  MEPROP GUID '239F47AA-B37E-447C-BE52-E487DE8A8397'
@@ -61,6 +72,9 @@ ME ME_4ACB5740039A
  HWL ME_57DA8F3102AE // SearcherState
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'BaseSearchFormState'
 
@@ -151,6 +165,10 @@ ME ME_4CF4F8470359
 
 ENDME // ME_4CF4F8470359 Create
 
+%%ImplementedBy ME_4ACB5740039A ME_4CF4F83200CD
+
+%%InheritedBy ME_4CF4F8470359 ME_4CF4F83200CD
+
 ME ME_4CF4F83200CD
  MEPROP UID '4CF4F83200CD'
  MEPROP Name 'Make'
@@ -187,10 +205,15 @@ ME ME_57DA8F3102AE_ME_4ACB57C4023E
 ENDME // ME_57DA8F3102AE_ME_4ACB57C4023E SearcherState
 
 ME ME_47EA4E9002C6_ME_4ACB57C4023E
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_4ACB57C4023E FinishDataUpdate
+
+%%ImplementedBy ME_4ACB5740039A ME_4ACB57C4023E
+
+%%InheritedBy ME_47EA4BEF0140 ME_4ACB57C4023E
+%%InheritedBy ME_49E7754802A9 ME_4ACB57C4023E
 
 ME ME_4ACB57C4023E
  MEPROP UID '4ACB57C4023E'
@@ -203,7 +226,7 @@ ME ME_4ACB57C4023E
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BB502F9.ms.model.script' // afwApplicationDataUpdate
+   Seq: ( WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
  WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
  )
  ; // Inherits
@@ -230,6 +253,9 @@ ME ME_4ACB57C4023E
    Seq: ( ME_47EA4E9002C6_ME_4ACB57C4023E // FinishDataUpdate
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '06.10.2009 18:44'
@@ -243,6 +269,8 @@ ME ME_4B13A26203DB_ME_4B13B3BD01CD
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B13A26203DB_ME_4B13B3BD01CD EventID
+
+%%InheritedBy ME_4B13A1A2000F ME_4B13B3BD01CD
 
 ME ME_4B13B3BD01CD
  MEPROP UID '4B13B3BD01CD'
@@ -274,6 +302,8 @@ ME ME_4B13A26203DB_ME_4B13B90D007E
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B13A26203DB_ME_4B13B90D007E EventID
 
+%%InheritedBy ME_4B13A1A2000F ME_4B13B90D007E
+
 ME ME_4B13B90D007E
  MEPROP UID '4B13B90D007E'
  MEPROP Name 'TnsUseBaseSearchHintEvent'
@@ -303,6 +333,8 @@ ME ME_4B13A26203DB_ME_4B13B9AA029F
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B13A26203DB_ME_4B13B9AA029F EventID
+
+%%InheritedBy ME_4B13A1A2000F ME_4B13B9AA029F
 
 ME ME_4B13B9AA029F
  MEPROP UID '4B13B9AA029F'
@@ -401,6 +433,8 @@ ME ME_4CFCD7B30075
 
 ENDME // ME_4CFCD7B30075 Const
 
+%%InheritedBy ME_4CF4D14700AE ME_4CF4D1240072
+
 ME ME_4CF4D1240072
  MEPROP UID '4CF4D1240072'
  MEPROP Name 'ContextEdit'
@@ -412,7 +446,7 @@ ME ME_4CF4D1240072
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CF4D14700AE' '4CF4D14700AE.ms.model.script' // TnscTreeComboWithHistoryAndOperations
+   Seq: ( WL? 'ME_4CF4D14700AE' // TnscTreeComboWithHistoryAndOperations
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -420,6 +454,8 @@ ME ME_4CF4D1240072
  UP "put to dfm" True
 
 ENDME // ME_4CF4D1240072 ContextEdit
+
+%%InheritedBy ME_48C7C96E0135 ME_4CFCE29E009B
 
 ME ME_4CFCE29E009B
  MEPROP UID '4CFCE29E009B'
@@ -432,7 +468,7 @@ ME ME_4CFCE29E009B
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48C7C96E0135' '4799D29F033F.ms.model.script' // TTimer
+   Seq: ( WL 'ME_48C7C96E0135' '48C7C95C0221.ms.model.script' // TTimer
  )
  ; // Inherits
  UP "ComponentClass" 'none'
@@ -466,7 +502,7 @@ ME ME_4AC5E7D000C9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AC5E7D000C9 f_InCreate
@@ -494,7 +530,7 @@ ME ME_4CF4D0E20005
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4CF4D0E20005 f_NeedParamsChanged
@@ -508,7 +544,7 @@ ME ME_4CF4D101036B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4CF4D101036B f_LockParamsChange
@@ -522,7 +558,7 @@ ME ME_4CF4D67E026D
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4CF4D67E026D f_NeedPresentationChanged
@@ -537,7 +573,7 @@ ME ME_4CFCCE4B0112
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
  UP "pm" True
@@ -554,7 +590,7 @@ ME ME_4CFCD6270160
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
  UP "pm" True
@@ -570,7 +606,7 @@ ME ME_4CFCE303036E
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4CFCE303036E f_FlashCounter
@@ -585,7 +621,7 @@ ME ME_4CFCEBFA0350
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
  UP "pm" True
@@ -602,7 +638,7 @@ ME ME_4CFCEE450210
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" False
  UP "pm" True
@@ -633,7 +669,7 @@ ME ME_54003FF203B9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_54003FF203B9 f_IsTabActive
@@ -648,7 +684,7 @@ ME ME_5400403202EA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
  ;
 
 ENDME // ME_5400403202EA f_ControlToActivate
@@ -662,7 +698,7 @@ ME ME_5672B2190230
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5672B2190230 f_IsActive
@@ -755,7 +791,7 @@ ME ME_4F20293700CC
  MEPROP Name 'aNeedUpdateAndStoreActiveClass'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4F20293700CC aNeedUpdateAndStoreActiveClass
@@ -764,7 +800,7 @@ ME ME_5241B8FC0332
  MEPROP Name 'aUpdateClassBeforeSearch'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5241B8FC0332 aUpdateClassBeforeSearch
@@ -811,7 +847,7 @@ ME ME_4CFCD7E90177
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4CFCD7E90177 Sender
@@ -869,6 +905,9 @@ ME ME_4CFCD7CF000D
    Seq: ( ME_4CFCD80D005B // Ext Chars
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4CFCD7CF000D ContextEditPastingString
 
@@ -940,7 +979,7 @@ ME ME_4CFCDB4102AF
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4CFCDB4102AF Sender
@@ -985,7 +1024,7 @@ ME ME_4CFCE1C20347
  MEPROP Name 'aCount'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4CFCE1C20347 aCount
@@ -1075,7 +1114,7 @@ ME ME_4CFCE2DF03A0
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4CFCE2DF03A0 Sender
@@ -1180,7 +1219,7 @@ ME ME_4CFCE41D022B
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4CFCE41D022B Sender
@@ -1473,7 +1512,7 @@ ME ME_4F20212803B1
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4F2021110102 // MainMenuLikeBaseSearch
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4F20212803B1 DoIt
@@ -1523,7 +1562,7 @@ ME ME_4EA052D603AE
  MEPROP Name 'aFromUpdate'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4EA052D603AE aFromUpdate
@@ -1615,7 +1654,7 @@ ME ME_4AC630CC02EB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4AC630CC02EB 
@@ -1635,7 +1674,7 @@ ME ME_4AD859AF0284
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_4AD8570C01CC' '54F9EC5B0269.ms.model.script' // nsContextHistory
+ MELINK Target WL? 'ME_4AD8570C01CC' // nsContextHistory
  ;
 
 ENDME // ME_4AD859AF0284 
@@ -1675,7 +1714,7 @@ ME ME_4CF4D61000F2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_4CF4D5F9022D' '54B90AC6014B.ms.model.script' // l3DStr
+ MELINK Target WL 'ME_4CF4D5F9022D' '47878E0E0191.ms.model.script' // l3DStr
  ;
 
 ENDME // ME_4CF4D61000F2 
@@ -1685,7 +1724,7 @@ ME ME_4CF4DE750353
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_4CF4DE5F0071' '47F2170002B2.ms.model.script' // nsEStr
+ MELINK Target WL 'ME_4CF4DE5F0071' '4A6854C70390.ms.model.script' // nsEStr
  ;
 
 ENDME // ME_4CF4DE750353 
@@ -1695,7 +1734,7 @@ ME ME_4CFCD2AC03C8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_4CFCD294024F' '4A85282C0252.ms.model.script' // CheckContext6x
+ MELINK Target WL 'ME_4CFCD294024F' '4AE8A02C03E7.ms.model.script' // CheckContext6x
  ;
 
 ENDME // ME_4CFCD2AC03C8 
@@ -1715,7 +1754,7 @@ ME ME_4CFCD32A0169
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_49930A29017B' '4799D29F033F.ms.model.script' // TMsgDlgType
+ MELINK Target WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
  ;
 
 ENDME // ME_4CFCD32A0169 
@@ -1735,7 +1774,7 @@ ME ME_4CFCDAA90183
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_482B17100178' '4799D29F033F.ms.model.script' // TBorderStyle
+ MELINK Target WL 'ME_482B17100178' '47E13C6B0341.ms.model.script' // TBorderStyle
  ;
 
 ENDME // ME_4CFCDAA90183 
@@ -1775,7 +1814,7 @@ ME ME_540040E80242
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ MELINK Target WL? 'ME_534F69E702D9' // TvcmTabbedContainerForm
  ;
 
 ENDME // ME_540040E80242 
@@ -1785,7 +1824,7 @@ ME ME_5534E19D03D7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB791130260 // PrimBaseSearch
  ;
- MELINK Target WL 'ME_537AEB96006C' '533D53FF00C2.ms.model.script' // vcmTabbedContainerFormDispatcher
+ MELINK Target WL? 'ME_537AEB96006C' // vcmTabbedContainerFormDispatcher
  ;
 
 ENDME // ME_5534E19D03D7 
@@ -2040,13 +2079,13 @@ ME ME_56F5028901D2_ME_4AB791130260
 ENDME // ME_56F5028901D2_ME_4AB791130260 Visible
 
 ME ME_479731C50290_ME_4AB791130260
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AB791130260 Cleanup
 
 ME ME_47EA4E9002C6_ME_4AB791130260
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_4AB791130260 FinishDataUpdate
@@ -2082,7 +2121,7 @@ ME ME_4A8AE0FA03B2_ME_4AB791130260
 ENDME // ME_4A8AE0FA03B2_ME_4AB791130260 BecomeActive
 
 ME ME_4A8E8F2E0195_ME_4AB791130260
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4AB791130260 InitControls
@@ -2112,6 +2151,19 @@ ME ME_573AFFE5038D_ME_4AB791130260
  UP "is static" True
 ENDME // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
 
+%%ImplementedBy ME_496B51A10197 ME_4AB791130260
+%%ImplementedBy ME_496B539D02D5 ME_4AB791130260
+%%ImplementedBy ME_4995561A03D2 ME_4AB791130260
+%%ImplementedBy ME_4A8AD4260126 ME_4AB791130260
+%%ImplementedBy ME_4A97EBC80201 ME_4AB791130260
+%%ImplementedBy ME_4C43D2E5026B ME_4AB791130260
+%%ImplementedBy ME_4CC804B60371 ME_4AB791130260
+%%ImplementedBy ME_4EB7CCF90203 ME_4AB791130260
+%%ImplementedBy ME_542BEEB003E1 ME_4AB791130260
+%%ImplementedBy ME_55321AC301F0 ME_4AB791130260
+
+%%InheritedBy ME_49525B34022A ME_4AB791130260
+
 ME ME_4AB791130260
  MEPROP UID '4AB791130260'
  MEPROP Name 'PrimBaseSearch'
@@ -2121,7 +2173,7 @@ ME ME_4AB791130260
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.ms.model.script' // BaseSearch$Module
+ MELINK Parent WL? 'ME_4CC97BDA02DF' // BaseSearch$Module
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
@@ -2134,7 +2186,7 @@ ME ME_4AB791130260
  WL 'ME_4A8AD4260126' '4A8AD3DE0008.ms.model.script' // Result
  WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
  WL 'ME_4C43D2E5026B' '4C43D2BB005A.ms.model.script' // EnclosedForms
- WL 'ME_4CC804B60371' '4CC804B60371.ms.model.script' // BaseSearch2010
+ WL? 'ME_4CC804B60371' // BaseSearch2010
  WL 'ME_4EB7CCF90203' '484FA67302D7.ms.model.script' // При хождении по истории выбор должен восстанавливаться
  WL 'ME_542BEEB003E1' '48F747EC0073.ms.model.script' // InsNotificationListener
  WL 'ME_55321AC301F0' '553213B80041.ms.model.script' // Il3TabbedContainersListener
@@ -2273,6 +2325,9 @@ ME ME_4AB791130260
  ME_5654228601E3 // TnsBaseSearchService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" False

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4C7E4B6E02BF
+%%Inner ME_4C7E4C2102E6
+
 FORWARD ME_4CCACDDC0101
 
 FORWARD ME_4C7E4B6E02BF
@@ -111,6 +114,9 @@ ME ME_4C7E4B6E02BF
  HWL ME_4C7E4BD301B7 // ClearAllStatus
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C7E4B6E02BF ControlCenter
 
@@ -175,6 +181,9 @@ ME ME_4C7E4C2102E6
  HWL ME_4C7E4C470330 // ClearStatus
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C7E4C2102E6 ControledObject
 
@@ -186,13 +195,16 @@ ME ME_4CCACDDC0101
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4CCAC6EF001D' '4CCAC6EF001D.ms.model.script' // View
+ MELINK Parent WL? 'ME_4CCAC6EF001D' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4C7E4B6E02BF // ControlCenter
  HWL ME_4C7E4C2102E6 // ControledObject
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'UnderControl_Strange_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControl_Strange_Controls.pas'

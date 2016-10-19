@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49ECA984005F
+%%Inner ME_49ECA9AA0000
+
 ME ME_49EC6DB703E5
  MEPROP UID '49EC6DB703E5'
  MEPROP Name 'InternetAgent'
@@ -11,21 +14,24 @@ ME ME_49EC6DB703E5
  %SUMMARY 'Реализация [Интернет-агента|$124453728]' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_49EC6D0903DD' '49EC6D0903DD.ms.model.script' // InternetAgent
+ MELINK Parent WL? 'ME_49EC6D0903DD' // InternetAgent
  ;
  MELIST Children
-   Seq: ( WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' // TsdsInternetAgent
- WL 'ME_49ECA9AA0000' '49ECA9AA0000.ms.model.script' // TdsInternetAgent
+   Seq: ( WL? 'ME_49ECA984005F' // TsdsInternetAgent
+ WL? 'ME_49ECA9AA0000' // TdsInternetAgent
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_49EC6D9000EE' '49EC6D9000EE.ms.model.script' // InternetAgentInterfaces
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+   Seq: ( WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_476BE98C01B8' // l3Chars
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_49EC6D9000EE' // InternetAgentInterfaces
+ WL? 'ME_54B90AC6014B' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_49EC6DB703E5 InternetAgent

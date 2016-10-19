@@ -29,7 +29,7 @@ ME ME_4C87A9D70073
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87A47E0036 // PrimNavigatorOptions
  ;
- MELINK Target WL 'ME_4ADDF53403CA' '4908A8A20107.ms.model.script' // nsGetHint
+ MELINK Target WL 'ME_4ADDF53403CA' '47F60E8E019C.ms.model.script' // nsGetHint
  ;
 
 ENDME // ME_4C87A9D70073 
@@ -39,7 +39,7 @@ ME ME_4C87A9F00343
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87A47E0036 // PrimNavigatorOptions
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4C87A9F00343 
@@ -204,6 +204,12 @@ ME ME_4C87A52E02F7_ME_4C87A47E0036
  UP "ShowInToolbar" False
 ENDME // ME_4C87A52E02F7_ME_4C87A47E0036 Execute
 
+%%ImplementedBy ME_494F89AA0017 ME_4C87A47E0036
+%%ImplementedBy ME_4951282D0269 ME_4C87A47E0036
+%%ImplementedBy ME_4C87A4F301A7 ME_4C87A47E0036
+
+%%InheritedBy ME_4AEEE269033F ME_4C87A47E0036
+
 ME ME_4C87A47E0036
  MEPROP UID '4C87A47E0036'
  MEPROP Name 'PrimNavigatorOptions'
@@ -214,10 +220,10 @@ ME ME_4C87A47E0036
  %SUMMARY 'Меню' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ MELINK Parent WL? 'ME_497ED74F0032' // Common
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AEEE269033F' '4AEEE269033F.ms.model.script' // PrimNavigator
+   Seq: ( WL? 'ME_4AEEE269033F' // PrimNavigator
  )
  ; // Inherits
  MELIST Implements
@@ -247,6 +253,9 @@ ME ME_4C87A47E0036
  ME_524006770296 // TnsNavigatorTreeStruct
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

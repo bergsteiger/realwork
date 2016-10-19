@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_493E5C580280
+%%Inner ME_493E754301C8
+%%Inner ME_492D78650003
+%%Inner ME_493E5E7202F1
+%%Inner ME_4E283FC201DC
+%%Inner ME_4EDCF6BC00D9
+%%Inner ME_4EF485030376
+%%Inner ME_5010180C0356
+
 FORWARD ME_4A9F83AD0235
 
 FORWARD ME_493E5E7202F1
@@ -29,7 +38,7 @@ ME ME_4B17FAB202E9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_493E5E7202F1 // TdDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4B17FAB202E9 f_ContextSearched
@@ -156,7 +165,7 @@ ME ME_558C12C2002E
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_493E5E7202F1 // TdDocument
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_558C12C2002E f_SimilarDocumentsBlockId
@@ -196,7 +205,7 @@ ME ME_4B17FFAD01D3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493E5E7202F1 // TdDocument
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4B17FFAD01D3 
@@ -206,7 +215,7 @@ ME ME_4B17FFD603B9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493E5E7202F1 // TdDocument
  ;
- MELINK Target WL 'ME_4982B6510327' '47D0E1500033.ms.model.script' // vcmFormDataSourceRef
+ MELINK Target WL? 'ME_4982B6510327' // vcmFormDataSourceRef
  ;
 
 ENDME // ME_4B17FFD603B9 
@@ -308,16 +317,20 @@ ME ME_B0980FCD8307_ME_493E5E7202F1
 ENDME // ME_B0980FCD8307_ME_493E5E7202F1 dsEditionsRef
 
 ME ME_479731C50290_ME_493E5E7202F1
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_493E5E7202F1 Cleanup
 
 ME ME_4B16B8CF0307_ME_493E5E7202F1
- MELINK Original WL 'ME_4B16B8CF0307' '47D0E1500033.ms.model.script' // AssignData
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4B16B8CF0307_ME_493E5E7202F1 AssignData
+
+%%ImplementedBy ME_493E5E100363 ME_493E5E7202F1
+
+%%InheritedBy ME_493D4E010178 ME_493E5E7202F1
 
 ME ME_493E5E7202F1
  MEPROP UID '493E5E7202F1'
@@ -330,7 +343,7 @@ ME ME_493E5E7202F1
  MELINK Parent HWL ME_4A9F83AD0235 // Document
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_493D4E010178' '47EA50050263.ms.model.script' // dDocInfo
+   Seq: ( WL? 'ME_493D4E010178' // dDocInfo
  )
  ; // Inherits
  MELIST Implements
@@ -381,6 +394,9 @@ ME ME_493E5E7202F1
  ME_4B17FFD603B9 // vcmFormDataSourceRef
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '12.07.2006'
@@ -391,88 +407,6 @@ ME ME_493E5E7202F1
 
 ENDME // ME_493E5E7202F1 TdDocument
 
-FORWARD ME_4E283FC201DC
-
-FORWARD ME_4E283FEC0311
-
-ME ME_4DAC1BF701DA
- MEPROP UID '4DAC1BF701DA'
- MEPROP Name 'ReferenceHyperlinkSearchText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E283FEC0311 // Local
- ;
- MEPROP Value '''Подробнее см. в справке к документу'''
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
- UP extprop:pas:Value '''Подробнее см. в справке к документу'''
-
-ENDME // ME_4DAC1BF701DA ReferenceHyperlinkSearchText
-
-ME ME_4E283E940111
- MEPROP UID '4E283E940111'
- MEPROP Name 'ReferenceHyperlinkReplaceText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E283FEC0311 // Local
- ;
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
- UP "Value" '''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]'''
-
-ENDME // ME_4E283E940111 ReferenceHyperlinkReplaceText
-
-ME ME_4E283FEC0311
- MEPROP UID '4E283FEC0311'
- MEPROP Name 'Local'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Строки для генерации предупреждений' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E283FC201DC // bsUtilsConst
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4DAC1BF701DA // ReferenceHyperlinkSearchText
- HWL ME_4E283E940111 // ReferenceHyperlinkReplaceText
- )
- ; // Attributes
- UP "children prefix" 'wg'
- UP "Need map interface" False
- UP "Need mapping support" False
- UP "spell names" False
- UP extprop:pas:ElementPrefix 'wg'
-
-ENDME // ME_4E283FEC0311 Local
-
-ME ME_4E283FC201DC
- MEPROP UID '4E283FC201DC'
- MEPROP Name 'bsUtilsConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A9F83AD0235 // Document
- ;
- MELIST Constants
-   Seq: ( HWL ME_4E283FEC0311 // Local
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '21.07.2011 19:03'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\bsUtilsConst.pas'
-
-ENDME // ME_4E283FC201DC bsUtilsConst
-
 ME ME_4A9F83AD0235
  MEPROP UID '4A9F83AD0235'
  MEPROP Name 'Document'
@@ -481,66 +415,69 @@ ME ME_4A9F83AD0235
  MELINK Stereotype st_ControllerUnit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9F8388014E' '4A9F8388014E.ms.model.script' // Document
+ MELINK Parent WL? 'ME_4A9F8388014E' // Document
  ;
  MELIST Children
-   Seq: ( WL 'ME_493E5C580280' '493E5C580280.ms.model.script' // sdsDocument
- WL 'ME_493E754301C8' '493E754301C8.ms.model.script' // TsdsDocumentWithFlash
- WL 'ME_492D78650003' '492D78650003.ms.model.script' // TdsDocumentListCRToPart
+   Seq: ( WL? 'ME_493E5C580280' // sdsDocument
+ WL? 'ME_493E754301C8' // TsdsDocumentWithFlash
+ WL? 'ME_492D78650003' // TdsDocumentListCRToPart
  HWL ME_493E5E7202F1 // TdDocument
- HWL ME_4E283FC201DC // bsUtilsConst
- WL 'ME_4EDCF6BC00D9' '4EDCF6BC00D9.ms.model.script' // TdsTranslationWarning
- WL 'ME_4EF485030376' '4EF485030376.ms.model.script' // TdsCRWarning
- WL 'ME_5010180C0356' '5010180C0356.ms.model.script' // TsdsDocument
+ WL? 'ME_4E283FC201DC' // bsUtilsConst
+ WL? 'ME_4EDCF6BC00D9' // TdsTranslationWarning
+ WL? 'ME_4EF485030376' // TdsCRWarning
+ WL? 'ME_5010180C0356' // TsdsDocument
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
- WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
- WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
- WL 'ME_45ED58CF03E6' '45ED58CF03E6.ms.model.script' // Logging
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
- WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
- WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
- WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
- WL 'ME_47EA5024034B' '47EA5024034B.ms.model.script' // ListDataSources
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
- WL 'ME_47F260DC003F' '47F260DC003F.ms.model.script' // ns
- WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
- WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
- WL 'ME_484FA67302D7' '484FA67302D7.ms.model.script' // GUI
- WL 'ME_48561FA8027F' '48561FA8027F.ms.model.script' // Версии системы
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_4908A8A20107' '4908A8A20107.ms.model.script' // OldTree
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
- WL 'ME_4982BE090383' '4982BE090383.ms.model.script' // vcmControllers
- WL 'ME_49942E3202B3' '49942E3202B3.ms.model.script' // vcmGUI
- WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
- WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.ms.model.script' // Logging
- WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
- WL 'ME_4B9A1E7F0036' '4B9A1E7F0036.ms.model.script' // UnderControlInterfaces
- WL 'ME_4B9A347B0217' '4B9A347B0217.ms.model.script' // UnderControlImpl
- WL 'ME_4D1B548F00EE' '4D1B548F00EE.ms.model.script' // WorkWithDocumentInterfaces
- WL 'ME_4D1B7B830045' '4D1B7B830045.ms.model.script' // DocInfoInterfaces
- WL 'ME_4DC1708D032D' '4DC1708D032D.ms.model.script' // PrimListControllersRealization
- WL 'ME_4ED7573300EA' '4ED7573300EA.ms.model.script' // PrimListAndDocumentControllersRealization
- WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
- WL 'ME_53A402C7010D' '53A402C7010D.ms.model.script' // TabbedInterfaceSupport
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
- WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4423F94903C8' // IO
+ WL? 'ME_456EA56002BF' // BaseTypes
+ WL? 'ME_45700BFD0251' // DynamicDocList
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_457450470167' // DynamicTree
+ WL? 'ME_45ED58CF03E6' // Logging
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4683F37902CF' // vcmInterfaces
+ WL? 'ME_46A5E026007E' // l3Core
+ WL? 'ME_47750CE700D0' // afwFacade
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_47EA07FA02CE' // bsTypes
+ WL? 'ME_47EA50050263' // BaseDocument
+ WL? 'ME_47EA5024034B' // ListDataSources
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_47F22C7501F6' // Document
+ WL? 'ME_47F260DC003F' // ns
+ WL? 'ME_484900780017' // Работа с документом
+ WL? 'ME_48492FC0029D' // Standard
+ WL? 'ME_484FA67302D7' // GUI
+ WL? 'ME_48561FA8027F' // Версии системы
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_4908A8A20107' // OldTree
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_493D465902FA' // DocumentAndList
+ WL? 'ME_4982BE090383' // vcmControllers
+ WL? 'ME_49942E3202B3' // vcmGUI
+ WL? 'ME_4A7C0BB70162' // Base Forms
+ WL? 'ME_4AADF9450143' // Visual
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4B0A60DF01F2' // Logging
+ WL? 'ME_4B1FC2FF03CD' // DocumentInterfaces
+ WL? 'ME_4B9A1E7F0036' // UnderControlInterfaces
+ WL? 'ME_4B9A347B0217' // UnderControlImpl
+ WL? 'ME_4D1B548F00EE' // WorkWithDocumentInterfaces
+ WL? 'ME_4D1B7B830045' // DocInfoInterfaces
+ WL? 'ME_4DC1708D032D' // PrimListControllersRealization
+ WL? 'ME_4ED7573300EA' // PrimListAndDocumentControllersRealization
+ WL? 'ME_521C9DA50125' // Application Resources
+ WL? 'ME_53A402C7010D' // TabbedInterfaceSupport
+ WL? 'ME_54B90AC6014B' // StringUtils
+ WL? 'ME_55C4AEC801CA' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4A9F83AD0235 Document

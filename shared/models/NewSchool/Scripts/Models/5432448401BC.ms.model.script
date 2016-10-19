@@ -55,6 +55,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_57CFE92E0163
 %%Inner ME_57EA54590345
 %%Inner ME_57EA5D81031B
+%%Inner ME_57F78AD80231
 
 FORWARD ME_5432448401BC
 
@@ -3417,6 +3418,27 @@ ME ME_57EA5D81031B
 
 ENDME // ME_57EA5D81031B TdaLogActionType
 
+%%InheritedBy ME_551E7DC1024B ME_57F78AD80231
+
+ME ME_57F78AD80231
+ MEPROP UID '57F78AD80231'
+ MEPROP Name 'PdaDocID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_551E7DC1024B // TdaDocID
+ )
+ ; // Inherits
+ UP "isPointer" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_57F78AD80231 PdaDocID
+
 FORWARD ME_57330A8D03D6
 
 ME ME_57330A9B03B0
@@ -3562,7 +3584,7 @@ ME ME_5432448401BC
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_543244050044' '543244050044.ms.model.script' // DA
+ MELINK Parent WL? 'ME_543244050044' // DA
  ;
  MELIST Children
    Seq: ( HWL ME_543244A30197 // TdaUserID
@@ -3618,6 +3640,7 @@ ME ME_5432448401BC
  HWL ME_57CFE92E0163 // TdaDocType
  HWL ME_57EA54590345 // TdaDictionaryTypeArray
  HWL ME_57EA5D81031B // TdaLogActionType
+ HWL ME_57F78AD80231 // PdaDocID
  )
  ; // Children
  MELIST Constants
@@ -3627,10 +3650,10 @@ ME ME_5432448401BC
  )
  ; // Constants
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
- WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4678193C009C' // l3Types
+ WL? 'ME_47BC51FE018B' // dt_Types
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

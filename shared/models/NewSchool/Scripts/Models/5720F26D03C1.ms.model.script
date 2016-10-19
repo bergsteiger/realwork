@@ -25,6 +25,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_57B1A26602CB
 %%Inner ME_57DB9CDE034A
 %%Inner ME_57DBC78600D1
+%%Inner ME_57F62EDA0266
 
 FORWARD ME_5720F26D03C1
 
@@ -47,7 +48,7 @@ ME ME_572110B30189
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
  ;
- MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_572110B30189 
@@ -706,6 +707,30 @@ ME ME_57DBC78600D1
 
 ENDME // ME_57DBC78600D1 K630402726
 
+%%InheritedBy ME_4C971C2203DD ME_57F62EDA0266
+
+ME ME_57F62EDA0266
+ MEPROP UID '57F62EDA0266'
+ MEPROP Name 'K631435596'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:631435596}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F26D03C1 // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.ms.model.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TK631435596'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K631435596'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K631435596.pas'
+
+ENDME // ME_57F62EDA0266 K631435596
+
 ME ME_5720F26D03C1
  MEPROP UID '5720F26D03C1'
  MEPROP Name '8.0'
@@ -714,7 +739,7 @@ ME ME_5720F26D03C1
  MELINK Stereotype st_TestUnit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
    Seq: ( HWL ME_5720F28E0343 // K622402617
@@ -740,23 +765,24 @@ ME ME_5720F26D03C1
  HWL ME_57B1A26602CB // K628097544
  HWL ME_57DB9CDE034A // K630212534
  HWL ME_57DBC78600D1 // K630402726
+ HWL ME_57F62EDA0266 // K631435596
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
- WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
- WL 'ME_4BACDED003CE' '4BACDED003CE.ms.model.script' // RTF
- WL 'ME_4C07B59F0382' '4C07B59F0382.ms.model.script' // EVD
- WL 'ME_4E847D6D002B' '4E847D6D002B.ms.model.script' // HTML
- WL 'ME_4EEF599003AC' '4EEF599003AC.ms.model.script' // RenderEVD
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+   Seq: ( WL? 'ME_476BE98C01B8' // l3Chars
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_47ECB8BD00A8' // Generators
+ WL? 'ME_48492FC0029D' // Standard
+ WL? 'ME_4BACDED003CE' // RTF
+ WL? 'ME_4C07B59F0382' // EVD
+ WL? 'ME_4E847D6D002B' // HTML
+ WL? 'ME_4EEF599003AC' // RenderEVD
+ WL? 'ME_54B90AC6014B' // StringUtils
  )
  ; // Depends
  MESTRINGLIST DiagramsNames
    Seq: ( 'Main' 'Uses' )
  ; // DiagramsNames
- UP Version 65
+ UP Version 67
 
 ENDME // ME_5720F26D03C1 8.0

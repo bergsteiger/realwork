@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4FF2E95602D8
+%%Inner ME_4FF4543F014A
+%%Inner ME_4FF4428702F0
+%%Inner ME_4FF2EABA02D7
+
 FORWARD ME_4FF2E5C70060
 
 ME ME_4FF3FF970032
@@ -9,7 +14,7 @@ ME ME_4FF3FF970032
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4FF2E5C70060 // AACPrim
  ;
- MELINK Target WL 'ME_4FF2E6B003C4' '4FF2E6B003C4.ms.model.script' // TsdsAAC
+ MELINK Target WL? 'ME_4FF2E6B003C4' // TsdsAAC
  ;
 
 ENDME // ME_4FF3FF970032 
@@ -34,13 +39,13 @@ ME ME_4FF2E5C70060
  %SUMMARY 'Реализация прецедента "Актуальная аналитика". {RequestLink:365838080}' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4FF2E5B80387' '4FF2E5B80387.ms.model.script' // AAC
+ MELINK Parent WL? 'ME_4FF2E5B80387' // AAC
  ;
  MELIST Children
-   Seq: ( WL 'ME_4FF2E95602D8' '4FF2E95602D8.ms.model.script' // AACContainer
- WL 'ME_4FF4543F014A' '4FF4543F014A.ms.model.script' // AACContentsContainer
- WL 'ME_4FF4428702F0' '4FF4428702F0.ms.model.script' // AACContents$FormSetFactory
- WL 'ME_4FF2EABA02D7' '4FF2EABA02D7.ms.model.script' // AAC$FormSetFactory
+   Seq: ( WL? 'ME_4FF2E95602D8' // AACContainer
+ WL? 'ME_4FF4543F014A' // AACContentsContainer
+ WL? 'ME_4FF4428702F0' // AACContents$FormSetFactory
+ WL? 'ME_4FF2EABA02D7' // AAC$FormSetFactory
  )
  ; // Children
  MELIST Dependencies
@@ -48,6 +53,9 @@ ME ME_4FF2E5C70060
  ME_57A2DB240159 // TAACService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TAACPrimModule'
  UP extprop:pas:UnitName 'AACPrim_Module'
  UP extprop:rc:isAcceptableForScripts True

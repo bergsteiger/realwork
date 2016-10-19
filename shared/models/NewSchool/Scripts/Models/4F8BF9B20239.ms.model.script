@@ -1,0 +1,46 @@
+// nsConfiguration 4F8BF9B20239 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5231862D00E6
+
+FORWARD ME_4F8BF9B20239
+
+ME ME_5231862D00E6
+ MEPROP UID '5231862D00E6'
+ MEPROP Name 'TnsEditSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BF9B20239 // nsConfiguration
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditSettingsInfo'
+
+ENDME // ME_5231862D00E6 TnsEditSettingsInfo
+
+ME ME_4F8BF9B20239
+ MEPROP UID '4F8BF9B20239'
+ MEPROP Name 'nsConfiguration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F7D8B3A03A0' // SettingsUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5231862D00E6 // TnsEditSettingsInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Configuration'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsConfiguration.pas'
+
+ENDME // ME_4F8BF9B20239 nsConfiguration

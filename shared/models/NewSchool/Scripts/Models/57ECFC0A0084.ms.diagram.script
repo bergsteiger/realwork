@@ -1,0 +1,41 @@
+// Shared Delphi MVC And MSM 57ECFC0A0084 ProjectGroup Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57ECFC0A0084_diagrams
+
+ MEDIAGRAM ME_57ECFC0A0084_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57ECFC0A0084' ; // Shared Delphi MVC And MSM
+
+  MEVIEW ME_57EE6E2A01A5_view
+   MELINK Original WL? 'ME_57EE6E2A01A5' ; // Shared Delphi MVC
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57EE6E2A01A5_view
+
+  MEVIEW ME_57B1B9C5035D_view
+   MELINK Original WL? 'ME_57B1B9C5035D' ; // Shared Delphi MSM
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B1B9C5035D_view
+
+  MEVIEWLINK ME_57B1B9C5035D_ME_57EE6E2A01A5_Depends
+   MELINK From ME_57B1B9C5035D_view ;
+   MELINK To ME_57EE6E2A01A5_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_57B1B9C5035D_ME_57EE6E2A01A5_Depends
+
+  MELIST Views
+   Seq: ( ME_57EE6E2A01A5_view // Shared Delphi MVC
+   ME_57B1B9C5035D_view // Shared Delphi MSM
+   ME_57B1B9C5035D_ME_57EE6E2A01A5_Depends // Shared Delphi MSM -> Shared Delphi MVC
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57ECFC0A0084_main
+
+ MELIST Diagrams
+  Seq: ( ME_57ECFC0A0084_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57ECFC0A0084_diagrams

@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD97FFF0005
+%%Inner ME_4BD989CB0049
+%%Inner ME_4D77A59D03E6
+
 FORWARD ME_4BD97FDB031A
 
 ME ME_4BD97FFF0005
@@ -16,7 +20,7 @@ ME ME_4BD97FFF0005
  MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA9393C0164' '4AA9393C0164.ms.model.script' // QueryCard
+   Seq: ( WL? 'ME_4AA9393C0164' // QueryCard
  )
  ; // Implementors
  UP extprop:pas:TypeName 'QueryCardFormDef'
@@ -36,7 +40,7 @@ ME ME_4BD989CB0049
  MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AAF6F8100DB' '4AAF6F8100DB.ms.model.script' // PreviewForm
+   Seq: ( WL? 'ME_4AAF6F8100DB' // PreviewForm
  )
  ; // Implementors
  UP extprop:pas:TypeName 'PreviewFormDef'
@@ -56,7 +60,7 @@ ME ME_4D77A59D03E6
  MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA931BF023D' '4AA931BF023D.ms.model.script' // SaveLoad
+   Seq: ( WL? 'ME_4AA931BF023D' // SaveLoad
  )
  ; // Implementors
  UP extprop:pas:TypeName 'SaveLoadFormDef'
@@ -72,7 +76,7 @@ ME ME_4BD97FDB031A
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ MELINK Parent WL? 'ME_4A78013D01CD' // View$For F1 and Monitorings
  ;
  MELIST Children
    Seq: ( HWL ME_4BD97FFF0005 // QueryCard
@@ -80,6 +84,9 @@ ME ME_4BD97FDB031A
  HWL ME_4D77A59D03E6 // SaveLoad
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP "UseNewGen" True
  UP extprop:pas:UnitName 'Search_FormDefinitions_Controls'

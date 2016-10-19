@@ -89,6 +89,10 @@ ME ME_4C84CC2E0253_ME_4C84D11E01E2
  UP "ShowInToolbar" True
 ENDME // ME_4C84CC2E0253_ME_4C84D11E01E2 History
 
+%%ImplementedBy ME_494F89AA0017 ME_4C84D11E01E2
+
+%%InheritedBy ME_4AC4EF5600B4 ME_4C84D11E01E2
+
 ME ME_4C84D11E01E2
  MEPROP UID '4C84D11E01E2'
  MEPROP Name 'PrimContactListOptions'
@@ -99,10 +103,10 @@ ME ME_4C84D11E01E2
  %SUMMARY 'Совещание онлайн' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ MELINK Parent WL? 'ME_4A66D6BF0190' // Chat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AC4EF5600B4' '4AC4EF5600B4.ms.model.script' // PrimContactList
+   Seq: ( WL? 'ME_4AC4EF5600B4' // PrimContactList
  )
  ; // Inherits
  MELIST Implements
@@ -124,6 +128,9 @@ ME ME_4C84D11E01E2
    Seq: ( ME_5795EE2C0322 // TChatService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

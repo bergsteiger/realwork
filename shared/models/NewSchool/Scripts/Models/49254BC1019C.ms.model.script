@@ -58,6 +58,8 @@ ME ME_5571EB84007F_ME_49254BC1019C
  UP "pm" True
 ENDME // ME_5571EB84007F_ME_49254BC1019C DictionKind
 
+%%InheritedBy ME_4925449A0296 ME_49254BC1019C
+
 ME ME_49254BC1019C
  MEPROP UID '49254BC1019C'
  MEPROP Name 'TdsTips'
@@ -68,10 +70,10 @@ ME ME_49254BC1019C
  %SUMMARY 'Список советов дня' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491D560F01F4' '491D560F01F4.ms.model.script' // DayTips
+ MELINK Parent WL? 'ME_491D560F01F4' // DayTips
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4925449A0296' '4925449A0296.ms.model.script' // dsCommonDiction
+   Seq: ( WL? 'ME_4925449A0296' // dsCommonDiction
  )
  ; // Inherits
  MELIST Attributes
@@ -89,6 +91,9 @@ ME ME_49254BC1019C
  ME_49254CF00100 // TnsTipsTree
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/02/20 13:01:22'

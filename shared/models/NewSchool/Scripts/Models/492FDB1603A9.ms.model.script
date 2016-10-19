@@ -39,7 +39,7 @@ ME ME_492FDB5A0045
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
  ;
- MELINK Target WL 'ME_491C3B8D00D8' '491C3B8D00D8.ms.model.script' // TdsAutoreferat
+ MELINK Target WL? 'ME_491C3B8D00D8' // TdsAutoreferat
  ;
 
 ENDME // ME_492FDB5A0045 
@@ -49,7 +49,7 @@ ME ME_492FDCBF00F3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
  ;
- MELINK Target WL 'ME_492FDE91018F' '492FDE91018F.ms.model.script' // TdsNewsLine
+ MELINK Target WL? 'ME_492FDE91018F' // TdsNewsLine
  ;
 
 ENDME // ME_492FDCBF00F3 
@@ -69,13 +69,13 @@ ME ME_53D7681800D2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL? 'ME_53BA488F00D8' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_53D7681800D2 
 
 ME ME_47F3778403D9_ME_492FDB1603A9
- MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ MELINK Original WL 'ME_47F3778403D9' '47F37723017A.ms.model.script' // MakeData
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47F3778403D9_ME_492FDB1603A9 MakeData
@@ -94,16 +94,20 @@ ME ME_492F060800A2_ME_492FDB1603A9
 ENDME // ME_492F060800A2_ME_492FDB1603A9 MakeNewsLineFakeDS
 
 ME ME_47F37DF001FE_ME_492FDB1603A9
- MELINK Original WL 'ME_47F37DF001FE' '47D0E1500033.ms.model.script' // DataExchange
+ MELINK Original WL 'ME_47F37DF001FE' '47F37723017A.ms.model.script' // DataExchange
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47F37DF001FE_ME_492FDB1603A9 DataExchange
 
 ME ME_53B3BF9C00EF_ME_492FDB1603A9
- MELINK Original WL 'ME_53B3BF9C00EF' '47D0E1500033.ms.model.script' // DoGetFormSetImageIndex
+ MELINK Original WL 'ME_53B3BF9C00EF' '47F37723017A.ms.model.script' // DoGetFormSetImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_53B3BF9C00EF_ME_492FDB1603A9 DoGetFormSetImageIndex
+
+%%ImplementedBy ME_492F071B02AC ME_492FDB1603A9
+
+%%InheritedBy ME_47EA106D035E ME_492FDB1603A9
 
 ME ME_492FDB1603A9
  MEPROP UID '492FDB1603A9'
@@ -115,10 +119,10 @@ ME ME_492FDB1603A9
  %SUMMARY 'Бизнес объект сборки "Автореферат"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' // Autoreferat
+ MELINK Parent WL? 'ME_491C3ADB03A5' // Autoreferat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47EA106D035E' '47EA106D035E.ms.model.script' // sdsBaseDocument
+   Seq: ( WL? 'ME_47EA106D035E' // sdsBaseDocument
  )
  ; // Inherits
  MELIST Implements
@@ -148,6 +152,9 @@ ME ME_492FDB1603A9
  ME_53D7681800D2 // nsTabbedInterfaceTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '2005/10/06 12:32:24'

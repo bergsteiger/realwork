@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD5B8B90175
+
 FORWARD ME_4A6EA45C01C4
 
 ME ME_4BD5B8B90175
@@ -27,7 +29,7 @@ ME ME_4A6ED19903DA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
  ;
 
 ENDME // ME_4A6ED19903DA 
@@ -37,7 +39,7 @@ ME ME_4A82A1E50079
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_4A82A1E50079 
@@ -57,7 +59,7 @@ ME ME_4A8ADC380080
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4A8ADC380080 
@@ -67,7 +69,7 @@ ME ME_4A8ADFD70221
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
  ;
- MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ MELINK Target WL 'ME_4A8ADF9E0058' '47F25BC801DB.ms.model.script' // vcmFmt
  ;
 
 ENDME // ME_4A8ADFD70221 
@@ -109,6 +111,11 @@ ME ME_4A8AE24D003F_ME_4A6EA45C01C4
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_4A8AE24D003F_ME_4A6EA45C01C4 ClearHistory
 
+%%ImplementedBy ME_4A6EA4E900C3 ME_4A6EA45C01C4
+%%ImplementedBy ME_4A8AE2340069 ME_4A6EA45C01C4
+
+%%InheritedBy ME_4A6EA4310035 ME_4A6EA45C01C4
+
 ME ME_4A6EA45C01C4
  MEPROP UID '4A6EA45C01C4'
  MEPROP Name 'BaseHistoryWindow'
@@ -119,10 +126,10 @@ ME ME_4A6EA45C01C4
  %SUMMARY 'История переписки' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ MELINK Parent WL? 'ME_4A66D6BF0190' // Chat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6EA4310035' '4A6EA4310035.ms.model.script' // AbstractHistory
+   Seq: ( WL? 'ME_4A6EA4310035' // AbstractHistory
  )
  ; // Inherits
  MELIST Implements
@@ -149,6 +156,9 @@ ME ME_4A6EA45C01C4
  ME_5796077A02C5 // TChatService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

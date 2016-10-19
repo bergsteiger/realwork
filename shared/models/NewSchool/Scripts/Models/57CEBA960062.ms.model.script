@@ -1,0 +1,249 @@
+// msmModelToModelOperation 57CEBA960062 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57CEBAD2032D
+%%Inner ME_57CEBB0800B8
+
+FORWARD ME_57CEBA960062
+
+ME ME_57CEBAD2032D
+ MEPROP UID '57CEBAD2032D'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ UP extprop:pas:TypeName '_ModelToListen_'
+
+ENDME // ME_57CEBAD2032D ModelToListen
+
+ME ME_57CEBB0800B8
+ MEPROP UID '57CEBB0800B8'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ UP extprop:pas:TypeName '_ModelToFire_'
+
+ENDME // ME_57CEBB0800B8 ModelToFire
+
+ME ME_57CEBAE20358
+ MEPROP UID '57CEBAE20358'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELINK Target HWL ME_57CEBAD2032D // ModelToListen
+ ;
+
+ENDME // ME_57CEBAE20358 ModelToListen
+
+ME ME_57CEBAEB0345
+ MEPROP UID '57CEBAEB0345'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELINK Target HWL ME_57CEBAD2032D // ModelToListen
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57CEBAEB0345 ModelToListen
+
+ME ME_57CEBB1601A3
+ MEPROP UID '57CEBB1601A3'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELINK Target HWL ME_57CEBB0800B8 // ModelToFire
+ ;
+
+ENDME // ME_57CEBB1601A3 ModelToFire
+
+ME ME_57CEBB1E034F
+ MEPROP UID '57CEBB1E034F'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELINK Target HWL ME_57CEBB0800B8 // ModelToFire
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57CEBB1E034F ModelToFire
+
+ME ME_57CEC0F702F5
+ MEPROP UID '57CEC0F702F5'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELINK Target HWL ME_57CEBAD2032D // ModelToListen
+ ;
+
+ENDME // ME_57CEC0F702F5 ConcreteModel
+
+FORWARD ME_57CEBB400249
+
+FORWARD ME_57CEBB4802F0
+
+ME ME_57CEBB640267
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57CEBB640267 aCaption
+
+ME ME_57CEBB64028F
+ MEPROP Name 'aModelToListen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57CEBAD2032D // ModelToListen
+ ;
+
+ENDME // ME_57CEBB64028F aModelToListen
+
+ME ME_57CEBB6402B7
+ MEPROP Name 'aModelToFire'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57CEBB0800B8 // ModelToFire
+ ;
+
+ENDME // ME_57CEBB6402B7 aModelToFire
+
+ME ME_57CEBB4802F0
+ MEPROP UID '57CEBB4802F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEBB400249 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CEBB640267 // aCaption
+ ME_57CEBB64028F // aModelToListen
+ ME_57CEBB6402B7 // aModelToFire
+ )
+ ; // Parameters
+
+ENDME // ME_57CEBB4802F0 DoIt
+
+ME ME_57CEBB400249
+ MEPROP UID '57CEBB400249'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CEBB4802F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CEBB400249 Create
+
+%%ImplementedBy ME_57B568620397 ME_57CEBAB8037B
+
+%%InheritedBy ME_57CEBB400249 ME_57CEBAB8037B
+
+ME ME_57CEBAB8037B
+ MEPROP UID '57CEBAB8037B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEBA960062 // msmModelToModelOperation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CEBB400249 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ )
+ ; // Implements
+
+ENDME // ME_57CEBAB8037B Make
+
+%%InheritedBy ME_57CEB54C02B6 ME_57CEBA960062
+
+ME ME_57CEBA960062
+ MEPROP UID '57CEBA960062'
+ MEPROP Name 'msmModelToModelOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_57CEB54C02B6' // msmConcreteModelOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57CEBAE20358 // ModelToListen
+ HWL ME_57CEBAEB0345 // ModelToListen
+ HWL ME_57CEBB1601A3 // ModelToFire
+ HWL ME_57CEBB1E034F // ModelToFire
+ HWL ME_57CEC0F702F5 // ConcreteModel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57CEBB400249 // Create
+ HWL ME_57CEBAB8037B // Make
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57CEBAD2032D // ModelToListen
+ HWL ME_57CEBB0800B8 // ModelToFire
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_msmModelToModelOperation_'
+ UP extprop:pas:UnitName 'msmModelToModelOperation.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelToModelOperation.imp.pas'
+
+ENDME // ME_57CEBA960062 msmModelToModelOperation

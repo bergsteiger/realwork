@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A7705AD01AB
+%%Inner ME_4DD125D3009F
+%%Inner ME_4DDCBA9A0016
+%%Inner ME_4E8B360E006C
+%%Inner ME_4E8C3C6C0244
+%%Inner ME_4F991E420079
+
 FORWARD ME_4A77058200BA
 
 FORWARD ME_4A7705AD01AB
@@ -40,6 +47,9 @@ ME ME_4C7BAEB4010E
    Seq: ( HWL ME_4C7BAED10308 // ShowChanges
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -67,6 +77,9 @@ ME ME_4A7705AD01AB
    Seq: ( HWL ME_4C7BAEB4010E // CompareEditions
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4A7705AD01AB Document
 
@@ -111,6 +124,9 @@ ME ME_4DD125D3009F
    Seq: ( HWL ME_4DD1260D02D1 // ShowChanges
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4DD125D3009F Document$ShowChanges
 
@@ -155,6 +171,9 @@ ME ME_4DDCBA9A0016
    Seq: ( HWL ME_4DDCBABC03B7 // ViewChangedFragments
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4DDCBA9A0016 Document$ViewChangedFragments
 
@@ -166,7 +185,7 @@ ME ME_4AE9D44401E4
  MEPROP Name 'aPointID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
  ;
 
 ENDME // ME_4AE9D44401E4 aPointID
@@ -175,10 +194,10 @@ ME ME_4AE9D4440203
  MEPROP Name 'aPointType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
  ;
  MEPROP Value 'Sub'
- MELINK ValueType WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ MELINK ValueType WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
  ;
  UP extprop:pas:Value 'bsTypesNew.dptSub'
 
@@ -188,10 +207,10 @@ ME ME_4AE9D4440226
  MEPROP Name 'aUserType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 0
- MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP extprop:pas:Value 0
 
@@ -206,7 +225,7 @@ ME ME_4AE9D38A02DA
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4E8B360E006C // Document$SetPosition
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4AE9D44401E4 // aPointID
@@ -224,6 +243,9 @@ ME ME_4AE9D38A02DA
  UP "no prefix" False
 
 ENDME // ME_4AE9D38A02DA SetPosition
+
+%%ImplementedBy ME_4E8B2A6701A5 ME_4E8B360E006C
+%%ImplementedBy ME_4E8B3702025D ME_4E8B360E006C
 
 ME ME_4E8B360E006C
  MEPROP UID '4E8B360E006C'
@@ -327,6 +349,10 @@ ME ME_4AE9D38A02DA_ME_4F991E420079
  UP "no prefix" False
 ENDME // ME_4AE9D38A02DA_ME_4F991E420079 SetPosition
 
+%%ImplementedBy ME_4F9926180136 ME_4F991E420079
+
+%%InheritedBy ME_4E8B360E006C ME_4F991E420079
+
 ME ME_4F991E420079
  MEPROP UID '4F991E420079'
  MEPROP Name 'Document'
@@ -366,7 +392,7 @@ ME ME_4A77058200BA
  %SUMMARY 'Работа с редакциями' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A7C099B004F' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4A7705AD01AB // Document
@@ -378,13 +404,16 @@ ME ME_4A77058200BA
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
- WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_484900780017' // Работа с документом
+ WL? 'ME_4912DD020283' // eeInterfaces
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'Base_Operations_Editions_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Editions_Controls.pas'

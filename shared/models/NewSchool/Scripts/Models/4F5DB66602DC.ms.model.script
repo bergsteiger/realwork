@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F5DB66F02F7
+
 ME ME_4F5DB66602DC
  MEPROP UID '4F5DB66602DC'
  MEPROP Name 'View'
@@ -10,12 +12,15 @@ ME ME_4F5DB66602DC
  MELINK Stereotype st_VCMViews ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4D358B9A01E5' '4D358B9A01E5.ms.model.script' // DictionLike
+ MELINK Parent WL? 'ME_4D358B9A01E5' // DictionLike
  ;
  MELIST Children
-   Seq: ( WL 'ME_4F5DB66F02F7' '4F5DB66F02F7.ms.model.script' // DictionLikeForms
+   Seq: ( WL? 'ME_4F5DB66F02F7' // DictionLikeForms
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'prj'
  UP "is namespace" True

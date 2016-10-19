@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49EDAA740295
+%%Inner ME_4C6274C701D2
+
 FORWARD ME_49EC746B01E5
 
 FORWARD ME_49EDAAA601D9
@@ -19,7 +22,7 @@ ME ME_49EDAAF403C0
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_49EDAAA601D9 // InsInternetAgentState
  ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
  UP "pm" False
 
@@ -35,7 +38,7 @@ ME ME_5742C1CB030C
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_49EDAAA601D9 // InsInternetAgentState
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" False
 
@@ -47,7 +50,7 @@ ME ME_49EDDCC000A8
  MEPROP Name 'anURL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_49EDDCC000A8 anURL
@@ -56,7 +59,7 @@ ME ME_5742D3B701F4
  MEPROP Name 'aScrollPos'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5742D3B701F4 aScrollPos
@@ -77,6 +80,8 @@ ME ME_49EDDC9F007A
  ; // Parameters
 
 ENDME // ME_49EDDC9F007A SetParams
+
+%%ImplementedBy ME_4683CEAD00CF ME_49EDAAA601D9
 
 ME ME_49EDAAA601D9
  MEPROP UID '49EDAAA601D9'
@@ -103,6 +108,9 @@ ME ME_49EDAAA601D9
    Seq: ( HWL ME_49EDDC9F007A // SetParams
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'InternetAgentState'
 
@@ -117,7 +125,7 @@ ME ME_49EDAB560377
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
  ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_49EDAB560377 f_URL
@@ -131,7 +139,7 @@ ME ME_5742C2030270
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EDAA740295 // TnsInternetAgentState
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5742C2030270 f_ScrollPos
@@ -144,7 +152,7 @@ ME ME_5742CDDA015C
  MEPROP Name 'anURL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_5742CDDA015C anURL
@@ -153,7 +161,7 @@ ME ME_5742CDDA017A
  MEPROP Name 'aScrollPos'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5742CDDA017A aScrollPos
@@ -190,6 +198,10 @@ ME ME_5742CDC7015B
  ; // Operations
 
 ENDME // ME_5742CDC7015B Create
+
+%%ImplementedBy ME_49EDAAA601D9 ME_5742CDE10213
+
+%%InheritedBy ME_5742CDC7015B ME_5742CDE10213
 
 ME ME_5742CDE10213
  MEPROP UID '5742CDE10213'
@@ -232,6 +244,10 @@ ME ME_5742C1CB030C_ME_49EDAA740295
  UP "pm" False
 ENDME // ME_5742C1CB030C_ME_49EDAA740295 ScrollPos
 
+%%ImplementedBy ME_49EDAAA601D9 ME_49EDAA740295
+
+%%InheritedBy ME_49E7754802A9 ME_49EDAA740295
+
 ME ME_49EDAA740295
  MEPROP UID '49EDAA740295'
  MEPROP Name 'TnsInternetAgentState'
@@ -270,6 +286,9 @@ ME ME_49EDAA740295
    Seq: ( HWL ME_49EDAAA601D9 // InsInternetAgentState
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '21.04.2009 15:14'
@@ -346,10 +365,10 @@ ME ME_57592DC70393
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57592DAC0322 // PrimInternetAgentConsts
  ;
- MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ MELINK Target WL 'ME_469F99BD026B' '4807744200AA.ms.model.script' // HResult
  ;
  MEPROP Value 200
- MELINK ValueType WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ MELINK ValueType WL 'ME_469F99BD026B' '4807744200AA.ms.model.script' // HResult
  ;
  UP "AutoInc" False
  UP "forced type" 'none'
@@ -367,10 +386,10 @@ ME ME_57593B9C02FE
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57592DAC0322 // PrimInternetAgentConsts
  ;
- MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ MELINK Target WL 'ME_469F99BD026B' '4807744200AA.ms.model.script' // HResult
  ;
  MEPROP Value 404
- MELINK ValueType WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ MELINK ValueType WL 'ME_469F99BD026B' '4807744200AA.ms.model.script' // HResult
  ;
  UP "AutoInc" False
  UP "forced type" 'none'
@@ -407,7 +426,7 @@ ME ME_49EC9D2702BA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_49ECB8E002B0' '49ECB8E002B0.ms.model.script' // TnsWebBrowser
+ MELINK Target WL? 'ME_49ECB8E002B0' // TnsWebBrowser
  ;
 
 ENDME // ME_49EC9D2702BA f_Browser
@@ -421,7 +440,7 @@ ME ME_49EDA2390109
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_49EDA2390109 f_InInit
@@ -435,7 +454,7 @@ ME ME_49EDDF7C01C0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_49EDDF7C01C0 f_URL
@@ -463,7 +482,7 @@ ME ME_49EDED8D0305
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_49EDED8D0305 f_CanBack
@@ -477,7 +496,7 @@ ME ME_49EDED9503D0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_49EDED9503D0 f_CanForward
@@ -492,7 +511,7 @@ ME ME_4A11644A00DF
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4A11644A00DF f_NavigateErrorPass
@@ -507,7 +526,7 @@ ME ME_4A11647D0225
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_469F99BD026B' '4AB0C3C60310.ms.model.script' // HResult
+ MELINK Target WL 'ME_469F99BD026B' '4807744200AA.ms.model.script' // HResult
  ;
 
 ENDME // ME_4A11647D0225 f_NavigateErrorCode
@@ -520,7 +539,7 @@ ME ME_49ED9CBF01C1
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_49ED9CBF01C1 Sender
@@ -529,7 +548,7 @@ ME ME_49ED9CBF0202
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_49ED9CBF0202 pDisp
@@ -538,7 +557,7 @@ ME ME_49ED9CBF0270
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CBF0270 URL
@@ -547,7 +566,7 @@ ME ME_49ED9CBF02D8
  MEPROP Name 'Flags'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CBF02D8 Flags
@@ -556,7 +575,7 @@ ME ME_49ED9CBF0348
  MEPROP Name 'TargetFrameName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CBF0348 TargetFrameName
@@ -565,7 +584,7 @@ ME ME_49ED9CBF03AA
  MEPROP Name 'PostData'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CBF03AA PostData
@@ -574,7 +593,7 @@ ME ME_49ED9CC00020
  MEPROP Name 'Headers'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CC00020 Headers
@@ -583,7 +602,7 @@ ME ME_49ED9CC0008A
  MEPROP Name 'Cancel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ MELINK Target WL 'ME_49ED88C9020B' '4807744200AA.ms.model.script' // WordBool
  ;
 
 ENDME // ME_49ED9CC0008A Cancel
@@ -615,7 +634,7 @@ ME ME_49EEEB700322
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
  ;
- MELINK Target WL 'ME_49EEF16603C9' '49F1CAA100B5.ms.model.script' // nsInternetUtils
+ MELINK Target WL? 'ME_49EEF16603C9' // nsInternetUtils
  ;
 
 ENDME // ME_49EEEB700322 
@@ -625,7 +644,7 @@ ME ME_49EEEEDD03C9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_49EEEEDD03C9 
@@ -635,7 +654,7 @@ ME ME_49EF00A802B1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
  ;
- MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ MELINK Target WL? 'ME_47F9C7C9010E' // nsExternalObjectPrim
  ;
 
 ENDME // ME_49EF00A802B1 
@@ -645,7 +664,7 @@ ME ME_49EF050801C3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49ED882F0024 // BeforeNavigate
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_49EF050801C3 
@@ -672,6 +691,9 @@ ME ME_49ED882F0024
  ME_49EF050801C3 // l3Base
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'XE'
 
 ENDME // ME_49ED882F0024 BeforeNavigate
@@ -684,7 +706,7 @@ ME ME_49ED8A880293
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_49ED8A880293 Sender
@@ -693,7 +715,7 @@ ME ME_49ED8A8802AC
  MEPROP Name 'Text'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_49ED8A8802AC Text
@@ -739,7 +761,7 @@ ME ME_49ED9CE10202
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_49ED9CE10202 Sender
@@ -748,7 +770,7 @@ ME ME_49ED9CE1021E
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_49ED9CE1021E pDisp
@@ -757,7 +779,7 @@ ME ME_49ED9CE10239
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_49ED9CE10239 URL
@@ -805,7 +827,7 @@ ME ME_49EDE12A0036
  MEPROP Name 'anURL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_498849D803A8' '4AB0C3C60310.ms.model.script' // WideString
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
  ;
 
 ENDME // ME_49EDE12A0036 anURL
@@ -851,7 +873,7 @@ ME ME_49EDEDF9002F
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_49EDEDF9002F Sender
@@ -860,7 +882,7 @@ ME ME_49EDEDF90056
  MEPROP Name 'Command'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_49EDEDF90056 Command
@@ -869,7 +891,7 @@ ME ME_49EDEDF90089
  MEPROP Name 'Enable'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ MELINK Target WL 'ME_49ED88C9020B' '4807744200AA.ms.model.script' // WordBool
  ;
 
 ENDME // ME_49EDEDF90089 Enable
@@ -917,7 +939,7 @@ ME ME_4A11353202D0
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4A11353202D0 Sender
@@ -926,7 +948,7 @@ ME ME_4A11353202F9
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_4A11353202F9 pDisp
@@ -935,7 +957,7 @@ ME ME_4A1135320324
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_4A1135320324 URL
@@ -944,7 +966,7 @@ ME ME_4A113532034F
  MEPROP Name 'Frame'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_4A113532034F Frame
@@ -953,7 +975,7 @@ ME ME_4A1135320380
  MEPROP Name 'StatusCode'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_4A1135320380 StatusCode
@@ -962,7 +984,7 @@ ME ME_4A11353203AB
  MEPROP Name 'Cancel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ MELINK Target WL 'ME_49ED88C9020B' '4807744200AA.ms.model.script' // WordBool
  ;
 
 ENDME // ME_4A11353203AB Cancel
@@ -992,7 +1014,7 @@ ME ME_4A1135F002F7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A1133EF0284 // NavigateError
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_4A1135F002F7 
@@ -1002,7 +1024,7 @@ ME ME_4A113A3B0145
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A1133EF0284 // NavigateError
  ;
- MELINK Target WL 'ME_47F4EED50062' '4AADF9450143.ms.model.script' // vcmForm
+ MELINK Target WL? 'ME_47F4EED50062' // vcmForm
  ;
 
 ENDME // ME_4A113A3B0145 
@@ -1027,6 +1049,9 @@ ME ME_4A1133EF0284
  ME_4A113A3B0145 // vcmForm
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'XE'
 
 ENDME // ME_4A1133EF0284 NavigateError
@@ -1039,7 +1064,7 @@ ME ME_5175428F0388
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_5175428F0388 Sender
@@ -1048,7 +1073,7 @@ ME ME_5175428F03C3
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_5175428F03C3 pDisp
@@ -1057,7 +1082,7 @@ ME ME_517542900003
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_517542900003 URL
@@ -1066,7 +1091,7 @@ ME ME_517542900031
  MEPROP Name 'Flags'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_517542900031 Flags
@@ -1075,7 +1100,7 @@ ME ME_517542900059
  MEPROP Name 'TargetFrameName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_517542900059 TargetFrameName
@@ -1084,7 +1109,7 @@ ME ME_517542900086
  MEPROP Name 'PostData'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_517542900086 PostData
@@ -1093,7 +1118,7 @@ ME ME_5175429000B0
  MEPROP Name 'Headers'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_5175429000B0 Headers
@@ -1102,7 +1127,7 @@ ME ME_5175429000DC
  MEPROP Name 'Cancel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ MELINK Target WL 'ME_49ED88C9020B' '4807744200AA.ms.model.script' // WordBool
  ;
 
 ENDME // ME_5175429000DC Cancel
@@ -1154,7 +1179,7 @@ ME ME_5175446D00FC
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_5175446D00FC Sender
@@ -1163,7 +1188,7 @@ ME ME_5175446D0130
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_5175446D0130 pDisp
@@ -1172,7 +1197,7 @@ ME ME_5175446D015B
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_5175446D015B URL
@@ -1219,7 +1244,7 @@ ME ME_517545180372
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_517545180372 Sender
@@ -1228,7 +1253,7 @@ ME ME_51754518039D
  MEPROP Name 'pDisp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49ED9D5A015F' '4AB0C3C60310.ms.model.script' // IDispatch
+ MELINK Target WL 'ME_49ED9D5A015F' '4807744200AA.ms.model.script' // IDispatch
  ;
 
 ENDME // ME_51754518039D pDisp
@@ -1237,7 +1262,7 @@ ME ME_5175451803C3
  MEPROP Name 'URL'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_5175451803C3 URL
@@ -1246,7 +1271,7 @@ ME ME_517545190004
  MEPROP Name 'Frame'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_517545190004 Frame
@@ -1255,7 +1280,7 @@ ME ME_51754519002C
  MEPROP Name 'StatusCode'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_49ED892F022E' '4AB0C3C60310.ms.model.script' // OleVariant
+ MELINK Target WL 'ME_49ED892F022E' '4807744200AA.ms.model.script' // OleVariant
  ;
 
 ENDME // ME_51754519002C StatusCode
@@ -1264,7 +1289,7 @@ ME ME_517545190053
  MEPROP Name 'Cancel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_49ED88C9020B' '4AB0C3C60310.ms.model.script' // WordBool
+ MELINK Target WL 'ME_49ED88C9020B' '4807744200AA.ms.model.script' // WordBool
  ;
 
 ENDME // ME_517545190053 Cancel
@@ -1341,7 +1366,7 @@ ME ME_49EC9D5A00ED
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_49EC9D5A00ED 
@@ -1351,7 +1376,7 @@ ME ME_49ECA57202DD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ MELINK Target WL 'ME_47E12539018D' '47E11FC3021E.ms.model.script' // TAlign
  ;
 
 ENDME // ME_49ECA57202DD 
@@ -1361,7 +1386,7 @@ ME ME_49EDB73B014A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_4981AC530096' '4AB0997B00A2.ms.model.script' // EOleError
+ MELINK Target WL 'ME_4981AC530096' '4981AC0701C1.ms.model.script' // EOleError
  ;
 
 ENDME // ME_49EDB73B014A 
@@ -1371,7 +1396,7 @@ ME ME_49EDCE2A015C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_49EC9CF0030B' '49EC9CDD0093.ms.model.script' // shdocvw
+ MELINK Target WL? 'ME_49EC9CF0030B' // shdocvw
  ;
 
 ENDME // ME_49EDCE2A015C 
@@ -1381,7 +1406,7 @@ ME ME_4A04301A0036
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_4A042F5D03B2' '4AB0C3F60375.ms.model.script' // UrlMon
+ MELINK Target WL? 'ME_4A042F5D03B2' // UrlMon
  ;
 
 ENDME // ME_4A04301A0036 
@@ -1391,7 +1416,7 @@ ME ME_4A04306E0109
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_49EEFA91008E' '4799D29F033F.ms.model.script' // OleCtrls
+ MELINK Target WL? 'ME_49EEFA91008E' // OleCtrls
  ;
 
 ENDME // ME_4A04306E0109 
@@ -1401,7 +1426,7 @@ ME ME_4A04308801B6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
  ;
 
 ENDME // ME_4A04308801B6 
@@ -1411,7 +1436,7 @@ ME ME_4BB344EC010F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4BB344EC010F 
@@ -1421,7 +1446,7 @@ ME ME_4BB3461902E1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4BB3461902E1 
@@ -1431,7 +1456,7 @@ ME ME_4BEBD04302D4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ MELINK Target WL? 'ME_490C47C70210' // nsUtils
  ;
 
 ENDME // ME_4BEBD04302D4 
@@ -1441,7 +1466,7 @@ ME ME_4CC91A0D03DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
  ;
 
 ENDME // ME_4CC91A0D03DB 
@@ -1451,7 +1476,7 @@ ME ME_4F7B187F0332
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_4F7B037D01FF' '4F6B66140294.ms.model.script' // nsSettingsConst
+ MELINK Target WL? 'ME_4F7B037D01FF' // nsSettingsConst
  ;
 
 ENDME // ME_4F7B187F0332 
@@ -1461,7 +1486,7 @@ ME ME_4F9BB969005D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_4F9BB17D03CD' '4F9BB1120134.ms.model.script' // Questions
+ MELINK Target WL 'ME_4F9BB17D03CD' '4F9BB14900E7.ms.model.script' // Questions
  ;
 
 ENDME // ME_4F9BB969005D 
@@ -1471,7 +1496,7 @@ ME ME_545B47900355
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL? 'ME_53BA488F00D8' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_545B47900355 
@@ -1481,7 +1506,7 @@ ME ME_57C00907023C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC746B01E5 // PrimInternetAgent
  ;
- MELINK Target WL 'ME_57BC06F603E1' '57BC0538037B.ms.model.script' // nsDownloader
+ MELINK Target WL? 'ME_57BC06F603E1' // nsDownloader
  ;
 
 ENDME // ME_57C00907023C 
@@ -1770,13 +1795,13 @@ ME ME_4C7D0CC90052_ME_49EC746B01E5
 ENDME // ME_4C7D0CC90052_ME_49EC746B01E5 Delete
 
 ME ME_479731C50290_ME_49EC746B01E5
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49EC746B01E5 Cleanup
 
 ME ME_497469C90140_ME_49EC746B01E5
- MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_497469C90140_ME_49EC746B01E5 NotifyDataSourceChanged
@@ -1800,10 +1825,18 @@ ME ME_49807428008C_ME_49EC746B01E5
 ENDME // ME_49807428008C_ME_49EC746B01E5 DoLoadState
 
 ME ME_543E3AA801D0_ME_49EC746B01E5
- MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ MELINK Original WL 'ME_543E3AA801D0' '543E3A600253.ms.model.script' // DoGetTabImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_543E3AA801D0_ME_49EC746B01E5 DoGetTabImageIndex
+
+%%ImplementedBy ME_494F89AA0017 ME_49EC746B01E5
+%%ImplementedBy ME_4951282D0269 ME_49EC746B01E5
+%%ImplementedBy ME_49521D8203A0 ME_49EC746B01E5
+%%ImplementedBy ME_4BB32B8400B0 ME_49EC746B01E5
+%%ImplementedBy ME_543E3A600253 ME_49EC746B01E5
+
+%%InheritedBy ME_49525B34022A ME_49EC746B01E5
 
 ME ME_49EC746B01E5
  MEPROP UID '49EC746B01E5'
@@ -1815,7 +1848,7 @@ ME ME_49EC746B01E5
  %SUMMARY 'Базаовая форма для [Интернет-агента|$124453728]' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_49EC7167004C' '49EC7167004C.ms.model.script' // InternetAgent
+ MELINK Parent WL? 'ME_49EC7167004C' // InternetAgent
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
@@ -1826,7 +1859,7 @@ ME ME_49EC746B01E5
  WL 'ME_4951282D0269' '495127DD017C.ms.model.script' // Edit
  WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
  WL 'ME_4BB32B8400B0' '5278E45101D3.ms.model.script' // Scalable
- WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+ WL? 'ME_543E3A600253' // vcmChromeLikeTabIconUpdater
  )
  ; // Implements
  MELIST Attributes
@@ -1912,6 +1945,9 @@ ME ME_49EC746B01E5
  ME_57C00907023C // nsDownloader
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

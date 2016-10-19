@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A6EC3DF01FE
+
 FORWARD ME_4A6EBF8301FA
 
 FORWARD ME_4A6EC3DF01FE
@@ -81,6 +83,11 @@ ME ME_4DF9D63B0360_ME_4A6EC4320102
  UP "reflectable" True
 ENDME // ME_4DF9D63B0360_ME_4A6EC4320102 DocInfo
 
+%%ImplementedBy ME_4A6D579203BC ME_4A6EC4320102
+
+%%InheritedBy ME_4A6EC02E00EA ME_4A6EC4320102
+%%InheritedBy ME_4BD7056800D3 ME_4A6EC4320102
+
 ME ME_4A6EC4320102
  MEPROP UID '4A6EC4320102'
  MEPROP Name 'Left'
@@ -92,7 +99,7 @@ ME ME_4A6EC4320102
  MELINK Parent HWL ME_4A6EC3DF01FE // EditionsContainer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6EC02E00EA' '4A6EC02E00EA.ms.model.script' // LeftEdition
+   Seq: ( WL? 'ME_4A6EC02E00EA' // LeftEdition
  WL 'ME_4BD7056800D3' '4A6D5A80013C.ms.model.script' // utLeftEdition
  )
  ; // Inherits
@@ -198,6 +205,11 @@ ME ME_4DF9D63B0360_ME_4A6EC45501C8
  UP "reflectable" True
 ENDME // ME_4DF9D63B0360_ME_4A6EC45501C8 DocInfo
 
+%%ImplementedBy ME_4A6D57C80079 ME_4A6EC45501C8
+
+%%InheritedBy ME_4A6EC062005F ME_4A6EC45501C8
+%%InheritedBy ME_4BD705A001E0 ME_4A6EC45501C8
+
 ME ME_4A6EC45501C8
  MEPROP UID '4A6EC45501C8'
  MEPROP Name 'Right'
@@ -209,7 +221,7 @@ ME ME_4A6EC45501C8
  MELINK Parent HWL ME_4A6EC3DF01FE // EditionsContainer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6EC062005F' '4A6EC062005F.ms.model.script' // RightEdition
+   Seq: ( WL? 'ME_4A6EC062005F' // RightEdition
  WL 'ME_4BD705A001E0' '4A6D5ABE020A.ms.model.script' // utRightEdition
  )
  ; // Inherits
@@ -286,6 +298,11 @@ ME ME_54743B1A00AC_ME_4A6EC3DF01FE
  UP "pm" False
 ENDME // ME_54743B1A00AC_ME_4A6EC3DF01FE DocumentFullNameForCaption
 
+%%ImplementedBy ME_4A6EC18E02E3 ME_4A6EC3DF01FE
+
+%%InheritedBy ME_4A6EC095039C ME_4A6EC3DF01FE
+%%InheritedBy ME_4BD705C900FF ME_4A6EC3DF01FE
+
 ME ME_4A6EC3DF01FE
  MEPROP UID '4A6EC3DF01FE'
  MEPROP Name 'EditionsContainer'
@@ -297,7 +314,7 @@ ME ME_4A6EC3DF01FE
  MELINK Parent HWL ME_4A6EBF8301FA // CompareEditions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6EC095039C' '4A6EC095039C.ms.model.script' // EditionsContainer
+   Seq: ( WL? 'ME_4A6EC095039C' // EditionsContainer
  WL 'ME_4BD705C900FF' '4A6EC0D0020C.ms.model.script' // utEditionsContainer
  )
  ; // Inherits
@@ -322,6 +339,9 @@ ME ME_4A6EC3DF01FE
    Seq: ( ME_29EC6596B12C // EditionsContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ActivateIfUpdate" 'None'
  UP "Need GetFormCount" False
  UP "Need OnFormWeight" 'undefined'
@@ -372,6 +392,8 @@ ME ME_6CABF3BFBF2C
 
 ENDME // ME_6CABF3BFBF2C CompareEditionsCaptionLocalConstants
 
+%%InheritedBy ME_50096E800075 ME_220564C38BDB
+
 ME ME_220564C38BDB
  MEPROP UID '220564C38BDB'
  MEPROP Name 'EditionsContainer_Parent_utEditionsContainer_NeedMakeForm'
@@ -393,6 +415,8 @@ ME ME_220564C38BDB
 
 ENDME // ME_220564C38BDB EditionsContainer_Parent_utEditionsContainer_NeedMakeForm
 
+%%InheritedBy ME_50096E800075 ME_2F2577A83E0B
+
 ME ME_2F2577A83E0B
  MEPROP UID '2F2577A83E0B'
  MEPROP Name 'Left_Child_utLeftEdition_NeedMakeForm'
@@ -413,6 +437,8 @@ ME ME_2F2577A83E0B
  ;
 
 ENDME // ME_2F2577A83E0B Left_Child_utLeftEdition_NeedMakeForm
+
+%%InheritedBy ME_50096E800075 ME_B8C95E6B157E
 
 ME ME_B8C95E6B157E
  MEPROP UID 'B8C95E6B157E'
@@ -436,7 +462,7 @@ ME ME_B8C95E6B157E
 ENDME // ME_B8C95E6B157E Right_Main_utRightEdition_NeedMakeForm
 
 ME ME_47A042E100E2_ME_4A6EBF8301FA
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4A6EBF8301FA InitFields
@@ -448,6 +474,8 @@ ME ME_4FFE854A009B_ME_4A6EBF8301FA
  UP "is static" True
 ENDME // ME_4FFE854A009B_ME_4A6EBF8301FA GetInstance
 
+%%InheritedBy ME_47B97312006D ME_4A6EBF8301FA
+
 ME ME_4A6EBF8301FA
  MEPROP UID '4A6EBF8301FA'
  MEPROP Name 'CompareEditions'
@@ -458,7 +486,7 @@ ME ME_4A6EBF8301FA
  %SUMMARY 'Сравнение редакций документа' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A6D5F3D03A9' '4A6D5F3D03A9.ms.model.script' // BaseEditions
+ MELINK Parent WL? 'ME_4A6D5F3D03A9' // BaseEditions
  ;
  MELIST Inherits
    Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
@@ -483,6 +511,9 @@ ME ME_4A6EBF8301FA
    Seq: ( HWL ME_6CABF3BFBF2C // CompareEditionsCaptionLocalConstants
  )
  ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "Caption" 'Сравнение редакций'
  UP "DefaultStatusForm" '-1'

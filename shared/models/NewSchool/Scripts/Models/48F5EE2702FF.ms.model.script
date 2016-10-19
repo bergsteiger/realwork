@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4682704E0347
+%%Inner ME_4682706F038A
+%%Inner ME_48F72B630069
+%%Inner ME_48F8B61F0032
+
 FORWARD ME_48F5EE2702FF
 
 FORWARD ME_4682704E0347
@@ -25,7 +30,7 @@ ME ME_48F5F30E0215
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4682704E0347 // TnsSingleAttributeStorable
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_48F5F30E0215 
@@ -41,7 +46,7 @@ ME ME_48F5F3E70070
 ENDME // ME_48F5F3E70070 
 
 ME ME_479731C50290_ME_4682704E0347
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4682704E0347 Cleanup
@@ -51,6 +56,8 @@ ME ME_48F494FD001D_ME_4682704E0347
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F494FD001D_ME_4682704E0347 Text
+
+%%InheritedBy ME_48F4D8230366 ME_4682704E0347
 
 ME ME_4682704E0347
  MEPROP UID '4682704E0347'
@@ -80,6 +87,9 @@ ME ME_4682704E0347
  ME_48F5F3E70070 // Il3SimpleNode
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'nsSingleAttributeStorable'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SingleAttributeStorable'
@@ -100,10 +110,12 @@ ME ME_48F5F5300199
 ENDME // ME_48F5F5300199 
 
 ME ME_48F8CD5401AD_ME_4682706F038A
- MELINK Original WL 'ME_48F8CD5401AD' '4802FF41005C.ms.model.script' // DataClass
+ MELINK Original WL 'ME_48F8CD5401AD' '48F8C3780325.ms.model.script' // DataClass
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F8CD5401AD_ME_4682706F038A DataClass
+
+%%InheritedBy ME_48F4DC5A018D ME_4682706F038A
 
 ME ME_4682706F038A
  MEPROP UID '4682706F038A'
@@ -147,10 +159,12 @@ ME ME_48F72B6E02AF
 ENDME // ME_48F72B6E02AF 
 
 ME ME_48F8D47302FD_ME_48F72B630069
- MELINK Original WL 'ME_48F8D47302FD' '469C688102A3.ms.model.script' // ExtDataClass
+ MELINK Original WL 'ME_48F8D47302FD' '48F895480266.ms.model.script' // ExtDataClass
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F8D47302FD_ME_48F72B630069 ExtDataClass
+
+%%InheritedBy ME_48F7014003A5 ME_48F72B630069
 
 ME ME_48F72B630069
  MEPROP UID '48F72B630069'
@@ -262,6 +276,10 @@ ME ME_4C933899017C
 
 ENDME // ME_4C933899017C Create
 
+%%ImplementedBy ME_47C68BEF02B9 ME_4C9338DF0394
+
+%%InheritedBy ME_4C933899017C ME_4C9338DF0394
+
 ME ME_4C9338DF0394
  MEPROP UID '4C9338DF0394'
  MEPROP Name 'Make'
@@ -298,7 +316,7 @@ ME ME_48F8B69A0194
  MEPROP Name 'aLevel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_48F8B69A0194 aLevel
@@ -364,7 +382,7 @@ ME ME_4C9341B80181
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48F8B61F0032 // TnsContentsTreeStorable
  ;
- MELINK Target WL 'ME_4ADEE542029C' '47F2170002B2.ms.model.script' // nsWStr
+ MELINK Target WL 'ME_4ADEE542029C' '4A6854C70390.ms.model.script' // nsWStr
  ;
 
 ENDME // ME_4C9341B80181 
@@ -374,6 +392,8 @@ ME ME_48F8A8F501DD_ME_48F8B61F0032
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F8A8F501DD_ME_48F8B61F0032 DoIterateTree
+
+%%InheritedBy ME_48F8A8480224 ME_48F8B61F0032
 
 ME ME_48F8B61F0032
  MEPROP UID '48F8B61F0032'
@@ -410,6 +430,9 @@ ME ME_48F8B61F0032
  ME_4C9341B80181 // nsWStr
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'nsContentsTreeStorable'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ContentsTreeStorable'
@@ -425,7 +448,7 @@ ME ME_48F5EE2702FF
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4ABB680E0218' '4ABB680E0218.ms.model.script' // Common$Lib
+ MELINK Parent WL? 'ME_4ABB680E0218' // Common$Lib
  ;
  MELIST Children
    Seq: ( HWL ME_4682704E0347 // TnsSingleAttributeStorable
@@ -435,20 +458,23 @@ ME ME_48F5EE2702FF
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_469C688102A3' '469C688102A3.ms.model.script' // DataObjects
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_4802FF41005C' '4802FF41005C.ms.model.script' // DataObjects
- WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4423F94903C8' // IO
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_4678209200A6' // nevBase
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_469C688102A3' // DataObjects
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_47C5207602D1' // nevTools
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_4802FF41005C' // DataObjects
+ WL? 'ME_48492FC0029D' // Standard
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_48F5EE2702FF DocumentDataObjects

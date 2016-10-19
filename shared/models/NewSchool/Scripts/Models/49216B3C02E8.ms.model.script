@@ -52,7 +52,7 @@ ME ME_49216C840250
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_49216C840250 
@@ -72,7 +72,7 @@ ME ME_4921746F0201
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
  ;
- MELINK Target WL 'ME_47F9CF5500D1' '48F747EC0073.ms.model.script' // bsConvert
+ MELINK Target WL? 'ME_47F9CF5500D1' // bsConvert
  ;
 
 ENDME // ME_4921746F0201 
@@ -82,7 +82,7 @@ ME ME_4921747D0235
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4921747D0235 
@@ -92,7 +92,7 @@ ME ME_492175C60048
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
  ;
- MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
  ;
 
 ENDME // ME_492175C60048 
@@ -125,16 +125,20 @@ ME ME_49216566017F_ME_49216B3C02E8
 ENDME // ME_49216566017F_ME_49216B3C02E8 CanSend
 
 ME ME_479731C50290_ME_49216B3C02E8
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49216B3C02E8 Cleanup
 
 ME ME_47A042E100E2_ME_49216B3C02E8
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_49216B3C02E8 InitFields
+
+%%ImplementedBy ME_492164C302A6 ME_49216B3C02E8
+
+%%InheritedBy ME_47ECE94D03D4 ME_49216B3C02E8
 
 ME ME_49216B3C02E8
  MEPROP UID '49216B3C02E8'
@@ -146,10 +150,10 @@ ME ME_49216B3C02E8
  %SUMMARY 'БОС оценки консультации' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
@@ -182,6 +186,9 @@ ME ME_49216B3C02E8
  ME_492175C60048 // StringRoutines
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '2006/04/07 08:16:08'

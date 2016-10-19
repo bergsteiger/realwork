@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4ED8D48C0329
+
 ME ME_4EDCC335011E
  MEPROP UID '4EDCC335011E'
  MEPROP Name 'Editions'
@@ -11,18 +13,21 @@ ME ME_4EDCC335011E
  MELINK Stereotype st_VCMForms ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A7C099B004F' // View
  ;
  MELIST Children
-   Seq: ( WL 'ME_4ED8D48C0329' '4ED8D48C0329.ms.model.script' // EditionsListCaller
+   Seq: ( WL? 'ME_4ED8D48C0329' // EditionsListCaller
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_484900780017' '484900780017.ms.model.script' // Работа с документом
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_4AEEE2A40281' '4AEEE2A40281.ms.model.script' // Strange
- WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
+   Seq: ( WL? 'ME_484900780017' // Работа с документом
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_4AEEE2A40281' // Strange
+ WL? 'ME_5795D66F0385' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4EDCC335011E Editions$Forms

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49228BA50210
+
 FORWARD ME_4ABCF1450282
 
 FORWARD ME_49228BA50210
@@ -30,7 +32,7 @@ ME ME_498FFC2C008B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49228BA50210 // TbsConsultation
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_498FFC2C008B f_IsStatusChached
@@ -167,7 +169,7 @@ ME ME_498FFF9E00D5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49228BA50210 // TbsConsultation
  ;
- MELINK Target WL 'ME_47F9CF5500D1' '48F747EC0073.ms.model.script' // bsConvert
+ MELINK Target WL? 'ME_47F9CF5500D1' // bsConvert
  ;
 
 ENDME // ME_498FFF9E00D5 
@@ -177,7 +179,7 @@ ME ME_499002640360
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49228BA50210 // TbsConsultation
  ;
- MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
  ;
 
 ENDME // ME_499002640360 
@@ -187,7 +189,7 @@ ME ME_49900519003A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49228BA50210 // TbsConsultation
  ;
- MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ MELINK Target WL? 'ME_47F21FE90379' // bsUtils
  ;
 
 ENDME // ME_49900519003A 
@@ -262,10 +264,14 @@ ME ME_491C437500BB_ME_49228BA50210
 ENDME // ME_491C437500BB_ME_49228BA50210 Text
 
 ME ME_479731C50290_ME_49228BA50210
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49228BA50210 Cleanup
+
+%%ImplementedBy ME_491C422A0003 ME_49228BA50210
+
+%%InheritedBy ME_47BC391D0259 ME_49228BA50210
 
 ME ME_49228BA50210
  MEPROP UID '49228BA50210'
@@ -324,6 +330,9 @@ ME ME_49228BA50210
  ME_49900519003A // bsUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А'
  UP "no hands" True
  UP "started" '06.04.2006 17.27'
@@ -342,26 +351,29 @@ ME ME_4ABCF1450282
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4ABCF16F01CD' '4ABCF16F01CD.ms.model.script' // Consultation$Lib
+ MELINK Parent WL? 'ME_4ABCF16F01CD' // Consultation$Lib
  ;
  MELIST Children
    Seq: ( HWL ME_49228BA50210 // TbsConsultation
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
- WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
- WL 'ME_457007DB002E' '457007DB002E.ms.model.script' // Consulting
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4ABCF04F00DF' '4ABCF04F00DF.ms.model.script' // ConsultationDomainInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4423F94903C8' // IO
+ WL? 'ME_456EA56002BF' // BaseTypes
+ WL? 'ME_457007DB002E' // Consulting
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_4678193C009C' // l3Types
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47EA07FA02CE' // bsTypes
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4ABCF04F00DF' // ConsultationDomainInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4ABCF1450282 ConsultationDomain

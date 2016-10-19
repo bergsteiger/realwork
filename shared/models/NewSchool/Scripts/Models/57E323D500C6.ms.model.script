@@ -1,0 +1,132 @@
+// msmChangedElementsPack 57E323D500C6 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E323D500C6
+
+FORWARD ME_57E2AB6700A6
+
+ME ME_57E2AB770306
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57E2AB770306 aWord
+
+ME ME_57E2AB6700A6
+ MEPROP UID '57E2AB6700A6'
+ MEPROP Name 'msm_AddChangedElement'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E2AB770306 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57E2AB6700A6 msm_AddChangedElement
+
+FORWARD ME_57F7C0C9002F
+
+ME ME_57F7C0DB02D6
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57F7C0DB02D6 aWord
+
+ME ME_57F7C0C9002F
+ MEPROP UID '57F7C0C9002F'
+ MEPROP Name 'msm_IsDeletedElement'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F7C0DB02D6 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57F7C0C9002F msm_IsDeletedElement
+
+ME ME_57F7BE3A028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELINK Target WL 'ME_57F7BA1703A5' '57AB4243034B.ms.model.script' // TmsmChangedElements
+ ;
+
+ENDME // ME_57F7BE3A028A 
+
+ME ME_57F7BE46016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELINK Target WL 'ME_57F7BA1703A5' '57AB4243034B.ms.model.script' // TmsmChangedElements
+ ;
+
+ENDME // ME_57F7BE46016B 
+
+ME ME_57F7BE5A0162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELINK Target WL 'ME_57F7BBC60360' '57AB4243034B.ms.model.script' // TmsmDeletedElements
+ ;
+
+ENDME // ME_57F7BE5A0162 
+
+ME ME_57F7BE6100C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57E323D500C6 // msmChangedElementsPack
+ ;
+ MELINK Target WL 'ME_57F7BBC60360' '57AB4243034B.ms.model.script' // TmsmDeletedElements
+ ;
+
+ENDME // ME_57F7BE6100C3 
+
+%%InjectedBy ME_57F7BA1703A5 ME_57E323D500C6
+%%InjectedBy ME_57F7BBC60360 ME_57E323D500C6
+
+ME ME_57E323D500C6
+ MEPROP UID '57E323D500C6'
+ MEPROP Name 'msmChangedElementsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E2AB6700A6 // msm_AddChangedElement
+ HWL ME_57F7C0C9002F // msm_IsDeletedElement
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57F7BE3A028A // TmsmChangedElements
+ ME_57F7BE46016B // TmsmChangedElements
+ ME_57F7BE5A0162 // TmsmDeletedElements
+ ME_57F7BE6100C3 // TmsmDeletedElements
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmChangedElementsPack.pas'
+
+ENDME // ME_57E323D500C6 msmChangedElementsPack

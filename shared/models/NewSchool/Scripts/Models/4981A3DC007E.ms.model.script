@@ -1,0 +1,142 @@
+// FlashUtils 4981A3DC007E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4981A3DC007E
+
+ME ME_4981A569031D
+ MEPROP UID '4981A569031D'
+ MEPROP Name 'nsCanMakeFlashActiveX'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет - возможно ли создать компонент для показа flash-ролика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4981A569031D nsCanMakeFlashActiveX
+
+FORWARD ME_4981A58A0168
+
+ME ME_4981A59802BA
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4981A59802BA aParent
+
+ME ME_4981A59802DC
+ MEPROP Name 'aForSplash'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4981A59802DC aForSplash
+
+ME ME_4981A59802FE
+ MEPROP Name 'aFlash'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4981A4AE0282' '4981A49103DD.ms.model.script' // TvtShockwaveFlashEx
+ ;
+
+ENDME // ME_4981A59802FE aFlash
+
+ME ME_4981A58A0168
+ MEPROP UID '4981A58A0168'
+ MEPROP Name 'nsMakeFlashActiveX'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создаёт компонент для показа flash-ролика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4981A59802BA // aParent
+ ME_4981A59802DC // aForSplash
+ ME_4981A59802FE // aFlash
+ )
+ ; // Parameters
+
+ENDME // ME_4981A58A0168 nsMakeFlashActiveX
+
+ME ME_4981AB05014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4981AB05014B 
+
+ME ME_4981ACB802A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL 'ME_4981AC2F0294' '4981AC0701C1.ms.model.script' // EOleSysError
+ ;
+
+ENDME // ME_4981ACB802A2 
+
+ME ME_558927780388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_558927780388 
+
+ME ME_5589277D018D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4981A3DC007E // FlashUtils
+ ;
+ MELINK Target WL? 'ME_513747E00025' // Registry
+ ;
+
+ENDME // ME_5589277D018D 
+
+ME ME_4981A3DC007E
+ MEPROP UID '4981A3DC007E'
+ MEPROP Name 'FlashUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты для работы с Flash-схемами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_497ED74F0032' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4981A569031D // nsCanMakeFlashActiveX
+ HWL ME_4981A58A0168 // nsMakeFlashActiveX
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4981AB05014B // SysUtils
+ ME_4981ACB802A2 // EOleSysError
+ ME_558927780388 // Windows
+ ME_5589277D018D // Registry
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '29.01.2009 15:41'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\FlashUtils.pas'
+
+ENDME // ME_4981A3DC007E FlashUtils

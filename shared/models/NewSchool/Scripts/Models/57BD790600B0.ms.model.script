@@ -38,6 +38,118 @@ ME ME_57BED4A800D2
 
 ENDME // ME_57BED4A800D2 FileDownload
 
+ME ME_57FF2D3202B6
+ MEPROP UID '57FF2D3202B6'
+ MEPROP Name 'OpenOrDownloadQuestion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Вы хотите открыть или сохранить этот файл?'''
+
+ENDME // ME_57FF2D3202B6 OpenOrDownloadQuestion
+
+ME ME_57FF2D560302
+ MEPROP UID '57FF2D560302'
+ MEPROP Name 'FileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Имя:'''
+
+ENDME // ME_57FF2D560302 FileName
+
+ME ME_57FF2D6800AB
+ MEPROP UID '57FF2D6800AB'
+ MEPROP Name 'Type'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Тип:'''
+
+ENDME // ME_57FF2D6800AB Type
+
+ME ME_57FF2D7A0203
+ MEPROP UID '57FF2D7A0203'
+ MEPROP Name 'From'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Из:'''
+
+ENDME // ME_57FF2D7A0203 From
+
+ME ME_57FF2D9402ED
+ MEPROP UID '57FF2D9402ED'
+ MEPROP Name 'Open'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Открыть'''
+
+ENDME // ME_57FF2D9402ED Open
+
+ME ME_57FF2DA600B8
+ MEPROP UID '57FF2DA600B8'
+ MEPROP Name 'Download'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Сохранить'''
+
+ENDME // ME_57FF2DA600B8 Download
+
+ME ME_57FF2DB901DB
+ MEPROP UID '57FF2DB901DB'
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Отмена'''
+
+ENDME // ME_57FF2DB901DB Cancel
+
 ME ME_57BD7914000D
  MEPROP UID '57BD7914000D'
  MEPROP Name 'nsDownloaderLocalConst'
@@ -51,6 +163,13 @@ ME ME_57BD7914000D
  MELIST Attributes
    Seq: ( HWL ME_57BD792902B7 // UnknownFile
  HWL ME_57BED4A800D2 // FileDownload
+ HWL ME_57FF2D3202B6 // OpenOrDownloadQuestion
+ HWL ME_57FF2D560302 // FileName
+ HWL ME_57FF2D6800AB // Type
+ HWL ME_57FF2D7A0203 // From
+ HWL ME_57FF2D9402ED // Open
+ HWL ME_57FF2DA600B8 // Download
+ HWL ME_57FF2DB901DB // Cancel
  )
  ; // Attributes
  UP "Need map interface" False
@@ -69,7 +188,7 @@ ME ME_57BD790600B0
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_57BC0538037B' '57BC0538037B.ms.model.script' // Downloader
+ MELINK Parent WL? 'ME_57BC0538037B' // Downloader
  ;
  MELIST Constants
    Seq: ( HWL ME_57BD7914000D // nsDownloaderLocalConst

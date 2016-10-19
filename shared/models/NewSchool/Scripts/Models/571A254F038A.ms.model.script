@@ -1,0 +1,317 @@
+// SearchModuleWordsPack 571A254F038A ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F27EAF200E5
+%%Inner ME_4F27EB56012C
+%%Inner ME_4DAF069D0072
+%%Inner ME_53B12A56032C
+%%Inner ME_53B12B8A03DC
+%%Inner ME_53B12BB200FE
+
+FORWARD ME_571A254F038A
+
+FORWARD ME_4F27EAF200E5
+
+ME ME_4F27EBCD01B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F27EAF200E5 // TkwOpenSituationCard
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4F27EBCD01B6 
+
+ME ME_4F27EAF200E5
+ MEPROP UID '4F27EAF200E5'
+ MEPROP Name 'TkwOpenSituationCard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'открыть ППС 6.х (Стандартная)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F27EBCD01B6 // StdRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'ППС_Стандартная_Prim'
+ UP "no hands" True
+ UP "started" '31.01.2012 17:23'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenSituationCard'
+
+ENDME // ME_4F27EAF200E5 TkwOpenSituationCard
+
+FORWARD ME_4F27EB56012C
+
+ME ME_4F27EBDD009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F27EB56012C // TkwOpenOldSituationCard
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4F27EBDD009E 
+
+ME ME_4F27EB56012C
+ MEPROP UID '4F27EB56012C'
+ MEPROP Name 'TkwOpenOldSituationCard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'открыть ППС 5.х (Преемственная)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F27EBDD009E // StdRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'ППС_Преемственная_Prim'
+ UP "no hands" True
+ UP "started" '31.01.2012 17:24'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenOldSituationCard'
+
+ENDME // ME_4F27EB56012C TkwOpenOldSituationCard
+
+FORWARD ME_4DAF069D0072
+
+ME ME_571E1F0C0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAF069D0072 // AttributeSearch
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_571E1F0C0099 
+
+ME ME_4DAF069D0072
+ MEPROP UID '4DAF069D0072'
+ MEPROP Name 'AttributeSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_571E1F0C0099 // StdRes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'ППР_Prim'
+ UP "no hands" True
+ UP "started" '20.04.2011 20:15'
+ UP extprop:pas:TypeName 'TkwAttributeSearch'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AttributeSearch'
+
+ENDME // ME_4DAF069D0072 AttributeSearch
+
+FORWARD ME_53B12A56032C
+
+FORWARD ME_53B12AEE01A2
+
+ME ME_53B12B660261
+ MEPROP UID '53B12B660261'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ MELINK Target WL 'ME_4AD825C703D8' '54F9F6FB0143.ms.model.script' // TnsContextHistoryKind
+ ;
+
+ENDME // ME_53B12B660261 DoIt
+
+ME ME_53B12AEE01A2
+ MEPROP UID '53B12AEE01A2'
+ MEPROP Name 'GetContextHistoryKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B12B660261 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B12AEE01A2 GetContextHistoryKind
+
+ME ME_53B12C260178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ MELINK Target WL 'ME_495132550324' '4A9F98B901A5.ms.model.script' // TnsBaseSearchKind
+ ;
+
+ENDME // ME_53B12C260178 
+
+ME ME_53B147B301F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B12A56032C // ClearContextSearchHistory
+ ;
+ MELINK Target WL? 'ME_4AD8570C01CC' // nsContextHistory
+ ;
+
+ENDME // ME_53B147B301F0 
+
+ME ME_53B12A56032C
+ MEPROP UID '53B12A56032C'
+ MEPROP Name 'ClearContextSearchHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B12AEE01A2 // GetContextHistoryKind
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53B12C260178 // TnsBaseSearchKind
+ ME_53B147B301F0 // nsContextHistory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwClearContextSearchHistory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearContextSearchHistory'
+
+ENDME // ME_53B12A56032C ClearContextSearchHistory
+
+ME ME_53B12AEE01A2_ME_53B12B8A03DC
+ MELINK Original HWL ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B12AEE01A2_ME_53B12B8A03DC GetContextHistoryKind
+
+%%InheritedBy ME_53B12A56032C ME_53B12B8A03DC
+
+ME ME_53B12B8A03DC
+ MEPROP UID '53B12B8A03DC'
+ MEPROP Name 'ClearDocumentContextSearchHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B12A56032C // ClearContextSearchHistory
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53B12AEE01A2_ME_53B12B8A03DC // GetContextHistoryKind
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwClearDocumentContextSearchHistory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearDocumentContextSearchHistory'
+
+ENDME // ME_53B12B8A03DC ClearDocumentContextSearchHistory
+
+ME ME_53B12AEE01A2_ME_53B12BB200FE
+ MELINK Original HWL ME_53B12AEE01A2 // GetContextHistoryKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B12AEE01A2_ME_53B12BB200FE GetContextHistoryKind
+
+%%InheritedBy ME_53B12A56032C ME_53B12BB200FE
+
+ME ME_53B12BB200FE
+ MEPROP UID '53B12BB200FE'
+ MEPROP Name 'ClearPharmContextSearchHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B12A56032C // ClearContextSearchHistory
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53B12AEE01A2_ME_53B12BB200FE // GetContextHistoryKind
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwClearPharmContextSearchHistory'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearPharmContextSearchHistory'
+
+ENDME // ME_53B12BB200FE ClearPharmContextSearchHistory
+
+ME ME_571A257F00F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571A254F038A // SearchModuleWordsPack
+ ;
+ MELINK Target WL? 'ME_4AA641A3036C' // Search
+ ;
+
+ENDME // ME_571A257F00F4 
+
+%%InjectedBy ME_4AA641A3036C ME_571A254F038A
+
+ME ME_571A254F038A
+ MEPROP UID '571A254F038A'
+ MEPROP Name 'SearchModuleWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4AA6418F02AD' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F27EAF200E5 // TkwOpenSituationCard
+ HWL ME_4F27EB56012C // TkwOpenOldSituationCard
+ HWL ME_4DAF069D0072 // AttributeSearch
+ HWL ME_53B12A56032C // ClearContextSearchHistory
+ HWL ME_53B12B8A03DC // ClearDocumentContextSearchHistory
+ HWL ME_53B12BB200FE // ClearPharmContextSearchHistory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571A257F00F4 // Search
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\SearchModuleWordsPack.pas'
+
+ENDME // ME_571A254F038A SearchModuleWordsPack

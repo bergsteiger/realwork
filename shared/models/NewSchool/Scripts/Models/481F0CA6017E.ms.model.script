@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_481F0A680190
+%%Inner ME_481F0DEC0211
+%%Inner ME_484F8C0C0359
+%%Inner ME_485651A90102
+%%Inner ME_48608AEC0209
+%%Inner ME_49EC49670160
+
 FORWARD ME_481F0CA6017E
 
 ME ME_481F0A680190
@@ -63,6 +70,9 @@ ME ME_484F8C0C0359
    Seq: ( HWL ME_4E8079840038 // Возможность назначения пользователям общих фильтров в администраторе
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_484F8C0C0359 Администрирование пользователей
 
@@ -117,7 +127,7 @@ ME ME_481F0CA6017E
  %SUMMARY 'Работа с интерфейсом администрирования пользовательских учетных записей и списком пользователей системы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' // Требования
+ MELINK Parent WL? 'ME_4E312E2502AE' // Требования
  ;
  MELIST Children
    Seq: ( HWL ME_481F0A680190 // Запрет создания учетной записи
@@ -128,5 +138,8 @@ ME ME_481F0CA6017E
  HWL ME_49EC49670160 // Группы пользователей
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_481F0CA6017E Интерфейс Администратора

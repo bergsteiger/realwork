@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DF7921E028D
+
 FORWARD ME_4C87BB9C0143
 
 ME ME_4BDAF7880236_ME_4DF7921E028D
@@ -33,6 +35,10 @@ ME ME_4BDAF7A2005C_ME_4DF7921E028D
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_4BDAF7A2005C_ME_4DF7921E028D CollapseAll
+
+%%ImplementedBy ME_4BDAF7790158 ME_4DF7921E028D
+
+%%InheritedBy ME_4BD71E1103CD ME_4DF7921E028D
 
 ME ME_4DF7921E028D
  MEPROP UID '4DF7921E028D'
@@ -75,7 +81,7 @@ ME ME_4C87BF2001AC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87BB9C0143 // PrimNewsLineOptions
  ;
- MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
  ;
 
 ENDME // ME_4C87BF2001AC 
@@ -117,7 +123,7 @@ ME ME_5540B58202F4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87BB9C0143 // PrimNewsLineOptions
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
  ;
 
 ENDME // ME_5540B58202F4 
@@ -127,7 +133,7 @@ ME ME_5540B687033D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87BB9C0143 // PrimNewsLineOptions
  ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ MELINK Target WL? 'ME_47E11FC3021E' // Controls
  ;
 
 ENDME // ME_5540B687033D 
@@ -193,6 +199,12 @@ ME ME_4C87BC6502B9_ME_4C87BB9C0143
  UP "ShowInToolbar" False
 ENDME // ME_4C87BC6502B9_ME_4C87BB9C0143 Open
 
+%%ImplementedBy ME_4BDAF7790158 ME_4C87BB9C0143
+%%ImplementedBy ME_4C87BBE70334 ME_4C87BB9C0143
+%%ImplementedBy ME_4C87BC4C0388 ME_4C87BB9C0143
+
+%%InheritedBy ME_497EBEC4031D ME_4C87BB9C0143
+
 ME ME_4C87BB9C0143
  MEPROP UID '4C87BB9C0143'
  MEPROP Name 'PrimNewsLineOptions'
@@ -203,10 +215,10 @@ ME ME_4C87BB9C0143
  %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A92D644009B' '4A92D644009B.ms.model.script' // Search
+ MELINK Parent WL? 'ME_4A92D644009B' // Search
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497EBEC4031D' '497EBEC4031D.ms.model.script' // PrimNewsLine
+   Seq: ( WL? 'ME_497EBEC4031D' // PrimNewsLine
  )
  ; // Inherits
  MELIST Implements
@@ -236,6 +248,9 @@ ME ME_4C87BB9C0143
  ME_5540B687033D // Controls
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

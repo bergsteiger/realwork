@@ -1,0 +1,39 @@
+// msm$Events 57E533C703E3 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B5730D0123
+%%Inner ME_57CE85BE0100
+
+ME ME_57E533C703E3
+ MEPROP UID '57E533C703E3'
+ MEPROP Name 'msm'
+ MEPROP OriginalName 'msm$Events'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57EE6E2A01A5' // Shared Delphi MVC
+ ;
+ MELIST Children
+   Seq: ( WL? 'ME_57B5730D0123' // msmEvents
+ WL? 'ME_57CE85BE0100' // Events
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_469F3E37025A' // Rtl
+ WL? 'ME_4790D09A0378' // L3
+ )
+ ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "exec mode" 'concluded'
+ UP "gui" 'gui'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\msm'
+
+ENDME // ME_57E533C703E3 msm$Events

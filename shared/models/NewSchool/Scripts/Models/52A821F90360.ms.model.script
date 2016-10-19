@@ -1,0 +1,245 @@
+// nsListEvents 52A821F90360 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B0A69600050
+
+FORWARD ME_52A821F90360
+
+FORWARD ME_4B0A69600050
+
+FORWARD ME_52A826610281
+
+FORWARD ME_52A8292C00F1
+
+ME ME_52A829330273
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_52A829330273 aDoc
+
+ME ME_52A82933028D
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A82933028D aNumber
+
+ME ME_52A8293302A6
+ MEPROP Name 'aRelevance'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A8293302A6 aRelevance
+
+ME ME_556EF03D03CE
+ MEPROP Name 'aSubBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_556EF03D03CE aSubBlock
+
+ME ME_556EF03E000E
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_556EF03E000E aPara
+
+ME ME_52A8292C00F1
+ MEPROP UID '52A8292C00F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A826610281 // Log$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A829330273 // aDoc
+ ME_52A82933028D // aNumber
+ ME_52A8293302A6 // aRelevance
+ ME_556EF03D03CE // aSubBlock
+ ME_556EF03E000E // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_52A8292C00F1 DoIt
+
+ME ME_52A826610281
+ MEPROP UID '52A826610281'
+ MEPROP Name 'Log'
+ MEPROP OriginalName 'Log$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8292C00F1 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52A826610281 Log$1
+
+FORWARD ME_52A826A80339
+
+FORWARD ME_52A8332C0338
+
+ME ME_52A8333803DC
+ MEPROP Name 'aDocInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_52A8333803DC aDocInfo
+
+ME ME_52A8332C0338
+ MEPROP UID '52A8332C0338'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A826A80339 // Log$2(aDocInfo: IdeDocInfo)
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8333803DC // aDocInfo
+ )
+ ; // Parameters
+
+ENDME // ME_52A8332C0338 DoIt
+
+ME ME_52A826A80339
+ MEPROP UID '52A826A80339'
+ MEPROP Name 'Log'
+ MEPROP OriginalName 'Log$2(aDocInfo: IdeDocInfo)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8332C0338 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_52A826A80339 Log$2(aDocInfo: IdeDocInfo)
+
+ME ME_52A826E10314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_52A826E10314 
+
+ME ME_52A83A1001DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ ;
+ MELINK Target WL 'ME_45ED59730069' '45ED58CF03E6.ms.model.script' // LogEventData
+ ;
+
+ENDME // ME_52A83A1001DC 
+
+ME ME_556EF074011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ ;
+ MELINK Target WL? 'ME_4BA763B0004B' // bsTypesNew
+ ;
+
+ENDME // ME_556EF074011A 
+
+%%InheritedBy ME_4B0A6109010C ME_4B0A69600050
+
+ME ME_4B0A69600050
+ MEPROP UID '4B0A69600050'
+ MEPROP Name 'TnsOpenDocumentFromListEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A821F90360 // nsListEvents
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52A826610281 // Log$1
+ HWL ME_52A826A80339 // Log$2(aDocInfo: IdeDocInfo)
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52A826E10314 // IdeDocInfo
+ ME_52A83A1001DC // LogEventData
+ ME_556EF074011A // bsTypesNew
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenDocumentFromListEvent'
+
+ENDME // ME_4B0A69600050 TnsOpenDocumentFromListEvent
+
+ME ME_52A8228C0304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52A821F90360 // nsListEvents
+ ;
+ MELINK Target WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ ;
+
+ENDME // ME_52A8228C0304 
+
+ME ME_52A821F90360
+ MEPROP UID '52A821F90360'
+ MEPROP Name 'nsListEvents'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_497DDB0A0168' // List
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B0A69600050 // TnsOpenDocumentFromListEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52A8228C0304 // TnsLogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ListEvents'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\nsListEvents.pas'
+
+ENDME // ME_52A821F90360 nsListEvents

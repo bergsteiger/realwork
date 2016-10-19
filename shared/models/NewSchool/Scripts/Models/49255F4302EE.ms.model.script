@@ -49,7 +49,7 @@ ME ME_4925604A0118
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49255F4302EE // TdsAttributes
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4925604A0118 
@@ -67,6 +67,10 @@ ME ME_49255D4A0215_ME_49255F4302EE
  UP "pm" True
 ENDME // ME_49255D4A0215_ME_49255F4302EE DocInfo
 
+%%ImplementedBy ME_49255D040142 ME_49255F4302EE
+
+%%InheritedBy ME_47F0C1410011 ME_49255F4302EE
+
 ME ME_49255F4302EE
  MEPROP UID '49255F4302EE'
  MEPROP Name 'TdsAttributes'
@@ -77,10 +81,10 @@ ME ME_49255F4302EE
  %SUMMARY 'бизнес объект формы "Информация о документе"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+   Seq: ( WL? 'ME_47F0C1410011' // dsSimpleTree
  )
  ; // Inherits
  MELIST Implements
@@ -102,6 +106,9 @@ ME ME_49255F4302EE
  ME_4925604A0118 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '2005/08/15 14:06:35'

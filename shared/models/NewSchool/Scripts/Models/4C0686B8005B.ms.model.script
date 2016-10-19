@@ -55,7 +55,7 @@ ME ME_4C06876E026D
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4C06874C0070 // GotoBlock
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4C06877A0059 // aBlock
@@ -93,6 +93,9 @@ ME ME_4C06874C0070
    Seq: ( ME_4C069201033E // Operations
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C06874C0070 GotoBlock
 
@@ -164,7 +167,7 @@ ME ME_4C06915D0356
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4C0691370291 // GotoSub
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4C06916D03AC // aPara
@@ -192,6 +195,9 @@ ME ME_4C0691370291
    Seq: ( HWL ME_4C06915D0356 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C0691370291 GotoSub
 
@@ -204,7 +210,7 @@ ME ME_4C068AB5026A
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4C0686B8005B // BlockSelector
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4C068AB5026A NeedGotoNeighbours
@@ -214,22 +220,24 @@ ME ME_4C06888C02D4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C0686B8005B // BlockSelector
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4C06888C02D4 
 
 ME ME_479731C50290_ME_4C0686B8005B
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4C0686B8005B Cleanup
 
 ME ME_497469C90140_ME_4C0686B8005B
- MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_497469C90140_ME_4C0686B8005B NotifyDataSourceChanged
+
+%%ImplementedBy ME_4A82BCFA02EF ME_4C0686B8005B
 
 ME ME_4C0686B8005B
  MEPROP UID '4C0686B8005B'
@@ -240,7 +248,7 @@ ME ME_4C0686B8005B
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
    Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
@@ -267,6 +275,9 @@ ME ME_4C0686B8005B
    Seq: ( ME_4C06888C02D4 // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

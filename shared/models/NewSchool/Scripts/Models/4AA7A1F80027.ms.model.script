@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4ABB949D005E
+%%Inner ME_4B151A2302D2
+%%Inner ME_56FA87D80010
+
 FORWARD ME_4AA7A1F80027
 
 FORWARD ME_4B151A2302D2
@@ -27,6 +31,8 @@ ME ME_4B151A760366
  ;
 
 ENDME // ME_4B151A760366 
+
+%%InheritedBy ME_4B0A6109010C ME_4B151A2302D2
 
 ME ME_4B151A2302D2
  MEPROP UID '4B151A2302D2'
@@ -70,7 +76,7 @@ ME ME_4ABB964C00F0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_4AA1182503AD' '48F747EC0073.ms.model.script' // ProfilersManager
+ MELINK Target WL 'ME_4AA1182503AD' '49228EF60100.ms.model.script' // ProfilersManager
  ;
 
 ENDME // ME_4ABB964C00F0 
@@ -80,7 +86,7 @@ ME ME_4ABB996C0285
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ MELINK Target WL 'ME_4A93BA1802CE' '47F25BC801DB.ms.model.script' // vcmParams
  ;
 
 ENDME // ME_4ABB996C0285 
@@ -100,7 +106,7 @@ ME ME_4ABB962A012B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4ABB962A012B 
@@ -110,7 +116,7 @@ ME ME_4ABB95B10181
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4ABB95B10181 
@@ -140,7 +146,7 @@ ME ME_4ABB959B028D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4ABB959B028D 
@@ -150,7 +156,7 @@ ME ME_4ABB95E3034C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7A1F80027 // MainMenu$FP
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
  ;
 
 ENDME // ME_4ABB95E3034C 
@@ -175,12 +181,12 @@ ME ME_4AA7A1F80027
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958DD470101' '4958DD470101.ms.model.script' // MainMenu
+ MELINK Parent WL? 'ME_4958DD470101' // MainMenu
  ;
  MELIST Children
-   Seq: ( WL 'ME_4ABB949D005E' '4ABB949D005E.ms.model.script' // MainMenuNew
+   Seq: ( WL? 'ME_4ABB949D005E' // MainMenuNew
  HWL ME_4B151A2302D2 // TnsOpenMainMenuEvent
- WL 'ME_56FA87D80010' '56FA87D80010.ms.model.script' // MainMenuWithProfNews
+ WL? 'ME_56FA87D80010' // MainMenuWithProfNews
  )
  ; // Children
  MELIST Dependencies
@@ -198,9 +204,12 @@ ME ME_4AA7A1F80027
  )
  ; // Dependencies
  MELIST Injected
-   Seq: ( WL 'ME_571E2409028C' '4958DD470101.ms.model.script' // MainMenuProcessingWordsPack
+   Seq: ( WL 'ME_571E2409028C' '571E23FB01C3.ms.model.script' // MainMenuProcessingWordsPack
  )
  ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '09.09.2009 16:34'

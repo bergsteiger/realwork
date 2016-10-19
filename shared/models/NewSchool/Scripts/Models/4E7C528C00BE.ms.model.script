@@ -1,0 +1,695 @@
+// ControlStatusUtils 4E7C528C00BE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E7C528C00BE
+
+FORWARD ME_4E7C554A0284
+
+ME ME_4E7C555A023F
+ MEPROP UID '4E7C555A023F'
+ MEPROP Name 'StatusChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу'''
+
+ENDME // ME_4E7C555A023F StatusChanged
+
+ME ME_4E7C55820338
+ MEPROP UID '4E7C55820338'
+ MEPROP Name 'DeletedStatusChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''Статус документа на контроле изменился:  %s'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Статус документа на контроле изменился:  %s'''
+
+ENDME // ME_4E7C55820338 DeletedStatusChanged
+
+ME ME_4E7C583D0264
+ MEPROP UID '4E7C583D0264'
+ MEPROP Name 'Deleted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''удален'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''удален'''
+
+ENDME // ME_4E7C583D0264 Deleted
+
+ME ME_4E7C586B0222
+ MEPROP UID '4E7C586B0222'
+ MEPROP Name 'Active'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''вступил в силу'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''вступил в силу'''
+
+ENDME // ME_4E7C586B0222 Active
+
+ME ME_4E7C589D01BA
+ MEPROP UID '4E7C589D01BA'
+ MEPROP Name 'Changed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''изменен'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''изменен'''
+
+ENDME // ME_4E7C589D01BA Changed
+
+ME ME_4E7C58C300DE
+ MEPROP UID '4E7C58C300DE'
+ MEPROP Name 'Abolished'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''утратил силу'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''утратил силу'''
+
+ENDME // ME_4E7C58C300DE Abolished
+
+ME ME_4E7C58E8008D
+ MEPROP UID '4E7C58E8008D'
+ MEPROP Name 'Registered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''зарегистрирован в Минюсте РФ'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''зарегистрирован в Минюсте РФ'''
+
+ENDME // ME_4E7C58E8008D Registered
+
+ME ME_4E7C5914002D
+ MEPROP UID '4E7C5914002D'
+ MEPROP Name 'NotRegistered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''отказано в регистрации в Минюсте РФ'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''отказано в регистрации в Минюсте РФ'''
+
+ENDME // ME_4E7C5914002D NotRegistered
+
+ME ME_4E7C95F10128
+ MEPROP UID '4E7C95F10128'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''Документ'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Документ'''
+
+ENDME // ME_4E7C95F10128 Document
+
+ME ME_4E7C95FF0021
+ MEPROP UID '4E7C95FF0021'
+ MEPROP Name 'Documentu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''Документу'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Документу'''
+
+ENDME // ME_4E7C95FF0021 Documentu
+
+ME ME_4E7C9F7303CD
+ MEPROP UID '4E7C9F7303CD'
+ MEPROP Name 'DocumentEvents'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C554A0284 // Local
+ ;
+ MEPROP Value '''С документом произошло несколько событий:'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''С документом произошло несколько событий:'''
+
+ENDME // ME_4E7C9F7303CD DocumentEvents
+
+ME ME_4E7C554A0284
+ MEPROP UID '4E7C554A0284'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E7C555A023F // StatusChanged
+ HWL ME_4E7C55820338 // DeletedStatusChanged
+ HWL ME_4E7C583D0264 // Deleted
+ HWL ME_4E7C586B0222 // Active
+ HWL ME_4E7C589D01BA // Changed
+ HWL ME_4E7C58C300DE // Abolished
+ HWL ME_4E7C58E8008D // Registered
+ HWL ME_4E7C5914002D // NotRegistered
+ HWL ME_4E7C95F10128 // Document
+ HWL ME_4E7C95FF0021 // Documentu
+ HWL ME_4E7C9F7303CD // DocumentEvents
+ )
+ ; // Attributes
+ UP "children prefix" 'cs'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'cs'
+
+ENDME // ME_4E7C554A0284 Local
+
+FORWARD ME_4E7C9AAD02BE
+
+FORWARD ME_4E7C9AC2004B
+
+FORWARD ME_4E9E77B50184
+
+ME ME_4E9E77D70291
+ MEPROP UID '4E9E77D70291'
+ MEPROP Name 'OpenInternetVersion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Открыть интернет-версию''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E9E77B50184 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4E9E77D70291 OpenInternetVersion
+
+ME ME_4E9E77F903E0
+ MEPROP UID '4E9E77F903E0'
+ MEPROP Name 'StayInCurrentEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Остаться в текущей редакции''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E9E77B50184 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_4E9E77F903E0 StayInCurrentEdition
+
+ME ME_4E9E77B50184
+ MEPROP UID '4E9E77B50184'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C9AC2004B // InActualDocumentAction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E9E77D70291 // OpenInternetVersion
+ HWL ME_4E9E77F903E0 // StayInCurrentEdition
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4E9E77B50184 Choices
+
+ME ME_4E9E785B038F
+ MEPROP UID '4E9E785B038F'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E7C9AC2004B // InActualDocumentAction
+ ;
+ MELINK Target HWL ME_4E9E77F903E0 // StayInCurrentEdition
+ ;
+
+ENDME // ME_4E9E785B038F 
+
+ME ME_4E7C9AC2004B
+ MEPROP UID '4E7C9AC2004B'
+ MEPROP Name 'InActualDocumentAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''%s '' + #13#10 +'#13#10'''Актуальная информация представлена в интернет-версии системы ГАРАНТ''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7C9AAD02BE // Messages
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E9E785B038F // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4E9E77B50184 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "CheckCaption" 'Не оповещать об изменениях в этом документе в пределах сеанса'
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_4E7C9AC2004B InActualDocumentAction
+
+ME ME_6DCA37526FE0
+ MEPROP UID '6DCA37526FE0'
+ MEPROP Name 'InActualDocumentAction_CheckCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E7C9AAD02BE // Messages
+ ;
+ MEPROP Value '''Не оповещать об изменениях в этом документе в пределах сеанса'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Не оповещать об изменениях в этом документе в пределах сеанса'''
+
+ENDME // ME_6DCA37526FE0 InActualDocumentAction_CheckCaption
+
+ME ME_4E7C9AAD02BE
+ MEPROP UID '4E7C9AAD02BE'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_6DCA37526FE0 // InActualDocumentAction_CheckCaption
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4E7C9AC2004B // InActualDocumentAction
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4E7C9AAD02BE Messages
+
+FORWARD ME_73E880B109D3
+
+ME ME_BC6AF7071962
+ MEPROP UID 'BC6AF7071962'
+ MEPROP Name 'InActualDocumentAction_Choice_OpenInternetVersion'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Открыть интернет-версию''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_OpenInternetVersion''; rValue : ''Открыть интернет-версию'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_OpenInternetVersion''; rValue : ''Открыть интернет-версию'')'
+ UPLINK Speller HWL ME_4E9E77D70291 // OpenInternetVersion
+ ;
+
+ENDME // ME_BC6AF7071962 InActualDocumentAction_Choice_OpenInternetVersion
+
+ME ME_40F0A9C57DE1
+ MEPROP UID '40F0A9C57DE1'
+ MEPROP Name 'InActualDocumentAction_Choice_StayInCurrentEdition'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Остаться в текущей редакции''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_StayInCurrentEdition''; rValue : ''Остаться в текущей редакции'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InActualDocumentAction_Choice_StayInCurrentEdition''; rValue : ''Остаться в текущей редакции'')'
+ UPLINK Speller HWL ME_4E9E77F903E0 // StayInCurrentEdition
+ ;
+
+ENDME // ME_40F0A9C57DE1 InActualDocumentAction_Choice_StayInCurrentEdition
+
+ME ME_73E880B109D3
+ MEPROP UID '73E880B109D3'
+ MEPROP Name 'LCImpl_InActualDocumentAction_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога InActualDocumentAction' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_BC6AF7071962 // InActualDocumentAction_Choice_OpenInternetVersion
+ HWL ME_40F0A9C57DE1 // InActualDocumentAction_Choice_StayInCurrentEdition
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4E9E77B50184 // Choices
+ ;
+
+ENDME // ME_73E880B109D3 LCImpl_InActualDocumentAction_Choices
+
+FORWARD ME_4E7C52D400DA
+
+FORWARD ME_4E7C52F00357
+
+ME ME_4E7C530202C6
+ MEPROP Name 'aStatus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E7C530202C6 aStatus
+
+ME ME_4E7C9F4F03BE
+ MEPROP Name 'aNeedPrefix'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E7C9F4F03BE aNeedPrefix
+
+ME ME_4E7C52F00357
+ MEPROP UID '4E7C52F00357'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E7C530202C6 // aStatus
+ ME_4E7C9F4F03BE // aNeedPrefix
+ )
+ ; // Parameters
+
+ENDME // ME_4E7C52F00357 DoIt
+
+ME ME_4E7C56D8037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL 'ME_45F118A10361' '45EEAA800226.ms.model.script' // ControlStatus
+ ;
+
+ENDME // ME_4E7C56D8037D 
+
+ME ME_4E7C5712031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_4E7C5712031A 
+
+ME ME_4E7C575E0107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL 'ME_4AC0B9CF018A' '47F25BC801DB.ms.model.script' // vcmCStr
+ ;
+
+ENDME // ME_4E7C575E0107 
+
+ME ME_4E7C57B600F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4E7C57B600F2 
+
+ME ME_4E7C95E902E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL? 'ME_47F2612701D0' // l3Bits
+ ;
+
+ENDME // ME_4E7C95E902E1 
+
+ME ME_4E7C9FC002FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C52D400DA // bsControlStatusHint
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4E7C9FC002FB 
+
+ME ME_4E7C52D400DA
+ MEPROP UID '4E7C52D400DA'
+ MEPROP Name 'bsControlStatusHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7C52F00357 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E7C56D8037D // ControlStatus
+ ME_4E7C5712031A // l3IsNil
+ ME_4E7C575E0107 // vcmCStr
+ ME_4E7C57B600F2 // StdRes
+ ME_4E7C95E902E1 // l3Bits
+ ME_4E7C9FC002FB // l3CStr
+ )
+ ; // Dependencies
+
+ENDME // ME_4E7C52D400DA bsControlStatusHint
+
+FORWARD ME_4E7C531601A3
+
+FORWARD ME_4E7C53FC018B
+
+ME ME_4E7C5405006D
+ MEPROP Name 'aUC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ ;
+
+ENDME // ME_4E7C5405006D aUC
+
+ME ME_4E7C53FC018B
+ MEPROP UID '4E7C53FC018B'
+ MEPROP Name 'DoI'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C531601A3 // bsFullControlStatusHint
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E7C5405006D // aUC
+ )
+ ; // Parameters
+
+ENDME // ME_4E7C53FC018B DoI
+
+ME ME_4E7C531601A3
+ MEPROP UID '4E7C531601A3'
+ MEPROP Name 'bsFullControlStatusHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает хинт для статуса изменения объекта на контроле' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7C53FC018B // DoI
+ )
+ ; // Operations
+
+ENDME // ME_4E7C531601A3 bsFullControlStatusHint
+
+ME ME_F66B07F838ED
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_F66B07F838ED 
+
+ME ME_AB1EEAB8FA7B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E7C528C00BE // ControlStatusUtils
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_AB1EEAB8FA7B 
+
+%%ImplementedBy ME_4E7C455C0147 ME_4E7C528C00BE
+
+ME ME_4E7C528C00BE
+ MEPROP UID '4E7C528C00BE'
+ MEPROP Name 'ControlStatusUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4B9A347B0217' // UnderControlImpl
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E7C455C0147' '48561FA8027F.ms.model.script' // Сообщение об изменении документа в МГО должно зависеть от статуса документа
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E7C52D400DA // bsControlStatusHint
+ HWL ME_4E7C531601A3 // bsFullControlStatusHint
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4E7C554A0284 // Local
+ HWL ME_4E7C9AAD02BE // Messages
+ HWL ME_73E880B109D3 // LCImpl_InActualDocumentAction_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_F66B07F838ED // Tl3StringIDEx
+ ME_AB1EEAB8FA7B // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\UnderControl\ControlStatusUtils.pas'
+
+ENDME // ME_4E7C528C00BE ControlStatusUtils

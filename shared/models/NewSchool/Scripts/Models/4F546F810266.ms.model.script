@@ -2,142 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4F546F810266
-
-FORWARD ME_4F54899502EA
-
-FORWARD ME_4F548A0D0096
-
-ME ME_4F548A7902F1
- MEPROP UID '4F548A7902F1'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F548A0D0096 // DocumentForDocInfoProvider
- ;
- MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
- ;
-
-ENDME // ME_4F548A7902F1 DoIt
-
-ME ME_4F548A0D0096
- MEPROP UID '4F548A0D0096'
- MEPROP Name 'DocumentForDocInfoProvider'
- MEPROP Class class_Class
- MELINK Stereotype st_abstractmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4F54899502EA // deDocInfoProvider
- ;
- MELIST Operations
-   Seq: ( HWL ME_4F548A7902F1 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4F548A0D0096 DocumentForDocInfoProvider
-
-ME ME_4F5489C3007A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F54899502EA // deDocInfoProvider
- ;
- MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
- ;
-
-ENDME // ME_4F5489C3007A 
-
-ME ME_4DF9D63B0360_ME_4F54899502EA
- MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" True
- UP "reflectable" True
-ENDME // ME_4DF9D63B0360_ME_4F54899502EA DocInfo
-
-ME ME_4F54899502EA
- MEPROP UID '4F54899502EA'
- MEPROP Name 'deDocInfoProvider'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F546F810266 // HAF
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4ED8F1860003' '4B1FC2FF03CD.ms.model.script' // MdeDocInfoProvider
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4F548A0D0096 // DocumentForDocInfoProvider
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_4DF9D63B0360_ME_4F54899502EA // DocInfo
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_4F5489C3007A // TdeDocInfo
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_deDocInfoProvider_'
- UP extprop:pas:UnitName 'deDocInfoProvider.imp'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas'
-
-ENDME // ME_4F54899502EA deDocInfoProvider
-
-FORWARD ME_4F546FD3028F
-
-ME ME_4F54700F00D2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F546FD3028F // ucpHAFMacroReplacerFactory
- ;
- MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
- ;
-
-ENDME // ME_4F54700F00D2 
-
-ME ME_4AE56DE80093_ME_4F546FD3028F
- MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4AE56DE80093_ME_4F546FD3028F MakeHAFMacroReplacer
-
-ME ME_4F546FD3028F
- MEPROP UID '4F546FD3028F'
- MEPROP Name 'ucpHAFMacroReplacerFactory'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F546F810266 // HAF
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F54899502EA // deDocInfoProvider
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
- WL 'ME_4F5470CE00CD' '48200CF8039E.ms.model.script' // ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
- )
- ; // Implements
- MELIST Implemented
-   Seq: ( ME_4AE56DE80093_ME_4F546FD3028F // MakeHAFMacroReplacer
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_4F54700F00D2 // TnsDocInfoHAFMacroReplacer
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_ucpHAFMacroReplacerFactory_'
- UP extprop:pas:UnitName 'ucpHAFMacroReplacerFactory.imp'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas'
-
-ENDME // ME_4F546FD3028F ucpHAFMacroReplacerFactory
+%%Inner ME_4F54899502EA
+%%Inner ME_4F546FD3028F
 
 ME ME_4F546F810266
  MEPROP UID '4F546F810266'
@@ -147,21 +13,24 @@ ME ME_4F546F810266
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4F33E7790312' '4F33E7790312.ms.model.script' // Presentation
+ MELINK Parent WL? 'ME_4F33E7790312' // Presentation
  ;
  MELIST Children
-   Seq: ( HWL ME_4F54899502EA // deDocInfoProvider
- HWL ME_4F546FD3028F // ucpHAFMacroReplacerFactory
+   Seq: ( WL? 'ME_4F54899502EA' // deDocInfoProvider
+ WL? 'ME_4F546FD3028F' // ucpHAFMacroReplacerFactory
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
- WL 'ME_48200CF8039E' '48200CF8039E.ms.model.script' // ѕечать, Ёкспорт
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
- WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.ms.model.script' // DocInfo
+   Seq: ( WL? 'ME_4570511E038A' // Document
+ WL? 'ME_47EA50050263' // BaseDocument
+ WL? 'ME_48200CF8039E' // ѕечать, Ёкспорт
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_4B1FC2FF03CD' // DocumentInterfaces
+ WL? 'ME_4C6ABB3201AC' // DocInfo
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4F546F810266 HAF

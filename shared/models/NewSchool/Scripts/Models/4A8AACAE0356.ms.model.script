@@ -15,7 +15,7 @@ ME ME_4A8AAD450084
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4A8AACAE0356 // TextWithComments
  ;
- MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
  ;
  UP "needs field" False
  UP "pm" True
@@ -30,7 +30,7 @@ ME ME_4A8AAD170296
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4A8AAD170296 aSender
@@ -76,7 +76,7 @@ ME ME_4A8AAE8801A4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
  ;
- MELINK Target WL 'ME_49256C760276' '47EA50050263.ms.model.script' // DocumentRes
+ MELINK Target WL? 'ME_49256C760276' // DocumentRes
  ;
 
 ENDME // ME_4A8AAE8801A4 
@@ -86,7 +86,7 @@ ME ME_4A8AB0380341
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
  ;
- MELINK Target WL 'ME_4A8AB028009E' '47F485150151.ms.model.script' // vtMakeImageListWrapper
+ MELINK Target WL 'ME_4A8AB028009E' '47F4853203E7.ms.model.script' // vtMakeImageListWrapper
  ;
 
 ENDME // ME_4A8AB0380341 
@@ -143,14 +143,19 @@ ME ME_4A8AACD503DC
  ME_4E25B60100D1 // BitmapPara
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4A8AACD503DC TextSourceGetControlItemImg
 
 ME ME_4A8E8F2E0195_ME_4A8AACAE0356
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4A8AACAE0356 InitControls
+
+%%ImplementedBy ME_4A82BCFA02EF ME_4A8AACAE0356
 
 ME ME_4A8AACAE0356
  MEPROP UID '4A8AACAE0356'
@@ -161,7 +166,7 @@ ME ME_4A8AACAE0356
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
    Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
@@ -179,6 +184,9 @@ ME ME_4A8AACAE0356
    Seq: ( ME_4A8E8F2E0195_ME_4A8AACAE0356 // InitControls
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

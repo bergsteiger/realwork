@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57B5681A00AE
+%%Inner ME_57B5682D00D1
+%%Inner ME_57AD9309039B
+%%Inner ME_57ADE3C3031B
+%%Inner ME_57B4279900AD
+%%Inner ME_57B59EFD01DD
+%%Inner ME_57B6B9670157
+%%Inner ME_57CD82BF0129
+
 FORWARD ME_57B5730D0123
 
 ME ME_57B5681A00AE
@@ -18,6 +27,8 @@ ME ME_57B5681A00AE
  UP extprop:rc:SelfName 'msmSignal'
 
 ENDME // ME_57B5681A00AE TmsmSignal
+
+%%InheritedBy ME_57B5681A00AE ME_57B5682D00D1
 
 ME ME_57B5682D00D1
  MEPROP UID '57B5682D00D1'
@@ -59,7 +70,7 @@ ME ME_57AD8E5E00E5
  MEPROP Class class_Operation
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57AD8E570241 // Fire
+ MELINK Parent HWL ME_57AD8E570241 // HandleEvent
  ;
  MELIST Parameters
    Seq: ( ME_57AD8E66010A // anEvent
@@ -70,7 +81,7 @@ ENDME // ME_57AD8E5E00E5 DoIt
 
 ME ME_57AD8E570241
  MEPROP UID '57AD8E570241'
- MEPROP Name 'Fire'
+ MEPROP Name 'HandleEvent'
  MEPROP Class class_Class
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
@@ -83,7 +94,7 @@ ME ME_57AD8E570241
  )
  ; // Operations
 
-ENDME // ME_57AD8E570241 Fire
+ENDME // ME_57AD8E570241 HandleEvent
 
 ME ME_57AD9309039B
  MEPROP UID '57AD9309039B'
@@ -97,9 +108,12 @@ ME ME_57AD9309039B
  MELINK Parent HWL ME_57B5730D0123 // msmEvents
  ;
  MELIST Operations
-   Seq: ( HWL ME_57AD8E570241 // Fire
+   Seq: ( HWL ME_57AD8E570241 // HandleEvent
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmEventsSubscriber'
 
@@ -152,6 +166,8 @@ ME ME_57B4228B001E
 
 ENDME // ME_57B4228B001E Subscribe
 
+%%InheritedBy ME_57B4228B001E ME_57B422AB0293
+
 ME ME_57B422AB0293
  MEPROP UID '57B422AB0293'
  MEPROP Name 'Unsubscribe'
@@ -184,10 +200,15 @@ ME ME_57ADE3C3031B
  HWL ME_57B422AB0293 // Unsubscribe
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_57ADE3C3031B MmsmEventsPublisher
 
 FORWARD ME_57B4279900AD
+
+%%InheritedBy ME_57AD8E570241 ME_57ADE59000CB
 
 ME ME_57ADE59000CB
  MEPROP UID '57ADE59000CB'
@@ -200,7 +221,7 @@ ME ME_57ADE59000CB
  MELINK Parent HWL ME_57B4279900AD // MmsmEventFire
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AD8E570241 // Fire
+   Seq: ( HWL ME_57AD8E570241 // HandleEvent
  )
  ; // Inherits
 
@@ -220,6 +241,9 @@ ME ME_57B4279900AD
    Seq: ( HWL ME_57ADE59000CB // Fire
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_57B4279900AD MmsmEventFire
 
@@ -270,6 +294,8 @@ ME ME_57B59F2B03A1
 
 ENDME // ME_57B59F2B03A1 DisableEvent
 
+%%InheritedBy ME_57B59F2B03A1 ME_57CD7F790309
+
 ME ME_57CD7F790309
  MEPROP UID '57CD7F790309'
  MEPROP Name 'EnableEvent'
@@ -302,6 +328,9 @@ ME ME_57B59EFD01DD
  HWL ME_57CD7F790309 // EnableEvent
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_57B59EFD01DD MmsmEventsManaging
 
@@ -316,6 +345,8 @@ ME ME_57B422AB0293_ME_57B6B9670157
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57B422AB0293_ME_57B6B9670157 Unsubscribe
+
+%%ImplementedBy ME_57ADE3C3031B ME_57B6B9670157
 
 ME ME_57B6B9670157
  MEPROP UID '57B6B9670157'
@@ -396,7 +427,7 @@ ME ME_57B5730D0123
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ MELINK Parent WL? 'ME_57E533C703E3' // msm$Events
  ;
  MELIST Children
    Seq: ( HWL ME_57B5681A00AE // TmsmSignal
@@ -410,9 +441,12 @@ ME ME_57B5730D0123
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmEvents.pas'
 

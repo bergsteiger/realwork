@@ -39,7 +39,7 @@ ME ME_47F4D8240066
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_47F4D8240066 
@@ -49,7 +49,7 @@ ME ME_47F4F53D0123
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
  ;
- MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ MELINK Target WL? 'ME_47F21FE90379' // bsUtils
  ;
 
 ENDME // ME_47F4F53D0123 
@@ -69,7 +69,7 @@ ME ME_482304230152
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
  ;
- MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ MELINK Target WL? 'ME_47F4853203E7' // vtUtils
  ;
 
 ENDME // ME_482304230152 
@@ -79,7 +79,7 @@ ME ME_482304E30147
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
  ;
- MELINK Target WL 'ME_47F4764602B5' '47F475660140.ms.model.script' // TnsListRes
+ MELINK Target WL 'ME_47F4764602B5' '47F4760F0395.ms.model.script' // TnsListRes
  ;
 
 ENDME // ME_482304E30147 
@@ -89,7 +89,7 @@ ME ME_55EEF03E018C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_55EEF03E018C 
@@ -119,10 +119,14 @@ ME ME_47F9BFED004F_ME_47E9EDD301A4
 ENDME // ME_47F9BFED004F_ME_47E9EDD301A4 MarkNodeForExport
 
 ME ME_55097FF5008E_ME_47E9EDD301A4
- MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ MELINK Original WL 'ME_55097FF5008E' '5017EAF4027D.ms.model.script' // GetIsDataAvailable
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_55097FF5008E_ME_47E9EDD301A4 GetIsDataAvailable
+
+%%ImplementedBy ME_47E9F0600135 ME_47E9EDD301A4
+
+%%InheritedBy ME_47E9EDA800FE ME_47E9EDD301A4
 
 ME ME_47E9EDD301A4
  MEPROP UID '47E9EDD301A4'
@@ -134,10 +138,10 @@ ME ME_47E9EDD301A4
  %SUMMARY 'Список лекарственных препаратов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E9EDA800FE' '47E9EDA800FE.ms.model.script' // dsList
+   Seq: ( WL? 'ME_47E9EDA800FE' // dsList
  )
  ; // Inherits
  MELIST Implements
@@ -166,6 +170,9 @@ ME ME_47E9EDD301A4
  ME_55EEF03E018C // DefDataAdapter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "no hands" True
  UP extprop:pas:UnitName 'dsDrugList'
  UP extprop:rc:isAcceptableForScripts True

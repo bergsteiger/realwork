@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_491C3E540050
+%%Inner ME_491C3E40007B
+
 ME ME_493FCF1E03DC
  MEPROP UID '493FCF1E03DC'
  MEPROP Name 'Consultation'
@@ -11,42 +14,45 @@ ME ME_493FCF1E03DC
  %SUMMARY 'Работа с консультациями' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4ABCFA76015C' '4ABCFA76015C.ms.model.script' // Consultation
+ MELINK Parent WL? 'ME_4ABCFA76015C' // Consultation
  ;
  MELIST Children
-   Seq: ( WL 'ME_491C3E540050' '491C3E540050.ms.model.script' // ConsultationInterfaces
- WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+   Seq: ( WL? 'ME_491C3E540050' // ConsultationInterfaces
+ WL? 'ME_491C3E40007B' // Consultation
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_447878770121' '447878770121.ms.model.script' // GCI
- WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
- WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4677FF4B0036' '4677FF4B0036.ms.model.script' // Data
- WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
- WL 'ME_4680C57D01E9' '4680C57D01E9.ms.model.script' // Business
- WL 'ME_4680E7D50168' '4680E7D50168.ms.model.script' // Everest Engine
- WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
- WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
- WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
- WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
- WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
- WL 'ME_4954FAA00232' '4954FAA00232.ms.model.script' // Search
- WL 'ME_4A85683403A8' '4A85683403A8.ms.model.script' // View
- WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4ABB680E0218' '4ABB680E0218.ms.model.script' // Common$Lib
- WL 'ME_4ABCF16F01CD' '4ABCF16F01CD.ms.model.script' // Consultation$Lib
- WL 'ME_4C6A65ED0374' '4C6A65ED0374.ms.model.script' // F1DocumentProcessing
- WL 'ME_4CF380E402F8' '4CF380E402F8.ms.model.script' // Consultation$View
- WL 'ME_4D1B64E70031' '4D1B64E70031.ms.model.script' // BusinessInterfaces
- WL 'ME_4D1B6BAB022D' '4D1B6BAB022D.ms.model.script' // F1DocumentProcessingInterfaces
- WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_447878770121' // GCI
+ WL? 'ME_456EA3D2031C' // GblAdapterLib
+ WL? 'ME_4677E16A022A' // K2
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4677FF4B0036' // Data
+ WL? 'ME_467A8734039C' // EVD
+ WL? 'ME_4680C57D01E9' // Business
+ WL? 'ME_4680E7D50168' // Everest Engine
+ WL? 'ME_4790C3B8021E' // VCM
+ WL? 'ME_4790D09A0378' // L3
+ WL? 'ME_4797632D0273' // Everest
+ WL? 'ME_47E9EEC60260' // Model
+ WL? 'ME_481EF5C4020D' // Оболочка
+ WL? 'ME_4954FAA00232' // Search
+ WL? 'ME_4A85683403A8' // View
+ WL? 'ME_4A9FFD3F01AD' // Search
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4ABB680E0218' // Common$Lib
+ WL? 'ME_4ABCF16F01CD' // Consultation$Lib
+ WL? 'ME_4C6A65ED0374' // F1DocumentProcessing
+ WL? 'ME_4CF380E402F8' // Consultation$View
+ WL? 'ME_4D1B64E70031' // BusinessInterfaces
+ WL? 'ME_4D1B6BAB022D' // F1DocumentProcessingInterfaces
+ WL? 'ME_4E2F0E1B03BB' // L3$Domain
+ WL? 'ME_54B90AC6014B' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'prj'
  UP "ifndef" 'Admin'

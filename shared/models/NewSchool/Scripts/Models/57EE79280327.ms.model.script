@@ -1,0 +1,81 @@
+// msmModelElementMethodCallerPack 57EE79280327 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EE79280327
+
+FORWARD ME_57EE7B510228
+
+ME ME_57EE7B740110
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57EE7B740110 aFileName
+
+ME ME_57EE7B510228
+ MEPROP UID '57EE7B510228'
+ MEPROP Name 'msm_DictionaryByFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE79280327 // msmModelElementMethodCallerPack
+ ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EE7B740110 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_57EE7B510228 msm_DictionaryByFile
+
+ME ME_57EE7973034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE79280327 // msmModelElementMethodCallerPack
+ ;
+ MELINK Target WL 'ME_57AA00BD022E' '57AB4243034B.ms.model.script' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57EE7973034D 
+
+ME ME_57EE79810155
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57EE79280327 // msmModelElementMethodCallerPack
+ ;
+ MELINK Target WL 'ME_57AA00BD022E' '57AB4243034B.ms.model.script' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57EE79810155 
+
+%%InjectedBy ME_57AA00BD022E ME_57EE79280327
+
+ME ME_57EE79280327
+ MEPROP UID '57EE79280327'
+ MEPROP Name 'msmModelElementMethodCallerPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EE7B510228 // msm_DictionaryByFile
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57EE7973034D // TmsmModelElementMethodCaller
+ ME_57EE79810155 // TmsmModelElementMethodCaller
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementMethodCallerPack.pas'
+
+ENDME // ME_57EE79280327 msmModelElementMethodCallerPack

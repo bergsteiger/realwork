@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A9CEA5001CF
+%%Inner ME_4A9D19450248
+%%Inner ME_4B14CDEA039C
+%%Inner ME_4D7A6A2E00F7
+%%Inner ME_4ABBB22002AA
+
 FORWARD ME_4A9CE5F2036F
 
 FORWARD ME_4B14CDEA039C
@@ -27,6 +33,8 @@ ME ME_4B14CE3B005D
  ;
 
 ENDME // ME_4B14CE3B005D 
+
+%%InheritedBy ME_4B0A6109010C ME_4B14CDEA039C
 
 ME ME_4B14CDEA039C
  MEPROP UID '4B14CDEA039C'
@@ -90,7 +98,7 @@ ME ME_4E033CAC034D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
  ;
- MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ MELINK Target WL? 'ME_4E01D696020C' // vcmMessagesSupport
  ;
 
 ENDME // ME_4E033CAC034D 
@@ -130,7 +138,7 @@ ME ME_4A9D16D2036A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
  ;
- MELINK Target WL 'ME_4936CB1B0022' '4936CB1B0022.ms.model.script' // TsdsDiction
+ MELINK Target WL? 'ME_4936CB1B0022' // TsdsDiction
  ;
 
 ENDME // ME_4A9D16D2036A 
@@ -166,14 +174,14 @@ ME ME_4A9CE5F2036F
  %SUMMARY 'Толковый словарь' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4979D3B10102' '4979D3B10102.ms.model.script' // Diction
+ MELINK Parent WL? 'ME_4979D3B10102' // Diction
  ;
  MELIST Children
-   Seq: ( WL 'ME_4A9CEA5001CF' '4A9CEA5001CF.ms.model.script' // Diction
- WL 'ME_4A9D19450248' '4A9D19450248.ms.model.script' // Diction$FS
+   Seq: ( WL? 'ME_4A9CEA5001CF' // Diction
+ WL? 'ME_4A9D19450248' // Diction$FS
  HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
- WL 'ME_4D7A6A2E00F7' '4D7A6A2E00F7.ms.model.script' // DictionContainer
- WL 'ME_4ABBB22002AA' '4ABBB22002AA.ms.model.script' // CommonDiction
+ WL? 'ME_4D7A6A2E00F7' // DictionContainer
+ WL? 'ME_4ABBB22002AA' // CommonDiction
  )
  ; // Children
  MELIST Dependencies
@@ -189,6 +197,9 @@ ME ME_4A9CE5F2036F
  ME_4A9D13E0006B // TdeDiction
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '01.09.2009 13:14'

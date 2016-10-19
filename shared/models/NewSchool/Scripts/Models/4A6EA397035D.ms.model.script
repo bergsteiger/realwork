@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_32CFE852D886
+
 FORWARD ME_32CFE852D886
 
 FORWARD ME_4A6EA397035D
@@ -46,6 +48,10 @@ ME ME_A13E6A22E717
 
 ENDME // ME_A13E6A22E717 Ini_FormFactory_ChatHistory$Def
 
+%%ImplementedBy ME_32CFE852D886 ME_4A6EA397035D
+
+%%InheritedBy ME_4A6EA45C01C4 ME_4A6EA397035D
+
 ME ME_4A6EA397035D
  MEPROP UID '4A6EA397035D'
  MEPROP Name 'ChatHistory'
@@ -56,10 +62,10 @@ ME ME_4A6EA397035D
  %SUMMARY 'История переписки' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+ MELINK Parent WL? 'ME_4A6971B802A6' // BaseChat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A6EA45C01C4' '4A6EA45C01C4.ms.model.script' // BaseHistoryWindow
+   Seq: ( WL? 'ME_4A6EA45C01C4' // BaseHistoryWindow
  )
  ; // Inherits
  MELIST Implements

@@ -1,0 +1,183 @@
+// msmConcreteModelViewController 57AE0566006E Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57AE059A0197
+
+FORWARD ME_57AE0566006E
+
+ME ME_57AE059A0197
+ MEPROP UID '57AE059A0197'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57AE0566006E // msmConcreteModelViewController
+ ;
+ UP extprop:pas:TypeName '_ConcreteModel_'
+
+ENDME // ME_57AE059A0197 ConcreteModel
+
+ME ME_57AE061900C8
+ MEPROP UID '57AE061900C8'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AE0566006E // msmConcreteModelViewController
+ ;
+ MELINK Target HWL ME_57AE059A0197 // ConcreteModel
+ ;
+
+ENDME // ME_57AE061900C8 ConcreteModel
+
+ME ME_57AE062503AA
+ MEPROP UID '57AE062503AA'
+ MEPROP Name 'Model'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57AE0566006E // msmConcreteModelViewController
+ ;
+ MELINK Target HWL ME_57AE059A0197 // ConcreteModel
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57AE062503AA Model
+
+FORWARD ME_57AE067703DB
+
+FORWARD ME_57AE067F001D
+
+ME ME_57AE06810292
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+
+ENDME // ME_57AE06810292 aView
+
+ME ME_57AE068102BA
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57AE059A0197 // ConcreteModel
+ ;
+
+ENDME // ME_57AE068102BA aModel
+
+ME ME_57AE067F001D
+ MEPROP UID '57AE067F001D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AE067703DB // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AE06810292 // aView
+ ME_57AE068102BA // aModel
+ )
+ ; // Parameters
+
+ENDME // ME_57AE067F001D DoIt
+
+ME ME_57AE067703DB
+ MEPROP UID '57AE067703DB'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AE0566006E // msmConcreteModelViewController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AE067F001D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57AE067703DB Create
+
+%%ImplementedBy ME_57AB05790383 ME_57AE065C03A3
+
+%%InheritedBy ME_57AE067703DB ME_57AE065C03A3
+
+ME ME_57AE065C03A3
+ MEPROP UID '57AE065C03A3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AE0566006E // msmConcreteModelViewController
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AE067703DB // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ )
+ ; // Implements
+
+ENDME // ME_57AE065C03A3 Make
+
+ME ME_479731C50290_ME_57AE0566006E
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57AE0566006E Cleanup
+
+%%InheritedBy ME_57AB0A810292 ME_57AE0566006E
+
+ME ME_57AE0566006E
+ MEPROP UID '57AE0566006E'
+ MEPROP Name 'msmConcreteModelViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AB0A810292' '57AAE90E02B6.ms.model.script' // TmsmViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57AE061900C8 // ConcreteModel
+ HWL ME_57AE062503AA // Model
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57AE067703DB // Create
+ HWL ME_57AE065C03A3 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57AE0566006E // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57AE059A0197 // ConcreteModel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_msmConcreteModelViewController_'
+ UP extprop:pas:UnitName 'msmConcreteModelViewController.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmConcreteModelViewController.imp.pas'
+
+ENDME // ME_57AE0566006E msmConcreteModelViewController

@@ -24,7 +24,7 @@ ME ME_491D5F6F0205
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_491D5F6F0205 
@@ -44,7 +44,7 @@ ME ME_4D82228902B1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
  ;
- MELINK Target WL 'ME_47FAFA9601C8' '48F747EC0073.ms.model.script' // bsConst
+ MELINK Target WL? 'ME_47FAFA9601C8' // bsConst
  ;
 
 ENDME // ME_4D82228902B1 
@@ -54,7 +54,7 @@ ME ME_4D8222A50084
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4D8222A50084 
@@ -94,6 +94,10 @@ ME ME_4C6AB38800F3_ME_491D5BE30111
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C6AB38800F3_ME_491D5BE30111 MakeContainer
 
+%%ImplementedBy ME_491D5824017E ME_491D5BE30111
+
+%%InheritedBy ME_47EA20430108 ME_491D5BE30111
+
 ME ME_491D5BE30111
  MEPROP UID '491D5BE30111'
  MEPROP Name 'TdsDictionDocument'
@@ -104,10 +108,10 @@ ME ME_491D5BE30111
  %SUMMARY 'Документ толкового словаря' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491D5B360381' '491D5B360381.ms.model.script' // Diction
+ MELINK Parent WL? 'ME_491D5B360381' // Diction
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+   Seq: ( WL? 'ME_47EA20430108' // dsBaseDocumentPrim
  )
  ; // Inherits
  MELIST Implements
@@ -136,6 +140,9 @@ ME ME_491D5BE30111
  ME_4D8222C700CA // TnsF1DocumentContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '07.10.2005 17.02'

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AAA43F601F7
+
 FORWARD ME_4AAA42BF0267
 
 ME ME_4AAA42EF025A
@@ -9,7 +11,7 @@ ME ME_4AAA42EF025A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AAA42BF0267 // ShellAndMonitorings
  ;
- MELINK Target WL 'ME_4AA93171022B' '4AA93171022B.ms.model.script' // CommonSearch$UC
+ MELINK Target WL? 'ME_4AA93171022B' // CommonSearch$UC
  ;
 
 ENDME // ME_4AAA42EF025A 
@@ -24,6 +26,8 @@ ME ME_54F8582001BD
 
 ENDME // ME_54F8582001BD 
 
+%%InheritedBy ME_4A92BBDF0126 ME_4AAA42BF0267
+
 ME ME_4AAA42BF0267
  MEPROP UID '4AAA42BF0267'
  MEPROP Name 'ShellAndMonitorings'
@@ -33,14 +37,14 @@ ME ME_4AAA42BF0267
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ MELINK Parent WL? 'ME_4A78013D01CD' // View$For F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A92BBDF0126' '4A92BBDF0126.ms.model.script' // PrimF1
+   Seq: ( WL? 'ME_4A92BBDF0126' // PrimF1
  )
  ; // Inherits
  MELIST Children
-   Seq: ( WL 'ME_4AAA43F601F7' '4AAA43F601F7.ms.model.script' // ShellAndMonitoringsMain
+   Seq: ( WL? 'ME_4AAA43F601F7' // ShellAndMonitoringsMain
  )
  ; // Children
  MELIST Dependencies
@@ -48,6 +52,9 @@ ME ME_4AAA42BF0267
  ME_54F8582001BD // TtasSaveLoadRealization
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TShellAndMonitoringsRes'
  UP extprop:pas:UnitName 'ShellAndMonitoringsRes'
  UP extprop:rc:isAcceptableForScripts True

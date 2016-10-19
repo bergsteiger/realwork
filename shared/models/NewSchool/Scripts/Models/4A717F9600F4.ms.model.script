@@ -56,7 +56,7 @@ ME ME_4A805BC50021
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4A805BC50021 
@@ -66,7 +66,7 @@ ME ME_4A83E69403BE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A717F9600F4 // TdsLeftEdition
  ;
- MELINK Target WL 'ME_492182D60225' '4908545802CA.ms.model.script' // TnsEditionsRoot
+ MELINK Target WL 'ME_492182D60225' '4909F71E02EA.ms.model.script' // TnsEditionsRoot
  ;
 
 ENDME // ME_4A83E69403BE 
@@ -85,7 +85,7 @@ ME ME_4A8443C30125_ME_4A717F9600F4
 ENDME // ME_4A8443C30125_ME_4A717F9600F4 IsLeft
 
 ME ME_479731C50290_ME_4A717F9600F4
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4A717F9600F4 Cleanup
@@ -102,6 +102,10 @@ ME ME_4A8426C0002A_ME_4A717F9600F4
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8426C0002A_ME_4A717F9600F4 SignalEditionChanged
 
+%%ImplementedBy ME_4A6D57560240 ME_4A717F9600F4
+
+%%InheritedBy ME_4A7188E40294 ME_4A717F9600F4
+
 ME ME_4A717F9600F4
  MEPROP UID '4A717F9600F4'
  MEPROP Name 'TdsLeftEdition'
@@ -112,10 +116,10 @@ ME ME_4A717F9600F4
  %SUMMARY 'Предыдущая редакция' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7188E40294' '4A7188E40294.ms.model.script' // dsEditionDiff
+   Seq: ( WL? 'ME_4A7188E40294' // dsEditionDiff
  )
  ; // Inherits
  MELIST Implements
@@ -144,6 +148,9 @@ ME ME_4A717F9600F4
  ME_4A83E69403BE // TnsEditionsRoot
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '30.07.2009 15:52'

@@ -1,0 +1,41 @@
+// msm$Events 57E533C703E3 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57E533C703E3_diagrams
+
+ MEDIAGRAM ME_57E533C703E3_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57E533C703E3' ; // msm$Events
+
+  MEVIEW ME_57B5730D0123_view
+   MELINK Original WL? 'ME_57B5730D0123' ; // msmEvents
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B5730D0123_view
+
+  MEVIEW ME_57CE85BE0100_view
+   MELINK Original WL? 'ME_57CE85BE0100' ; // Events
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57CE85BE0100_view
+
+  MEVIEWLINK ME_57CE85BE0100_ME_57B5730D0123_Depends
+   MELINK From ME_57CE85BE0100_view ;
+   MELINK To ME_57B5730D0123_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_57CE85BE0100_ME_57B5730D0123_Depends
+
+  MELIST Views
+   Seq: ( ME_57B5730D0123_view // msmEvents
+   ME_57CE85BE0100_view // Events
+   ME_57CE85BE0100_ME_57B5730D0123_Depends // Events -> msmEvents
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57E533C703E3_main
+
+ MELIST Diagrams
+  Seq: ( ME_57E533C703E3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57E533C703E3_diagrams

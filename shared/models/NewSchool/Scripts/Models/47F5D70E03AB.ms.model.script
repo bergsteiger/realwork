@@ -14,6 +14,8 @@ ME ME_47FB00640212_ME_47F5D70E03AB
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47FB00640212_ME_47F5D70E03AB DoIsMain
 
+%%InheritedBy ME_47E9EDD301A4 ME_47F5D70E03AB
+
 ME ME_47F5D70E03AB
  MEPROP UID '47F5D70E03AB'
  MEPROP Name 'TdsMainDrugList'
@@ -24,10 +26,10 @@ ME ME_47F5D70E03AB
  %SUMMARY 'БОФ списка препаратов в главной зоне' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' // sdsDrugList
+ MELINK Parent WL? 'ME_47EA01EA0070' // sdsDrugList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E9EDD301A4' '47E9EDD301A4.ms.model.script' // TdsDrugList
+   Seq: ( WL? 'ME_47E9EDD301A4' // TdsDrugList
  )
  ; // Inherits
  MELIST Overridden
@@ -35,6 +37,9 @@ ME ME_47F5D70E03AB
  ME_47FB00640212_ME_47F5D70E03AB // DoIsMain
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "no hands" True
  UP extprop:pas:UnitName 'dsMainDrugList'
  UP extprop:rc:isAcceptableForScripts True

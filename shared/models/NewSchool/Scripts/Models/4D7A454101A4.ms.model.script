@@ -2,9 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4D7A460D0058
+
 FORWARD ME_4D7A454101A4
 
 FORWARD ME_4D7A45DC01AD
+
+%%InheritedBy ME_4D7A45DC01AD ME_4D7A460D0058
 
 ME ME_4D7A460D0058
  MEPROP UID '4D7A460D0058'
@@ -26,6 +30,8 @@ ME ME_4D7A460D0058
 
 ENDME // ME_4D7A460D0058 ztChild
 
+%%InheritedBy ME_4A7961A701CF ME_4D7A45DC01AD
+
 ME ME_4D7A45DC01AD
  MEPROP UID '4D7A45DC01AD'
  MEPROP Name 'ChildZone'
@@ -37,7 +43,7 @@ ME ME_4D7A45DC01AD
  MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+   Seq: ( WL? 'ME_4A7961A701CF' // TvtPanel
  )
  ; // Inherits
  MELIST Zones
@@ -56,7 +62,7 @@ ME ME_4D7A4C8B03CE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
  ;
- MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ MELINK Target WL 'ME_47E12539018D' '47E11FC3021E.ms.model.script' // TAlign
  ;
 
 ENDME // ME_4D7A4C8B03CE 
@@ -66,7 +72,7 @@ ME ME_544621D50154
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL? 'ME_53BA488F00D8' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_544621D50154 
@@ -78,7 +84,7 @@ ME ME_4F20313F00E3_ME_4D7A454101A4
 ENDME // ME_4F20313F00E3_ME_4D7A454101A4 IsIt
 
 ME ME_4A8E8F2E0195_ME_4D7A454101A4
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4D7A454101A4 InitControls
@@ -90,10 +96,14 @@ ME ME_4D78E2BB0211_ME_4D7A454101A4
 ENDME // ME_4D78E2BB0211_ME_4D7A454101A4 NotifyUserTypeSet
 
 ME ME_53B649F600A3_ME_4D7A454101A4
- MELINK Original WL 'ME_53B649F600A3' '533D53FF00C2.ms.model.script' // DoGetFormSetImageIndex
+ MELINK Original WL 'ME_53B649F600A3' '53B6495D0309.ms.model.script' // DoGetFormSetImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_53B649F600A3_ME_4D7A454101A4 DoGetFormSetImageIndex
+
+%%ImplementedBy ME_4F203112036A ME_4D7A454101A4
+
+%%InheritedBy ME_4F5DA09300C5 ME_4D7A454101A4
 
 ME ME_4D7A454101A4
  MEPROP UID '4D7A454101A4'
@@ -104,10 +114,10 @@ ME ME_4D7A454101A4
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.ms.model.script' // BaseSearch$Module
+ MELINK Parent WL? 'ME_4CC97BDA02DF' // BaseSearch$Module
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F5DA09300C5' '4F5DA09300C5.ms.model.script' // PrimSaveLoadOptionsForBaseSearch
+   Seq: ( WL? 'ME_4F5DA09300C5' // PrimSaveLoadOptionsForBaseSearch
  )
  ; // Inherits
  MELIST Implements
@@ -137,6 +147,9 @@ ME ME_4D7A454101A4
  ME_544621D50154 // nsTabbedInterfaceTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

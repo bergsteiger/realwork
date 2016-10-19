@@ -39,7 +39,7 @@ ME ME_49256C3001FB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49256B3903E4 // dsBaseContents
  ;
- MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ MELINK Target WL? 'ME_47F4853203E7' // vtUtils
  ;
 
 ENDME // ME_49256C3001FB 
@@ -49,7 +49,7 @@ ME ME_49256C8202E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49256B3903E4 // dsBaseContents
  ;
- MELINK Target WL 'ME_49256C760276' '47EA50050263.ms.model.script' // DocumentRes
+ MELINK Target WL? 'ME_49256C760276' // DocumentRes
  ;
 
 ENDME // ME_49256C8202E2 
@@ -59,7 +59,7 @@ ME ME_4D416C680086
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49256B3903E4 // dsBaseContents
  ;
- MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
  ;
 
 ENDME // ME_4D416C680086 
@@ -69,7 +69,7 @@ ME ME_4D416C800035
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49256B3903E4 // dsBaseContents
  ;
- MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ MELINK Target WL 'ME_4A8ADF9E0058' '47F25BC801DB.ms.model.script' // vcmFmt
  ;
 
 ENDME // ME_4D416C800035 
@@ -79,7 +79,7 @@ ME ME_4D416F520374
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49256B3903E4 // dsBaseContents
  ;
- MELINK Target WL 'ME_4D416C3B0283' '47EA50050263.ms.model.script' // Local
+ MELINK Target WL 'ME_4D416C3B0283' '4D416F1300DB.ms.model.script' // Local
  ;
 
 ENDME // ME_4D416F520374 
@@ -154,10 +154,15 @@ ME ME_47F465F80149_ME_49256B3903E4
 ENDME // ME_47F465F80149_ME_49256B3903E4 MakeImageList
 
 ME ME_492ACF630072_ME_49256B3903E4
- MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ MELINK Original WL 'ME_492ACF630072' '501802270075.ms.model.script' // GotData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_492ACF630072_ME_49256B3903E4 GotData
+
+%%ImplementedBy ME_4925661502AE ME_49256B3903E4
+%%ImplementedBy ME_492D91B7037E ME_49256B3903E4
+
+%%InheritedBy ME_47F0C1410011 ME_49256B3903E4
 
 ME ME_49256B3903E4
  MEPROP UID '49256B3903E4'
@@ -169,15 +174,15 @@ ME ME_49256B3903E4
  %SUMMARY 'Простое оглавление' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+   Seq: ( WL? 'ME_47F0C1410011' // dsSimpleTree
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_4925661502AE' '491B305A0096.ms.model.script' // IdsBaseContents
- WL 'ME_492D91B7037E' '47F282AE0082.ms.model.script' // nsContextFilter
+ WL? 'ME_492D91B7037E' // nsContextFilter
  )
  ; // Implements
  MELIST Attributes
@@ -210,6 +215,9 @@ ME ME_49256B3903E4
  ME_4D416F520374 // Local
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/04/03 10:35:36'

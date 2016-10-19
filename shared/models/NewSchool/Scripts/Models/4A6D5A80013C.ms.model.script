@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD7056800D3
+
 FORWARD ME_4A6D5A80013C
 
 ME ME_4BD7056800D3
@@ -24,6 +26,8 @@ ENDME // ME_4BD7056800D3 utLeftEdition
 
 FORWARD ME_4A83F7ED031D
 
+%%InheritedBy ME_4A9BA17E02F0 ME_4A9BA1C90083
+
 ME ME_4A9BA1C90083
  MEPROP UID '4A9BA1C90083'
  MEPROP Name 'pnCaption'
@@ -38,12 +42,17 @@ ME ME_4A9BA1C90083
    Seq: ( WL 'ME_4A9BA17E02F0' '4A6EBE900233.ms.model.script' // pnCaption
  )
  ; // Inherits
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'none'
  UP "need Caption" False
  UP "pm" True
  UP "put to dfm" True
 
 ENDME // ME_4A9BA1C90083 pnCaption
+
+%%InheritedBy ME_4A83EEAC00B7 ME_4A83F7ED031D
 
 ME ME_4A83F7ED031D
  MEPROP UID '4A83F7ED031D'
@@ -63,6 +72,9 @@ ME ME_4A83F7ED031D
    Seq: ( HWL ME_4A9BA1C90083 // pnCaption
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'none'
  UP "need Caption" False
  UP "pm" True
@@ -107,16 +119,18 @@ ME ME_4B55BB7F0172_ME_4A6D5A80013C
 ENDME // ME_4B55BB7F0172_ME_4A6D5A80013C DoEditionChanged
 
 ME ME_497469C90140_ME_4A6D5A80013C
- MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_497469C90140_ME_4A6D5A80013C NotifyDataSourceChanged
 
 ME ME_4A8E8F2E0195_ME_4A6D5A80013C
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4A6D5A80013C InitControls
+
+%%InheritedBy ME_4C7F6D8800EE ME_4A6D5A80013C
 
 ME ME_4A6D5A80013C
  MEPROP UID '4A6D5A80013C'
@@ -128,10 +142,10 @@ ME ME_4A6D5A80013C
  %SUMMARY 'Текущая редакция' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A6D5A220389' // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+   Seq: ( WL? 'ME_4C7F6D8800EE' // DiffOptions
  )
  ; // Inherits
  MELIST Attributes
@@ -157,6 +171,9 @@ ME ME_4A6D5A80013C
    Seq: ( ME_4B69B5EF03B1 // RightEdition
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

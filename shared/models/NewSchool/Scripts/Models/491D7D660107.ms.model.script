@@ -62,6 +62,10 @@ ME ME_4C6AB38800F3_ME_491D7D660107
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C6AB38800F3_ME_491D7D660107 MakeContainer
 
+%%ImplementedBy ME_491D7D1B026C ME_491D7D660107
+
+%%InheritedBy ME_47EA20430108 ME_491D7D660107
+
 ME ME_491D7D660107
  MEPROP UID '491D7D660107'
  MEPROP Name 'TdsMedicFirmDocument'
@@ -72,10 +76,10 @@ ME ME_491D7D660107
  %SUMMARY 'Документ описания фирмы-производителя' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+   Seq: ( WL? 'ME_47EA20430108' // dsBaseDocumentPrim
  )
  ; // Inherits
  MELIST Implements
@@ -100,6 +104,9 @@ ME ME_491D7D660107
    Seq: ( ME_4D35796C03E2 // TnsF1DocumentContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/26 14:05:01'

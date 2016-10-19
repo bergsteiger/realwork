@@ -38,16 +38,20 @@ ME ME_493D48C10397
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493D480502CF // TdsDocumentWithFlash
  ;
- MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ MELINK Target WL? 'ME_47F61C4C0040' // nsDocumentTools
  ;
 
 ENDME // ME_493D48C10397 
 
 ME ME_491476B001D3_ME_493D480502CF
- MELINK Original WL 'ME_491476B001D3' '47D0E1500033.ms.model.script' // MakeDisplayName
+ MELINK Original WL 'ME_491476B001D3' '5017EAF4027D.ms.model.script' // MakeDisplayName
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_491476B001D3_ME_493D480502CF MakeDisplayName
+
+%%ImplementedBy ME_4937D1550372 ME_493D480502CF
+
+%%InheritedBy ME_491D64430036 ME_493D480502CF
 
 ME ME_493D480502CF
  MEPROP UID '493D480502CF'
@@ -59,10 +63,10 @@ ME ME_493D480502CF
  %SUMMARY 'БОФ документа-схемы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_491D64430036' '491D64430036.ms.model.script' // dsDocument
+   Seq: ( WL? 'ME_491D64430036' // dsDocument
  )
  ; // Inherits
  MELIST Implements
@@ -82,6 +86,9 @@ ME ME_493D480502CF
    Seq: ( ME_493D48C10397 // nsDocumentTools
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '2008/06/19 11:30:02'

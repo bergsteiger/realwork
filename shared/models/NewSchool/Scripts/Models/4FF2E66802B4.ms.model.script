@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4FF2E6B003C4
+%%Inner ME_4FF2EEF80072
+%%Inner ME_500E749D0046
+%%Inner ME_500E747B0047
+%%Inner ME_500E746B0273
+%%Inner ME_500E75A000B0
+%%Inner ME_500E75C90024
+
 FORWARD ME_4FF2E66802B4
 
 FORWARD ME_500E75A000B0
@@ -21,6 +29,10 @@ ME ME_500E7677002B_ME_500E75A000B0
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_500E7677002B_ME_500E75A000B0 AcceptableBlockViewKinds
+
+%%ImplementedBy ME_500FF3E20023 ME_500E75A000B0
+
+%%InheritedBy ME_500E758002C7 ME_500E75A000B0
 
 ME ME_500E75A000B0
  MEPROP UID '500E75A000B0'
@@ -48,6 +60,9 @@ ME ME_500E75A000B0
    Seq: ( ME_502403DB0346 // BlockViewKind
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'nsAACLeftDocumentContainer'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'AACLeftDocumentContainer'
@@ -72,6 +87,10 @@ ME ME_500E7677002B_ME_500E75C90024
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_500E7677002B_ME_500E75C90024 AcceptableBlockViewKinds
+
+%%ImplementedBy ME_500FF3E20023 ME_500E75C90024
+
+%%InheritedBy ME_500E758002C7 ME_500E75C90024
 
 ME ME_500E75C90024
  MEPROP UID '500E75C90024'
@@ -99,6 +118,9 @@ ME ME_500E75C90024
    Seq: ( ME_502403D200B5 // BlockViewKind
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'nsAACRightDocumentContainer'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'AACRightDocumentContainer'
@@ -115,42 +137,45 @@ ME ME_4FF2E66802B4
  %SUMMARY 'Реализация контроллеров прецедента "Актуальная аналитика"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4FF2E61D00CA' '4FF2E61D00CA.ms.model.script' // AAC$DataSources
+ MELINK Parent WL? 'ME_4FF2E61D00CA' // AAC$DataSources
  ;
  MELIST Children
-   Seq: ( WL 'ME_4FF2E6B003C4' '4FF2E6B003C4.ms.model.script' // TsdsAAC
- WL 'ME_4FF2EEF80072' '4FF2EEF80072.ms.model.script' // TdsAACContainer
- WL 'ME_500E749D0046' '500E749D0046.ms.model.script' // TdsAACDocumentPrim
- WL 'ME_500E747B0047' '500E747B0047.ms.model.script' // TdsAACDocumentRight
- WL 'ME_500E746B0273' '500E746B0273.ms.model.script' // TdsAACDocumentLeft
+   Seq: ( WL? 'ME_4FF2E6B003C4' // TsdsAAC
+ WL? 'ME_4FF2EEF80072' // TdsAACContainer
+ WL? 'ME_500E749D0046' // TdsAACDocumentPrim
+ WL? 'ME_500E747B0047' // TdsAACDocumentRight
+ WL? 'ME_500E746B0273' // TdsAACDocumentLeft
  HWL ME_500E75A000B0 // TnsAACLeftDocumentContainer
  HWL ME_500E75C90024 // TnsAACRightDocumentContainer
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4678137501EA' '4678137501EA.ms.model.script' // k2Interfaces
- WL 'ME_467FC9F80281' '467FC9F80281.ms.model.script' // DocumentTagNodes
- WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
- WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
- WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
- WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
- WL 'ME_484FA67302D7' '484FA67302D7.ms.model.script' // GUI
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
- WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
- WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
- WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.ms.model.script' // F1DocumentContainers
- WL 'ME_4C6E92E9016E' '4C6E92E9016E.ms.model.script' // F1TagDataProviderInterface
- WL 'ME_4D1B548F00EE' '4D1B548F00EE.ms.model.script' // WorkWithDocumentInterfaces
- WL 'ME_4FF2E6570285' '4FF2E6570285.ms.model.script' // AACInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4678137501EA' // k2Interfaces
+ WL? 'ME_467FC9F80281' // DocumentTagNodes
+ WL? 'ME_469D0AC7005E' // Types
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47AC75550330' // k2Tags
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_47EA50050263' // BaseDocument
+ WL? 'ME_47F1F38601A3' // ParaUtils
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_47F22C7501F6' // Document
+ WL? 'ME_48492FC0029D' // Standard
+ WL? 'ME_484A470100DD' // Standard
+ WL? 'ME_484FA67302D7' // GUI
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ WL? 'ME_4A9F83AD0235' // Document
+ WL? 'ME_4B1FC2FF03CD' // DocumentInterfaces
+ WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ WL? 'ME_4C6E92E9016E' // F1TagDataProviderInterface
+ WL? 'ME_4D1B548F00EE' // WorkWithDocumentInterfaces
+ WL? 'ME_4FF2E6570285' // AACInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4FF2E66802B4 AACImplementation

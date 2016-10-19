@@ -1,0 +1,129 @@
+// msmListViewController 57B6C958008A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B6C958008A
+
+FORWARD ME_57B6C9A5037B
+
+ME ME_B0D84EBF7058
+ MEPROP UID 'B0D84EBF7058'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода CallDropDrawPoints' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6C9A5037B // CallDropDrawPoints
+ ;
+
+ENDME // ME_B0D84EBF7058 DoIt
+
+ME ME_57B6C9A5037B
+ MEPROP UID '57B6C9A5037B'
+ MEPROP Name 'CallDropDrawPoints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_B0D84EBF7058 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B6C9A5037B CallDropDrawPoints
+
+%%InheritedBy ME_514B2FDC00CF ME_57AB0F1703C1
+
+ME ME_57AB0F1703C1
+ MEPROP UID '57AB0F1703C1'
+ MEPROP Name 'DoGetStrItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B2FDC00CF' '4CFFE3470249.ms.model.script' // TGetStrItemEvent
+ )
+ ; // Inherits
+
+ENDME // ME_57AB0F1703C1 DoGetStrItem
+
+ME ME_57E2C32402F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELINK Target WL 'ME_57E2C2970206' '57C99A680247.ms.model.script' // ListContentChangedEvent
+ ;
+
+ENDME // ME_57E2C32402F7 
+
+ME ME_57E2C3460133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57E2C3460133 
+
+ME ME_57ADFB33027D_ME_57B6C958008A
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57ADFB33027D_ME_57B6C958008A InitOwnView
+
+ME ME_57B6A49900F4_ME_57B6C958008A
+ MELINK Original WL 'ME_57B6A49900F4' '57AAE90E02B6.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57B6A49900F4_ME_57B6C958008A LinkDataToView
+
+%%InheritedBy ME_57B6BF8A0210 ME_57B6C958008A
+
+ME ME_57B6C958008A
+ MEPROP UID '57B6C958008A'
+ MEPROP Name 'msmListViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CD261B0318' // ListAndTree
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_57B6BF8A0210' // msmListLikeViewController
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57B6C9A5037B // CallDropDrawPoints
+ HWL ME_57AB0F1703C1 // DoGetStrItem
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_57ADFB33027D_ME_57B6C958008A // InitOwnView
+ ME_57B6A49900F4_ME_57B6C958008A // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E2C32402F7 // ListContentChangedEvent
+ ME_57E2C3460133 // ListChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_msmListViewController_'
+ UP extprop:pas:UnitName 'msmListViewController.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListViewController.imp.pas'
+
+ENDME // ME_57B6C958008A msmListViewController

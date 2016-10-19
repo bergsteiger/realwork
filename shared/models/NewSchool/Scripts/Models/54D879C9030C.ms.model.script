@@ -159,7 +159,7 @@ ME ME_54D894ED0298
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
  ;
- MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ MELINK Target WL? 'ME_47F61C4C0040' // nsDocumentTools
  ;
 
 ENDME // ME_54D894ED0298 
@@ -186,6 +186,8 @@ ME ME_5592655F00B2_ME_54D879C9030C
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5592655F00B2_ME_54D879C9030C ClearPreview
 
+%%InheritedBy ME_4CDABB1C0025 ME_54D879C9030C
+
 ME ME_54D879C9030C
  MEPROP UID '54D879C9030C'
  MEPROP Name 'PrintableFlashWithInfo'
@@ -195,10 +197,10 @@ ME ME_54D879C9030C
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CDABB1C0025' '4CDABB1C0025.ms.model.script' // PrintableFlash
+   Seq: ( WL? 'ME_4CDABB1C0025' // PrintableFlash
  )
  ; // Inherits
  MELIST Attributes
@@ -224,6 +226,9 @@ ME ME_54D879C9030C
  ME_54D98F7F00FB // TafwComplexDocumentPreview
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

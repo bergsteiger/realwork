@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_ED055FCF64DC
+
 FORWARD ME_ED055FCF64DC
 
 FORWARD ME_4A811C620210
@@ -46,6 +48,10 @@ ME ME_F17A163F736E
 
 ENDME // ME_F17A163F736E Ini_FormFactory_WorkJournal$Def
 
+%%ImplementedBy ME_ED055FCF64DC ME_4A811C620210
+
+%%InheritedBy ME_4CC7E19400DE ME_4A811C620210
+
 ME ME_4A811C620210
  MEPROP UID '4A811C620210'
  MEPROP Name 'WorkJournal'
@@ -56,10 +62,10 @@ ME ME_4A811C620210
  %SUMMARY 'Журнал работы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A811C1A0293' '4A811C1A0293.ms.model.script' // BaseWorkJournal
+ MELINK Parent WL? 'ME_4A811C1A0293' // BaseWorkJournal
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CC7E19400DE' '4CC7E19400DE.ms.model.script' // PrimWorkJournalOptions
+   Seq: ( WL? 'ME_4CC7E19400DE' // PrimWorkJournalOptions
  )
  ; // Inherits
  MELIST Implements

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E7AFF400116
+
 FORWARD ME_4E7AFECB03CB
 
 FORWARD ME_4E7AFF400116
@@ -267,6 +269,8 @@ ME ME_47BAD32501E2_ME_4E7AFF400116
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47BAD32501E2_ME_4E7AFF400116 DropData
 
+%%InheritedBy ME_46825CC00249 ME_4E7AFF400116
+
 ME ME_4E7AFF400116
  MEPROP UID '4E7AFF400116'
  MEPROP GUID '10D96B1D-DD61-4441-94CF-CE8EE3C1546E'
@@ -340,18 +344,21 @@ ME ME_4E7AFECB03CB
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA7A7D903AE' '4AA7A7D903AE.ms.model.script' // Rubricator
+ MELINK Parent WL? 'ME_4AA7A7D903AE' // Rubricator
  ;
  MELIST Children
    Seq: ( HWL ME_4E7AFF400116 // InsRubricatorTree
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_4DD24BD40021' '4DD24BD40021.ms.model.script' // MainMenu
+   Seq: ( WL? 'ME_457450470167' // DynamicTree
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_4DD24BD40021' // MainMenu
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Rubricator\RubricatorInterfaces.pas'
 

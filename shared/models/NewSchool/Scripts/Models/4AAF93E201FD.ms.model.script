@@ -1,0 +1,1115 @@
+// nsPostingsLine 4AAF93E201FD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F9F698015D
+%%Inner ME_52F9F6DD0372
+%%Inner ME_4ADEF93B0159
+
+FORWARD ME_4AAF93E201FD
+
+FORWARD ME_52F9F698015D
+
+FORWARD ME_52F9F6A40349
+
+ME ME_52F9F6A801E9
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F9F6A801E9 aIndex
+
+ME ME_52F9F6A40349
+ MEPROP UID '52F9F6A40349'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9F698015D // TnsAddEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9F6A801E9 // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52F9F6A40349 DoIt
+
+ME ME_52F9F698015D
+ MEPROP UID '52F9F698015D'
+ MEPROP Name 'TnsAddEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9F6A40349 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52F9F698015D TnsAddEvent
+
+FORWARD ME_52F9F6DD0372
+
+FORWARD ME_52F9F717007B
+
+ME ME_52F9F71C020C
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F9F71C020C aIndex
+
+ME ME_52F9F71C0239
+ MEPROP Name 'aNewCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_52F9F71C0239 aNewCaption
+
+ME ME_52F9F717007B
+ MEPROP UID '52F9F717007B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9F6DD0372 // TnsCaptionChangeEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9F71C020C // aIndex
+ ME_52F9F71C0239 // aNewCaption
+ )
+ ; // Parameters
+
+ENDME // ME_52F9F717007B DoIt
+
+ME ME_52F9F6DD0372
+ MEPROP UID '52F9F6DD0372'
+ MEPROP Name 'TnsCaptionChangeEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9F717007B // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52F9F6DD0372 TnsCaptionChangeEvent
+
+FORWARD ME_4ADEF93B0159
+
+ME ME_52F9F7970349
+ MEPROP UID '52F9F7970349'
+ MEPROP Name 'Root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'указатель на корневой узел дерева, где хранятся списки рассылок списка рассылок. Фактически "Мои документы" для пользователя "_predefined_data".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_52F9F7970349 Root
+
+ME ME_52F9F8150340
+ MEPROP UID '52F9F8150340'
+ MEPROP Name 'DataChanged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'флаг изменения окна дерева (удаление или добавление узлов). Если пустое, то флаг автоматически выставляется в False. Реально нужен для проверки перед сохранением списка рассылки на диск.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9F8150340 DataChanged
+
+ME ME_52F9F8640074
+ MEPROP UID '52F9F8640074'
+ MEPROP Name 'MgrSearch'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'указатель на менеджер КЗ заказа рассылки. Считается, что он всегда один.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_468395810205' '46837A08002C.ms.model.script' // IqaMgrSearch
+ ;
+ UP "pm" True
+
+ENDME // ME_52F9F8640074 MgrSearch
+
+ME ME_52F9F89C0261
+ MEPROP UID '52F9F89C0261'
+ MEPROP Name 'f_MgrSearch'
+ MEPROP Class class_Attribute
+ %SUMMARY 'IqaMgrSearch'#13#10'поле для свойства MgrSearch' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_52F9F89C0261 f_MgrSearch
+
+ME ME_52F9F8F100AE
+ MEPROP UID '52F9F8F100AE'
+ MEPROP Name 'LastCatalog'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'каталог, в который последний раз производилось сохранение.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52F9F8F100AE LastCatalog
+
+ME ME_52F9F9200319
+ MEPROP UID '52F9F9200319'
+ MEPROP Name 'EditNodeIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'индекс редактируемого элемента в дереве (для которого открыта КЗ). Может не соответствовать выделенному.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52F9F9200319 EditNodeIndex
+
+ME ME_52F9F9730141
+ MEPROP UID '52F9F9730141'
+ MEPROP Name 'OldModifed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'кэширование флага изменения параметров рассылки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9F9730141 OldModifed
+
+ME ME_52F9F9A602E7
+ MEPROP UID '52F9F9A602E7'
+ MEPROP Name 'Closed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'признак того, что приложение закрывается.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9F9A602E7 Closed
+
+ME ME_52F9F9C40133
+ MEPROP UID '52F9F9C40133'
+ MEPROP Name 'NeedLoad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'флаг для загрузки данных из первой рассылки в КЗ. Флаг сбрасывается в функции GetFirstQuery.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52F9F9C40133 NeedLoad
+
+ME ME_52F9FA40001C
+ MEPROP UID '52F9FA40001C'
+ MEPROP Name 'ServerDown'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'флаг закрытия приложения по выключению сервера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9FA40001C ServerDown
+
+ME ME_52F9FA6901B9
+ MEPROP UID '52F9FA6901B9'
+ MEPROP Name 'HasChildren'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'наличие новостных лент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_52F9FA6901B9 HasChildren
+
+ME ME_52F9FA9500E2
+ MEPROP UID '52F9FA9500E2'
+ MEPROP Name 'OnAddNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'обработчик события добавления узла в дерево.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target HWL ME_52F9F698015D // TnsAddEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9FA9500E2 OnAddNode
+
+ME ME_52F9FAB60048
+ MEPROP UID '52F9FAB60048'
+ MEPROP Name 'OnDelNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'обработчик события удаления узла из дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target HWL ME_52F9F698015D // TnsAddEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9FAB60048 OnDelNode
+
+ME ME_52F9FAD102C3
+ MEPROP UID '52F9FAD102C3'
+ MEPROP Name 'OnEditNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'обработчик изменения названия узла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target HWL ME_52F9F6DD0372 // TnsCaptionChangeEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52F9FAD102C3 OnEditNode
+
+ME ME_52F9FB13006F
+ MEPROP UID '52F9FB13006F'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'количество тематик. У TnsCacheableNode.ThisChildrenCount справшивать нельзя, значение кешируется. На AdapterNode тоже справшивать не хочется, вдруг там кроме тематик ещё какие-нибудь узлы появятся.'#13#10'Нужно сделать, чтобы TnsPrimeNode наследовался от класса, на котором не кешируется ThisChildrenCount.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_52F9FB13006F Count
+
+ME ME_52F9FB7F0011
+ MEPROP UID '52F9FB7F0011'
+ MEPROP Name 'LoadChildren'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'загружает список рассылок.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+
+ENDME // ME_52F9FB7F0011 LoadChildren
+
+ME ME_52F9FBB9027F
+ MEPROP UID '52F9FBB9027F'
+ MEPROP Name 'LoadSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'загружает настройки для дерева.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+
+ENDME // ME_52F9FBB9027F LoadSettings
+
+FORWARD ME_52F9FC4C00A0
+
+ME ME_52F9FC5D01C4
+ MEPROP UID '52F9FC5D01C4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FC4C00A0 // MakeCurrentPrimeName
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_52F9FC5D01C4 DoIt
+
+ME ME_52F9FC4C00A0
+ MEPROP UID '52F9FC4C00A0'
+ MEPROP Name 'MakeCurrentPrimeName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FC5D01C4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FC4C00A0 MakeCurrentPrimeName
+
+ME ME_52F9FCAF0340
+ MEPROP UID '52F9FCAF0340'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+
+ENDME // ME_52F9FCAF0340 Create
+
+FORWARD ME_52F9FCCE016F
+
+FORWARD ME_52F9FCEA0253
+
+ME ME_52F9FCF0004E
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_52F9FCF0004E aQuery
+
+ME ME_52F9FCEA0253
+ MEPROP UID '52F9FCEA0253'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FCCE016F // SaveQuery2Adapter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9FCF0004E // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_52F9FCEA0253 DoIt
+
+ME ME_52F9FCCE016F
+ MEPROP UID '52F9FCCE016F'
+ MEPROP Name 'SaveQuery2Adapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'сохраняет запрос в базу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FCEA0253 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FCCE016F SaveQuery2Adapter
+
+ME ME_52F9FD21020E
+ MEPROP UID '52F9FD21020E'
+ MEPROP Name 'SaveXMLForServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'если новостаная лента была изменена, нужно вылить папки для файл-серверной версии системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+
+ENDME // ME_52F9FD21020E SaveXMLForServer
+
+FORWARD ME_52F9FD4D014F
+
+FORWARD ME_56BA0A250138
+
+ME ME_56BA0A2D0340
+ MEPROP Name 'aCheckOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_56BA0A2D0340 aCheckOnly
+
+ME ME_56BA0A250138
+ MEPROP UID '56BA0A250138'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FD4D014F // CheckAndChangeCaption
+ ;
+ MELIST Parameters
+   Seq: ( ME_56BA0A2D0340 // aCheckOnly
+ )
+ ; // Parameters
+
+ENDME // ME_56BA0A250138 DoIt
+
+ME ME_52F9FD4D014F
+ MEPROP UID '52F9FD4D014F'
+ MEPROP Name 'CheckAndChangeCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'передает дереву новое значение _Caption редактируемого узла.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56BA0A250138 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FD4D014F CheckAndChangeCaption
+
+FORWARD ME_52F9FD68005A
+
+FORWARD ME_52F9FD71029C
+
+ME ME_52F9FD780360
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_52F9FD780360 aNode
+
+ME ME_52F9FD71029C
+ MEPROP UID '52F9FD71029C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FD68005A // DeletePosting
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9FD780360 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_52F9FD71029C DoIt
+
+ME ME_52F9FD68005A
+ MEPROP UID '52F9FD68005A'
+ MEPROP Name 'DeletePosting'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'удаляет рассылку из списка рассылок (одновременно на адаптере и дереве в оболочке).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FD71029C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FD68005A DeletePosting
+
+FORWARD ME_52F9FDC0007C
+
+FORWARD ME_52F9FDC70044
+
+ME ME_52F9FDCB003B
+ MEPROP Name 'aTreeView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD200333' '4912DD020283.ms.model.script' // IeeTreeView
+ ;
+
+ENDME // ME_52F9FDCB003B aTreeView
+
+ME ME_52F9FDC70044
+ MEPROP UID '52F9FDC70044'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FDC0007C // DeleteSelectedPostings
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9FDCB003B // aTreeView
+ )
+ ; // Parameters
+
+ENDME // ME_52F9FDC70044 DoIt
+
+ME ME_52F9FDC0007C
+ MEPROP UID '52F9FDC0007C'
+ MEPROP Name 'DeleteSelectedPostings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FDC70044 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FDC0007C DeleteSelectedPostings
+
+FORWARD ME_52F9FDDA019A
+
+FORWARD ME_52F9FDE10338
+
+ME ME_52F9FDE602ED
+ MEPROP Name 'aTreeView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD200333' '4912DD020283.ms.model.script' // IeeTreeView
+ ;
+
+ENDME // ME_52F9FDE602ED aTreeView
+
+ME ME_52F9FDE60309
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_52F9FDE60309 aFileName
+
+ME ME_52F9FDE10338
+ MEPROP UID '52F9FDE10338'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FDDA019A // ExportSelected
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F9FDE602ED // aTreeView
+ ME_52F9FDE60309 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_52F9FDE10338 DoIt
+
+ME ME_52F9FDDA019A
+ MEPROP UID '52F9FDDA019A'
+ MEPROP Name 'ExportSelected'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FDE10338 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FDDA019A ExportSelected
+
+FORWARD ME_52F9FDF500F5
+
+ME ME_52F9FDFB0131
+ MEPROP UID '52F9FDFB0131'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FDF500F5 // GetFirstQuery
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_52F9FDFB0131 DoIt
+
+ME ME_52F9FDF500F5
+ MEPROP UID '52F9FDF500F5'
+ MEPROP Name 'GetFirstQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает запрос для первой рассылки в списке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FDFB0131 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FDF500F5 GetFirstQuery
+
+FORWARD ME_52F9FE130263
+
+ME ME_52F9FE1901ED
+ MEPROP UID '52F9FE1901ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9FE130263 // SaveOrCreateQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52F9FE1901ED DoIt
+
+ME ME_52F9FE130263
+ MEPROP UID '52F9FE130263'
+ MEPROP Name 'SaveOrCreateQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'чтобы не мотаться по формам, сделан некоторый реверанс в сторону "ручного" программирования, тем более, что все данные для этого есть.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADEF93B0159 // TnsPostingsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9FE1901ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F9FE130263 SaveOrCreateQuery
+
+ME ME_54F5D89D02FD_ME_4ADEF93B0159
+ MELINK Original WL 'ME_54F5D89D02FD' '54F5D55D00C6.ms.model.script' // ServerDownNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54F5D89D02FD_ME_4ADEF93B0159 ServerDownNotification
+
+ME ME_479731C50290_ME_4ADEF93B0159
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4ADEF93B0159 Cleanup
+
+ME ME_47A042E100E2_ME_4ADEF93B0159
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4ADEF93B0159 InitFields
+
+%%ImplementedBy ME_54F5D8820129 ME_4ADEF93B0159
+
+%%InheritedBy ME_519A130C00B6 ME_4ADEF93B0159
+
+ME ME_4ADEF93B0159
+ MEPROP UID '4ADEF93B0159'
+ MEPROP Name 'TnsPostingsTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_54F5D8820129' '54F5D55D00C6.ms.model.script' // If1NotificationListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52F9F7970349 // Root
+ HWL ME_52F9F8150340 // DataChanged
+ HWL ME_52F9F8640074 // MgrSearch
+ HWL ME_52F9F89C0261 // f_MgrSearch
+ HWL ME_52F9F8F100AE // LastCatalog
+ HWL ME_52F9F9200319 // EditNodeIndex
+ HWL ME_52F9F9730141 // OldModifed
+ HWL ME_52F9F9A602E7 // Closed
+ HWL ME_52F9F9C40133 // NeedLoad
+ HWL ME_52F9FA40001C // ServerDown
+ HWL ME_52F9FA6901B9 // HasChildren
+ HWL ME_52F9FA9500E2 // OnAddNode
+ HWL ME_52F9FAB60048 // OnDelNode
+ HWL ME_52F9FAD102C3 // OnEditNode
+ HWL ME_52F9FB13006F // Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52F9FB7F0011 // LoadChildren
+ HWL ME_52F9FBB9027F // LoadSettings
+ HWL ME_52F9FC4C00A0 // MakeCurrentPrimeName
+ HWL ME_52F9FCAF0340 // Create
+ HWL ME_52F9FCCE016F // SaveQuery2Adapter
+ HWL ME_52F9FD21020E // SaveXMLForServer
+ HWL ME_52F9FD4D014F // CheckAndChangeCaption
+ HWL ME_52F9FD68005A // DeletePosting
+ HWL ME_52F9FDC0007C // DeleteSelectedPostings
+ HWL ME_52F9FDDA019A // ExportSelected
+ HWL ME_52F9FDF500F5 // GetFirstQuery
+ HWL ME_52F9FE130263 // SaveOrCreateQuery
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54F5D89D02FD_ME_4ADEF93B0159 // ServerDownNotification
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADEF93B0159 // Cleanup
+ ME_47A042E100E2_ME_4ADEF93B0159 // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PostingsTree'
+
+ENDME // ME_4ADEF93B0159 TnsPostingsTree
+
+ME ME_4ADF433701AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_4AC21C8401A8' '5267C3880201.ms.model.script' // TnsPrimeNode
+ ;
+
+ENDME // ME_4ADF433701AC 
+
+ME ME_52FA112C0135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_4ADDF51A00B8' '47F60E8E019C.ms.model.script' // TnsRootNode
+ ;
+
+ENDME // ME_52FA112C0135 
+
+ME ME_52FA13360164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_52FA13360164 
+
+ME ME_52FA1350016D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_52FA1350016D 
+
+ME ME_52FA13650129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_52FA13650129 
+
+ME ME_52FA13850203
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_52FA13850203 
+
+ME ME_52FA1388019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_52FA1388019F 
+
+ME ME_52FA13A701F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
+ ;
+
+ENDME // ME_52FA13A701F4 
+
+ME ME_52FA13CA0369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_47C80D8E019B' '456EA56002BF.ms.model.script' // DuplicateName
+ ;
+
+ENDME // ME_52FA13CA0369 
+
+ME ME_52FA13E20036
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4E01D696020C' // vcmMessagesSupport
+ ;
+
+ENDME // ME_52FA13E20036 
+
+ME ME_52FA13FD02E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_499032AE00A0' '4ADF3FBB00C3.ms.model.script' // InsPrimeNode
+ ;
+
+ENDME // ME_52FA13FD02E6 
+
+ME ME_52FA14520205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_52FA14520205 
+
+ME ME_52FA14740075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_45EEC3DE0232' '457450470167.ms.model.script' // FlagsConst
+ ;
+
+ENDME // ME_52FA14740075 
+
+ME ME_52FA14A2022F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4912E178000B' // eeTreeMisc
+ ;
+
+ENDME // ME_52FA14A2022F 
+
+ME ME_52FA14BB01DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_52FA14BB01DF 
+
+ME ME_52FA14E902A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4E01D1980071' // l3MessageID
+ ;
+
+ENDME // ME_52FA14E902A5 
+
+ME ME_52FA1501030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_4AB0EE02004E' // Dialogs
+ ;
+
+ENDME // ME_52FA1501030C 
+
+ME ME_52FA15160056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL? 'ME_47F25741021C' // l3Nodes
+ ;
+
+ENDME // ME_52FA15160056 
+
+ME ME_52FA255701F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_47BECCE501B5' '47BECCB801BE.ms.model.script' // Prime
+ ;
+
+ENDME // ME_52FA255701F0 
+
+ME ME_560E7DEA02A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF93E201FD // nsPostingsLine
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_560E7DEA02A8 
+
+ME ME_4AAF93E201FD
+ MEPROP UID '4AAF93E201FD'
+ MEPROP Name 'nsPostingsLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5267C3880201' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52F9F698015D // TnsAddEvent
+ HWL ME_52F9F6DD0372 // TnsCaptionChangeEvent
+ HWL ME_4ADEF93B0159 // TnsPostingsTree
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4ADF433701AC // TnsPrimeNode
+ ME_52FA112C0135 // TnsRootNode
+ ME_52FA13360164 // DataAdapter
+ ME_52FA1350016D // afwFacade
+ ME_52FA13650129 // nsConst
+ ME_52FA13850203 // l3Base
+ ME_52FA1388019F // l3String
+ ME_52FA13A701F4 // nsTypes
+ ME_52FA13CA0369 // DuplicateName
+ ME_52FA13E20036 // vcmMessagesSupport
+ ME_52FA13FD02E6 // InsPrimeNode
+ ME_52FA14520205 // SysUtils
+ ME_52FA14740075 // FlagsConst
+ ME_52FA14A2022F // eeTreeMisc
+ ME_52FA14BB01DF // StdRes
+ ME_52FA14E902A5 // l3MessageID
+ ME_52FA1501030C // Dialogs
+ ME_52FA15160056 // l3Nodes
+ ME_52FA255701F0 // Prime
+ ME_560E7DEA02A8 // Ext Chars
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'PostingsLine'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsPostingsLine.pas'
+
+ENDME // ME_4AAF93E201FD nsPostingsLine

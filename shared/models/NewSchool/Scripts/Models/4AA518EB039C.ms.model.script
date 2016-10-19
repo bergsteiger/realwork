@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD84DBE0387
+
 FORWARD ME_4AA518EB039C
 
 ME ME_4BD84DBE0387
@@ -39,6 +41,10 @@ ME ME_49803F5503AA_ME_4AA518EB039C
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49803F5503AA_ME_4AA518EB039C DoInit
 
+%%ImplementedBy ME_4F7C1E96000A ME_4AA518EB039C
+
+%%InheritedBy ME_4C8A210E018C ME_4AA518EB039C
+
 ME ME_4AA518EB039C
  MEPROP UID '4AA518EB039C'
  MEPROP Name 'PrimAdminMain'
@@ -48,14 +54,14 @@ ME ME_4AA518EB039C
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA517B5037A' '4AA517B5037A.ms.model.script' // AdminApp
+ MELINK Parent WL? 'ME_4AA517B5037A' // AdminApp
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C8A210E018C' '4C8A210E018C.ms.model.script' // PrimMainOptions
+   Seq: ( WL? 'ME_4C8A210E018C' // PrimMainOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.ms.model.script' // AdminAndMonitoringsMainForm
+   Seq: ( WL? 'ME_4F7C1E96000A' // AdminAndMonitoringsMainForm
  )
  ; // Implements
  MELIST Overridden
@@ -70,6 +76,9 @@ ME ME_4AA518EB039C
    Seq: ( ME_57A355B20136 // TAdminService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

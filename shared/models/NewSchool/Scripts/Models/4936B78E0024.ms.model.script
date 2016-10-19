@@ -1,0 +1,154 @@
+// dCommonDiction 4936B78E0024 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4936B78E0024
+
+ME ME_4B191DB40260
+ MEPROP UID '4B191DB40260'
+ MEPROP Name 'f_CurrentNode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4936B78E0024 // dCommonDiction
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B191DB40260 f_CurrentNode
+
+FORWARD ME_4B191CC700CE
+
+ME ME_4B191CCF033B
+ MEPROP UID '4B191CCF033B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B191CC700CE // Make
+ ;
+
+ENDME // ME_4B191CCF033B DoIt
+
+ME ME_4B191CC700CE
+ MEPROP UID '4B191CC700CE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4936B78E0024 // dCommonDiction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B191CCF033B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B191CC700CE Make
+
+ME ME_4B191DD4020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4936B78E0024 // dCommonDiction
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B191DD4020C 
+
+ME ME_4B19210D0288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4936B78E0024 // dCommonDiction
+ ;
+ MELINK Target WL? 'ME_4982B6510327' // vcmFormDataSourceRef
+ ;
+
+ENDME // ME_4B19210D0288 
+
+ME ME_49527BB50018_ME_4936B78E0024
+ MELINK Original WL 'ME_49527BB50018' '492540AF02CD.ms.model.script' // CurrentNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49527BB50018_ME_4936B78E0024 CurrentNode
+
+ME ME_AB0AA05AFA56_ME_4936B78E0024
+ MELINK Original WL 'ME_AB0AA05AFA56' '492540AF02CD.ms.model.script' // dsContentsRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" True
+ UP "pm" True
+ENDME // ME_AB0AA05AFA56_ME_4936B78E0024 dsContentsRef
+
+ME ME_479731C50290_ME_4936B78E0024
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4936B78E0024 Cleanup
+
+ME ME_4B16B8CF0307_ME_4936B78E0024
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B16B8CF0307_ME_4936B78E0024 AssignData
+
+%%ImplementedBy ME_492545F700BF ME_4936B78E0024
+
+%%InheritedBy ME_47F085A9004C ME_4936B78E0024
+
+ME ME_4936B78E0024
+ MEPROP UID '4936B78E0024'
+ MEPROP Name 'dCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_492543E30278' // CommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_47F085A9004C' // dBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492545F700BF' '492540AF02CD.ms.model.script' // IdCommonDiction
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B191DB40260 // f_CurrentNode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B191CC700CE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49527BB50018_ME_4936B78E0024 // CurrentNode
+ ME_AB0AA05AFA56_ME_4936B78E0024 // dsContentsRef
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4936B78E0024 // Cleanup
+ ME_4B16B8CF0307_ME_4936B78E0024 // AssignData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B191DD4020C // Supports
+ ME_4B19210D0288 // vcmFormDataSourceRef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '12.07.2006'
+ UP extprop:pas:TypeName '_dCommonDiction_'
+ UP extprop:pas:UnitName 'dCommonDiction.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas'
+
+ENDME // ME_4936B78E0024 dCommonDiction

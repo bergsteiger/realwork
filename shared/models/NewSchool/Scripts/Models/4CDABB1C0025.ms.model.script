@@ -40,7 +40,7 @@ ME ME_4CDAD3A60047
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4CDAD3A60047 
@@ -50,7 +50,7 @@ ME ME_4CDAD8E90130
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDABB1C0025 // PrintableFlash
  ;
- MELINK Target WL 'ME_46A46A35004F' '4AB0C3F60375.ms.model.script' // hDC
+ MELINK Target WL 'ME_46A46A35004F' '48A41FF10094.ms.model.script' // hDC
  ;
 
 ENDME // ME_4CDAD8E90130 
@@ -64,7 +64,7 @@ ME ME_4CDACD8302DD_ME_4CDABB1C0025
 ENDME // ME_4CDACD8302DD_ME_4CDABB1C0025 BitmapForPrint
 
 ME ME_479731C50290_ME_4CDABB1C0025
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4CDABB1C0025 Cleanup
@@ -74,6 +74,8 @@ ME ME_4CDAE15C035B_ME_4CDABB1C0025
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CDAE15C035B_ME_4CDABB1C0025 DPI
+
+%%InheritedBy ME_4CDACCDF0368 ME_4CDABB1C0025
 
 ME ME_4CDABB1C0025
  MEPROP UID '4CDABB1C0025'
@@ -85,10 +87,10 @@ ME ME_4CDABB1C0025
  %SUMMARY 'Печать флеш-схем. {RequestLink:228689255}' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CDACCDF0368' '4CDACCDF0368.ms.model.script' // PrintableBitmap
+   Seq: ( WL? 'ME_4CDACCDF0368' // PrintableBitmap
  )
  ; // Inherits
  MELIST Attributes
@@ -110,6 +112,9 @@ ME ME_4CDABB1C0025
  ME_4CDAD8E90130 // hDC
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

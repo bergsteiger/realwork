@@ -2,7 +2,53 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57B42A370031
+%%Inner ME_57B42D7C0217
+%%Inner ME_57B4437D02DC
+%%Inner ME_57B4564702F8
+%%Inner ME_57B4565F007C
+%%Inner ME_57AB4B6D0236
+%%Inner ME_57F7C5E10207
+%%Inner ME_57DA8745012E
+%%Inner ME_57E450D600BF
+%%Inner ME_57CD56D802A2
+%%Inner ME_57FBA730025D
+%%Inner ME_57FCCF280377
+%%Inner ME_57FD6B8A0273
+%%Inner ME_57FD7A310226
+
 FORWARD ME_57B42D1A0044
+
+FORWARD ME_57B42A370031
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5A3C030B
+
+ME ME_57FD5A3C030B
+ MEPROP UID '57FD5A3C030B'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42A370031 // TmsmSizeablePanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5A3C030B TmsmCustomPanel
+
+ME ME_47D1602000C6_ME_57B42A370031
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57B42A370031 Create
+
+%%InheritedBy ME_4A7961300264 ME_57B42A370031
 
 ME ME_57B42A370031
  MEPROP UID '57B42A370031'
@@ -15,15 +61,57 @@ ME ME_57B42A370031
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7961300264' '4A7961300264.ms.model.script' // TvtSizeablePanel
+   Seq: ( WL? 'ME_4A7961300264' // TvtSizeablePanel
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B42A370031 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5A3C030B // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'msmSizeablePanel'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmSizeablePanel'
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmSizeablePanel.pas'
 
 ENDME // ME_57B42A370031 TmsmSizeablePanel
+
+FORWARD ME_57B42D7C0217
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5A71023A
+
+ME ME_57FD5A71023A
+ MEPROP UID '57FD5A71023A'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D7C0217 // TmsmPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5A71023A TmsmCustomPanel
+
+ME ME_47D1602000C6_ME_57B42D7C0217
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57B42D7C0217 Create
+
+%%InheritedBy ME_4A7961A701CF ME_57B42D7C0217
 
 ME ME_57B42D7C0217
  MEPROP UID '57B42D7C0217'
@@ -36,9 +124,20 @@ ME ME_57B42D7C0217
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+   Seq: ( WL? 'ME_4A7961A701CF' // TvtPanel
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B42D7C0217 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5A71023A // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'msmPanel'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmPanel'
@@ -47,6 +146,8 @@ ME ME_57B42D7C0217
 ENDME // ME_57B42D7C0217 TmsmPanel
 
 FORWARD ME_57B4437D02DC
+
+%%InheritedBy ME_499ABF9802AC ME_57DAA798006A
 
 ME ME_57DAA798006A
  MEPROP UID '57DAA798006A'
@@ -59,13 +160,21 @@ ME ME_57DAA798006A
  MELINK Parent HWL ME_57B4437D02DC // TmsmPageControl
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_499ABF9802AC' '499ABF4F02A1.ms.model.script' // TElTabSheet
+   Seq: ( WL 'ME_499ABF9802AC' '499ABF6E01B5.ms.model.script' // TElTabSheet
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmTabSheet'
 
 ENDME // ME_57DAA798006A TmsmTabSheet
+
+ME ME_47D1602000C6_ME_57B4437D02DC
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57B4437D02DC Create
+
+%%InheritedBy ME_4E36C0C3014B ME_57B4437D02DC
 
 ME ME_57B4437D02DC
  MEPROP UID '57B4437D02DC'
@@ -78,13 +187,20 @@ ME ME_57B4437D02DC
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E36C0C3014B' '499ABF4F02A1.ms.model.script' // TElCustomPageControl
+   Seq: ( WL 'ME_4E36C0C3014B' '499ABF6E01B5.ms.model.script' // TElCustomPageControl
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B4437D02DC // Create
+ )
+ ; // Overridden
  MELIST Children
    Seq: ( HWL ME_57DAA798006A // TmsmTabSheet
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" True
  UP extprop:pas:UnitName 'msmPageControl'
  UP extprop:rc:isAcceptableForScripts True
@@ -94,6 +210,72 @@ ME ME_57B4437D02DC
 ENDME // ME_57B4437D02DC TmsmPageControl
 
 FORWARD ME_57B4564702F8
+
+FORWARD ME_57EAE3770314
+
+FORWARD ME_57EAE3A001D8
+
+ME ME_57EAE3BE0259
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_57EAE3BE0259 aSender
+
+ME ME_57EAE3BE02BD
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57EAE3BE02BD anIndex
+
+ME ME_57EAE3BE030C
+ MEPROP Name 'theNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_57EAE3BE030C theNode
+
+ME ME_57EAE3A001D8
+ MEPROP UID '57EAE3A001D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EAE3770314 // TmsmGetNodeEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EAE3BE0259 // aSender
+ ME_57EAE3BE02BD // anIndex
+ ME_57EAE3BE030C // theNode
+ )
+ ; // Parameters
+
+ENDME // ME_57EAE3A001D8 DoIt
+
+ME ME_57EAE3770314
+ MEPROP UID '57EAE3770314'
+ MEPROP Name 'TmsmGetNodeEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EAE3A001D8 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_57EAE3770314 TmsmGetNodeEvent
 
 ME ME_57D90FDC0174
  MEPROP UID '57D90FDC0174'
@@ -113,6 +295,60 @@ ME ME_57D90FDC0174
 
 ENDME // ME_57D90FDC0174 OnGetItemImage
 
+ME ME_57E56B990040
+ MEPROP UID '57E56B990040'
+ MEPROP Name 'OnGetTotal'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57E56B990040 OnGetTotal
+
+ME ME_57EAE388022A
+ MEPROP UID '57EAE388022A'
+ MEPROP Name 'OnGetNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELINK Target HWL ME_57EAE3770314 // TmsmGetNodeEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57EAE388022A OnGetNode
+
+ME ME_57FF3502024C
+ MEPROP UID '57FF3502024C'
+ MEPROP Name 'Model'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELINK Target WL 'ME_57FF34E20357' '57FF348E0031.ms.model.script' // ImsmDragAndDropModel
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57FF3502024C Model
+
 ME ME_57B565DA01A1
  MEPROP UID '57B565DA01A1'
  MEPROP Name 'CallDropDrawPoints'
@@ -126,6 +362,8 @@ ME ME_57B565DA01A1
 
 ENDME // ME_57B565DA01A1 CallDropDrawPoints
 
+%%InheritedBy ME_51506507008E ME_57D94AB5005D
+
 ME ME_57D94AB5005D
  MEPROP UID '57D94AB5005D'
  MEPROP Name 'DoGetItemImageIndex'
@@ -137,11 +375,111 @@ ME ME_57D94AB5005D
  MELINK Parent HWL ME_57B4564702F8 // TmsmListView
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_51506507008E' '4B97E7FD006C.ms.model.script' // TGetItemImageIndex
+   Seq: ( WL 'ME_51506507008E' '514B3C57001F.ms.model.script' // TGetItemImageIndex
  )
  ; // Inherits
 
 ENDME // ME_57D94AB5005D DoGetItemImageIndex
+
+FORWARD ME_57E3EAD8009E
+
+FORWARD ME_57E3EAEA03C7
+
+ME ME_57E3EAEC01F2
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_57E3EAEC01F2 Sender
+
+ME ME_57E3EAEA03C7
+ MEPROP UID '57E3EAEA03C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3EAD8009E // QuickSearchHintTimerEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E3EAEC01F2 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_57E3EAEA03C7 DoIt
+
+ME ME_57E3EAD8009E
+ MEPROP UID '57E3EAD8009E'
+ MEPROP Name 'QuickSearchHintTimerEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E3EAEA03C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E3EAD8009E QuickSearchHintTimerEvent
+
+FORWARD ME_57E3EB230241
+
+FORWARD ME_57E3EB31008C
+
+ME ME_57E3EB3701C0
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_57E3EB3701C0 Sender
+
+ME ME_57E3EB3701F2
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57E3EB3701F2 aString
+
+ME ME_57E3EB31008C
+ MEPROP UID '57E3EB31008C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3EB230241 // QuickSearchHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E3EB3701C0 // Sender
+ ME_57E3EB3701F2 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_57E3EB31008C DoIt
+
+ME ME_57E3EB230241
+ MEPROP UID '57E3EB230241'
+ MEPROP Name 'QuickSearchHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B4564702F8 // TmsmListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E3EB31008C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E3EB230241 QuickSearchHandler
 
 ME ME_46A5AA4B003C_ME_57B4564702F8
  MELINK Original WL 'ME_46A5AA4B003C' '4677FBA70343.ms.model.script' // Invalidate
@@ -150,10 +488,50 @@ ME ME_46A5AA4B003C_ME_57B4564702F8
 ENDME // ME_46A5AA4B003C_ME_57B4564702F8 Invalidate
 
 ME ME_47D1602000C6_ME_57B4564702F8
- MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47D1602000C6_ME_57B4564702F8 Create
+
+ME ME_48BFA1300211_ME_57B4564702F8
+ MELINK Original WL 'ME_48BFA1300211' '48BD1975029B.ms.model.script' // DoDoDragOver
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48BFA1300211_ME_57B4564702F8 DoDoDragOver
+
+ME ME_48BFB42C002A_ME_57B4564702F8
+ MELINK Original WL 'ME_48BFB42C002A' '48BD1975029B.ms.model.script' // DoGetAcceptableFormats
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48BFB42C002A_ME_57B4564702F8 DoGetAcceptableFormats
+
+ME ME_48BFB6D800B3_ME_57B4564702F8
+ MELINK Original WL 'ME_48BFB6D800B3' '48BD1975029B.ms.model.script' // DoDoDrop
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48BFB6D800B3_ME_57B4564702F8 DoDoDrop
+
+ME ME_514C89A601FE_ME_57B4564702F8
+ MELINK Original WL 'ME_514C89A601FE' '4CFFE3470249.ms.model.script' // Total
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" True
+ UP "pm" True
+ENDME // ME_514C89A601FE_ME_57B4564702F8 Total
+
+ME ME_5152C16A028F_ME_57B4564702F8
+ MELINK Original WL 'ME_5152C16A028F' '4CFFE3470249.ms.model.script' // GetDragAndDropSupported
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5152C16A028F_ME_57B4564702F8 GetDragAndDropSupported
+
+ME ME_5152C18C00BA_ME_57B4564702F8
+ MELINK Original WL 'ME_5152C18C00BA' '4CFFE3470249.ms.model.script' // TryDragAndDrop
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5152C18C00BA_ME_57B4564702F8 TryDragAndDrop
+
+%%InheritedBy ME_4CFFE3470249 ME_57B4564702F8
 
 ME ME_57B4564702F8
  MEPROP UID '57B4564702F8'
@@ -166,16 +544,21 @@ ME ME_57B4564702F8
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CFFE3470249' '4CFFE3470249.ms.model.script' // TvtLister
+   Seq: ( WL? 'ME_4CFFE3470249' // TvtLister
  )
  ; // Inherits
  MELIST Attributes
    Seq: ( HWL ME_57D90FDC0174 // OnGetItemImage
+ HWL ME_57E56B990040 // OnGetTotal
+ HWL ME_57EAE388022A // OnGetNode
+ HWL ME_57FF3502024C // Model
  )
  ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57B565DA01A1 // CallDropDrawPoints
  HWL ME_57D94AB5005D // DoGetItemImageIndex
+ HWL ME_57E3EAD8009E // QuickSearchHintTimerEvent
+ HWL ME_57E3EB230241 // QuickSearchHandler
  )
  ; // Operations
  MELIST Implemented
@@ -184,8 +567,21 @@ ME ME_57B4564702F8
  ; // Implemented
  MELIST Overridden
    Seq: ( ME_47D1602000C6_ME_57B4564702F8 // Create
+ ME_48BFA1300211_ME_57B4564702F8 // DoDoDragOver
+ ME_48BFB42C002A_ME_57B4564702F8 // DoGetAcceptableFormats
+ ME_48BFB6D800B3_ME_57B4564702F8 // DoDoDrop
+ ME_514C89A601FE_ME_57B4564702F8 // Total
+ ME_5152C16A028F_ME_57B4564702F8 // GetDragAndDropSupported
+ ME_5152C18C00BA_ME_57B4564702F8 // TryDragAndDrop
  )
  ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57EAE3770314 // TmsmGetNodeEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" True
  UP extprop:pas:UnitName 'msmListView'
  UP extprop:rc:isAcceptableForScripts True
@@ -200,6 +596,14 @@ ME ME_46A5AA4B003C_ME_57B4565F007C
  MEPROP OpKind opkind_Implemented
 ENDME // ME_46A5AA4B003C_ME_57B4565F007C Invalidate
 
+ME ME_47D1602000C6_ME_57B4565F007C
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57B4565F007C Create
+
+%%InheritedBy ME_4B97E8130272 ME_57B4565F007C
+
 ME ME_57B4565F007C
  MEPROP UID '57B4565F007C'
  MEPROP Name 'TmsmTreeView'
@@ -211,19 +615,31 @@ ME ME_57B4565F007C
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_515DA5860015' '515DA5860015.ms.model.script' // TvtOutliner
+   Seq: ( WL? 'ME_4B97E8130272' // TvtOutlinerWithDragDrop
  )
  ; // Inherits
  MELIST Implemented
    Seq: ( ME_46A5AA4B003C_ME_57B4565F007C // Invalidate
  )
  ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B4565F007C // Create
+ )
+ ; // Overridden
  UP extprop:pas:UnitName 'msmTreeView'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmTreeView'
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmTreeView.pas'
 
 ENDME // ME_57B4565F007C TmsmTreeView
+
+ME ME_47D1602000C6_ME_57AB4B6D0236
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57AB4B6D0236 Create
+
+%%InheritedBy ME_4952591E0263 ME_57AB4B6D0236
 
 ME ME_57AB4B6D0236
  MEPROP UID '57AB4B6D0236'
@@ -236,9 +652,13 @@ ME ME_57AB4B6D0236
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+   Seq: ( WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57AB4B6D0236 // Create
+ )
+ ; // Overridden
  UP extprop:pas:UnitName 'msmForm'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmForm'
@@ -246,9 +666,17 @@ ME ME_57AB4B6D0236
 
 ENDME // ME_57AB4B6D0236 TmsmForm
 
-ME ME_57CD56D802A2
- MEPROP UID '57CD56D802A2'
- MEPROP Name 'TmsmAppForm'
+ME ME_47D1602000C6_ME_57F7C5E10207
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57F7C5E10207 Create
+
+%%InheritedBy ME_49525A0F034B ME_57F7C5E10207
+
+ME ME_57F7C5E10207
+ MEPROP UID '57F7C5E10207'
+ MEPROP Name 'TmsmRefcountedForm'
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
  MEPROP Kind kind_NormalClass
@@ -257,16 +685,50 @@ ME ME_57CD56D802A2
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525A0F034B' '495259B50283.ms.model.script' // Tl3Form
+   Seq: ( WL 'ME_49525A0F034B' '495259ED005C.ms.model.script' // Tl3Form
  )
  ; // Inherits
- UP "finished" False
- UP extprop:pas:UnitName 'msmAppForm'
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57F7C5E10207 // Create
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'msmRefcountedForm'
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'msmAppForm'
- UP intf.pas:Path 'common\components\gui\Garant\msm\NOT_FINISHED_msmAppForm.pas'
+ UP extprop:rc:SelfName 'msmRefcountedForm'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmRefcountedForm.pas'
 
-ENDME // ME_57CD56D802A2 TmsmAppForm
+ENDME // ME_57F7C5E10207 TmsmRefcountedForm
+
+FORWARD ME_57DA8745012E
+
+%%InheritedBy ME_50FD1AE5027A ME_57FD5AD700DC
+
+ME ME_57FD5AD700DC
+ MEPROP UID '57FD5AD700DC'
+ MEPROP Name 'TmsmCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57DA8745012E // TmsmProportionalPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomPanel'
+
+ENDME // ME_57FD5AD700DC TmsmCustomPanel
+
+ME ME_47D1602000C6_ME_57DA8745012E
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57DA8745012E Create
+
+%%InheritedBy ME_4A7AD11C028B ME_57DA8745012E
 
 ME ME_57DA8745012E
  MEPROP UID '57DA8745012E'
@@ -279,15 +741,404 @@ ME ME_57DA8745012E
  MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7AD11C028B' '4A7AD11C028B.ms.model.script' // TvtProportionalPanel
+   Seq: ( WL? 'ME_4A7AD11C028B' // TvtProportionalPanel
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57DA8745012E // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5AD700DC // TmsmCustomPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'msmProportionalPanel'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmProportionalPanel'
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmProportionalPanel.pas'
 
 ENDME // ME_57DA8745012E TmsmProportionalPanel
+
+FORWARD ME_57E450D600BF
+
+%%InheritedBy ME_482C468C00F7 ME_57EBB21C0356
+
+ME ME_57EBB21C0356
+ MEPROP UID '57EBB21C0356'
+ MEPROP Name 'TmsmButtonEditButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E450D600BF // TmsmButtonEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482C468C00F7' '48342A280198.ms.model.script' // TCustomElGraphicButton
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmButtonEditButton'
+
+ENDME // ME_57EBB21C0356 TmsmButtonEditButton
+
+ME ME_47D1602000C6_ME_57E450D600BF
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57E450D600BF Create
+
+%%InheritedBy ME_482AE8CA0176 ME_57E450D600BF
+
+ME ME_57E450D600BF
+ MEPROP UID '57E450D600BF'
+ MEPROP Name 'TmsmButtonEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_482AE8CA0176' // TctButtonEdit
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57E450D600BF // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57EBB21C0356 // TmsmButtonEditButton
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:pas:UnitName 'msmButtonEdit'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmButtonEdit'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmButtonEdit.pas'
+
+ENDME // ME_57E450D600BF TmsmButtonEdit
+
+ME ME_47D1602000C6_ME_57CD56D802A2
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57CD56D802A2 Create
+
+%%InheritedBy ME_57F7C5E10207 ME_57CD56D802A2
+
+ME ME_57CD56D802A2
+ MEPROP UID '57CD56D802A2'
+ MEPROP Name 'TmsmAppForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57F7C5E10207 // TmsmRefcountedForm
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57CD56D802A2 // Create
+ )
+ ; // Overridden
+ UP "finished" False
+ UP extprop:pas:UnitName 'msmAppForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmAppForm'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\NOT_FINISHED_msmAppForm.pas'
+
+ENDME // ME_57CD56D802A2 TmsmAppForm
+
+FORWARD ME_57FBA730025D
+
+%%InheritedBy ME_4829D7E80085 ME_57FD5BAF0164
+
+ME ME_57FD5BAF0164
+ MEPROP UID '57FD5BAF0164'
+ MEPROP Name 'TmsmCustomEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FBA730025D // TmsmEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_4829D7E80085' // TevCustomEdit
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomEdit'
+
+ENDME // ME_57FD5BAF0164 TmsmCustomEdit
+
+ME ME_57FBABC80388
+ MEPROP UID '57FBABC80388'
+ MEPROP Name 'OnTextChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FBA730025D // TmsmEdit
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57FBABC80388 OnTextChange
+
+ME ME_47D1602000C6_ME_57FBA730025D
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57FBA730025D Create
+
+ME ME_482C26D6006A_ME_57FBA730025D
+ MELINK Original WL 'ME_482C26D6006A' '4829D92A037B.ms.model.script' // TextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482C26D6006A_ME_57FBA730025D TextChange
+
+%%InheritedBy ME_484658060127 ME_57FBA730025D
+
+ME ME_57FBA730025D
+ MEPROP UID '57FBA730025D'
+ MEPROP Name 'TmsmEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_484658060127' // TevEdit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FBABC80388 // OnTextChange
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FBA730025D // Create
+ ME_482C26D6006A_ME_57FBA730025D // TextChange
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5BAF0164 // TmsmCustomEdit
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmEdit'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmEdit'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmEdit.pas'
+
+ENDME // ME_57FBA730025D TmsmEdit
+
+FORWARD ME_57FCCF280377
+
+%%InheritedBy ME_4829D7E80085 ME_57FD5BCC034A
+
+ME ME_57FD5BCC034A
+ MEPROP UID '57FD5BCC034A'
+ MEPROP Name 'TmsmCustomEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FCCF280377 // TmsmMemo
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_4829D7E80085' // TevCustomEdit
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomEdit'
+
+ENDME // ME_57FD5BCC034A TmsmCustomEdit
+
+ME ME_57FCCF7301DC
+ MEPROP UID '57FCCF7301DC'
+ MEPROP Name 'OnTextChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FCCF280377 // TmsmMemo
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57FCCF7301DC OnTextChange
+
+ME ME_47D1602000C6_ME_57FCCF280377
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57FCCF280377 Create
+
+ME ME_482C26D6006A_ME_57FCCF280377
+ MELINK Original WL 'ME_482C26D6006A' '4829D92A037B.ms.model.script' // TextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482C26D6006A_ME_57FCCF280377 TextChange
+
+%%InheritedBy ME_48454EBB0050 ME_57FCCF280377
+
+ME ME_57FCCF280377
+ MEPROP UID '57FCCF280377'
+ MEPROP Name 'TmsmMemo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_48454EBB0050' // TevMemo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FCCF7301DC // OnTextChange
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FCCF280377 // Create
+ ME_482C26D6006A_ME_57FCCF280377 // TextChange
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5BCC034A // TmsmCustomEdit
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmMemo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmMemo'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMemo.pas'
+
+ENDME // ME_57FCCF280377 TmsmMemo
+
+ME ME_47D1602000C6_ME_57FD6B8A0273
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57FD6B8A0273 Create
+
+%%InheritedBy ME_4D5E5A3A0186 ME_57FD6B8A0273
+
+ME ME_57FD6B8A0273
+ MEPROP UID '57FD6B8A0273'
+ MEPROP Name 'TmsmButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D5E5A3A0186' '48C78D5402A6.ms.model.script' // TButton
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FD6B8A0273 // Create
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'msmButton'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmButton'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmButton.pas'
+
+ENDME // ME_57FD6B8A0273 TmsmButton
+
+FORWARD ME_57FD7A310226
+
+%%InheritedBy ME_4F29240F0204 ME_57FD7A61020D
+
+ME ME_57FD7A61020D
+ MEPROP UID '57FD7A61020D'
+ MEPROP Name 'TmsmCustomLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FD7A310226 // TmsmLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F29240F0204' '4AE8541A01AE.ms.model.script' // TvtCustomLabel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmCustomLabel'
+
+ENDME // ME_57FD7A61020D TmsmCustomLabel
+
+ME ME_47D1602000C6_ME_57FD7A310226
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57FD7A310226 Create
+
+%%InheritedBy ME_4AE8541A01AE ME_57FD7A310226
+
+ME ME_57FD7A310226
+ MEPROP UID '57FD7A310226'
+ MEPROP Name 'TmsmLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B42D1A0044 // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_4AE8541A01AE' // TvtLabel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FD7A310226 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD7A61020D // TmsmCustomLabel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:UnitName 'msmLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmLabel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmLabel.pas'
+
+ENDME // ME_57FD7A310226 TmsmLabel
 
 ME ME_57B42D1A0044
  MEPROP UID '57B42D1A0044'
@@ -297,7 +1148,7 @@ ME ME_57B42D1A0044
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B4295D0399' '57B4295D0399.ms.model.script' // msm$MVC$DefaultRealization
+ MELINK Parent WL? 'ME_57B4295D0399' // msm$MVC$DefaultRealization
  ;
  MELIST Children
    Seq: ( HWL ME_57B42A370031 // TmsmSizeablePanel
@@ -306,18 +1157,35 @@ ME ME_57B42D1A0044
  HWL ME_57B4564702F8 // TmsmListView
  HWL ME_57B4565F007C // TmsmTreeView
  HWL ME_57AB4B6D0236 // TmsmForm
- HWL ME_57CD56D802A2 // TmsmAppForm
+ HWL ME_57F7C5E10207 // TmsmRefcountedForm
  HWL ME_57DA8745012E // TmsmProportionalPanel
+ HWL ME_57E450D600BF // TmsmButtonEdit
+ HWL ME_57CD56D802A2 // TmsmAppForm
+ HWL ME_57FBA730025D // TmsmEdit
+ HWL ME_57FCCF280377 // TmsmMemo
+ HWL ME_57FD6B8A0273 // TmsmButton
+ HWL ME_57FD7A310226 // TmsmLabel
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
- WL 'ME_495259B50283' '495259B50283.ms.model.script' // VCL
- WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
- WL 'ME_4A7960CC03A4' '4A7960CC03A4.ms.model.script' //  Panels
- WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_47D036150077' // l3ControlsTypes
+ WL? 'ME_4829D7D50156' // Editors
+ WL? 'ME_48342A280198' // elClone
+ WL? 'ME_495259B50283' // VCL
+ WL? 'ME_499ABF4F02A1' // elClone
+ WL? 'ME_4A7960CC03A4' //  Panels
+ WL? 'ME_4A9B9BAA0207' // Labels
+ WL? 'ME_4AB0997B00A2' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4B97E7FD006C' // Outliner
+ WL? 'ME_57FF348E0031' // msmDefaultModels
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57B42D1A0044 DefaultUsedControls

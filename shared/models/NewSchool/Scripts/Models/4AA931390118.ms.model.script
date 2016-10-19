@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AA931BF023D
+%%Inner ME_4AA9393C0164
+%%Inner ME_4AAF6F8100DB
+%%Inner ME_4AAF86650309
+%%Inner ME_4AAF8EAC01FC
+
 FORWARD ME_4AA931390118
 
 ME ME_4AAF7B280175
@@ -9,7 +15,7 @@ ME ME_4AAF7B280175
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ MELINK Target WL? 'ME_490C47C70210' // nsUtils
  ;
 
 ENDME // ME_4AAF7B280175 
@@ -29,7 +35,7 @@ ME ME_4AAF7CFE0049
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4AAF7CFE0049 
@@ -39,7 +45,7 @@ ME ME_4AAF7F5B0300
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4AAF7F5B0300 
@@ -49,7 +55,7 @@ ME ME_4AAF821703A8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
  ;
 
 ENDME // ME_4AAF821703A8 
@@ -59,7 +65,7 @@ ME ME_4AAF82CC01F4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4AAF82CC01F4 
@@ -69,7 +75,7 @@ ME ME_4AD6DC900067
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4AD6DC900067 
@@ -89,7 +95,7 @@ ME ME_4AAF88C200E9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA931390118 // CommonSearch
  ;
- MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ MELINK Target WL 'ME_4A93BA1802CE' '47F25BC801DB.ms.model.script' // vcmParams
  ;
 
 ENDME // ME_4AAF88C200E9 
@@ -154,10 +160,14 @@ ME ME_473D8FEE0222_ME_4AA931390118
 ENDME // ME_473D8FEE0222_ME_4AA931390118 PageSetup
 
 ME ME_47D1602000C6_ME_4AA931390118
- MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47D1602000C6_ME_4AA931390118 Create
+
+%%ImplementedBy ME_473D8F0C021D ME_4AA931390118
+%%ImplementedBy ME_473D8FA6017E ME_4AA931390118
+%%ImplementedBy ME_4AAF7FCC0218 ME_4AA931390118
 
 ME ME_4AA931390118
  MEPROP UID '4AA931390118'
@@ -168,7 +178,7 @@ ME ME_4AA931390118
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Implements
    Seq: ( WL 'ME_473D8F0C021D' '467823B7002C.ms.model.script' // IafwPageSetup
@@ -190,11 +200,11 @@ ME ME_4AA931390118
  )
  ; // Overridden
  MELIST Children
-   Seq: ( WL 'ME_4AA931BF023D' '4AA931BF023D.ms.model.script' // SaveLoad
- WL 'ME_4AA9393C0164' '4AA9393C0164.ms.model.script' // QueryCard
- WL 'ME_4AAF6F8100DB' '4AAF6F8100DB.ms.model.script' // PreviewForm
- WL 'ME_4AAF86650309' '4AAF86650309.ms.model.script' // PageSetup
- WL 'ME_4AAF8EAC01FC' '4AAF8EAC01FC.ms.model.script' // PrintDialog
+   Seq: ( WL? 'ME_4AA931BF023D' // SaveLoad
+ WL? 'ME_4AA9393C0164' // QueryCard
+ WL? 'ME_4AAF6F8100DB' // PreviewForm
+ WL? 'ME_4AAF86650309' // PageSetup
+ WL? 'ME_4AAF8EAC01FC' // PrintDialog
  )
  ; // Children
  MELIST Dependencies
@@ -211,6 +221,9 @@ ME ME_4AA931390118
  ME_57A3148C0150 // TPrintingService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '10.09.2009 21:03'

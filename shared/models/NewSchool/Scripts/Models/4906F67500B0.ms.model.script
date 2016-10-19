@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4906F6A103D5
+
 FORWARD ME_4906F67500B0
 
 FORWARD ME_4906F6A103D5
@@ -25,7 +27,7 @@ ME ME_4906F73E00DA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4906F73E00DA 
@@ -35,7 +37,7 @@ ME ME_4906F74E00E5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4906F74E00E5 
@@ -45,7 +47,7 @@ ME ME_4906F79100A6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4906F79100A6 
@@ -61,6 +63,8 @@ ME ME_48FF56D003E6_ME_4906F6A103D5
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48FF56D003E6_ME_4906F6A103D5 SettingsID
+
+%%InheritedBy ME_468361010204 ME_4906F6A103D5
 
 ME ME_4906F6A103D5
  MEPROP UID '4906F6A103D5'
@@ -94,6 +98,9 @@ ME ME_4906F6A103D5
  ME_4906F79100A6 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В,'
  UP "no hands" True
  UP "started" '2008/02/21 06:56:43'
@@ -113,18 +120,21 @@ ME ME_4906F67500B0
  %SUMMARY 'Структуры данных для Советов дня' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_493FF75500F3' '493FF75500F3.ms.model.script' // DayTips
+ MELINK Parent WL? 'ME_493FF75500F3' // DayTips
  ;
  MELIST Children
    Seq: ( HWL ME_4906F6A103D5 // TnsTipsTree
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_48FD8B2702F6' // Tree
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4906F67500B0 DayTipsData

@@ -1,0 +1,41 @@
+// msmDefaultModels 57FF348E0031 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57FF348E0031_diagrams
+
+ MEDIAGRAM ME_57FF348E0031_main
+  MEPROP Name 'main'
+  MELINK Original WL? 'ME_57FF348E0031' ; // msmDefaultModels
+
+  MEVIEW ME_57FF34BE0390_view
+   MELINK Original WL 'ME_57FF34BE0390' '57FF348E0031.ms.model.script' ; // MmsmDragAndDropModel
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57FF34BE0390_view
+
+  MEVIEW ME_57FF34E20357_view
+   MELINK Original WL 'ME_57FF34E20357' '57FF348E0031.ms.model.script' ; // ImsmDragAndDropModel
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57FF34E20357_view
+
+  MEVIEWLINK ME_57FF34E20357_ME_57FF34BE0390_Implements
+   MELINK From ME_57FF34E20357_view ;
+   MELINK To ME_57FF34BE0390_view ;
+   MEPROP Class class_Implements
+  ENDMEVIEWLINK // ME_57FF34E20357_ME_57FF34BE0390_Implements
+
+  MELIST Views
+   Seq: ( ME_57FF34BE0390_view // MmsmDragAndDropModel
+   ME_57FF34E20357_view // ImsmDragAndDropModel
+   ME_57FF34E20357_ME_57FF34BE0390_Implements // ImsmDragAndDropModel -> MmsmDragAndDropModel
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57FF348E0031_main
+
+ MELIST Diagrams
+  Seq: ( ME_57FF348E0031_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57FF348E0031_diagrams

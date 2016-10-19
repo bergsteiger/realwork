@@ -9,7 +9,7 @@ ME ME_4C84E22801A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
  ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
  ;
 
 ENDME // ME_4C84E22801A2 
@@ -39,7 +39,7 @@ ME ME_4C84E52002B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C84E097023A // PrimConsultationMarkOptions
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_4C84E52002B7 
@@ -84,6 +84,11 @@ ME ME_4C762AB601E1_ME_4C84E097023A
  UP "ShowInToolbar" True
 ENDME // ME_4C762AB601E1_ME_4C84E097023A Cancel
 
+%%ImplementedBy ME_4A8AD409003A ME_4C84E097023A
+%%ImplementedBy ME_4A97EBC80201 ME_4C84E097023A
+
+%%InheritedBy ME_497EDC5003D1 ME_4C84E097023A
+
 ME ME_4C84E097023A
  MEPROP UID '4C84E097023A'
  MEPROP Name 'PrimConsultationMarkOptions'
@@ -94,10 +99,10 @@ ME ME_4C84E097023A
  %SUMMARY 'Оценка ответа' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4ABCFB650008' '4ABCFB650008.ms.model.script' // Consultation
+ MELINK Parent WL? 'ME_4ABCFB650008' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497EDC5003D1' '497EDC5003D1.ms.model.script' // PrimConsultationMark
+   Seq: ( WL? 'ME_497EDC5003D1' // PrimConsultationMark
  )
  ; // Inherits
  MELIST Implements
@@ -118,6 +123,9 @@ ME ME_4C84E097023A
  ME_5177CFB00365 // Result$Ok
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

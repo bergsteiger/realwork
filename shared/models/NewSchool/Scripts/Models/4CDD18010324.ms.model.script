@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4CDD182B02B9
+
 ME ME_4CDD18010324
  MEPROP UID '4CDD18010324'
  MEPROP Name 'Hypertext'
@@ -11,24 +13,27 @@ ME ME_4CDD18010324
  %SUMMARY 'Работа с гипертекстом' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDAB8D70377' '4CDAB8D70377.ms.model.script' // F1 Aspects
+ MELINK Parent WL? 'ME_4CDAB8D70377' // F1 Aspects
  ;
  MELIST Children
-   Seq: ( WL 'ME_4CDD182B02B9' '4CDD182B02B9.ms.model.script' // LinksToGarant
+   Seq: ( WL? 'ME_4CDD182B02B9' // LinksToGarant
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
- WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
- WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
- WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
- WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
- WL 'ME_48EEE54C0072' '48EEE54C0072.ms.model.script' // EverestCommon
- WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
- WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_467A8734039C' // EVD
+ WL? 'ME_469F3E37025A' // Rtl
+ WL? 'ME_4790B4F00236' // AFW
+ WL? 'ME_4790C3B8021E' // VCM
+ WL? 'ME_4790D09A0378' // L3
+ WL? 'ME_48EEE54C0072' // EverestCommon
+ WL? 'ME_4E13416D0227' // VCM$Visual
+ WL? 'ME_4E2F0E1B03BB' // L3$Domain
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
 
 ENDME // ME_4CDD18010324 Hypertext

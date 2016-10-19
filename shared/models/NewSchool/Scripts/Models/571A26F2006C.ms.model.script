@@ -1,0 +1,83 @@
+// PrimMonitoringsWordsPack 571A26F2006C ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54294F2701D0
+
+FORWARD ME_571A26F2006C
+
+FORWARD ME_54294F2701D0
+
+ME ME_542A83A700D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54294F2701D0 // OpenPrimeForm
+ ;
+ MELINK Target WL 'ME_542950E801C0' '4A8ECF3001D2.ms.model.script' // OpenNewsLinePrim
+ ;
+
+ENDME // ME_542A83A700D7 
+
+ME ME_54294F2701D0
+ MEPROP UID '54294F2701D0'
+ MEPROP Name 'OpenPrimeForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=235046973' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A26F2006C // PrimMonitoringsWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_542A83A700D7 // OpenNewsLinePrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwOpenPrimeForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenPrimeForm'
+
+ENDME // ME_54294F2701D0 OpenPrimeForm
+
+ME ME_571A26FD011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571A26F2006C // PrimMonitoringsWordsPack
+ ;
+ MELINK Target WL? 'ME_497EBEC4031D' // PrimNewsLine
+ ;
+
+ENDME // ME_571A26FD011E 
+
+%%InjectedBy ME_497EBEC4031D ME_571A26F2006C
+
+ME ME_571A26F2006C
+ MEPROP UID '571A26F2006C'
+ MEPROP Name 'PrimMonitoringsWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4A92D644009B' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54294F2701D0 // OpenPrimeForm
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571A26FD011E // PrimNewsLine
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitoringsWordsPack.pas'
+
+ENDME // ME_571A26F2006C PrimMonitoringsWordsPack

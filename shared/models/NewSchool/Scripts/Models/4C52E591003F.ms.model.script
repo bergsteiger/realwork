@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4C52E5C9005D
+%%Inner ME_4C7E415800A1
+
 FORWARD ME_4C52E591003F
 
 FORWARD ME_4C52E5C9005D
@@ -58,6 +61,9 @@ ME ME_4C7D373900D0
  HWL ME_4C7D37A2034D // MedicFirm
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -126,6 +132,9 @@ ME ME_4C7D37C20388
  HWL ME_4C7D37F500F1 // MedicFirm
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -217,6 +226,9 @@ ME ME_4C52E5C9005D
  HWL ME_4C52E61002B5 // OpenList
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C52E5C9005D MedicListSynchroView
 
@@ -258,6 +270,9 @@ ME ME_4C7E415800A1
    Seq: ( HWL ME_4C7E4168031D // CountryFilter
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C7E415800A1 MedicFirmList
 
@@ -269,7 +284,7 @@ ME ME_4C52E591003F
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E46E007B' '4958E46E007B.ms.model.script' // View
+ MELINK Parent WL? 'ME_4958E46E007B' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4C52E5C9005D // MedicListSynchroView
@@ -277,9 +292,12 @@ ME ME_4C52E591003F
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

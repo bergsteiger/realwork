@@ -1,0 +1,157 @@
+// nsEditionsUtils 4B2895E80398 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2895E80398
+
+FORWARD ME_4B2896B900F3
+
+FORWARD ME_4B2896C701F5
+
+ME ME_4B2896CF0033
+ MEPROP Name 'anEdition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4B2896CF0033 anEdition
+
+ME ME_4EC3943B03BC
+ MEPROP Name 'theImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA2AF0168' '4AB0F6DB029C.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_4EC3943B03BC theImages
+
+ME ME_4EC392E4038C
+ MEPROP Name 'aForEditionsTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EC392E4038C aForEditionsTree
+
+ME ME_4B2896C701F5
+ MEPROP UID '4B2896C701F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2896CF0033 // anEdition
+ ME_4EC3943B03BC // theImages
+ ME_4EC392E4038C // aForEditionsTree
+ )
+ ; // Parameters
+
+ENDME // ME_4B2896C701F5 DoIt
+
+ME ME_4B2896DA0060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL? 'ME_49256C760276' // DocumentRes
+ ;
+
+ENDME // ME_4B2896DA0060 
+
+ME ME_4B2896F40314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL 'ME_4A84206D036E' '4909F71E02EA.ms.model.script' // InsEditionNode
+ ;
+
+ENDME // ME_4B2896F40314 
+
+ME ME_4B2897160222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL 'ME_45EED8C20066' '4570511E038A.ms.model.script' // RedactionType
+ ;
+
+ENDME // ME_4B2897160222 
+
+ME ME_4B28985B02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B28985B02E8 
+
+ME ME_4EC39253028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ ;
+ MELINK Target WL 'ME_4EC391DB0057' '4EC391C00307.ms.model.script' // TnsSearchRes
+ ;
+
+ENDME // ME_4EC39253028C 
+
+ME ME_4B2896B900F3
+ MEPROP UID '4B2896B900F3'
+ MEPROP Name 'nsCalcEditionImageIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2895E80398 // nsEditionsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2896C701F5 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2896DA0060 // DocumentRes
+ ME_4B2896F40314 // InsEditionNode
+ ME_4B2897160222 // RedactionType
+ ME_4B28985B02E8 // Supports
+ ME_4EC39253028C // TnsSearchRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'CalcEditionImageIndex'
+
+ENDME // ME_4B2896B900F3 nsCalcEditionImageIndex
+
+ME ME_4B2895E80398
+ MEPROP UID '4B2895E80398'
+ MEPROP Name 'nsEditionsUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2896B900F3 // nsCalcEditionImageIndex
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'EditionsUtils'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsEditionsUtils.pas'
+
+ENDME // ME_4B2895E80398 nsEditionsUtils

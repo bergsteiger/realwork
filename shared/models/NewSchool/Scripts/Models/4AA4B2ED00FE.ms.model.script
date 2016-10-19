@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4FFAA4A801DD
+
 FORWARD ME_4AA4B2ED00FE
 
 FORWARD ME_4FFAA4A801DD
@@ -26,6 +28,11 @@ ME ME_492EB098008A_ME_4FFAA5950031
  MEPROP OpKind opkind_Implemented
  UP "pm" True
 ENDME // ME_492EB098008A_ME_4FFAA5950031 dsFolderElement
+
+%%ImplementedBy ME_492EAE13002A ME_4FFAA5950031
+
+%%InheritedBy ME_4BD6EB140266 ME_4FFAA5950031
+%%InheritedBy ME_4FFAA5C70362 ME_4FFAA5950031
 
 ME ME_4FFAA5950031
  MEPROP UID '4FFAA5950031'
@@ -80,6 +87,11 @@ ME ME_492EB098008A_ME_4FFAA604019F
  UP "pm" True
 ENDME // ME_492EB098008A_ME_4FFAA604019F dsFolderElement
 
+%%ImplementedBy ME_492EAE13002A ME_4FFAA604019F
+
+%%InheritedBy ME_4C77DA410141 ME_4FFAA604019F
+%%InheritedBy ME_4FFAA63A02D0 ME_4FFAA604019F
+
 ME ME_4FFAA604019F
  MEPROP UID '4FFAA604019F'
  MEPROP Name 'enFoldersElementInfo_utFoldersProperty'
@@ -133,6 +145,11 @@ ME ME_492EB098008A_ME_4FFAA4A801DD
  UP "pm" True
 ENDME // ME_492EB098008A_ME_4FFAA4A801DD dsFolderElement
 
+%%ImplementedBy ME_492EAE13002A ME_4FFAA4A801DD
+
+%%InheritedBy ME_4BD6C62402E7 ME_4FFAA4A801DD
+%%InheritedBy ME_4BD86FD703DC ME_4FFAA4A801DD
+
 ME ME_4FFAA4A801DD
  MEPROP UID '4FFAA4A801DD'
  MEPROP Name 'cfFolders'
@@ -163,6 +180,9 @@ ME ME_4FFAA4A801DD
  HWL ME_4FFAA604019F // enFoldersElementInfo_utFoldersProperty
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ActivateIfUpdate" 'None'
  UP "Need GetFormCount" False
  UP "Need OnFormWeight" 'undefined'
@@ -214,6 +234,8 @@ ME ME_010F44F16CA4
 
 ENDME // ME_010F44F16CA4 Folders$FSFCaptionLocalConstants
 
+%%InheritedBy ME_50096E800075 ME_C0B08AD85726
+
 ME ME_C0B08AD85726
  MEPROP UID 'C0B08AD85726'
  MEPROP Name 'cfFolders_Navigator_utFolders_NeedMakeForm'
@@ -235,6 +257,8 @@ ME ME_C0B08AD85726
 
 ENDME // ME_C0B08AD85726 cfFolders_Navigator_utFolders_NeedMakeForm
 
+%%InheritedBy ME_50096E800075 ME_49E15BACC408
+
 ME ME_49E15BACC408
  MEPROP UID '49E15BACC408'
  MEPROP Name 'enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm'
@@ -255,6 +279,8 @@ ME ME_49E15BACC408
  ;
 
 ENDME // ME_49E15BACC408 enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm
+
+%%InheritedBy ME_50096E800075 ME_60EE3E3C50F2
 
 ME ME_60EE3E3C50F2
  MEPROP UID '60EE3E3C50F2'
@@ -288,7 +314,7 @@ ME ME_4FFAA4B1021B
 ENDME // ME_4FFAA4B1021B 
 
 ME ME_47A042E100E2_ME_4AA4B2ED00FE
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4AA4B2ED00FE InitFields
@@ -306,6 +332,14 @@ ME ME_55E020470097_ME_4AA4B2ED00FE
  MEPROP OpKind opkind_Overridden
 ENDME // ME_55E020470097_ME_4AA4B2ED00FE DoGetCanSaveFormSetToHistory
 
+ME ME_57EBA36E0026_ME_4AA4B2ED00FE
+ MELINK Original WL 'ME_57EBA36E0026' '47B9727603BE.ms.model.script' // DoGetCanFormsetBeMain
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57EBA36E0026_ME_4AA4B2ED00FE DoGetCanFormsetBeMain
+
+%%InheritedBy ME_47B97312006D ME_4AA4B2ED00FE
+
 ME ME_4AA4B2ED00FE
  MEPROP UID '4AA4B2ED00FE'
  MEPROP Name 'Folders'
@@ -316,7 +350,7 @@ ME ME_4AA4B2ED00FE
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ MELINK Parent WL? 'ME_4A96B68A03B1' // PrimFolders$UC
  ;
  MELIST Inherits
    Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
@@ -332,6 +366,7 @@ ME ME_4AA4B2ED00FE
    Seq: ( ME_47A042E100E2_ME_4AA4B2ED00FE // InitFields
  ME_4FFE854A009B_ME_4AA4B2ED00FE // GetInstance
  ME_55E020470097_ME_4AA4B2ED00FE // DoGetCanSaveFormSetToHistory
+ ME_57EBA36E0026_ME_4AA4B2ED00FE // DoGetCanFormsetBeMain
  )
  ; // Overridden
  MELIST Children
@@ -346,6 +381,9 @@ ME ME_4AA4B2ED00FE
    Seq: ( ME_4FFAA4B1021B // cfFolders
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "Caption" 'Папки'
  UP "DefaultStatusForm" '-1'
  UP "finished dfm" True

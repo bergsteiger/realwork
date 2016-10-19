@@ -1,0 +1,139 @@
+// NavigatorUtils 52400BCF03D1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52400BCF03D1
+
+FORWARD ME_52400BE90253
+
+FORWARD ME_52400BF80371
+
+ME ME_52400C0801F1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_52400C0801F1 aNode
+
+ME ME_52400C08020C
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_494B949E022B' // TeeTreeView
+ ;
+
+ENDME // ME_52400C08020C aTree
+
+ME ME_52400C080227
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_52400C080227 aMainForm
+
+ME ME_52400BF80371
+ MEPROP UID '52400BF80371'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52400BE90253 // ExecuteNavigatorItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_52400C0801F1 // aNode
+ ME_52400C08020C // aTree
+ ME_52400C080227 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_52400BF80371 DoIt
+
+ME ME_52400BE90253
+ MEPROP UID '52400BE90253'
+ MEPROP Name 'ExecuteNavigatorItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52400BCF03D1 // NavigatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52400BF80371 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52400BE90253 ExecuteNavigatorItem
+
+ME ME_52402F350357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52400BCF03D1 // NavigatorUtils
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_52402F350357 
+
+ME ME_52402F390061
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52400BCF03D1 // NavigatorUtils
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_52402F390061 
+
+ME ME_52402F3B0052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52400BCF03D1 // NavigatorUtils
+ ;
+ MELINK Target WL 'ME_45EEDB5602C3' '456EA56002BF.ms.model.script' // ListNodeType
+ ;
+
+ENDME // ME_52402F3B0052 
+
+ME ME_52402F3C03D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52400BCF03D1 // NavigatorUtils
+ ;
+ MELINK Target WL? 'ME_49895C3C02D6' // nsOpenUtils
+ ;
+
+ENDME // ME_52402F3C03D0 
+
+ME ME_52400BCF03D1
+ MEPROP UID '52400BCF03D1'
+ MEPROP Name 'NavigatorUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_497ED74F0032' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52400BE90253 // ExecuteNavigatorItem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52402F350357 // NodeBase
+ ME_52402F390061 // SysUtils
+ ME_52402F3B0052 // ListNodeType
+ ME_52402F3C03D0 // nsOpenUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\NavigatorUtils.pas'
+
+ENDME // ME_52400BCF03D1 NavigatorUtils

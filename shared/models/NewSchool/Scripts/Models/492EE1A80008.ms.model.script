@@ -9,7 +9,7 @@ ME ME_492EE3CD0086
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
  ;
- MELINK Target WL 'ME_492198EA0072' '492198EA0072.ms.model.script' // TdsFolders
+ MELINK Target WL? 'ME_492198EA0072' // TdsFolders
  ;
 
 ENDME // ME_492EE3CD0086 
@@ -19,7 +19,7 @@ ME ME_492EE3E9018A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
  ;
- MELINK Target WL 'ME_492286CA0097' '492286CA0097.ms.model.script' // TdsFoldersTree
+ MELINK Target WL? 'ME_492286CA0097' // TdsFoldersTree
  ;
 
 ENDME // ME_492EE3E9018A 
@@ -29,7 +29,7 @@ ME ME_492EE4150264
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492EE1A80008 // TsdsFolders
  ;
- MELINK Target WL 'ME_492195FE01B3' '492195FE01B3.ms.model.script' // TdsFolderElement
+ MELINK Target WL? 'ME_492195FE01B3' // TdsFolderElement
  ;
 
 ENDME // ME_492EE4150264 
@@ -55,6 +55,10 @@ ME ME_492EB098008A_ME_492EE1A80008
  UP "pm" True
 ENDME // ME_492EB098008A_ME_492EE1A80008 dsFolderElement
 
+%%ImplementedBy ME_492EAE13002A ME_492EE1A80008
+
+%%InheritedBy ME_494778CD004F ME_492EE1A80008
+
 ME ME_492EE1A80008
  MEPROP UID '492EE1A80008'
  MEPROP Name 'TsdsFolders'
@@ -65,10 +69,10 @@ ME ME_492EE1A80008
  %SUMMARY 'Прецедент "Папки"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4921954E019B' '4921954E019B.ms.model.script' // Folders
+ MELINK Parent WL? 'ME_4921954E019B' // Folders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.ms.model.script' // vcmTinyUseCaseController
+   Seq: ( WL? 'ME_494778CD004F' // vcmTinyUseCaseController
  )
  ; // Inherits
  MELIST Implements

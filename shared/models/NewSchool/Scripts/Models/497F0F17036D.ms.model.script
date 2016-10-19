@@ -1,0 +1,97 @@
+// PageControlNotification 497F0F17036D Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497F0F17036D
+
+ME ME_497F16AC015A
+ MEPROP UID '497F16AC015A'
+ MEPROP Name 'DoTabActivate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реакция на переключение вкладки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_497F0F17036D // PageControlNotification
+ ;
+
+ENDME // ME_497F16AC015A DoTabActivate
+
+ME ME_497F0F660377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497F0F17036D // PageControlNotification
+ ;
+ MELINK Target WL? 'ME_49228EF60100' // nsManagers
+ ;
+
+ENDME // ME_497F0F660377 
+
+ME ME_497F0F6A009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497F0F17036D // PageControlNotification
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_497F0F6A009E 
+
+ME ME_497F11FC030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497F0F17036D // PageControlNotification
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_497F11FC030D 
+
+ME ME_496B781903E3_ME_497F0F17036D
+ MELINK Original WL 'ME_496B781903E3' '490838E10313.ms.model.script' // TabActivate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B781903E3_ME_497F0F17036D TabActivate
+
+%%ImplementedBy ME_496B78080016 ME_497F0F17036D
+
+ME ME_497F0F17036D
+ MEPROP UID '497F0F17036D'
+ MEPROP Name 'PageControlNotification'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс для будущей реализации InscPageControlNotification' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_496B78080016' '490838E10313.ms.model.script' // InscPageControlNotification
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_497F16AC015A // DoTabActivate
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_496B781903E3_ME_497F0F17036D // TabActivate
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_497F0F660377 // nsManagers
+ ME_497F0F6A009E // StdRes
+ ME_497F11FC030D // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '27.01.2009 16:42'
+ UP extprop:pas:TypeName '_PageControlNotification_'
+ UP extprop:pas:UnitName 'PageControlNotification.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas'
+
+ENDME // ME_497F0F17036D PageControlNotification

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_497F142501FA
+
 ME ME_4D383D6E01B6
  MEPROP UID '4D383D6E01B6'
  MEPROP Name 'BaseDocument'
@@ -10,16 +12,19 @@ ME ME_4D383D6E01B6
  MELINK Stereotype st_VCMForms ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9F76D70283' '4A9F76D70283.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A9F76D70283' // View
  ;
  MELIST Children
-   Seq: ( WL 'ME_497F142501FA' '497F142501FA.ms.model.script' // BaseDocumentForDocumentModule
+   Seq: ( WL? 'ME_497F142501FA' // BaseDocumentForDocumentModule
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
- WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+   Seq: ( WL? 'ME_497ED74F0032' // Common
+ WL? 'ME_4AADF9450143' // Visual
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4D383D6E01B6 BaseDocument

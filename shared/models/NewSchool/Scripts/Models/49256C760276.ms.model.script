@@ -1,0 +1,75 @@
+// DocumentRes 49256C760276 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B50566202C6
+
+FORWARD ME_49256C760276
+
+%%InheritedBy ME_4AAA214A0250 ME_4B50566202C6
+
+ME ME_4B50566202C6
+ MEPROP UID '4B50566202C6'
+ MEPROP Name 'TnsDocumentRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49256C760276 // DocumentRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentRes'
+
+ENDME // ME_4B50566202C6 TnsDocumentRes
+
+ME ME_49256C990052
+ MEPROP UID '49256C990052'
+ MEPROP Name 'nsDocumentRes'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49256C760276 // DocumentRes
+ ;
+
+ENDME // ME_49256C990052 nsDocumentRes
+
+%%ImplementedBy ME_4EBD1CC8036A ME_49256C760276
+%%ImplementedBy ME_4EBD224E0314 ME_49256C760276
+
+ME ME_49256C760276
+ MEPROP UID '49256C760276'
+ MEPROP Name 'DocumentRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4EBD1CC8036A' '484900780017.ms.model.script' // Требования к иконкам панели меток
+ WL 'ME_4EBD224E0314' '48563BA400A9.ms.model.script' // Требования к иконке изменяемой части ОМ
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_49256C990052 // nsDocumentRes
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B50566202C6 // TnsDocumentRes
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_FINISHED_DocumentRes.pas'
+
+ENDME // ME_49256C760276 DocumentRes

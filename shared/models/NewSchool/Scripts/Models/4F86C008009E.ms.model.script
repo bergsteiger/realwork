@@ -2,100 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4F86C008009E
-
-FORWARD ME_4F86C0140332
-
-ME ME_4F86C02F0097
- MEPROP UID '4F86C02F0097'
- MEPROP Name 'TnsLinkDataArray'
- MEPROP Class class_Class
- MELINK Stereotype st_Vector ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
- ;
- UP "array type" 'dynamic'
-
-ENDME // ME_4F86C02F0097 TnsLinkDataArray
-
-ME ME_4F86C03C0179
- MEPROP UID '4F86C03C0179'
- MEPROP Name 'PnsLinkDataArray'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F86C02F0097 // TnsLinkDataArray
- )
- ; // Inherits
- UP "isPointer" True
-
-ENDME // ME_4F86C03C0179 PnsLinkDataArray
-
-ME ME_5135ECC0016B
- MEPROP UID '5135ECC0016B'
- MEPROP Name 'TIntegrationData'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
- ;
- UP "packed" True
-
-ENDME // ME_5135ECC0016B TIntegrationData
-
-ME ME_5135ECD7013D
- MEPROP UID '5135ECD7013D'
- MEPROP Name 'PIntegrationData'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
- ;
- MELIST Inherits
-   Seq: ( HWL ME_5135ECC0016B // TIntegrationData
- )
- ; // Inherits
- UP "isPointer" True
-
-ENDME // ME_5135ECD7013D PIntegrationData
-
-ME ME_4F86C0140332
- MEPROP UID '4F86C0140332'
- MEPROP Name 'nsIntegrationSupport'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F86C008009E // Integration
- ;
- MELIST Children
-   Seq: ( HWL ME_4F86C02F0097 // TnsLinkDataArray
- HWL ME_4F86C03C0179 // PnsLinkDataArray
- HWL ME_5135ECC0016B // TIntegrationData
- HWL ME_5135ECD7013D // PIntegrationData
- )
- ; // Children
- MELIST Injected
-   Seq: ( WL 'ME_571A2F2601FA' '51360760006C.ms.model.script' // IntegrationWordsPack
- )
- ; // Injected
- UP "finished" False
- UP extprop:rc:SelfName 'IntegrationSupport'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsIntegrationSupport.pas'
-
-ENDME // ME_4F86C0140332 nsIntegrationSupport
+%%Inner ME_4F86C0140332
 
 ME ME_4F86C008009E
  MEPROP UID '4F86C008009E'
@@ -105,11 +12,14 @@ ME ME_4F86C008009E
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
+ MELINK Parent WL? 'ME_4F7D7B980383' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_4F86C0140332 // nsIntegrationSupport
+   Seq: ( WL? 'ME_4F86C0140332' // nsIntegrationSupport
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4F86C008009E Integration

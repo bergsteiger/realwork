@@ -2,7 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57B2B0C602DF
+%%Inner ME_57B31D1000FA
+%%Inner ME_57ADBA39026E
+%%Inner ME_57E2C2970206
+
 FORWARD ME_57C99A680247
+
+%%InheritedBy ME_57AD8C3B0155 ME_57B2B0C602DF
 
 ME ME_57B2B0C602DF
  MEPROP UID '57B2B0C602DF'
@@ -22,6 +29,8 @@ ME ME_57B2B0C602DF
 
 ENDME // ME_57B2B0C602DF ActionElementEvent
 
+%%InheritedBy ME_57AD8C3B0155 ME_57B31D1000FA
+
 ME ME_57B31D1000FA
  MEPROP UID '57B31D1000FA'
  MEPROP Name 'CurrentElementChangedEvent'
@@ -40,6 +49,8 @@ ME ME_57B31D1000FA
 
 ENDME // ME_57B31D1000FA CurrentElementChangedEvent
 
+%%InheritedBy ME_57AD8C3B0155 ME_57ADBA39026E
+
 ME ME_57ADBA39026E
  MEPROP UID '57ADBA39026E'
  MEPROP Name 'ListChangedEvent'
@@ -57,6 +68,8 @@ ME ME_57ADBA39026E
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_57ADBA39026E ListChangedEvent
+
+%%InheritedBy ME_57AD8C3B0155 ME_57E2C2970206
 
 ME ME_57E2C2970206
  MEPROP UID '57E2C2970206'
@@ -84,7 +97,7 @@ ME ME_57C99A680247
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57C99A3900B9' '57C99A3900B9.ms.model.script' // msm$MVC$DefaultControllers
+ MELINK Parent WL? 'ME_57C99A3900B9' // msm$MVC$DefaultControllers
  ;
  MELIST Children
    Seq: ( HWL ME_57B2B0C602DF // ActionElementEvent
@@ -94,9 +107,12 @@ ME ME_57C99A680247
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+   Seq: ( WL? 'ME_57AAE8D403E5' // msmControllers
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmListAndTreeInterfaces.pas'
 

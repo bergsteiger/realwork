@@ -156,10 +156,10 @@ ME ME_4A1FEFCA0292
  MEPROP Name 'aTyped'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value True
 
@@ -202,6 +202,9 @@ ME ME_4A1FEFB30146
    Seq: ( HWL ME_4A1FEFC201BD // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4A1FEFB30146 OpenCRListOpTest
 
@@ -389,7 +392,7 @@ ME ME_4988675A0308
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4986C5B30130 // CommonForTextAndFlash
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4988675A0308 CanAddToControl
@@ -415,7 +418,7 @@ ME ME_4989CF90010A
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4986C5B30130 // CommonForTextAndFlash
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4989CF90010A CanAddBookmark
@@ -428,7 +431,7 @@ ME ME_4BA1D3CA02EB
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4986C5B30130 // CommonForTextAndFlash
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4BA1D3CA02EB FormIsMainInDocumentSet
@@ -438,7 +441,7 @@ ME ME_4986E889037A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4986C5B30130 // CommonForTextAndFlash
  ;
- MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ MELINK Target WL? 'ME_47F21FE90379' // bsUtils
  ;
 
 ENDME // ME_4986E889037A 
@@ -458,7 +461,7 @@ ME ME_498705710133
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4986C5B30130 // CommonForTextAndFlash
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_498705710133 
@@ -620,6 +623,14 @@ ME ME_4CDD1A02013D_ME_4986C5B30130
  UP "pm" True
 ENDME // ME_4CDD1A02013D_ME_4986C5B30130 HyperlinkDocumentName
 
+%%ImplementedBy ME_498721A60125 ME_4986C5B30130
+%%ImplementedBy ME_498860B50287 ME_4986C5B30130
+%%ImplementedBy ME_4BA0A2CC0305 ME_4986C5B30130
+%%ImplementedBy ME_4CDD18E80034 ME_4986C5B30130
+%%ImplementedBy ME_4EDF6F0E02BF ME_4986C5B30130
+
+%%InheritedBy ME_4986EB4D0179 ME_4986C5B30130
+
 ME ME_4986C5B30130
  MEPROP UID '4986C5B30130'
  MEPROP Name 'CommonForTextAndFlash'
@@ -630,17 +641,17 @@ ME ME_4986C5B30130
  %SUMMARY 'Общее для документов и флеш-схем' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4D384F3B0095' '4D384F3B0095.ms.model.script' // CommonForDocumentAndFlash
+ MELINK Parent WL? 'ME_4D384F3B0095' // CommonForDocumentAndFlash
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4986EB4D0179' '4986EB4D0179.ms.model.script' // CommonForTextAndFlashAndMedicFirmList
+   Seq: ( WL? 'ME_4986EB4D0179' // CommonForTextAndFlashAndMedicFirmList
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_498721A60125' '498721A60125.ms.model.script' // StatusBarDocumentItems
+   Seq: ( WL? 'ME_498721A60125' // StatusBarDocumentItems
  WL 'ME_498860B50287' '4A9807DB01A5.ms.model.script' // Document$FromDocument
- WL 'ME_4BA0A2CC0305' '4BA0A2CC0305.ms.model.script' // UnderControlResetter
- WL 'ME_4CDD18E80034' '4CDD18E80034.ms.model.script' // HyperlinkToDocumentProducer
+ WL? 'ME_4BA0A2CC0305' // UnderControlResetter
+ WL? 'ME_4CDD18E80034' // HyperlinkToDocumentProducer
  WL 'ME_4EDF6F0E02BF' '484900780017.ms.model.script' // Меню операций с фрагментом
  )
  ; // Implements
@@ -685,6 +696,9 @@ ME ME_4986C5B30130
  ME_57A082110250 // TCommonService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

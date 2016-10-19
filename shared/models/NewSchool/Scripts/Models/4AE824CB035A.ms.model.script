@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AE824F703B7
+%%Inner ME_4AE869590212
+%%Inner ME_4AF866010019
+%%Inner ME_4C40843E00E9
+%%Inner ME_4C4088C601B8
+
 FORWARD ME_4AE824CB035A
 
 FORWARD ME_4AE824F703B7
@@ -69,7 +75,7 @@ ME ME_4AE869A002DE
  MEPROP Name 'aRestoreDefault'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AE869A002DE aRestoreDefault
@@ -104,7 +110,7 @@ ME ME_4AE869E0006B
  MEPROP Name 'aSaveAsDefault'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AE869E0006B aSaveAsDefault
@@ -139,7 +145,7 @@ ME ME_4AEAE351014D
  MEPROP Name 'aStyleID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4AEAE351014D aStyleID
@@ -481,7 +487,7 @@ ME ME_4AE824CB035A
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA79F4B0351' '4AA79F4B0351.ms.model.script' // View
+ MELINK Parent WL? 'ME_4AA79F4B0351' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4AE824F703B7 // StyleEditor$ReloadStylesTree
@@ -492,11 +498,14 @@ ME ME_4AE824CB035A
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

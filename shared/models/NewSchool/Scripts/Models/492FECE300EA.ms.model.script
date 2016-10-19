@@ -2,7 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_492FEDE7010F
+
 FORWARD ME_492FECE300EA
+
+%%InheritedBy ME_491DCCE101F3 ME_492FEDE7010F
 
 ME ME_492FEDE7010F
  MEPROP UID '492FEDE7010F'
@@ -15,7 +19,7 @@ ME ME_492FEDE7010F
  MELINK Parent HWL ME_492FECE300EA // TsdsQuery
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_491DCCE101F3' '491DCCE101F3.ms.model.script' // TdsQuery
+   Seq: ( WL? 'ME_491DCCE101F3' // TdsQuery
  )
  ; // Inherits
  UP "isClassRef" True
@@ -57,7 +61,7 @@ ME ME_492FEE2D01C5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492FECE300EA // TsdsQuery
  ;
- MELINK Target WL 'ME_4923F66E0262' '4923F66E0262.ms.model.script' // TdsSaveLoad
+ MELINK Target WL? 'ME_4923F66E0262' // TdsSaveLoad
  ;
 
 ENDME // ME_492FEE2D01C5 
@@ -76,6 +80,10 @@ ME ME_492F00890059_ME_492FECE300EA
  UP "pm" True
 ENDME // ME_492F00890059_ME_492FECE300EA dsSaveLoad
 
+%%ImplementedBy ME_492F005A02C7 ME_492FECE300EA
+
+%%InheritedBy ME_49415C640079 ME_492FECE300EA
+
 ME ME_492FECE300EA
  MEPROP UID '492FECE300EA'
  MEPROP Name 'TsdsQuery'
@@ -86,10 +94,10 @@ ME ME_492FECE300EA
  %SUMMARY 'Бизнес объект прецедента "Поисковый запрос"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49415C640079' '47D0E1500033.ms.model.script' // vcmFormSetDataSourceWithoutData
+   Seq: ( WL? 'ME_49415C640079' // vcmFormSetDataSourceWithoutData
  )
  ; // Inherits
  MELIST Implements
@@ -117,6 +125,9 @@ ME ME_492FECE300EA
    Seq: ( ME_492FEE2D01C5 // TdsSaveLoad
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А'
  UP "no hands" True
  UP "started" '2006/04/07 08:36:15'

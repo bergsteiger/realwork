@@ -47,7 +47,7 @@ ME ME_4C860D75021B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C860B4801E9 // MakeUserCRListCaption
  ;
- MELINK Target WL 'ME_4AA7F1CB012C' '47D0E1500033.ms.model.script' // vcmConstString
+ MELINK Target WL 'ME_4AA7F1CB012C' '47F25BC801DB.ms.model.script' // vcmConstString
  ;
 
 ENDME // ME_4C860D75021B 
@@ -70,6 +70,9 @@ ME ME_4C860B4801E9
    Seq: ( ME_4C860D75021B // vcmConstString
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C860B4801E9 MakeUserCRListCaption
 
@@ -78,7 +81,7 @@ ME ME_4C86088B004E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C8604040234 // PrimSynchroViewOptions
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4C86088B004E 
@@ -216,6 +219,10 @@ ME ME_4C52E81603A9_ME_4C8604040234
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C52E81603A9_ME_4C8604040234 PageInactive
 
+%%ImplementedBy ME_4C8604F7032C ME_4C8604040234
+
+%%InheritedBy ME_4979E75C00C7 ME_4C8604040234
+
 ME ME_4C8604040234
  MEPROP UID '4C8604040234'
  MEPROP Name 'PrimSynchroViewOptions'
@@ -226,10 +233,10 @@ ME ME_4C8604040234
  %SUMMARY 'Синхронный просмотр' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4D39A65E01AF' '4D39A65E01AF.ms.model.script' // SynchroView
+ MELINK Parent WL? 'ME_4D39A65E01AF' // SynchroView
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4979E75C00C7' '4979E75C00C7.ms.model.script' // PrimSynchroView
+   Seq: ( WL? 'ME_4979E75C00C7' // PrimSynchroView
  )
  ; // Inherits
  MELIST Implements
@@ -261,6 +268,9 @@ ME ME_4C8604040234
  ME_4C86179F0077 // List
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

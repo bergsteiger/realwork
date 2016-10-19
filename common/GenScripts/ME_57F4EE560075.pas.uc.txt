@@ -56,6 +56,8 @@ var
   for l_Index := 0 to Pred(Count) do
   begin
    l_List := Items[l_Index];
+   if (l_List.Element.rListName <> aListName) then
+    continue; 
    if (l_List.Element.rElement = nil) then
     continue;
    if (l_List.Element.rElement.MainWord = nil) then
@@ -84,7 +86,7 @@ var
 //#UC END# *80F135399528_57FE4E3A03C2_var*
 //#UC START# *F7EFF4FD47C2_57FE4E3A03C2_impl*
  if TmsmModelElementListFactory.Exists then
-  TmsmModelElementListFactory.Instance.RegetViewedListsFor(aWord);
+  TmsmModelElementListFactory.Instance.RegetViewedListsFor(aWord, aListName);
 //#UC END# *F7EFF4FD47C2_57FE4E3A03C2_impl*
 //#UC START# *F7EFF4FD47C2_57FE4E3A03C2_var*
 //#UC END# *F7EFF4FD47C2_57FE4E3A03C2_var*

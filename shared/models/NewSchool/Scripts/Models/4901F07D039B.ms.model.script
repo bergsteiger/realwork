@@ -2,6 +2,16 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4901F0CF03B0
+%%Inner ME_4901F13D034E
+%%Inner ME_490707F10167
+%%Inner ME_49070AD5032C
+%%Inner ME_490711B101F9
+%%Inner ME_49071797031F
+%%Inner ME_49071C6300FF
+%%Inner ME_49071BFA03A4
+%%Inner ME_49071DD902DC
+
 FORWARD ME_4901F07D039B
 
 FORWARD ME_4901F0CF03B0
@@ -37,7 +47,7 @@ ME ME_4901F234019C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4901F0CF03B0 // TnsMedicFirmListFilters
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4901F234019C 
@@ -56,7 +66,7 @@ ME ME_4901EED201C4_ME_4901F0CF03B0
 ENDME // ME_4901EED201C4_ME_4901F0CF03B0 SetCountry
 
 ME ME_479731C50290_ME_4901F0CF03B0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4901F0CF03B0 Cleanup
@@ -66,6 +76,10 @@ ME ME_48FF4F47010F_ME_4901F0CF03B0
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48FF4F47010F_ME_4901F0CF03B0 Create
+
+%%ImplementedBy ME_4901EE9D02E5 ME_4901F0CF03B0
+
+%%InheritedBy ME_48FF4EC501F6 ME_4901F0CF03B0
 
 ME ME_4901F0CF03B0
  MEPROP UID '4901F0CF03B0'
@@ -104,6 +118,9 @@ ME ME_4901F0CF03B0
  ME_4901F234019C // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/21 11:36:49'
@@ -190,10 +207,14 @@ ME ME_4901EE910334_ME_4901F13D034E
 ENDME // ME_4901EE910334_ME_4901F13D034E Country
 
 ME ME_479731C50290_ME_4901F13D034E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4901F13D034E Cleanup
+
+%%ImplementedBy ME_4901EE8402B6 ME_4901F13D034E
+
+%%InheritedBy ME_46780E690001 ME_4901F13D034E
 
 ME ME_4901F13D034E
  MEPROP UID '4901F13D034E'
@@ -261,7 +282,7 @@ ME ME_4907086E0219
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490707F10167 // TnsMedicDictionTreeBase
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4907086E0219 
@@ -271,7 +292,7 @@ ME ME_49070887037C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490707F10167 // TnsMedicDictionTreeBase
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_49070887037C 
@@ -281,7 +302,7 @@ ME ME_490708A9026B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490707F10167 // TnsMedicDictionTreeBase
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_490708A9026B 
@@ -291,7 +312,7 @@ ME ME_49070AAE0376
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490707F10167 // TnsMedicDictionTreeBase
  ;
- MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
  ;
 
 ENDME // ME_49070AAE0376 
@@ -307,6 +328,8 @@ ME ME_48FF56D003E6_ME_490707F10167
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48FF56D003E6_ME_490707F10167 SettingsID
+
+%%InheritedBy ME_468361010204 ME_490707F10167
 
 ME ME_490707F10167
  MEPROP UID '490707F10167'
@@ -342,6 +365,9 @@ ME ME_490707F10167
  ME_49070AAE0376 // StringRoutines
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/06 10:02:57'
@@ -367,6 +393,8 @@ ME ME_49070C2102D0
  ;
 
 ENDME // ME_49070C2102D0 Make
+
+%%InheritedBy ME_490707F10167 ME_49070AD5032C
 
 ME ME_49070AD5032C
  MEPROP UID '49070AD5032C'
@@ -431,7 +459,7 @@ ME ME_4907120A0123
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490711B101F9 // TnsMedicFirmsTreeBase
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4907120A0123 
@@ -441,7 +469,7 @@ ME ME_4907121901EF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490711B101F9 // TnsMedicFirmsTreeBase
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4907121901EF 
@@ -451,7 +479,7 @@ ME ME_4907122A01B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490711B101F9 // TnsMedicFirmsTreeBase
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4907122A01B7 
@@ -471,7 +499,7 @@ ME ME_4907172A00E5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_490711B101F9 // TnsMedicFirmsTreeBase
  ;
- MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
  ;
 
 ENDME // ME_4907172A00E5 
@@ -505,6 +533,8 @@ ME ME_48FF64E700E5_ME_490711B101F9
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48FF64E700E5_ME_490711B101F9 BeforeReset
+
+%%InheritedBy ME_468361010204 ME_490711B101F9
 
 ME ME_490711B101F9
  MEPROP UID '490711B101F9'
@@ -544,6 +574,9 @@ ME ME_490711B101F9
  ME_4907172A00E5 // StringRoutines
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/21 11:36:49'
@@ -569,6 +602,8 @@ ME ME_490717B00328
  ;
 
 ENDME // ME_490717B00328 Make
+
+%%InheritedBy ME_490711B101F9 ME_49071797031F
 
 ME ME_49071797031F
  MEPROP UID '49071797031F'
@@ -616,6 +651,9 @@ ME ME_49071CE701EE
 
 ENDME // ME_49071CE701EE ItemType
 
+%%InheritedBy ME_47B57D630029 ME_49071C6300FF
+%%InheritedBy ME_47BC3A07027F ME_49071C6300FF
+
 ME ME_49071C6300FF
  MEPROP UID '49071C6300FF'
  MEPROP Name 'TnsMedicFirmsSubscribersList'
@@ -627,7 +665,7 @@ ME ME_49071C6300FF
  MELINK Parent HWL ME_4901F07D039B // Medic$Unit
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL? 'ME_47B57D630029' // l3InterfacePtrList
  WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
  )
  ; // Inherits
@@ -700,7 +738,7 @@ ME ME_49071DAF031C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_49071DAF031C 
@@ -710,7 +748,7 @@ ME ME_49071DBD015A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_49071DBD015A 
@@ -720,7 +758,7 @@ ME ME_49071F9A00A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
  ;
- MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
  ;
 
 ENDME // ME_49071F9A00A0 
@@ -730,7 +768,7 @@ ME ME_49071FDA00E9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_49071FDA00E9 
@@ -754,7 +792,7 @@ ME ME_49071B1D0098_ME_49071BFA03A4
 ENDME // ME_49071B1D0098_ME_49071BFA03A4 Unsubscribe
 
 ME ME_479731C50290_ME_49071BFA03A4
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49071BFA03A4 Cleanup
@@ -764,6 +802,10 @@ ME ME_48FF64E700E5_ME_49071BFA03A4
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48FF64E700E5_ME_49071BFA03A4 BeforeReset
+
+%%ImplementedBy ME_49071AFF0024 ME_49071BFA03A4
+
+%%InheritedBy ME_468361010204 ME_49071BFA03A4
 
 ME ME_49071BFA03A4
  MEPROP UID '49071BFA03A4'
@@ -811,6 +853,9 @@ ME ME_49071BFA03A4
  ME_49071FDA00E9 // nsConst
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/21 11:36:49'
@@ -836,6 +881,8 @@ ME ME_49071E1D0102
  ;
 
 ENDME // ME_49071E1D0102 Make
+
+%%InheritedBy ME_49071BFA03A4 ME_49071DD902DC
 
 ME ME_49071DD902DC
  MEPROP UID '49071DD902DC'
@@ -876,7 +923,7 @@ ME ME_4901F07D039B
  %SUMMARY 'Структуры данных для Инфарма' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_494106E500F3' '494106E500F3.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_494106E500F3' // Medic
  ;
  MELIST Children
    Seq: ( HWL ME_4901F0CF03B0 // TnsMedicFirmListFilters
@@ -891,16 +938,19 @@ ME ME_4901F07D039B
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
- WL 'ME_47ECAAF901F8' '47ECAAF901F8.ms.model.script' // bsInterfaces
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47E246C90144' // l3Trees
+ WL? 'ME_47ECAAF901F8' // bsInterfaces
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_48FD8B2702F6' // Tree
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4901F07D039B Medic$Unit

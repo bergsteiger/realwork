@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DCD3A7302D5
+
 FORWARD ME_4EA59DA70226
 
 ME ME_49521D8E0295_ME_4DCD3A7302D5
@@ -48,6 +50,10 @@ ME ME_495220F2033A_ME_4DCD3A7302D5
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_495220F2033A_ME_4DCD3A7302D5 PrintPreview
+
+%%ImplementedBy ME_49521D8203A0 ME_4DCD3A7302D5
+
+%%InheritedBy ME_4BD6C31B03BC ME_4DCD3A7302D5
 
 ME ME_4DCD3A7302D5
  MEPROP UID '4DCD3A7302D5'
@@ -145,6 +151,11 @@ ME ME_49521D8E0295_ME_4EA59DA70226
  UP "ShowInToolbar" False
 ENDME // ME_49521D8E0295_ME_4EA59DA70226 Print
 
+%%ImplementedBy ME_4AE9DEFF0292 ME_4EA59DA70226
+%%ImplementedBy ME_4DA8763E0201 ME_4EA59DA70226
+
+%%InheritedBy ME_4C7F738D033E ME_4EA59DA70226
+
 ME ME_4EA59DA70226
  MEPROP UID '4EA59DA70226'
  MEPROP Name 'PrimDockedWarning'
@@ -154,15 +165,15 @@ ME ME_4EA59DA70226
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4D396FDD0344' '4D396FDD0344.ms.model.script' // Warning
+ MELINK Parent WL? 'ME_4D396FDD0344' // Warning
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C7F738D033E' '4C7F738D033E.ms.model.script' // PrimWarningOptions
+   Seq: ( WL? 'ME_4C7F738D033E' // PrimWarningOptions
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_4AE9DEFF0292' '498874B90391.ms.model.script' // Warning
- WL 'ME_4DA8763E0201' '4DA8763E0201.ms.model.script' // WarningUserTypes
+ WL? 'ME_4DA8763E0201' // WarningUserTypes
  )
  ; // Implements
  MELIST Implemented
@@ -184,6 +195,9 @@ ME ME_4EA59DA70226
  ME_4F5E1ECA01A8 // Switcher$SetCaption
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

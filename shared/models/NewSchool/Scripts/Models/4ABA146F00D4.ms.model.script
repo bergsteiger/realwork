@@ -30,6 +30,10 @@ ME ME_4C8A3E830263
 
 ENDME // ME_4C8A3E830263 
 
+%%ImplementedBy ME_4BD971260355 ME_4ABA146F00D4
+
+%%InheritedBy ME_4BD7279101C5 ME_4ABA146F00D4
+
 ME ME_4ABA146F00D4
  MEPROP UID '4ABA146F00D4'
  MEPROP Name 'ConfigurationList'
@@ -40,10 +44,10 @@ ME ME_4ABA146F00D4
  %SUMMARY 'Конфигурации' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ MELINK Parent WL? 'ME_4AA79F72010A' // Settings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4BD7279101C5' '4BD7279101C5.ms.model.script' // PrimConfigurationList
+   Seq: ( WL? 'ME_4BD7279101C5' // PrimConfigurationList
  )
  ; // Inherits
  MELIST Implements
@@ -58,6 +62,9 @@ ME ME_4ABA146F00D4
    Seq: ( ME_4C8A3E830263 // Cancel
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "form name prefix" 'en_'
  UP "NeedsHackRef" True

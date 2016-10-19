@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49EC74D002B8
+%%Inner ME_49F586610347
+%%Inner ME_4B14DF1F0101
+
 FORWARD ME_49EC739C0100
 
 FORWARD ME_4B14DF1F0101
@@ -27,6 +31,8 @@ ME ME_4B14DF7401B1
  ;
 
 ENDME // ME_4B14DF7401B1 
+
+%%InheritedBy ME_4B0A6109010C ME_4B14DF1F0101
 
 ME ME_4B14DF1F0101
  MEPROP UID '4B14DF1F0101'
@@ -70,7 +76,7 @@ ME ME_4A979E4F037F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_4A979E4F037F 
@@ -80,7 +86,7 @@ ME ME_4A979E51035B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_4A979E51035B 
@@ -90,7 +96,7 @@ ME ME_4AAA08430001
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
  ;
 
 ENDME // ME_4AAA08430001 
@@ -110,7 +116,7 @@ ME ME_4B5EDA850332
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4B5EDA850332 
@@ -130,7 +136,7 @@ ME ME_4C0DDE9901BA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_4C0DDE9901BA 
@@ -150,7 +156,7 @@ ME ME_49ECA9E301EF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' // TsdsInternetAgent
+ MELINK Target WL? 'ME_49ECA984005F' // TsdsInternetAgent
  ;
 
 ENDME // ME_49ECA9E301EF 
@@ -170,7 +176,7 @@ ME ME_49ECAA4400C8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49EC739C0100 // PrimInternetAgent$FP
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_49ECAA4400C8 
@@ -186,11 +192,11 @@ ME ME_49EC739C0100
  %SUMMARY 'Модуль для [Интернет-агента|$144575249]' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_49EC7167004C' '49EC7167004C.ms.model.script' // InternetAgent
+ MELINK Parent WL? 'ME_49EC7167004C' // InternetAgent
  ;
  MELIST Children
-   Seq: ( WL 'ME_49EC74D002B8' '49EC74D002B8.ms.model.script' // InternetAgent$F
- WL 'ME_49F586610347' '49F586610347.ms.model.script' // InternetAgent
+   Seq: ( WL? 'ME_49EC74D002B8' // InternetAgent$F
+ WL? 'ME_49F586610347' // InternetAgent
  HWL ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
  )
  ; // Children
@@ -209,6 +215,9 @@ ME ME_49EC739C0100
  ME_49ECAA4400C8 // StdRes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP extprop:pas:TypeName 'TPrimInternetAgentModule'

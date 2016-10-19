@@ -95,7 +95,7 @@ ME ME_4C7E4FDD01C1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4C7E4FDD01C1 
@@ -105,7 +105,7 @@ ME ME_4C7E51360209
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4AD5BB5503B3' '48F747EC0073.ms.model.script' // nsIntegerMapManager
+ MELINK Target WL 'ME_4AD5BB5503B3' '492440D20009.ms.model.script' // nsIntegerMapManager
  ;
 
 ENDME // ME_4C7E51360209 
@@ -115,7 +115,7 @@ ME ME_4C7E51550145
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4924422E0249' '48F747EC0073.ms.model.script' // nsValueMapsIDs
+ MELINK Target WL? 'ME_4924422E0249' // nsValueMapsIDs
  ;
 
 ENDME // ME_4C7E51550145 
@@ -125,7 +125,7 @@ ME ME_4C7E53B9028A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4AF819AB01B0' '4912E16B01B4.ms.model.script' // eeL2NA
+ MELINK Target WL 'ME_4AF819AB01B0' '4912E178000B.ms.model.script' // eeL2NA
  ;
 
 ENDME // ME_4C7E53B9028A 
@@ -135,7 +135,7 @@ ME ME_4C7E5A300271
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4AC095C002E6' '48F747EC0073.ms.model.script' // UserFoldersTree
+ MELINK Target WL 'ME_4AC095C002E6' '48228EF9010F.ms.model.script' // UserFoldersTree
  ;
 
 ENDME // ME_4C7E5A300271 
@@ -145,7 +145,7 @@ ME ME_4C7E5A5A03A7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C7E4A45018F // PrimUnderControlOptions
  ;
- MELINK Target WL 'ME_4C7E5A4D01BF' '48F747EC0073.ms.model.script' // OpenControllableElement
+ MELINK Target WL 'ME_4C7E5A4D01BF' '49895C3C02D6.ms.model.script' // OpenControllableElement
  ;
 
 ENDME // ME_4C7E5A5A03A7 
@@ -360,6 +360,13 @@ ME ME_4DD1260D02D1_ME_4C7E4A45018F
  UP "ShowInToolbar" False
 ENDME // ME_4DD1260D02D1_ME_4C7E4A45018F ShowChanges
 
+%%ImplementedBy ME_494F89AA0017 ME_4C7E4A45018F
+%%ImplementedBy ME_4951282D0269 ME_4C7E4A45018F
+%%ImplementedBy ME_4C7E4B6E02BF ME_4C7E4A45018F
+%%ImplementedBy ME_4C7E4C2102E6 ME_4C7E4A45018F
+
+%%InheritedBy ME_4A7C349D02CB ME_4C7E4A45018F
+
 ME ME_4C7E4A45018F
  MEPROP UID '4C7E4A45018F'
  MEPROP Name 'PrimUnderControlOptions'
@@ -370,10 +377,10 @@ ME ME_4C7E4A45018F
  %SUMMARY 'На контроле' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4CCAC702007E' '4CCAC702007E.ms.model.script' // UnderControl
+ MELINK Parent WL? 'ME_4CCAC702007E' // UnderControl
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A7C349D02CB' '4A7C349D02CB.ms.model.script' // PrimUnderControl
+   Seq: ( WL? 'ME_4A7C349D02CB' // PrimUnderControl
  )
  ; // Inherits
  MELIST Implements
@@ -424,6 +431,9 @@ ME ME_4C7E4A45018F
  ME_52A84EA9010D // Tree
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

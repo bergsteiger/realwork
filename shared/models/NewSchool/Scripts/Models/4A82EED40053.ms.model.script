@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E312E2502AE
+%%Inner ME_4954D3580364
+%%Inner ME_4AA5181600DC
+
 ME ME_4A82EED40053
  MEPROP UID '4A82EED40053'
  MEPROP Name 'F1 Администратор'
@@ -12,28 +16,31 @@ ME ME_4A82EED40053
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
  MELIST Children
-   Seq: ( WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' // Требования
- WL 'ME_4954D3580364' '4954D3580364.ms.model.script' // Admin
- WL 'ME_4AA5181600DC' '4AA5181600DC.ms.model.script' // Admin$Shell
+   Seq: ( WL? 'ME_4E312E2502AE' // Требования
+ WL? 'ME_4954D3580364' // Admin
+ WL? 'ME_4AA5181600DC' // Admin$Shell
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
- WL 'ME_45ED6F0303D2' '45ED6F0303D2.ms.model.script' // shared
- WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
- WL 'ME_498B35810374' '498B35810374.ms.model.script' // F1 Базовые определения предметной области
- WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
- WL 'ME_4A82FE48010A' '4A82FE48010A.ms.model.script' // Shared Delphi Operations
- WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
- WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
- WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
- WL 'ME_4E78CD64017F' '4E78CD64017F.ms.model.script' // F1 Проблемы и решения
- WL 'ME_4F6CCC8800A0' '4F6CCC8800A0.ms.model.script' // Shared Delphi F1 Like Application
- WL 'ME_4F7C1CFD01B7' '4F7C1CFD01B7.ms.model.script' // F1 Common For Admin And Monitoring
- WL 'ME_562E251101C2' '562E251101C2.ms.model.script' // Shared Delphi Rtl
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_442BEDF00290' // garant6x
+ WL? 'ME_45ED6F0303D2' // shared
+ WL? 'ME_4677DDBD0193' // Shared Delphi
+ WL? 'ME_498B35810374' // F1 Базовые определения предметной области
+ WL? 'ME_49B1511700CA' // Shared Delphi Core
+ WL? 'ME_4A82FE48010A' // Shared Delphi Operations
+ WL? 'ME_4AB1071F01B0' // Shared Delphi For F1
+ WL? 'ME_4ABCC25A0322' // Shared Delphi Low Level
+ WL? 'ME_4E5BC50E02E1' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL? 'ME_4E78CD64017F' // F1 Проблемы и решения
+ WL? 'ME_4F6CCC8800A0' // Shared Delphi F1 Like Application
+ WL? 'ME_4F7C1CFD01B7' // F1 Common For Admin And Monitoring
+ WL? 'ME_562E251101C2' // Shared Delphi Rtl
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "create project" True
  UP "defines" 'nsDefine.inc'
  UP "fix version" 0

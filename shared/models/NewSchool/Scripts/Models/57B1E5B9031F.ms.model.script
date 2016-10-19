@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57A9F4A003C8
+%%Inner ME_57B565F200E5
+%%Inner ME_57A9D5CD0111
+%%Inner ME_57B30E930154
+%%Inner ME_57AC3A2D0145
+
 ME ME_57B1E5B9031F
  MEPROP UID '57B1E5B9031F'
  MEPROP Name 'msm'
@@ -11,28 +17,32 @@ ME ME_57B1E5B9031F
  MELINK Stereotype st_Library ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1B9C5035D' '57B1B9C5035D.ms.model.script' // Shared Delphi MSM
+ MELINK Parent WL? 'ME_57B1B9C5035D' // Shared Delphi MSM
  ;
  MELIST Children
-   Seq: ( WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
- WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
- WL 'ME_57A9D5CD0111' '57A9D5CD0111.ms.model.script' // ModelLoading
- WL 'ME_57B30E930154' '57B30E930154.ms.model.script' // StringLists
- WL 'ME_57AC3A2D0145' '57AC3A2D0145.ms.model.script' // ElementTree
+   Seq: ( WL? 'ME_57A9F4A003C8' // msmModelElements
+ WL? 'ME_57B565F200E5' // msmElementViews
+ WL? 'ME_57A9D5CD0111' // ModelLoading
+ WL? 'ME_57B30E930154' // StringLists
+ WL? 'ME_57AC3A2D0145' // ElementTree
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
- WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
- WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
- WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
- WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
- WL 'ME_55C1EE2F01B7' '55C1EE2F01B7.ms.model.script' // ScriptEngine$Parsing
- WL 'ME_57B2D254018F' '57B2D254018F.ms.model.script' // msm$ScriptCalling
- WL 'ME_57B6B04503AB' '57B6B04503AB.ms.model.script' // msm$Usual
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_469F3E37025A' // Rtl
+ WL? 'ME_4790D09A0378' // L3
+ WL? 'ME_4E1F0EB100C4' // ScriptEngine
+ WL? 'ME_4E2F0E1B03BB' // L3$Domain
+ WL? 'ME_54CF97B10370' // ScriptEngine$Core
+ WL? 'ME_551175240043' // ScriptEngine$Axiomatics
+ WL? 'ME_55C1EE2F01B7' // ScriptEngine$Parsing
+ WL? 'ME_57B2D254018F' // msm$ScriptCalling
+ WL? 'ME_57B6B04503AB' // msm$Usual
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'gui'
  UP "is namespace" True

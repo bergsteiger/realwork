@@ -1,0 +1,66 @@
+// msmModelServicePack 57EE6C5602EB ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EE6C5602EB
+
+ME ME_57EE6C7A01B3
+ MEPROP UID '57EE6C7A01B3'
+ MEPROP Name 'msm_ModelRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE6C5602EB // msmModelServicePack
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57EE6C7A01B3 msm_ModelRoot
+
+ME ME_57EE6C6302DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6C5602EB // msmModelServicePack
+ ;
+ MELINK Target WL 'ME_57E538DB0262' '57B2D67D038F.ms.model.script' // TmsmModelService
+ ;
+
+ENDME // ME_57EE6C6302DD 
+
+ME ME_57EE6C6B02FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57EE6C5602EB // msmModelServicePack
+ ;
+ MELINK Target WL 'ME_57E538DB0262' '57B2D67D038F.ms.model.script' // TmsmModelService
+ ;
+
+ENDME // ME_57EE6C6B02FD 
+
+%%InjectedBy ME_57E538DB0262 ME_57EE6C5602EB
+
+ME ME_57EE6C5602EB
+ MEPROP UID '57EE6C5602EB'
+ MEPROP Name 'msmModelServicePack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EE6C7A01B3 // msm_ModelRoot
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57EE6C6302DD // TmsmModelService
+ ME_57EE6C6B02FD // TmsmModelService
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelServicePack.pas'
+
+ENDME // ME_57EE6C5602EB msmModelServicePack

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_563875050317
+
 FORWARD ME_563874EF0183
 
 FORWARD ME_563875050317
@@ -672,6 +674,8 @@ ME ME_563875EC005F
 
 ENDME // ME_563875EC005F 
 
+%%InheritedBy ME_49E7754802A9 ME_563875050317
+
 ME ME_563875050317
  MEPROP UID '563875050317'
  MEPROP Name 'TnsBaseSearchService'
@@ -723,18 +727,21 @@ ME ME_563874EF0183
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ MELINK Parent WL? 'ME_4A9FFD3F01AD' // Search
  ;
  MELIST Children
    Seq: ( HWL ME_563875050317 // TnsBaseSearchService
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4A9F98B901A5' '4A9F98B901A5.ms.model.script' // BaseSearchInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4683F37902CF' // vcmInterfaces
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4A9F98B901A5' // BaseSearchInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_563874EF0183 SearchServices

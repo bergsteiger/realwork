@@ -2,7 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4CDAD96402B1
+
 FORWARD ME_4CDACCDF0368
+
+%%InheritedBy ME_47D15723038A ME_4CDAD96402B1
 
 ME ME_4CDAD96402B1
  MEPROP UID '4CDAD96402B1'
@@ -16,7 +20,7 @@ ME ME_4CDAD96402B1
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47D15723038A' '55C4AEC801CA.ms.model.script' // TBitmap
+   Seq: ( WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
@@ -128,7 +132,7 @@ ME ME_4CDAE16503B9
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4CDAE15C035B // DPI
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4CDAE16503B9 Get
@@ -270,6 +274,8 @@ ME ME_4CDAC5E902FF_ME_4CDACCDF0368
  UP "pm" True
 ENDME // ME_4CDAC5E902FF_ME_4CDACCDF0368 Preview
 
+%%InheritedBy ME_4CDABAD0032E ME_4CDACCDF0368
+
 ME ME_4CDACCDF0368
  MEPROP UID '4CDACCDF0368'
  MEPROP Name 'PrintableBitmap'
@@ -279,10 +285,10 @@ ME ME_4CDACCDF0368
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CDABAD0032E' '4CDABAD0032E.ms.model.script' // Printable
+   Seq: ( WL? 'ME_4CDABAD0032E' // Printable
  )
  ; // Inherits
  MELIST Attributes
@@ -314,6 +320,9 @@ ME ME_4CDACCDF0368
  ME_4CDAD7360295 // TnsHAFPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

@@ -1,0 +1,89 @@
+// AbstactChatWindowList 4A6EAB540196 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EAB540196
+
+ME ME_4A6EAF9802AE
+ MEPROP UID '4A6EAF9802AE'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A6EAB540196 // AbstactChatWindowList
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6EAF9802AE FindDataType
+
+FORWARD ME_4A6EAC0F00A9
+
+ME ME_4A6EAF740394
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47B9BBB401D0' '47BB24D30205.ms.model.script' // FindDataType
+ ;
+
+ENDME // ME_4A6EAF740394 anUserID
+
+ME ME_4A6EAC0F00A9
+ MEPROP UID '4A6EAC0F00A9'
+ MEPROP Name 'FindChatWindow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EAB540196 // AbstactChatWindowList
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A6EAF740394 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4A6EAC0F00A9 FindChatWindow
+
+ME ME_47B9BAFD01F4_ME_4A6EAB540196
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B9BAFD01F4_ME_4A6EAB540196 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_4A6EAB540196
+
+ME ME_4A6EAB540196
+ MEPROP UID '4A6EAB540196'
+ MEPROP Name 'AbstactChatWindowList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_47B47E230134' // l3Searcher
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6EAF9802AE // FindDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A6EAC0F00A9 // FindChatWindow
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B9BAFD01F4_ME_4A6EAB540196 // CompareItemWithData
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_AbstactChatWindowList_'
+ UP extprop:pas:UnitName 'AbstactChatWindowList.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas'
+
+ENDME // ME_4A6EAB540196 AbstactChatWindowList

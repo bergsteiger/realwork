@@ -19,7 +19,7 @@ ME ME_51C2C82A00A1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88CB3E009C // PrimListInfoOptions
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_51C2C82A00A1 
@@ -99,6 +99,11 @@ ME ME_49EDFA3701B0_ME_4C88CB3E009C
  UP "ShowInToolbar" False
 ENDME // ME_49EDFA3701B0_ME_4C88CB3E009C Paste
 
+%%ImplementedBy ME_4951282D0269 ME_4C88CB3E009C
+%%ImplementedBy ME_49521D8203A0 ME_4C88CB3E009C
+
+%%InheritedBy ME_497DEC900012 ME_4C88CB3E009C
+
 ME ME_4C88CB3E009C
  MEPROP UID '4C88CB3E009C'
  MEPROP Name 'PrimListInfoOptions'
@@ -108,10 +113,10 @@ ME ME_4C88CB3E009C
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ MELINK Parent WL? 'ME_497DDB0A0168' // List
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497DEC900012' '497DEC900012.ms.model.script' // PrimListInfo
+   Seq: ( WL? 'ME_497DEC900012' // PrimListInfo
  )
  ; // Inherits
  MELIST Implements
@@ -132,6 +137,9 @@ ME ME_4C88CB3E009C
  ME_51C2C82A00A1 // afwFacade
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

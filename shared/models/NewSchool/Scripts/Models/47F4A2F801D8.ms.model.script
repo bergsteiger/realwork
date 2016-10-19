@@ -39,7 +39,7 @@ ME ME_49365AB50258
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F4A2F801D8 // TsdsDrugDocument
  ;
- MELINK Target WL 'ME_492D854C0189' '492D854C0189.ms.model.script' // TdsBaseContents
+ MELINK Target WL? 'ME_492D854C0189' // TdsBaseContents
  ;
 
 ENDME // ME_49365AB50258 
@@ -49,7 +49,7 @@ ME ME_49365AE102FB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F4A2F801D8 // TsdsDrugDocument
  ;
- MELINK Target WL 'ME_491D89A001A9' '491D89A001A9.ms.model.script' // TdsDrugDocument
+ MELINK Target WL? 'ME_491D89A001A9' // TdsDrugDocument
  ;
 
 ENDME // ME_49365AE102FB 
@@ -69,13 +69,13 @@ ME ME_49365C3902AF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F4A2F801D8 // TsdsDrugDocument
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_49365C3902AF 
 
 ME ME_47F3778403D9_ME_47F4A2F801D8
- MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ MELINK Original WL 'ME_47F3778403D9' '47F37723017A.ms.model.script' // MakeData
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47F3778403D9_ME_47F4A2F801D8 MakeData
@@ -102,13 +102,13 @@ ME ME_500CEEBD01CB_ME_47F4A2F801D8
 ENDME // ME_500CEEBD01CB_ME_47F4A2F801D8 dsContents
 
 ME ME_47EA4E9002C6_ME_47F4A2F801D8
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_47F4A2F801D8 FinishDataUpdate
 
 ME ME_47F37DF001FE_ME_47F4A2F801D8
- MELINK Original WL 'ME_47F37DF001FE' '47D0E1500033.ms.model.script' // DataExchange
+ MELINK Original WL 'ME_47F37DF001FE' '47F37723017A.ms.model.script' // DataExchange
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47F37DF001FE_ME_47F4A2F801D8 DataExchange
@@ -125,6 +125,12 @@ ME ME_493D51ED0329_ME_47F4A2F801D8
  MEPROP OpKind opkind_Overridden
 ENDME // ME_493D51ED0329_ME_47F4A2F801D8 FillState
 
+%%ImplementedBy ME_47EA4BEF0140 ME_47F4A2F801D8
+%%ImplementedBy ME_4953C95E038F ME_47F4A2F801D8
+%%ImplementedBy ME_4DF9B9980075 ME_47F4A2F801D8
+
+%%InheritedBy ME_47F075CD00DC ME_47F4A2F801D8
+
 ME ME_47F4A2F801D8
  MEPROP UID '47F4A2F801D8'
  MEPROP Name 'TsdsDrugDocument'
@@ -135,16 +141,16 @@ ME ME_47F4A2F801D8
  %SUMMARY 'Базовый для списка препаратов и описания препаратов.' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_47F075910035' '47F075910035.ms.model.script' // sdsDrugDocument
+ MELINK Parent WL? 'ME_47F075910035' // sdsDrugDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F075CD00DC' '47F075CD00DC.ms.model.script' // sdsBaseDrugDocument
+   Seq: ( WL? 'ME_47F075CD00DC' // sdsBaseDrugDocument
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BB502F9.ms.model.script' // afwApplicationDataUpdate
+   Seq: ( WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
  WL 'ME_4953C95E038F' '491D7C9603B2.ms.model.script' // IsdsDrugDocument
- WL 'ME_4DF9B9980075' '47EA50050263.ms.model.script' // nsOpenContents
+ WL? 'ME_4DF9B9980075' // nsOpenContents
  )
  ; // Implements
  MELIST Attributes
@@ -173,6 +179,9 @@ ME ME_47F4A2F801D8
  ME_49365C3902AF // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "no hands" True
  UP extprop:pas:UnitName 'sdsDrugDocument'
  UP extprop:rc:isAcceptableForScripts True

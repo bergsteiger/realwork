@@ -26,6 +26,8 @@ ME ME_496F344101D0_ME_496F3F2500A8
  UP "pm" False
 ENDME // ME_496F344101D0_ME_496F3F2500A8 CanRunBaseSearch
 
+%%ImplementedBy ME_496F33D900C1 ME_496F3F2500A8
+
 ME ME_496F3F2500A8
  MEPROP UID '496F3F2500A8'
  MEPROP Name 'dsBaseSearchSupportQuery'
@@ -36,7 +38,7 @@ ME ME_496F3F2500A8
  %SUMMARY 'Примесь, реализующая абстрактный интерфейс BaseSearchSupportQuery' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
  ;
  MELIST Implements
    Seq: ( WL 'ME_496F33D900C1' '491B305A0096.ms.model.script' // BaseSearchSupportQuery
@@ -50,6 +52,9 @@ ME ME_496F3F2500A8
    Seq: ( ME_496F344101D0_ME_496F3F2500A8 // CanRunBaseSearch
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP extprop:pas:TypeName '_dsBaseSearchSupportQuery_'

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD6FFA702F6
+%%Inner ME_4BD6FFBA008E
+
 FORWARD ME_4AC4ED6801F3
 
 ME ME_4BD6FFA702F6
@@ -22,6 +25,8 @@ ME ME_4BD6FFA702F6
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admCreateGroup_UserType.pas'
 
 ENDME // ME_4BD6FFA702F6 admCreateGroup
+
+%%InheritedBy ME_4BD6FFA702F6 ME_4BD6FFBA008E
 
 ME ME_4BD6FFBA008E
  MEPROP UID '4BD6FFBA008E'
@@ -126,7 +131,7 @@ ME ME_4AC5F6AA034C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
  ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
  ;
 
 ENDME // ME_4AC5F6AA034C 
@@ -136,7 +141,7 @@ ME ME_4AC5F816011B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_4AC5F816011B 
@@ -156,7 +161,7 @@ ME ME_523990DF013F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AC4ED6801F3 // PrimGroupProperty
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
  ;
 
 ENDME // ME_523990DF013F 
@@ -224,16 +229,21 @@ ME ME_4C762AB601E1_ME_4AC4ED6801F3
 ENDME // ME_4C762AB601E1_ME_4AC4ED6801F3 Cancel
 
 ME ME_479731C50290_ME_4AC4ED6801F3
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AC4ED6801F3 Cleanup
 
 ME ME_4A8E8F2E0195_ME_4AC4ED6801F3
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4AC4ED6801F3 InitControls
+
+%%ImplementedBy ME_4A8AD409003A ME_4AC4ED6801F3
+%%ImplementedBy ME_4A97EBC80201 ME_4AC4ED6801F3
+
+%%InheritedBy ME_49525B34022A ME_4AC4ED6801F3
 
 ME ME_4AC4ED6801F3
  MEPROP UID '4AC4ED6801F3'
@@ -245,7 +255,7 @@ ME ME_4AC4ED6801F3
  %SUMMARY 'Свойства группы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_49480CD20303' '49480CD20303.ms.model.script' // Admin
+ MELINK Parent WL? 'ME_49480CD20303' // Admin
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
@@ -290,6 +300,9 @@ ME ME_4AC4ED6801F3
  ME_523990DF013F // Forms
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" False

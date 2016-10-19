@@ -1,0 +1,171 @@
+// atHasStringParamAddOn 5036475001FC Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5036475001FC
+
+ME ME_503653FC008D
+ MEPROP UID '503653FC008D'
+ MEPROP Name 'f_Strings'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_5037CED40333' '48076E7F0260.ms.model.script' // TatStringProvider
+ ;
+
+ENDME // ME_503653FC008D f_Strings
+
+FORWARD ME_503648620273
+
+ME ME_503648750071
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_503648750071 aString
+
+ME ME_503648620273
+ MEPROP UID '503648620273'
+ MEPROP Name 'OnString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_503648750071 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_503648620273 OnString
+
+ME ME_5036545B039D
+ MEPROP UID '5036545B039D'
+ MEPROP Name 'InitStringList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5036545B039D InitStringList
+
+ME ME_50367C1A0025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_50367C1A0025 
+
+ME ME_5037D3460246
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_502A4763011B' '48076E7F0260.ms.model.script' // TatSyncedStringFileReader
+ ;
+
+ENDME // ME_5037D3460246 
+
+ME ME_5037D34C0172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_502A45570012' '48076E7F0260.ms.model.script' // TatStringFileReader
+ ;
+
+ENDME // ME_5037D34C0172 
+
+ME ME_5037D34F0267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5036475001FC // atHasStringParamAddOn
+ ;
+ MELINK Target WL 'ME_5037D1DF03D8' '48076E7F0260.ms.model.script' // TatConstStringProvider
+ ;
+
+ENDME // ME_5037D34F0267 
+
+ME ME_48089F460352_ME_5036475001FC
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48089F460352_ME_5036475001FC ExecuteSelf
+
+ME ME_479731C50290_ME_5036475001FC
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5036475001FC Cleanup
+
+ME ME_48089F3701B4_ME_5036475001FC
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48089F3701B4_ME_5036475001FC InitParamList
+
+%%ImplementedBy ME_4FD0D8A60276 ME_5036475001FC
+
+ME ME_5036475001FC
+ MEPROP UID '5036475001FC'
+ MEPROP Name 'atHasStringParamAddOn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_503653FC008D // f_Strings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_503648620273 // OnString
+ HWL ME_5036545B039D // InitStringList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_5036475001FC // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5036475001FC // Cleanup
+ ME_48089F3701B4_ME_5036475001FC // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50367C1A0025 // SysUtils
+ ME_5037D3460246 // TatSyncedStringFileReader
+ ME_5037D34C0172 // TatStringFileReader
+ ME_5037D34F0267 // TatConstStringProvider
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_atHasStringParamAddOn_'
+ UP extprop:pas:UnitName 'atHasStringParamAddOn.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas'
+
+ENDME // ME_5036475001FC atHasStringParamAddOn

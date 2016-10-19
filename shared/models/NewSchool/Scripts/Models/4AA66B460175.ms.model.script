@@ -2,47 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA66B460175
-
-FORWARD ME_4AA790E300D4
-
-ME ME_4AAA2F3A005E
- MEPROP UID '4AAA2F3A005E'
- MEPROP Name 'TnsRubricatorRes'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AA790E300D4 // RubricatorRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'RubricatorRes'
-
-ENDME // ME_4AAA2F3A005E TnsRubricatorRes
-
-ME ME_4AA790E300D4
- MEPROP UID '4AA790E300D4'
- MEPROP Name 'RubricatorRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AA66B460175 // Rubricator
- ;
- MELIST Children
-   Seq: ( HWL ME_4AAA2F3A005E // TnsRubricatorRes
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator\NOT_FINISHED_RubricatorRes.pas'
-
-ENDME // ME_4AA790E300D4 RubricatorRes
+%%Inner ME_4AA68CA10101
+%%Inner ME_4AA67768038F
+%%Inner ME_4AA790E300D4
 
 ME ME_4AA66B460175
  MEPROP UID '4AA66B460175'
@@ -52,63 +14,66 @@ ME ME_4AA66B460175
  MELINK Stereotype st_VCMModule ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA66B2C02FC' '4AA66B2C02FC.ms.model.script' // View
+ MELINK Parent WL? 'ME_4AA66B2C02FC' // View
  ;
  MELIST Children
-   Seq: ( WL 'ME_4AA68CA10101' '4AA68CA10101.ms.model.script' // PrimRubricator
- WL 'ME_4AA67768038F' '4AA67768038F.ms.model.script' // Rubricator
- HWL ME_4AA790E300D4 // RubricatorRes
+   Seq: ( WL? 'ME_4AA68CA10101' // PrimRubricator
+ WL? 'ME_4AA67768038F' // Rubricator
+ WL? 'ME_4AA790E300D4' // RubricatorRes
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
- WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
- WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
- WL 'ME_47542EA70394' '47542EA70394.ms.model.script' // eeTextSource
- WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
- WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
- WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
- WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
- WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
- WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
- WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
- WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
- WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
- WL 'ME_4907236C0171' '4907236C0171.ms.model.script' // Rubricator
- WL 'ME_494F898C013E' '494F898C013E.ms.model.script' // Usual
- WL 'ME_499C2614028C' '499C2614028C.ms.model.script' // Tree
- WL 'ME_4A251D6E00BD' '4A251D6E00BD.ms.model.script' // nevNavigation
- WL 'ME_4A9807DB01A5' '4A9807DB01A5.ms.model.script' // Strange
- WL 'ME_4AA7800100B4' '4AA7800100B4.ms.model.script' // Rubricator
- WL 'ME_4AA7A7EB0328' '4AA7A7EB0328.ms.model.script' // Rubricator
- WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
- WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4AEEE2A40281' '4AEEE2A40281.ms.model.script' // Strange
- WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
- WL 'ME_4BD856E802F9' '4BD856E802F9.ms.model.script' // FormDefinitions
- WL 'ME_4BDAF7510113' '4BDAF7510113.ms.model.script' // Tree
- WL 'ME_4C4432FA016A' '4C4432FA016A.ms.model.script' // Strange
- WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.ms.model.script' // DocInfo
- WL 'ME_4DD24BD40021' '4DD24BD40021.ms.model.script' // MainMenu
- WL 'ME_4E1352A60292' '4E1352A60292.ms.model.script' // Editors
- WL 'ME_4E365B6002CA' '4E365B6002CA.ms.model.script' // Отображение списков
- WL 'ME_4E7AFECB03CB' '4E7AFECB03CB.ms.model.script' // RubricatorInterfaces
- WL 'ME_4F4B8FA60272' '4F4B8FA60272.ms.model.script' // Implementation
- WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
- WL 'ME_53A402C7010D' '53A402C7010D.ms.model.script' // TabbedInterfaceSupport
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
- WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
- WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_456EA56002BF' // BaseTypes
+ WL? 'ME_45700BFD0251' // DynamicDocList
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_457450470167' // DynamicTree
+ WL? 'ME_467BAB7F021E' // vcmExternalInterfaces
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_4683F37902CF' // vcmInterfaces
+ WL? 'ME_47542EA70394' // eeTextSource
+ WL? 'ME_476BE0350329' // Styles
+ WL? 'ME_47750CE700D0' // afwFacade
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_4799D29F033F' // Implementation
+ WL? 'ME_47D036150077' // l3ControlsTypes
+ WL? 'ME_47D0E1500033' // Implementation
+ WL? 'ME_47EA07FA02CE' // bsTypes
+ WL? 'ME_47F2170002B2' // nsTypes
+ WL? 'ME_4829D7D50156' // Editors
+ WL? 'ME_484A470100DD' // Standard
+ WL? 'ME_48F747EC0073' // Common
+ WL? 'ME_4907236C0171' // Rubricator
+ WL? 'ME_494F898C013E' // Usual
+ WL? 'ME_499C2614028C' // Tree
+ WL? 'ME_4A251D6E00BD' // nevNavigation
+ WL? 'ME_4A9807DB01A5' // Strange
+ WL? 'ME_4AA7800100B4' // Rubricator
+ WL? 'ME_4AA7A7EB0328' // Rubricator
+ WL? 'ME_4AADF9450143' // Visual
+ WL? 'ME_4AB0997B00A2' // Common
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4AEEE2A40281' // Strange
+ WL? 'ME_4B97E7FD006C' // Outliner
+ WL? 'ME_4BD856E802F9' // FormDefinitions
+ WL? 'ME_4BDAF7510113' // Tree
+ WL? 'ME_4C4432FA016A' // Strange
+ WL? 'ME_4C6ABB3201AC' // DocInfo
+ WL? 'ME_4DD24BD40021' // MainMenu
+ WL? 'ME_4E1352A60292' // Editors
+ WL? 'ME_4E365B6002CA' // Отображение списков
+ WL? 'ME_4E7AFECB03CB' // RubricatorInterfaces
+ WL? 'ME_4F4B8FA60272' // Implementation
+ WL? 'ME_533D53FF00C2' // Visual$ChromeLike
+ WL? 'ME_53A402C7010D' // TabbedInterfaceSupport
+ WL? 'ME_54B90AC6014B' // StringUtils
+ WL? 'ME_55C4AEC801CA' // Graphics
+ WL? 'ME_5795D66F0385' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Rubricator'
 
 ENDME // ME_4AA66B460175 Rubricator

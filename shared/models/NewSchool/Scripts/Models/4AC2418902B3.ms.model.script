@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AC241AC01FC
+
 ME ME_4AC2418902B3
  MEPROP UID '4AC2418902B3'
  MEPROP Name 'Medic'
@@ -10,18 +12,21 @@ ME ME_4AC2418902B3
  MELINK Stereotype st_VCMControllers ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A92C561015D' '4A92C561015D.ms.model.script' // Common
+ MELINK Parent WL? 'ME_4A92C561015D' // Common
  ;
  MELIST Children
-   Seq: ( WL 'ME_4AC241AC01FC' '4AC241AC01FC.ms.model.script' // InpharmInterfaces
+   Seq: ( WL? 'ME_4AC241AC01FC' // InpharmInterfaces
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4680C57D01E9' '4680C57D01E9.ms.model.script' // Business
- WL 'ME_4D1B64E70031' '4D1B64E70031.ms.model.script' // BusinessInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4680C57D01E9' // Business
+ WL? 'ME_4D1B64E70031' // BusinessInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'prj'
  UP "is namespace" True

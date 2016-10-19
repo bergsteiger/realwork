@@ -13,7 +13,7 @@ ME ME_49218B2202BC
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_492189D90209 // TdsWarning
  ;
- MELINK Target WL 'ME_4921866C01A1' '47F2170002B2.ms.model.script' // TWarningTypeSet
+ MELINK Target WL 'ME_4921866C01A1' '4A6854C70390.ms.model.script' // TWarningTypeSet
  ;
 
 ENDME // ME_49218B2202BC f_WarningContent
@@ -97,7 +97,7 @@ ME ME_4EF484F602A1
  MEPROP Name 'aUserType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4EF484F602A1 aUserType
@@ -110,7 +110,7 @@ ME ME_4EF484CE038A
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4EF4849D01C9 // DoGenerateWarning
  ;
- MELINK Target WL 'ME_4921866C01A1' '47F2170002B2.ms.model.script' // TWarningTypeSet
+ MELINK Target WL 'ME_4921866C01A1' '4A6854C70390.ms.model.script' // TWarningTypeSet
  ;
  MELIST Parameters
    Seq: ( ME_4EF484F60251 // aGenerator
@@ -147,7 +147,7 @@ ME ME_4EFC5A73025F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4EFC5A6501C9 // GetIsForSynchroView
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4EFC5A73025F DoIt
@@ -198,10 +198,14 @@ ME ME_4EFC5A31016E_ME_492189D90209
 ENDME // ME_4EFC5A31016E_ME_492189D90209 ForSynchroView
 
 ME ME_479731C50290_ME_492189D90209
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_492189D90209 Cleanup
+
+%%ImplementedBy ME_4921869901CF ME_492189D90209
+
+%%InheritedBy ME_47ECE94D03D4 ME_492189D90209
 
 ME ME_492189D90209
  MEPROP UID '492189D90209'
@@ -212,10 +216,10 @@ ME ME_492189D90209
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
@@ -245,6 +249,9 @@ ME ME_492189D90209
    Seq: ( ME_479731C50290_ME_492189D90209 // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Тучнин Д.А.'
  UP "no hands" True
  UP "started" '21.09.2005 11.30'

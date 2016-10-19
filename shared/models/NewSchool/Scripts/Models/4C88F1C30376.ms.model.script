@@ -14,7 +14,7 @@ ME ME_4C8A05F9008B
  MEPROP Name 'aComboBox'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_4AC63691012B' '4AC63691012B.ms.model.script' // TnscComboBox
+ MELINK Target WL? 'ME_4AC63691012B' // TnscComboBox
  ;
 
 ENDME // ME_4C8A05F9008B aComboBox
@@ -59,7 +59,7 @@ ME ME_4C89FF6C0024
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4C89FF5C0352 // SaveAdminInfo
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4C89FF6C0024 DoIt
@@ -93,6 +93,9 @@ ME ME_4C89FF5C0352
    Seq: ( ME_4C8A0273038A // EdsMaxLengthExceed
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C89FF5C0352 SaveAdminInfo
 
@@ -101,7 +104,7 @@ ME ME_4C88F34E02E3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
  ;
- MELINK Target WL 'ME_4C88F33402E6' '48F747EC0073.ms.model.script' // nsEmailVerify
+ MELINK Target WL 'ME_4C88F33402E6' '4C88F30900A7.ms.model.script' // nsEmailVerify
  ;
 
 ENDME // ME_4C88F34E02E3 
@@ -111,7 +114,7 @@ ME ME_4C89FEAB039F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88F1C30376 // PrimForbidAutoregistrationOptions
  ;
- MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
  ;
 
 ENDME // ME_4C89FEAB039F 
@@ -156,6 +159,11 @@ ME ME_4C762C910358_ME_4C88F1C30376
  UP "ShowInToolbar" True
 ENDME // ME_4C762C910358_ME_4C88F1C30376 Cancel
 
+%%ImplementedBy ME_4A97EBC80201 ME_4C88F1C30376
+%%ImplementedBy ME_4AC5D5FB0293 ME_4C88F1C30376
+
+%%InheritedBy ME_497ED39B034F ME_4C88F1C30376
+
 ME ME_4C88F1C30376
  MEPROP UID '4C88F1C30376'
  MEPROP Name 'PrimForbidAutoregistrationOptions'
@@ -165,10 +173,10 @@ ME ME_4C88F1C30376
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_49480CD20303' '49480CD20303.ms.model.script' // Admin
+ MELINK Parent WL? 'ME_49480CD20303' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497ED39B034F' '497ED39B034F.ms.model.script' // PrimForbidAutoregistration
+   Seq: ( WL? 'ME_497ED39B034F' // PrimForbidAutoregistration
  )
  ; // Inherits
  MELIST Implements
@@ -191,6 +199,9 @@ ME ME_4C88F1C30376
  ME_51C32F55023C // Result$Ok
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

@@ -36,6 +36,8 @@ ME ME_4C6AB38800F3_ME_491D8571015D
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C6AB38800F3_ME_491D8571015D MakeContainer
 
+%%InheritedBy ME_4926CAF40166 ME_491D8571015D
+
 ME ME_491D8571015D
  MEPROP UID '491D8571015D'
  MEPROP Name 'TdsMedicDictionDocument'
@@ -46,10 +48,10 @@ ME ME_491D8571015D
  %SUMMARY 'для словаря медицинских терминов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.ms.model.script' // dsBaseDocument
+   Seq: ( WL? 'ME_4926CAF40166' // dsBaseDocument
  )
  ; // Inherits
  MELIST Overridden
@@ -62,6 +64,9 @@ ME ME_491D8571015D
  ME_4D3598CC00F1 // TnsF1DocumentContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/06 10:02:57'

@@ -21,16 +21,21 @@ ME ME_4A84277D0171
 ENDME // ME_4A84277D0171 CompareEditions
 
 ME ME_479731C50290_ME_4A71859C0249
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4A71859C0249 Cleanup
 
 ME ME_47A042E100E2_ME_4A71859C0249
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4A71859C0249 InitFields
+
+%%ImplementedBy ME_4B548BE50138 ME_4A71859C0249
+%%ImplementedBy ME_4B549304002F ME_4A71859C0249
+
+%%InheritedBy ME_492ACB4100B2 ME_4A71859C0249
 
 ME ME_4A71859C0249
  MEPROP UID '4A71859C0249'
@@ -42,14 +47,14 @@ ME ME_4A71859C0249
  %SUMMARY 'Базовая область ввода, для работы с редакциями' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+   Seq: ( WL? 'ME_492ACB4100B2' // vcmFormDataSource
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4B548BE50138' '4A717F3D0221.ms.model.script' // VScroll
+   Seq: ( WL? 'ME_4B548BE50138' // VScroll
  WL 'ME_4B549304002F' '4A6D56B00065.ms.model.script' // IdsEdition
  )
  ; // Implements
@@ -62,6 +67,9 @@ ME ME_4A71859C0249
  ME_47A042E100E2_ME_4A71859C0249 // InitFields
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '30.07.2009 15:51'

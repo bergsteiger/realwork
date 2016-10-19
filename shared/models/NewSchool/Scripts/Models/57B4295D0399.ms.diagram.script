@@ -6,19 +6,31 @@ MEDIAGRAMS ME_57B4295D0399_diagrams
 
  MEDIAGRAM ME_57B4295D0399_main
   MEPROP Name 'main'
-  MELINK Original WL 'ME_57B4295D0399' '57B4295D0399.ms.model.script' ; // msm$MVC$DefaultRealization
+  MELINK Original WL? 'ME_57B4295D0399' ; // msm$MVC$DefaultRealization
+
+  MEVIEW ME_57FF348E0031_view
+   MELINK Original WL? 'ME_57FF348E0031' ; // msmDefaultModels
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57FF348E0031_view
 
   MEVIEW ME_57B42D1A0044_view
-   MELINK Original WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' ; // DefaultUsedControls
-   MEPROP X 40
+   MELINK Original WL? 'ME_57B42D1A0044' ; // DefaultUsedControls
+   MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_57B42D1A0044_view
 
   MEVIEW ME_57B41F3C01C4_view
-   MELINK Original WL 'ME_57B41F3C01C4' '57B41F3C01C4.ms.model.script' ; // ViewParents
-   MEPROP X 200
+   MELINK Original WL? 'ME_57B41F3C01C4' ; // ViewParents
+   MEPROP X 360
    MEPROP Y 40
   ENDMEVIEW // ME_57B41F3C01C4_view
+
+  MEVIEWLINK ME_57B42D1A0044_ME_57FF348E0031_Depends
+   MELINK From ME_57B42D1A0044_view ;
+   MELINK To ME_57FF348E0031_view ;
+   MEPROP Class class_Depends
+  ENDMEVIEWLINK // ME_57B42D1A0044_ME_57FF348E0031_Depends
 
   MEVIEWLINK ME_57B41F3C01C4_ME_57B42D1A0044_Depends
    MELINK From ME_57B41F3C01C4_view ;
@@ -27,8 +39,10 @@ MEDIAGRAMS ME_57B4295D0399_diagrams
   ENDMEVIEWLINK // ME_57B41F3C01C4_ME_57B42D1A0044_Depends
 
   MELIST Views
-   Seq: ( ME_57B42D1A0044_view // DefaultUsedControls
+   Seq: ( ME_57FF348E0031_view // msmDefaultModels
+   ME_57B42D1A0044_view // DefaultUsedControls
    ME_57B41F3C01C4_view // ViewParents
+   ME_57B42D1A0044_ME_57FF348E0031_Depends // DefaultUsedControls -> msmDefaultModels
    ME_57B41F3C01C4_ME_57B42D1A0044_Depends // ViewParents -> DefaultUsedControls
    )
   ; // Views

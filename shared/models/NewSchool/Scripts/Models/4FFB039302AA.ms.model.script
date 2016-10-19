@@ -2,7 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD71CAC000C
+%%Inner ME_4BD71CDB00F5
+
 FORWARD ME_4FFB039302AA
+
+%%ImplementedBy ME_4E7A0C450082 ME_4BD71CAC000C
 
 ME ME_4BD71CAC000C
  MEPROP UID '4BD71CAC000C'
@@ -27,6 +32,10 @@ ME ME_4BD71CAC000C
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utContents_UserType.pas'
 
 ENDME // ME_4BD71CAC000C utContents
+
+%%ImplementedBy ME_4E7A0C450082 ME_4BD71CDB00F5
+
+%%InheritedBy ME_4BD71CAC000C ME_4BD71CDB00F5
 
 ME ME_4BD71CDB00F5
  MEPROP UID '4BD71CDB00F5'
@@ -65,13 +74,16 @@ ME ME_4FFB039302AA
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Children
    Seq: ( HWL ME_4BD71CAC000C // utContents
  HWL ME_4BD71CDB00F5 // utDrugContents
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

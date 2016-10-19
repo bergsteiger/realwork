@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4C37169C011A
+%%Inner ME_4C3AA92A01D4
+%%Inner ME_4C5290D201E9
+%%Inner ME_4C529134007A
+%%Inner ME_4F82C5C203C3
+%%Inner ME_53DB36C803C8
+%%Inner ME_53DB37120121
+
 FORWARD ME_4C371629008F
 
 FORWARD ME_4C37169C011A
@@ -61,6 +69,9 @@ ME ME_4C7D391C010B
  HWL ME_4C7D394C001D // Descending
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -196,6 +207,9 @@ ME ME_545B9440035C
  HWL ME_545B946802CE // Descending
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "ContextMenuWeight" 30
@@ -511,6 +525,9 @@ ME ME_4C37169C011A
  HWL ME_53DB376C0239 // Analize
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C37169C011A List
 
@@ -716,6 +733,9 @@ ME ME_4F82C5C203C3
    Seq: ( HWL ME_4F82C5D50033 // WorkWithList
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4F82C5C203C3 List$WorkWithList
 
@@ -817,6 +837,9 @@ ME ME_551D2A900072
    Seq: ( HWL ME_551D2B1B0013 // RemoveFromControl
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -865,6 +888,9 @@ ME ME_53DB37120121
  HWL ME_53DB37280279 // MakeHyperlinkToDocument
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_53DB37120121 SelectedDocuments
 
@@ -876,7 +902,7 @@ ME ME_4C371629008F
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9BEFA00301' '4A9BEFA00301.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A9BEFA00301' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4C37169C011A // List
@@ -889,9 +915,12 @@ ME ME_4C371629008F
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'WorkWithList_ListOperations_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_ListOperations_Controls.pas'

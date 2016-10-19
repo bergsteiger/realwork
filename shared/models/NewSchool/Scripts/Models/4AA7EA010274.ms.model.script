@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_65A08EE64C38
+
 FORWARD ME_65A08EE64C38
 
 FORWARD ME_4AA7EA010274
@@ -76,6 +78,10 @@ ME ME_4ADC51AB0001
 
 ENDME // ME_4ADC51AB0001 
 
+%%ImplementedBy ME_65A08EE64C38 ME_4AA7EA010274
+
+%%InheritedBy ME_4F7DAC14027A ME_4AA7EA010274
+
 ME ME_4AA7EA010274
  MEPROP UID '4AA7EA010274'
  MEPROP Name 'MainWindow'
@@ -86,10 +92,10 @@ ME ME_4AA7EA010274
  %SUMMARY 'Гарант' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A925AFF01BA' '4A925AFF01BA.ms.model.script' // PrimNemesis
+ MELINK Parent WL? 'ME_4A925AFF01BA' // PrimNemesis
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F7DAC14027A' '4F7DAC14027A.ms.model.script' // MainWithReminders
+   Seq: ( WL? 'ME_4F7DAC14027A' // MainWithReminders
  )
  ; // Inherits
  MELIST Implements
@@ -110,6 +116,9 @@ ME ME_4AA7EA010274
  ME_4ADC51AB0001 // TnsWindowsList
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "form name prefix" 'ns'
  UP "NeedsHackRef" True

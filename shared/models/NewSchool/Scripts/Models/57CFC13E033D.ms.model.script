@@ -445,7 +445,7 @@ ME ME_57E3BE4A0271
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
  ;
- MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
  ;
 
 ENDME // ME_57E3BE4A0271 
@@ -690,7 +690,7 @@ ME ME_57EBA31703B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57EBA2190344 // TarRemoteMultiClearAttributesHelper
  ;
- MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
  ;
 
 ENDME // ME_57EBA31703B3 
@@ -847,7 +847,7 @@ ME ME_57EE60AB0172
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
  ;
- MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
  ;
 
 ENDME // ME_57EE60AB0172 
@@ -908,6 +908,24 @@ ME ME_57ED15AC02A7_ME_57EE4A3201F3
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57ED15AC02A7_ME_57EE4A3201F3 ModifyDocs
 
+ME ME_57FB778D0148_ME_57EE4A3201F3
+ MELINK Original WL 'ME_57FB778D0148' '57E2336703B0.ms.model.script' // HasErrorDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FB778D0148_ME_57EE4A3201F3 HasErrorDocs
+
+ME ME_57FB77AB0147_ME_57EE4A3201F3
+ MELINK Original WL 'ME_57FB77AB0147' '57E2336703B0.ms.model.script' // FillErrorDocsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FB77AB0147_ME_57EE4A3201F3 FillErrorDocsList
+
+ME ME_57FDE80903AE_ME_57EE4A3201F3
+ MELINK Original WL 'ME_57FDE80903AE' '57E2336703B0.ms.model.script' // ProcessedDocsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57FDE80903AE_ME_57EE4A3201F3 ProcessedDocsCount
+
 ME ME_479731C50290_ME_57EE4A3201F3
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
@@ -941,6 +959,9 @@ ME ME_57EE4A3201F3
  ; // Operations
  MELIST Implemented
    Seq: ( ME_57ED15AC02A7_ME_57EE4A3201F3 // ModifyDocs
+ ME_57FB778D0148_ME_57EE4A3201F3 // HasErrorDocs
+ ME_57FB77AB0147_ME_57EE4A3201F3 // FillErrorDocsList
+ ME_57FDE80903AE_ME_57EE4A3201F3 // ProcessedDocsCount
  )
  ; // Implemented
  MELIST Overridden
@@ -974,7 +995,7 @@ ME ME_57CFC13E033D
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_545C744800D9' '545C744800D9.ms.model.script' // Processing
+ MELINK Parent WL? 'ME_545C744800D9' // Processing
  ;
  MELIST Children
    Seq: ( HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
@@ -984,31 +1005,31 @@ ME ME_57CFC13E033D
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
- WL 'ME_4720831F012D' '4720831F012D.ms.model.script' // m3DBInterfaces
- WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
- WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
- WL 'ME_47ECA80B000D' '47ECA80B000D.ms.model.script' // Generators
- WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
- WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
- WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
- WL 'ME_519A10AF03DE' '519A10AF03DE.ms.model.script' // dt_Const
- WL 'ME_519B70FC02AB' '519B70FC02AB.ms.model.script' // DataAccess
- WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
- WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
- WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
- WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
- WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
- WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
- WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
- WL 'ME_57C686B70253' '57C686B70253.ms.model.script' // DocStreamTransfer
- WL 'ME_57CFC1D401B7' '57CFC1D401B7.ms.model.script' // ClientServer
- WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' // DocTransfer
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4678193C009C' // l3Types
+ WL? 'ME_4720831F012D' // m3DBInterfaces
+ WL? 'ME_4742C9DB033A' // m3DB
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_47BC51FE018B' // dt_Types
+ WL? 'ME_47D0290B016D' // l3Utils
+ WL? 'ME_47ECA80B000D' // Generators
+ WL? 'ME_47ECB8BD00A8' // Generators
+ WL? 'ME_484A470100DD' // Standard
+ WL? 'ME_4A6D65B9022A' // Containers
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4E4B99A60349' // Tools
+ WL? 'ME_519A10AF03DE' // dt_Const
+ WL? 'ME_519B70FC02AB' // DataAccess
+ WL? 'ME_519B797A0048' // Servers
+ WL? 'ME_51B1C73B0056' // ImportExport
+ WL? 'ME_5432448401BC' // daTypes
+ WL? 'ME_544E0148010D' // Messages
+ WL? 'ME_54F85B2500FB' // Provider
+ WL? 'ME_559D0BE101B4' // dtIntf
+ WL? 'ME_57BEAF780201' // l3MarshalledTypes
+ WL? 'ME_57C686B70253' // DocStreamTransfer
+ WL? 'ME_57CFC1D401B7' // ClientServer
+ WL? 'ME_57E2336703B0' // DocTransfer
  )
  ; // Depends
  MESTRINGLIST DiagramsNames

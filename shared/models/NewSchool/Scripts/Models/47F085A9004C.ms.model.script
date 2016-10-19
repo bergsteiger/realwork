@@ -1,0 +1,119 @@
+// dBaseDocumentWithAttributes 47F085A9004C Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F085A9004C
+
+ME ME_4B18134E01F8
+ MEPROP UID '4B18134E01F8'
+ MEPROP Name 'DoResetBooleans'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F085A9004C // dBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_4B18134E01F8 DoResetBooleans
+
+ME ME_4B193BEA0272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F085A9004C // dBaseDocumentWithAttributes
+ ;
+ MELINK Target WL? 'ME_4982B6510327' // vcmFormDataSourceRef
+ ;
+
+ENDME // ME_4B193BEA0272 
+
+ME ME_4B193D0E0381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F085A9004C // dBaseDocumentWithAttributes
+ ;
+ MELINK Target WL? 'ME_480F78BC0146' // l3Utils
+ ;
+
+ENDME // ME_4B193D0E0381 
+
+ME ME_4939245D0171_ME_47F085A9004C
+ MELINK Original WL 'ME_4939245D0171' '4D1B85BF03E4.ms.model.script' // ResetBooleans
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4939245D0171_ME_47F085A9004C ResetBooleans
+
+ME ME_958F281A6FD6_ME_47F085A9004C
+ MELINK Original WL 'ME_958F281A6FD6' '4D1B85BF03E4.ms.model.script' // dsAttributesRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" True
+ UP "pm" True
+ENDME // ME_958F281A6FD6_ME_47F085A9004C dsAttributesRef
+
+ME ME_E1561B99CC62_ME_47F085A9004C
+ MELINK Original WL 'ME_E1561B99CC62' '4D1B85BF03E4.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" True
+ UP "pm" True
+ENDME // ME_E1561B99CC62_ME_47F085A9004C HasAttributes
+
+ME ME_4B16B8CF0307_ME_47F085A9004C
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B16B8CF0307_ME_47F085A9004C AssignData
+
+%%ImplementedBy ME_47F085420325 ME_47F085A9004C
+
+%%InheritedBy ME_47EB3E2202E6 ME_47F085A9004C
+
+ME ME_47F085A9004C
+ MEPROP UID '47F085A9004C'
+ MEPROP Name 'dBaseDocumentWithAttributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные документа с атрибутами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_47EB3E2202E6' // dBaseDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.ms.model.script' // IdBaseDocumentWithAttributes
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B18134E01F8 // DoResetBooleans
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4939245D0171_ME_47F085A9004C // ResetBooleans
+ ME_958F281A6FD6_ME_47F085A9004C // dsAttributesRef
+ ME_E1561B99CC62_ME_47F085A9004C // HasAttributes
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B16B8CF0307_ME_47F085A9004C // AssignData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B193BEA0272 // vcmFormDataSourceRef
+ ME_4B193D0E0381 // l3Utils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '12.07.2006'
+ UP extprop:pas:TypeName '_dBaseDocumentWithAttributes_'
+ UP extprop:pas:UnitName 'dBaseDocumentWithAttributes.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas'
+
+ENDME // ME_47F085A9004C dBaseDocumentWithAttributes

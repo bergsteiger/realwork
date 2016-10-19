@@ -1,0 +1,63 @@
+// ucpHAFMacroReplacerFactory 4F546FD3028F Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F546FD3028F
+
+ME ME_4F54700F00D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F546FD3028F // ucpHAFMacroReplacerFactory
+ ;
+ MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
+ ;
+
+ENDME // ME_4F54700F00D2 
+
+ME ME_4AE56DE80093_ME_4F546FD3028F
+ MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AE56DE80093_ME_4F546FD3028F MakeHAFMacroReplacer
+
+%%ImplementedBy ME_4AE56DB003D5 ME_4F546FD3028F
+%%ImplementedBy ME_4F5470CE00CD ME_4F546FD3028F
+
+%%InheritedBy ME_4F54899502EA ME_4F546FD3028F
+
+ME ME_4F546FD3028F
+ MEPROP UID '4F546FD3028F'
+ MEPROP Name 'ucpHAFMacroReplacerFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F546F810266' // HAF
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_4F54899502EA' // deDocInfoProvider
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
+ WL 'ME_4F5470CE00CD' '48200CF8039E.ms.model.script' // ¬ колонтитулах должны уметь отображатьс€ им€ документа и дата редакции
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4AE56DE80093_ME_4F546FD3028F // MakeHAFMacroReplacer
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F54700F00D2 // TnsDocInfoHAFMacroReplacer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_ucpHAFMacroReplacerFactory_'
+ UP extprop:pas:UnitName 'ucpHAFMacroReplacerFactory.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas'
+
+ENDME // ME_4F546FD3028F ucpHAFMacroReplacerFactory

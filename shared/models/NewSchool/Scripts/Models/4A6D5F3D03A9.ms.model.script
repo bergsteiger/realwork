@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A6EC02E00EA
+%%Inner ME_4A6EC062005F
+%%Inner ME_4A6EC095039C
+%%Inner ME_4A6EBF8301FA
+
 FORWARD ME_4A6D5F3D03A9
 
 FORWARD ME_4B5F170E017C
@@ -48,7 +53,7 @@ ME ME_4E01FBAE022E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
  ;
- MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ MELINK Target WL? 'ME_4E01D696020C' // vcmMessagesSupport
  ;
 
 ENDME // ME_4E01FBAE022E 
@@ -58,7 +63,7 @@ ME ME_5214A159007F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
  ;
- MELINK Target WL 'ME_4BA763B0004B' '47F2170002B2.ms.model.script' // bsTypesNew
+ MELINK Target WL? 'ME_4BA763B0004B' // bsTypesNew
  ;
 
 ENDME // ME_5214A159007F 
@@ -78,7 +83,7 @@ ME ME_4B5F196303B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
  ;
- MELINK Target WL 'ME_4A9D129E00FA' '4AADF9450143.ms.model.script' // Say
+ MELINK Target WL 'ME_4A9D129E00FA' '4E01D696020C.ms.model.script' // Say
  ;
 
 ENDME // ME_4B5F196303B2 
@@ -108,7 +113,7 @@ ME ME_4A718B31012A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_4A718B31012A 
@@ -128,7 +133,7 @@ ME ME_4A71821C01D0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
  ;
- MELINK Target WL 'ME_4A7181A301E3' '4A7181A301E3.ms.model.script' // TsdsCompareEditions
+ MELINK Target WL? 'ME_4A7181A301E3' // TsdsCompareEditions
  ;
 
 ENDME // ME_4A71821C01D0 
@@ -142,13 +147,13 @@ ME ME_4A6D5F3D03A9
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A6D5A220389' // Editions
  ;
  MELIST Children
-   Seq: ( WL 'ME_4A6EC02E00EA' '4A6EC02E00EA.ms.model.script' // LeftEdition
- WL 'ME_4A6EC062005F' '4A6EC062005F.ms.model.script' // RightEdition
- WL 'ME_4A6EC095039C' '4A6EC095039C.ms.model.script' // EditionsContainer
- WL 'ME_4A6EBF8301FA' '4A6EBF8301FA.ms.model.script' // CompareEditions
+   Seq: ( WL? 'ME_4A6EC02E00EA' // LeftEdition
+ WL? 'ME_4A6EC062005F' // RightEdition
+ WL? 'ME_4A6EC095039C' // EditionsContainer
+ WL? 'ME_4A6EBF8301FA' // CompareEditions
  )
  ; // Children
  MELIST Constants
@@ -167,6 +172,9 @@ ME ME_4A6D5F3D03A9
  ME_4A71821C01D0 // TsdsCompareEditions
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '27.07.2009 12:03'

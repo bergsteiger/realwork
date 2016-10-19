@@ -1,0 +1,36 @@
+// nsIntegration 513607DC03D4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_513607DC03D4
+
+ME ME_51371DFC01C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_513607DC03D4 // nsIntegration
+ ;
+ MELINK Target WL? 'ME_51371A9402FA' // nsIntegrationModelPart
+ ;
+
+ENDME // ME_51371DFC01C0 
+
+ME ME_513607DC03D4
+ MEPROP UID '513607DC03D4'
+ MEPROP Name 'nsIntegration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_51360760006C' // Implementation
+ ;
+ MELIST Dependencies
+   Seq: ( ME_51371DFC01C0 // nsIntegrationModelPart
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:SelfName 'Integration'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\NOT_FINISHED_nsIntegration.pas'
+
+ENDME // ME_513607DC03D4 nsIntegration

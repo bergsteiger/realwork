@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54522FE602ED
+
 ME ME_54522F8A01A8
  MEPROP UID '54522F8A01A8'
  MEPROP Name 'Tree'
@@ -10,16 +12,19 @@ ME ME_54522F8A01A8
  MELINK Stereotype st_VCMModule ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ MELINK Parent WL? 'ME_4A78013D01CD' // View$For F1 and Monitorings
  ;
  MELIST Children
-   Seq: ( WL 'ME_54522FE602ED' '54522FE602ED.ms.model.script' // TnscTreeViewForNewsLine
+   Seq: ( WL? 'ME_54522FE602ED' // TnscTreeViewForNewsLine
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_52DE57B200A5' '52DE57B200A5.ms.model.script' // Tree$WithDnD
+   Seq: ( WL? 'ME_52DE57B200A5' // Tree$WithDnD
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Tree'
 
 ENDME // ME_54522F8A01A8 Tree

@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD6C82400DF
+%%Inner ME_4BD6C85300DB
+%%Inner ME_4C52ECB90313
+
 FORWARD ME_497EE1F10134
 
 ME ME_4BD6C82400DF
@@ -23,6 +27,8 @@ ME ME_4BD6C82400DF
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfDrugList_UserType.pas'
 
 ENDME // ME_4BD6C82400DF mlsfDrugList
+
+%%InheritedBy ME_4BD6C82400DF ME_4BD6C85300DB
 
 ME ME_4BD6C85300DB
  MEPROP UID '4BD6C85300DB'
@@ -49,6 +55,8 @@ ME ME_4BD6C85300DB
 ENDME // ME_4BD6C85300DB mlsfMedicFirm
 
 FORWARD ME_4C52EC3F027D
+
+%%InheritedBy ME_4C52EC3F027D ME_4C52ECB90313
 
 ME ME_4C52ECB90313
  MEPROP UID '4C52ECB90313'
@@ -112,7 +120,7 @@ ME ME_B0B84967D8F8
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_B0B84967D8F8 aSender
@@ -141,7 +149,7 @@ ME ME_4587846F006A
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4587846F006A aSender
@@ -188,7 +196,7 @@ ME ME_4C52F356010E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4C52F356010E 
@@ -198,7 +206,7 @@ ME ME_523FF50F0136
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
  ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ MELINK Target WL? 'ME_47E11FC3021E' // Controls
  ;
 
 ENDME // ME_523FF50F0136 
@@ -293,7 +301,7 @@ ME ME_4C7D37C20388_ME_497EE1F10134
 ENDME // ME_4C7D37C20388_ME_497EE1F10134 OpenList
 
 ME ME_4A8E8F2E0195_ME_497EE1F10134
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_497EE1F10134 InitControls
@@ -316,6 +324,11 @@ ME ME_4C52E81603A9_ME_497EE1F10134
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C52E81603A9_ME_497EE1F10134 PageInactive
 
+%%ImplementedBy ME_4AE9E3C2031C ME_497EE1F10134
+%%ImplementedBy ME_4C52E5C9005D ME_497EE1F10134
+
+%%InheritedBy ME_49525C240170 ME_497EE1F10134
+
 ME ME_497EE1F10134
  MEPROP UID '497EE1F10134'
  MEPROP Name 'PrimMedicListSynchroView'
@@ -326,7 +339,7 @@ ME ME_497EE1F10134
  %SUMMARY 'Синхронный просмотр' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E49A023A' '4958E49A023A.ms.model.script' // Inpharm
+ MELINK Parent WL? 'ME_4958E49A023A' // Inpharm
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
@@ -376,6 +389,9 @@ ME ME_497EE1F10134
  ME_523FF50F0136 // Controls
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

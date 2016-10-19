@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_496B539D02D5
+%%Inner ME_4AD849940213
+%%Inner ME_496B53D10104
+%%Inner ME_4AD825C703D8
+
 FORWARD ME_54F9F6FB0143
 
 FORWARD ME_496B539D02D5
@@ -219,6 +224,8 @@ ME ME_53B12CA900B8_ME_496B53D10104
  MEPROP OpKind opkind_Implemented
 ENDME // ME_53B12CA900B8_ME_496B53D10104 Clear
 
+%%ImplementedBy ME_4AD849940213 ME_496B53D10104
+
 ME ME_496B53D10104
  MEPROP UID '496B53D10104'
  MEPROP GUID 'F8992110-90FB-4A46-A23D-60C7F226D9FE'
@@ -306,7 +313,7 @@ ME ME_54F9F6FB0143
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_54F9EC3900D6' '54F9EC3900D6.ms.model.script' // ContextHistory
+ MELINK Parent WL? 'ME_54F9EC3900D6' // ContextHistory
  ;
  MELIST Children
    Seq: ( HWL ME_496B539D02D5 // InsContextSearchHistoryNotifier
@@ -316,10 +323,13 @@ ME ME_54F9F6FB0143
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_467BAB7F021E' // vcmExternalInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\ContextHistoryInterfaces.pas'
 

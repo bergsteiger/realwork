@@ -2,42 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_54F8746B033F
-
-FORWARD ME_4C3183EA0351
-
-ME ME_4C3183F90313
- MEPROP UID '4C3183F90313'
- MEPROP Name 'AdapterQueryToBusinessQuery'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C3183EA0351 // nsbQueryUtils
- ;
-
-ENDME // ME_4C3183F90313 AdapterQueryToBusinessQuery
-
-ME ME_4C3183EA0351
- MEPROP UID '4C3183EA0351'
- MEPROP Name 'nsbQueryUtils'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54F8746B033F // nsbQueryUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_4C3183F90313 // AdapterQueryToBusinessQuery
- )
- ; // Operations
- UP "finished" False
- UP extprop:rc:SelfName 'bQueryUtils'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsbQueryUtils.pas'
-
-ENDME // ME_4C3183EA0351 nsbQueryUtils
+%%Inner ME_4C3183EA0351
 
 ME ME_54F8746B033F
  MEPROP UID '54F8746B033F'
@@ -47,11 +12,14 @@ ME ME_54F8746B033F
  MELINK Stereotype st_Unit ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ MELINK Parent WL? 'ME_4A9FFD3F01AD' // Search
  ;
  MELIST Children
-   Seq: ( HWL ME_4C3183EA0351 // nsbQueryUtils
+   Seq: ( WL? 'ME_4C3183EA0351' // nsbQueryUtils
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_54F8746B033F nsbQueryUtils

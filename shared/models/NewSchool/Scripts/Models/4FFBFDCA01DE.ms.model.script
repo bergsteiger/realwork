@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4FFBFEA70185
+%%Inner ME_4FFBFF7B0180
+%%Inner ME_4FFBFFFD00A6
+%%Inner ME_4FFC002E00A0
+
 FORWARD ME_4FFBFDCA01DE
 
 ME ME_4FFBFEA70185
@@ -16,7 +21,7 @@ ME ME_4FFBFEA70185
  MELINK Parent HWL ME_4FFBFDCA01DE // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA8E4F1002A' '4AA8E4F1002A.ms.model.script' // AdminForm
+   Seq: ( WL? 'ME_4AA8E4F1002A' // AdminForm
  )
  ; // Implementors
  UP extprop:pas:TypeName 'AdminFormFormDef'
@@ -36,7 +41,7 @@ ME ME_4FFBFF7B0180
  MELINK Parent HWL ME_4FFBFDCA01DE // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA8E4CD0348' '4AA8E4CD0348.ms.model.script' // GroupList
+   Seq: ( WL? 'ME_4AA8E4CD0348' // GroupList
  )
  ; // Implementors
  UP extprop:pas:TypeName 'GroupListFormDef'
@@ -56,7 +61,7 @@ ME ME_4FFBFFFD00A6
  MELINK Parent HWL ME_4FFBFDCA01DE // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA8E45C00A8' '4AA8E45C00A8.ms.model.script' // UserList
+   Seq: ( WL? 'ME_4AA8E45C00A8' // UserList
  )
  ; // Implementors
  UP extprop:pas:TypeName 'UserListFormDef'
@@ -76,7 +81,7 @@ ME ME_4FFC002E00A0
  MELINK Parent HWL ME_4FFBFDCA01DE // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AA8E47C0065' '4AA8E47C0065.ms.model.script' // UserProperty
+   Seq: ( WL? 'ME_4AA8E47C0065' // UserProperty
  )
  ; // Implementors
  UP extprop:pas:TypeName 'UserPropertyFormDef'
@@ -92,7 +97,7 @@ ME ME_4FFBFDCA01DE
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4954D3CD0185' '4954D3CD0185.ms.model.script' // View
+ MELINK Parent WL? 'ME_4954D3CD0185' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4FFBFEA70185 // AdminForm
@@ -101,6 +106,9 @@ ME ME_4FFBFDCA01DE
  HWL ME_4FFC002E00A0 // UserProperty
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP "UseNewGen" True
  UP extprop:pas:UnitName 'Admin_FormDefinitions_Controls'

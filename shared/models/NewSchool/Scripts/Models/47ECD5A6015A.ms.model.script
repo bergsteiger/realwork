@@ -115,6 +115,11 @@ ME ME_FED42B6D17CA_ME_47ECD5A6015A
  MEPROP OpKind opkind_Implemented
 ENDME // ME_FED42B6D17CA_ME_47ECD5A6015A OpenDrugInternationalNameSynonims
 
+%%ImplementedBy ME_494690E5004E ME_47ECD5A6015A
+%%ImplementedBy ME_5016A90300B0 ME_47ECD5A6015A
+
+%%InheritedBy ME_47ECE94D03D4 ME_47ECD5A6015A
+
 ME ME_47ECD5A6015A
  MEPROP UID '47ECD5A6015A'
  MEPROP Name 'TdsDrugListSynchroView'
@@ -125,10 +130,10 @@ ME ME_47ECD5A6015A
  %SUMMARY 'Бизнес объект формы синхронного просмотра списка препаратов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' // sdsDrugList
+ MELINK Parent WL? 'ME_47EA01EA0070' // sdsDrugList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
@@ -156,6 +161,9 @@ ME ME_47ECD5A6015A
  ME_FED42B6D17CA_ME_47ECD5A6015A // OpenDrugInternationalNameSynonims
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "no hands" True
  UP extprop:pas:UnitName 'dsDrugListSynchroView'
  UP extprop:rc:isAcceptableForScripts True

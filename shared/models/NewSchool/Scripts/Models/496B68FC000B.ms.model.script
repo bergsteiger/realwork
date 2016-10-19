@@ -71,6 +71,11 @@ ME ME_4F1D607E0027_ME_496B68FC000B
  UP "pm" False
 ENDME // ME_4F1D607E0027_ME_496B68FC000B NeedSaveActiveClassBeforeSearch
 
+%%ImplementedBy ME_496B4C2700D5 ME_496B68FC000B
+
+%%InheritedBy ME_495118ED00F6 ME_496B68FC000B
+%%InheritedBy ME_4AD5E6A60262 ME_496B68FC000B
+
 ME ME_496B68FC000B
  MEPROP UID '496B68FC000B'
  MEPROP Name 'SearcheableText'
@@ -80,11 +85,11 @@ ME ME_496B68FC000B
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4951181B02B6' '4951181B02B6.ms.model.script' // Document
+ MELINK Parent WL? 'ME_4951181B02B6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_495118ED00F6' '495118ED00F6.ms.model.script' // PrimText
- WL 'ME_4AD5E6A60262' '4AD5E6A60262.ms.model.script' // BaseSearchPresentation
+   Seq: ( WL? 'ME_495118ED00F6' // PrimText
+ WL? 'ME_4AD5E6A60262' // BaseSearchPresentation
  )
  ; // Inherits
  MELIST Implements
@@ -107,6 +112,9 @@ ME ME_496B68FC000B
    Seq: ( ME_5072D40103E5 // BaseSearchPresentationHolder
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" False
  UP "resizeable" False

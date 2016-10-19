@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD6F164037F
+%%Inner ME_4BD6F18301FD
+
 FORWARD ME_497ED770029D
 
 ME ME_4BD6F164037F
@@ -23,6 +26,8 @@ ME ME_4BD6F164037F
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utTips_UserType.pas'
 
 ENDME // ME_4BD6F164037F utTips
+
+%%InheritedBy ME_4BD6F164037F ME_4BD6F18301FD
 
 ME ME_4BD6F18301FD
  MEPROP UID '4BD6F18301FD'
@@ -78,7 +83,7 @@ ME ME_55EEA2F900CD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
  ;
 
 ENDME // ME_55EEA2F900CD 
@@ -88,13 +93,13 @@ ME ME_55EEA2FB0221
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
  ;
- MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
  ;
 
 ENDME // ME_55EEA2FB0221 
 
 ME ME_47EA4E9002C6_ME_497ED770029D
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_497ED770029D FinishDataUpdate
@@ -106,10 +111,13 @@ ME ME_4A84183701B9_ME_497ED770029D
 ENDME // ME_4A84183701B9_ME_497ED770029D NeedDrawCaption
 
 ME ME_55127A5401DE_ME_497ED770029D
- MELINK Original WL 'ME_55127A5401DE' '4AADF9450143.ms.model.script' // IsAcceptable
+ MELINK Original WL 'ME_55127A5401DE' '47F4EED50062.ms.model.script' // IsAcceptable
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_55127A5401DE_ME_497ED770029D IsAcceptable
+
+%%ImplementedBy ME_49870A7E033E ME_497ED770029D
+%%ImplementedBy ME_4A82BCFA02EF ME_497ED770029D
 
 ME ME_497ED770029D
  MEPROP UID '497ED770029D'
@@ -120,10 +128,10 @@ ME ME_497ED770029D
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4979D3B10102' '4979D3B10102.ms.model.script' // Diction
+ MELINK Parent WL? 'ME_4979D3B10102' // Diction
  ;
  MELIST Implements
-   Seq: ( WL 'ME_49870A7E033E' '49870A7E033E.ms.model.script' // BaseDocument
+   Seq: ( WL? 'ME_49870A7E033E' // BaseDocument
  WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
  )
  ; // Implements
@@ -148,6 +156,9 @@ ME ME_497ED770029D
  ME_55EEA2FB0221 // vcmBase
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "finished dfm" True
  UP "NeedsHackRef" False

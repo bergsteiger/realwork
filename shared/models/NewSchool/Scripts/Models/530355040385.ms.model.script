@@ -6,6 +6,30 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_530355040385
 
+ME ME_57F603C6018A_ME_5303551501D6
+ MELINK Original WL 'ME_57F603C6018A' '52F8C2AE0042.ms.model.script' // RequireDelivery
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57F603C6018A_ME_5303551501D6 RequireDelivery
+
+ME ME_57F603E20074_ME_5303551501D6
+ MELINK Original WL 'ME_57F603E20074' '52F8C2AE0042.ms.model.script' // DeliverySourceFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57F603E20074_ME_5303551501D6 DeliverySourceFolder
+
+ME ME_57F6040302FE_ME_5303551501D6
+ MELINK Original WL 'ME_57F6040302FE' '52F8C2AE0042.ms.model.script' // DeliveryTargetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57F6040302FE_ME_5303551501D6 DeliveryTargetFolder
+
+ME ME_57F639C2025B_ME_5303551501D6
+ MELINK Original WL 'ME_57F639C2025B' '52F8C2AE0042.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57F639C2025B_ME_5303551501D6 GetDescription
+
 %%InheritedBy ME_53ABFB2C005A ME_5303551501D6
 
 ME ME_5303551501D6
@@ -22,6 +46,13 @@ ME ME_5303551501D6
    Seq: ( WL 'ME_53ABFB2C005A' '52F8C298005C.ms.model.script' // TcsExportTaskPrim
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_57F603C6018A_ME_5303551501D6 // RequireDelivery
+ ME_57F603E20074_ME_5303551501D6 // DeliverySourceFolder
+ ME_57F6040302FE_ME_5303551501D6 // DeliveryTargetFolder
+ ME_57F639C2025B_ME_5303551501D6 // GetDescription
+ )
+ ; // Overridden
  UP "finished" False
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'csExport'
@@ -37,7 +68,7 @@ ME ME_530355040385
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
  ;
  MELIST Children
    Seq: ( HWL ME_5303551501D6 // TcsExport

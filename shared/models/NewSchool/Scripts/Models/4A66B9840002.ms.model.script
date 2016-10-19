@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A66B9D20178
+%%Inner ME_4A66BA3A0268
+%%Inner ME_4A66BABA015C
+
 FORWARD ME_4A66B9840002
 
 FORWARD ME_4A66B9D20178
@@ -100,6 +104,8 @@ ME ME_4A66BA3A0268
 
 ENDME // ME_4A66BA3A0268 TContactListFilterTypes
 
+%%InheritedBy ME_49DC72D80235 ME_4A66BABA015C
+
 ME ME_4A66BABA015C
  MEPROP UID '4A66BABA015C'
  MEPROP Name 'TbsUserID'
@@ -127,7 +133,7 @@ ME ME_4A66B9840002
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A7C099B004F' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4A66B9D20178 // TnsContactType
@@ -136,11 +142,14 @@ ME ME_4A66B9840002
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
- WL 'ME_45EEAA96039C' '45EEAA96039C.ms.model.script' // Security
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_456EA56002BF' // BaseTypes
+ WL? 'ME_45EEAA96039C' // Security
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChatTypes.pas'
 

@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57CEB4640283
+%%Inner ME_57CEABF60269
+%%Inner ME_57AAE8D403E5
+%%Inner ME_57CEB008027D
+%%Inner ME_57CEAF3602AB
+%%Inner ME_57AAE90E02B6
+%%Inner ME_57B1B6AE0204
+%%Inner ME_57B1B48C00F8
+
 ME ME_57B1DAE6030C
  MEPROP UID '57B1DAE6030C'
  MEPROP Name 'msm'
@@ -11,30 +20,33 @@ ME ME_57B1DAE6030C
  MELINK Stereotype st_Library ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1B9C5035D' '57B1B9C5035D.ms.model.script' // Shared Delphi MSM
+ MELINK Parent WL? 'ME_57EE6E2A01A5' // Shared Delphi MVC
  ;
  MELIST Children
-   Seq: ( WL 'ME_57B5730D0123' '57B5730D0123.ms.model.script' // msmEvents
- WL 'ME_57CEB4640283' '57CEB4640283.ms.model.script' // msmModels
- WL 'ME_57CEABF60269' '57CEABF60269.ms.model.script' // msmOperations
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
- WL 'ME_57CE85BE0100' '57CE85BE0100.ms.model.script' // Events
- WL 'ME_57CEB008027D' '57CEB008027D.ms.model.script' // Operations
- WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
- WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
- WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
- WL 'ME_57B1B48C00F8' '57B1B48C00F8.ms.model.script' // Models
+   Seq: ( WL? 'ME_57CEB4640283' // msmModels
+ WL? 'ME_57CEABF60269' // msmOperations
+ WL? 'ME_57AAE8D403E5' // msmControllers
+ WL? 'ME_57CEB008027D' // Operations
+ WL? 'ME_57CEAF3602AB' // msmUseCases
+ WL? 'ME_57AAE90E02B6' // Controllers
+ WL? 'ME_57B1B6AE0204' // UseCases
+ WL? 'ME_57B1B48C00F8' // Models
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
- WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
- WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
- WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
- WL 'ME_515AC89F01E1' '515AC89F01E1.ms.model.script' // L3$Basic Concepts
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4684F91300DD' // Vcl
+ WL? 'ME_469F3E37025A' // Rtl
+ WL? 'ME_4790D09A0378' // L3
+ WL? 'ME_4E2F0E1B03BB' // L3$Domain
+ WL? 'ME_515AC89F01E1' // L3$Basic Concepts
+ WL? 'ME_55C1EE2F01B7' // ScriptEngine$Parsing
+ WL? 'ME_57E533C703E3' // msm$Events
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'gui'
  UP "is namespace" True

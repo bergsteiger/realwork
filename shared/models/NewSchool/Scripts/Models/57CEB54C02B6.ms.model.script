@@ -1,0 +1,173 @@
+// msmConcreteModelOperation 57CEB54C02B6 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57CEB5800397
+
+FORWARD ME_57CEB54C02B6
+
+ME ME_57CEB5800397
+ MEPROP UID '57CEB5800397'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
+ ;
+ UP extprop:pas:TypeName '_ConcreteModel_'
+
+ENDME // ME_57CEB5800397 ConcreteModel
+
+ME ME_57CEB58D0121
+ MEPROP UID '57CEB58D0121'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
+ ;
+ MELINK Target HWL ME_57CEB5800397 // ConcreteModel
+ ;
+
+ENDME // ME_57CEB58D0121 ConcreteModel
+
+ME ME_57CEB5960047
+ MEPROP UID '57CEB5960047'
+ MEPROP Name 'Model'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
+ ;
+ MELINK Target HWL ME_57CEB5800397 // ConcreteModel
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57CEB5960047 Model
+
+FORWARD ME_57CEB5F50141
+
+FORWARD ME_57CEB5FE037D
+
+ME ME_57CEB6080081
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57CEB6080081 aCaption
+
+ME ME_57CEB60800D1
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57CEB5800397 // ConcreteModel
+ ;
+
+ENDME // ME_57CEB60800D1 aModel
+
+ME ME_57CEB5FE037D
+ MEPROP UID '57CEB5FE037D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEB5F50141 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CEB6080081 // aCaption
+ ME_57CEB60800D1 // aModel
+ )
+ ; // Parameters
+
+ENDME // ME_57CEB5FE037D DoIt
+
+ME ME_57CEB5F50141
+ MEPROP UID '57CEB5F50141'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CEB5FE037D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CEB5F50141 Create
+
+%%ImplementedBy ME_57B568620397 ME_57CEB5D90345
+
+%%InheritedBy ME_57CEB5F50141 ME_57CEB5D90345
+
+ME ME_57CEB5D90345
+ MEPROP UID '57CEB5D90345'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CEB54C02B6 // msmConcreteModelOperation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CEB5F50141 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ )
+ ; // Implements
+
+ENDME // ME_57CEB5D90345 Make
+
+%%InheritedBy ME_57CEB1C1010D ME_57CEB54C02B6
+
+ME ME_57CEB54C02B6
+ MEPROP UID '57CEB54C02B6'
+ MEPROP Name 'msmConcreteModelOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57CEB1C1010D' '57CEB008027D.ms.model.script' // TmsmOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57CEB58D0121 // ConcreteModel
+ HWL ME_57CEB5960047 // Model
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57CEB5F50141 // Create
+ HWL ME_57CEB5D90345 // Make
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57CEB5800397 // ConcreteModel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_msmConcreteModelOperation_'
+ UP extprop:pas:UnitName 'msmConcreteModelOperation.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmConcreteModelOperation.imp.pas'
+
+ENDME // ME_57CEB54C02B6 msmConcreteModelOperation

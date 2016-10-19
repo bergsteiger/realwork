@@ -24,7 +24,7 @@ ME ME_4A801266021C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A717F6E0327 // TdsEditionsContainerData
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
  ;
 
 ENDME // ME_4A801266021C 
@@ -74,6 +74,10 @@ ME ME_54743B1A00AC_ME_4A717F6E0327
  UP "pm" False
 ENDME // ME_54743B1A00AC_ME_4A717F6E0327 DocumentFullNameForCaption
 
+%%ImplementedBy ME_4A6EC1570374 ME_4A717F6E0327
+
+%%InheritedBy ME_4A71859C0249 ME_4A717F6E0327
+
 ME ME_4A717F6E0327
  MEPROP UID '4A717F6E0327'
  MEPROP Name 'TdsEditionsContainerData'
@@ -84,10 +88,10 @@ ME ME_4A717F6E0327
  %SUMMARY 'Контейнер для сравниваемых редакций' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A717F3D0221' // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A71859C0249' '4A71859C0249.ms.model.script' // dsEdition
+   Seq: ( WL? 'ME_4A71859C0249' // dsEdition
  )
  ; // Inherits
  MELIST Implements
@@ -111,6 +115,9 @@ ME ME_4A717F6E0327
  ME_4A8012810378 // String
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '30.07.2009 15:52'

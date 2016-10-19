@@ -27,7 +27,7 @@ ME ME_4A8E5CC803B8
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4A8E5CC803B8 f_StatusBarPublished
@@ -92,7 +92,7 @@ ME ME_4A8E5DE90179
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4A8E5DE90179 
@@ -112,7 +112,7 @@ ME ME_4A8E611A00DE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8E5C6702D1 // RegisterOps
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_4A8E611A00DE 
@@ -144,6 +144,9 @@ ME ME_4A8E5C6702D1
  ME_4A8E611A00DE // StdRes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4A8E5C6702D1 RegisterOps
 
@@ -212,6 +215,9 @@ ME ME_4A8E5C7903DE
    Seq: ( HWL ME_4A8E5C83011C // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4A8E5C7903DE UnregisterOps
 
@@ -224,7 +230,7 @@ ME ME_4A8E5CEC021F
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4A8E5BBF0391 // StatusBarItems
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4A8E5CEC021F NeedsStatusBarItems
@@ -264,13 +270,13 @@ ME ME_498036B8002E_ME_4A8E5BBF0391
 ENDME // ME_498036B8002E_ME_4A8E5BBF0391 Items
 
 ME ME_479731C50290_ME_4A8E5BBF0391
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4A8E5BBF0391 Cleanup
 
 ME ME_497469C90140_ME_4A8E5BBF0391
- MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_497469C90140_ME_4A8E5BBF0391 NotifyDataSourceChanged
@@ -287,6 +293,9 @@ ME ME_538C374A00B7_ME_4A8E5BBF0391
  MEPROP OpKind opkind_Overridden
 ENDME // ME_538C374A00B7_ME_4A8E5BBF0391 ReleaseResources
 
+%%ImplementedBy ME_498036AD03AB ME_4A8E5BBF0391
+%%ImplementedBy ME_4A82BCFA02EF ME_4A8E5BBF0391
+
 ME ME_4A8E5BBF0391
  MEPROP UID '4A8E5BBF0391'
  MEPROP Name 'StatusBarItems'
@@ -297,7 +306,7 @@ ME ME_4A8E5BBF0391
  %SUMMARY 'Базовая форма, публикующая свои операции в статусной строке' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A8E5B58037D' '4A8E5B58037D.ms.model.script' // StatusBar
+ MELINK Parent WL? 'ME_4A8E5B58037D' // StatusBar
  ;
  MELIST Implements
    Seq: ( WL 'ME_498036AD03AB' '490838E10313.ms.model.script' // InscStatusBarItemsProvider
@@ -327,6 +336,9 @@ ME ME_4A8E5BBF0391
  ME_538C374A00B7_ME_4A8E5BBF0391 // ReleaseResources
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished dfm" True
  UP "NeedsHackRef" True
  UP "resizeable" False

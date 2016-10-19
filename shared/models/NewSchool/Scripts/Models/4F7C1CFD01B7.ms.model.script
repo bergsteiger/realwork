@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F7C1DF701C7
+
 ME ME_4F7C1CFD01B7
  MEPROP UID '4F7C1CFD01B7'
  MEPROP Name 'F1 Common For Admin And Monitoring'
@@ -11,15 +13,18 @@ ME ME_4F7C1CFD01B7
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELIST Children
-   Seq: ( WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.ms.model.script' // View
+   Seq: ( WL? 'ME_4F7C1DF701C7' // View
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
- WL 'ME_498B35810374' '498B35810374.ms.model.script' // F1 Базовые определения предметной области
- WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
+   Seq: ( WL? 'ME_4677DDBD0193' // Shared Delphi
+ WL? 'ME_498B35810374' // F1 Базовые определения предметной области
+ WL? 'ME_49B1511700CA' // Shared Delphi Core
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "create project" True
  UP "defines" 'nsDefine.inc'
  UP "fix version" 0

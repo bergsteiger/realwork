@@ -6,34 +6,34 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
 
  MEDIAGRAM ME_57E2336703B0_main
   MEPROP Name 'main'
-  MELINK Original WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' ; // DocTransfer
+  MELINK Original WL? 'ME_57E2336703B0' ; // DocTransfer
 
   MEVIEW ME_57C52AA20128_view
-   MELINK Original WL 'ME_57C52AA20128' '57C52AA20128.ms.model.script' ; // arDocAttributesMixer
+   MELINK Original WL? 'ME_57C52AA20128' ; // arDocAttributesMixer
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_57C52AA20128_view
 
   MEVIEW ME_57D9125001E9_view
-   MELINK Original WL 'ME_57D9125001E9' '57D9125001E9.ms.model.script' ; // arFiltersUtils
+   MELINK Original WL? 'ME_57D9125001E9' ; // arFiltersUtils
    MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_57D9125001E9_view
 
   MEVIEW ME_57E1136103D7_view
-   MELINK Original WL 'ME_57E1136103D7' '57E1136103D7.ms.model.script' ; // arLockUtils
+   MELINK Original WL? 'ME_57E1136103D7' ; // arLockUtils
    MEPROP X 360
    MEPROP Y 40
   ENDMEVIEW // ME_57E1136103D7_view
 
   MEVIEW ME_57E102E10281_view
-   MELINK Original WL 'ME_57E102E10281' '57E102E10281.ms.model.script' ; // arIZM
+   MELINK Original WL? 'ME_57E102E10281' ; // arIZM
    MEPROP X 520
    MEPROP Y 40
   ENDMEVIEW // ME_57E102E10281_view
 
   MEVIEW ME_57DFD0290323_view
-   MELINK Original WL 'ME_57DFD0290323' '57DFD0290323.ms.model.script' ; // arVAnouncedBlackList
+   MELINK Original WL? 'ME_57DFD0290323' ; // arVAnouncedBlackList
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_57DFD0290323_view
@@ -122,6 +122,12 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57ED158F01BB_ME_57ED151F00AA_Inherits
 
+  MEVIEWLINK ME_57FCD48F007B_viewlink
+   MELINK Original WL 'ME_57FCD48F007B' '57E2336703B0.ms.model.script' ;
+   MELINK From ME_57ED158F01BB_view ;
+   MELINK To ME_57E102E10281_view ;
+  ENDMEVIEWLINK // ME_57FCD48F007B_viewlink
+
   MELIST Views
    Seq: ( ME_57C52AA20128_view // arDocAttributesMixer
    ME_57D9125001E9_view // arFiltersUtils
@@ -142,6 +148,7 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
    ME_57E2715500C8_ME_57E27091018D_Inherits // TarDirectSaveDocumentHelper -> TarCustomSaveDocumentHelper
    ME_57EA225C02AA_ME_57EA22400306_Inherits // TarDirectMultiClearAttributesHelper -> TarCustomMultiClearAttributesHelper
    ME_57ED158F01BB_ME_57ED151F00AA_Inherits // TarDirectMultiOperationHelper -> TarCustomMultiOperationHelper
+   ME_57FCD48F007B_viewlink // TarDirectMultiOperationHelper -> arIZM
    )
   ; // Views
  ENDMEDIAGRAM // ME_57E2336703B0_main

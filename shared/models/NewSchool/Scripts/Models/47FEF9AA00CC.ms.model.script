@@ -53,7 +53,7 @@ ME ME_4900615A011B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47FEF9AA00CC // TdsListInfo
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_4900615A011B 
@@ -80,16 +80,20 @@ ME ME_49005EF9034C_ME_47FEF9AA00CC
 ENDME // ME_49005EF9034C_ME_47FEF9AA00CC ShortListName
 
 ME ME_479731C50290_ME_47FEF9AA00CC
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_47FEF9AA00CC Cleanup
 
 ME ME_492ACF630072_ME_47FEF9AA00CC
- MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ MELINK Original WL 'ME_492ACF630072' '501802270075.ms.model.script' // GotData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_492ACF630072_ME_47FEF9AA00CC GotData
+
+%%ImplementedBy ME_49005E89009D ME_47FEF9AA00CC
+
+%%InheritedBy ME_50180358024F ME_47FEF9AA00CC
 
 ME ME_47FEF9AA00CC
  MEPROP UID '47FEF9AA00CC'
@@ -101,10 +105,10 @@ ME ME_47FEF9AA00CC
  %SUMMARY 'Информация о списке.' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_47EA5024034B' '47EA5024034B.ms.model.script' // ListDataSources
+ MELINK Parent WL? 'ME_47EA5024034B' // ListDataSources
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50180358024F' '47D0E1500033.ms.model.script' // vcmFormDataSourceWithFlexUseCaseControllerType
+   Seq: ( WL? 'ME_50180358024F' // vcmFormDataSourceWithFlexUseCaseControllerType
  )
  ; // Inherits
  MELIST Implements
@@ -132,6 +136,9 @@ ME ME_47FEF9AA00CC
    Seq: ( ME_4900615A011B // l3String
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '29.07.2005 17.07'

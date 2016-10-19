@@ -1,0 +1,226 @@
+// FiltersProcessingWordsPack 571E1AF302D6 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DBA9CE301B4
+%%Inner ME_53B2B1460348
+%%Inner ME_53B2B2950270
+%%Inner ME_53B2B2730077
+
+FORWARD ME_571E1AF302D6
+
+FORWARD ME_4DBA9CE301B4
+
+ME ME_57879341018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBA9CE301B4 // TkwFiltersList
+ ;
+ MELINK Target WL 'ME_4C81191003E5' '4AE89F8A004B.ms.model.script' // FiltersListOpen
+ ;
+
+ENDME // ME_57879341018E 
+
+ME ME_4DBA9CE301B4
+ MEPROP UID '4DBA9CE301B4'
+ MEPROP Name 'TkwFiltersList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57879341018E // FiltersListOpen
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "NameForScript" 'filters:Open'
+ UP "no hands" True
+ UP "started" '29.04.2011 15:11'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FiltersList'
+
+ENDME // ME_4DBA9CE301B4 TkwFiltersList
+
+FORWARD ME_53B2B1460348
+
+FORWARD ME_53B2B2C800D6
+
+ME ME_53B2B2EC03B4
+ MEPROP UID '53B2B2EC03B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B2B2C800D6 // GetFilters
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_53B2B2EC03B4 DoIt
+
+ME ME_53B2B2C800D6
+ MEPROP UID '53B2B2C800D6'
+ MEPROP Name 'GetFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53B2B1460348 // PermanentFilterExists
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B2B2EC03B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B2B2C800D6 GetFilters
+
+ME ME_53B2B3A0014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B2B1460348 // PermanentFilterExists
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_53B2B3A0014D 
+
+ME ME_53B2B1460348
+ MEPROP UID '53B2B1460348'
+ MEPROP Name 'PermanentFilterExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B2B2C800D6 // GetFilters
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53B2B3A0014D // DefDataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwPermanentFilterExists'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PermanentFilterExists'
+
+ENDME // ME_53B2B1460348 PermanentFilterExists
+
+ME ME_53B2B2C800D6_ME_53B2B2950270
+ MELINK Original HWL ME_53B2B2C800D6 // GetFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B2B2C800D6_ME_53B2B2950270 GetFilters
+
+%%InheritedBy ME_53B2B1460348 ME_53B2B2950270
+
+ME ME_53B2B2950270
+ MEPROP UID '53B2B2950270'
+ MEPROP Name 'IsLegalPermanentFilterExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B2B1460348 // PermanentFilterExists
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2950270 // GetFilters
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwIsLegalPermanentFilterExists'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IsLegalPermanentFilterExists'
+
+ENDME // ME_53B2B2950270 IsLegalPermanentFilterExists
+
+ME ME_53B2B2C800D6_ME_53B2B2730077
+ MELINK Original HWL ME_53B2B2C800D6 // GetFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B2B2C800D6_ME_53B2B2730077 GetFilters
+
+%%InheritedBy ME_53B2B1460348 ME_53B2B2730077
+
+ME ME_53B2B2730077
+ MEPROP UID '53B2B2730077'
+ MEPROP Name 'IsPharmPermanentFilterExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B2B1460348 // PermanentFilterExists
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2730077 // GetFilters
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwIsPharmPermanentFilterExists'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IsPharmPermanentFilterExists'
+
+ENDME // ME_53B2B2730077 IsPharmPermanentFilterExists
+
+ME ME_571E1B040013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
+ ;
+ MELINK Target WL? 'ME_497DCC17001C' // PrimFilters
+ ;
+
+ENDME // ME_571E1B040013 
+
+%%InjectedBy ME_497DCC17001C ME_571E1AF302D6
+
+ME ME_571E1AF302D6
+ MEPROP UID '571E1AF302D6'
+ MEPROP Name 'FiltersProcessingWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4CCAA9D8007E' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DBA9CE301B4 // TkwFiltersList
+ HWL ME_53B2B1460348 // PermanentFilterExists
+ HWL ME_53B2B2950270 // IsLegalPermanentFilterExists
+ HWL ME_53B2B2730077 // IsPharmPermanentFilterExists
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571E1B040013 // PrimFilters
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersProcessingWordsPack.pas'
+
+ENDME // ME_571E1AF302D6 FiltersProcessingWordsPack

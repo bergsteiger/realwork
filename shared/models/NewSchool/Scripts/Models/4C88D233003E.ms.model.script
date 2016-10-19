@@ -12,10 +12,10 @@ ME ME_4C88D9A800C9
  MEPROP Name 'SaveAsDefault'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value False
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value False
 
@@ -61,7 +61,7 @@ ME ME_4C88D9C5015E
  MEPROP Name 'aOrientation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4C88D9C5015E aOrientation
@@ -106,7 +106,7 @@ ME ME_4C88D9E60265
  MEPROP Name 'aString'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4C88D9E60265 aString
@@ -178,7 +178,7 @@ ME ME_4C88D3C20244
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_4C88D3C20244 
@@ -188,7 +188,7 @@ ME ME_4C88D3DA0099
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
  ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
  ;
 
 ENDME // ME_4C88D3DA0099 
@@ -198,7 +198,7 @@ ME ME_4C88DA40012A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
  ;
- MELINK Target WL 'ME_4C88DA310019' '47EA968D0155.ms.model.script' // evHAFPainterMacros
+ MELINK Target WL? 'ME_4C88DA310019' // evHAFPainterMacros
  ;
 
 ENDME // ME_4C88DA40012A 
@@ -473,6 +473,14 @@ ME ME_4C88D4E8007C_ME_4C88D233003E
  UP "ShowInToolbar" False
 ENDME // ME_4C88D4E8007C_ME_4C88D233003E FilePosition
 
+%%ImplementedBy ME_49521D8203A0 ME_4C88D233003E
+%%ImplementedBy ME_4A97EBC80201 ME_4C88D233003E
+%%ImplementedBy ME_4AC5D5FB0293 ME_4C88D233003E
+%%ImplementedBy ME_4C52B3310159 ME_4C88D233003E
+%%ImplementedBy ME_4C88D3FB02D1 ME_4C88D233003E
+
+%%InheritedBy ME_4AAF8637036A ME_4C88D233003E
+
 ME ME_4C88D233003E
  MEPROP UID '4C88D233003E'
  MEPROP Name 'PrimPageSetupOptions'
@@ -483,10 +491,10 @@ ME ME_4C88D233003E
  %SUMMARY 'Настройка страницы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AAF8637036A' '4AAF8637036A.ms.model.script' // PrimPageSetup
+   Seq: ( WL? 'ME_4AAF8637036A' // PrimPageSetup
  )
  ; // Inherits
  MELIST Implements
@@ -531,6 +539,9 @@ ME ME_4C88D233003E
  ME_4C88DA40012A // evHAFPainterMacros
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

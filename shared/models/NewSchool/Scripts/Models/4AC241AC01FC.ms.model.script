@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_491D7D1B026C
+%%Inner ME_491D87F50062
+%%Inner ME_550C0CF90324
+%%Inner ME_550AA65C0212
+
 FORWARD ME_4AC241AC01FC
 
 FORWARD ME_491D7D1B026C
@@ -150,6 +155,8 @@ ME ME_54B3A7C7038F_ME_491D7D1B026C
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_54B3A7C7038F_ME_491D7D1B026C GetDocumentName
+
+%%InheritedBy ME_47EA0356011B ME_491D7D1B026C
 
 ME ME_491D7D1B026C
  MEPROP UID '491D7D1B026C'
@@ -392,6 +399,11 @@ ME ME_54B3A7C7038F_ME_491D87F50062
  MEPROP OpKind opkind_Implemented
 ENDME // ME_54B3A7C7038F_ME_491D87F50062 GetDocumentName
 
+%%ImplementedBy ME_49145BFA0175 ME_491D87F50062
+%%ImplementedBy ME_496A0972003A ME_491D87F50062
+
+%%InheritedBy ME_47EA0356011B ME_491D87F50062
+
 ME ME_491D87F50062
  MEPROP UID '491D87F50062'
  MEPROP GUID 'FFF0DB41-3AEC-4E8B-A967-D3E173DBFFB9'
@@ -470,6 +482,8 @@ ENDME // ME_550C0CF90324 IdsInpharmMainMenu
 
 FORWARD ME_550AA65C0212
 
+%%InheritedBy ME_550C0CF90324 ME_550C0D1A00CC
+
 ME ME_550C0D1A00CC
  MEPROP UID '550C0D1A00CC'
  MEPROP Name 'dsInpharmMainMenuData'
@@ -503,6 +517,9 @@ ME ME_550AA65C0212
    Seq: ( HWL ME_550C0D1A00CC // dsInpharmMainMenuData
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'sdsInpharmMainMenu'
 
@@ -516,7 +533,7 @@ ME ME_4AC241AC01FC
  MELINK Stereotype st_ControllerInterfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AC2418902B3' '4AC2418902B3.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_4AC2418902B3' // Medic
  ;
  MELIST Children
    Seq: ( HWL ME_491D7D1B026C // IdsMedicFirmDocument
@@ -526,10 +543,13 @@ ME ME_4AC241AC01FC
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

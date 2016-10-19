@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B9A1E7F0036
+%%Inner ME_4B9A347B0217
+
 ME ME_4BA08E8D00CD
  MEPROP UID '4BA08E8D00CD'
  MEPROP Name 'UnderControl'
@@ -11,27 +14,30 @@ ME ME_4BA08E8D00CD
  MELINK Stereotype st_VCMControllers ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A92C561015D' '4A92C561015D.ms.model.script' // Common
+ MELINK Parent WL? 'ME_4A92C561015D' // Common
  ;
  MELIST Children
-   Seq: ( WL 'ME_4B9A1E7F0036' '4B9A1E7F0036.ms.model.script' // UnderControlInterfaces
- WL 'ME_4B9A347B0217' '4B9A347B0217.ms.model.script' // UnderControlImpl
+   Seq: ( WL? 'ME_4B9A1E7F0036' // UnderControlInterfaces
+ WL? 'ME_4B9A347B0217' // UnderControlImpl
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4677FF4B0036' '4677FF4B0036.ms.model.script' // Data
- WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
- WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
- WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
- WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' // Специальные версии и возможности
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
- WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_456EA3D2031C' // GblAdapterLib
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4677FF4B0036' // Data
+ WL? 'ME_4790B4F00236' // AFW
+ WL? 'ME_4790C3B8021E' // VCM
+ WL? 'ME_4790D09A0378' // L3
+ WL? 'ME_48561E5A01F7' // Специальные версии и возможности
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_521C9DA50125' // Application Resources
+ WL? 'ME_54B90AC6014B' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "exec mode" 'concluded'
  UP "gui" 'prj'
  UP "is namespace" True

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DC0100200B7
+
 FORWARD ME_4DC00FC302B7
 
 FORWARD ME_4DC0100200B7
@@ -34,6 +36,8 @@ ME ME_4EFC5A31016E_ME_4DC010300124
  UP "pm" False
 ENDME // ME_4EFC5A31016E_ME_4DC010300124 ForSynchroView
 
+%%InheritedBy ME_4921869901CF ME_4DC010300124
+
 ME ME_4DC010300124
  MEPROP UID '4DC010300124'
  MEPROP Name 'dsBaloonWarning'
@@ -65,6 +69,8 @@ ME ME_493E4F7E039B_ME_4DC0100200B7
  MEPROP OpKind opkind_Implemented
 ENDME // ME_493E4F7E039B_ME_4DC0100200B7 Generate
 
+%%ImplementedBy ME_49218BD80300 ME_4DC0100200B7
+
 ME ME_4DC0100200B7
  MEPROP UID '4DC0100200B7'
  MEPROP GUID '4BABE209-5CE4-4408-B307-6EF460A071E8'
@@ -89,6 +95,9 @@ ME ME_4DC0100200B7
    Seq: ( ME_493E4F7E039B_ME_4DC0100200B7 // Generate
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'sdsMainWindow'
 
@@ -102,17 +111,20 @@ ME ME_4DC00FC302B7
  MELINK Stereotype st_ControllerInterfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4DC01054023C' '4DC01054023C.ms.model.script' // MainWindowControllers
+ MELINK Parent WL? 'ME_4DC01054023C' // MainWindowControllers
  ;
  MELIST Children
    Seq: ( HWL ME_4DC0100200B7 // IsdsMainWindow
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_4A9F98B901A5' '4A9F98B901A5.ms.model.script' // BaseSearchInterfaces
+   Seq: ( WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_4A9F98B901A5' // BaseSearchInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

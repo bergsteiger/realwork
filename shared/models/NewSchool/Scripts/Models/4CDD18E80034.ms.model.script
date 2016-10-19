@@ -15,7 +15,7 @@ ME ME_4CDD19B503B1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" False
  UP "pm" True
@@ -50,7 +50,7 @@ ME ME_4CE41B300315
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" False
  UP "pm" True
@@ -67,7 +67,7 @@ ME ME_53EB180603A6
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_53EB17EF0306 // NeedMakeHyperlinkToDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_53EB180603A6 DoIt
@@ -104,7 +104,7 @@ ME ME_4CDD21050084
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_4CDD21050084 
@@ -114,7 +114,7 @@ ME ME_4CDD23EF01A9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_4CDD23D702B6' '47913B47006E.ms.model.script' // SetClipboardData
+ MELINK Target WL 'ME_4CDD23D702B6' '4773D64E036C.ms.model.script' // SetClipboardData
  ;
 
 ENDME // ME_4CDD23EF01A9 
@@ -134,7 +134,7 @@ ME ME_4CDD75FE03AF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
  ;
 
 ENDME // ME_4CDD75FE03AF 
@@ -144,7 +144,7 @@ ME ME_4CDD79620085
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_4CDD77A700E6' '4CDD1854020C.ms.model.script' // Local
+ MELINK Target WL 'ME_4CDD77A700E6' '4CDD778501AA.ms.model.script' // Local
  ;
 
 ENDME // ME_4CDD79620085 
@@ -204,6 +204,11 @@ ME ME_4CDE7C2C0258_ME_4CDD18E80034
  UP "ShowInToolbar" False
 ENDME // ME_4CDE7C2C0258_ME_4CDD18E80034 MakeHyperlinkToDocument
 
+%%ImplementedBy ME_4A82BCFA02EF ME_4CDD18E80034
+%%ImplementedBy ME_4CDD188900C5 ME_4CDD18E80034
+%%ImplementedBy ME_4CDD5C020288 ME_4CDD18E80034
+%%ImplementedBy ME_4CDE7C1E020F ME_4CDD18E80034
+
 ME ME_4CDD18E80034
  MEPROP UID '4CDD18E80034'
  MEPROP Name 'HyperlinkToDocumentProducer'
@@ -214,7 +219,7 @@ ME ME_4CDD18E80034
  %SUMMARY 'Изготовитель ссылок на документы' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDD1854020C' '4CDD1854020C.ms.model.script' // Forms
+ MELINK Parent WL? 'ME_4CDD1854020C' // Forms
  ;
  MELIST Implements
    Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
@@ -249,6 +254,9 @@ ME ME_4CDD18E80034
  ME_4CDE773B0083 // TevAddress
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

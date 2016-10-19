@@ -1,0 +1,192 @@
+// nsUserNodes 49E5BB5F02B7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49E5BB5F02B7
+
+FORWARD ME_4AD5ACC50294
+
+FORWARD ME_4B1CD6600026
+
+ME ME_4B1CD66C0189
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4B1CD66C0189 aNode
+
+ME ME_4B1CD6600026
+ MEPROP UID '4B1CD6600026'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5ACC50294 // GetUserID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1CD66C0189 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4B1CD6600026 DoIt
+
+ME ME_4B1CD74A0065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5ACC50294 // GetUserID
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B1CD74A0065 
+
+ME ME_4B1CDA4D016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5ACC50294 // GetUserID
+ ;
+ MELINK Target WL 'ME_45EED730037A' '45EEAA96039C.ms.model.script' // ProfileNode
+ ;
+
+ENDME // ME_4B1CDA4D016F 
+
+ME ME_4B1CE05A02B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5ACC50294 // GetUserID
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4B1CE05A02B5 
+
+ME ME_4AD5ACC50294
+ MEPROP UID '4AD5ACC50294'
+ MEPROP Name 'GetUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49E5BB5F02B7 // nsUserNodes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1CD6600026 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1CD74A0065 // Supports
+ ME_4B1CDA4D016F // ProfileNode
+ ME_4B1CE05A02B5 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4AD5ACC50294 GetUserID
+
+FORWARD ME_4B1CD6EE038B
+
+FORWARD ME_4B1CD6F90165
+
+ME ME_4B1CD70900A8
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1CD70900A8 aUserID
+
+ME ME_4B1CD70900CC
+ MEPROP Name 'aTreeStruct'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4B1CD70900CC aTreeStruct
+
+ME ME_4B1CD6F90165
+ MEPROP UID '4B1CD6F90165'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1CD6EE038B // GetUserByID
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1CD70900A8 // aUserID
+ ME_4B1CD70900CC // aTreeStruct
+ )
+ ; // Parameters
+
+ENDME // ME_4B1CD6F90165 DoIt
+
+ME ME_4B1CD80C032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1CD6EE038B // GetUserByID
+ ;
+ MELINK Target WL 'ME_4B1CD77B0238' '47F25741021C.ms.model.script' // l3L2SNA
+ ;
+
+ENDME // ME_4B1CD80C032E 
+
+ME ME_4B1CD6EE038B
+ MEPROP UID '4B1CD6EE038B'
+ MEPROP Name 'GetUserByID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49E5BB5F02B7 // nsUserNodes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1CD6F90165 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1CD80C032E // l3L2SNA
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B1CD6EE038B GetUserByID
+
+ME ME_49E5BB5F02B7
+ MEPROP UID '49E5BB5F02B7'
+ MEPROP Name 'nsUserNodes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4901E79300F5' // Users
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD5ACC50294 // GetUserID
+ HWL ME_4B1CD6EE038B // GetUserByID
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2004/02/12 13:28:43'
+ UP extprop:rc:SelfName 'UserNodes'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\nsUserNodes.pas'
+
+ENDME // ME_49E5BB5F02B7 nsUserNodes

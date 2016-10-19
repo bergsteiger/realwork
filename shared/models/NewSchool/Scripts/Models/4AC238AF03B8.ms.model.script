@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_491D5824017E
+
 FORWARD ME_4AC238AF03B8
 
 FORWARD ME_491D5824017E
@@ -17,7 +19,7 @@ ME ME_491D58890177
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_491D5824017E // IdsDictionDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
@@ -168,6 +170,8 @@ ME ME_54B3A7C7038F_ME_491D5824017E
  MEPROP OpKind opkind_Implemented
 ENDME // ME_54B3A7C7038F_ME_491D5824017E GetDocumentName
 
+%%InheritedBy ME_47EA0356011B ME_491D5824017E
+
 ME ME_491D5824017E
  MEPROP UID '491D5824017E'
  MEPROP GUID 'CED6AA8A-309F-467B-9C4C-D6444BBAF67D'
@@ -229,18 +233,21 @@ ME ME_4AC238AF03B8
  %SUMMARY 'Базовые интерфейсы для работы с Толковым словарём' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_494104850236' '494104850236.ms.model.script' // CommonDiction
+ MELINK Parent WL? 'ME_494104850236' // CommonDiction
  ;
  MELIST Children
    Seq: ( HWL ME_491D5824017E // IdsDictionDocument
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "is namespace" True
  UP "no hands" True

@@ -1,0 +1,97 @@
+// nsListExceptions 55E438930369 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55E1FCE903C2
+
+FORWARD ME_55E438930369
+
+%%InheritedBy ME_4787A405013D ME_55E1FCE903C2
+
+ME ME_55E1FCE903C2
+ MEPROP UID '55E1FCE903C2'
+ MEPROP Name 'EListIsTooLong'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E438930369 // nsListExceptions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_55E1FCE903C2 EListIsTooLong
+
+FORWARD ME_55E1EB6601B1
+
+ME ME_55E1EB7B033F
+ MEPROP UID '55E1EB7B033F'
+ MEPROP Name 'ListIsTooLong'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E1EB6601B1 // EListIsTooLong local
+ ;
+ UP "AutoInc" False
+ UP "DlgType" 'Warning'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+ UP "Value" '''Список содержит большое количество документов, он не может быть отфильтрован. Пожалуйста, уточните запрос.'''
+
+ENDME // ME_55E1EB7B033F ListIsTooLong
+
+ME ME_55E1EB6601B1
+ MEPROP UID '55E1EB6601B1'
+ MEPROP Name 'EListIsTooLong local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E438930369 // nsListExceptions
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55E1EB7B033F // ListIsTooLong
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_55E1EB6601B1 EListIsTooLong local
+
+ME ME_55E438930369
+ MEPROP UID '55E438930369'
+ MEPROP Name 'nsListExceptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55E1FCE903C2 // EListIsTooLong
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_55E1EB6601B1 // EListIsTooLong local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ListExceptions'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas'
+
+ENDME // ME_55E438930369 nsListExceptions

@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A66DD7401CD
+%%Inner ME_4A66DDC1023C
+%%Inner ME_4A6EA4C503DA
+%%Inner ME_4A6D714D0252
+%%Inner ME_4A6EA4E900C3
+%%Inner ME_4A728A3C01FC
+%%Inner ME_4A66DEE901C9
+%%Inner ME_4C2C503400B6
+
 FORWARD ME_4A66DD3C01E8
 
 FORWARD ME_4A66DD7401CD
@@ -71,7 +80,7 @@ ME ME_4A66DDD60130
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4A66DDC1023C // InsChatMessages
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" False
 
@@ -88,7 +97,7 @@ ME ME_4A66DDE90269
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4A66DDE10034 // Message
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4A66DDE90269 anIndex
@@ -224,6 +233,8 @@ ME ME_4A6EA50801BA_ME_4A6D714D0252
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4A6EA50801BA_ME_4A6D714D0252 ActivateChatWindow
 
+%%InheritedBy ME_4A6EA4C503DA ME_4A6D714D0252
+
 ME ME_4A6D714D0252
  MEPROP UID '4A6D714D0252'
  MEPROP GUID '491B359B-0B9B-4C41-8CE8-E1F45F26003D'
@@ -266,6 +277,8 @@ ME ME_4A6EA50801BA_ME_4A6EA4E900C3
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4A6EA50801BA_ME_4A6EA4E900C3 ActivateChatWindow
+
+%%InheritedBy ME_4A6EA4C503DA ME_4A6EA4E900C3
 
 ME ME_4A6EA4E900C3
  MEPROP UID '4A6EA4E900C3'
@@ -337,7 +350,7 @@ ME ME_4A66DF0603DC
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" False
 
@@ -353,7 +366,7 @@ ME ME_4A6D94A501CE
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4A66DEE901C9 // IbsChatDispatcher
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" False
 
@@ -365,7 +378,7 @@ ME ME_4A66DF24033E
  MEPROP Name 'ForAdd'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4A66DF24033E ForAdd
@@ -494,7 +507,7 @@ ME ME_4A66DF7802A8
  MEPROP Name 'MinCount'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4A66DF7802A8 MinCount
@@ -918,6 +931,8 @@ ME ME_4A66DEE901C9
 
 ENDME // ME_4A66DEE901C9 IbsChatDispatcher
 
+%%InheritedBy ME_4787A405013D ME_4C2C503400B6
+
 ME ME_4C2C503400B6
  MEPROP UID '4C2C503400B6'
  MEPROP Name 'EnsUnknownChatUser'
@@ -929,7 +944,7 @@ ME ME_4C2C503400B6
  MELINK Parent HWL ME_4A66DD3C01E8 // ChatInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
  )
  ; // Inherits
 
@@ -943,7 +958,7 @@ ME ME_4A66DD3C01E8
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A7C099B004F' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4A66DD7401CD // InsChatMessage
@@ -957,13 +972,16 @@ ME ME_4A66DD3C01E8
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_4A66B9840002' '4A66B9840002.ms.model.script' // ChatTypes
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_4A66B9840002' // ChatTypes
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChatInterfaces.pas'
 

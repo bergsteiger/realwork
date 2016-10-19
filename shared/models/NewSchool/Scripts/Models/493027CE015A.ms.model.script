@@ -24,7 +24,7 @@ ME ME_493028EB0064
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_492437620004' '492437620004.ms.model.script' // TdsTreeAttributeSelect
+ MELINK Target WL? 'ME_492437620004' // TdsTreeAttributeSelect
  ;
 
 ENDME // ME_493028EB0064 
@@ -34,7 +34,7 @@ ME ME_4930296500D8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_49241B9903B7' '49241B9903B7.ms.model.script' // TdsSelectedAttributes
+ MELINK Target WL? 'ME_49241B9903B7' // TdsSelectedAttributes
  ;
 
 ENDME // ME_4930296500D8 
@@ -54,7 +54,7 @@ ME ME_493029A90108
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_4923F66E0262' '4923F66E0262.ms.model.script' // TdsSaveLoad
+ MELINK Target WL? 'ME_4923F66E0262' // TdsSaveLoad
  ;
 
 ENDME // ME_493029A90108 
@@ -64,7 +64,7 @@ ME ME_493029BD020E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_492447740299' '492447740299.ms.model.script' // TdsTreeAttributeFirstLevel
+ MELINK Target WL? 'ME_492447740299' // TdsTreeAttributeFirstLevel
  ;
 
 ENDME // ME_493029BD020E 
@@ -74,7 +74,7 @@ ME ME_493029D601E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_47F5BC100329' '47F5BC100329.ms.model.script' // TdsFilters
+ MELINK Target WL? 'ME_47F5BC100329' // TdsFilters
  ;
 
 ENDME // ME_493029D601E2 
@@ -84,7 +84,7 @@ ME ME_49302BB102BC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_49302BB102BC 
@@ -94,7 +94,7 @@ ME ME_49302DAB0356
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_49302DAB0356 
@@ -104,7 +104,7 @@ ME ME_4930317602E3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493027CE015A // TsdsSituation
  ;
- MELINK Target WL 'ME_4922D2780153' '4922D2780153.ms.model.script' // TdsAttributeSelect
+ MELINK Target WL? 'ME_4922D2780153' // TdsAttributeSelect
  ;
 
 ENDME // ME_4930317602E3 
@@ -180,6 +180,11 @@ ME ME_4959149300F9_ME_493027CE015A
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4959149300F9_ME_493027CE015A UpdateSelectedAttributes
 
+%%ImplementedBy ME_492428D203A1 ME_493027CE015A
+%%ImplementedBy ME_49243C03023E ME_493027CE015A
+
+%%InheritedBy ME_49415C640079 ME_493027CE015A
+
 ME ME_493027CE015A
  MEPROP UID '493027CE015A'
  MEPROP Name 'TsdsSituation'
@@ -190,14 +195,14 @@ ME ME_493027CE015A
  %SUMMARY 'бизнес объект сборки дерево атрибутов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491DCA2C00A9' '491DCA2C00A9.ms.model.script' // Search
+ MELINK Parent WL? 'ME_491DCA2C00A9' // Search
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49415C640079' '47D0E1500033.ms.model.script' // vcmFormSetDataSourceWithoutData
+   Seq: ( WL? 'ME_49415C640079' // vcmFormSetDataSourceWithoutData
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492428D203A1' '4AA005310028.ms.model.script' // CurrentChangedListener
+   Seq: ( WL? 'ME_492428D203A1' // CurrentChangedListener
  WL 'ME_49243C03023E' '4AA5503000D7.ms.model.script' // IsdsSituation
  )
  ; // Implements
@@ -230,6 +235,9 @@ ME ME_493027CE015A
  ME_4AE5ABE50350 // TdeSearch
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '2005/08/02 12:26:58'

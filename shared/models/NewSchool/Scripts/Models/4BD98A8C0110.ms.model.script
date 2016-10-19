@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD98AA402AC
+
 FORWARD ME_4BD98A8C0110
 
 ME ME_4BD98AA402AC
@@ -16,7 +18,7 @@ ME ME_4BD98AA402AC
  MELINK Parent HWL ME_4BD98A8C0110 // FormDefinitions
  ;
  MELIST Implementors
-   Seq: ( WL 'ME_4AAFA16202D3' '4AAFA16202D3.ms.model.script' // PostingsList
+   Seq: ( WL? 'ME_4AAFA16202D3' // PostingsList
  )
  ; // Implementors
  UP extprop:pas:TypeName 'PostingsListFormDef'
@@ -32,12 +34,15 @@ ME ME_4BD98A8C0110
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4AA9194D0280' '4AA9194D0280.ms.model.script' // View
+ MELINK Parent WL? 'ME_4AA9194D0280' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4BD98AA402AC // PostingsList
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP "UseNewGen" True
  UP extprop:pas:UnitName 'PostingOrder_FormDefinitions_Controls'

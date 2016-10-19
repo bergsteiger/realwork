@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_481F041C02D9
+
 FORWARD ME_481F03780379
 
 ME ME_481F041C02D9
@@ -15,6 +17,9 @@ ME ME_481F041C02D9
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_481F03780379 // Утилиты
  ;
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Утилита импорта списка пользователей' )
+ ; // DiagramsNames
 
 ENDME // ME_481F041C02D9 Утилита импорта списка пользователей
 
@@ -27,11 +32,14 @@ ME ME_481F03780379
  %SUMMARY 'Различные вспомогательные программы, облегчающие выполнение пакетных операций или обслуживание Банка данных' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' // Требования
+ MELINK Parent WL? 'ME_4E312E2502AE' // Требования
  ;
  MELIST Children
    Seq: ( HWL ME_481F041C02D9 // Утилита импорта списка пользователей
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_481F03780379 Утилиты

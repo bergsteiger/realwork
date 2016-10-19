@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4822962A0071
+%%Inner ME_47F20DEA0340
+
 FORWARD ME_4B1D3D250382
 
 FORWARD ME_4822962A0071
@@ -34,7 +37,7 @@ ME ME_4B1D0ED601F5
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4822962A0071 // IdeSearchInfo
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
@@ -57,6 +60,9 @@ ME ME_4822962A0071
  HWL ME_4B1D0ED601F5 // NeedApplyPermanentFilters
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'deSearchInfo'
 
@@ -91,7 +97,7 @@ ME ME_4B1D0FCD01D2
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_47F20DEA0340 // IdeList
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
@@ -158,7 +164,7 @@ ME ME_560BC82C0143
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_47F20DEA0340 // IdeList
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
@@ -174,7 +180,7 @@ ME ME_562485D00025
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_47F20DEA0340 // IdeList
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
@@ -190,11 +196,27 @@ ME ME_569DDAE500DD
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_47F20DEA0340 // IdeList
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" True
 
 ENDME // ME_569DDAE500DD IsChanged
+
+ME ME_57EE27F30169
+ MEPROP UID '57EE27F30169'
+ MEPROP Name 'ActiveFilters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47F20DEA0340 // IdeList
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+ UP "pm" True
+
+ENDME // ME_57EE27F30169 ActiveFilters
 
 ME ME_47F20DEA0340
  MEPROP UID '47F20DEA0340'
@@ -217,8 +239,12 @@ ME ME_47F20DEA0340
  HWL ME_560BC82C0143 // AllDocumentsFiltered
  HWL ME_562485D00025 // NeedApplyPermanentFilters
  HWL ME_569DDAE500DD // IsChanged
+ HWL ME_57EE27F30169 // ActiveFilters
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'deList'
 
@@ -232,7 +258,7 @@ ME ME_4B1D3D250382
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ MELINK Parent WL? 'ME_4A9FFD3F01AD' // Search
  ;
  MELIST Children
    Seq: ( HWL ME_4822962A0071 // IdeSearchInfo
@@ -240,13 +266,17 @@ ME ME_4B1D3D250382
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_45700BFD0251' // DynamicDocList
+ WL? 'ME_45EEA48F011F' // Filters
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_47EA07FA02CE' // bsTypes
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

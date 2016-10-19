@@ -1,0 +1,186 @@
+// nsDocumentToolsNew 4CB2EE9F02FE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CB2EE9F02FE
+
+FORWARD ME_4D3EC093030F
+
+ME ME_535A7B330342
+ MEPROP UID '535A7B330342'
+ MEPROP Name 'Tag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ UP "IsResult" False
+
+ENDME // ME_535A7B330342 Tag
+
+ME ME_4D3EC25000F9
+ MEPROP UID '4D3EC25000F9'
+ MEPROP Name 'Obj'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4D3EC25000F9 Obj
+
+ME ME_4D3EC25E038B
+ MEPROP UID '4D3EC25E038B'
+ MEPROP Name 'Holder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_481866FC03E0' '481DB8210016.ms.model.script' // TnevObjectHolder
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4D3EC25E038B Holder
+
+ME ME_4D3EC2A70254
+ MEPROP UID '4D3EC2A70254'
+ MEPROP Name 'Provider'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4D3EC2A70254 Provider
+
+FORWARD ME_4D3EC0A80127
+
+ME ME_4D3EC0B8012E
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D3EC0B8012E aDocument
+
+ME ME_4D3EC0B80167
+ MEPROP Name 'theStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4D3EC0B80167 theStream
+
+ME ME_4D3EC0A80127
+ MEPROP UID '4D3EC0A80127'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EC0B8012E // aDocument
+ ME_4D3EC0B80167 // theStream
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EC0A80127 DoIt
+
+ME ME_4D3EC24C0281
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_4C6A750F024E' '467FC9F80281.ms.model.script' // TnsF1DocumentTagNode
+ ;
+
+ENDME // ME_4D3EC24C0281 
+
+ME ME_4D3EC26E00EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D3EC093030F // nsGetText
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D3EC26E00EA 
+
+ME ME_4D3EC093030F
+ MEPROP UID '4D3EC093030F'
+ MEPROP Name 'nsGetText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB2EE9F02FE // nsDocumentToolsNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_535A7B330342 // Tag
+ HWL ME_4D3EC25000F9 // Obj
+ HWL ME_4D3EC25E038B // Holder
+ HWL ME_4D3EC2A70254 // Provider
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D3EC0A80127 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D3EC24C0281 // TnsF1DocumentTagNode
+ ME_4D3EC26E00EA // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GetText'
+
+ENDME // ME_4D3EC093030F nsGetText
+
+ME ME_4CB2EE9F02FE
+ MEPROP UID '4CB2EE9F02FE'
+ MEPROP Name 'nsDocumentToolsNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3EC093030F // nsGetText
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '11.10.2010 15:02'
+ UP extprop:rc:SelfName 'DocumentToolsNew'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentToolsNew.pas'
+
+ENDME // ME_4CB2EE9F02FE nsDocumentToolsNew

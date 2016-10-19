@@ -40,7 +40,7 @@ ME ME_4988147F00B7
  MEPROP Name 'aNext'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4988147F00B7 aNext
@@ -76,7 +76,7 @@ ME ME_49881483034C
  MEPROP Name 'aNext'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_49881483034C aNext
@@ -142,7 +142,7 @@ ME ME_49872997019B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_498721A60125 // StatusBarDocumentItems
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_49872997019B 
@@ -222,7 +222,7 @@ ME ME_4FF348E101E1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_498721A60125 // StatusBarDocumentItems
  ;
- MELINK Target WL 'ME_4FEDA2F10124' '4FF3483B0041.ms.model.script' // Local
+ MELINK Target WL 'ME_4FEDA2F10124' '4FF34A48018C.ms.model.script' // Local
  ;
 
 ENDME // ME_4FF348E101E1 
@@ -309,10 +309,13 @@ ME ME_4FE1EF1B039A_ME_498721A60125
 ENDME // ME_4FE1EF1B039A_ME_498721A60125 DocumentIsUseless
 
 ME ME_479731C50290_ME_498721A60125
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_498721A60125 Cleanup
+
+%%ImplementedBy ME_49880F4A0376 ME_498721A60125
+%%ImplementedBy ME_4A8E5BBF0391 ME_498721A60125
 
 ME ME_498721A60125
  MEPROP UID '498721A60125'
@@ -324,11 +327,11 @@ ME ME_498721A60125
  %SUMMARY 'Операции с документом, отображаемые в статусной строке' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4D384F3B0095' '4D384F3B0095.ms.model.script' // CommonForDocumentAndFlash
+ MELINK Parent WL? 'ME_4D384F3B0095' // CommonForDocumentAndFlash
  ;
  MELIST Implements
    Seq: ( WL 'ME_49880F4A0376' '4A9807DB01A5.ms.model.script' // Document$ForStatusBar
- WL 'ME_4A8E5BBF0391' '4A8E5BBF0391.ms.model.script' // StatusBarItems
+ WL? 'ME_4A8E5BBF0391' // StatusBarItems
  )
  ; // Implements
  MELIST Attributes
@@ -368,6 +371,9 @@ ME ME_498721A60125
  ME_4FF348E101E1 // Local
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

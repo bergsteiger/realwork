@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A8993050237
+%%Inner ME_4B6ADBAC0014
+%%Inner ME_4B065085018D
+%%Inner ME_4B1E38210086
+%%Inner ME_4ADC8B0F02CF
+
 FORWARD ME_4A897A0F0097
 
 FORWARD ME_4A8993050237
@@ -62,6 +68,8 @@ ME ME_4B1E37CE00C1_ME_4A8993050237
  UP "ShowInContextMenu" 'undefined'
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_4B1E37CE00C1_ME_4A8993050237 ReturnToDocument
+
+%%InheritedBy ME_4E8C3C6C0244 ME_4A8993050237
 
 ME ME_4A8993050237
  MEPROP UID '4A8993050237'
@@ -171,7 +179,7 @@ ME ME_54D30CC50343
  MEPROP Name 'aSub'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
  ;
 
 ENDME // ME_54D30CC50343 aSub
@@ -279,7 +287,7 @@ ME ME_4B6AF2C401E0
  MEPROP Name 'aPara'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4B6AF2C401E0 aPara
@@ -294,7 +302,7 @@ ME ME_4B6AF2A502AE
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4B1E38210086 // RightEdition
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4B6AF2C401E0 // aPara
@@ -339,7 +347,7 @@ ME ME_4AE042630148
  MEPROP Name 'aPara'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4AE042630148 aPara
@@ -420,7 +428,7 @@ ME ME_4A897A0F0097
  %SUMMARY 'Операции специфичные для Сравнения редакций' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4A6D59C9005C' '4A6D59C9005C.ms.model.script' // View
+ MELINK Parent WL? 'ME_4A6D59C9005C' // View
  ;
  MELIST Children
    Seq: ( HWL ME_4A8993050237 // Edition
@@ -431,13 +439,16 @@ ME ME_4A897A0F0097
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
- WL 'ME_4A77058200BA' '4A77058200BA.ms.model.script' // Editions
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4ACF514E0337' '4ACF514E0337.ms.model.script' // NavigationInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4570511E038A' // Document
+ WL? 'ME_4A77058200BA' // Editions
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4ACF514E0337' // NavigationInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "is namespace" True
  UP "no hands" True

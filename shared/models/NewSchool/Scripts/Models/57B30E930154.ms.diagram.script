@@ -6,7 +6,7 @@ MEDIAGRAMS ME_57B30E930154_diagrams
 
  MEDIAGRAM ME_57B30E930154_main
   MEPROP Name 'main'
-  MELINK Original WL 'ME_57B30E930154' '57B30E930154.ms.model.script' ; // StringLists
+  MELINK Original WL? 'ME_57B30E930154' ; // StringLists
 
   MEVIEW ME_57B1674A02B6_view
    MELINK Original WL 'ME_57B1674A02B6' '57B30E930154.ms.model.script' ; // TmsmModelElementDir
@@ -20,6 +20,18 @@ MEDIAGRAMS ME_57B30E930154_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57B57D5500F6_view
 
+  MEVIEW ME_57E51860015E_view
+   MELINK Original WL 'ME_57E51860015E' '57B30E930154.ms.model.script' ; // TmsmLoadedWordsList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E51860015E_view
+
+  MEVIEW ME_57E54DCD0141_view
+   MELINK Original WL 'ME_57E54DCD0141' '57B30E930154.ms.model.script' ; // TmsmSomeModelElementsList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E54DCD0141_view
+
   MEVIEWLINK ME_57B57D5500F6_ME_57B1674A02B6_Inherits
    MELINK From ME_57B57D5500F6_view ;
    MELINK To ME_57B1674A02B6_view ;
@@ -29,6 +41,8 @@ MEDIAGRAMS ME_57B30E930154_diagrams
   MELIST Views
    Seq: ( ME_57B1674A02B6_view // TmsmModelElementDir
    ME_57B57D5500F6_view // TmsmModelElementRelationList
+   ME_57E51860015E_view // TmsmLoadedWordsList
+   ME_57E54DCD0141_view // TmsmSomeModelElementsList
    ME_57B57D5500F6_ME_57B1674A02B6_Inherits // TmsmModelElementRelationList -> TmsmModelElementDir
    )
   ; // Views

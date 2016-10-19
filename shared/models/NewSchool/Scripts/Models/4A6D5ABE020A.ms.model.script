@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4BD705A001E0
+%%Inner ME_4D91D8EB00AD
+
 FORWARD ME_4A6D5ABE020A
 
 ME ME_4BD705A001E0
@@ -47,7 +50,7 @@ ME ME_4D91D97002D6
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4D91D8EB00AD // TnsInitialParaWaiter
  ;
- MELINK Target WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+ MELINK Target WL? 'ME_4C7F6D8800EE' // DiffOptions
  ;
 
 ENDME // ME_4D91D97002D6 f_Form
@@ -61,7 +64,7 @@ ME ME_5215BA2700FB
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D91D8EB00AD // TnsInitialParaWaiter
  ;
- MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
  ;
 
 ENDME // ME_5215BA2700FB f_Position
@@ -74,7 +77,7 @@ ME ME_4D91D9C5015C
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+ MELINK Target WL? 'ME_4C7F6D8800EE' // DiffOptions
  ;
 
 ENDME // ME_4D91D9C5015C aForm
@@ -121,6 +124,10 @@ ME ME_4D91D9A70258
 
 ENDME // ME_4D91D9A70258 Create
 
+%%ImplementedBy ME_47C6B2F701AA ME_4D91D9CB03D9
+
+%%InheritedBy ME_4D91D9A70258 ME_4D91D9CB03D9
+
 ME ME_4D91D9CB03D9
  MEPROP UID '4D91D9CB03D9'
  MEPROP Name 'Make'
@@ -150,7 +157,7 @@ ME ME_5215B9680363
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+ MELINK Target WL? 'ME_4C7F6D8800EE' // DiffOptions
  ;
 
 ENDME // ME_5215B9680363 aForm
@@ -159,7 +166,7 @@ ME ME_5215B968038A
  MEPROP Name 'aPosition'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
  ;
 
 ENDME // ME_5215B968038A aPosition
@@ -197,6 +204,10 @@ ME ME_5215B94503C0
  ; // Operations
 
 ENDME // ME_5215B94503C0 Create$1
+
+%%ImplementedBy ME_47C6B2F701AA ME_5215B99D0018
+
+%%InheritedBy ME_5215B94503C0 ME_5215B99D0018
 
 ME ME_5215B99D0018
  MEPROP UID '5215B99D0018'
@@ -265,7 +276,7 @@ ME ME_4D91DD90001A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D91D8EB00AD // TnsInitialParaWaiter
  ;
- MELINK Target WL 'ME_4A829D3500A9' '47F1F38601A3.ms.model.script' // evInPara
+ MELINK Target WL 'ME_4A829D3500A9' '47F1F3BC0330.ms.model.script' // evInPara
  ;
 
 ENDME // ME_4D91DD90001A 
@@ -275,7 +286,7 @@ ME ME_4D91DDCE00D6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D91D8EB00AD // TnsInitialParaWaiter
  ;
- MELINK Target WL 'ME_4A573E210187' '47F086170200.ms.model.script' // TevDocumentPartImplementation
+ MELINK Target WL 'ME_4A573E210187' '47F24F150318.ms.model.script' // TevDocumentPartImplementation
  ;
 
 ENDME // ME_4D91DDCE00D6 
@@ -285,7 +296,7 @@ ME ME_4D91E28403A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D91D8EB00AD // TnsInitialParaWaiter
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4D91E28403A2 
@@ -295,6 +306,8 @@ ME ME_4BFFA0FF01D2_ME_4D91D8EB00AD
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4BFFA0FF01D2_ME_4D91D8EB00AD TrySelectPara
+
+%%InheritedBy ME_4988405001B5 ME_4D91D8EB00AD
 
 ME ME_4D91D8EB00AD
  MEPROP UID '4D91D8EB00AD'
@@ -338,6 +351,9 @@ ME ME_4D91D8EB00AD
  ME_4D91E28403A2 // Supports
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '29.03.2011 17:05'
@@ -379,7 +395,7 @@ ME ME_4A8410A2013C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5ABE020A // PrimRightEdition
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
  ;
 
 ENDME // ME_4A8410A2013C 
@@ -429,7 +445,7 @@ ME ME_4B55BFDE003E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5ABE020A // PrimRightEdition
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
  ;
 
 ENDME // ME_4B55BFDE003E 
@@ -439,7 +455,7 @@ ME ME_5215C2A10173
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A6D5ABE020A // PrimRightEdition
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
  ;
 
 ENDME // ME_5215C2A10173 
@@ -513,13 +529,13 @@ ME ME_4B6AF2A502AE_ME_4A6D5ABE020A
 ENDME // ME_4B6AF2A502AE_ME_4A6D5ABE020A IsCurrentPara
 
 ME ME_479731C50290_ME_4A6D5ABE020A
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4A6D5ABE020A Cleanup
 
 ME ME_497469C90140_ME_4A6D5ABE020A
- MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_497469C90140_ME_4A6D5ABE020A NotifyDataSourceChanged
@@ -537,7 +553,7 @@ ME ME_4A8559B0013B_ME_4A6D5ABE020A
 ENDME // ME_4A8559B0013B_ME_4A6D5ABE020A SignalEditionChanged
 
 ME ME_4A8E8F2E0195_ME_4A6D5ABE020A
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4A6D5ABE020A InitControls
@@ -561,10 +577,15 @@ ME ME_4F7C808A0349_ME_4A6D5ABE020A
 ENDME // ME_4F7C808A0349_ME_4A6D5ABE020A BecomeVisible
 
 ME ME_501174B10018_ME_4A6D5ABE020A
- MELINK Original WL 'ME_501174B10018' '5000041101C8.ms.model.script' // GetIsMainObjectForm
+ MELINK Original WL 'ME_501174B10018' '500004240202.ms.model.script' // GetIsMainObjectForm
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_501174B10018_ME_4A6D5ABE020A GetIsMainObjectForm
+
+%%ImplementedBy ME_4B1E38210086 ME_4A6D5ABE020A
+%%ImplementedBy ME_4F991E420079 ME_4A6D5ABE020A
+
+%%InheritedBy ME_4C7F6D8800EE ME_4A6D5ABE020A
 
 ME ME_4A6D5ABE020A
  MEPROP UID '4A6D5ABE020A'
@@ -576,10 +597,10 @@ ME ME_4A6D5ABE020A
  %SUMMARY 'Текущая редакция' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ MELINK Parent WL? 'ME_4A6D5A220389' // Editions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+   Seq: ( WL? 'ME_4C7F6D8800EE' // DiffOptions
  )
  ; // Inherits
  MELIST Implements
@@ -628,6 +649,9 @@ ME ME_4A6D5ABE020A
  ME_5215C2A10173 // nsTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

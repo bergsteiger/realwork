@@ -63,7 +63,7 @@ ME ME_4AD5E7E30233
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AD5E6A60262 // BaseSearchPresentation
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4AD5E7E30233 
@@ -83,7 +83,7 @@ ME ME_4AD5F1B9025D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AD5E6A60262 // BaseSearchPresentation
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
  ;
 
 ENDME // ME_4AD5F1B9025D 
@@ -93,7 +93,7 @@ ME ME_4AD6170700D0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AD5E6A60262 // BaseSearchPresentation
  ;
- MELINK Target WL 'ME_47CFE7F00221' '47BB24D30205.ms.model.script' // l3InterfacesMisc
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
  ;
 
 ENDME // ME_4AD6170700D0 
@@ -125,7 +125,7 @@ ME ME_4F22C2D00369_ME_4AD5E6A60262
 ENDME // ME_4F22C2D00369_ME_4AD5E6A60262 FormCloseWasRequested
 
 ME ME_479731C50290_ME_4AD5E6A60262
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AD5E6A60262 Cleanup
@@ -142,6 +142,9 @@ ME ME_4A8AE0FA03B2_ME_4AD5E6A60262
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8AE0FA03B2_ME_4AD5E6A60262 BecomeActive
 
+%%ImplementedBy ME_4A82BCFA02EF ME_4AD5E6A60262
+%%ImplementedBy ME_4F22C29301C6 ME_4AD5E6A60262
+
 ME ME_4AD5E6A60262
  MEPROP UID '4AD5E6A60262'
  MEPROP Name 'BaseSearchPresentation'
@@ -152,7 +155,7 @@ ME ME_4AD5E6A60262
  %SUMMARY 'Реализация представление к которому привязан базовый поиск. Используется для инкапсуляции подписки/отписки' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
    Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
@@ -187,6 +190,9 @@ ME ME_4AD5E6A60262
  ME_5745E589011F // IvcmContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

@@ -1,0 +1,169 @@
+// atSaveQueryToXMLAddon 5006FE0303DD Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5006FE0303DD
+
+ME ME_5007045B028A
+ MEPROP UID '5007045B028A'
+ MEPROP Name 'f_FilePathPrefix'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5007045B028A f_FilePathPrefix
+
+FORWARD ME_5006FE6A03B4
+
+ME ME_5006FE7A0066
+ MEPROP Name 'anQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A549C190378' '48078CC202EC.ms.model.script' // TatQuery
+ ;
+
+ENDME // ME_5006FE7A0066 anQuery
+
+ME ME_5006FE6A03B4
+ MEPROP UID '5006FE6A03B4'
+ MEPROP Name 'SaveQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELIST Parameters
+   Seq: ( ME_5006FE7A0066 // anQuery
+ )
+ ; // Parameters
+
+ENDME // ME_5006FE6A03B4 SaveQuery
+
+ME ME_50070741021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_50070741021D 
+
+ME ME_5007074603A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL? 'ME_48172C290190' // atCommon
+ ;
+
+ENDME // ME_5007074603A5 
+
+ME ME_50102D8901F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL 'ME_483E978A0380' '483E97460331.ms.model.script' // IXMLDocument
+ ;
+
+ENDME // ME_50102D8901F1 
+
+ME ME_50102D9F0306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_50102D9F0306 
+
+ME ME_50102E7E0033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL 'ME_50045BDB00CA' '48078CC202EC.ms.model.script' // TatQueryTypeConverter
+ ;
+
+ENDME // ME_50102E7E0033 
+
+ME ME_50114CC4017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_50114CC4017A 
+
+ME ME_48089F460352_ME_5006FE0303DD
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48089F460352_ME_5006FE0303DD ExecuteSelf
+
+ME ME_48089F3701B4_ME_5006FE0303DD
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48089F3701B4_ME_5006FE0303DD InitParamList
+
+%%ImplementedBy ME_4FD0D8A60276 ME_5006FE0303DD
+
+ME ME_5006FE0303DD
+ MEPROP UID '5006FE0303DD'
+ MEPROP Name 'atSaveQueryToXMLAddon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5007045B028A // f_FilePathPrefix
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5006FE6A03B4 // SaveQuery
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_5006FE0303DD // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_5006FE0303DD // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50070741021D // atLogger
+ ME_5007074603A5 // atCommon
+ ME_50102D8901F1 // IXMLDocument
+ ME_50102D9F0306 // SysUtils
+ ME_50102E7E0033 // TatQueryTypeConverter
+ ME_50114CC4017A // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_atSaveQueryToXMLAddon_'
+ UP extprop:pas:UnitName 'atSaveQueryToXMLAddon.imp'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas'
+
+ENDME // ME_5006FE0303DD atSaveQueryToXMLAddon

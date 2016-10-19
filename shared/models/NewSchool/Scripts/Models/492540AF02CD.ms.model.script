@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_556C2C0602F8
+%%Inner ME_492547040121
+%%Inner ME_4947AD8201F6
+%%Inner ME_492545F700BF
+%%Inner ME_4D7A7A890101
+%%Inner ME_4925416003BC
+%%Inner ME_4936823400AE
+
 FORWARD ME_492540AF02CD
 
 FORWARD ME_556C2C0602F8
@@ -75,6 +83,8 @@ ME ME_493402BC0160
  ;
 
 ENDME // ME_493402BC0160 CurrentUpdated
+
+%%InheritedBy ME_4680CF330338 ME_492547040121
 
 ME ME_492547040121
  MEPROP UID '492547040121'
@@ -278,6 +288,8 @@ ME ME_4B1FA0B003E1_ME_4947AD8201F6
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B1FA0B003E1_ME_4947AD8201F6 ClearListNode
 
+%%InheritedBy ME_47EA0784000D ME_4947AD8201F6
+
 ME ME_4947AD8201F6
  MEPROP UID '4947AD8201F6'
  MEPROP GUID '10004A7E-6C16-48A3-B843-E8F957F1A586'
@@ -325,6 +337,9 @@ ME ME_4947AD8201F6
  ME_4B1FA0B003E1_ME_4947AD8201F6 // ClearListNode
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'deCommonDiction'
 
@@ -422,6 +437,8 @@ ME ME_E1561B99CC62_ME_492545F700BF
  UP "needs field" True
  UP "pm" True
 ENDME // ME_E1561B99CC62_ME_492545F700BF HasAttributes
+
+%%InheritedBy ME_47F085420325 ME_492545F700BF
 
 ME ME_492545F700BF
  MEPROP UID '492545F700BF'
@@ -544,7 +561,7 @@ ME ME_492541BD01F3
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4925416003BC // IdsCommonDiction
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_492541D402A1 // aTree
@@ -572,6 +589,8 @@ ME ME_491DD5C90095_ME_4925416003BC
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_491DD5C90095_ME_4925416003BC CurrentChanged
+
+%%InheritedBy ME_47E9F96B035A ME_4925416003BC
 
 ME ME_4925416003BC
  MEPROP UID '4925416003BC'
@@ -612,6 +631,8 @@ ENDME // ME_4925416003BC IdsCommonDiction
 
 FORWARD ME_4936823400AE
 
+%%InheritedBy ME_4923F61A0112 ME_4D78AFC702D5
+
 ME ME_4D78AFC702D5
  MEPROP UID '4D78AFC702D5'
  MEPROP Name 'dsSaveLoad'
@@ -629,6 +650,8 @@ ME ME_4D78AFC702D5
  UP "pm" True
 
 ENDME // ME_4D78AFC702D5 dsSaveLoad
+
+%%InheritedBy ME_4D7A7A890101 ME_4D7A7A9D016D
 
 ME ME_4D7A7A9D016D
  MEPROP UID '4D7A7A9D016D'
@@ -694,6 +717,8 @@ ME ME_5571E60901BC_ME_500D34960277
  MEPROP OpKind opkind_Implemented
  UP "pm" False
 ENDME // ME_5571E60901BC_ME_500D34960277 DictionKind
+
+%%InheritedBy ME_4925416003BC ME_500D34960277
 
 ME ME_500D34960277
  MEPROP UID '500D34960277'
@@ -825,6 +850,8 @@ ME ME_6DBD21E52E04_ME_4936823400AE
  UP "pm" True
 ENDME // ME_6DBD21E52E04_ME_4936823400AE HasAttributes
 
+%%InheritedBy ME_47F083E60105 ME_4936823400AE
+
 ME ME_4936823400AE
  MEPROP UID '4936823400AE'
  MEPROP GUID 'DC1DB35E-8793-4D82-87CE-97A2C50A25CF'
@@ -864,6 +891,9 @@ ME ME_4936823400AE
    Seq: ( ME_50129274026B // IdCommonDiction
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'sdsCommonDiction'
 
@@ -878,7 +908,7 @@ ME ME_492540AF02CD
  %SUMMARY 'Интерфейсы обобщённого словаря' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_494104850236' '494104850236.ms.model.script' // CommonDiction
+ MELINK Parent WL? 'ME_494104850236' // CommonDiction
  ;
  MELIST Children
    Seq: ( HWL ME_556C2C0602F8 // TnsDictionKind
@@ -891,20 +921,23 @@ ME ME_492540AF02CD
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
- WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
- WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
- WL 'ME_490838E10313' '490838E10313.ms.model.script' // nscNewInterfaces
- WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_491DD2830110' '491DD2830110.ms.model.script' // TreeInterfaces
- WL 'ME_4982BE090383' '4982BE090383.ms.model.script' // vcmControllers
- WL 'ME_4AA5503000D7' '4AA5503000D7.ms.model.script' // QueryCardInterfaces
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
- WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.ms.model.script' // DocumentInterfaces
- WL 'ME_4D1B85BF03E4' '4D1B85BF03E4.ms.model.script' // BaseDocumentWithAttributesInterfaces
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_457450470167' // DynamicTree
+ WL? 'ME_4677FBA70343' // l3Interfaces
+ WL? 'ME_4682595B0268' // l3TreeInterfaces
+ WL? 'ME_490838E10313' // nscNewInterfaces
+ WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_491DD2830110' // TreeInterfaces
+ WL? 'ME_4982BE090383' // vcmControllers
+ WL? 'ME_4AA5503000D7' // QueryCardInterfaces
+ WL? 'ME_4AB0C3C60310' // Sys
+ WL? 'ME_4B1FC2FF03CD' // DocumentInterfaces
+ WL? 'ME_4D1B85BF03E4' // BaseDocumentWithAttributesInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "is namespace" True
  UP "no hands" True

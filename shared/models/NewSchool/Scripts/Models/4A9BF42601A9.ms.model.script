@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A8921960298
+%%Inner ME_4A9BF56C0166
+%%Inner ME_4AA0CE0E02C4
+%%Inner ME_4AA4D6C7036F
+%%Inner ME_4E36959002CA
+
 FORWARD ME_4A9BF42601A9
 
 FORWARD ME_4AA4D7EA0094
@@ -66,7 +72,7 @@ ME ME_4AA4D7FC0119
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4AA4D80900A4 // aList
@@ -81,7 +87,7 @@ ME ME_4AA4DA4D0106
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4AA4DA4D0106 
@@ -109,6 +115,9 @@ ME ME_4AA4D7EA0094
    Seq: ( ME_4AA4DA4D0106 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AA4D7EA0094 TryOpenDocument
 
@@ -147,7 +156,7 @@ ME ME_4DDFAE3B013F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_4DDFAE3B013F 
@@ -157,7 +166,7 @@ ME ME_4DDFBDC80229
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_4A9D129E00FA' '4AADF9450143.ms.model.script' // Say
+ MELINK Target WL 'ME_4A9D129E00FA' '4E01D696020C.ms.model.script' // Say
  ;
 
 ENDME // ME_4DDFBDC80229 
@@ -167,7 +176,7 @@ ME ME_4DE4A23A000C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_4AB0EE02004E' '4799D29F033F.ms.model.script' // Dialogs
+ MELINK Target WL? 'ME_4AB0EE02004E' // Dialogs
  ;
 
 ENDME // ME_4DE4A23A000C 
@@ -177,7 +186,7 @@ ME ME_4E033AAB0365
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ MELINK Target WL? 'ME_4E01D696020C' // vcmMessagesSupport
  ;
 
 ENDME // ME_4E033AAB0365 
@@ -187,7 +196,7 @@ ME ME_52A82341035B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_52A821F90360' '497DDB0A0168.ms.model.script' // nsListEvents
+ MELINK Target WL? 'ME_52A821F90360' // nsListEvents
  ;
 
 ENDME // ME_52A82341035B 
@@ -207,7 +216,7 @@ ME ME_4AB23270026C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
  ;
 
 ENDME // ME_4AB23270026C 
@@ -247,7 +256,7 @@ ME ME_4AA4DDC60099
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9BF42601A9 // List$FP
  ;
- MELINK Target WL 'ME_493E78640269' '493E78640269.ms.model.script' // TsdsList
+ MELINK Target WL? 'ME_493E78640269' // TsdsList
  ;
 
 ENDME // ME_4AA4DDC60099 
@@ -283,18 +292,18 @@ ME ME_4A9BF42601A9
  %SUMMARY 'Работа со списком документов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ MELINK Parent WL? 'ME_497DDB0A0168' // List
  ;
  MELIST Operations
    Seq: ( HWL ME_4AA4D7EA0094 // TryOpenDocument
  )
  ; // Operations
  MELIST Children
-   Seq: ( WL 'ME_4A8921960298' '4A8921960298.ms.model.script' // List
- WL 'ME_4A9BF56C0166' '4A9BF56C0166.ms.model.script' // ListInfo
- WL 'ME_4AA0CE0E02C4' '4AA0CE0E02C4.ms.model.script' // ListAnalizer
- WL 'ME_4AA4D6C7036F' '4AA4D6C7036F.ms.model.script' // List$FSF
- WL 'ME_4E36959002CA' '4E36959002CA.ms.model.script' // ListAnalize
+   Seq: ( WL? 'ME_4A8921960298' // List
+ WL? 'ME_4A9BF56C0166' // ListInfo
+ WL? 'ME_4AA0CE0E02C4' // ListAnalizer
+ WL? 'ME_4AA4D6C7036F' // List$FSF
+ WL? 'ME_4E36959002CA' // ListAnalize
  )
  ; // Children
  MELIST Dependencies
@@ -316,6 +325,9 @@ ME ME_4A9BF42601A9
  ME_57A1D71C0282 // IvcmContainer
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '31.08.2009 20:51'

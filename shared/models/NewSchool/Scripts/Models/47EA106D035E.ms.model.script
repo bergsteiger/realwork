@@ -61,7 +61,7 @@ ME ME_4925B9370022
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4925B93F0195 // aDoc
@@ -85,7 +85,7 @@ ME ME_4925BE5F0143
  MEPROP Name 'aRefType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ MELINK Target WL 'ME_491B32C1015D' '4BA763B0004B.ms.model.script' // TDocumentPositionType
  ;
 
 ENDME // ME_4925BE5F0143 aRefType
@@ -94,7 +94,7 @@ ME ME_4925BE5F017F
  MEPROP Name 'aPos'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48FD996601CE' '4AB0C3C60310.ms.model.script' // Longword
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
  ;
 
 ENDME // ME_4925BE5F017F aPos
@@ -128,7 +128,7 @@ ME ME_493D1BE601B1
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_493D1BE601B1 NeedMakeDocument
@@ -159,7 +159,7 @@ ME ME_4925B1AB0052
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_4925B1AB0052 
@@ -169,7 +169,7 @@ ME ME_4925B2050027
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
  ;
- MELINK Target WL 'ME_47EB3E2202E6' '47EA50050263.ms.model.script' // dBaseDocument
+ MELINK Target WL? 'ME_47EB3E2202E6' // dBaseDocument
  ;
 
 ENDME // ME_4925B2050027 
@@ -189,7 +189,7 @@ ME ME_4925B75F0191
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47EA106D035E // sdsBaseDocument
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
  ;
 
 ENDME // ME_4925B75F0191 
@@ -230,16 +230,20 @@ ME ME_5111C2BAF24F_ME_47EA106D035E
 ENDME // ME_5111C2BAF24F_ME_47EA106D035E HasDocument
 
 ME ME_47F37DF001FE_ME_47EA106D035E
- MELINK Original WL 'ME_47F37DF001FE' '47D0E1500033.ms.model.script' // DataExchange
+ MELINK Original WL 'ME_47F37DF001FE' '47F37723017A.ms.model.script' // DataExchange
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47F37DF001FE_ME_47EA106D035E DataExchange
 
 ME ME_4A60B23E00C3_ME_47EA106D035E
- MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A60B23E00C3_ME_47EA106D035E COMQueryInterface
+
+%%ImplementedBy ME_47EA0F8D010D ME_47EA106D035E
+
+%%InheritedBy ME_47F37723017A ME_47EA106D035E
 
 ME ME_47EA106D035E
  MEPROP UID '47EA106D035E'
@@ -251,10 +255,10 @@ ME ME_47EA106D035E
  %SUMMARY 'БОС, базовый для прецедента с документом' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F37723017A' '47D0E1500033.ms.model.script' // vcmFormSetDataSource
+   Seq: ( WL? 'ME_47F37723017A' // vcmFormSetDataSource
  )
  ; // Inherits
  MELIST Implements
@@ -292,6 +296,9 @@ ME ME_47EA106D035E
  ME_4925B75F0191 // Windows
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" True
  UP "started" '06.10.2005 13:22'

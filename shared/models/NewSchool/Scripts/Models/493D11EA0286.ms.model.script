@@ -9,7 +9,7 @@ ME ME_493D121702E6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493D11EA0286 // TsdsMedicDiction
  ;
- MELINK Target WL 'ME_491D8571015D' '491D8571015D.ms.model.script' // TdsMedicDictionDocument
+ MELINK Target WL? 'ME_491D8571015D' // TdsMedicDictionDocument
  ;
 
 ENDME // ME_493D121702E6 
@@ -19,7 +19,7 @@ ME ME_493D12290275
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493D11EA0286 // TsdsMedicDiction
  ;
- MELINK Target WL 'ME_4925595900C8' '4925595900C8.ms.model.script' // TdsMedicDiction
+ MELINK Target WL? 'ME_4925595900C8' // TdsMedicDiction
  ;
 
 ENDME // ME_493D12290275 
@@ -39,7 +39,7 @@ ME ME_493D1290018A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493D11EA0286 // TsdsMedicDiction
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_493D1290018A 
@@ -49,7 +49,7 @@ ME ME_53BA4BD700EB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_493D11EA0286 // TsdsMedicDiction
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL? 'ME_53BA488F00D8' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_53BA4BD700EB 
@@ -73,10 +73,12 @@ ME ME_4936BA0D0286_ME_493D11EA0286
 ENDME // ME_4936BA0D0286_ME_493D11EA0286 MakeContents
 
 ME ME_53B3BF9C00EF_ME_493D11EA0286
- MELINK Original WL 'ME_53B3BF9C00EF' '47D0E1500033.ms.model.script' // DoGetFormSetImageIndex
+ MELINK Original WL 'ME_53B3BF9C00EF' '47F37723017A.ms.model.script' // DoGetFormSetImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_53B3BF9C00EF_ME_493D11EA0286 DoGetFormSetImageIndex
+
+%%InheritedBy ME_4941654603E7 ME_493D11EA0286
 
 ME ME_493D11EA0286
  MEPROP UID '493D11EA0286'
@@ -88,10 +90,10 @@ ME ME_493D11EA0286
  %SUMMARY 'Бизнес объект сборки "Совет дня"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4941654603E7' '4941654603E7.ms.model.script' // TsdsCommonDiction
+   Seq: ( WL? 'ME_4941654603E7' // TsdsCommonDiction
  )
  ; // Inherits
  MELIST Implemented
@@ -112,6 +114,9 @@ ME ME_493D11EA0286
  ME_53BA4BD700EB // nsTabbedInterfaceTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" True
  UP "started" '2008/03/06 10:02:57'

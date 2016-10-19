@@ -1,0 +1,41 @@
+// TmsmLoadedWordsList 57E51860015E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57E51860015E_diagrams
+
+ MEDIAGRAM ME_57E51860015E_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57E51860015E' '57B30E930154.ms.model.script' ; // TmsmLoadedWordsList
+
+  MEVIEW ME_57E51B9E01E1_view
+   MELINK Original WL 'ME_57E51B9E01E1' '57B30E930154.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E51B9E01E1_view
+
+  MEVIEW ME_57E51BA60365_view
+   MELINK Original WL 'ME_57E51BA60365' '57B30E930154.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E51BA60365_view
+
+  MEVIEWLINK ME_57E51BA60365_ME_57E51B9E01E1_Inherits
+   MELINK From ME_57E51BA60365_view ;
+   MELINK To ME_57E51B9E01E1_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E51BA60365_ME_57E51B9E01E1_Inherits
+
+  MELIST Views
+   Seq: ( ME_57E51B9E01E1_view // Create
+   ME_57E51BA60365_view // Make
+   ME_57E51BA60365_ME_57E51B9E01E1_Inherits // Make -> Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57E51860015E_main
+
+ MELIST Diagrams
+  Seq: ( ME_57E51860015E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57E51860015E_diagrams

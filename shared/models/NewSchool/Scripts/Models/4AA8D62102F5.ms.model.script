@@ -1,0 +1,199 @@
+// nsHooks 4AA8D62102F5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F7951BC01DF
+
+FORWARD ME_4AA8D62102F5
+
+FORWARD ME_4F7951BC01DF
+
+ME ME_4F79540E0255
+ MEPROP UID '4F79540E0255'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+
+ENDME // ME_4F79540E0255 init
+
+ME ME_4F7953360033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_4F741C240350' '48A41FF10094.ms.model.script' // PMouseHookStruct
+ ;
+
+ENDME // ME_4F7953360033 
+
+ME ME_4F79533D0399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_4F66EEB202F0' '48A41FF10094.ms.model.script' // PCWPStruct
+ ;
+
+ENDME // ME_4F79533D0399 
+
+ME ME_4F79549B03DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F79549B03DA 
+
+ME ME_4F7954EF01F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '47E13C6B0341.ms.model.script' // Application
+ ;
+
+ENDME // ME_4F7954EF01F3 
+
+ME ME_4F79553A0383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4F79553A0383 
+
+ME ME_4F7957D90378
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_4F7957C203E7' '47877EB202FB.ms.model.script' // GetClassName
+ ;
+
+ENDME // ME_4F7957D90378 
+
+ME ME_4F795D0A028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7951BC01DF // TnsHooks
+ ;
+ MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ ;
+
+ENDME // ME_4F795D0A028C 
+
+ME ME_4F79CEDF005A_ME_4F7951BC01DF
+ MELINK Original WL 'ME_4F79CEDF005A' '4677FBA70343.ms.model.script' // MouseListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CEDF005A_ME_4F7951BC01DF MouseListenerNotify
+
+ME ME_4F79CF9200A0_ME_4F7951BC01DF
+ MELINK Original WL 'ME_4F79CF9200A0' '4677FBA70343.ms.model.script' // WndProcRetListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CF9200A0_ME_4F7951BC01DF WndProcRetListenerNotify
+
+ME ME_479731C50290_ME_4F7951BC01DF
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4F7951BC01DF Cleanup
+
+ME ME_47A042E100E2_ME_4F7951BC01DF
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4F7951BC01DF InitFields
+
+%%ImplementedBy ME_4F7321C602DF ME_4F7951BC01DF
+%%ImplementedBy ME_4F741B37029A ME_4F7951BC01DF
+
+%%InheritedBy ME_49E7754802A9 ME_4F7951BC01DF
+
+ME ME_4F7951BC01DF
+ MEPROP UID '4F7951BC01DF'
+ MEPROP Name 'TnsHooks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8D62102F5 // nsHooks
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
+ WL 'ME_4F741B37029A' '4677FBA70343.ms.model.script' // Il3MouseListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F79540E0255 // init
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F79CEDF005A_ME_4F7951BC01DF // MouseListenerNotify
+ ME_4F79CF9200A0_ME_4F7951BC01DF // WndProcRetListenerNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F7951BC01DF // Cleanup
+ ME_47A042E100E2_ME_4F7951BC01DF // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F7953360033 // PMouseHookStruct
+ ME_4F79533D0399 // PCWPStruct
+ ME_4F79549B03DA // Msg Codes
+ ME_4F7954EF01F3 // Application
+ ME_4F79553A0383 // DataAdapter
+ ME_4F7957D90378 // GetClassName
+ ME_4F795D0A028C // Tl3ListenersManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Костицын'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '02.04.2012'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Hooks'
+
+ENDME // ME_4F7951BC01DF TnsHooks
+
+ME ME_4AA8D62102F5
+ MEPROP UID '4AA8D62102F5'
+ MEPROP Name 'nsHooks'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4AA8D60602A1' // Hooks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F7951BC01DF // TnsHooks
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:rc:SelfName 'Hooks'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsHooks.pas'
+
+ENDME // ME_4AA8D62102F5 nsHooks

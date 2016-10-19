@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57A3519700ED
+
 FORWARD ME_57A351800138
 
 FORWARD ME_57A3519700ED
@@ -33,7 +35,7 @@ ME ME_10CBF8B2ABB2
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_670D69527CBB // ShowRenameGroupDialog$4AA8E2C60357
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_99C324A50169 // aData
@@ -157,7 +159,7 @@ ME ME_4AA8E2DA00C1
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AA8E2C60357 // ShowRenameGroupDialog
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_4AA8E2E601FD // aData
@@ -180,6 +182,9 @@ ME ME_4AA8E2C60357
    Seq: ( HWL ME_4AA8E2DA00C1 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "NO_FACTORY_BRACKECTS" False
 
 ENDME // ME_4AA8E2C60357 ShowRenameGroupDialog
@@ -224,9 +229,14 @@ ME ME_4AA512AA00C5
    Seq: ( HWL ME_4AA512B701C6 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "NO_FACTORY_BRACKECTS" False
 
 ENDME // ME_4AA512AA00C5 OpenUserList
+
+%%InheritedBy ME_49E7754802A9 ME_57A3519700ED
 
 ME ME_57A3519700ED
  MEPROP UID '57A3519700ED'
@@ -251,6 +261,9 @@ ME ME_57A3519700ED
    Seq: ( HWL ME_316510E9954C // MAdminService
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'AdminService'
@@ -265,21 +278,24 @@ ME ME_57A351800138
  MELINK Stereotype st_VCMContracts ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4954D3CD0185' '4954D3CD0185.ms.model.script' // View
+ MELINK Parent WL? 'ME_4954D3CD0185' // View
  ;
  MELIST Children
    Seq: ( HWL ME_57A3519700ED // TAdminService
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
- WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
- WL 'ME_491D961C0122' '491D961C0122.ms.model.script' // AdminInterfaces
- WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+   Seq: ( WL? 'ME_3DBFDB23006E' // Primitives
+ WL? 'ME_4683F37902CF' // vcmInterfaces
+ WL? 'ME_47913B47006E' // l3CoreObjects
+ WL? 'ME_491D961C0122' // AdminInterfaces
+ WL? 'ME_499EAAE502A8' // vcmUserControls
+ WL? 'ME_4AB0C3C60310' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'Admin_Services'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin_Services.pas'

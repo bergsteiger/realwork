@@ -9,7 +9,7 @@ ME ME_492FF1F80082
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492FF1C500B5 // TsdsSendConsultation
  ;
- MELINK Target WL 'ME_491DD030014A' '491DD030014A.ms.model.script' // TdsSendConsultation
+ MELINK Target WL? 'ME_491DD030014A' // TdsSendConsultation
  ;
 
 ENDME // ME_492FF1F80082 
@@ -19,6 +19,10 @@ ME ME_492FEE0000FD_ME_492FF1C500B5
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_492FEE0000FD_ME_492FF1C500B5 GetQueryClass
+
+%%ImplementedBy ME_492F01200192 ME_492FF1C500B5
+
+%%InheritedBy ME_492FECE300EA ME_492FF1C500B5
 
 ME ME_492FF1C500B5
  MEPROP UID '492FF1C500B5'
@@ -30,10 +34,10 @@ ME ME_492FF1C500B5
  %SUMMARY 'Бизнес объект прецедента "Запрос на консультацию"' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ MELINK Parent WL? 'ME_491C3E40007B' // Consultation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_492FECE300EA' '492FECE300EA.ms.model.script' // TsdsQuery
+   Seq: ( WL? 'ME_492FECE300EA' // TsdsQuery
  )
  ; // Inherits
  MELIST Implements

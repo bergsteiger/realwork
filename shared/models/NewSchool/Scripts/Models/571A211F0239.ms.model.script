@@ -1,0 +1,505 @@
+// ExTextFormWordsPack 571A211F0239 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DCA5A94013D
+%%Inner ME_4F1942440116
+%%Inner ME_4F183D860083
+%%Inner ME_500E876A0208
+%%Inner ME_4DB00AF302F0
+%%Inner ME_4DB82E4D0197
+%%Inner ME_53B2CAE50115
+
+FORWARD ME_571A211F0239
+
+FORWARD ME_4DCA5A94013D
+
+%%InheritedBy ME_49539DBA029D ME_4F194996002E
+
+ME ME_4F194996002E
+ MEPROP UID '4F194996002E'
+ MEPROP Name 'TExTextFormHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MELIST Inherits
+   Seq: ( WL? 'ME_49539DBA029D' // ExText
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExTextFormHack'
+
+ENDME // ME_4F194996002E TExTextFormHack
+
+FORWARD ME_4DCA5B340360
+
+FORWARD ME_4DCA5B490175
+
+ME ME_4DCA5B500241
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49539DBA029D' // ExText
+ ;
+
+ENDME // ME_4DCA5B500241 aForm
+
+ME ME_4EB2681F02E7
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4EB2681F02E7 aCtx
+
+ME ME_4DCA5B490175
+ MEPROP UID '4DCA5B490175'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA5B340360 // DoTextForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DCA5B500241 // aForm
+ ME_4EB2681F02E7 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4DCA5B490175 DoIt
+
+ME ME_4DCA5B340360
+ MEPROP UID '4DCA5B340360'
+ MEPROP Name 'DoTextForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCA5B490175 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCA5B340360 DoTextForm
+
+ME ME_4DCA5ACE027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MELINK Target WL? 'ME_49539DBA029D' // ExText
+ ;
+
+ENDME // ME_4DCA5ACE027E 
+
+ME ME_4DCA5B03035D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_4DCA5B03035D 
+
+ME ME_4DCA631202E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4DCA631202E8 
+
+ME ME_4EB25DE00396_ME_4DCA5A94013D
+ MELINK Original WL 'ME_4EB25DE00396' '54DB92D203C9.ms.model.script' // DoForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4EB25DE00396_ME_4DCA5A94013D DoForm
+
+%%InheritedBy ME_4EB25D530395 ME_4DCA5A94013D
+
+ME ME_4DCA5A94013D
+ MEPROP UID '4DCA5A94013D'
+ MEPROP Name 'TkwExTextFormWord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.ms.model.script' // TkwFormFromControlWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DCA5B340360 // DoTextForm
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4EB25DE00396_ME_4DCA5A94013D // DoForm
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4F194996002E // TExTextFormHack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DCA5ACE027E // ExText
+ ME_4DCA5B03035D // afwFacade
+ ME_4DCA631202E8 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.05.2011 13:45'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExTextFormWord'
+
+ENDME // ME_4DCA5A94013D TkwExTextFormWord
+
+FORWARD ME_4F1942440116
+
+ME ME_4F1947FC01A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F1942440116 // TkwTextFormGetDocumentID
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4F1947FC01A0 
+
+ME ME_4DCA5B340360_ME_4F1942440116
+ MELINK Original HWL ME_4DCA5B340360 // DoTextForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCA5B340360_ME_4F1942440116 DoTextForm
+
+ME ME_4DB0614603C8_ME_4F1942440116
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4F1942440116 GetWordNameForRegister
+
+%%InheritedBy ME_4DCA5A94013D ME_4F1942440116
+
+ME ME_4F1942440116
+ MEPROP UID '4F1942440116'
+ MEPROP Name 'TkwTextFormGetDocumentID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает идентификатор текущего открытого документа' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCA5B340360_ME_4F1942440116 // DoTextForm
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F1942440116 // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F1947FC01A0 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'textform:GetDocumentID'
+ UP "no hands" True
+ UP "started" '20.01.2012 14:31'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextFormGetDocumentID'
+
+ENDME // ME_4F1942440116 TkwTextFormGetDocumentID
+
+ME ME_4DCA5B340360_ME_4F183D860083
+ MELINK Original HWL ME_4DCA5B340360 // DoTextForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCA5B340360_ME_4F183D860083 DoTextForm
+
+ME ME_4DB0614603C8_ME_4F183D860083
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4F183D860083 GetWordNameForRegister
+
+%%InheritedBy ME_4DCA5A94013D ME_4F183D860083
+
+ME ME_4F183D860083
+ MEPROP UID '4F183D860083'
+ MEPROP Name 'TkwTextFormSetNeedShowIntranetWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCA5B340360_ME_4F183D860083 // DoTextForm
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F183D860083 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "ifdef" 'nsTest'
+ UP "NameForScript" 'textform:SetNeedShowIntranetWarning'
+ UP "started" '19.01.2012 19^58'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextFormSetNeedShowIntranetWarning'
+
+ENDME // ME_4F183D860083 TkwTextFormSetNeedShowIntranetWarning
+
+ME ME_4DCA5B340360_ME_500E876A0208
+ MELINK Original HWL ME_4DCA5B340360 // DoTextForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCA5B340360_ME_500E876A0208 DoTextForm
+
+%%InheritedBy ME_4DCA5A94013D ME_500E876A0208
+
+ME ME_500E876A0208
+ MEPROP UID '500E876A0208'
+ MEPROP Name 'document_LikeState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DCA5B340360_ME_500E876A0208 // DoTextForm
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TkwDocumentLikeState'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentLikeState'
+
+ENDME // ME_500E876A0208 document_LikeState
+
+FORWARD ME_4DB00AF302F0
+
+ME ME_50FFA6360333
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB00AF302F0 // OpenDocument
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_50FFA6360333 
+
+ME ME_4DB00AF302F0
+ MEPROP UID '4DB00AF302F0'
+ MEPROP Name 'OpenDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_50FFA6360333 // IntToStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'Открыть'
+ UP "no hands" True
+ UP "started" '21.04.2011 14:46'
+ UP extprop:pas:TypeName 'TkwOpenDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenDocument'
+
+ENDME // ME_4DB00AF302F0 OpenDocument
+
+FORWARD ME_4DB82E4D0197
+
+ME ME_4DB82EC60013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+ MELINK Target WL 'ME_47F100430323' '47F086170200.ms.model.script' // TevDocumentsCache
+ ;
+
+ENDME // ME_4DB82EC60013 
+
+ME ME_4DB82E4D0197
+ MEPROP UID '4DB82E4D0197'
+ MEPROP Name 'TkwDocumentsCacheClear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DB82EC60013 // TevDocumentsCache
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "NameForScript" 'documentscache:Clear'
+ UP "no hands" True
+ UP "started" '27.04.2011 18:55'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentsCacheClear'
+
+ENDME // ME_4DB82E4D0197 TkwDocumentsCacheClear
+
+FORWARD ME_53B2CAE50115
+
+ME ME_53B2CB6B0177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ MELINK Target WL 'ME_4574353000CB' '4570501E037A.ms.model.script' // NodeFlags
+ ;
+
+ENDME // ME_53B2CB6B0177 
+
+ME ME_53B2CBC9035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_53B2CBC9035C 
+
+ME ME_53B2CC23000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_53B2CC23000A 
+
+ME ME_53B2CAE50115
+ MEPROP UID '53B2CAE50115'
+ MEPROP Name 'IsMyDocumentsEmpty'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53B2CB6B0177 // NodeFlags
+ ME_53B2CBC9035C // DefDataAdapter
+ ME_53B2CC23000A // Node
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName 'TkwIsMyDocumentsEmpty'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IsMyDocumentsEmpty'
+
+ENDME // ME_53B2CAE50115 IsMyDocumentsEmpty
+
+ME ME_571A2137001E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELINK Target WL? 'ME_49539DBA029D' // ExText
+ ;
+
+ENDME // ME_571A2137001E 
+
+ME ME_571E2007038D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ MELINK Target WL 'ME_4DB7EA830363' '4F4CB50403CC.ms.model.script' // pop_editor_DeleteUserComment
+ ;
+
+ENDME // ME_571E2007038D 
+
+%%InjectedBy ME_49539DBA029D ME_571A211F0239
+
+ME ME_571A211F0239
+ MEPROP UID '571A211F0239'
+ MEPROP Name 'ExTextFormWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4951181B02B6' // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DCA5A94013D // TkwExTextFormWord
+ HWL ME_4F1942440116 // TkwTextFormGetDocumentID
+ HWL ME_4F183D860083 // TkwTextFormSetNeedShowIntranetWarning
+ HWL ME_500E876A0208 // document_LikeState
+ HWL ME_4DB00AF302F0 // OpenDocument
+ HWL ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ HWL ME_53B2CAE50115 // IsMyDocumentsEmpty
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571A2137001E // ExText
+ ME_571E2007038D // pop_editor_DeleteUserComment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\ExTextFormWordsPack.pas'
+
+ENDME // ME_571A211F0239 ExTextFormWordsPack

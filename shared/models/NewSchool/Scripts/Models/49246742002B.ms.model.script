@@ -118,7 +118,7 @@ ME ME_492468610112
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49246742002B // TdsUserList
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
  ;
 
 ENDME // ME_492468610112 
@@ -138,7 +138,7 @@ ME ME_49246BE500AD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49246742002B // TdsUserList
  ;
- MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ MELINK Target WL? 'ME_47F4853203E7' // vtUtils
  ;
 
 ENDME // ME_49246BE500AD 
@@ -148,7 +148,7 @@ ME ME_49246C2903B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49246742002B // TdsUserList
  ;
- MELINK Target WL 'ME_49246C1F015D' '491D9414002B.ms.model.script' // AdminRes
+ MELINK Target WL? 'ME_49246C1F015D' // AdminRes
  ;
 
 ENDME // ME_49246C2903B3 
@@ -168,7 +168,7 @@ ME ME_4924726E0339
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49246742002B // TdsUserList
  ;
- MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ MELINK Target WL? 'ME_47F25741021C' // l3Nodes
  ;
 
 ENDME // ME_4924726E0339 
@@ -238,7 +238,7 @@ ME ME_49F03CA10181
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49246742002B // TdsUserList
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
  ;
 
 ENDME // ME_49F03CA10181 
@@ -404,7 +404,7 @@ ME ME_49F6E0DB0163_ME_49246742002B
 ENDME // ME_49F6E0DB0163_ME_49246742002B RequestUpdateCureent
 
 ME ME_479731C50290_ME_49246742002B
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49246742002B Cleanup
@@ -422,10 +422,15 @@ ME ME_47F465F80149_ME_49246742002B
 ENDME // ME_47F465F80149_ME_49246742002B MakeImageList
 
 ME ME_492ACF630072_ME_49246742002B
- MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ MELINK Original WL 'ME_492ACF630072' '501802270075.ms.model.script' // GotData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_492ACF630072_ME_49246742002B GotData
+
+%%ImplementedBy ME_49245DD203E0 ME_49246742002B
+%%ImplementedBy ME_492D91B7037E ME_49246742002B
+
+%%InheritedBy ME_47F0C1410011 ME_49246742002B
 
 ME ME_49246742002B
  MEPROP UID '49246742002B'
@@ -437,15 +442,15 @@ ME ME_49246742002B
  %SUMMARY 'бизнес объект формы efUserList' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent WL 'ME_491D9414002B' '491D9414002B.ms.model.script' // Admin
+ MELINK Parent WL? 'ME_491D9414002B' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+   Seq: ( WL? 'ME_47F0C1410011' // dsSimpleTree
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_49245DD203E0' '491D961C0122.ms.model.script' // IdsUserList
- WL 'ME_492D91B7037E' '47F282AE0082.ms.model.script' // nsContextFilter
+ WL? 'ME_492D91B7037E' // nsContextFilter
  )
  ; // Implements
  MELIST Attributes
@@ -511,6 +516,9 @@ ME ME_49246742002B
  ME_559F83360136 // TadminUserNodeList
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Тучнин Д.А.'
  UP "no hands" True
  UP "started" '15.08.2005 20.30'

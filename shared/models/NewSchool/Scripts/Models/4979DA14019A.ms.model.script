@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B150CFE01CB
+
 FORWARD ME_4979DA14019A
 
 FORWARD ME_4B150CFE01CB
@@ -42,6 +44,8 @@ ME ME_4B150D50010A
  ;
 
 ENDME // ME_4B150D50010A 
+
+%%InheritedBy ME_4B0A6109010C ME_4B150CFE01CB
 
 ME ME_4B150CFE01CB
  MEPROP UID '4B150CFE01CB'
@@ -280,6 +284,9 @@ ME ME_4C7D0C7B0185_ME_4C864E34020B
  UP "ShowInToolbar" 'undefined'
 ENDME // ME_4C7D0C7B0185_ME_4C864E34020B Copy
 
+%%ImplementedBy ME_4951282D0269 ME_4C864E34020B
+%%ImplementedBy ME_4BDAF7790158 ME_4C864E34020B
+
 ME ME_4C864E34020B
  MEPROP UID '4C864E34020B'
  MEPROP Name 'tvAttributes'
@@ -380,10 +387,15 @@ ME ME_37BE60CD03ED_ME_4979DA14019A
 ENDME // ME_37BE60CD03ED_ME_4979DA14019A fDocAttributeQueryClose
 
 ME ME_497F16AC015A_ME_4979DA14019A
- MELINK Original WL 'ME_497F16AC015A' '4A7C0BB70162.ms.model.script' // DoTabActivate
+ MELINK Original WL 'ME_497F16AC015A' '497F0F17036D.ms.model.script' // DoTabActivate
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_497F16AC015A_ME_4979DA14019A DoTabActivate
+
+%%ImplementedBy ME_497F0F17036D ME_4979DA14019A
+%%ImplementedBy ME_4D776CFE031E ME_4979DA14019A
+
+%%InheritedBy ME_497F142501FA ME_4979DA14019A
 
 ME ME_4979DA14019A
  MEPROP UID '4979DA14019A'
@@ -395,15 +407,15 @@ ME ME_4979DA14019A
  %SUMMARY 'Атрибуты документа' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4D39AD3200C1' '4D39AD3200C1.ms.model.script' // Attributes
+ MELINK Parent WL? 'ME_4D39AD3200C1' // Attributes
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497F142501FA' '497F142501FA.ms.model.script' // BaseDocumentForDocumentModule
+   Seq: ( WL? 'ME_497F142501FA' // BaseDocumentForDocumentModule
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_497F0F17036D' '4A7C0BB70162.ms.model.script' // PageControlNotification
- WL 'ME_4D776CFE031E' '4D776CFE031E.ms.model.script' // AttributesUserTypes
+   Seq: ( WL? 'ME_497F0F17036D' // PageControlNotification
+ WL? 'ME_4D776CFE031E' // AttributesUserTypes
  )
  ; // Implements
  MELIST Attributes
@@ -427,6 +439,9 @@ ME ME_4979DA14019A
  ME_4BD6BADC007A // Document$MangleForSpell
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" False

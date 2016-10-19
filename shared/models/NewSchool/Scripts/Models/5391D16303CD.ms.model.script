@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5391D17C0073
+
 FORWARD ME_5391D16303CD
 
 FORWARD ME_5391D17C0073
@@ -80,6 +82,9 @@ ME ME_5391D193004A
  HWL ME_5395AD8D03A2 // Enable
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "AutoFocus" False
  UP "AutoLock" False
  UP "has states" True
@@ -108,6 +113,9 @@ ME ME_5391D17C0073
  HWL ME_5391D193004A // Disable
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_5391D17C0073 DocumentsCache
 
@@ -119,12 +127,15 @@ ME ME_5391D16303CD
  MELINK Stereotype st_VCMControls ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
+ MELINK Parent WL? 'ME_4F7D7B980383' // View
  ;
  MELIST Children
    Seq: ( HWL ME_5391D17C0073 // DocumentsCache
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP extprop:pas:UnitName 'F1_Without_Usecases_DocumentsCacheOperations_Controls'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_DocumentsCacheOperations_Controls.pas'

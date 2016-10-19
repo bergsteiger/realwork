@@ -1,0 +1,53 @@
+// ListRes 47F4760F0395 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F4764602B5
+
+FORWARD ME_47F4760F0395
+
+%%InheritedBy ME_4AAA214A0250 ME_47F4764602B5
+
+ME ME_47F4764602B5
+ MEPROP UID '47F4764602B5'
+ MEPROP Name 'TnsListRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы списка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4760F0395 // ListRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListRes'
+
+ENDME // ME_47F4764602B5 TnsListRes
+
+ME ME_47F4760F0395
+ MEPROP UID '47F4760F0395'
+ MEPROP Name 'ListRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы списка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47F475660140' // List
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47F4764602B5 // TnsListRes
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\NOT_FINISHED_ListRes.pas'
+
+ENDME // ME_47F4760F0395 ListRes

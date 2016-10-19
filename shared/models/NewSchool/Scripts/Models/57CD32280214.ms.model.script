@@ -1,0 +1,67 @@
+// msmCaptionModel 57CD32280214 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CD32280214
+
+ME ME_57CD326402EB
+ MEPROP UID '57CD326402EB'
+ MEPROP Name 'f_Caption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57CD32280214 // msmCaptionModel
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57CD326402EB f_Caption
+
+ME ME_57B1A47403C5_ME_57CD32280214
+ MELINK Original WL 'ME_57B1A47403C5' '57AAE8D403E5.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_57B1A47403C5_ME_57CD32280214 Caption
+
+%%ImplementedBy ME_57B1A4520214 ME_57CD32280214
+
+%%InheritedBy ME_57ADBFD200CA ME_57CD32280214
+
+ME ME_57CD32280214
+ MEPROP UID '57CD32280214'
+ MEPROP Name 'msmCaptionModel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57ADBFD200CA' '57B1B48C00F8.ms.model.script' // TmsmModel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57CD326402EB // f_Caption
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57B1A47403C5_ME_57CD32280214 // Caption
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Refcount" 'standard'
+ UP extprop:pas:TypeName '_msmCaptionModel_'
+ UP extprop:pas:UnitName 'msmCaptionModel.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmCaptionModel.imp.pas'
+
+ENDME // ME_57CD32280214 msmCaptionModel

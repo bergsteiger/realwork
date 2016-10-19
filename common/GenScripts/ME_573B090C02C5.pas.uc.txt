@@ -22,12 +22,15 @@
  if Tl3BatchService.Instance.IsBatchMode then
  begin
   Result := True;
-  if f_SaveObjDefault then
-   f_SaveObjects := ns_sdlkTitles;
-  if f_MergeDefault then
-   f_MergeFiles := False;
-  if f_SelOnlyDefault then
-   f_SelectedOnly := True;
+  if aDialog.DialogKind in c_ListKinds then
+  begin
+   if f_SaveObjDefault then
+    f_SaveObjects := ns_sdlkTitles;
+   if f_MergeDefault then
+    f_MergeFiles := False;
+   if f_SelOnlyDefault then
+    f_SelectedOnly := True;
+  end;
   f_FileName := ChangeFileExt(ParamStr(0), '.autosave');
   case f_FileFormat of
    ns_ffTxt: aDialog.FilterIndex := 2;
@@ -41,9 +44,12 @@
   end;
   Assert(aDialog.SelectedFileFormat = f_FileFormat);
   aDialog.FileName := f_FileName;
-  aDialog.SaveListTarget := f_SaveObjects;
-  aDialog.MergeChecked := f_MergeFiles;
-  aDialog.SelectedOnlyChecked := f_SelectedOnly;
+  if aDialog.DialogKind in c_ListKinds then
+  begin
+   aDialog.SaveListTarget := f_SaveObjects;
+   aDialog.MergeChecked := f_MergeFiles;
+   aDialog.SelectedOnlyChecked := f_SelectedOnly;
+  end;
   f_SaveObjDefault := True;
   f_MergeDefault := True;
   f_SelOnlyDefault := True;
@@ -51,6 +57,8 @@
   Result := aDialog.Execute;
 //#UC END# *52B375B038DC_573B090C02C5_impl*
 //#UC START# *52B375B038DC_573B090C02C5_var*
+const
+ c_ListKinds = [ns_sdkListInternal, ns_sdkList];
 //#UC END# *52B375B038DC_573B090C02C5_var*
 //#UC START# *573B090C02C5_ext:FileName
 w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogImpl.pas

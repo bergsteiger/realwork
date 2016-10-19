@@ -1,0 +1,36 @@
+// AdminRes 49246C1F015D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49246C1F015D
+
+ME ME_49246C310363
+ MEPROP UID '49246C310363'
+ MEPROP Name 'dmAdmin'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49246C1F015D // AdminRes
+ ;
+
+ENDME // ME_49246C310363 dmAdmin
+
+ME ME_49246C1F015D
+ MEPROP UID '49246C1F015D'
+ MEPROP Name 'AdminRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_491D9414002B' // Admin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49246C310363 // dmAdmin
+ )
+ ; // Operations
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\NOT_FINISHED_AdminRes.pas'
+
+ENDME // ME_49246C1F015D AdminRes

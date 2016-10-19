@@ -9,7 +9,7 @@ ME ME_4C88B8370164
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87C62302CF // PrimQueryCardOptions
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_4C88B8370164 
@@ -19,7 +19,7 @@ ME ME_4C88B8680185
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87C62302CF // PrimQueryCardOptions
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4C88B8680185 
@@ -39,7 +39,7 @@ ME ME_4C88B8D50375
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87C62302CF // PrimQueryCardOptions
  ;
- MELINK Target WL 'ME_47CFFEDE0215' '47CEBC900123.ms.model.script' // evControlParaTools
+ MELINK Target WL? 'ME_47CFFEDE0215' // evControlParaTools
  ;
 
 ENDME // ME_4C88B8D50375 
@@ -49,7 +49,7 @@ ME ME_4C88B8F700DC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87C62302CF // PrimQueryCardOptions
  ;
- MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
  ;
 
 ENDME // ME_4C88B8F700DC 
@@ -79,7 +79,7 @@ ME ME_5257DC90022D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C87C62302CF // PrimQueryCardOptions
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
  ;
 
 ENDME // ME_5257DC90022D 
@@ -279,6 +279,12 @@ ME ME_4C2E11960124_ME_4C87C62302CF
  UP "ShowInToolbar" False
 ENDME // ME_4C2E11960124_ME_4C87C62302CF OpenTreeSelection
 
+%%ImplementedBy ME_494F89AA0017 ME_4C87C62302CF
+%%ImplementedBy ME_4951282D0269 ME_4C87C62302CF
+%%ImplementedBy ME_4A7C1889033B ME_4C87C62302CF
+
+%%InheritedBy ME_497EBA4301CA ME_4C87C62302CF
+
 ME ME_4C87C62302CF
  MEPROP UID '4C87C62302CF'
  MEPROP Name 'PrimQueryCardOptions'
@@ -289,10 +295,10 @@ ME ME_4C87C62302CF
  %SUMMARY 'Карточка запросов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_497EBA4301CA' '497EBA4301CA.ms.model.script' // PrimQueryCard
+   Seq: ( WL? 'ME_497EBA4301CA' // PrimQueryCard
  )
  ; // Inherits
  MELIST Implements
@@ -331,6 +337,9 @@ ME ME_4C87C62302CF
  ME_5257DC90022D // afwFacade
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

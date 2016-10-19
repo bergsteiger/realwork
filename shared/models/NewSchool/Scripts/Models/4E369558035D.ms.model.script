@@ -42,7 +42,7 @@ ME ME_4E36B6380364
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4E36B6380364 aSender
@@ -61,6 +61,8 @@ ME ME_4E36B62F02DA
  ; // Parameters
 
 ENDME // ME_4E36B62F02DA DoIt
+
+%%ImplementedBy ME_4E36BD3B02C9 ME_4E36B621000E
 
 ME ME_4E36B621000E
  MEPROP UID '4E36B621000E'
@@ -91,7 +93,7 @@ ME ME_4E36B64A0236
  MEPROP Name 'aSender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_4E36B64A0236 aSender
@@ -110,6 +112,8 @@ ME ME_4E36B64802AE
  ; // Parameters
 
 ENDME // ME_4E36B64802AE DoIt
+
+%%ImplementedBy ME_4E36BD3B02C9 ME_4E36B63D016B
 
 ME ME_4E36B63D016B
  MEPROP UID '4E36B63D016B'
@@ -137,7 +141,7 @@ ME ME_4E36B5D6004D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E369558035D // PrimListAnalize
  ;
- MELINK Target WL 'ME_4AC0EFDD029A' '4799D29F033F.ms.model.script' // TAction
+ MELINK Target WL 'ME_4AC0EFDD029A' '47E76250004C.ms.model.script' // TAction
  ;
 
 ENDME // ME_4E36B5D6004D 
@@ -154,6 +158,10 @@ ME ME_4A8AE0FA03B2_ME_4E369558035D
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
 
+%%ImplementedBy ME_4FFBDE68006D ME_4E369558035D
+
+%%InheritedBy ME_49525B34022A ME_4E369558035D
+
 ME ME_4E369558035D
  MEPROP UID '4E369558035D'
  MEPROP Name 'PrimListAnalize'
@@ -164,14 +172,14 @@ ME ME_4E369558035D
  %SUMMARY 'Анализ списка' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ MELINK Parent WL? 'ME_497DDB0A0168' // List
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FFBDE68006D' '4FFBDE68006D.ms.model.script' // ListAnalizeUserTypes
+   Seq: ( WL? 'ME_4FFBDE68006D' // ListAnalizeUserTypes
  )
  ; // Implements
  MELIST Attributes
@@ -193,6 +201,9 @@ ME ME_4E369558035D
    Seq: ( ME_4E36B5D6004D // TAction
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished dfm" True
  UP "NeedsHackRef" True

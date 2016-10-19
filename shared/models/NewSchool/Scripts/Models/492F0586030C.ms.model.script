@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_492FDE16013B
+%%Inner ME_492F071B02AC
+
 FORWARD ME_492F0586030C
 
 ME ME_492FDE16013B
@@ -16,6 +19,9 @@ ME ME_492FDE16013B
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_492F0586030C // AutoreferatInterfaces
  ;
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'dsNewsLine'
 
@@ -75,6 +81,8 @@ ME ME_5111C2BAF24F_ME_492F071B02AC
  UP "pm" True
 ENDME // ME_5111C2BAF24F_ME_492F071B02AC HasDocument
 
+%%InheritedBy ME_47EA0F8D010D ME_492F071B02AC
+
 ME ME_492F071B02AC
  MEPROP UID '492F071B02AC'
  MEPROP GUID '22A93E6D-D6A0-4D95-BA27-C6A9CFBBF259'
@@ -102,6 +110,9 @@ ME ME_492F071B02AC
  ME_5111C2BAF24F_ME_492F071B02AC // HasDocument
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'sdsAutoreferat'
 
@@ -116,7 +127,7 @@ ME ME_492F0586030C
  %SUMMARY 'Интерфейсы для работы с новостной лентой' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_49411E4001AB' '49411E4001AB.ms.model.script' // Autoreferat
+ MELINK Parent WL? 'ME_49411E4001AB' // Autoreferat
  ;
  MELIST Children
    Seq: ( HWL ME_492FDE16013B // IdsNewsLine
@@ -124,10 +135,13 @@ ME ME_492F0586030C
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
- WL 'ME_491DAF4202EE' '491DAF4202EE.ms.model.script' // SearchInterfaces
+   Seq: ( WL? 'ME_491B305A0096' // DocumentAndListInterfaces
+ WL? 'ME_491DAF4202EE' // SearchInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "is namespace" True
  UP "no hands" True

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F33E7790312
+
 ME ME_4F33E70C03D1
  MEPROP UID '4F33E70C03D1'
  MEPROP Name 'CommonForCompareEditionsAndChangesBetweenEditions'
@@ -11,21 +13,24 @@ ME ME_4F33E70C03D1
  %SUMMARY 'Общие аспекты для ОИД и СР' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_abstract
- MELINK Parent WL 'ME_4CDAB8D70377' '4CDAB8D70377.ms.model.script' // F1 Aspects
+ MELINK Parent WL? 'ME_4CDAB8D70377' // F1 Aspects
  ;
  MELIST Children
-   Seq: ( WL 'ME_4F33E7790312' '4F33E7790312.ms.model.script' // Presentation
+   Seq: ( WL? 'ME_4F33E7790312' // Presentation
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
- WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
- WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
- WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
- WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
- WL 'ME_4A92C561015D' '4A92C561015D.ms.model.script' // Common
+   Seq: ( WL? 'ME_456EA3D2031C' // GblAdapterLib
+ WL? 'ME_4677E16A022A' // K2
+ WL? 'ME_4790B4F00236' // AFW
+ WL? 'ME_4797632D0273' // Everest
+ WL? 'ME_481EF5C4020D' // Оболочка
+ WL? 'ME_4A92C561015D' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
 
 ENDME // ME_4F33E70C03D1 CommonForCompareEditionsAndChangesBetweenEditions

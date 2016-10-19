@@ -1,0 +1,165 @@
+// SaveDialogWordsPack 574480200219 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_574480200219
+
+ME ME_5744803103A2
+ MEPROP UID '5744803103A2'
+ MEPROP Name 'SaveDialog_GetFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5744803103A2 SaveDialog_GetFileName
+
+FORWARD ME_574480410161
+
+ME ME_5744805001AE
+ MEPROP Name 'aFileFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57335B010093' '4A6854C70390.ms.model.script' // TnsFileFormat
+ ;
+
+ENDME // ME_5744805001AE aFileFormat
+
+ME ME_574480410161
+ MEPROP UID '574480410161'
+ MEPROP Name 'SaveDialog_SetFileFormat'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5744805001AE // aFileFormat
+ )
+ ; // Parameters
+
+ENDME // ME_574480410161 SaveDialog_SetFileFormat
+
+FORWARD ME_57FCE34603AA
+
+ME ME_57FCE362013D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_57FCE362013D aValue
+
+ME ME_57FCE34603AA
+ MEPROP UID '57FCE34603AA'
+ MEPROP Name 'SaveDialog_SetSaveObjects'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE362013D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE34603AA SaveDialog_SetSaveObjects
+
+FORWARD ME_57FCE37F01BC
+
+ME ME_57FCE3860337
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57FCE3860337 aValue
+
+ME ME_57FCE37F01BC
+ MEPROP UID '57FCE37F01BC'
+ MEPROP Name 'SaveDialog_SetMergeFiles'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE3860337 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE37F01BC SaveDialog_SetMergeFiles
+
+FORWARD ME_57FCE9AC0123
+
+ME ME_57FCE9BC01D5
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57FCE9BC01D5 aValue
+
+ME ME_57FCE9AC0123
+ MEPROP UID '57FCE9AC0123'
+ MEPROP Name 'SaveDialog_SetSelectedOnly'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57FCE9BC01D5 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57FCE9AC0123 SaveDialog_SetSelectedOnly
+
+ME ME_57448093012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574480200219 // SaveDialogWordsPack
+ ;
+ MELINK Target WL 'ME_573A0A7E0387' '4DDA34AA023B.ms.model.script' // TnsSaveDialogExecutor
+ ;
+
+ENDME // ME_57448093012F 
+
+ME ME_574480200219
+ MEPROP UID '574480200219'
+ MEPROP Name 'SaveDialogWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4DDA34AA023B' // Dialogs
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5744803103A2 // SaveDialog_GetFileName
+ HWL ME_574480410161 // SaveDialog_SetFileFormat
+ HWL ME_57FCE34603AA // SaveDialog_SetSaveObjects
+ HWL ME_57FCE37F01BC // SaveDialog_SetMergeFiles
+ HWL ME_57FCE9AC0123 // SaveDialog_SetSelectedOnly
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57448093012F // TnsSaveDialogExecutor
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\SaveDialogWordsPack.pas'
+
+ENDME // ME_574480200219 SaveDialogWordsPack
