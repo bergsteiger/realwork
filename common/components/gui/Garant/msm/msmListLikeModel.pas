@@ -79,6 +79,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3CProtoObject
+ , msmModelElementSelectService
  , msmListAndTreeInterfaces
  , msmElementSelection
  , tfwCStringFactory
@@ -99,8 +101,210 @@ uses
  , msmModelElementNode
  , msmModelElement
  , l3String
+ , msmDeletedElements
+ , msmChangedElements
  //#UC END# *57B57EDB003Fimpl_uses*
 ;
+
+type
+ TmsmListLikeModelWorker = class(Tl3CProtoObject)
+  private
+   f_Model: ImsmListLikeModel;
+   f_Target: ImsmModelElement;
+  protected
+   procedure ClearFields; override;
+  public
+   constructor Create(const aModel: ImsmListLikeModel;
+    const aTarget: ImsmModelElement); reintroduce;
+  protected
+   property Model: ImsmListLikeModel
+    read f_Model;
+   property Target: ImsmModelElement
+    read f_Target;
+ end;//TmsmListLikeModelWorker
+
+ TmsmAttributeAdder = class(TmsmListLikeModelWorker, ImsmElementSelector)
+  protected
+   procedure SelectElement(const anElementName: AnsiString;
+    const anElementStereotype: ImsmModelElement;
+    const aKeyValues: ItfwArray);
+   function SelectFormCaption: AnsiString;
+   function KeyValues: ItfwArray;
+  public
+   class function Make(const aModel: ImsmListLikeModel;
+    const aTarget: ImsmModelElement): ImsmElementSelector; reintroduce;
+ end;//TmsmAttributeAdder
+
+ TmsmOperationAdder = class(TmsmListLikeModelWorker, ImsmElementSelector)
+  protected
+   procedure SelectElement(const anElementName: AnsiString;
+    const anElementStereotype: ImsmModelElement;
+    const aKeyValues: ItfwArray);
+   function SelectFormCaption: AnsiString;
+   function KeyValues: ItfwArray;
+  public
+   class function Make(const aModel: ImsmListLikeModel;
+    const aTarget: ImsmModelElement): ImsmElementSelector; reintroduce;
+ end;//TmsmOperationAdder
+
+ TmsmDependencyAdder = class(TmsmListLikeModelWorker, ImsmElementSelector)
+  protected
+   procedure SelectElement(const anElementName: AnsiString;
+    const anElementStereotype: ImsmModelElement;
+    const aKeyValues: ItfwArray);
+   function SelectFormCaption: AnsiString;
+   function KeyValues: ItfwArray;
+  public
+   class function Make(const aModel: ImsmListLikeModel;
+    const aTarget: ImsmModelElement): ImsmElementSelector; reintroduce;
+ end;//TmsmDependencyAdder
+
+constructor TmsmListLikeModelWorker.Create(const aModel: ImsmListLikeModel;
+ const aTarget: ImsmModelElement);
+//#UC START# *58049B0200B1_58049A4D0355_var*
+//#UC END# *58049B0200B1_58049A4D0355_var*
+begin
+//#UC START# *58049B0200B1_58049A4D0355_impl*
+ Assert(aModel <> nil);
+ Assert(aTarget <> nil);
+ f_Model := aModel;
+ f_Target := aTarget;
+ inherited Create;
+//#UC END# *58049B0200B1_58049A4D0355_impl*
+end;//TmsmListLikeModelWorker.Create
+
+procedure TmsmListLikeModelWorker.ClearFields;
+begin
+ f_Model := nil;
+ f_Target := nil;
+ inherited;
+end;//TmsmListLikeModelWorker.ClearFields
+
+class function TmsmAttributeAdder.Make(const aModel: ImsmListLikeModel;
+ const aTarget: ImsmModelElement): ImsmElementSelector;
+var
+ l_Inst : TmsmAttributeAdder;
+begin
+ l_Inst := Create(aModel, aTarget);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TmsmAttributeAdder.Make
+
+procedure TmsmAttributeAdder.SelectElement(const anElementName: AnsiString;
+ const anElementStereotype: ImsmModelElement;
+ const aKeyValues: ItfwArray);
+//#UC START# *57F509AC007F_58049B2C00EB_var*
+//#UC END# *57F509AC007F_58049B2C00EB_var*
+begin
+//#UC START# *57F509AC007F_58049B2C00EB_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_58049B2C00EB_impl*
+end;//TmsmAttributeAdder.SelectElement
+
+function TmsmAttributeAdder.SelectFormCaption: AnsiString;
+//#UC START# *57FB8665023E_58049B2C00EB_var*
+//#UC END# *57FB8665023E_58049B2C00EB_var*
+begin
+//#UC START# *57FB8665023E_58049B2C00EB_impl*
+ Result := 'Add attribute';
+//#UC END# *57FB8665023E_58049B2C00EB_impl*
+end;//TmsmAttributeAdder.SelectFormCaption
+
+function TmsmAttributeAdder.KeyValues: ItfwArray;
+//#UC START# *57FB86B0027E_58049B2C00EB_var*
+//#UC END# *57FB86B0027E_58049B2C00EB_var*
+begin
+//#UC START# *57FB86B0027E_58049B2C00EB_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewAttribute');
+//#UC END# *57FB86B0027E_58049B2C00EB_impl*
+end;//TmsmAttributeAdder.KeyValues
+
+class function TmsmOperationAdder.Make(const aModel: ImsmListLikeModel;
+ const aTarget: ImsmModelElement): ImsmElementSelector;
+var
+ l_Inst : TmsmOperationAdder;
+begin
+ l_Inst := Create(aModel, aTarget);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TmsmOperationAdder.Make
+
+procedure TmsmOperationAdder.SelectElement(const anElementName: AnsiString;
+ const anElementStereotype: ImsmModelElement;
+ const aKeyValues: ItfwArray);
+//#UC START# *57F509AC007F_58049DA603A3_var*
+//#UC END# *57F509AC007F_58049DA603A3_var*
+begin
+//#UC START# *57F509AC007F_58049DA603A3_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_58049DA603A3_impl*
+end;//TmsmOperationAdder.SelectElement
+
+function TmsmOperationAdder.SelectFormCaption: AnsiString;
+//#UC START# *57FB8665023E_58049DA603A3_var*
+//#UC END# *57FB8665023E_58049DA603A3_var*
+begin
+//#UC START# *57FB8665023E_58049DA603A3_impl*
+ Result := 'Add operation';
+//#UC END# *57FB8665023E_58049DA603A3_impl*
+end;//TmsmOperationAdder.SelectFormCaption
+
+function TmsmOperationAdder.KeyValues: ItfwArray;
+//#UC START# *57FB86B0027E_58049DA603A3_var*
+//#UC END# *57FB86B0027E_58049DA603A3_var*
+begin
+//#UC START# *57FB86B0027E_58049DA603A3_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewOperation');
+//#UC END# *57FB86B0027E_58049DA603A3_impl*
+end;//TmsmOperationAdder.KeyValues
+
+class function TmsmDependencyAdder.Make(const aModel: ImsmListLikeModel;
+ const aTarget: ImsmModelElement): ImsmElementSelector;
+var
+ l_Inst : TmsmDependencyAdder;
+begin
+ l_Inst := Create(aModel, aTarget);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TmsmDependencyAdder.Make
+
+procedure TmsmDependencyAdder.SelectElement(const anElementName: AnsiString;
+ const anElementStereotype: ImsmModelElement;
+ const aKeyValues: ItfwArray);
+//#UC START# *57F509AC007F_5804A3BE00EE_var*
+//#UC END# *57F509AC007F_5804A3BE00EE_var*
+begin
+//#UC START# *57F509AC007F_5804A3BE00EE_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_5804A3BE00EE_impl*
+end;//TmsmDependencyAdder.SelectElement
+
+function TmsmDependencyAdder.SelectFormCaption: AnsiString;
+//#UC START# *57FB8665023E_5804A3BE00EE_var*
+//#UC END# *57FB8665023E_5804A3BE00EE_var*
+begin
+//#UC START# *57FB8665023E_5804A3BE00EE_impl*
+ Result := 'Add dependency';
+//#UC END# *57FB8665023E_5804A3BE00EE_impl*
+end;//TmsmDependencyAdder.SelectFormCaption
+
+function TmsmDependencyAdder.KeyValues: ItfwArray;
+//#UC START# *57FB86B0027E_5804A3BE00EE_var*
+//#UC END# *57FB86B0027E_5804A3BE00EE_var*
+begin
+//#UC START# *57FB86B0027E_5804A3BE00EE_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewDependency');
+//#UC END# *57FB86B0027E_5804A3BE00EE_impl*
+end;//TmsmDependencyAdder.KeyValues
 
 function TmsmListLikeModel.DoGetCaption: AnsiString;
 //#UC START# *57E331B90378_57B57EDB003F_var*
@@ -320,38 +524,64 @@ var
 //#UC END# *57E4210F0225_57B57EDB003F_var*
 begin
 //#UC START# *57E4210F0225_57B57EDB003F_impl*
- Assert(Self.Get_List <> nil);
- Assert(Self.Get_List.Owner <> nil);
- if Self.Get_List.Owner.BoolProp['IsDiagram'] then
-  l_E :=
-   TmsmModelElement.MakeFromValue(
-    Self.Get_List.Owner.Call(
-     [TtfwStackValue_C(anElement.MainWord),
-      TtfwStackValue_C(aPoint.X),
-      TtfwStackValue_C(aPoint.Y)],
-     'msm:Diagram:PasteElement'
-    )
-   )
- else
- if (f_ElementView.rListName = 'Inherits')
-    OR (f_ElementView.rListName = 'Implements') then
+ l_E := nil;
+ if {(f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')}
+    false
+    then
  begin
-  Self.Get_List.Owner.ElementProp['Viewed'].Call(
+  Assert(Self.f_ElementView.rElement <> nil);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  Self.f_ElementView.rElement.ElementProp['Viewed'].Call(
    [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
    'msm:AddToCollection: .' + f_ElementView.rListName
   );
   l_E := anElement;
  end//f_ElementView.rListName = 'Inherits'..
  else
- if (f_ElementView.rListName = 'Overridden') then
+ if (f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    then
  begin
-  Self.Get_List.Owner.ElementProp['Viewed'].Call(
-   [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
-   'msm:AddOverride'
+  Assert(Self.f_ElementView.rElement <> nil);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  l_E :=
+   TmsmModelElement.MakeFromValue(
+    Self.f_ElementView.rElement.ElementProp['Viewed'].Call(
+     [TtfwStackValue_C(anElement.ElementProp['Viewed'].MainWord)],
+     'msm:Add' + f_ElementView.rListName
+    )
   );
  end//(f_ElementView.rListName = 'Overridden')
  else
-  Assert(false);
+ if (f_ElementView.rListName = 'Attributes') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmAttributeAdder.Make(Self, anElement))
+ else
+ if (f_ElementView.rListName = 'Operations') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmOperationAdder.Make(Self, anElement))
+ else
+ if (f_ElementView.rListName = 'Dependencies') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmDependencyAdder.Make(Self, anElement))
+ else
+ begin
+  Assert(Self.Get_List <> nil);
+  Assert(Self.Get_List.Owner <> nil);
+  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  begin
+   l_E :=
+    TmsmModelElement.MakeFromValue(
+     Self.Get_List.Owner.Call(
+      [TtfwStackValue_C(anElement.MainWord),
+       TtfwStackValue_C(aPoint.X),
+       TtfwStackValue_C(aPoint.Y)],
+      'msm:Diagram:PasteElement'
+     )
+    );
+  end//Self.Get_List.Owner.BoolProp['IsDiagram']
+  else
+   Assert(false);
+ end;//else 
  Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
  begin
@@ -386,15 +616,29 @@ function TmsmListLikeModel.CanAddNewElement: Boolean;
 begin
 //#UC START# *57F4FE6D0164_57B57EDB003F_impl*
  Result := false;
+ if (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
+ begin
+  if (f_ElementView.rElement = nil) then
+   Exit;
+  if (f_ElementView.rElement.MEList['AllowedElements'].Count <= 0) then
+   Exit;
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Attributes'
  if (Self.Get_List = nil) then
   Exit; 
  if (Self.Get_List.Owner = nil) then
   Exit; 
- if not Self.Get_List.Owner.BoolProp['IsDiagram'] then
-  Exit;
  if (Self.Get_List.Owner.MEList['AllowedElements'].Count <= 0) then
   Exit;
- Result := true;
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+ begin
+  Result := true;
+  Exit;
+ end;//Self.Get_List.Owner.BoolProp['IsDiagram']
 //#UC END# *57F4FE6D0164_57B57EDB003F_impl*
 end;//TmsmListLikeModel.CanAddNewElement
 
@@ -407,20 +651,43 @@ var
 //#UC END# *57F4FE8F022B_57B57EDB003F_var*
 begin
 //#UC START# *57F4FE8F022B_57B57EDB003F_impl*
- Assert(anElementName <> '');
+ //Assert(anElementName <> '');
  Assert(anElementStereotype <> nil);
- if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+ l_E := nil;
+ if (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies') then
+ begin
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsSomeView']);
+  Assert(not Self.f_ElementView.rElement.BoolProp['IsDiagram']);
   l_E :=
    TmsmModelElement.MakeFromValue(
-    Self.Get_List.Owner.Call(
+    Self.f_ElementView.rElement.Call(
      [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
       TtfwStackValue_C(anElementStereotype.MainWord),
       TtfwStackValue_C(aKeyValues)],
-     'msm:Diagram:AddElement'
+     'msm:AddElement'
     )
-   )
+   );
+ end
  else
-  Assert(false);  
+ begin
+  Assert(Self.Get_List <> nil);
+  Assert(Self.Get_List.Owner <> nil);
+  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+   l_E :=
+    TmsmModelElement.MakeFromValue(
+     Self.Get_List.Owner.Call(
+      [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
+       TtfwStackValue_C(anElementStereotype.MainWord),
+       TtfwStackValue_C(aKeyValues)],
+      'msm:Diagram:AddElement'
+     )
+    )
+  else
+   Assert(false);
+ end;//else
+ Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
  begin
   Selection.Clear;
@@ -432,19 +699,79 @@ end;//TmsmListLikeModel.AddNewElement
 procedure TmsmListLikeModel.DeleteSelection;
 //#UC START# *57F7B78D0250_57B57EDB003F_var*
 
- function DoElement(const anElement: ImsmModelElement): Boolean;
- begin//DoElement
-  Result := true;
-  if not anElement.IsSameElement(Self.Get_List.Owner) then
-   anElement.Delete;
- end;//DoElement
+ procedure DoDeleteView;
+
+  function DoElement(const anElement: ImsmModelElement): Boolean;
+  begin//DoElement
+   Result := true;
+   if not anElement.IsSameElement(Self.Get_List.Owner) then
+    if anElement.BoolProp['IsSomeView'] then
+    // - тут удал€ть можно только View
+     anElement.Delete;
+  end;//DoElement
+
+ begin//DoDeleteView
+  Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Fire(ListContentChangedEvent.Instance);
+ end;//DoDeleteView
+
+ procedure DoDeleteElement;
+
+  procedure DeleteElement(const anElement: ImsmModelElement);
+  begin//DeleteElement
+   if (anElement <> nil) then
+   begin
+    TmsmDeletedElements.Instance.Add(anElement.MainWord);
+    //anElement.Delete;
+    // - тут нельз€ Delete звать ибо например дл€ Override неправильно работает
+    // да и дл€ DecoretedType'ов - тоже
+   end;//anElement <> nil
+  end;//DeleteElement
+
+  function DoElement(const anElement: ImsmModelElement): Boolean;
+  begin//DoElement
+   Result := true;
+   if not anElement.IsSameElement(Self.Get_List.Owner) then
+   // - вообще-то эта проверка - Ћ»ЎЌяя,
+   //   т.к. у элемента могут быть ссылки на —≈Ѕя ∆≈
+   // - и ниже проверка - лишн€€
+   // “ј  это же - ——џЋ », он Ќ≈ –ј¬Ќџ самому ЁЋ≈ћ≈Ќ“”,
+   // так что - всЄ правильно, сам элемент у них в поле Target
+   begin
+    Assert(not anElement.BoolProp['IsSomeView']);
+    // - ибо пока по-моему такого не бывает, а там логика может быть более сложна€
+    DeleteElement(anElement);
+(*    if anElement.BoolProp['IsSomeView'] then
+      DeleteElement(anElement.ElementProp['Viewed']);*)
+   end;//not anElement.IsSameElement(Self.Get_List.Owner)
+  end;//DoElement
+
+ begin//DoDeleteElement
+  Assert(not Self.Get_List.Owner.BoolProp['IsSomeView']);
+  // - ибо пока по-моему такого не бывает, а там логика может быть более сложна€
+  Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  TmsmChangedElements.Instance.Add(Self.Get_List.Owner.MainWord);
+  Fire(ListContentChangedEvent.Instance);
+ end;//DoDeleteElement
 
 //#UC END# *57F7B78D0250_57B57EDB003F_var*
 begin
 //#UC START# *57F7B78D0250_57B57EDB003F_impl*
  Assert(Selection <> nil);
- Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
- Fire(ListContentChangedEvent.Instance);
+ Assert(Self.Get_List.Owner <> nil);
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  DoDeleteView
+ else
+ if {(f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
+  DoDeleteElement
+ else
+  Assert(false);
 //#UC END# *57F7B78D0250_57B57EDB003F_impl*
 end;//TmsmListLikeModel.DeleteSelection
 
@@ -470,6 +797,17 @@ begin
   Result := true;
   Exit;
  end;//Self.Get_List.Owner.BoolProp['IsDiagram']
+ if {(f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
+ begin
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Inherits'
 //#UC END# *57F7B79A0325_57B57EDB003F_impl*
 end;//TmsmListLikeModel.CanDeleteSelection
 
@@ -508,7 +846,21 @@ function TmsmListLikeModel.PropertiesForNewElement: ItfwArray;
 //#UC END# *57FCC057014C_57B57EDB003F_var*
 begin
 //#UC START# *57FCC057014C_57B57EDB003F_impl*
- Result := Self.Get_List.Owner.CallAndGetList([], 'msm:KeyValuesForNewElement');
+ Assert(Self.f_ElementView.rElement <> nil);
+ if (f_ElementView.rListName = 'Attributes') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewAttribute')
+ else
+ if (f_ElementView.rListName = 'Operations') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewOperation')
+ else
+ if (f_ElementView.rListName = 'Dependencies') then
+  Result := Self.f_ElementView.rElement.CallAndGetList([TtfwStackValue_NULL], 'msm:KeyValuesForNewDependency')
+ else
+ begin
+  Assert(Self.Get_List <> nil);
+  Assert(Self.Get_List.Owner <> nil);
+  Result := Self.Get_List.Owner.CallAndGetList([], 'msm:KeyValuesForNewElement');
+ end;//else
 //#UC END# *57FCC057014C_57B57EDB003F_impl*
 end;//TmsmListLikeModel.PropertiesForNewElement
 
@@ -539,7 +891,11 @@ begin
  end;//Self.Get_List.Owner.BoolProp['IsDiagram']
  if (f_ElementView.rListName = 'Inherits')
     OR (f_ElementView.rListName = 'Implements')
-    OR (f_ElementView.rListName = 'Overridden') then
+    OR (f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
  begin
   Result := true;
   Exit;

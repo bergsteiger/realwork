@@ -1,6 +1,6 @@
 unit StrShop;
 
-{ $Id: StrShop.pas,v 1.70 2016/09/13 07:45:01 lukyanets Exp $ }
+{ $Id: StrShop.pas,v 1.71 2016/10/17 10:58:22 lukyanets Exp $ }
 
 interface
  uses
@@ -93,7 +93,6 @@ interface
    sidNoSubFound        = 'В выделении не найдено ни одной метки.';
    sidNoSubSelected     = 'Сначала выберите метку.';
    sidNoDocPresent      = 'Документ с ID = %d отсутствует.';
-   sidWrongDocID        = 'Ошибка определения внутреннего номера документа %d.';
    sidDocPresent        = 'Документ с ID = %d уже существует.';
    sidDocLoadFault      = 'Не удалось загрузить документ с ID = %d.'^M'Ошибка: %s.';
    sidMakeCopyFault     = 'Копия не создалась';

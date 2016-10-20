@@ -21,6 +21,7 @@ type
    function pm_GetClearLinksBeforeRun: Boolean;
    procedure pm_SetClearLinksBeforeRun(aValue: Boolean);
   public
+   function GetDescription: AnsiString; override;
    class function GetTaggedDataType: Tk2Type; override;
   public
    property ClearLinksBeforeRun: Boolean
@@ -50,6 +51,15 @@ procedure TcsAutolinkerTask.pm_SetClearLinksBeforeRun(aValue: Boolean);
 begin
  TaggedData.BoolW[k2_attrClearLinksBeforeRun, nil] := (aValue);
 end;//TcsAutolinkerTask.pm_SetClearLinksBeforeRun
+
+function TcsAutolinkerTask.GetDescription: AnsiString;
+//#UC START# *57F639C2025B_57FF551D0028_var*
+//#UC END# *57F639C2025B_57FF551D0028_var*
+begin
+//#UC START# *57F639C2025B_57FF551D0028_impl*
+ Result := 'јвтоматическа€ простановка гиперссылок';
+//#UC END# *57F639C2025B_57FF551D0028_impl*
+end;//TcsAutolinkerTask.GetDescription
 
 class function TcsAutolinkerTask.GetTaggedDataType: Tk2Type;
 begin

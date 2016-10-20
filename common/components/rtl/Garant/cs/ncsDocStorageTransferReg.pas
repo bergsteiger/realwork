@@ -29,11 +29,13 @@ uses
  , csMultiModifyDocsReply
  , csMultiClearAttributesReply
  , csMultiOperationReply
+ , csMultiChangeHyperLinksReply
  , csDownloadDocStream
  , csUploadDocStream
  , csMultiModifyDocs
  , csMultiClearAttributes
  , csMultiOperation
+ , csMultiChangeHyperLinks
  //#UC START# *57C6874900D4impl_uses*
  //#UC END# *57C6874900D4impl_uses*
 ;
@@ -49,6 +51,7 @@ begin
  TncsMessageFactory.Instance.Register(TcsMultiModifyDocsReply);
  TncsMessageFactory.Instance.Register(TcsMultiClearAttributesReply);
  TncsMessageFactory.Instance.Register(TcsMultiOperationReply);
+ TncsMessageFactory.Instance.Register(TcsMultiChangeHyperLinksReply);
 //#UC END# *57C687CA01EE_57C6874900D4_impl*
 end;//ncsClientRegister
 
@@ -63,6 +66,7 @@ begin
  TncsMessageFactory.Instance.Register(TcsMultiModifyDocs);
  TncsMessageFactory.Instance.Register(TcsMultiClearAttributes);
  TncsMessageFactory.Instance.Register(TcsMultiOperation);
+ TncsMessageFactory.Instance.Register(TcsMultiChangeHyperLinks);
 //#UC END# *57C687E100FF_57C6874900D4_impl*
 end;//ncsServerRegister
 {$IfEnd} // NOT Defined(Nemesis)

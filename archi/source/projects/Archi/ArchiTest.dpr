@@ -3018,17 +3018,11 @@ uses
   m4WordIDStrList,
   m4Word,
   m4WordList,
-  arDirectSaveDocumentHelper in 'W:\archi\source\projects\Common\Utils\arDirectSaveDocumentHelper.pas',
-  arCustomMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiModifyDocsHelper.pas',
-  arDirectMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiModifyDocsHelper.pas',
   arRemoteMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiModifyDocsHelper.pas',
-  arCustomMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiClearAttributesHelper.pas',
-  arDirectMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiClearAttributesHelper.pas',
   arRemoteMultiClearAttributesHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiClearAttributesHelper.pas',
-  arCustomMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas',
-  arDirectMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas',
   arRemoteMultiOperationHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiOperationHelper.pas',
-  d_DeliveryProvile in 'Dlg\d_DeliveryProvile.pas' {DeliveryProvileDlg} 
+  arRemoteMultiChangeHyperLinksHelper in 'Processing\arRemoteMultiChangeHyperLinksHelper.pas',
+  d_DeliveryProvile in 'Dlg\d_DeliveryProvile.pas' {DeliveryProvileDlg}
  //#UC END# *4DE4A1D0031Emanualuses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)

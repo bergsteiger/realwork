@@ -1027,8 +1027,16 @@ begin
     if f_AutoServer.Start then
      Application.OnIdle:= StartUpIdle
     else
+    begin
      { Инициализация не прошла, нужно закрывать приложение }
+     case f_AutoServer.CheckConfigAtStartupCrash of
+      alcu_ccrValid: alcuShowMsg('Неизвестная ошибка');
+      alcu_ccrEdited: alcuShowMsg('Для повторной попытке старта нужно по новой запустить сервер.');
+      alcu_ccrCalcelled: alcuShowMsg('Настройки не полностью определены. Старт невозможен.');
+      alcu_ccrRefused: alcuShowMsg('Разрушение настроек. Старт невозможен.');
+     end;
      Application.Terminate;
+    end;
    except
     on E: Exception do
     begin

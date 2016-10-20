@@ -1,8 +1,11 @@
 unit nsExternalObjectPrim;
 
-{ $Id: nsExternalObjectPrim.pas,v 1.37 2016/08/08 13:08:08 lulin Exp $ }
+{ $Id: nsExternalObjectPrim.pas,v 1.38 2016/10/14 12:33:02 kostitsin Exp $ }
 
 // $Log: nsExternalObjectPrim.pas,v $
+// Revision 1.38  2016/10/14 12:33:02  kostitsin
+// {requestlink: 628757205 } - поправка на ветер
+//
 // Revision 1.37  2016/08/08 13:08:08  lulin
 // - перегенерация.
 //
@@ -767,6 +770,7 @@ uses
   {$EndIf  Monitorings}
   {$EndIf  Admin}
   , nsShellService
+  , l3BatchService
   ;
 
 const
@@ -1913,9 +1917,10 @@ begin
  begin
   Result := true;
   if not l3IsNil(anOutput.rName) then
-  begin
-   anOutput.rName := nsCStr(ChangeFileExt(l3PStr(anOutput.rName), l_Ext));
-  end;
+   if not Tl3BatchService.Instance.IsBatchMode then
+   begin
+    anOutput.rName := nsCStr(ChangeFileExt(l3PStr(anOutput.rName), l_Ext));
+   end;
   if (aFormat = ns_ffTxt) then
   begin
    Assert(theHead = nil);

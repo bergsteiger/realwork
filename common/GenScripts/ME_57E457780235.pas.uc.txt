@@ -30,11 +30,52 @@ var
  Result := nil;
  //Self.FindWord(aName);
  TmsmWaitCursor.Make;
- if TmsmModelElementMethodCaller.Call([TtfwStackValue_C(aName),
-                                       TtfwStackValue_C(TtfwCStringFactory.C(TmsmModelService.Instance.ModelRoot))],
-                                       'TryLoadWord').AsBoolean then
-  ;                                     
- Result := TmsmWordsByUserNameIndex.Instance.FindWords(aName);
+ if l3Starts(TtfwCStringFactory.C('U '), aName)
+    OR l3Starts(TtfwCStringFactory.C('UID '), aName)
+    OR l3Starts(TtfwCStringFactory.C('u '), aName)
+    OR l3Starts(TtfwCStringFactory.C('uid '), aName)
+    then
+ begin
+  l3Split(aName, ' ', l_P, l_S);
+  l_S := l3LTrim(l3Trim(l_S));
+  if TmsmModelElementMethodCaller.Call([TtfwStackValue_C(l_S),
+                                        TtfwStackValue_C(TtfwCStringFactory.C(TmsmModelService.Instance.ModelRoot))],
+                                        'TryLoadWordByUID').AsBoolean then
+   ;
+  with TmsmWordsCache.Instance do
+  begin
+   Lock;
+   try
+    l_W := nil;
+    if FindData(TtfwCStringFactory.Cat(TtfwCStringFactory.C('ME_'), l_S), l_Index) then
+    begin
+     l_W := Items[l_index];
+     l_A := TtfwArray.Create;
+     try
+      l_A.Add(TtfwStackValue_C(l_W));
+      Result := l_A;
+     finally
+      FreeAndNil(l_A);
+     end;//try..finally
+    end;//FindData(TtfwCStringFactory.Cat(TtfwCStringFactory.C('ME_'), l_S), l_Index)
+   finally
+    Unlock;
+   end;//try..finally
+  end;//with TmsmWordsCache.Instance
+ end//l3Starts('U ', aName)
+ else
+ begin
+  if TmsmModelElementMethodCaller.Call([TtfwStackValue_C(aName),
+                                        TtfwStackValue_C(TtfwCStringFactory.C(TmsmModelService.Instance.ModelRoot))],
+                                        'TryLoadWord').AsBoolean then
+   ;
+  Result := TmsmWordsByUserNameIndex.Instance.FindWords(aName);
+ end;//l3Starts('U ', aName)
 //#UC END# *57E553EC01EB_57E457780235_impl*
 //#UC START# *57E553EC01EB_57E457780235_var*
+var
+ l_P, l_S : Il3CString;
+ l_W : TtfwWord;
+ l_Index : Integer;
+ l_A : TtfwArray;
 //#UC END# *57E553EC01EB_57E457780235_var*

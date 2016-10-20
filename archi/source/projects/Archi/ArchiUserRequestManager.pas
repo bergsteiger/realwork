@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.124 2016/10/13 13:16:43 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.125 2016/10/14 10:16:22 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.125  2016/10/14 10:16:22  lukyanets
+// автолинкер как задача
+//
 // Revision 1.124  2016/10/13 13:16:43  lukyanets
 // √отовимс€ переделывать автолинкер как задачу
 //
@@ -815,7 +818,9 @@ begin
         else
          if TddProcessTask(l_MyTask).Status in cs_tsErrorStatuses then
           ShowMessage(Format('¬ыполнение задани€ "%s" завершилось ошибкой', [l_MyTask.Description]))
-
+        else
+         if (TddProcessTask(l_MyTask).Status = cs_tsDone) and (TddProcessTask(l_MyTask).TaskType = cs_ttAutolinker) then
+          ShowMessage(Format('¬ыполнение задани€ "%s" успешно завершено', [l_MyTask.Description]))
     end; // l_Show
    end; // l_MyTask <> nil
   end // FindTask

@@ -2761,6 +2761,8 @@ end;//TvtCustomListerPrim.DoSetRowHeight
 
 function TvtCustomListerPrim.ItemOnScreen(OnlyWhole: Boolean): Integer;
 //#UC START# *5151B1F30312_4CFFE36B00FA_var*
+var
+ l_Height : Integer;
 //#UC END# *5151B1F30312_4CFFE36B00FA_var*
 begin
 //#UC START# *5151B1F30312_4CFFE36B00FA_impl*
@@ -2775,10 +2777,15 @@ begin
  begin
   if f_Rows = 0 then
    pm_GetRowHeight; // там пересчет f_Rows
-  if OnlyWhole then
-   Result := (ClientHeight - GetTopIndent) div CompleteRowHeight
+  if HandleAllocated then
+  // - иначе - "странности" при убиении окна
+   l_Height := Self.ClientHeight
   else
-   Result := (ClientHeight - GetTopIndent + Pred(CompleteRowHeight)) div CompleteRowHeight;
+   l_Height := Self.Height; 
+  if OnlyWhole then
+   Result := (l_Height - GetTopIndent) div CompleteRowHeight
+  else
+   Result := (l_Height - GetTopIndent + Pred(CompleteRowHeight)) div CompleteRowHeight;
  end;//if UseDrawPoints then
  if Result < 1 then
   Result := 1;
@@ -3326,10 +3333,14 @@ begin
      begin
       Top := Top + InterRowIndent;
       TopIndentArea.Bottom := TopIndentArea.Top + InterRowIndent;
-      Windows.InvalidateRect(Handle, @TopIndentArea, True);
+      if Self.HandleAllocated then
+       Windows.InvalidateRect(Handle, @TopIndentArea, True);
       if ((Bottom - Top) > 0) and ((Right - Left) > 0) then
-       if SaveD > f_HighIndex then
-        Windows.InvalidateRect(Handle, @ClipArea, True)
+       if (SaveD > f_HighIndex) then
+       begin
+        if Self.HandleAllocated then
+         Windows.InvalidateRect(Handle, @ClipArea, True)
+       end//SaveD > f_HighIndex
        else
          {adjust bottom of the clipping region to an even number of rows}
         with ClipArea do
@@ -3369,11 +3380,13 @@ begin
             Dec(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
             DropDrawPoints;
            end;//if DY > 0 then
-           Windows.InvalidateRect(Handle, @l_CR, True);
+           if Self.HandleAllocated then
+            Windows.InvalidateRect(Handle, @l_CR, True);
           end//if Abs(DY) < ItemOnScreen(false) then
           else
           begin
-           Windows.InvalidateRect(Handle, @ClipArea, True);
+           if Self.HandleAllocated then
+            Windows.InvalidateRect(Handle, @ClipArea, True);
            DropDrawPoints;
           end;//if Abs(DY) < ItemOnScreen(false) then
          end//if UseDrawPoints then
@@ -3400,10 +3413,14 @@ begin
            end;
            ShiftArea(DY * CompleteRowHeight);
            Inc(f_CaretPoint.Y, DY * CompleteRowHeight);
-           Windows.InvalidateRect(Handle, @l_CR, True);
+           if Self.HandleAllocated then
+            Windows.InvalidateRect(Handle, @l_CR, True);
           end//if Abs(DY) < ItemOnScreen(false) then
           else
-           Windows.InvalidateRect(Handle, @ClipArea, True);
+          begin
+           if Self.HandleAllocated then
+            Windows.InvalidateRect(Handle, @ClipArea, True);
+          end;//if Abs(DY) < ItemOnScreen(false) then
          end;//if UseDrawPoints then
      end;//with ClipArea do
     end;//if SaveD <> f_TopIndex then
@@ -4693,15 +4710,18 @@ var
 //#UC END# *5155852A01C2_4CFFE36B00FA_var*
 begin
 //#UC START# *5155852A01C2_4CFFE36B00FA_impl*
- if (Parent <> nil) AND
-    not InUpdating and
-    (Index >= f_TopIndex) and
-    (Index - f_TopIndex < ItemOnScreen(false)) then
+ if Self.HandleAllocated then
  begin
-  l_CR := GetDrawRect(Index);
-  if (not f_PickedList) and (Images <> nil) then Inc(l_CR.Left,Images.Width + ImageAddSpace);
-  Windows.InvalidateRect(Handle, @l_CR, True);
- end;
+  if (Parent <> nil) AND
+     not InUpdating and
+     (Index >= f_TopIndex) and
+     (Index - f_TopIndex < ItemOnScreen(false)) then
+  begin
+   l_CR := GetDrawRect(Index);
+   if (not f_PickedList) and (Images <> nil) then Inc(l_CR.Left,Images.Width + ImageAddSpace);
+   Windows.InvalidateRect(Handle, @l_CR, True);
+  end;
+ end;//Self.HandleAllocated
 //#UC END# *5155852A01C2_4CFFE36B00FA_impl*
 end;//TvtCustomListerPrim.InvalidateItem
 
@@ -5159,6 +5179,7 @@ procedure TvtCustomListerPrim.vlbMakeItemVisiblePrim(Index: LongInt);
  end;
 var
  l_WholeRows : Integer;
+ l_Height : Integer;
 //#UC END# *5155886A00C0_4CFFE36B00FA_var*
 begin
 //#UC START# *5155886A00C0_4CFFE36B00FA_impl*
@@ -5178,7 +5199,11 @@ begin
   end//if UseDrawPoints then
   else
   begin
-   l_WholeRows := Pred((ClientHeight - GetTopIndent) div CompleteRowHeight);
+   if Self.HandleAllocated then
+    l_Height := Self.ClientHeight
+   else
+    l_Height := Self.Height;
+   l_WholeRows := Pred((l_Height - GetTopIndent) div CompleteRowHeight);
    if (Index = f_HighIndex) and FooterVisible then
     Dec(l_WholeRows);
    if Index > (f_TopIndex + l_WholeRows) then
@@ -6480,11 +6505,19 @@ begin
   begin
    f_Rows := (ClientHeight - GetTopIndent + Pred(CompleteRowHeight)) div CompleteRowHeight;
    vlbAdjustIntegralHeight;
-   if AlignTopIndex then
+   if HandleAllocated then
+   // - иначе при убиении контрола получаем "странные эффекты"
+   begin
+    if AlignTopIndex then
+     DropDrawPoints;
+    vlbInitScrollInfo;
+    if not ShowHeader then
+     f_Header.Width := Width;
+   end//HandleAllocated
+   else
+   begin
     DropDrawPoints;
-   vlbInitScrollInfo;
-   if not ShowHeader then
-    f_Header.Width := Width;
+   end;//HandleAllocated
   end;//if RowHeight > 0 then
   if Assigned(f_OnResize) then
    f_OnResize(Self);

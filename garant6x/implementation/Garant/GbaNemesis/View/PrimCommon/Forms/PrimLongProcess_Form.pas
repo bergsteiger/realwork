@@ -236,15 +236,16 @@ begin
    TvcmTabbedContainerFormDispatcher.Instance.CloseAll
   else
   {$IfEnd}
-  with TvcmDispatcher.Instance.As_IvcmDispatcher do
-  begin
-   BeginCancelModal;
-   try
-    CloseAllWindows;
-   finally
-    EndCancelModal;
+  if TvcmDispatcher.Exists then
+   with TvcmDispatcher.Instance.As_IvcmDispatcher do
+   begin
+    BeginCancelModal;
+    try
+     CloseAllWindows;
+    finally
+     EndCancelModal;
+    end;
    end;
-  end;
  end;//defDataAdapter.Authorization.IsServerAlive
 
  try

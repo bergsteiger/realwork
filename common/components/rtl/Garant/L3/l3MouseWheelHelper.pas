@@ -112,7 +112,9 @@ end;//Tl3MouseWheelHelper.InitFields
 
 initialization
 //#UC START# *4F7ACD2301D6*
+ //{$IfNDef MSM}
  Tl3MouseWheelHelper.Instance;
+ //{$EndIf  MSM}
 //#UC END# *4F7ACD2301D6*
 
 end.

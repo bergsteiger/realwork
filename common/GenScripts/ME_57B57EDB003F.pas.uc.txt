@@ -55,6 +55,8 @@ w:\common\components\gui\Garant\msm\msmListLikeModel.pas
  , msmModelElementNode
  , msmModelElement
  , l3String
+ , msmDeletedElements
+ , msmChangedElements
 //#UC END# *57B57EDB003Fimpl_uses*
 //#UC START# *57B6A4550271_57B57EDB003Fget_impl*
  Result := DoGetList;
@@ -185,6 +187,15 @@ var
   );
  end//(f_ElementView.rListName = 'Overridden')
  else
+ if (f_ElementView.rListName = 'Attributes') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmAttributeAdder.Make(Self, anElement))
+ else
+ if (f_ElementView.rListName = 'Operations') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmOperationAdder.Make(Self, anElement))
+ else
+ if (f_ElementView.rListName = 'Dependencies') then
+  TmsmModelElementSelectService.Instance.SelectElement(TmsmDependencyAdder.Make(Self, anElement))
+ else
   Assert(false);
  Fire(ListContentChangedEvent.Instance);
  if (l_E <> nil) then
@@ -229,6 +240,7 @@ var
 //#UC START# *57F4FE8F022B_57B57EDB003F_impl*
  Assert(anElementName <> '');
  Assert(anElementStereotype <> nil);
+ l_E := nil;
  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
   l_E :=
    TmsmModelElement.MakeFromValue(
@@ -237,6 +249,19 @@ var
       TtfwStackValue_C(anElementStereotype.MainWord),
       TtfwStackValue_C(aKeyValues)],
      'msm:Diagram:AddElement'
+    )
+   )
+ else
+ if (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies') then
+  l_E :=
+   TmsmModelElement.MakeFromValue(
+    Self.Get_List.Owner.Call(
+     [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
+      TtfwStackValue_C(anElementStereotype.MainWord),
+      TtfwStackValue_C(aKeyValues)],
+     'msm:AddElement'
     )
    )
  else
@@ -251,19 +276,94 @@ var
 var
  l_E : ImsmModelElement;
 //#UC END# *57F4FE8F022B_57B57EDB003F_var*
+//#UC START# *57F509AC007F_58049B2C00EB_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_58049B2C00EB_impl*
+//#UC START# *57F509AC007F_58049B2C00EB_var*
+//#UC END# *57F509AC007F_58049B2C00EB_var*
+//#UC START# *57F509AC007F_58049DA603A3_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_58049DA603A3_impl*
+//#UC START# *57F509AC007F_58049DA603A3_var*
+//#UC END# *57F509AC007F_58049DA603A3_var*
+//#UC START# *57F509AC007F_5804A3BE00EE_impl*
+ Model.AddNewElement(anElementName, anElementStereotype, aKeyValues);
+//#UC END# *57F509AC007F_5804A3BE00EE_impl*
+//#UC START# *57F509AC007F_5804A3BE00EE_var*
+//#UC END# *57F509AC007F_5804A3BE00EE_var*
 //#UC START# *57F7B78D0250_57B57EDB003F_impl*
  Assert(Selection <> nil);
- Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
- Fire(ListContentChangedEvent.Instance);
+ Assert(Self.Get_List.Owner <> nil);
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  DoDeleteView
+ else
+ if {(f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
+  DoDeleteElement
+ else
+  Assert(false);
 //#UC END# *57F7B78D0250_57B57EDB003F_impl*
 //#UC START# *57F7B78D0250_57B57EDB003F_var*
 
- function DoElement(const anElement: ImsmModelElement): Boolean;
- begin//DoElement
-  Result := true;
-  if not anElement.IsSameElement(Self.Get_List.Owner) then
-   anElement.Delete;
- end;//DoElement
+ procedure DoDeleteView;
+
+  function DoElement(const anElement: ImsmModelElement): Boolean;
+  begin//DoElement
+   Result := true;
+   if not anElement.IsSameElement(Self.Get_List.Owner) then
+    if anElement.BoolProp['IsSomeView'] then
+    // - тут удал€ть можно только View
+     anElement.Delete;
+  end;//DoElement
+
+ begin//DoDeleteView
+  Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Fire(ListContentChangedEvent.Instance);
+ end;//DoDeleteView
+
+ procedure DoDeleteElement;
+
+  procedure DeleteElement(const anElement: ImsmModelElement);
+  begin//DeleteElement
+   if (anElement <> nil) then
+   begin
+    TmsmDeletedElements.Instance.Add(anElement.MainWord);
+    //anElement.Delete;
+    // - тут нельз€ Delete звать ибо например дл€ Override неправильно работает
+    // да и дл€ DecoretedType'ов - тоже
+   end;//anElement <> nil
+  end;//DeleteElement
+
+  function DoElement(const anElement: ImsmModelElement): Boolean;
+  begin//DoElement
+   Result := true;
+   if not anElement.IsSameElement(Self.Get_List.Owner) then
+   // - вообще-то эта проверка - Ћ»ЎЌяя,
+   //   т.к. у элемента могут быть ссылки на —≈Ѕя ∆≈
+   // - и ниже проверка - лишн€€
+   // “ј  это же - ——џЋ », он Ќ≈ –ј¬Ќџ самому ЁЋ≈ћ≈Ќ“”,
+   // так что - всЄ правильно, сам элемент у них в поле Target
+   begin
+    Assert(not anElement.BoolProp['IsSomeView']);
+    // - ибо пока по-моему такого не бывает, а там логика может быть более сложна€
+    DeleteElement(anElement);
+(*    if anElement.BoolProp['IsSomeView'] then
+      DeleteElement(anElement.ElementProp['Viewed']);*)
+   end;//not anElement.IsSameElement(Self.Get_List.Owner)
+  end;//DoElement
+
+ begin//DoDeleteElement
+  Assert(not Self.Get_List.Owner.BoolProp['IsSomeView']);
+  // - ибо пока по-моему такого не бывает, а там логика может быть более сложна€
+  Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  TmsmChangedElements.Instance.Add(Self.Get_List.Owner.MainWord);
+  Fire(ListContentChangedEvent.Instance);
+ end;//DoDeleteElement
 
 //#UC END# *57F7B78D0250_57B57EDB003F_var*
 //#UC START# *57F7B79A0325_57B57EDB003F_impl*
@@ -284,9 +384,50 @@ var
   Result := true;
   Exit;
  end;//Self.Get_List.Owner.BoolProp['IsDiagram']
+ if {(f_ElementView.rListName = 'Inherits')
+    OR (f_ElementView.rListName = 'Implements')
+    OR }(f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
+ begin
+  Result := true;
+  Exit;
+ end;//f_ElementView.rListName = 'Inherits'
 //#UC END# *57F7B79A0325_57B57EDB003F_impl*
 //#UC START# *57F7B79A0325_57B57EDB003F_var*
 //#UC END# *57F7B79A0325_57B57EDB003F_var*
+//#UC START# *57FB8665023E_58049B2C00EB_impl*
+ Result := 'Add attribute';
+//#UC END# *57FB8665023E_58049B2C00EB_impl*
+//#UC START# *57FB8665023E_58049B2C00EB_var*
+//#UC END# *57FB8665023E_58049B2C00EB_var*
+//#UC START# *57FB8665023E_58049DA603A3_impl*
+ Result := 'Add operation';
+//#UC END# *57FB8665023E_58049DA603A3_impl*
+//#UC START# *57FB8665023E_58049DA603A3_var*
+//#UC END# *57FB8665023E_58049DA603A3_var*
+//#UC START# *57FB8665023E_5804A3BE00EE_impl*
+ Result := 'Add dependency';
+//#UC END# *57FB8665023E_5804A3BE00EE_impl*
+//#UC START# *57FB8665023E_5804A3BE00EE_var*
+//#UC END# *57FB8665023E_5804A3BE00EE_var*
+//#UC START# *57FB86B0027E_58049B2C00EB_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewAttribute');
+//#UC END# *57FB86B0027E_58049B2C00EB_impl*
+//#UC START# *57FB86B0027E_58049B2C00EB_var*
+//#UC END# *57FB86B0027E_58049B2C00EB_var*
+//#UC START# *57FB86B0027E_58049DA603A3_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewOperation');
+//#UC END# *57FB86B0027E_58049DA603A3_impl*
+//#UC START# *57FB86B0027E_58049DA603A3_var*
+//#UC END# *57FB86B0027E_58049DA603A3_var*
+//#UC START# *57FB86B0027E_5804A3BE00EE_impl*
+ Result := Model.List.Owner.CallAndGetList([TtfwStackValue_C(Self.Target.MainWord)], 'msm:KeyValuesForNewDependency');
+//#UC END# *57FB86B0027E_5804A3BE00EE_impl*
+//#UC START# *57FB86B0027E_5804A3BE00EE_var*
+//#UC END# *57FB86B0027E_5804A3BE00EE_var*
 //#UC START# *57FC23270363_57B57EDB003F_impl*
  Self.Get_CurrentElement.Call(
   [TtfwStackValue_C(aKeyValues)],
@@ -332,7 +473,11 @@ var
  end;//Self.Get_List.Owner.BoolProp['IsDiagram']
  if (f_ElementView.rListName = 'Inherits')
     OR (f_ElementView.rListName = 'Implements')
-    OR (f_ElementView.rListName = 'Overridden') then
+    OR (f_ElementView.rListName = 'Overridden')
+    OR (f_ElementView.rListName = 'Attributes')
+    OR (f_ElementView.rListName = 'Operations')
+    OR (f_ElementView.rListName = 'Dependencies')
+    then
  begin
   Result := true;
   Exit;
@@ -340,3 +485,12 @@ var
 //#UC END# *57FF47AE00B4_57B57EDB003F_impl*
 //#UC START# *57FF47AE00B4_57B57EDB003F_var*
 //#UC END# *57FF47AE00B4_57B57EDB003F_var*
+//#UC START# *58049B0200B1_58049A4D0355_impl*
+ Assert(aModel <> nil);
+ Assert(aTarget <> nil);
+ f_Model := aModel;
+ f_Target := aTarget;
+ inherited Create;
+//#UC END# *58049B0200B1_58049A4D0355_impl*
+//#UC START# *58049B0200B1_58049A4D0355_var*
+//#UC END# *58049B0200B1_58049A4D0355_var*

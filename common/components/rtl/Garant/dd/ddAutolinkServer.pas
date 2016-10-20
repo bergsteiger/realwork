@@ -1,8 +1,11 @@
 unit ddAutolinkServer;
 
-{ $Id: ddAutolinkServer.pas,v 1.13 2016/10/13 09:46:58 fireton Exp $ }
+{ $Id: ddAutolinkServer.pas,v 1.14 2016/10/14 15:23:52 fireton Exp $ }
 
 // $Log: ddAutolinkServer.pas,v $
+// Revision 1.14  2016/10/14 15:23:52  fireton
+// - отписываем сервер от GlobalHtServer при уничтожении
+//
 // Revision 1.13  2016/10/13 09:46:58  fireton
 // - прибиваем кэшированные в сервере таблицы по нотификации от GlobalHtServer
 //
@@ -126,6 +129,7 @@ end;
 procedure TddAutolinkServer.Cleanup;
 begin
  DropTables;
+ Il3ChangeNotifier(GlobalHtServer).Unsubscribe(Il3ItemNotifyRecipient(Self));
  inherited;
 end;
 

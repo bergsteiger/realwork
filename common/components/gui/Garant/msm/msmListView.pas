@@ -303,8 +303,10 @@ function TmsmListView.pm_GetTotal: LongInt;
 begin
 //#UC START# *514C89A601FE_57B4564702F8get_impl*
  if Assigned(OnGetTotal) then
-  if (f_LockTotal <= 0) AND not InUpdating then
-   OnGetTotal(Self);
+  if (Parent <> nil) then
+   if Self.HandleAllocated then
+    if (f_LockTotal <= 0) AND not InUpdating then
+     OnGetTotal(Self);
  Result := inherited pm_GetTotal;
 //#UC END# *514C89A601FE_57B4564702F8get_impl*
 end;//TmsmListView.pm_GetTotal

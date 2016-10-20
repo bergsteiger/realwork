@@ -36,6 +36,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwAxiomaticsResNameGetter
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(AppClientSide)}
  , Main
  {$IfEnd} // Defined(AppClientSide)
@@ -47,6 +50,20 @@ uses
 ;
 
 {$If NOT Defined(NoScripts)}
+type
+ TkwDocumentSpravkaResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TkwDocumentSpravkaResNameGetter
+
+class function TkwDocumentSpravkaResNameGetter.ResName: AnsiString;
+begin
+ Result := 'kwDocumentSpravka';
+end;//TkwDocumentSpravkaResNameGetter.ResName
+
+{$R kwDocumentSpravka.res}
+
 class function TkwDocumentSpravka.GetWordNameForRegister: AnsiString;
 begin
  Result := 'оп::Документ_Справка_к_документу';
@@ -63,6 +80,8 @@ begin
 end;//TkwDocumentSpravka.DoDoIt
 
 initialization
+ TkwDocumentSpravkaResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TkwDocumentSpravka.RegisterInEngine;
  {* Регистрация TkwDocumentSpravka }
 {$IfEnd} // NOT Defined(NoScripts)

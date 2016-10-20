@@ -1,8 +1,11 @@
 unit MainEditor;
 
-{ $Id: MainEditor.pas,v 1.23 2016/04/26 12:46:14 lukyanets Exp $ }
+{ $Id: MainEditor.pas,v 1.24 2016/10/14 07:14:57 dinishev Exp $ }
 
 // $Log: MainEditor.pas,v $
+// Revision 1.24  2016/10/14 07:14:57  dinishev
+// {Requestlink:632021637}
+//
 // Revision 1.23  2016/04/26 12:46:14  lukyanets
 // Выключаем переключения текущего каталога
 // Committed on the Free edition of March Hare Software CVSNT Server.
@@ -587,6 +590,11 @@ type
     acTranslate2Text: TevAction;
     acToolsSetSections: TAction;
     acInsertSub: TAction;
+    acBold: TevAction;
+    acItalic: TevAction;
+    acUnderline: TevAction;
+    acSuperscript: TevAction;
+    acSubscript: TevAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure acInsertFileExecute(Sender: TObject);
     procedure acInsertPictureExecute(Sender: TObject);
@@ -2250,7 +2258,7 @@ begin
    ActiveEditor.Editor.Find(TevFirstTableCellSearcher.Make, nil, []);
    ActiveEditor.Editor.DeleteFoundRgn;
   except
-   on EevSearchFailed do
+   //on EevSearchFailed do
     vtMessageDlg(str_sidTableNotFound.AsCStr, mtInformation);
   end;
  end;

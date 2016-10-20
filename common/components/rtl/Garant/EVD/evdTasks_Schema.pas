@@ -2212,6 +2212,61 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//AutolinkerTaskTag
 
+ csMultiChangeHyperLinksTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csMultiChangeHyperLinks" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csMultiChangeHyperLinksTagClass
+
+ csMultiChangeHyperLinksTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csMultiChangeHyperLinksTag
+
+ csMultiChangeHyperLinks_DocumentIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiChangeHyperLinks_DocumentIDList_Tag
+
+ csMultiChangeHyperLinksReplyTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csMultiChangeHyperLinksReply" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csMultiChangeHyperLinksReplyTagClass
+
+ csMultiChangeHyperLinksReplyTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csMultiChangeHyperLinksReplyTag
+
+ MultiChangeHyperLinksRequestTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "MultiChangeHyperLinksRequest" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//MultiChangeHyperLinksRequestTagClass
+
+ MultiChangeHyperLinksRequestTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//MultiChangeHyperLinksRequestTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -2377,6 +2432,10 @@ type
    t_csDownloadDocStream_DocPartSel : csDownloadDocStream_DocPartSel_Tag;
    t_DeliveryProfile : DeliveryProfileTag;
    t_AutolinkerTask : AutolinkerTaskTag;
+   t_csMultiChangeHyperLinks : csMultiChangeHyperLinksTag;
+   t_csMultiChangeHyperLinks_DocumentIDList : csMultiChangeHyperLinks_DocumentIDList_Tag;
+   t_csMultiChangeHyperLinksReply : csMultiChangeHyperLinksReplyTag;
+   t_MultiChangeHyperLinksRequest : MultiChangeHyperLinksRequestTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2490,6 +2549,9 @@ uses
   csDownloadDocStream_Const,
   DeliveryProfile_Const,
   AutolinkerTask_Const,
+  csMultiChangeHyperLinks_Const,
+  csMultiChangeHyperLinksReply_Const,
+  MultiChangeHyperLinksRequest_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -5648,6 +5710,84 @@ begin
  Result := AutolinkerTaskTagClass.Make(Self);
 end;
 
+function csMultiChangeHyperLinks_DocumentIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiChangeHyperLinks_DocumentIDList'));
+end;
+
+function csMultiChangeHyperLinks_DocumentIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiChangeHyperLinks_DocumentIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function csMultiChangeHyperLinksTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsMultiChangeHyperLinks;
+end;//csMultiChangeHyperLinksTagClass.TagType
+
+function csMultiChangeHyperLinksTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiChangeHyperLinks'));
+end;
+
+function csMultiChangeHyperLinksTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csPersonificatedMessage.IsKindOf(anAtomType);
+end;
+
+function csMultiChangeHyperLinksTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csMultiChangeHyperLinksTagClass.Make(Self);
+end;
+
+function csMultiChangeHyperLinksReplyTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsMultiChangeHyperLinksReply;
+end;//csMultiChangeHyperLinksReplyTagClass.TagType
+
+function csMultiChangeHyperLinksReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiChangeHyperLinksReply'));
+end;
+
+function csMultiChangeHyperLinksReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csReply.IsKindOf(anAtomType);
+end;
+
+function csMultiChangeHyperLinksReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csMultiChangeHyperLinksReplyTagClass.Make(Self);
+end;
+
+function MultiChangeHyperLinksRequestTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typMultiChangeHyperLinksRequest;
+end;//MultiChangeHyperLinksRequestTagClass.TagType
+
+function MultiChangeHyperLinksRequestTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('MultiChangeHyperLinksRequest'));
+end;
+
+function MultiChangeHyperLinksRequestTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function MultiChangeHyperLinksRequestTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := MultiChangeHyperLinksRequestTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -7928,6 +8068,54 @@ begin
   begin
   end;//ClearLinksBeforeRun
  end;//AutolinkerTask
+ // csMultiChangeHyperLinks
+ t_csMultiChangeHyperLinks := DefineAutoType([t_csPersonificatedMessage], '', csMultiChangeHyperLinksTag) As csMultiChangeHyperLinksTag;
+ with t_csMultiChangeHyperLinks do
+ begin
+  AtomClass := csMultiChangeHyperLinksTagClass;
+  t_csMultiChangeHyperLinks_DocumentIDList := DefineAutoType([t_OList], 'csMultiChangeHyperLinks DocumentIDList', csMultiChangeHyperLinks_DocumentIDList_Tag) As csMultiChangeHyperLinks_DocumentIDList_Tag;
+  try
+   t_csMultiChangeHyperLinks_DocumentIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrDocumentIDList, t_csMultiChangeHyperLinks_DocumentIDList, '');
+   t_csMultiChangeHyperLinks_DocumentIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiChangeHyperLinks_DocumentIDList);
+  end;//try..except
+  with t_csMultiChangeHyperLinks_DocumentIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//DocumentIDList
+  with DefineProperty(k2_attrOldDocID, t_Long, '') do
+  begin
+  end;//OldDocID
+  with DefineProperty(k2_attrNewDocID, t_Long, '') do
+  begin
+  end;//NewDocID
+  with DefineProperty(k2_attrFamilyID, t_Long, '') do
+  begin
+  end;//FamilyID
+ end;//csMultiChangeHyperLinks
+ // csMultiChangeHyperLinksReply
+ t_csMultiChangeHyperLinksReply := DefineAutoType([t_csReply], '', csMultiChangeHyperLinksReplyTag) As csMultiChangeHyperLinksReplyTag;
+ with t_csMultiChangeHyperLinksReply do
+ begin
+  AtomClass := csMultiChangeHyperLinksReplyTagClass;
+  with DefineProperty(k2_attrIsSuccess, t_Bool, '') do
+  begin
+  end;//IsSuccess
+  with DefineProperty(k2_attrErrorMessage, t_String, '') do
+  begin
+  end;//ErrorMessage
+ end;//csMultiChangeHyperLinksReply
+ // MultiChangeHyperLinksRequest
+ t_MultiChangeHyperLinksRequest := DefineAutoType([t_ProcessTask], '', MultiChangeHyperLinksRequestTag) As MultiChangeHyperLinksRequestTag;
+ with t_MultiChangeHyperLinksRequest do
+ begin
+  AtomClass := MultiChangeHyperLinksRequestTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttMultiChangeHyperLinks);
+  end;//TaskType
+ end;//MultiChangeHyperLinksRequest
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -8031,6 +8219,9 @@ begin
  t_csDownloadDocStream.Recalc;
  t_DeliveryProfile.Recalc;
  t_AutolinkerTask.Recalc;
+ t_csMultiChangeHyperLinks.Recalc;
+ t_csMultiChangeHyperLinksReply.Recalc;
+ t_MultiChangeHyperLinksRequest.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -8200,6 +8391,10 @@ begin
  t_csDownloadDocStream_DocPartSel.InterfaceFactory := nil;
  t_DeliveryProfile.InterfaceFactory := nil;
  t_AutolinkerTask.InterfaceFactory := nil;
+ t_csMultiChangeHyperLinks.InterfaceFactory := nil;
+ t_csMultiChangeHyperLinks_DocumentIDList.InterfaceFactory := nil;
+ t_csMultiChangeHyperLinksReply.InterfaceFactory := nil;
+ t_MultiChangeHyperLinksRequest.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -8362,6 +8557,10 @@ begin
  FreeAndNil(t_csDownloadDocStream_DocPartSel);
  FreeAndNil(t_DeliveryProfile);
  FreeAndNil(t_AutolinkerTask);
+ FreeAndNil(t_csMultiChangeHyperLinks);
+ FreeAndNil(t_csMultiChangeHyperLinks_DocumentIDList);
+ FreeAndNil(t_csMultiChangeHyperLinksReply);
+ FreeAndNil(t_MultiChangeHyperLinksRequest);
  inherited;
 end;
 

@@ -72,6 +72,7 @@ uses
  , msmAddElement
  , msmDeleteSelection
  , msmChangeProperties
+ , msmChangePropertiesBinding
  , l3Memory
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
@@ -172,7 +173,8 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
  begin//AddChildView
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
-  Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
+  Bind(TmsmChangePropertiesBinding.Make(aChildModel));
+  //Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
 
   AddController(
    AddListOperations
@@ -208,7 +210,6 @@ var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
  l_AllWords : ImsmListModel;
- //l_AllowedElements : ImsmListModel;
  l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 begin
@@ -269,17 +270,24 @@ begin
  if (aChildZone <> nil) then
  begin
   l_ListContext := TmsmListViewtInitContext_C;
-  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Dependencies', 'Implemented', 'Overridden'],
                 aChildZone,
                 l_ListContext
                 );
-  AddChildView(TmsmModelElementView_C('UpList', 'UpText'),
-               aChildZone,
-               l_ListContext);
-  l_ListContext.rMultiStrokeItem := true;
-  AddChildView(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty'),
-               aChildZone,
-               l_ListContext);
+  if false then
+  begin
+   AddChildView(TmsmModelElementView_C('UpList', 'UpText'),
+                aChildZone,
+                l_ListContext);
+  end;//false
+  if false then
+  begin
+   l_ListContext := TmsmListViewtInitContext_C;
+   l_ListContext.rMultiStrokeItem := true;
+   AddChildView(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty'),
+                aChildZone,
+                l_ListContext);
+  end;//false
  end;//aChildZone <> nil
 
  if (aFloatingZone <> nil) then
@@ -321,35 +329,37 @@ begin
      , l_AllWords
     )
    );
+   // - список всех слов модели
    Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
   end;//false
 
   if true then
   begin
-   l_ListContext := TmsmListViewtInitContext_C;
-   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
-   AddChildView('AllowedElements', aFloatingZone, l_ListContext);
-   l_ListContext := TmsmListViewtInitContext_C;
-   AddChildView('CanOverride', aFloatingZone, l_ListContext);
-(*   Assert(aUseCase.Drawing.List <> nil);
-   l_AllowedElements := TmsmListModel.MakeListForViewed(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
-   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
-   // - иначе туда дают сделать Add element
-   l_ListContext := TmsmListViewtInitContext_C;
-   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
-   AddController(
-    AddReadonlyListOperations(
-     DisableActionElementEvent
-     (
-      TmsmListViewController.Make(l_AllowedElements, aFloatingZone, l_ListContext)
-     )
-     , l_AllowedElements
-    )
-   );
-   Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
-   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
-   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
-   // - иначе туда дают сделать Add element*)
+   if false then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+    AddChildView('AllowedElements', aFloatingZone, l_ListContext);
+    // - список стереотипов доступных для текущего элемента
+   end;//false
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('AccessibleTypes', aFloatingZone, l_ListContext);
+    // - список типов, которые может использовать текущий элемент
+   end;//true
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('CanImplement', aFloatingZone, l_ListContext);
+    // - список методов, которые может реализовывать текущий элемент
+   end;//true
+   if true then
+   begin
+    l_ListContext := TmsmListViewtInitContext_C;
+    AddChildView('CanOverride', aFloatingZone, l_ListContext);
+    // - список методов, которые может перекрывать текущий элемент
+   end;//true 
   end;//true
  end;//aFloatingZone <> nil
 

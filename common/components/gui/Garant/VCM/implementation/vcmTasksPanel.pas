@@ -5,10 +5,13 @@ unit vcmTasksPanel;
 // Автор      : Морозов М.А.;
 // Модуль     : vcmCustOps - Панель задач.
 // Начат      : 22.02.2007                     
-// Версия     : $Id: vcmTasksPanel.pas,v 1.119 2016/09/13 18:32:46 kostitsin Exp $
+// Версия     : $Id: vcmTasksPanel.pas,v 1.120 2016/10/17 13:18:38 kostitsin Exp $
 
 (*-------------------------------------------------------------------------------
   $Log: vcmTasksPanel.pas,v $
+  Revision 1.120  2016/10/17 13:18:38  kostitsin
+  {requestlink: 632194223 }
+
   Revision 1.119  2016/09/13 18:32:46  kostitsin
   {requestlink: 630194905 }
 
@@ -1556,8 +1559,9 @@ begin
  vcmCatPath(SettingsPath, ctp_stRepGroups, f_RepGroupsPath);
   // - куда читать\писать настройки;
  UpdatePositionByOrder := False;
- EnableSaveToSettings := False; 
- TvcmDispatcher.Instance.FormDispatcher.AddLockListener(IvcmLockListener(Self));
+ EnableSaveToSettings := False;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.FormDispatcher.AddLockListener(IvcmLockListener(Self));
 end;//Create
 
 function TvcmCustOps.AnalyzeOpForCurrentUseCase: Boolean;
@@ -1569,7 +1573,8 @@ end;
 
 procedure TvcmCustOps.Cleanup;
 begin
- TvcmDispatcher.Instance.FormDispatcher.RemoveLockListener(IvcmLockListener(Self));
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.FormDispatcher.RemoveLockListener(IvcmLockListener(Self));
  FreeAndNil(f_Groups);
  FreeAndNil(f_RepGroups);
  FreeAndNil(f_RepGroupsOperations);

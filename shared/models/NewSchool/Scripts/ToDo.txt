@@ -215,12 +215,69 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 178. .filter> ( .IsLocalMethod ! ) и вообще .filter> ( .IsXXX ! ) заменить на .filter> .Not: .IsLocalMethod
 179. .NotInArray: etc сделать так, чтобы не нужны были скобки.
 190. fsList - поправить, чтобы различий при генерации не было.
-192. // TestsTuning 4DA318AB0254 Unit Category - падает
-193. TranformElementMember.ms.dict - s - пропущено
-194. Выделить ProjectGroup - Shared Delphi MVC And MSM
 195. Вывести комментарий // с именем слов после %%Inner.
-198. Ctx:PushFinder KeyWordByName - IsWordDeclared, HWL
-199. Выделить из IsStereotype метод IsA. -> IsStereoKindOf
-200. arDBUtils - csBaseFileName - меняется при перегенерации.
 203. .IsStereotype -> .IsStereotype:
-206.
+207. Добавление Attributes, Dependencies.
+208. Если в диаграммах есть uses/Uses, то делать диаграмму Uses. И вытаскивать туда ВСЕ Depends и Depndencies.
+209. CallXXX([] заменить на CallXXX(
+210. Сделать модификатор NotCached. Чтобы не кешировать "производные" значения. Типа FullText. Или CanOverride.
+211. Не кешировать KeyValuesCreate: Ну или сделать NotCachedKeyValuesCreate:
+212. Call заменить на CachedCall, а RawCall смапировать на Call.
+214. WordAlias GarantModel::TvcmModuleContractImplementation ME_57A0BF7D02BD переделать на WL?
+217.    VAR l_HasUses
+   Self .DiagramsNames
+   .filter> ( 'uses' SameText )
+   .NotEmpty
+   >>> l_HasUses
++ Depends
++ Dependencies
+220. CanDeleteFinalFile в - GenerationFramework.ms.dict.
+222. CanDeleteFinalFile - удалять и UC-файл тоже.
+223. ReadUCFromFile в - GenerationFramework.ms.dict.
+224. HasUses + Depends + Dependencies - делать диаграммы.
+225. Сделать DiagramsAndViewsNotEmpty и использовать его в SaveDiagrams.
+226. Можно делать LinkDataToView (для Lister'а например) только если HandleAllocated.
+227. DoCurrentElementChangedEvent - тоже как-то надо проверять HandleAllocated.
+228. В коде:
+  if ( Self .IsTypedef ! ) then
+  begin
+   .join> ( Self .ImplementedAndOverridden .OperationsNeededElements )
+  end // Self .IsTypedef !
+- использовать что-то вроде .map> .ReferencedTypeOriginal.
+229. Диаграммы выливать в подкаталог Diagrams.
+230. array:CopyWithoutDuplicatedNames - в отдельный файл.
+231. array:CopyWithoutDuplicatedUnstereotyped - в отдельный файл.
+232. IsUnstereotypedStereo - в отдельный файл.
+233. Depends тоже превратить в ReferencedType.
+234. Сделать MapSelfTo: чтобы можно было писать что-то вроде:
+ BOOLEAN elem_func SomeFunc
+  MapSelfTo: .ReferencedTypeOriginal
+  (
+   Cached:
+   (
+    ...
+    Self .XXX
+    // - тут Self уже означает Self .ReferencedTypeOriginal
+    ...
+   )
+  )
+  >>> Result
+ ; // BOOLEAN elem_func SomeFunc
+ 
+ Ну и "краткая запись":
+ BOOLEAN elem_func SomeFunc
+  MapSelfToReferencedTypeOriginal:
+  (
+   Cached:
+   (
+    ...
+    Self .XXX
+    // - тут Self уже означает Self .ReferencedTypeOriginal
+    ...
+   )
+  )
+  >>> Result
+ ; // BOOLEAN elem_func SomeFunc
+235. inj и impl выводить в поддиректорию.
+236. Невалидные связи рисовать ПО-ДРУГОМУ. Например ДРУГИМ цветом. Ну или с "привычной" буквой (M).
+237. 

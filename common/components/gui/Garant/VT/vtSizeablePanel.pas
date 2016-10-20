@@ -1,8 +1,11 @@
 unit vtSizeablePanel;
 
-{ $Id: vtSizeablePanel.pas,v 1.27 2016/10/11 21:20:14 lulin Exp $ }
+{ $Id: vtSizeablePanel.pas,v 1.28 2016/10/14 12:16:13 lulin Exp $ }
 
 // $Log: vtSizeablePanel.pas,v $
+// Revision 1.28  2016/10/14 12:16:13  lulin
+// - подтачиваем.
+//
 // Revision 1.27  2016/10/11 21:20:14  lulin
 // - подтачиваем.
 //
@@ -162,6 +165,9 @@ type
   constructor Create(aOwner: TComponent);
    override;
     {-}
+  property InheritedPaint : Boolean
+    read f_InheritedPaint
+    write f_InheritedPaint;
  published
   property ResizeStyle: TResizeStyle
       read f_ResizeStyle
@@ -190,9 +196,6 @@ type
       read f_OnQueryResize
      write f_OnQueryResize;
     {-}
-  property InheritedPaint : Boolean
-    read f_InheritedPaint
-    write f_InheritedPaint;
  end;//TvtCustomSizeablePanel
 
   TvtSizeablePanel = class(TvtCustomSizeablePanel)

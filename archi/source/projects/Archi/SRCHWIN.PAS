@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.323 2016/10/13 13:16:43 lukyanets Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.324 2016/10/14 10:16:22 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -1949,8 +1949,8 @@ begin
  l_Answer := vtMessageDlg(l3CStr('Перед расстановкой, удалить существующие ссылки в документах?'), mtConfirmation, [mbYes, mbNo, mbCancel], 0, mbNo);
  if l_Answer = mrCancel then
   Exit;
-(*
- l_Task := TcsAutolinkerTask.Create;
+
+ l_Task := TcsAutolinkerTask.Create(ArchiRequestManager.CSClient.ClientID);
  try
   l_Task.ClearLinksBeforeRun := l_Answer = mrYes;
   dtCopyValuesSabToList(DocList.QueryProvider.MakeDocIDList, l_Task.DocumentIDList);
@@ -1958,14 +1958,14 @@ begin
  finally
   FreeAndNil(l_Task);
  end;
-*)
 
+(*
  try
   ReAutolinkDocs(l_Answer = mrYes);
  finally
   CleanupAutolinkServer;
  end;
-
+*)
  
 end;
 

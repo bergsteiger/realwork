@@ -1,8 +1,11 @@
 unit ddDocStruct;
 
-{ $Id: ddDocStruct.pas,v 1.31 2016/09/09 08:56:06 fireton Exp $ }
+{ $Id: ddDocStruct.pas,v 1.32 2016/10/14 10:17:09 lukyanets Exp $ }
 
 // $Log: ddDocStruct.pas,v $
+// Revision 1.32  2016/10/14 10:17:09  lukyanets
+// Утекали канализационные трубы
+//
 // Revision 1.31  2016/09/09 08:56:06  fireton
 // - разлочиваем хранилище кэша после того, как писали туда (иначе не проходит ЕО)
 //
@@ -880,6 +883,7 @@ procedure TddProtoFiledStructCache.Cleanup;
 begin
  if f_WasWritable then
   Tm3StorageHolderList.Drop(f_FileCacheName); // потому что если мы туда писали, то файл будет залочен
+ FreeAndNil(f_BuildPipe); 
  inherited;
 end;
 

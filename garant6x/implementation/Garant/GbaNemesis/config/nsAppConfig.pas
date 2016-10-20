@@ -6,9 +6,12 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.342 2016/09/26 13:39:57 kostitsin Exp $
+ $Id: nsAppConfig.pas,v 1.343 2016/10/17 14:23:25 kostitsin Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.343  2016/10/17 14:23:25  kostitsin
+ {requestlink: 632194223 }
+
  Revision 1.342  2016/09/26 13:39:57  kostitsin
  {requestlink: 630589826 }
 
@@ -2893,7 +2896,7 @@ procedure TnsConfigSettingsInfo.RestoreAllSettings;
 var
  l_SettingsInfo: InsEditSettingsInfo;
 begin
- TvcmDispatcher.Instance.As_IvcmDispatcher.BeginRestoreAllSettings;
+ vcmBase.vcmDispatcher.BeginRestoreAllSettings;
  try
   // Чтобы приложение получило нотификацию об изменении свойств, использовать
   // f_ManagerConf.Configuration.RestoreDefaultValues (IConfiguration) - нельзя.
@@ -2950,12 +2953,12 @@ begin
    g_MenuManager.ReloadAllToolbars;
    g_MenuManager.LoadShortcuts;
    (* Определим положение форм (вставим плавающие навигаторы) *)
-   TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
-   TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFormSize;
+   vcmBase.vcmDispatcher.ReinsertForms;
+   vcmBase.vcmDispatcher.RestoreFormSize;
    NotifySettingsChanged;
   end;
  finally
-  TvcmDispatcher.Instance.As_IvcmDispatcher.EndRestoreAllSettings;
+  vcmBase.vcmDispatcher.EndRestoreAllSettings;
  end;
 end;
 
@@ -3667,7 +3670,7 @@ begin
  if aRestoreDefault and not f_InRestoreAll then
  begin
   if IsActive then
-   TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
+   vcmBase.vcmDispatcher.ReinsertForms;
   NotifySettingsChanged;
  end;//if aRestoreDefault and not f_InRestoreAll then
  if Assigned(f_AppConfig) then

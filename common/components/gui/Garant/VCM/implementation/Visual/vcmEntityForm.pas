@@ -6,9 +6,12 @@ unit vcmEntityForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmEntityForm - }
 { Начат: 24.02.2003 14:07 }
-{ $Id: vcmEntityForm.pas,v 1.630 2016/09/13 18:32:44 kostitsin Exp $ }
+{ $Id: vcmEntityForm.pas,v 1.631 2016/10/17 13:18:40 kostitsin Exp $ }
 
 // $Log: vcmEntityForm.pas,v $
+// Revision 1.631  2016/10/17 13:18:40  kostitsin
+// {requestlink: 632194223 }
+//
 // Revision 1.630  2016/09/13 18:32:44  kostitsin
 // {requestlink: 630194905 }
 //
@@ -3702,7 +3705,7 @@ begin
    begin
     Result.RegInContainer;
     if Result.IsMainObjectForm then
-     TvcmDispatcher.Instance.FormDispatcher.UpdateMainCaption(Result);
+     vcmBase.vcmDispatcher.FormDispatcher.UpdateMainCaption(Result);
    end;//ZoneType <> vcm_ztForToolbarsInfo
    Aggregate := l_Params.Aggregate;
    if (ZoneType <> vcm_ztForToolbarsInfo) then

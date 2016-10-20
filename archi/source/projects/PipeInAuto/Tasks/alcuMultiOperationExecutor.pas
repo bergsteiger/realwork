@@ -39,7 +39,6 @@ uses
  , csMultiOperationReply
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
- , daInterfaces
  , alcuMultiOperationRequest
  , TypInfo
  , l3MarshalledTypes

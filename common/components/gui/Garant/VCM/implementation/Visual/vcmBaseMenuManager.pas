@@ -1846,7 +1846,7 @@ begin
   if not (l_CustomForm is TvcmEntityForm) and
      (fsModal in l_CustomForm.FormState) then
    Exit;  
- if g_ShortcutProcessingEnabled then
+ if TvcmDispatcher.Exists and g_ShortcutProcessingEnabled then
  begin
   with vcmCommandInfo(aCommand) do
    if rIsModule then

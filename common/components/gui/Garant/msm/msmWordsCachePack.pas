@@ -129,6 +129,22 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwMsmRegetViewedLists
 
+ TkwMsmDeleteWordCachedValue = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта msm:DeleteWordCachedValue }
+  private
+   procedure msm_DeleteWordCachedValue(const aCtx: TtfwContext;
+    aWord: TtfwWord;
+    const aName: AnsiString);
+    {* Реализация слова скрипта msm:DeleteWordCachedValue }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwMsmDeleteWordCachedValue
+
 function TkwMsmWordFromCache.msm_WordFromCache(const aCtx: TtfwContext;
  const aName: Il3CString): Boolean;
  {* Реализация слова скрипта msm:WordFromCache }
@@ -292,7 +308,9 @@ begin
 
  if (l_Word = nil) OR (l_Word.GetRefForCompare = nil) then
  begin
-  aCtx.rEngine.Push(aDefault);
+  aLambda.DoIt(aCtx);
+  //aCtx.rEngine.Push(aDefault);
+  //- вообще-то тут надо звать aLambda.DoIt(aCtx); по-аналогии с DoCache
   Exit;
  end;//(l_Word = nil) OR (l_Word.GetRefForCompare)
 
@@ -310,6 +328,7 @@ begin
    Unlock;
   end;//try..finally
   aLambda.DoIt(aCtx);
+  // - а вот это надо бы обернуть в try..except и использовать aDefault, по-аналогии с DoCache
   // - при трансформации элементов внутри надо звать Ctx:EnterCS/Ctx:LeaveCS
   l_V.rValue := aCtx.rEngine.Top^;
   {$IfDef MSM}
@@ -520,6 +539,63 @@ begin
  msm_RegetViewedLists(aCtx, l_aWord, l_aListName);
 end;//TkwMsmRegetViewedLists.DoDoIt
 
+procedure TkwMsmDeleteWordCachedValue.msm_DeleteWordCachedValue(const aCtx: TtfwContext;
+ aWord: TtfwWord;
+ const aName: AnsiString);
+ {* Реализация слова скрипта msm:DeleteWordCachedValue }
+//#UC START# *5807640300C8_5807640300C8_Word_var*
+//#UC END# *5807640300C8_5807640300C8_Word_var*
+begin
+//#UC START# *5807640300C8_5807640300C8_Word_impl*
+ TmsmModelElementMethodValueCache.Instance.DeleteWordCachedValue(aWord, aName);
+//#UC END# *5807640300C8_5807640300C8_Word_impl*
+end;//TkwMsmDeleteWordCachedValue.msm_DeleteWordCachedValue
+
+class function TkwMsmDeleteWordCachedValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'msm:DeleteWordCachedValue';
+end;//TkwMsmDeleteWordCachedValue.GetWordNameForRegister
+
+function TkwMsmDeleteWordCachedValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwMsmDeleteWordCachedValue.GetResultTypeInfo
+
+function TkwMsmDeleteWordCachedValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwMsmDeleteWordCachedValue.GetAllParamsCount
+
+function TkwMsmDeleteWordCachedValue.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord), @tfw_tiString]);
+end;//TkwMsmDeleteWordCachedValue.ParamsTypes
+
+procedure TkwMsmDeleteWordCachedValue.DoDoIt(const aCtx: TtfwContext);
+var l_aWord: TtfwWord;
+var l_aName: AnsiString;
+begin
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ msm_DeleteWordCachedValue(aCtx, l_aWord, l_aName);
+end;//TkwMsmDeleteWordCachedValue.DoDoIt
+
 initialization
  TkwMsmWordFromCache.RegisterInEngine;
  {* Регистрация msm_WordFromCache }
@@ -533,6 +609,8 @@ initialization
  {* Регистрация msm_ClearCachedValues }
  TkwMsmRegetViewedLists.RegisterInEngine;
  {* Регистрация msm_RegetViewedLists }
+ TkwMsmDeleteWordCachedValue.RegisterInEngine;
+ {* Регистрация msm_DeleteWordCachedValue }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

@@ -155,6 +155,7 @@ var
  l_TryCount: Integer;
  l_Watch: Tl3STopWatch;
  l_ReceiveTime: Double;
+ l_WriteTime: Double;
 const
  cMaxTryCount = 10;
  cTryDelay = 1000;
@@ -162,6 +163,7 @@ const
 begin
 //#UC START# *5465FDD1009D_545C749003C2_impl*
  l_ReceiveTime := 0;
+ l_WriteTime := 0;
  l_Watch.Reset;
  l_Watch.Start;
  try
@@ -177,6 +179,7 @@ begin
     repeat
      l_ResultMsg.ResultKind := l_Deliverer.Execute;
      l_ReceiveTime := l_ReceiveTime + l_Deliverer.ReceiveTime;
+     l_WriteTime := l_WriteTime + l_Deliverer.WriteTime;
      inc(l_TryCount);
      if (l_ResultMsg.ResultKind = ncs_rkRetry) and (l_TryCount < cMaxTryCount) then
      begin
@@ -236,12 +239,14 @@ begin
    FreeAndNil(l_ResultMsg);
   end;
  finally
-  l_Watch.Stop;
+  l_Watch.Stop;                                                                  
  end;
  l3System.Msg2Log('Доставка задачи %s завершена - общее время %s ms', [aTaskID, FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
- l3System.Msg2Log('  - прием %s ms', [FormatFloat('#,##0.000', l_ReceiveTime * 1000)]);
  l3System.Msg2Log('  - объем %s kb', [FormatFloat('#,##0', f_Counter.BytesProcessed / 1024)]);
- l3System.Msg2Log('  - скорость приема %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)]);
+ l3System.Msg2Log('  - прием+запись %s ms', [FormatFloat('#,##0.000', l_ReceiveTime * 1000)]);
+ l3System.Msg2Log('  - скорость приема+записи %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)]);
+ l3System.Msg2Log('  - запись %s ms', [FormatFloat('#,##0.000', l_WriteTime * 1000)]);
+ l3System.Msg2Log('  - скорость записи %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_WriteTime)], 5);
 //#UC END# *5465FDD1009D_545C749003C2_impl*
 end;//TarResultDeliverer.ReceiveTaskResult
 
@@ -390,9 +395,9 @@ begin
   l3System.Msg2Log('Доставка завершена - общее время %s ms', [FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
   if l_TotalSize > 0 then
   begin
-   l3System.Msg2Log('    - Соединение %s ms', [FormatFloat('#,##0.000', l_Connect.Time * 1000)], 5);
-   l3System.Msg2Log('    - Получение списка задач %s ms', [FormatFloat('#,##0.000', l_GetList.Time * 1000)], 5);
-   l3System.Msg2Log('    - Отключение %s ms', [FormatFloat('#,##0.000', l_Disconnect.Time * 1000)], 5);
+   l3System.Msg2Log('    - Соединение %s ms', [FormatFloat('#,##0.000', l_Connect.Time * 1000)], 11);
+   l3System.Msg2Log('    - Получение списка задач %s ms', [FormatFloat('#,##0.000', l_GetList.Time * 1000)], 11);
+   l3System.Msg2Log('    - Отключение %s ms', [FormatFloat('#,##0.000', l_Disconnect.Time * 1000)], 11);
    l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,##0', l_TotalSize / 1024)]);
    l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,##0.000', l_TotalSize / 1024 / l_Watch.Time)]);
    l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);

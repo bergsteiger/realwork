@@ -5,9 +5,18 @@ unit vcmBase;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmBase -       }
 { Начат: 21.02.2003 16:19 }
-{ $Id: vcmBase.pas,v 1.266 2016/09/13 18:32:46 kostitsin Exp $ }
+{ $Id: vcmBase.pas,v 1.269 2016/10/17 15:26:18 kostitsin Exp $ }
 
 // $Log: vcmBase.pas,v $
+// Revision 1.269  2016/10/17 15:26:18  kostitsin
+// {requestlink: 632196057 }
+//
+// Revision 1.268  2016/10/17 13:23:49  kostitsin
+// {requestlink: 632194223 }
+//
+// Revision 1.267  2016/10/17 13:18:38  kostitsin
+// {requestlink: 632194223 }
+//
 // Revision 1.266  2016/09/13 18:32:46  kostitsin
 // {requestlink: 630194905 }
 //
@@ -1884,7 +1893,10 @@ function vcmEnterFactory: Boolean;
 var
  l_D : IvcmDispatcher;
 begin
- l_D := TvcmDispatcher.Instance;
+ if TvcmDispatcher.Exists then
+  l_D := TvcmDispatcher.Instance
+ else
+  l_D := nil;
  Result := (l_D <> nil);
  if Result then
  begin

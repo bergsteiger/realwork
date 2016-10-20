@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_5804C11A02A3_impl*
+ FreeAndNil(f_Message);
+ FreeAndNil(f_Reply);
+ inherited;
+//#UC END# *479731C50290_5804C11A02A3_impl*
+//#UC START# *479731C50290_5804C11A02A3_var*
+//#UC END# *479731C50290_5804C11A02A3_var*
+//#UC START# *53A2EEE90097_5804C11A02A3_impl*
+ l_Counter.Reset;
+ l_Counter.Start;
+ try
+  try
+   DocumentServer.Family := f_Message.FamilyID;
+   l_Sab := MakeValueSet(DocumentServer.FileTbl, fID_Fld, f_Message.DocumentIDList);
+   try
+    l_Helper := TarDirectMultiChangeHyperLinksHelper.Create(f_Message.FamilyID, f_Message.OldDocID, f_Message.NewDocID, l_Sab);
+   finally
+    l_Sab := nil;
+   end;
+   try
+    l_Helper.ModifyDocs;
+   finally
+    FreeAndNil(l_Helper);
+   end;
+   f_Reply.ErrorMessage := '';
+   f_Reply.IsSuccess := True;
+  except
+   on E: Exception do
+   begin
+    f_Reply.ErrorMessage := E.Message;
+    f_Reply.IsSuccess := False;
+    l3System.Exception2Log(E);
+   end;
+  end;
+ finally
+  l_Counter.Stop;
+  SignalReady;
+  l3System.Msg2Log('Remote multi change hyperlinks exec - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
+ end;
+//#UC END# *53A2EEE90097_5804C11A02A3_impl*
+//#UC START# *53A2EEE90097_5804C11A02A3_var*
+var
+ l_Helper: TarDirectMultiChangeHyperLinksHelper;
+ l_Counter: Tl3StopWatch;
+ l_Sab: ISab;
+//#UC END# *53A2EEE90097_5804C11A02A3_var*
+//#UC START# *57C4135700F7_5804C11A02A3_impl*
+ f_Reply.ErrorMessage := 'Операция прервана';
+ SignalReady;
+//#UC END# *57C4135700F7_5804C11A02A3_impl*
+//#UC START# *57C4135700F7_5804C11A02A3_var*
+//#UC END# *57C4135700F7_5804C11A02A3_var*
+//#UC START# *5804C11A02A3_ext:FileName
+w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiChangeHyperLinksRequest.pas
+//#UC END# *5804C11A02A3_ext:FileName
+//#UC START# *5804C11A02A3impl_uses*
+//#UC END# *5804C11A02A3impl_uses*
+//#UC START# *5804C13702E9_5804C11A02A3set_impl*
+ aValue.SetRefTo(f_Message);
+//#UC END# *5804C13702E9_5804C11A02A3set_impl*
+//#UC START# *5804C13702E9_5804C11A02A3set_var*
+//#UC END# *5804C13702E9_5804C11A02A3set_var*
+//#UC START# *5804C15C0158_5804C11A02A3set_impl*
+ aValue.SetRefTo(f_Reply);
+//#UC END# *5804C15C0158_5804C11A02A3set_impl*
+//#UC START# *5804C15C0158_5804C11A02A3set_var*
+//#UC END# *5804C15C0158_5804C11A02A3set_var*

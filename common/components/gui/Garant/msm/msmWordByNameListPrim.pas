@@ -42,6 +42,7 @@ uses
  , SysUtils
  //#UC START# *57B2D8400355impl_uses*
  , l3String
+ , tfwKeyWordPrim
  //#UC END# *57B2D8400355impl_uses*
 ;
 
@@ -62,10 +63,19 @@ end;//AssignItem
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
  {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_57B2D8400355_var*
+
+ function GetKey(aW : TtfwWord): TtfwKeyWordPrim;
+ begin//GetRef
+  if (aW = nil) then
+   Result := nil
+  else
+   Result := aW.Key;
+ end;//GetRef
+
 //#UC END# *47B99D4503A2_57B2D8400355_var*
 begin
 //#UC START# *47B99D4503A2_57B2D8400355_impl*
- Result := l3Compare(CI.rA.Key.AsWStr, CI.rB.Key.AsWStr);
+ Result := l3Compare(GetKey(CI.rA^).AsWStr, GetKey(CI.rB^).AsWStr);
 //#UC END# *47B99D4503A2_57B2D8400355_impl*
 end;//CompareExistingItems
 

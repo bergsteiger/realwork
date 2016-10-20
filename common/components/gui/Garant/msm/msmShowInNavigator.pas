@@ -59,6 +59,7 @@ begin
 //#UC START# *57EBADA9033E_57CEBC210073_impl*
  inherited;
  theParams.rImageIndex := 30;
+ theParams.SetShortCut('Ctrl+B');
 //#UC END# *57EBADA9033E_57CEBC210073_impl*
 end;//TmsmShowInNavigator.InitOperationParams
 

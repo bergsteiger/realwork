@@ -1,5 +1,5 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.146 2016/10/06 13:19:10 lukyanets Exp $ }
+{ $Id: Archi.dpr,v 1.147 2016/10/17 10:58:22 lukyanets Exp $ }
 
 //$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
@@ -133,18 +133,11 @@
   D_Autolink in 'Dlg\D_Autolink.pas' {AutolinkDlg},
   arDocObjectMixer in '..\Common\Utils\arDocObjectMixer.pas',
   arFoundSelectionFilter in '..\Common\Utils\arFoundSelectionFilter.pas',
-  arCustomSaveDocumentHelper in '..\Common\Utils\arCustomSaveDocumentHelper.pas',
-  arDirectSaveDocumentHelper in '..\Common\Utils\arDirectSaveDocumentHelper.pas',
   arRemoteSaveDocumentHelper in 'Processing\arRemoteSaveDocumentHelper.pas',
-  arCustomMultiModifyDocsHelper in '..\Common\Utils\arCustomMultiModifyDocsHelper.pas',
-  arDirectMultiModifyDocsHelper in '..\Common\Utils\arDirectMultiModifyDocsHelper.pas',
   arRemoteMultiModifyDocsHelper in 'Processing\arRemoteMultiModifyDocsHelper.pas',
-  arCustomMultiClearAttributesHelper in '..\Common\Utils\arCustomMultiClearAttributesHelper.pas',
-  arDirectMultiClearAttributesHelper in '..\Common\Utils\arDirectMultiClearAttributesHelper.pas',
   arRemoteMultiClearAttributesHelper in 'Processing\arRemoteMultiClearAttributesHelper.pas',
-  arCustomMultiOperationHelper in '..\Common\Utils\arCustomMultiOperationHelper.pas',
-  arDirectMultiOperationHelper in '..\Common\Utils\arDirectMultiOperationHelper.pas',
   arRemoteMultiOperationHelper in 'Processing\arRemoteMultiOperationHelper.pas',
+  arRemoteMultiChangeHyperLinksHelper in 'Processing\arRemoteMultiChangeHyperLinksHelper.pas',
   d_DeliveryProvile in 'Dlg\d_DeliveryProvile.pas' {DeliveryProvileDlg};
 
 //d_ReplCorresp in 'DLG\d_ReplCorresp.pas';

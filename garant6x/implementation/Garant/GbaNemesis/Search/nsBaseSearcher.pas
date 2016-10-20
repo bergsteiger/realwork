@@ -1,8 +1,11 @@
 unit nsBaseSearcher;
 
-// $Id: nsBaseSearcher.pas,v 1.200 2016/09/13 18:32:13 kostitsin Exp $
+// $Id: nsBaseSearcher.pas,v 1.201 2016/10/17 14:23:27 kostitsin Exp $
 
 // $Log: nsBaseSearcher.pas,v $
+// Revision 1.201  2016/10/17 14:23:27  kostitsin
+// {requestlink: 632194223 }
+//
 // Revision 1.200  2016/09/13 18:32:13  kostitsin
 // {requestlink: 630194905 }
 //
@@ -1400,7 +1403,7 @@ begin
   if (f_SearchWindow = nil) and
      not f_LockOpenedFlag then
   begin
-   if TvcmDispatcher.Exists or
+   if not TvcmDispatcher.Exists or
       (TvcmDispatcher.Instance.History = nil) or
       not TvcmDispatcher.Instance.History.InBF then
     f_WindowOpenedByUser := False;

@@ -1,6 +1,6 @@
 unit ddCustomLinkFinder;
 
-{ $Id: ddCustomLinkFinder.pas,v 1.2 2016/07/18 10:49:49 fireton Exp $ }
+{ $Id: ddCustomLinkFinder.pas,v 1.3 2016/10/14 15:25:08 fireton Exp $ }
 
 interface
 
@@ -21,9 +21,9 @@ type
  public
   procedure Done; virtual; abstract;
   procedure DoOnNewDocument; virtual;
-  procedure FindLinks(const aText     : string;    // text from master doc
-                      aDocID          : TDocID;    // master doc id
-                      aDocDate        : TStDate;   // master doc date
+  procedure FindLinks(const aText     : Tl3WString; // text from master doc
+                      aDocID          : TDocID;     // master doc id
+                      aDocDate        : TStDate;    // master doc date
                       const aCaseCode : Il3CString; // casecode
                       aLinkProc       : TddLinkSetRoutine); virtual; abstract;
   procedure Init; virtual; abstract;

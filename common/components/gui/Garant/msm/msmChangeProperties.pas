@@ -93,6 +93,8 @@ procedure TmsmChangeProperties.InitOperationParams(var theParams: TmsmOperationP
 begin
 //#UC START# *57EBADA9033E_57FC269F03B2_impl*
  inherited;
+ theParams.rImageIndex := 134;
+ theParams.SetShortCut('Ctrl+I');
 //#UC END# *57EBADA9033E_57FC269F03B2_impl*
 end;//TmsmChangeProperties.InitOperationParams
 

@@ -1,8 +1,17 @@
 unit ddAutoLinkFilter;
 
-{ $Id: ddAutoLinkFilter.pas,v 1.44 2016/10/10 14:20:14 fireton Exp $ }
+{ $Id: ddAutoLinkFilter.pas,v 1.45 2016/10/14 15:25:08 fireton Exp $ }
 
 // $Log: ddAutoLinkFilter.pas,v $
+// Revision 1.45  2016/10/14 15:25:08  fireton
+// - переводим автолинк на правильные строки (merge с веткой)
+//
+// Revision 1.43.2.2  2016/10/14 14:23:44  fireton
+// - не копируем строки при передаче в автопростановщик
+//
+// Revision 1.43.2.1  2016/10/10 14:05:21  fireton
+// - переводим автолинк на правильные строки
+//
 // Revision 1.44  2016/10/10 14:20:14  fireton
 // - правильно передаём строку в автопростановщик, учитывая кодировки
 //
@@ -553,7 +562,7 @@ type
   f_OnError: TddErrorEvent;
   f_Para: Tl3Variant;
   f_SPInQuote: Tl3RegularSearch;
-  f_Text: string;
+  f_Text: Tl3WString;
   f_UseInternalLink : Boolean;
 
   function NoLinkAtPos(aStart, aEnd: Longint): Boolean;
@@ -682,7 +691,7 @@ uses
  ,
  kwFiltersAndGeneratorsPack
  {$IfEnd}
- ;
+ , l3_String;
 
 const
  s_Entry   = 'статья';
@@ -895,25 +904,40 @@ procedure TddDocumentLinker.FindAndSetLinks(aPara           : Tl3Variant;
                                             aMasterDocDate  : TStDate;
                                             const aCaseCode : Il3CString);
 var
- I: Integer;
+ I       : Integer;
  l_Finder: TddCustomLinkFinder;
  l_Text  : Tl3WString;
+ l_Str   : Tl3String;
 begin
  Assert((f_FinderList <> nil) and (f_FinderList.Count > 0), 'TddDocumentLinker: no link finders has been added!');
- if aPara.IsValid and
-   (aPara.IntA[k2_tiStyle] <> ev_saTxtHeader1) and (aPara.IntA[k2_tiStyle] <> ev_saTxtComment) and
-   (aPara.IntA[k2_tiStyle] <> ev_saTechComment) then
+ l_Text := aPara.PCharLenA[k2_tiText];
+ if aPara.IsValid and (not l3IsNil(l_Text)) and
+    (aPara.IntA[k2_tiStyle] <> ev_saTxtHeader1) and (aPara.IntA[k2_tiStyle] <> ev_saTxtComment) and
+    (aPara.IntA[k2_tiStyle] <> ev_saTechComment) then
  begin
-  l_Text := aPara.PCharLenA[k2_tiText];
-  if not l3IsNil(l3Trim(l_Text)) then
+  if l3IsNil(l3Trim(l_Text)) then // если текст из пробелов, то ссылки ставить не на что
+   Exit;
+  if l_Text.SCodePage <> cp_ANSI then
   begin
-   f_Text := l3PCharLen2String(l_Text, CP_ANSI);
+   // если не ANSI, делаем ANSI (ибо в простановщике всё завязано на ANSI)
+   l_Str := Tl3String.Make(l_Text);
+   l_Str.CodePage := cp_ANSI;
+   f_Text := l_Str.AsWStr;
+  end
+  else
+  begin
+   l_Str := nil; // чтобы не упало на FreeAndNil
+   f_Text := l_Text;
+  end;
+  try
    aPara.SetRef(f_Para);
    for I := 0 to Pred(f_FinderList.Count) do
    begin
     l_Finder := TddCustomLinkFinder(f_FinderList.Items[I]);
     l_Finder.FindLinks(f_Text, aMasterDocID, aMasterDocDate, aCaseCode, SetLinkCallback);
    end;
+  finally
+   FreeAndNil(l_Str);
   end;
  end;
 end;
@@ -957,7 +981,7 @@ function TddDocumentLinker.NotInQuotation(const aFrom: Longint): Boolean;
 var
  l_RP: Tl3MatchPosition;
 begin
- Result := (aFrom = 0) or (not SPInQuote.SearchInString(PAnsiChar(f_Text), 0, aFrom+1, l_RP));
+ Result := (aFrom = 0) or (not SPInQuote.SearchInString(f_Text.S, 0, aFrom+1, l_RP));
 end;
 
 function TddDocumentLinker.pm_GetSPInQuote: Tl3RegularSearch;

@@ -1388,11 +1388,11 @@ begin
           finally
            l_Visualizer := nil;
           end;
-           if not l_Saved then
+          if not l_Saved then
           begin
            if SaveDialog.MergeChecked then
             DeleteFile(SaveDialog.FileName);
-            Say(inf_ExportForThisDocumentsImpossible)
+           Say(inf_ExportForThisDocumentsImpossible)
           end;
          except
           on ECannotSave do

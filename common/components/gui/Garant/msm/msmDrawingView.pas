@@ -461,7 +461,7 @@ var
    CN.Canvas.Pen.Style := psSolid;
    DrawArrow(l_FromP, l_ToP, CN.Canvas, anElement.BoolProp['msm:View:LinkArrowIsPolygon']);
   end;//not l_FromP.EQ(l_ToP)
-  l_N := anElement.StringProp['LinkName'];
+  l_N := anElement.StringProp['msm:LinkName'];
   if not l3IsNil(l_N) then
   begin
    if (l_FromP.X < l_ToP.X) then

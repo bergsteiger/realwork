@@ -128,6 +128,8 @@ uses
  , l3String
  , afwFacade
  , afwLongProcessVisualizer
+ , l3ListenersManager
+ , l3MouseWheelHelper
  //#UC END# *57A9C16601B9impl_uses*
 ;
 
@@ -416,6 +418,7 @@ begin
  //l3System.ShowObjectsWindow := false;
  TmsmModelService.Instance.SetModelRoot(cModelRoot);
  TtfwParserService.Instance.AddIncludePath(cModelRoot);
+ TtfwParserService.Instance.AddIncludePath(ConcatDirName(cModelRoot, 'Diagrams'));
  //RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script'));
  //RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + '4ABCC25A0322.ms.model.script'));
  if (ParamCount >= 1) then
@@ -531,6 +534,8 @@ begin
  Application.CreateForm(TmsmMainForm, l_F);
  l_F.Init;
  l_F.Show;
+ //Tl3ListenersManager.Instance;
+ //Tl3MouseWheelHelper.Instance;
  l_F.LoadModel(anElementForTree, anElementForList);
 //#UC END# *57CD4BC0034E_57A9C16601B9_impl*
 end;//TmsmMainForm.RunWith

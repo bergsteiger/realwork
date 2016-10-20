@@ -86,12 +86,12 @@ const
   {* 'Выключить Машину времени' }
  str_wgTimeMachineOffLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineOffLink'; rValue : 'Выключить Машину времени и перейти в актуальную редакцию');
   {* 'Выключить Машину времени и перейти в актуальную редакцию' }
- str_wgBadRedationLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedationLink'; rValue : '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]');
-  {* '[Переключиться в актуальную редакцию документа|script:оп::Редакции_документа_Актуальная_редакция|Текст документа будет представлен в актуальной редакции]' }
+ str_wgBadRedationLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgBadRedationLink'; rValue : '[Переключиться в актуальную редакцию документа|script:op::enRedactions_opActualRedaction|Текст документа будет представлен в актуальной редакции]');
+  {* '[Переключиться в актуальную редакцию документа|script:op::enRedactions_opActualRedaction|Текст документа будет представлен в актуальной редакции]' }
  str_wgTimeMachineChangeDateOrOff: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgTimeMachineChangeDateOrOff'; rValue : 'Изменить дату или выключить Машину времени');
   {* 'Изменить дату или выключить Машину времени' }
- str_wgOpenInIntranetLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgOpenInIntranetLink'; rValue : '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]');
-  {* '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:оп::enIntranetSourcePoint_opGoToIntranet]' }
+ str_wgOpenInIntranetLink: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgOpenInIntranetLink'; rValue : '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:op::enIntranetSourcePoint_opGoToIntranet]');
+  {* '%s.' +#13#10 + '[Открыть текст документа в интернет-версии.|script:op::enIntranetSourcePoint_opGoToIntranet]' }
  str_wgChangingDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocuments'; rValue : 'Изменяющие документы:');
   {* 'Изменяющие документы:' }
  str_wgChangingDocument: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'wgChangingDocument'; rValue : 'Изменяющий документ:');

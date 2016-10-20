@@ -66,6 +66,32 @@ begin
   Exit;
  l_Op := Create(anEn, anOp);
  try
+  l_EC := anEn.Name;
+  l_OC := anOp.Name;
+  l_EC := ANSIReplaceStr(l_EC, #32, '_');
+  l_OC := ANSIReplaceStr(l_OC, #32, '_');
+  try
+   l_Op.RegisterInstance('op::' + l_EC + '_' + l_OC);
+  except
+   on El3DuplicateItem do
+    ;
+  end;//try..except
+  l_TOp := TkwEntityOperationTest.Create(anEn, anOp);
+  try
+   try
+    l_TOp.RegisterInstance('op::test::' + l_EC + '_' + l_OC);
+   except
+    on El3DuplicateItem do
+     ;
+   end;//try..except
+  finally
+   FreeAndNil(l_TOp);
+  end;//try..finally
+ finally
+  FreeAndNil(l_Op);
+ end;//try..finally
+ l_Op := Create(anEn, anOp);
+ try
   l_EC := anEn.Caption;
   if (l_EC = '') then
    l_EC := anEn.Name;

@@ -1,6 +1,6 @@
 unit F_DocList;
 
-{ $Id: F_DocList.pas,v 1.77 2016/07/26 10:50:42 dinishev Exp $ }
+{ $Id: F_DocList.pas,v 1.82 2016/10/18 09:47:20 lukyanets Exp $ }
 
 interface
 {$I ProjectDefine.inc}
@@ -169,6 +169,10 @@ implementation
       TextPara_Const,
       TextSegment_Const,
       evNodePainter,
+
+      arCustomMultiChangeHyperLinksHelper,
+      arDirectMultiChangeHyperLinksHelper,
+      arRemoteMultiChangeHyperLinksHelper,
 
       StrShop,
       ResShop, IniShop, TypeShop,
@@ -1035,14 +1039,30 @@ end;
 
 procedure TDocumentList.acChangeHLinksExecute(Sender: TObject);
 var
- lOldDestDoc : TDocID;
- lNewDestDoc : TDocID;
-
+(*
  lSaveDocNum : TDocID;
  lDocIDSab   : ISab;
+*)
+ lOldDestDoc : TDocID;
+ lNewDestDoc : TDocID;
+ l_Helper: TarCustomMultiChangeHyperLinksHelper;
 begin
  if RequestHLReplaceData(lOldDestDoc, lNewDestDoc, Self) then
  begin
+
+
+  if IniRec.DirectDocStorageAccess then
+   l_Helper := TarDirectMultiChangeHyperLinksHelper.Create(Family, lOldDestDoc, lNewDestDoc, QueryProvider.MakeDocIDList(True))
+  else
+   l_Helper := TarRemoteMultiChangeHyperLinksHelper.Create(Family, lOldDestDoc, lNewDestDoc, QueryProvider.MakeDocIDList(True));
+  try
+   l_Helper.ModifyDocs;
+  finally
+   FreeAndNil(l_Helper);
+  end;
+/// 10003000 => 71101852
+
+(*
   lSaveDocNum := lOldDestDoc;
   lOldDestDoc := LinkServer(fFamily).Renum.ConvertToRealNumber(lOldDestDoc);
   if lOldDestDoc <= 0 then
@@ -1060,6 +1080,9 @@ begin
   DocumentServer(fFamily).FileTbl.SprIDs2DocIDs(lDocIDSab);
 
   LinkServer(CurrentFamily).LogBook.PutLogRecToDocs(lDocIDSab, acHLWork);
+*)
+
+
  end;
 end;
 

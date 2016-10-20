@@ -5,9 +5,12 @@ unit CustomizeTasksPanel_Form;
 { Автор      : Морозов М.А.             }
 { Модуль     : vcmCustomizeTasksPanel - }
 { Начат      : 26.02.2007               }
-{ $Id: CustomizeTasksPanel_Form.pas,v 1.18 2015/10/09 14:48:32 kostitsin Exp $ }
+{ $Id: CustomizeTasksPanel_Form.pas,v 1.19 2016/10/14 17:12:06 kostitsin Exp $ }
 
 // $Log: CustomizeTasksPanel_Form.pas,v $
+// Revision 1.19  2016/10/14 17:12:06  kostitsin
+// {requestlink: 632008665 }
+//
 // Revision 1.18  2015/10/09 14:48:32  kostitsin
 // {requestlink: 604917289 } - инициализируем неинициализированное
 //
@@ -1344,22 +1347,23 @@ procedure TCustomizeTasksPanelForm.Save;
 
  procedure lp_DeleteRepGroups;
  var
-  l_Index : Integer;
-  l_Group : IvcmCustOpsRepGroup;
+  l_Index: Integer;
+  l_Group: IvcmCustOpsRepGroup;
  begin
   for l_Index := 0 to Pred(DeleteGroups.Count) do
-   g_TasksPanel.DeleteRepGroup(DeleteGroups[l_Index]);
+   if Supports(DeleteGroups[l_Index], IvcmCustOpsRepGroup, l_Group) then
+    g_TasksPanel.DeleteRepGroup(l_Group);
   DeleteGroups.Clear;
  end;//lp_DeleteRepGroups
 
  procedure lp_DeleteOperations;
  var
   l_Index: Integer;
+  l_Op: IvcmCustOpsGroupOperation;
  begin
-  if DeleteOperations.Count = 0 then
-   Exit;
   for l_Index := 0 to Pred(DeleteOperations.Count) do
-   DeleteOperations[l_Index].Delete;
+   if Supports(DeleteOperations[l_Index], IvcmCustOpsGroupOperation, l_Op) then
+    l_Op.Delete;
   DeleteOperations.Clear;
  end;//lp_DeleteOperations;
 

@@ -35,6 +35,15 @@ w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationW
  finally
   FreeAndNil(l_W);
  end;//try..finally
+ l_W := Create;
+ try
+  l_W.f_ModuleOperationCode := aCode;
+  l_MN := aModule.Name;
+  l_ON := anOp.Name;
+  l_W.RegisterInstance(AnsiReplaceStr('mop::' + l_MN + '_' + l_ON, #32, '_'));
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
  l_ToolbarControlName := 'bt_' + {'mo_' +} aModule.Name + '_' + anOp.Name;
  l_ToolbarControl := TkwString.Create(TtfwCStringFactory.C(l_ToolbarControlName));
  try

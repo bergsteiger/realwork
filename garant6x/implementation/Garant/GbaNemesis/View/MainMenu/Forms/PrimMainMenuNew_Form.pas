@@ -372,9 +372,9 @@ begin
    if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
    begin
     if defDataAdapter.IsInternetAgentEnabled then
-     nsPaintImage(dmMainMenuNew.ilButtons, pbCourtsOnline, 8, True)
+     nsPaintImage(dmMainMenuNew.ilButtons, pbCourtsOnline, 3, True)
     else
-     nsPaintImage(dmMainMenuNew.ilButtons, pbCourtsOnline, 10, True);
+     nsPaintImage(dmMainMenuNew.ilButtons, pbCourtsOnline, 6, True);
    end//afw.Application.LocaleInfo.Language = afw_lngEnglish
    else
    begin

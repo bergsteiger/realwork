@@ -1,6 +1,6 @@
 unit ddDefDocLinkFinder;
 
-{ $Id: ddDefDocLinkFinder.pas,v 1.2 2016/09/07 08:46:31 fireton Exp $ }
+{ $Id: ddDefDocLinkFinder.pas,v 1.3 2016/10/14 15:25:08 fireton Exp $ }
 
 interface
 uses
@@ -27,10 +27,10 @@ type
  public
   constructor Create(aCacheType: TddDocCacheType);
   procedure Done; override;
-  procedure FindLinks(const aText     : string;    // text from master doc
-                      aDocID          : TDocID;    // master doc id
-                      aDocDate        : TStDate;   // master doc date
-                      const aCaseCode : Il3CString; // casecode
+  procedure FindLinks(const aText     : Tl3WString;  // text from master doc
+                      aDocID          : TDocID;      // master doc id
+                      aDocDate        : TStDate;     // master doc date
+                      const aCaseCode : Il3CString;  // casecode
                       aLinkProc       : TddLinkSetRoutine); override;
   procedure Init; override;
   property StructCache: TddProtoStructCache read f_StructCache;
@@ -73,7 +73,7 @@ begin
  FreeAndNil(f_EntryCollector);
 end;
 
-procedure TddDefDocLinkFinder.FindLinks(const aText     : string;    // text from master doc
+procedure TddDefDocLinkFinder.FindLinks(const aText     : Tl3WString;    // text from master doc
                                         aDocID          : TDocID;    // master doc id
                                         aDocDate        : TStDate;   // master doc date
                                         const aCaseCode : Il3CString; // casecode
@@ -90,7 +90,7 @@ begin
  try
   while True do
   begin
-   if not f_EntryCollector.CollectEntries(PAnsiChar(aText), l_Pos, Length(aText)-1, l_List) then
+   if not f_EntryCollector.CollectEntries(aText.S, l_Pos, aText.SLen - 1, l_List) then
     Break;
    for I := 0 to l_List.Hi do
    begin

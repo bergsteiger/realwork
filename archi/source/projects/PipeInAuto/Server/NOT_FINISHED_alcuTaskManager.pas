@@ -125,6 +125,9 @@ uses
  {$If Defined(ServerTasks)}
  , alcuMultiOperationExecutor
  {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuMultiChangeHyperLinksExecutor
+ {$IfEnd} // Defined(ServerTasks)
  //#UC START# *52F8BE3100F5impl_uses*
  //#UC END# *52F8BE3100F5impl_uses*
 ;

@@ -31,6 +31,7 @@ type
    f_TaskID: AnsiString;
    f_Progressor: TddProgressObject;
    f_ReceiveTime: Double;
+   f_WriteTime: Double;
   private
    procedure PrepareDescription(const aList: FileDescHelper);
   protected
@@ -46,6 +47,8 @@ type
   public
    property ReceiveTime: Double
     read f_ReceiveTime;
+   property WriteTime: Double
+    read f_WriteTime;
  end;//TncsFileListDeliverer
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -117,6 +120,7 @@ begin
  f_TaskID := aTaskID;
  f_LocalPath := aLocalPath;
  f_ReceiveTime := 0;
+ f_WriteTime := 0;
 //#UC END# *5472DC690380_546F398E0203_impl*
 end;//TncsFileListDeliverer.Create
 
@@ -152,6 +156,7 @@ begin
      Exit;
    finally
     f_ReceiveTime := f_ReceiveTime + f_Data[l_IDX].ReceiveTime;
+    f_WriteTime := f_WriteTime + f_Data[l_IDX].WriteTime;
    end;
   end;
   Result := aList.Count > 0;

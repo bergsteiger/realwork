@@ -15,7 +15,7 @@ uses
 
 type
  TalcuAutolinkerTask = class(TcsAutolinkerTask)
- var
+ private
   f_Linker: TddAutolinker;
  protected
   procedure DoAbort; override;
@@ -31,6 +31,14 @@ implementation
 
 uses
  SysUtils,
+
+ csTaskTypes,
+
+ daSchemeConsts,
+
+ dtIntf,
+ dt_Sab,
+ dt_Doc,
 
  l3FileUtils,
 
@@ -55,7 +63,7 @@ procedure TalcuAutolinkerTask.DoRun(const aContext: TddRunContext);
 var
  l_Sab: ISab;
 begin
- l_Sab := MakeValueSet(DocumentServer.FileTbl, fID_Fld, DocumentIDList);
+ l_Sab := MakeValueSet(DocumentServer(CurrentFamily).FileTbl, fID_Fld, DocumentIDList);
  try
   f_Linker := GetAutoLinker;
   try

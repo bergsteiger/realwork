@@ -1,6 +1,6 @@
 unit ddGeneralLawsLinkFinder;
 
-{ $Id: ddGeneralLawsLinkFinder.pas,v 1.11 2016/10/12 11:43:47 fireton Exp $ }
+{ $Id: ddGeneralLawsLinkFinder.pas,v 1.12 2016/10/14 15:25:08 fireton Exp $ }
 
 interface
 
@@ -75,7 +75,7 @@ type
   f_AllowedSources: Tl3LongintList;
   f_ArbitraryDocs: TddAutolinkArbitraryDocList;
   f_CodexData: Tl3InterfaceList;
-  f_DefaultAbbr: AnsiString;
+  f_DefaultAbbr: Il3CString;
   f_DefaultAbbrCodex: Integer;
   f_DefaultCodex: Integer;
   f_EntryCollector: TddEntryCollector;
@@ -115,7 +115,7 @@ type
   constructor Create(aAllowedSources: Tl3LongintList; const aDataFileName: AnsiString);
   procedure Done; override;
   procedure DoOnNewDocument; override;
-  procedure FindLinks(const aText     : AnsiString;  // text from master doc
+  procedure FindLinks(const aText     : Tl3WString;  // text from master doc
                       aDocID          : TDocID;  // master doc id
                       aDocDate        : TStDate; // master doc date
                       const aCaseCode : Il3CString;
@@ -143,10 +143,10 @@ type
 var
  g_GeneralLawsLinkFinderBox: TddGeneralLawsLinkFinderBox = nil;
 
-function IsReallySeparated(const aText: AnsiString; aStart, aFinish: Integer): Boolean;
+function IsReallySeparated(const aText: Tl3WString; aStart, aFinish: Integer): Boolean;
 begin
- Result := ((aStart = 1) or (aText[aStart-1] in cAbbrWordDelims)) and
-        ((aFinish = Length(aText)) or (aText[aFinish+1] in cAbbrWordDelims));
+ Result := ((aStart = 0) or (aText.S[aStart-1] in cAbbrWordDelims)) and
+        ((aFinish = aText.SLen-1) or (aText.S[aFinish] in cAbbrWordDelims));
 end;
 
 constructor TddGeneralLawsLinkFinder.Create(aAllowedSources: Tl3LongintList; const aDataFileName: AnsiString);
@@ -261,13 +261,13 @@ end;
 procedure TddGeneralLawsLinkFinder.DoOnNewDocument;
 begin
  f_DefaultCodex := -1;
- f_DefaultAbbr := '';
+ f_DefaultAbbr := nil;
  f_DefaultAbbrCodex := -1;
  f_LastFoundCodex := -1;
  f_DocHistory.Clear;
 end;
 
-procedure TddGeneralLawsLinkFinder.FindLinks(const aText     : AnsiString;  // text from master doc
+procedure TddGeneralLawsLinkFinder.FindLinks(const aText     : Tl3WString;  // text from master doc
                                              aDocID          : TDocID;  // master doc id
                                              aDocDate        : TStDate; // master doc date
                                              const aCaseCode : Il3CString;
@@ -374,7 +374,7 @@ var
   l_MaxKeywords := 0;
   l_Stub := L2FoundDictItemProc(@l_FoundOneKeyword);
   try
-   DoParsePhrase(l3PCharLen(aText), DictServer(CurrentFamily).DictScanner, l_Stub);
+   DoParsePhrase(aText, DictServer(CurrentFamily).DictScanner, l_Stub);
   finally
    FreeFoundDictItemProc(l_Stub);
   end;
@@ -405,7 +405,7 @@ var
   begin
    l_LinksIsSet := False;
 
-   l_FoundLinkChain := f_EntryCollector.CollectEntries(PAnsiChar(aText), l_LeftMostPos, aOffset-1, f_PossibleLinks);
+   l_FoundLinkChain := f_EntryCollector.CollectEntries(aText.S, l_LeftMostPos, aOffset-1, f_PossibleLinks);
    if f_PossibleLinks.Count > 0 then
    begin
     while f_PossibleLinks.Count > cMaxLinkInChain do  // подстраховка, на случай если цепочка слишком длинная
@@ -469,7 +469,7 @@ var
    if (not l_LinksIsSet) then // если не нашли цепочку или в цепочке не нашли ссылок, то
    begin
     if ((not aIsAbbr) and (not l_FoundLinkChain)) or
-       (aIsAbbr and SPRusFed.SearchInString(PAnsiChar(aText)+ aOffset + aLen + 1, 0, l_TextLen - aOffset - aLen, l_FTempPos)) then
+       (aIsAbbr and SPRusFed.SearchInString(aText.S + aOffset + aLen + 1, 0, l_TextLen - aOffset - aLen, l_FTempPos)) then
     begin
      // ставим ссылку на сам кодекс
      // если найдено несколько, пытаемся отфильтровать по ключевым словам
@@ -568,7 +568,7 @@ var
   if (l_LastChainEndPos > 0) and (l_LastFoundType >= 0) and (l_FoundType < 0) and
      ((l_FoundDate > 0) or (not l3IsNil(l_FoundNum))) then
   begin
-   if SPChainConnector.SearchInString(PAnsiChar(aText)+l_LastChainEndPos, 0, l_DocStartPos - l_LastChainEndPos, l_RP) then
+   if SPChainConnector.SearchInString(aText.S + l_LastChainEndPos, 0, l_DocStartPos - l_LastChainEndPos, l_RP) then
    begin
     l_FoundType := l_LastFoundType;
     if f_FoundSources.Empty then
@@ -691,7 +691,7 @@ var
    end;
    if (l_DocStartPos > 0) and (not l_NoStructLinksNeeded) then
    begin
-    f_EntryCollector.CollectEntries(PAnsiChar(aText), l_LeftMostPos, l_DocStartPos - 1, f_PossibleLinks);
+    f_EntryCollector.CollectEntries(aText.S, l_LeftMostPos, l_DocStartPos - 1, f_PossibleLinks);
     if f_PossibleLinks.Count > 0 then
     begin
      for I := 0 to f_PossibleLinks.Count - 1 do
@@ -734,17 +734,17 @@ var
   I : Integer;
   l_Idx: Integer;
  begin
-  if IsReallySeparated(aText, aAbbrSeg.rOffs+1, aAbbrSeg.rOffs + aAbbrSeg.rLen) then
+  if IsReallySeparated(aText, aAbbrSeg.rOffs, aAbbrSeg.rOffs + aAbbrSeg.rLen) then
   begin
    if (l_LastFoundCodexInPara >= 0) and (l_FurtherSeg.rOffs > 0) and
       (aAbbrSeg.rWOffs = l_FurtherSeg.rWOffs + 1) then
    begin
-    f_DefaultAbbr := Copy(aText, aAbbrSeg.rOffs+1, aAbbrSeg.rLen);
+    f_DefaultAbbr := l3CStr(l3Copy(aText, aAbbrSeg.rOffs, aAbbrSeg.rLen));
     f_DefaultAbbrCodex := l_LastFoundCodexInPara;
    end
    else
    begin
-    l_AbbrCStr := l3CStr(l3PCharLen(PAnsiChar(aText) + aAbbrSeg.rOffs, aAbbrSeg.rLen));
+    l_AbbrCStr := l3CStr(l3Copy(aText, aAbbrSeg.rOffs, aAbbrSeg.rLen));
     if l3Same(f_DefaultAbbr, l_AbbrCStr, True) then
      WorkOutCodex(f_DefaultAbbrCodex, aAbbrSeg.rOffs, aAbbrSeg.rLen)
     else
@@ -782,7 +782,7 @@ var
 
  begin
   Result := True;
-  //l_FoundStr := Copy(aText, aSegment.rOffs + 1, aSegment.rLen); // отладочный код
+  //l_FoundStr := Copy(l3Str(aText), aSegment.rOffs + 1, aSegment.rLen); // отладочный код
   if (l_ChainCursor >= 0) and (aSegment.rWOffs <> l_ChainCursor) then
    WorkoutChain; // цепочка прервана, смотрим, чего мы уже накопили...
   // приехал первый или очередной элемент цепочки
@@ -799,7 +799,7 @@ var
     begin
      if not l3IsNil(l_FoundNum) then
       WorkoutChain;
-     l_FoundNum := l3Upper(l3CStr(l3PcharLen(PAnsiChar(aText) + aSegment.rOffs, aSegment.rLen)));
+     l_FoundNum := l3Upper(l3CStr(l3Copy(aText, aSegment.rOffs, aSegment.rLen)));
      l3Replace(l_FoundNum, [cc_SoftSpace], cc_HardSpace); // иногда в тексте они с неразрывными пробелами, поэтому не ищутся
      l_NumPos := aSegment;
     end;
@@ -808,7 +808,7 @@ var
     begin
      if not l3IsNil(l_FoundCasecode) then
       WorkoutChain;
-     l_FoundCasecode := NormalizeCasecode(l3CStr(l3PcharLen(PAnsiChar(aText) + aSegment.rOffs, aSegment.rLen)));
+     l_FoundCasecode := NormalizeCasecode(l3CStr(l3Copy(aText, aSegment.rOffs, aSegment.rLen)));
      //l_NumPos := aSegment; // пока непонятно, нужна ли нам позиция кейскода
     end;
 
@@ -821,7 +821,7 @@ var
      begin
       l_FoundType := f_GostType; // тип строго определён
       l_TypePos := aSegment; // ссылка будет ставиться на всю строку
-      l_FoundNum := l3Upper(l3CStr(l3PcharLen(PAnsiChar(aText) + aSegment.rOffs, aSegment.rLen))); // и она же используется как номер документа
+      l_FoundNum := l3Upper(l3CStr(l3Copy(aText, aSegment.rOffs, aSegment.rLen))); // и она же используется как номер документа
       l3Replace(l_FoundNum, [cc_SoftSpace], cc_HardSpace); // иногда в тексте они с неразрывными пробелами, поэтому не ищутся
       lp_UpdateChain;
       WorkoutChain; // дальше там ничего нет, обрабатываем цепочку
@@ -925,14 +925,14 @@ var
 begin
  ResetChain;
  l_LastFoundType := -1;
- l_TextLen := Length(aText);
+ //l_TextLen := aText.SLen;
  l_LeftMostPos := 0;
  l_LastFoundCodexInPara := -1;
  l_LastChainEndPos := -1;
  // собственно, парсим строку
  lFDIProcStub := L2FoundDictItemProc(@lFoundDictItem);
  try
-  DoParsePhrase(l3PCharLen(aText), DictServer(CurrentFamily).DictScanner, lFDIProcStub);
+  DoParsePhrase(aText, DictServer(CurrentFamily).DictScanner, lFDIProcStub);
   WorkoutChain;
  finally
   FreeFoundDictItemProc(lFDIProcStub);

@@ -1,7 +1,16 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.176 2016/10/13 13:16:43 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.179 2016/10/18 09:47:18 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.179  2016/10/18 09:47:18  lukyanets
+// Отладка
+//
+// Revision 1.178  2016/10/17 13:26:00  lukyanets
+// Готовимя принимать сообщение
+//
+// Revision 1.177  2016/10/14 10:16:21  lukyanets
+// автолинкер как задача
+//
 // Revision 1.176  2016/10/13 13:16:43  lukyanets
 // Готовимся переделывать автолинкер как задачу
 //
@@ -1514,7 +1523,7 @@ const
    cs_ttAutolinker];
  alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
    cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc, cs_ttMultiModifyDocs,
-   cs_ttMultiClearAttributes, cs_ttMultiOperation];
+   cs_ttMultiClearAttributes, cs_ttMultiOperation, cs_ttMultiChangeHyperLinks];
 
 implementation
 Uses
@@ -1576,6 +1585,8 @@ Uses
  alcuMultiClearAttributesExecutor,
  csMultiOperation,
  alcuMultiOperationExecutor,
+ csMultiChangeHyperLinks,
+ alcuMultiChangeHyperLinksExecutor,
  ncsDocStorageTransferReg,
  ncsTaskSendReg,
  ncsSendTask,
@@ -1583,6 +1594,7 @@ Uses
  ncsCorrectFolder,
  alcuCorrectFolderExecutor,
  alcuDetachedExecutor,
+ alcuAutolinkerTask,
  ncsSynchroServerTransporter
  ;             //
 
@@ -2808,7 +2820,8 @@ procedure TddServerTaskManager.WorkupRequests;
    cs_ttUploadDoc,
    cs_ttMultiModifyDocs,
    cs_ttMultiClearAttributes,
-   cs_ttMultiOperation:
+   cs_ttMultiOperation,
+   cs_ttMultiChangeHyperLinks:
     DoRunRequest(anItem);
    else
     Assert(false, 'WorkupRequests. Неизвестный тип задачи: ' + GetEnumName(TypeInfo(TcsTaskType), Ord(anItem.TaskType)));
@@ -3294,6 +3307,8 @@ begin
   Result := TalcuMultiClearAttributesExecutor.Make(f_IncomingTasks, SpeedupRequest)
  else if aMessage is TcsMultiOperation then
   Result := TalcuMultiOperationExecutor.Make(f_IncomingTasks, SpeedupRequest)
+ else if aMessage is TcsMultiChangeHyperLinks then
+  Result := TalcuMultiChangeHyperLinksExecutor.Make(f_IncomingTasks, SpeedupRequest)
  else
   Result := nil;
 end;

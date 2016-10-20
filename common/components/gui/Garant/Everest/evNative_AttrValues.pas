@@ -88,7 +88,7 @@ const
   {* Локализуемое значения атрибута TextStyle_ChangesInfo_Header_HeaderC_Text_Value }
  str_TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value'; rValue : 'Открыть справку к документу');
   {* Локализуемое значения атрибута TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value }
- str_TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value'; rValue : 'script:оп::Документ_Справка_к_документу');
+ str_TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value'; rValue : 'script:op::enDocument_opGetRelatedDocFrmAct');
   {* Локализуемое значения атрибута TextStyle_ChangesInfo_Footer_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value }
  str_TextStyle_ChangesInfo_Footer_FooterC_Text_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_ChangesInfo_Footer_FooterC_Text_Value'; rValue : 'Подробнее см. в справке к документу');
   {* Локализуемое значения атрибута TextStyle_ChangesInfo_Footer_FooterC_Text_Value }
@@ -104,7 +104,7 @@ const
   {* Локализуемое значения атрибута TextStyle_CloakHeader_Name_Value }
  str_TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value'; rValue : 'Официальная копия графической публикации (Интернет-ссылка)');
   {* Локализуемое значения атрибута TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_Address_ShortName_Value }
- str_TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value'; rValue : 'script:оп::Документ_Графическая_копия_официальной_публикации');
+ str_TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value'; rValue : 'script:op::enDocument_opGetGraphicImage');
   {* Локализуемое значения атрибута TextStyle_LinkToPublication_Header_FooterC_Segments_Hyperlinks_Hyperlink_URL_Value }
  str_TextStyle_LinkToPublication_Header_FooterC_Text_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_LinkToPublication_Header_FooterC_Text_Value'; rValue : 'См. графическую копию официальной публикации');
   {* Локализуемое значения атрибута TextStyle_LinkToPublication_Header_FooterC_Text_Value }

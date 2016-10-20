@@ -98,17 +98,24 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  if (aChildZone <> nil) then
  begin
   l_ListContext := TmsmListViewtInitContext_C;
-  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+  AddChildViews(['Depends', 'Inherits', 'Implements', {'Inner',} {'Children',} {'Constants',} 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
                 aChildZone,
                 l_ListContext
                 );
-  AddChildView(TmsmModelElementView_C('UpList', 'UpText'),
-               aChildZone,
-               l_ListContext);
-  l_ListContext.rMultiStrokeItem := true;
-  AddChildView(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty'),
-               aChildZone,
-               l_ListContext);
+  if false then
+  begin
+   AddChildView(TmsmModelElementView_C('UpList', 'UpText'),
+                aChildZone,
+                l_ListContext);
+  end;//false
+  if false then
+  begin
+   l_ListContext := TmsmListViewtInitContext_C;
+   l_ListContext.rMultiStrokeItem := true;
+   AddChildView(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty'),
+                aChildZone,
+                l_ListContext);
+  end;//false
  end;//aChildZone <> nil
 
  if (aFloatingZone <> nil) then
@@ -150,6 +157,7 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
      , l_AllWords
     )
    );
+   // - список всех слов модели
    Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
   end;//false
 
@@ -158,8 +166,10 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
    l_ListContext := TmsmListViewtInitContext_C;
    l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
    AddChildView('AllowedElements', aFloatingZone, l_ListContext);
+   // - список стереотипов доступных для текущего элемента
    l_ListContext := TmsmListViewtInitContext_C;
    AddChildView('CanOverride', aFloatingZone, l_ListContext);
+   // - список методов, которые может перекрывать текущий элемент
 (*   Assert(aUseCase.Drawing.List <> nil);
    l_AllowedElements := TmsmListModel.MakeListForViewed(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
    //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
@@ -254,7 +264,8 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  begin//AddChildView
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
   Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
-  Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
+  Bind(TmsmChangePropertiesBinding.Make(aChildModel));
+  //Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
 
   AddController(
    AddListOperations

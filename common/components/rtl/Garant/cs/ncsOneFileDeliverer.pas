@@ -31,6 +31,7 @@ type
    f_Progressor: TddProgressObject;
    f_Counter: IncsTrafficCounter;
    f_ReceiveTime: Double;
+   f_WriteTime: Double;
    f_LocalDesc: TncsTaskedFileDesc;
   private
    function CheckContinue(aRemoteDesc: TncsFileDesc): Boolean;
@@ -54,6 +55,8 @@ type
   public
    property ReceiveTime: Double
     read f_ReceiveTime;
+   property WriteTime: Double
+    read f_WriteTime;
    property LocalDesc: TncsTaskedFileDesc
     read f_LocalDesc;
  end;//TncsOneFileDeliverer
@@ -102,6 +105,7 @@ begin
  if not CheckContinue(aRemoteDesc) then
   InitNew(aRemoteDesc);
  f_ReceiveTime := 0;
+ f_WriteTime := 0;
  Supports(f_Transporter, IncsTrafficCounter, f_Counter);
 //#UC END# *546F389A0156_546F3804032D_impl*
 end;//TncsOneFileDeliverer.Create
@@ -225,12 +229,13 @@ var
  l_Message: TncsGetFilePart;
  l_RawReply: TncsMessage;
  l_Watch: Tl3StopWatch;
-
+ l_StreamWatch: Tl3StopWatch;
 const
  cPartSize = 31*1024;
 //#UC END# *5472E6E201EE_546F3804032D_var*
 begin
 //#UC START# *5472E6E201EE_546F3804032D_impl*
+ l_StreamWatch.Reset;
  l_Watch.Reset;
  l_Watch.Start;
  try
@@ -246,7 +251,9 @@ begin
      l_RawReply := nil;
      if not FileExists(LocalPartialFileName) then
       raise EInOutError.Create('File not found');
+     l_StreamWatch.Start;
      f_Stream := Tl3FileStream.Create(LocalPartialFileName, l3_fmExclusiveReadWrite);
+     l_StreamWatch.Stop;
      try
       repeat
        if not f_Transporter.Processing then
@@ -309,7 +316,10 @@ begin
       until False;
      finally
       SaveControl;
+      l_StreamWatch.Start;
       FreeAndNil(f_Stream);
+      l_StreamWatch.Stop;
+      f_WriteTime := f_WriteTime + l_StreamWatch.Time;
      end;
     end;
    finally
@@ -329,16 +339,24 @@ procedure TncsOneFileDeliverer.Execute(const aContext: TncsExecuteContext);
 //#UC START# *54607DDC0159_546F3804032D_var*
 var
  l_Message: TncsPushFilePart;
+ l_Watch: Tl3StopWatch;
 //#UC END# *54607DDC0159_546F3804032D_var*
 begin
 //#UC START# *54607DDC0159_546F3804032D_impl*
+ l_Watch.Reset;
  g_ReceivePartFile.Start;
  try
   l_Message := aContext.rMessage as TncsPushFilePart;
+
+  l_Watch.Start;
+
   f_Stream.Seek(l_Message.Offset, soBeginning);
  g_WriteFile.Start;
   l_Message.Data.CopyTo(f_Stream, l_Message.PartSize);
  g_WriteFile.Stop;
+  l_Watch.Stop;
+  f_WriteTime := f_WriteTime + l_Watch.Time;
+
   if Assigned(f_Counter) then
    f_Counter.DoProgress(l_Message.PartSize);
   LocalDesc.CopiedSize := LocalDesc.CopiedSize + l_Message.PartSize;

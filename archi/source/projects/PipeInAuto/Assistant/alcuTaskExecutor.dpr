@@ -71,6 +71,7 @@ uses
   ddCaseCodeMaker in '..\Tasks\ddCaseCodeMaker.pas',
   alcuRelPublishTaskResult in '..\Tasks\alcuRelPublishTaskResult.pas',
   alcuRelCorrector in '..\Tasks\alcuRelCorrector.pas',
+  alcuAutolinkerTask in '..\Tasks\alcuAutolinkerTask.pas',
 {$IFDEF MDPSyncIntegrated}
   alcuMDP in '..\Process\alcuMDP.pas',
   IOUnit in 'W:\shared\GCI\IOUnit.pas',

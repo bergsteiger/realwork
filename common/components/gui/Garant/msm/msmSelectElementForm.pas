@@ -179,7 +179,7 @@ var
      if l_IsEdit then
      begin
       if l_IsMemo then
-       l_ValuePanel.Height := 120
+       l_ValuePanel.Height := 80{120}
       else
        l_ValuePanel.Height := 24{30};
      end//l_IsEdit
@@ -200,7 +200,7 @@ var
      if l_IsEdit then
      begin
       if l_IsMemo then
-       l_ValueSizeablePanel.Height := 120
+       l_ValueSizeablePanel.Height := 80{120}
       else
        l_ValueSizeablePanel.Height := 24{30};
      end//l_IsEdit
@@ -418,11 +418,11 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  function ValidateData: Boolean;
  begin//ValidateData
   Result := false;
-  if l3IsNil(f_Edit.Caption) then
+(*  if l3IsNil(f_Edit.Caption) then
   begin
    Result := false;
    Exit;
-  end;//f_Edit.Caption
+  end;//f_Edit.Caption*)
   if (f_List <> nil) then
    if (f_List.CurrentElement = nil) then
    begin

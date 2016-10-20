@@ -2617,6 +2617,24 @@ uses
  , dt_AttrSchema in 'w:\common\components\rtl\Garant\dd\dt_AttrSchema.pas'
  , HT_Const in 'w:\common\components\rtl\Garant\dd\HT_Const.pas'
  , MultiOperationRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiOperationRequest_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiChangeHyperLinksExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiChangeHyperLinksExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMultiChangeHyperLinks in 'w:\common\components\rtl\Garant\cs\csMultiChangeHyperLinks.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiChangeHyperLinks_Const in 'w:\common\components\rtl\Garant\EVD\csMultiChangeHyperLinks_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csMultiChangeHyperLinksReply in 'w:\common\components\rtl\Garant\cs\csMultiChangeHyperLinksReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiChangeHyperLinksReply_Const in 'w:\common\components\rtl\Garant\EVD\csMultiChangeHyperLinksReply_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiChangeHyperLinksRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiChangeHyperLinksRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ , arDirectMultiChangeHyperLinksHelper in 'w:\archi\source\projects\Common\Utils\arDirectMultiChangeHyperLinksHelper.pas'
+ , arCustomMultiChangeHyperLinksHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiChangeHyperLinksHelper.pas'
+ , arConst in 'w:\archi\source\projects\Common\Utils\arConst.pas'
+ , MultiChangeHyperLinksRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiChangeHyperLinksRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'
@@ -3220,7 +3238,8 @@ uses
   alcuRegionImportTaskPrim in 'Tasks\alcuRegionImportTaskPrim.pas',
   alcuRegionImportTask in 'Tasks\alcuRegionImportTask.pas',
   alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas',
-  alcuDeliveryProfileTask in 'Tasks\alcuDeliveryProfileTask.pas'
+  alcuDeliveryProfileTask in 'Tasks\alcuDeliveryProfileTask.pas',
+  alcuAutolinkerTask in 'Tasks\alcuAutolinkerTask.pas'
  //#UC END# *52F24F6103ABmanualuses*
 ;
 {$IfEnd} // Defined(AppServerSide)

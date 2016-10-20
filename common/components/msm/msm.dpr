@@ -1882,6 +1882,8 @@ uses
  , msmAddElement in 'w:\common\components\gui\Garant\msm\msmAddElement.pas'
  , msmDeleteSelection in 'w:\common\components\gui\Garant\msm\msmDeleteSelection.pas'
  , msmChangeProperties in 'w:\common\components\gui\Garant\msm\msmChangeProperties.pas'
+ , msmChangePropertiesBinding in 'w:\common\components\gui\Garant\msm\msmChangePropertiesBinding.pas'
+ , msmListController in 'w:\common\components\gui\Garant\msm\msmListController.pas'
  , msmSelectElementForm in 'w:\common\components\gui\Garant\msm\msmSelectElementForm.pas'
  , msmValuesForSelect in 'w:\common\components\gui\Garant\msm\msmValuesForSelect.pas'
  , msmListControllerWithExternalView in 'w:\common\components\gui\Garant\msm\msmListControllerWithExternalView.pas'
@@ -1892,6 +1894,7 @@ uses
  , msmMemo in 'w:\common\components\gui\Garant\msm\msmMemo.pas'
  , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
  //#UC START# *57A9BB9101F5manualuses*
+ , l3MouseWheelHelper
  //#UC END# *57A9BB9101F5manualuses*
 ;
 

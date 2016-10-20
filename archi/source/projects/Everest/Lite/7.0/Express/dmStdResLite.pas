@@ -3,7 +3,8 @@ unit dmStdResLite;
 interface
 
 uses
-  SysUtils, Classes, ImgList, Controls, l3InterfacedComponent, evSubPn;
+  SysUtils, Classes, ImgList, Controls, l3InterfacedComponent, evSubPn,
+  evSubPanel;
 
 type
   TdmStandardRes = class(TDataModule)

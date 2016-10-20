@@ -2,7 +2,7 @@ unit arSearch;
 
 {$Include l3Define.inc}
 
-{ $Id: arSearch.pas,v 1.50 2016/09/09 11:42:49 fireton Exp $ }
+{ $Id: arSearch.pas,v 1.51 2016/10/17 10:58:22 lukyanets Exp $ }
 
 interface
 
@@ -121,6 +121,7 @@ uses
  Dialogs, vtDialogs,
  AddrSup,
  arTypes,
+ arConst,
  evParaTools,
  afwNavigation,
  PageBreak_Const, l3DataContainerWithoutIUnknownPrim;

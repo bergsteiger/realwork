@@ -40,3 +40,9 @@
 {$IFDEF AAC_Support} // Так сказать бизнес-логика - машина на которой исользовалась функция с ААС была без поддержки SSE-команд (старые процессоры AMD). 
 {$Undef l3UseSSE}
 {$ENDIF AAC_Support}
+
+{$DEFINE NoVCM}
+
+{$DEFINE evNotArchi}
+
+{$DEFINE EverestLite}

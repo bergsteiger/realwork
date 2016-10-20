@@ -15,6 +15,7 @@ uses
 
 const
  nfContens = $8000;
+ sidWrongDocID = 'Ошибка определения внутреннего номера документа %d.';
 
 implementation
 

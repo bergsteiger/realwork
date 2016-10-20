@@ -57,8 +57,8 @@ uses
 
 const
  {* Локализуемые строки Local }
- str_csStatusChanged: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'csStatusChanged'; rValue : 'Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу');
-  {* 'Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:оп::Документ_Справка_к_документу] к документу' }
+ str_csStatusChanged: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'csStatusChanged'; rValue : 'Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:op::enDocument_opGetRelatedDocFrmAct] к документу');
+  {* 'Статус документа на контроле изменился:  %s  Подробнее [см. в справке|script:op::enDocument_opGetRelatedDocFrmAct] к документу' }
  str_csDeletedStatusChanged: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'csDeletedStatusChanged'; rValue : 'Статус документа на контроле изменился:  %s');
   {* 'Статус документа на контроле изменился:  %s' }
  str_csDeleted: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'csDeleted'; rValue : 'удален');

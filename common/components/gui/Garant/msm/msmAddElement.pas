@@ -97,6 +97,8 @@ procedure TmsmAddElement.InitOperationParams(var theParams: TmsmOperationParams)
 begin
 //#UC START# *57EBADA9033E_57F50186039F_impl*
  inherited;
+ theParams.rImageIndex := 58;
+ theParams.SetShortCut('Ins');
 //#UC END# *57EBADA9033E_57F50186039F_impl*
 end;//TmsmAddElement.InitOperationParams
 

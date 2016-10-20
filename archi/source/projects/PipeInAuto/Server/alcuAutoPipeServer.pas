@@ -917,7 +917,7 @@ uses
   l3Base, l3Types, l3LongintList,
   daInterfaces,
   daTypes,
-  dt_Types, dt_Serv, 
+  dt_Types, dt_Serv,
   ddProgressObj, ddScheduler, alcuBaseEngine,
   ddCalendarEvents, alcuTaskManager, ddAppConfigTypes,
   Classes, {$IFDEF Service}SvcMgr{$ELSE}Forms{$ENDIF}, SysUtils,
@@ -939,6 +939,8 @@ uses
 
 type
  TalcuShutdownMode = (alcu_smUnknown, alcu_smWait, alcu_smTerminate);
+
+ TCheckConfigResult = (alcu_ccrValid, alcu_ccrEdited, alcu_ccrCalcelled, alcu_ccrRefused);
 
  TalcuServerPrim = class(Tl3ProtoObject, IdaLongProcessSubscriber, IdaUserStatusChangedSubscriber)
  private
@@ -1127,6 +1129,7 @@ type
     function CheckDeltaReady: Boolean;
     procedure CheckFreeSpace(aManual: Boolean = False);
     procedure ChecksSetup; // проверка настроек системы
+    function CheckConfigAtStartupCrash: TCheckConfigResult;
     procedure CheckSubTable;
     procedure ClearSafeFolder;
     procedure ClearExportFolders;
@@ -5584,6 +5587,32 @@ begin
    end; // if not f_LockLog
    {$ENDIF}
   end;
+ end;
+end;
+
+function TalcuServerPrim.CheckConfigAtStartupCrash: TCheckConfigResult;
+begin
+ if ddAppConfiguration.IsValid then
+  Result := alcu_ccrValid
+ else
+ begin
+  repeat
+   if alcuMsgDialog(ddAppconfiguration.RequiredMessage +'. Хотите задать сейчас?', mtError, [mbYes, mbNo], 0) <> mrYes then
+   begin
+    Result := alcu_ccrRefused;
+    Break;
+   end;
+   if ddAppConfiguration.ShowDialog('Необходимо задать ключевые параметры', True) then
+   begin
+    ddAppConfiguration.Save;
+    Result := alcu_ccrEdited;
+   end
+   else
+   begin
+    Result := alcu_ccrCalcelled;
+    Break;
+   end;
+  until ddAppConfiguration.IsValid;
  end;
 end;
 

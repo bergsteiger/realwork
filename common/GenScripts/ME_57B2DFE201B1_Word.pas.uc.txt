@@ -13,7 +13,9 @@
 
  if (l_Word = nil) OR (l_Word.GetRefForCompare = nil) then
  begin
-  aCtx.rEngine.Push(aDefault);
+  aLambda.DoIt(aCtx);
+  //aCtx.rEngine.Push(aDefault);
+  //- вообще-то тут надо звать aLambda.DoIt(aCtx); по-аналогии с DoCache
   Exit;
  end;//(l_Word = nil) OR (l_Word.GetRefForCompare)
 
@@ -31,6 +33,7 @@
    Unlock;
   end;//try..finally
   aLambda.DoIt(aCtx);
+  // - а вот это надо бы обернуть в try..except и использовать aDefault, по-аналогии с DoCache
   // - при трансформации элементов внутри надо звать Ctx:EnterCS/Ctx:LeaveCS
   l_V.rValue := aCtx.rEngine.Top^;
   {$IfDef MSM}

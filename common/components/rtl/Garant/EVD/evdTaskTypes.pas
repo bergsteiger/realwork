@@ -93,7 +93,8 @@ type
                 cs_ttMultiClearAttributes,
                 cs_ttMultiOperation,
                 cs_ttDeliveryProfile,
-                cs_ttAutolinker
+                cs_ttAutolinker,
+                cs_ttMultiChangeHyperLinks
                 );
 
  TCsNotificationType = (ntEmpty,
