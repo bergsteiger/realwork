@@ -1,0 +1,51 @@
+// TalcuAACImport 53E48B8D038E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53E48B8D038E
+
+ME ME_53EB0E9403C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53E48B8D038E // TalcuAACImport
+ ;
+ MELINK Target WL? 'ME_53EB0E6000D4' // TalcuAACImportTaskResult
+ ;
+
+ENDME // ME_53EB0E9403C8 
+
+MEREF ME_5317040F0257_ME_53E48B8D038E_G
+ MELINK Original WL? 'ME_5317040F0257' // TcsAACImport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5317040F0257_ME_53E48B8D038E_G TcsAACImport
+
+%%InheritedBy ME_5317040F0257 ME_53E48B8D038E
+
+ME ME_53E48B8D038E
+ MEPROP UID '53E48B8D038E'
+ MEPROP Name 'TalcuAACImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_5317040F0257_ME_53E48B8D038E_G // TcsAACImport
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53EB0E9403C8 // TalcuAACImportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP "ifdef" 'AAC'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAACImport.pas'
+ UP extprop:rc:SelfName 'alcuAACImport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuAACImport'
+
+ENDME // ME_53E48B8D038E TalcuAACImport

@@ -1,0 +1,100 @@
+// TatSaveFoldersQueryToXMLOperation 5006FF3D006C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5006FF3D006C
+
+ME ME_5006FFCF03D3
+ MEPROP UID '5006FFCF03D3'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5006FF3D006C // TatSaveFoldersQueryToXMLOperation
+ ;
+ MELINK Target WL 'ME_4FD2376601E4' '480864400141.ms.model.script' // TatQueryMatcher
+ ;
+
+ENDME // ME_5006FFCF03D3 FoldersNodeMatcher
+
+ME ME_500701060319
+ MEPROP UID '500701060319'
+ MEPROP Name 'ObjectType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5006FF3D006C // TatSaveFoldersQueryToXMLOperation
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_500701060319 ObjectType
+
+MEREF ME_4FD0D2530143_ME_5006FF3D006C_impl
+ MELINK Original WL 'ME_4FD0D2530143' '4FD0D1E00242.ms.model.script' // OnFoldersObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FD0D2530143_ME_5006FF3D006C_impl OnFoldersObject
+
+MEREF ME_484FA0FD0223_ME_5006FF3D006C_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_5006FF3D006C_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FD0D1E00242_ME_5006FF3D006C_R
+ MELINK Original WL? 'ME_4FD0D1E00242' // atOpenFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D1E00242_ME_5006FF3D006C_R atOpenFoldersObjectAddon
+
+MEREF ME_5006FE0303DD_ME_5006FF3D006C_R
+ MELINK Original WL? 'ME_5006FE0303DD' // atSaveQueryToXMLAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5006FE0303DD_ME_5006FF3D006C_R atSaveQueryToXMLAddon
+
+%%ImplementedBy ME_4FD0D1E00242 ME_5006FF3D006C
+%%ImplementedBy ME_5006FE0303DD ME_5006FF3D006C
+
+%%InheritedBy ME_484FA0FD0223 ME_5006FF3D006C
+
+ME ME_5006FF3D006C
+ MEPROP UID '5006FF3D006C'
+ MEPROP Name 'TatSaveFoldersQueryToXMLOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_484FA0FD0223_ME_5006FF3D006C_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4FD0D1E00242_ME_5006FF3D006C_R // atOpenFoldersObjectAddon
+ ME_5006FE0303DD_ME_5006FF3D006C_R // atSaveQueryToXMLAddon
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5006FFCF03D3 // FoldersNodeMatcher
+ HWL ME_500701060319 // ObjectType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FD0D2530143_ME_5006FF3D006C_impl // OnFoldersObject
+ )
+ ; // Implemented
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSaveFoldersQueryToXMLOperation.pas'
+ UP extprop:rc:SelfName 'atSaveFoldersQueryToXMLOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSaveFoldersQueryToXMLOperation'
+
+ENDME // ME_5006FF3D006C TatSaveFoldersQueryToXMLOperation

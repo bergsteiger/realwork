@@ -1,0 +1,59 @@
+// TPageCountTest 51AD98A501F0 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51AD98A501F0
+
+MEREF ME_4C937013031D_ME_51AD98A501F0_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_51AD98A501F0_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_51AD98A501F0_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_51AD98A501F0_over GetModelElementGUID
+
+MEREF ME_51AD98E70324_ME_51AD98A501F0_over
+ MELINK Original WL 'ME_51AD98E70324' '4BE429BA0233.ms.model.script' // OnlyCheckPageCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51AD98E70324_ME_51AD98A501F0_over OnlyCheckPageCount
+
+MEREF ME_4E5BD013008D_ME_51AD98A501F0_G
+ MELINK Original WL? 'ME_4E5BD013008D' // TPreviewTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5BD013008D_ME_51AD98A501F0_G TPreviewTest
+
+%%InheritedBy ME_4E5BD013008D ME_51AD98A501F0
+
+ME ME_51AD98A501F0
+ MEPROP UID '51AD98A501F0'
+ MEPROP Name 'TPageCountTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E5BD013008D_ME_51AD98A501F0_G // TPreviewTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_51AD98A501F0_over // GetFolder
+ ME_4DAED6F60146_ME_51AD98A501F0_over // GetModelElementGUID
+ ME_51AD98E70324_ME_51AD98A501F0_over // OnlyCheckPageCount
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\PageCountTest.pas'
+ UP extprop:rc:SelfName 'PageCountTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PageCountTest'
+
+ENDME // ME_51AD98A501F0 TPageCountTest

@@ -1,0 +1,96 @@
+// TnsINodeRootWrap 468275200341 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468275200341
+
+ME ME_4909A7890025
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4909A7890025 aNode
+
+ME ME_4909A77F0299
+ MEPROP UID '4909A77F0299'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_468275200341 // TnsINodeRootWrap
+ ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4909A7890025 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4909A77F0299 Make
+
+MEREF ME_4772433F0008_ME_468275200341_impl
+ MELINK Original WL 'ME_4772433F0008' '4682595B0268.ms.model.script' // CanExpandCollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772433F0008_ME_468275200341_impl CanExpandCollapseAll
+
+MEREF ME_47724349030A_ME_468275200341_impl
+ MELINK Original WL 'ME_47724349030A' '4682595B0268.ms.model.script' // ExpandCollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724349030A_ME_468275200341_impl ExpandCollapseAll
+
+MEREF ME_4909AEB00352_ME_468275200341_G
+ MELINK Original WL? 'ME_4909AEB00352' // TnsINodeWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4909AEB00352_ME_468275200341_G TnsINodeWrap
+
+MEREF ME_468274930190_ME_468275200341_R
+ MELINK Original WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468274930190_ME_468275200341_R Il3SimpleRootNode
+
+%%ImplementedBy ME_468274930190 ME_468275200341
+
+%%InheritedBy ME_4909AEB00352 ME_468275200341
+
+ME ME_468275200341
+ MEPROP UID '468275200341'
+ MEPROP Name 'TnsINodeRootWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый корневой узел' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( ME_4909AEB00352_ME_468275200341_G // TnsINodeWrap
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_468274930190_ME_468275200341_R // Il3SimpleRootNode
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4909A77F0299 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4772433F0008_ME_468275200341_impl // CanExpandCollapseAll
+ ME_47724349030A_ME_468275200341_impl // ExpandCollapseAll
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeRootWrap.pas'
+ UP extprop:rc:SelfName 'INodeRootWrap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsINodeRootWrap'
+
+ENDME // ME_468275200341 TnsINodeRootWrap

@@ -1,0 +1,400 @@
+// WriterTest 4BACDDB500CE TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BACDDB500CE
+
+FORWARD ME_4BACDE3B02E9
+
+ME ME_4C07BEE0029E
+ MEPROP UID '4C07BEE0029E'
+ MEPROP Name 'G'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BACDE3B02E9 // DoWrite
+ ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C07BEE0029E G
+
+ME ME_4BACDE8200B1
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_4BACDE8200B1 aReader
+
+ME ME_4BACDE820157
+ MEPROP Name 'anExt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BACDE820157 anExt
+
+ME ME_4BACDE820198
+ MEPROP Name 'aHeaderBegin'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+ MEPROP Value '#0'
+ MELINK ValueType WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+ UP extprop:pas:Value '#0'
+
+ENDME // ME_4BACDE820198 aHeaderBegin
+
+ME ME_4BACDE4F004B
+ MEPROP UID '4BACDE4F004B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDE3B02E9 // DoWrite
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BACDE8200B1 // aReader
+ ME_4BACDE820157 // anExt
+ ME_4BACDE820198 // aHeaderBegin
+ )
+ ; // Parameters
+
+ENDME // ME_4BACDE4F004B DoIt
+
+ME ME_4BACE3A000B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACDE3B02E9 // DoWrite
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4BACE3A000B7 
+
+ME ME_4E831D670312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACDE3B02E9 // DoWrite
+ ;
+ MELINK Target WL 'ME_4E8316290291' '4787B0A8007B.ms.model.script' // El3BadPictureFormat
+ ;
+
+ENDME // ME_4E831D670312 
+
+ME ME_4BACDE3B02E9
+ MEPROP UID '4BACDE3B02E9'
+ MEPROP Name 'DoWrite'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C07BEE0029E // G
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BACDE4F004B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BACE3A000B7 // SysUtils
+ ME_4E831D670312 // El3BadPictureFormat
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BACDE3B02E9 DoWrite
+
+FORWARD ME_4C07B2F8016F
+
+ME ME_4C07B36E0372
+ MEPROP UID '4C07B36E0372'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C07B2F8016F // CreateEVDWriter
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C07B36E0372 Filer
+
+ME ME_4C07B31002F5
+ MEPROP UID '4C07B31002F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C07B2F8016F // CreateEVDWriter
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_4C07B31002F5 DoIt
+
+ME ME_4C07B36C028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07B2F8016F // CreateEVDWriter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C07B36C028A 
+
+ME ME_4C07B2F8016F
+ MEPROP UID '4C07B2F8016F'
+ MEPROP Name 'CreateEVDWriter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C07B36E0372 // Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C07B31002F5 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C07B36C028A // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C07B2F8016F CreateEVDWriter
+
+FORWARD ME_4C07B63D0078
+
+ME ME_4C07B74A03AF
+ MEPROP UID '4C07B74A03AF'
+ MEPROP Name 'Writer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C07B63D0078 // SomeFormatToEVD
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C07B74A03AF Writer
+
+ME ME_4C07B66703D1
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_4C07B66703D1 aReader
+
+ME ME_4C07B6600283
+ MEPROP UID '4C07B6600283'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C07B63D0078 // SomeFormatToEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C07B66703D1 // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_4C07B6600283 DoIt
+
+ME ME_4C07B75B037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C07B63D0078 // SomeFormatToEVD
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C07B75B037F 
+
+ME ME_4C07B63D0078
+ MEPROP UID '4C07B63D0078'
+ MEPROP Name 'SomeFormatToEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C07B74A03AF // Writer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C07B6600283 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C07B75B037F // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C07B63D0078 SomeFormatToEVD
+
+FORWARD ME_4E8317EF02C7
+
+ME ME_4E831805000A
+ MEPROP UID '4E831805000A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E8317EF02C7 // AcceptBadPictureFormat
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E831805000A DoIt
+
+ME ME_4E8317EF02C7
+ MEPROP UID '4E8317EF02C7'
+ MEPROP Name 'AcceptBadPictureFormat'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E831805000A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E8317EF02C7 AcceptBadPictureFormat
+
+FORWARD ME_51406117007F
+
+ME ME_5140612202CC
+ MEPROP UID '5140612202CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51406117007F // TreatExceptionAsSuccess
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5140612202CC DoIt
+
+ME ME_51406117007F
+ MEPROP UID '51406117007F'
+ MEPROP Name 'TreatExceptionAsSuccess'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5140612202CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51406117007F TreatExceptionAsSuccess
+
+ME ME_4C07BCCA008B
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_4C07BCCA008B theGenerator
+
+ME ME_4C07BCBE01F2
+ MEPROP UID '4C07BCBE01F2'
+ MEPROP Name 'SetFilters'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BACDDB500CE // WriterTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C07BCCA008B // theGenerator
+ )
+ ; // Parameters
+
+ENDME // ME_4C07BCBE01F2 SetFilters
+
+MEREF ME_4B2A11BC0255_ME_4BACDDB500CE_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4BACDDB500CE_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4BACDDB500CE
+
+ME ME_4BACDDB500CE
+ MEPROP UID '4BACDDB500CE'
+ MEPROP Name 'WriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый тест записи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDD97014B' // Write
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4BACDDB500CE_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BACDE3B02E9 // DoWrite
+ HWL ME_4C07B2F8016F // CreateEVDWriter
+ HWL ME_4C07B63D0078 // SomeFormatToEVD
+ HWL ME_4E8317EF02C7 // AcceptBadPictureFormat
+ HWL ME_51406117007F // TreatExceptionAsSuccess
+ HWL ME_4C07BCBE01F2 // SetFilters
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\WriterTest.pas'
+ UP extprop:pas:TypeName 'TWriterTest'
+ UP extprop:rc:SelfName 'WriterTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BACDDB500CE WriterTest

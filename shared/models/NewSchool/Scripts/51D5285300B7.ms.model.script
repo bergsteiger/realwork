@@ -1,0 +1,117 @@
+// TEmptyFormTest 51D5285300B7 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D5285300B7
+
+ME ME_51D5367102D3
+ MEPROP UID '51D5367102D3'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51D5285300B7 // TEmptyFormTest
+ ;
+ MELINK Target WL? 'ME_51D534260378' // FromWithPanel
+ ;
+
+ENDME // ME_51D5367102D3 FormClass
+
+ME ME_51D5290701CC
+ MEPROP UID '51D5290701CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D5285300B7 // TEmptyFormTest
+ ;
+
+ENDME // ME_51D5290701CC DoIt
+
+FORWARD ME_51D5464D033C
+
+ME ME_51D546640045
+ MEPROP UID '51D546640045'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D5464D033C // CheckControl
+ ;
+
+ENDME // ME_51D546640045 DoIt
+
+ME ME_51D5464D033C
+ MEPROP UID '51D5464D033C'
+ MEPROP Name 'CheckControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51D5285300B7 // TEmptyFormTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51D546640045 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51D5464D033C CheckControl
+
+MEREF ME_4B2A11BC0255_ME_51D5285300B7_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_51D5285300B7_G TBaseTest
+
+MEREF ME_4BCE9EF8033F_ME_51D5285300B7_R
+ MELINK Original WL? 'ME_4BCE9EF8033F' // FormProducer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BCE9EF8033F_ME_51D5285300B7_R FormProducer
+
+%%ImplementedBy ME_4BCE9EF8033F ME_51D5285300B7
+
+%%InheritedBy ME_4B2A11BC0255 ME_51D5285300B7
+
+ME ME_51D5285300B7
+ MEPROP UID '51D5285300B7'
+ MEPROP Name 'TEmptyFormTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_51D528280220' // EmptyFormTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_51D5285300B7_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BCE9EF8033F_ME_51D5285300B7_R // FormProducer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51D5367102D3 // FormClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51D5290701CC // DoIt
+ HWL ME_51D5464D033C // CheckControl
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\EmptyFormTest.pas'
+ UP extprop:rc:SelfName 'EmptyFormTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'EmptyFormTest'
+
+ENDME // ME_51D5285300B7 TEmptyFormTest

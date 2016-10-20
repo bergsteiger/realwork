@@ -1,0 +1,256 @@
+// TnevPrintView 4812119C00C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4812119C00C1
+
+ME ME_4CB5BDC80042
+ MEPROP UID '4CB5BDC80042'
+ MEPROP Name 'f_HiddenStyles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_4CB5BDC80042 f_HiddenStyles
+
+ME ME_51B5800500D2
+ MEPROP UID '51B5800500D2'
+ MEPROP Name 'f_HoldedText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_51B5800500D2 f_HoldedText
+
+FORWARD ME_4CB5BEE50148
+
+ME ME_4CB5BF0C0328
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4CB5BF0C0328 aText
+
+ME ME_4CB5BF0C035A
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF9230071' '4678209200A6.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_4CB5BF0C035A aCanvas
+
+ME ME_4CB5BF0C037E
+ MEPROP Name 'aHiddenStyles'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_4CB5BF0C037E aHiddenStyles
+
+ME ME_4CB5BEFB02BC
+ MEPROP UID '4CB5BEFB02BC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB5BEE50148 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5BF0C0328 // aText
+ ME_4CB5BF0C035A // aCanvas
+ ME_4CB5BF0C037E // aHiddenStyles
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5BEFB02BC Create
+
+ME ME_4CB5BEE50148
+ MEPROP UID '4CB5BEE50148'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BEFB02BC // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB5BEE50148 Create
+
+MEREF ME_4CB5BEE50148_ME_4CB5BE0E00FA_G
+ MELINK Original HWL ME_4CB5BEE50148 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB5BEE50148_ME_4CB5BE0E00FA_G Create
+
+MEREF ME_47F65717034D_ME_4CB5BE0E00FA_R
+ MELINK Original WL 'ME_47F65717034D' '47C5207602D1.ms.model.script' // InevPrintView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F65717034D_ME_4CB5BE0E00FA_R InevPrintView
+
+%%ImplementedBy ME_47F65717034D ME_4CB5BE0E00FA
+
+%%InheritedBy ME_4CB5BEE50148 ME_4CB5BE0E00FA
+
+ME ME_4CB5BE0E00FA
+ MEPROP UID '4CB5BE0E00FA'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CB5BEE50148_ME_4CB5BE0E00FA_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47F65717034D_ME_4CB5BE0E00FA_R // InevPrintView
+ )
+ ; // Implements
+
+ENDME // ME_4CB5BE0E00FA Make
+
+ME ME_482080E302D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_482080E302D3 
+
+ME ME_4F66FDFF00B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4812119C00C1 // TnevPrintView
+ ;
+ MELINK Target WL 'ME_47F24AFB0308' '469D0AC7005E.ms.model.script' // Layers
+ ;
+
+ENDME // ME_4F66FDFF00B8 
+
+MEREF ME_4811DB8A0323_ME_4812119C00C1_over
+ MELINK Original WL 'ME_4811DB8A0323' '4811D544006F.ms.model.script' // DoBeginDrawShape
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811DB8A0323_ME_4812119C00C1_over DoBeginDrawShape
+
+MEREF ME_48120D32035F_ME_4812119C00C1_over
+ MELINK Original WL 'ME_48120D32035F' '48120C1C0060.ms.model.script' // GetHiddenStyles
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48120D32035F_ME_4812119C00C1_over GetHiddenStyles
+
+MEREF ME_48121CB0013E_ME_4812119C00C1_over
+ MELINK Original WL 'ME_48121CB0013E' '48120C1C0060.ms.model.script' // GetLimitWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48121CB0013E_ME_4812119C00C1_over GetLimitWidth
+
+MEREF ME_4F66FDB60040_ME_4812119C00C1_over
+ MELINK Original WL 'ME_4F66FDB60040' '48120C1C0060.ms.model.script' // DoGetExcludeSuper
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F66FDB60040_ME_4812119C00C1_over DoGetExcludeSuper
+
+MEREF ME_48120C1C0060_ME_4812119C00C1_G
+ MELINK Original WL? 'ME_48120C1C0060' // TnevBaseDetachedView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48120C1C0060_ME_4812119C00C1_G TnevBaseDetachedView
+
+MEREF ME_47F65717034D_ME_4812119C00C1_R
+ MELINK Original WL 'ME_47F65717034D' '47C5207602D1.ms.model.script' // InevPrintView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F65717034D_ME_4812119C00C1_R InevPrintView
+
+MEREF ME_4F4B4B10001B_ME_4812119C00C1_R
+ MELINK Original WL? 'ME_4F4B4B10001B' // PrintViewDecorationRules
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4B4B10001B_ME_4812119C00C1_R PrintViewDecorationRules
+
+%%ImplementedBy ME_47F65717034D ME_4812119C00C1
+%%ImplementedBy ME_4F4B4B10001B ME_4812119C00C1
+
+%%InheritedBy ME_48120C1C0060 ME_4812119C00C1
+
+ME ME_4812119C00C1
+ MEPROP UID '4812119C00C1'
+ MEPROP Name 'TnevPrintView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Область вывода для печати.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_48120C1C0060_ME_4812119C00C1_G // TnevBaseDetachedView
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47F65717034D_ME_4812119C00C1_R // InevPrintView
+ ME_4F4B4B10001B_ME_4812119C00C1_R // PrintViewDecorationRules
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CB5BDC80042 // f_HiddenStyles
+ HWL ME_51B5800500D2 // f_HoldedText
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BEE50148 // Create
+ HWL ME_4CB5BE0E00FA // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4811DB8A0323_ME_4812119C00C1_over // DoBeginDrawShape
+ ME_48120D32035F_ME_4812119C00C1_over // GetHiddenStyles
+ ME_48121CB0013E_ME_4812119C00C1_over // GetLimitWidth
+ ME_4F66FDB60040_ME_4812119C00C1_over // DoGetExcludeSuper
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_482080E302D3 // l3MinMax
+ ME_4F66FDFF00B8 // Layers
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '23.06.2005 14:31'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevPrintView.pas'
+ UP extprop:rc:SelfName 'PrintView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevPrintView'
+
+ENDME // ME_4812119C00C1 TnevPrintView

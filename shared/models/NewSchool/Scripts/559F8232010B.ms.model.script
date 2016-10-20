@@ -1,0 +1,81 @@
+// TtfwWordInfoListPrim 559F8232010B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559F8232010B
+
+ME ME_559F823E00B6
+ MEPROP UID '559F823E00B6'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559F8232010B // TtfwWordInfoListPrim
+ ;
+ MELINK Target WL 'ME_559D51430285' '4DAF19F600C5.ms.model.script' // TtfwWordInfoF
+ ;
+
+ENDME // ME_559F823E00B6 ItemType
+
+MEREF ME_47B2C42A0163_ME_559F8232010B_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_559F8232010B_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_559F8232010B_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_559F8232010B_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_559F8232010B_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_559F8232010B_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_559F8232010B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_559F8232010B_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_559F8232010B
+%%InheritedBy ME_4A54DD4E036F ME_559F8232010B
+
+ME ME_559F8232010B
+ MEPROP UID '559F8232010B'
+ MEPROP Name 'TtfwWordInfoListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_559F81FE0232' // WordInfoCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_559F8232010B_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_559F8232010B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559F823E00B6 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_559F8232010B_impl // AssignItem
+ ME_47B99D4503A2_ME_559F8232010B_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordInfoListPrim.pas'
+ UP extprop:rc:SelfName 'WordInfoListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwWordInfoListPrim'
+
+ENDME // ME_559F8232010B TtfwWordInfoListPrim

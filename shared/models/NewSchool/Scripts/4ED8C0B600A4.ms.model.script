@@ -1,0 +1,87 @@
+// TnevDocumentPartAnchor 4ED8C0B600A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ED8C0B600A4
+
+ME ME_4ED8C102021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED8C0B600A4 // TnevDocumentPartAnchor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ED8C102021F 
+
+ME ME_53D669A80159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4ED8C0B600A4 // TnevDocumentPartAnchor
+ ;
+ MELINK Target WL? 'ME_4857AA550220' // TevBlock
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D669A80159 
+
+ME ME_53D669C40179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4ED8C0B600A4 // TnevDocumentPartAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53D669C40179 
+
+MEREF ME_4A58C42A029C_ME_4ED8C0B600A4_over
+ MELINK Original WL 'ME_4A58C42A029C' '4A3F457A0129.ms.model.script' // CheckInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A58C42A029C_ME_4ED8C0B600A4_over CheckInner
+
+MEREF ME_4A3F457A0129_ME_4ED8C0B600A4_G
+ MELINK Original WL? 'ME_4A3F457A0129' // TnevParaListAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3F457A0129_ME_4ED8C0B600A4_G TnevParaListAnchor
+
+%%InjectedBy ME_4857AA550220 ME_4ED8C0B600A4
+
+%%InheritedBy ME_4A3F457A0129 ME_4ED8C0B600A4
+
+ME ME_4ED8C0B600A4
+ MEPROP UID '4ED8C0B600A4'
+ MEPROP Name 'TnevDocumentPartAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3F457A0129_ME_4ED8C0B600A4_G // TnevParaListAnchor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A58C42A029C_ME_4ED8C0B600A4_over // CheckInner
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED8C102021F // Tk2TagID
+ ME_53D669A80159 // TevBlock
+ ME_53D669C40179 // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentPartAnchor.pas'
+ UP extprop:rc:SelfName 'DocumentPartAnchor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevDocumentPartAnchor'
+
+ENDME // ME_4ED8C0B600A4 TnevDocumentPartAnchor

@@ -31,7 +31,7 @@ ME ME_48E497B9015D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4829D8C50010 // TevMultiSelectEditorWindow
  ;
- MELINK Target WL 'ME_48E3B50501DB' '4829D7D50156.ms.model.script' // TevMultiSelection
+ MELINK Target WL? 'ME_48E3B50501DB' // TevMultiSelection
  ;
 
 ENDME // ME_48E497B9015D 
@@ -41,28 +41,34 @@ ME ME_48E49816018D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4829D8C50010 // TevMultiSelectEditorWindow
  ;
- MELINK Target WL 'ME_48E497E40042' '4829D7D50156.ms.model.script' // TevMultiSelectEditorWindowHotSpot
+ MELINK Target WL? 'ME_48E497E40042' // TevMultiSelectEditorWindowHotSpot
  ;
 
 ENDME // ME_48E49816018D 
 
-ME ME_48E1F321030C_ME_4829D8C50010
+MEREF ME_48E1F321030C_ME_4829D8C50010_over
  MELINK Original WL 'ME_48E1F321030C' '48E0E5C1032A.ms.model.script' // GetAllowMultiSelect
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48E1F321030C_ME_4829D8C50010 GetAllowMultiSelect
+ENDMEREF // ME_48E1F321030C_ME_4829D8C50010_over GetAllowMultiSelect
 
-ME ME_48E22866033A_ME_4829D8C50010
+MEREF ME_48E22866033A_ME_4829D8C50010_over
  MELINK Original WL 'ME_48E22866033A' '4829D92A037B.ms.model.script' // SelectionClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48E22866033A_ME_4829D8C50010 SelectionClass
+ENDMEREF // ME_48E22866033A_ME_4829D8C50010_over SelectionClass
 
-ME ME_48E2297000D3_ME_4829D8C50010
+MEREF ME_48E2297000D3_ME_4829D8C50010_over
  MELINK Original WL 'ME_48E2297000D3' '4829D92A037B.ms.model.script' // HotSpotClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48E2297000D3_ME_4829D8C50010 HotSpotClass
+ENDMEREF // ME_48E2297000D3_ME_4829D8C50010_over HotSpotClass
+
+MEREF ME_4A26509001EA_ME_4829D8C50010_G
+ MELINK Original WL? 'ME_4A26509001EA' // TevCustomEditorWindowModelPart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A26509001EA_ME_4829D8C50010_G TevCustomEditorWindowModelPart
 
 %%InheritedBy ME_4A26509001EA ME_4829D8C50010
 
@@ -79,7 +85,7 @@ ME ME_4829D8C50010
  MELINK Parent WL? 'ME_4829D7D50156' // Editors
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A26509001EA' // TevCustomEditorWindowModelPart
+   Seq: ( ME_4A26509001EA_ME_4829D8C50010_G // TevCustomEditorWindowModelPart
  )
  ; // Inherits
  MELIST Attributes
@@ -87,9 +93,9 @@ ME ME_4829D8C50010
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_48E1F321030C_ME_4829D8C50010 // GetAllowMultiSelect
- ME_48E22866033A_ME_4829D8C50010 // SelectionClass
- ME_48E2297000D3_ME_4829D8C50010 // HotSpotClass
+   Seq: ( ME_48E1F321030C_ME_4829D8C50010_over // GetAllowMultiSelect
+ ME_48E22866033A_ME_4829D8C50010_over // SelectionClass
+ ME_48E2297000D3_ME_4829D8C50010_over // HotSpotClass
  )
  ; // Overridden
  MELIST Dependencies

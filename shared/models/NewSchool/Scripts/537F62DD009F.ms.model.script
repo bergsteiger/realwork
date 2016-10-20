@@ -1,0 +1,244 @@
+// TCsDataPipe 537F62DD009F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537F62DD009F
+
+FORWARD ME_538DE0DC02BD
+
+ME ME_538DE0F20306
+ MEPROP Name 'aToPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_538DE0F20306 aToPath
+
+ME ME_538DE0EC0268
+ MEPROP UID '538DE0EC0268'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DE0DC02BD // ReadFolder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DE0F20306 // aToPath
+ )
+ ; // Parameters
+
+ENDME // ME_538DE0EC0268 DoIt
+
+ME ME_538DE0DC02BD
+ MEPROP UID '538DE0DC02BD'
+ MEPROP Name 'ReadFolder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DE0EC0268 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DE0DC02BD ReadFolder
+
+FORWARD ME_538DE100010F
+
+ME ME_538DE111032D
+ MEPROP Name 'aFolderName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_538DE111032D aFolderName
+
+ME ME_538DE10D02BE
+ MEPROP UID '538DE10D02BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DE100010F // WriteFolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DE111032D // aFolderName
+ )
+ ; // Parameters
+
+ENDME // ME_538DE10D02BE DoIt
+
+ME ME_538DE100010F
+ MEPROP UID '538DE100010F'
+ MEPROP Name 'WriteFolder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DE10D02BE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_538DE100010F WriteFolder
+
+ME ME_538DE16F0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_53078F0D032A' '47A080670100.ms.model.script' // Tl3TempFileStream
+ ;
+
+ENDME // ME_538DE16F0099 
+
+ME ME_538DE17400B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_538DE17400B6 
+
+ME ME_538DE1A10045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL? 'ME_4B57004201BD' // l3FileUtils
+ ;
+
+ENDME // ME_538DE1A10045 
+
+ME ME_538DE1E201A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ ;
+
+ENDME // ME_538DE1E201A0 
+
+ME ME_538DE216013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_538DE216013F 
+
+ME ME_538DE3DE03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_538DE3DE03DB 
+
+ME ME_538DE4090131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL? 'ME_538DE3F001DC' // Tl3TempMemoryStream
+ ;
+
+ENDME // ME_538DE4090131 
+
+ME ME_538DE574006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_538DE574006D 
+
+ME ME_538DE5970020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL? 'ME_538DAED40203' // TIdIOHandler
+ ;
+
+ENDME // ME_538DE5970020 
+
+ME ME_5463656100A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F62DD009F // TCsDataPipe
+ ;
+ MELINK Target WL 'ME_48F47C8001FF' '478CF30500C1.ms.model.script' // TSeekOrigin
+ ;
+
+ENDME // ME_5463656100A7 
+
+MEREF ME_538DC31F03A5_ME_537F62DD009F_G
+ MELINK Original WL? 'ME_538DC31F03A5' // TCsDataPipePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_538DC31F03A5_ME_537F62DD009F_G TCsDataPipePrim
+
+%%InheritedBy ME_538DC31F03A5 ME_537F62DD009F
+
+ME ME_537F62DD009F
+ MEPROP UID '537F62DD009F'
+ MEPROP Name 'TCsDataPipe'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FBB2FC0386' // Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_538DC31F03A5_ME_537F62DD009F_G // TCsDataPipePrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_538DE0DC02BD // ReadFolder
+ HWL ME_538DE100010F // WriteFolder
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_538DE16F0099 // Tl3TempFileStream
+ ME_538DE17400B6 // Tl3MemoryStream
+ ME_538DE1A10045 // l3FileUtils
+ ME_538DE1E201A0 // Tl3Stream
+ ME_538DE216013F // FreeAndNil
+ ME_538DE3DE03DB // l3Base
+ ME_538DE4090131 // Tl3TempMemoryStream
+ ME_538DE574006D // Tl3FileMode
+ ME_538DE5970020 // TIdIOHandler
+ ME_5463656100A7 // TSeekOrigin
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsDataPipe.pas'
+ UP extprop:rc:SelfName 'CsDataPipe'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsDataPipe'
+
+ENDME // ME_537F62DD009F TCsDataPipe

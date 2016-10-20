@@ -38,10 +38,6 @@ USES
 ;
 
 USES
- GarantMetaModel.ms.dict
-;
-
-USES
  Log.ms.dict
 ;
 
@@ -181,6 +177,10 @@ USES
  MEPrefix.ms.dict
 ;
 
+USES
+ CutSuffix.ms.dict
+;
+
 PROCEDURE .OutCollected
   ARRAY IN aCollected
   STRING IN anExt
@@ -200,13 +200,14 @@ PROCEDURE .OutCollected
      .map> pop:WordBox:Boxed
      .map> (
        IN aRec
-      [ 
-       'WL' ' '
-       cQuote MEPrefix aRec -> Source .UID cQuote
-       ' '
-       cQuote aRec -> SourceFile cQuote
-       ' // ' aRec -> Source .Name
-      ]
+      HookOut: ( 
+       aRec -> Source .UID
+       aRec -> Source .Name 
+       aRec -> SourceFile
+       .OutWordLinkDef
+      ) // HookOut:
+      strings:Cat
+      \n .CutSuffix
      ) // .map>
      .for> .Out
     ) // Indented:

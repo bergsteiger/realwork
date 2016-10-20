@@ -9,16 +9,22 @@ ME ME_4D357C2102B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4933E8FF02C7 // TdsDrugListDocument
  ;
- MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ MELINK Target WL? 'ME_4C6A9AD101B4' // TnsF1DocumentContainer
  ;
 
 ENDME // ME_4D357C2102B8 
 
-ME ME_4C6AB38800F3_ME_4933E8FF02C7
+MEREF ME_4C6AB38800F3_ME_4933E8FF02C7_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_4933E8FF02C7 MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_4933E8FF02C7_over MakeContainer
+
+MEREF ME_4926CAF40166_ME_4933E8FF02C7_G
+ MELINK Original WL? 'ME_4926CAF40166' // dsBaseDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4926CAF40166_ME_4933E8FF02C7_G dsBaseDocument
 
 %%InheritedBy ME_4926CAF40166 ME_4933E8FF02C7
 
@@ -34,11 +40,11 @@ ME ME_4933E8FF02C7
  MELINK Parent WL? 'ME_47EA01EA0070' // sdsDrugList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4926CAF40166' // dsBaseDocument
+   Seq: ( ME_4926CAF40166_ME_4933E8FF02C7_G // dsBaseDocument
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4C6AB38800F3_ME_4933E8FF02C7 // MakeContainer
+   Seq: ( ME_4C6AB38800F3_ME_4933E8FF02C7_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

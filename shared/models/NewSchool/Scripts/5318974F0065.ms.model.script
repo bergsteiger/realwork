@@ -1,0 +1,134 @@
+// Tk2FontManager 5318974F0065 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5318974F0065
+
+FORWARD ME_53189C3D034E
+
+ME ME_53189C5D0257
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53189C5D0257 aName
+
+ME ME_53189C4D01EE
+ MEPROP UID '53189C4D01EE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53189C3D034E // FontByName
+ ;
+ MELINK Target WL? 'ME_53188A6D02A7' // Tk2FontName
+ ;
+ MELIST Parameters
+   Seq: ( ME_53189C5D0257 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53189C4D01EE DoIt
+
+ME ME_53189C3D034E
+ MEPROP UID '53189C3D034E'
+ MEPROP Name 'FontByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5318974F0065 // Tk2FontManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53189C4D01EE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53189C3D034E FontByName
+
+ME ME_53189FEB0186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5318974F0065 // Tk2FontManager
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_53189FEB0186 
+
+ME ME_5318A00201D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5318974F0065 // Tk2FontManager
+ ;
+ MELINK Target WL? 'ME_4B88F0F00211' // Tl3FontManagerEx
+ ;
+
+ENDME // ME_5318A00201D6 
+
+ME ME_5318A196025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5318974F0065 // Tk2FontManager
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5318A196025B 
+
+MEREF ME_47A042E100E2_ME_5318974F0065_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5318974F0065_over InitFields
+
+MEREF ME_53189661025E_ME_5318974F0065_G
+ MELINK Original WL? 'ME_53189661025E' // Tk2FontNameList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53189661025E_ME_5318974F0065_G Tk2FontNameList
+
+%%InheritedBy ME_53189661025E ME_5318974F0065
+
+ME ME_5318974F0065
+ MEPROP UID '5318974F0065'
+ MEPROP Name 'Tk2FontManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_53189661025E_ME_5318974F0065_G // Tk2FontNameList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53189C3D034E // FontByName
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_5318974F0065_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53189FEB0186 // Tl3LogFont
+ ME_5318A00201D6 // Tl3FontManagerEx
+ ME_5318A196025B // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2FontManager.pas'
+ UP extprop:rc:SelfName 'FontManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2FontManager'
+
+ENDME // ME_5318974F0065 Tk2FontManager

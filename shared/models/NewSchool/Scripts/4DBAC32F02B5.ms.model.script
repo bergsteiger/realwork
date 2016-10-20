@@ -1,0 +1,207 @@
+// TtfwDualWord 4DBAC32F02B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAC32F02B5
+
+FORWARD ME_4DBAC41301F2
+
+ME ME_4DBAC4310233
+ MEPROP UID '4DBAC4310233'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DBAC41301F2 // MedianBracket
+ ;
+ MELINK Target WL 'ME_4DAEED6F03DD' '4DAF19F600C5.ms.model.script' // RtfwWord
+ ;
+
+ENDME // ME_4DBAC4310233 DoIt
+
+ME ME_4DBAC41301F2
+ MEPROP UID '4DBAC41301F2'
+ MEPROP Name 'MedianBracket'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DBAC32F02B5 // TtfwDualWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DBAC4310233 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DBAC41301F2 MedianBracket
+
+FORWARD ME_4DBAC44D02CC
+
+ME ME_4DBAC48D008E
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DBAC48D008E aContext
+
+ME ME_4DBAC48D00DB
+ MEPROP Name 'aCompiled'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52D3C5F90029' // TkwCompiledWordPrim
+ ;
+
+ENDME // ME_4DBAC48D00DB aCompiled
+
+ME ME_4DBAC53002F3
+ MEPROP Name 'aCompiled2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52D3C5F90029' // TkwCompiledWordPrim
+ ;
+
+ENDME // ME_4DBAC53002F3 aCompiled2
+
+ME ME_4DBAC45D0339
+ MEPROP UID '4DBAC45D0339'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DBAC44D02CC // MakeDualCompiled
+ ;
+ MELINK Target WL? 'ME_4DBAC27801EF' // TkwDualCompiledWordContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DBAC48D008E // aContext
+ ME_4DBAC48D00DB // aCompiled
+ ME_4DBAC53002F3 // aCompiled2
+ )
+ ; // Parameters
+
+ENDME // ME_4DBAC45D0339 DoIt
+
+ME ME_4DBAC44D02CC
+ MEPROP UID '4DBAC44D02CC'
+ MEPROP Name 'MakeDualCompiled'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DBAC32F02B5 // TtfwDualWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DBAC45D0339 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DBAC44D02CC MakeDualCompiled
+
+FORWARD ME_4DBADF3E02CC
+
+ME ME_4DBADF5B008A
+ MEPROP UID '4DBADF5B008A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DBADF3E02CC // MedianBracket2
+ ;
+ MELINK Target WL 'ME_4DAEED6F03DD' '4DAF19F600C5.ms.model.script' // RtfwWord
+ ;
+
+ENDME // ME_4DBADF5B008A DoIt
+
+ME ME_4DBADF3E02CC
+ MEPROP UID '4DBADF3E02CC'
+ MEPROP Name 'MedianBracket2'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DBAC32F02B5 // TtfwDualWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DBADF5B008A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DBADF3E02CC MedianBracket2
+
+ME ME_4DBAC4B00309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC32F02B5 // TtfwDualWord
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DBAC4B00309 
+
+MEREF ME_4DB6CE2302C9_ME_4DBAC32F02B5_over
+ MELINK Original WL 'ME_4DB6CE2302C9' '4DB6C8F30161.ms.model.script' // AfterCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6CE2302C9_ME_4DBAC32F02B5_over AfterCompile
+
+MEREF ME_52D7DC84019E_ME_4DBAC32F02B5_over
+ MELINK Original WL 'ME_52D7DC84019E' '4DAF19F600C5.ms.model.script' // AcceptMedianBracket
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52D7DC84019E_ME_4DBAC32F02B5_over AcceptMedianBracket
+
+MEREF ME_4DB9BB43017B_ME_4DBAC32F02B5_G
+ MELINK Original WL? 'ME_4DB9BB43017B' // TtfwAnonimousWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB9BB43017B_ME_4DBAC32F02B5_G TtfwAnonimousWord
+
+%%InheritedBy ME_4DB9BB43017B ME_4DBAC32F02B5
+
+ME ME_4DBAC32F02B5
+ MEPROP UID '4DBAC32F02B5'
+ MEPROP Name 'TtfwDualWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB9BB43017B_ME_4DBAC32F02B5_G // TtfwAnonimousWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DBAC41301F2 // MedianBracket
+ HWL ME_4DBAC44D02CC // MakeDualCompiled
+ HWL ME_4DBADF3E02CC // MedianBracket2
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DB6CE2302C9_ME_4DBAC32F02B5_over // AfterCompile
+ ME_52D7DC84019E_ME_4DBAC32F02B5_over // AcceptMedianBracket
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DBAC4B00309 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '29.04.2011 17:55'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDualWord.pas'
+ UP extprop:rc:SelfName 'DualWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDualWord'
+
+ENDME // ME_4DBAC32F02B5 TtfwDualWord

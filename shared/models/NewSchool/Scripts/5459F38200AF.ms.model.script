@@ -1,0 +1,117 @@
+// Tm3HashHandle 5459F38200AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5459F38200AF
+
+ME ME_5459F3AF021F
+ MEPROP UID '5459F3AF021F'
+ MEPROP Name 'BranchHandleList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5459F38200AF // Tm3HashHandle
+ ;
+ MELINK Target WL? 'ME_5453BC4F0348' // Tm3BranchHandleList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5459F3AF021F BranchHandleList
+
+FORWARD ME_5459F3C30067
+
+ME ME_5459F3CB016F
+ MEPROP UID '5459F3CB016F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459F3C30067 // Create
+ ;
+
+ENDME // ME_5459F3CB016F DoIt
+
+ME ME_5459F3C30067
+ MEPROP UID '5459F3C30067'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5459F38200AF // Tm3HashHandle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5459F3CB016F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5459F3C30067 Create
+
+ME ME_5459F3F10386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5459F38200AF // Tm3HashHandle
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5459F3F10386 
+
+MEREF ME_479731C50290_ME_5459F38200AF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5459F38200AF_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_5459F38200AF_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_5459F38200AF_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_5459F38200AF
+
+ME ME_5459F38200AF
+ MEPROP UID '5459F38200AF'
+ MEPROP Name 'Tm3HashHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_5459F38200AF_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5459F3AF021F // BranchHandleList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5459F3C30067 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5459F38200AF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5459F3F10386 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3HashHandle.pas'
+ UP extprop:rc:SelfName 'm3HashHandle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3HashHandle'
+
+ENDME // ME_5459F38200AF Tm3HashHandle

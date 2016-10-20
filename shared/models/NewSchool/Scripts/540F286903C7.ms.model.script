@@ -1,0 +1,45 @@
+// Tm3StoragePrim 540F286903C7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4FA2766F02A5_ME_540F286903C7_G
+ MELINK Original WL? 'ME_4FA2766F02A5' // Tm3BaseStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA2766F02A5_ME_540F286903C7_G Tm3BaseStorage
+
+MEREF ME_53A03846011C_ME_540F286903C7_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_540F286903C7_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_540F286903C7
+
+%%InheritedBy ME_4FA2766F02A5 ME_540F286903C7
+
+ME ME_540F286903C7
+ MEPROP UID '540F286903C7'
+ MEPROP Name 'Tm3StoragePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FA2766F02A5_ME_540F286903C7_G // Tm3BaseStorage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53A03846011C_ME_540F286903C7_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StoragePrim.pas'
+ UP extprop:rc:SelfName 'm3StoragePrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3StoragePrim'
+
+ENDME // ME_540F286903C7 Tm3StoragePrim

@@ -1,0 +1,123 @@
+// TkwSendInputSupport 4F71A8080094 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F71A8080094
+
+FORWARD ME_4F71A8960347
+
+ME ME_50C865EC02F0
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50C865EC02F0 aCtx
+
+ME ME_4F71A8B800EA
+ MEPROP UID '4F71A8B800EA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71A8960347 // GetInputStruct
+ ;
+ MELINK Target WL 'ME_4F7197540233' '48A41FF10094.ms.model.script' // TInput
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C865EC02F0 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4F71A8B800EA DoIt
+
+ME ME_4F71A8960347
+ MEPROP UID '4F71A8960347'
+ MEPROP Name 'GetInputStruct'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F71A8080094 // TkwSendInputSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71A8B800EA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F71A8960347 GetInputStruct
+
+ME ME_50C8680200CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71A8080094 // TkwSendInputSupport
+ ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50C8680200CF 
+
+MEREF ME_4DAEEDE10285_ME_4F71A8080094_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4F71A8080094_impl DoDoIt
+
+MEREF ME_53EDC0E701BC_ME_4F71A8080094_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_4F71A8080094_G TtfwRegisterableWord
+
+MEREF ME_54D4C520030A_ME_4F71A8080094_R
+ MELINK Original WL? 'ME_54D4C520030A' // kwSendInputSupportUses
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D4C520030A_ME_4F71A8080094_R kwSendInputSupportUses
+
+%%ImplementedBy ME_54D4C520030A ME_4F71A8080094
+
+%%InheritedBy ME_53EDC0E701BC ME_4F71A8080094
+
+ME ME_4F71A8080094
+ MEPROP UID '4F71A8080094'
+ MEPROP Name 'TkwSendInputSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( ME_53EDC0E701BC_ME_4F71A8080094_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_54D4C520030A_ME_4F71A8080094_R // kwSendInputSupportUses
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F71A8960347 // GetInputStruct
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4F71A8080094_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50C8680200CF // TtfwContext
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas'
+ UP extprop:rc:SelfName 'SendInputSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSendInputSupport'
+
+ENDME // ME_4F71A8080094 TkwSendInputSupport

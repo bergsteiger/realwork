@@ -1,0 +1,358 @@
+// TdeListSet 4926AE3900B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4926AE3900B9
+
+FORWARD ME_4B1F7C63023F
+
+ME ME_569DDC080000
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_569DDC080000 aList
+
+ME ME_569DDC08001F
+ MEPROP Name 'aWhatDoingIfOneDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491D757000A4' '47EA07FA02CE.ms.model.script' // TbsWhatDoingIfOneDoc
+ ;
+
+ENDME // ME_569DDC08001F aWhatDoingIfOneDoc
+
+ME ME_569DDC08004E
+ MEPROP Name 'aOpenFrom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2134C0390' '47EA07FA02CE.ms.model.script' // TbsListOpenFrom
+ ;
+
+ENDME // ME_569DDC08004E aOpenFrom
+
+ME ME_569DDC08007C
+ MEPROP Name 'aTimeMachineOff'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_569DDC08007C aTimeMachineOff
+
+ME ME_569DDC08009C
+ MEPROP Name 'aNodeForPositioning'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_569DDC08009C aNodeForPositioning
+
+ME ME_569DDC0800CA
+ MEPROP Name 'aSearchInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4822962A0071' '4B1D3D250382.ms.model.script' // IdeSearchInfo
+ ;
+
+ENDME // ME_569DDC0800CA aSearchInfo
+
+ME ME_569DDC0800F9
+ MEPROP Name 'aAllDocumentsFiltered'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_569DDC0800F9 aAllDocumentsFiltered
+
+ME ME_569DDC080128
+ MEPROP Name 'aNeedApplyPermanentFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_569DDC080128 aNeedApplyPermanentFilters
+
+ME ME_569DDC080147
+ MEPROP Name 'aIsChanged'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_569DDC080147 aIsChanged
+
+ME ME_4B1F7C6901D3
+ MEPROP UID '4B1F7C6901D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F7C63023F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_569DDC080000 // aList
+ ME_569DDC08001F // aWhatDoingIfOneDoc
+ ME_569DDC08004E // aOpenFrom
+ ME_569DDC08007C // aTimeMachineOff
+ ME_569DDC08009C // aNodeForPositioning
+ ME_569DDC0800CA // aSearchInfo
+ ME_569DDC0800F9 // aAllDocumentsFiltered
+ ME_569DDC080128 // aNeedApplyPermanentFilters
+ ME_569DDC080147 // aIsChanged
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F7C6901D3 DoIt
+
+ME ME_4B1F7C63023F
+ MEPROP UID '4B1F7C63023F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4926AE3900B9 // TdeListSet
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7C6901D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F7C63023F Create
+
+FORWARD ME_4B1F7CAA0008
+
+ME ME_569DDC2101CD
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_569DDC2101CD aList
+
+ME ME_569DDC2101EC
+ MEPROP Name 'aWhatDoingIfOneDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491D757000A4' '47EA07FA02CE.ms.model.script' // TbsWhatDoingIfOneDoc
+ ;
+ MEPROP Value 'wdAlwaysOpen'
+ MELINK ValueType WL 'ME_491D757000A4' '47EA07FA02CE.ms.model.script' // TbsWhatDoingIfOneDoc
+ ;
+ UP extprop:pas:Value 'bsTypes.wdAlwaysOpen'
+
+ENDME // ME_569DDC2101EC aWhatDoingIfOneDoc
+
+ME ME_569DDC21021B
+ MEPROP Name 'aOpenFrom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2134C0390' '47EA07FA02CE.ms.model.script' // TbsListOpenFrom
+ ;
+ MEPROP Value 'lofNone'
+ MELINK ValueType WL 'ME_47F2134C0390' '47EA07FA02CE.ms.model.script' // TbsListOpenFrom
+ ;
+ UP extprop:pas:Value 'bsTypes.lofNone'
+
+ENDME // ME_569DDC21021B aOpenFrom
+
+ME ME_569DDC21023A
+ MEPROP Name 'aTimeMachineOff'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_569DDC21023A aTimeMachineOff
+
+ME ME_569DDC210269
+ MEPROP Name 'aNodeForPositioning'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_569DDC210269 aNodeForPositioning
+
+ME ME_569DDC210298
+ MEPROP Name 'aSearchInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4822962A0071' '4B1D3D250382.ms.model.script' // IdeSearchInfo
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4822962A0071' '4B1D3D250382.ms.model.script' // IdeSearchInfo
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_569DDC210298 aSearchInfo
+
+ME ME_569DDC2102B7
+ MEPROP Name 'aAllDocumentsFiltered'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_569DDC2102B7 aAllDocumentsFiltered
+
+ME ME_569DDC2102F6
+ MEPROP Name 'aNeedApplyPermanentFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_569DDC2102F6 aNeedApplyPermanentFilters
+
+ME ME_569DDC210344
+ MEPROP Name 'aIsChanged'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_569DDC210344 aIsChanged
+
+ME ME_4B1F7CB1021C
+ MEPROP UID '4B1F7CB1021C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F7CAA0008 // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_569DDC2101CD // aList
+ ME_569DDC2101EC // aWhatDoingIfOneDoc
+ ME_569DDC21021B // aOpenFrom
+ ME_569DDC21023A // aTimeMachineOff
+ ME_569DDC210269 // aNodeForPositioning
+ ME_569DDC210298 // aSearchInfo
+ ME_569DDC2102B7 // aAllDocumentsFiltered
+ ME_569DDC2102F6 // aNeedApplyPermanentFilters
+ ME_569DDC210344 // aIsChanged
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F7CB1021C DoIt
+
+ME ME_4B1F7CAA0008
+ MEPROP UID '4B1F7CAA0008'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4926AE3900B9 // TdeListSet
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7CB1021C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F7CAA0008 Make
+
+MEREF ME_715D27A37B98_ME_4926AE3900B9_impl
+ MELINK Original WL 'ME_715D27A37B98' '4D1B444C015E.ms.model.script' // List_SynchroView_Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_715D27A37B98_ME_4926AE3900B9_impl List_SynchroView_Form
+
+MEREF ME_4B1F7AE80158_ME_4926AE3900B9_over
+ MELINK Original WL 'ME_4B1F7AE80158' '492FF76202CA.ms.model.script' // AssignClonned
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1F7AE80158_ME_4926AE3900B9_over AssignClonned
+
+MEREF ME_492FF76202CA_ME_4926AE3900B9_G
+ MELINK Original WL? 'ME_492FF76202CA' // TdeDocumentList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492FF76202CA_ME_4926AE3900B9_G TdeDocumentList
+
+MEREF ME_4B1D2633034D_ME_4926AE3900B9_R
+ MELINK Original WL 'ME_4B1D2633034D' '4D1B444C015E.ms.model.script' // IdeDocumentListSet
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1D2633034D_ME_4926AE3900B9_R IdeDocumentListSet
+
+%%ImplementedBy ME_4B1D2633034D ME_4926AE3900B9
+
+%%InheritedBy ME_492FF76202CA ME_4926AE3900B9
+
+ME ME_4926AE3900B9
+ MEPROP UID '4926AE3900B9'
+ MEPROP Name 'TdeListSet'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_492FF76202CA_ME_4926AE3900B9_G // TdeDocumentList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B1D2633034D_ME_4926AE3900B9_R // IdeDocumentListSet
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7C63023F // Create
+ HWL ME_4B1F7CAA0008 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_715D27A37B98_ME_4926AE3900B9_impl // List_SynchroView_Form
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B1F7AE80158_ME_4926AE3900B9_over // AssignClonned
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '09.12.2009 14:04'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\deListSet.pas'
+ UP extprop:rc:SelfName 'deListSet'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'deListSet'
+
+ENDME // ME_4926AE3900B9 TdeListSet

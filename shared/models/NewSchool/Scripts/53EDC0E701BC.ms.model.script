@@ -1,0 +1,63 @@
+// TtfwRegisterableWord 53EDC0E701BC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EDC0E701BC
+
+ME ME_53F1E3E102B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDC0E701BC // TtfwRegisterableWord
+ ;
+ MELINK Target WL? 'ME_4DB05FF60115' // TtfwAutoregisteredDiction
+ ;
+
+ENDME // ME_53F1E3E102B8 
+
+MEREF ME_52D7B67501CE_ME_53EDC0E701BC_over
+ MELINK Original WL 'ME_52D7B67501CE' '4DAF19F600C5.ms.model.script' // NameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_52D7B67501CE_ME_53EDC0E701BC_over NameForRegister
+
+MEREF ME_54D229E702B6_ME_53EDC0E701BC_G
+ MELINK Original WL? 'ME_54D229E702B6' // TtfwRegisterableWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D229E702B6_ME_53EDC0E701BC_G TtfwRegisterableWordPrim
+
+%%InheritedBy ME_54D229E702B6 ME_53EDC0E701BC
+
+ME ME_53EDC0E701BC
+ MEPROP UID '53EDC0E701BC'
+ MEPROP Name 'TtfwRegisterableWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_54D229E702B6_ME_53EDC0E701BC_G // TtfwRegisterableWordPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52D7B67501CE_ME_53EDC0E701BC_over // NameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53F1E3E102B8 // TtfwAutoregisteredDiction
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRegisterableWord.pas'
+ UP extprop:rc:SelfName 'RegisterableWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwRegisterableWord'
+
+ENDME // ME_53EDC0E701BC TtfwRegisterableWord

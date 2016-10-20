@@ -29,6 +29,10 @@ ME ME_482054BC03A6
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Авторизация
+ )
+ ; // Implements
 
 ENDME // ME_482054BC03A6 Старт системы
 
@@ -43,6 +47,11 @@ ME ME_482054EF0301
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Автоматическое создание учетных записей
+  // Авторизация
+ )
+ ; // Implements
 
 ENDME // ME_482054EF0301 Регистрация
 
@@ -60,6 +69,12 @@ ME ME_482055330165
 
 ENDME // ME_482055330165 Завершение работы
 
+MEREF ME_482054BC03A6_ME_482055A60187_G
+ MELINK Original HWL ME_482054BC03A6 // Старт системы
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482054BC03A6_ME_482055A60187_G Старт системы
+
 %%InheritedBy ME_482054BC03A6 ME_482055A60187
 
 ME ME_482055A60187
@@ -74,11 +89,21 @@ ME ME_482055A60187
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
  MELIST Inherits
-   Seq: ( HWL ME_482054BC03A6 // Старт системы
+   Seq: ( ME_482054BC03A6_ME_482055A60187_G // Старт системы
  )
  ; // Inherits
+ MELIST Implements
+   Seq: (  // Авторизация
+ )
+ ; // Implements
 
 ENDME // ME_482055A60187 "Гостевой вход"
+
+MEREF ME_482054BC03A6_ME_482055D7033C_G
+ MELINK Original HWL ME_482054BC03A6 // Старт системы
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482054BC03A6_ME_482055D7033C_G Старт системы
 
 %%InheritedBy ME_482054BC03A6 ME_482055D7033C
 
@@ -94,9 +119,13 @@ ME ME_482055D7033C
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
  MELIST Inherits
-   Seq: ( HWL ME_482054BC03A6 // Старт системы
+   Seq: ( ME_482054BC03A6_ME_482055D7033C_G // Старт системы
  )
  ; // Inherits
+ MELIST Implements
+   Seq: (  // Открывать конкретный документ при старте
+ )
+ ; // Implements
 
 ENDME // ME_482055D7033C Старт оболочки с определенного документа
 
@@ -111,6 +140,10 @@ ME ME_482069310030
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Нотификация об устаревшей базе
+ )
+ ; // Implements
 
 ENDME // ME_482069310030 Предупреждение об устаревшей базе
 
@@ -127,8 +160,18 @@ ME ME_4821B9370055
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Нотификация об отключение пользователя
+ )
+ ; // Implements
 
 ENDME // ME_4821B9370055 Выключение сервера
+
+MEREF ME_482054BC03A6_ME_483CF51B0313_G
+ MELINK Original HWL ME_482054BC03A6 // Старт системы
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482054BC03A6_ME_483CF51B0313_G Старт системы
 
 %%InheritedBy ME_482054BC03A6 ME_483CF51B0313
 
@@ -144,9 +187,13 @@ ME ME_483CF51B0313
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
  MELIST Inherits
-   Seq: ( HWL ME_482054BC03A6 // Старт системы
+   Seq: ( ME_482054BC03A6_ME_483CF51B0313_G // Старт системы
  )
  ; // Inherits
+ MELIST Implements
+   Seq: (  // Автоматическая авторизация
+ )
+ ; // Implements
 
 ENDME // ME_483CF51B0313 Автологон
 
@@ -161,6 +208,10 @@ ME ME_483D178E0008
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Информирование о возможностях системы
+ )
+ ; // Implements
 
 ENDME // ME_483D178E0008 Показ экрана приветствия
 
@@ -175,6 +226,10 @@ ME ME_483D1B8F00CA
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Информирование о возможностях системы
+ )
+ ; // Implements
 
 ENDME // ME_483D1B8F00CA Совет дня
 
@@ -189,6 +244,10 @@ ME ME_483D1DF402D1
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48205420005C // Вход и выход
  ;
+ MELIST Implements
+   Seq: (  // Информирование о возможностях системы
+ )
+ ; // Implements
 
 ENDME // ME_483D1DF402D1 Информация о новых возможностях
 

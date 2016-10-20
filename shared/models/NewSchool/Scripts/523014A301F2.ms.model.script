@@ -1,0 +1,46 @@
+// vcm_op_Enabled 523014A301F2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_523014A301F2
+
+MEREF ME_5230151C02BA_ME_523014A301F2_impl
+ MELINK Original WL 'ME_5230151C02BA' '5230147B0151.ms.model.script' // Flag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5230151C02BA_ME_523014A301F2_impl Flag
+
+MEREF ME_5230147B0151_ME_523014A301F2_G
+ MELINK Original WL? 'ME_5230147B0151' // OperationParamWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5230147B0151_ME_523014A301F2_G OperationParamWord
+
+%%InheritedBy ME_5230147B0151 ME_523014A301F2
+
+ME ME_523014A301F2
+ MEPROP UID '523014A301F2'
+ MEPROP Name 'vcm_op_Enabled'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_5230147B0151_ME_523014A301F2_G // OperationParamWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5230151C02BA_ME_523014A301F2_impl // Flag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpEnabled.pas'
+ UP extprop:pas:TypeName 'TkwVcmOpEnabled'
+ UP extprop:rc:SelfName 'VcmOpEnabled'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwVcmOpEnabled'
+
+ENDME // ME_523014A301F2 vcm_op_Enabled

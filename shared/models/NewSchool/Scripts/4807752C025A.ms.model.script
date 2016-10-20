@@ -1,0 +1,97 @@
+// TatStringListWithOwn 4807752C025A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4807752C025A
+
+ME ME_4807759F0367
+ MEPROP UID '4807759F0367'
+ MEPROP Name 'OwnsObjects'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807752C025A // TatStringListWithOwn
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4807759F0367 OwnsObjects
+
+ME ME_480775CB029C
+ MEPROP Name 'ownsObjects'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_480775CB029C ownsObjects
+
+ME ME_480775BA0035
+ MEPROP UID '480775BA0035'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807752C025A // TatStringListWithOwn
+ ;
+ MELIST Parameters
+   Seq: ( ME_480775CB029C // ownsObjects
+ )
+ ; // Parameters
+
+ENDME // ME_480775BA0035 Create
+
+MEREF ME_48077504027E_ME_4807752C025A_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4807752C025A_over Destroy
+
+MEREF ME_4807756101FE_ME_4807752C025A_G
+ MELINK Original WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807756101FE_ME_4807752C025A_G TStringList
+
+%%InheritedBy ME_4807756101FE ME_4807752C025A
+
+ME ME_4807752C025A
+ MEPROP UID '4807752C025A'
+ MEPROP Name 'TatStringListWithOwn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807756101FE_ME_4807752C025A_G // TStringList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4807759F0367 // OwnsObjects
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480775BA0035 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4807752C025A_over // Destroy
+ )
+ ; // Overridden
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringListWithOwn.pas'
+ UP extprop:rc:SelfName 'atStringListWithOwn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atStringListWithOwn'
+
+ENDME // ME_4807752C025A TatStringListWithOwn

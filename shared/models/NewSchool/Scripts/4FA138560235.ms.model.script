@@ -5,57 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4FA138560235
 %%Inner ME_4FA138560235
 
-FORWARD ME_4FA138560235
-
-%%InheritedBy ME_4FA137DD03E4 ME_4FA138AB0003
-
-ME ME_4FA138AB0003
- MEPROP UID '4FA138AB0003'
- MEPROP Name 'K361038156'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:361038156}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4FA138560235 // Storage
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4FA137DD03E4' '4FA137BA02D4.ms.model.script' // TArchiStorageTest
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K361038156.pas'
- UP extprop:pas:TypeName 'TK361038156'
- UP extprop:rc:SelfName 'K361038156'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4FA138AB0003 K361038156
-
-%%InheritedBy ME_4FBB6C0D0366 ME_4FBB6C4D032B
-
-ME ME_4FBB6C4D032B
- MEPROP UID '4FBB6C4D032B'
- MEPROP Name 'K365838449'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:365838449}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4FA138560235 // Storage
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4FBB6C0D0366' '4FA137BA02D4.ms.model.script' // TArchiStorageTestWithRename
- )
- ; // Inherits
- UP intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K365838449.pas'
- UP extprop:pas:TypeName 'TK365838449'
- UP extprop:rc:SelfName 'K365838449'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4FBB6C4D032B K365838449
-
 ME ME_4FA138560235
  MEPROP UID '4FA138560235'
  MEPROP Name 'Storage'
@@ -67,8 +16,8 @@ ME ME_4FA138560235
  MELINK Parent WL? 'ME_4D53DEED0062' // Archi Tests
  ;
  MELIST Children
-   Seq: ( HWL ME_4FA138AB0003 // K361038156
- HWL ME_4FBB6C4D032B // K365838449
+   Seq: ( WL? 'ME_4FA138AB0003' // K361038156
+ WL? 'ME_4FBB6C4D032B' // K365838449
  )
  ; // Children
  MELIST Depends

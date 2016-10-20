@@ -35,7 +35,7 @@ ME ME_9551BEDE13AC
  MEPROP Name 'CanSavePostList'
  MEPROP OriginalName 'CanSavePostList$4B7184370035'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Можно ли сохранить индивидуальные ленты в файл' ;
@@ -74,7 +74,7 @@ ME ME_8238FF08A4F2
  MEPROP Name 'CheckHistory'
  MEPROP OriginalName 'CheckHistory$4AAF9E650070'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'пробуем возвратиться по истории, если активна форма предварительного просмотра' ;
@@ -113,7 +113,7 @@ ME ME_73A72FE95DD3
  MEPROP Name 'SavePostList'
  MEPROP OriginalName 'SavePostList$4B71840A00D2'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сохранить индивидуальные ленты в файл' ;
@@ -152,7 +152,7 @@ ME ME_6F3C27BD43CD
  MEPROP Name 'SavePostingList'
  MEPROP OriginalName 'SavePostingList$4AAF935E01A7'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -219,7 +219,7 @@ ME ME_BABB0FF768F1
  MEPROP Name 'OpenPostingOrder'
  MEPROP OriginalName 'OpenPostingOrder$4AA93C87000C'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -282,7 +282,7 @@ ME ME_C8FF377974BA
  MEPROP Name 'StartOpen'
  MEPROP OriginalName 'StartOpen$4AAFA52603B7'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -339,7 +339,7 @@ ENDME // ME_4B71844E01F6 Can
 ME ME_4B7184370035
  MEPROP UID '4B7184370035'
  MEPROP Name 'CanSavePostList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Можно ли сохранить индивидуальные ленты в файл' ;
@@ -369,7 +369,7 @@ ENDME // ME_4AAF9E6B0244 DoIt
 ME ME_4AAF9E650070
  MEPROP UID '4AAF9E650070'
  MEPROP Name 'CheckHistory'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'пробуем возвратиться по истории, если активна форма предварительного просмотра' ;
@@ -399,7 +399,7 @@ ENDME // ME_4B71842D0063 DoIt
 ME ME_4B71840A00D2
  MEPROP UID '4B71840A00D2'
  MEPROP Name 'SavePostList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сохранить индивидуальные ленты в файл' ;
@@ -429,7 +429,7 @@ ENDME // ME_4AAF93640257 DoIt
 ME ME_4AAF935E01A7
  MEPROP UID '4AAF935E01A7'
  MEPROP Name 'SavePostingList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -488,7 +488,7 @@ ENDME // ME_4AA93CD10169 DoIt
 ME ME_4AA93C87000C
  MEPROP UID '4AA93C87000C'
  MEPROP Name 'OpenPostingOrder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -543,7 +543,7 @@ ENDME // ME_4AAFA60F01D6 DoIt
 ME ME_4AAFA52603B7
  MEPROP UID '4AAFA52603B7'
  MEPROP Name 'StartOpen'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -578,7 +578,7 @@ ME ME_4B71847503BF
  MEPROP UID '4B71847503BF'
  MEPROP Name 'SavePostList'
  MEPROP OriginalName 'SavePostList$Op'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_ModuleMethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Экспортировать все индивидуальные ленты в файл' ;
@@ -597,6 +597,12 @@ ME ME_4B71847503BF
 
 ENDME // ME_4B71847503BF SavePostList$Op
 
+MEREF ME_49E7754802A9_ME_57A2E82A0124_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A2E82A0124_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A2E82A0124
 
 ME ME_57A2E82A0124
@@ -610,7 +616,7 @@ ME ME_57A2E82A0124
  MELINK Parent HWL ME_57A2E803024D // Services
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_57A2E82A0124_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations
@@ -708,7 +714,7 @@ ME ME_09B57CE96352
  MEPROP Name 'MakeSaveLoadForm'
  MEPROP OriginalName 'MakeSaveLoadForm$4AA93293002B'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -804,7 +810,7 @@ ME ME_397F0F264B88
  MEPROP Name 'MakeQueryCardForm'
  MEPROP OriginalName 'MakeQueryCardForm$4AA9396E02B8'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -898,7 +904,7 @@ ENDME // ME_4AA932B10166 DoIt
 ME ME_4AA93293002B
  MEPROP UID '4AA93293002B'
  MEPROP Name 'MakeSaveLoadForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -980,7 +986,7 @@ ENDME // ME_4AA93980021C DoIt
 ME ME_4AA9396E02B8
  MEPROP UID '4AA9396E02B8'
  MEPROP Name 'MakeQueryCardForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -995,6 +1001,12 @@ ME ME_4AA9396E02B8
 
 ENDME // ME_4AA9396E02B8 MakeQueryCardForm
 
+MEREF ME_49E7754802A9_ME_57A2FCBC00F2_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A2FCBC00F2_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A2FCBC00F2
 
 ME ME_57A2FCBC00F2
@@ -1008,7 +1020,7 @@ ME ME_57A2FCBC00F2
  MELINK Parent HWL ME_57A2E803024D // Services
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_57A2FCBC00F2_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations
@@ -1068,7 +1080,7 @@ ME ME_BEFF520A4852
  MEPROP Name 'MakePrintDialog'
  MEPROP OriginalName 'MakePrintDialog$4AAF8EE1019C'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1122,7 +1134,7 @@ ME ME_FB5081632759
  MEPROP Name 'MakePageSetup'
  MEPROP OriginalName 'MakePageSetup$4AAF85DA01D1'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1174,7 +1186,7 @@ ME ME_427DA7DA3C50
  MEPROP Name 'MakePreview'
  MEPROP OriginalName 'MakePreview$4AAF73E6039E'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1239,7 +1251,7 @@ ENDME // ME_4AAF8EF00230 DoIt
 ME ME_4AAF8EE1019C
  MEPROP UID '4AAF8EE1019C'
  MEPROP Name 'MakePrintDialog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1286,7 +1298,7 @@ ENDME // ME_4AAF85EB0090 DoIt
 ME ME_4AAF85DA01D1
  MEPROP UID '4AAF85DA01D1'
  MEPROP Name 'MakePageSetup'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1331,7 +1343,7 @@ ENDME // ME_4AAF73F40134 DoIt
 ME ME_4AAF73E6039E
  MEPROP UID '4AAF73E6039E'
  MEPROP Name 'MakePreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1349,6 +1361,12 @@ ME ME_4AAF73E6039E
 
 ENDME // ME_4AAF73E6039E MakePreview
 
+MEREF ME_49E7754802A9_ME_57A3147602EE_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A3147602EE_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A3147602EE
 
 ME ME_57A3147602EE
@@ -1362,7 +1380,7 @@ ME ME_57A3147602EE
  MELINK Parent HWL ME_57A2E803024D // Services
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_57A3147602EE_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations

@@ -1,0 +1,107 @@
+// TWholeSelectionWithMouseTest 4DA7CCC00062 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA7CCC00062
+
+ME ME_4DA7D3CA02B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7CCC00062 // TWholeSelectionWithMouseTest
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4DA7D3CA02B7 
+
+ME ME_4DA7D7C200BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7CCC00062 // TWholeSelectionWithMouseTest
+ ;
+ MELINK Target WL 'ME_47C5ABAB01F3' '4678209200A6.ms.model.script' // TnevMouseState
+ ;
+
+ENDME // ME_4DA7D7C200BF 
+
+ME ME_4DA7D9BE0120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7CCC00062 // TWholeSelectionWithMouseTest
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4DA7D9BE0120 
+
+ME ME_4DA7DCA30065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7CCC00062 // TWholeSelectionWithMouseTest
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4DA7DCA30065 
+
+ME ME_4EBA80FE005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7CCC00062 // TWholeSelectionWithMouseTest
+ ;
+ MELINK Target WL 'ME_4BEA8FE9008B' '48A41FF10094.ms.model.script' // GetTickCount
+ ;
+
+ENDME // ME_4EBA80FE005A 
+
+MEREF ME_4BE419AF0217_ME_4DA7CCC00062_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4DA7CCC00062_impl DoVisit
+
+MEREF ME_4BE425C70228_ME_4DA7CCC00062_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4DA7CCC00062_G TTextEditorVisitor
+
+%%InheritedBy ME_4BE425C70228 ME_4DA7CCC00062
+
+ME ME_4DA7CCC00062
+ MEPROP UID '4DA7CCC00062'
+ MEPROP Name 'TWholeSelectionWithMouseTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделение с помощью мыши всего документа (с прокруткой).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE425C70228_ME_4DA7CCC00062_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4DA7CCC00062_impl // DoVisit
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DA7D3CA02B7 // IevHotSpot
+ ME_4DA7D7C200BF // TnevMouseState
+ ME_4DA7D9BE0120 // Tl3Point
+ ME_4DA7DCA30065 // l3FillChar
+ ME_4EBA80FE005A // GetTickCount
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\WholeSelectionWithMouseTest.pas'
+ UP extprop:rc:SelfName 'WholeSelectionWithMouseTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'WholeSelectionWithMouseTest'
+
+ENDME // ME_4DA7CCC00062 TWholeSelectionWithMouseTest

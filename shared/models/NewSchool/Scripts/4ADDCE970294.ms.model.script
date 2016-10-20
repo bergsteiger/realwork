@@ -21,7 +21,7 @@ ME ME_51E69AC400CF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4ADDCE970294 // OfficeLike
  ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
 
 ENDME // ME_51E69AC400CF 
@@ -35,6 +35,12 @@ ME ME_51E69B74019F
  ;
 
 ENDME // ME_51E69B74019F 
+
+MEREF ME_4AB22E140136_ME_4ADDCE970294_G
+ MELINK Original WL? 'ME_4AB22E140136' // TvcmApplication
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB22E140136_ME_4ADDCE970294_G TvcmApplication
 
 %%InheritedBy ME_4AB22E140136 ME_4ADDCE970294
 
@@ -50,7 +56,7 @@ ME ME_4ADDCE970294
  MELINK Parent WL? 'ME_4954C0500033' // UserInteraction
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AB22E140136' '50883A2E00B3.ms.model.script' // TvcmApplication
+   Seq: ( ME_4AB22E140136_ME_4ADDCE970294_G // TvcmApplication
  )
  ; // Inherits
  MELIST Children

@@ -1,0 +1,74 @@
+// TkwCompiledIF 4DB6EE250251 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB6EE250251
+
+ME ME_4DB6F4A501DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB6EE250251 // TkwCompiledIF
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DB6F4A501DD 
+
+ME ME_4DB6F4AA025C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB6EE250251 // TkwCompiledIF
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4DB6F4AA025C 
+
+MEREF ME_4DAEEDE10285_ME_4DB6EE250251_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DB6EE250251_impl DoDoIt
+
+MEREF ME_4DBAC27801EF_ME_4DB6EE250251_G
+ MELINK Original WL? 'ME_4DBAC27801EF' // TkwDualCompiledWordContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DBAC27801EF_ME_4DB6EE250251_G TkwDualCompiledWordContainer
+
+%%InheritedBy ME_4DBAC27801EF ME_4DB6EE250251
+
+ME ME_4DB6EE250251
+ MEPROP UID '4DB6EE250251'
+ MEPROP Name 'TkwCompiledIF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внутренняя скомпилированная версия IF.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DBAC27801EF_ME_4DB6EE250251_G // TkwDualCompiledWordContainer
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB6EE250251_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DB6F4A501DD // FreeAndNil
+ ME_4DB6F4AA025C // l3Set
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledIF.pas'
+ UP extprop:rc:SelfName 'CompiledIF'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCompiledIF'
+
+ENDME // ME_4DB6EE250251 TkwCompiledIF

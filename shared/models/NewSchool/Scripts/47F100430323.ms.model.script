@@ -1,0 +1,56 @@
+// TevDocumentsCache 47F100430323 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F100430323
+
+ME ME_4DD28C0D037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F100430323 // TevDocumentsCache
+ ;
+ MELINK Target WL? 'ME_4DD25B17012A' // TnevDocumentContainerList
+ ;
+
+ENDME // ME_4DD28C0D037C 
+
+MEREF ME_5506FEE90052_ME_47F100430323_G
+ MELINK Original WL? 'ME_5506FEE90052' // TevDocumentsCachePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5506FEE90052_ME_47F100430323_G TevDocumentsCachePrim
+
+%%InheritedBy ME_5506FEE90052 ME_47F100430323
+
+ME ME_47F100430323
+ MEPROP UID '47F100430323'
+ MEPROP Name 'TevDocumentsCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кеш документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F086170200' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_5506FEE90052_ME_47F100430323_G // TevDocumentsCachePrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DD28C0D037C // TnevDocumentContainerList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '28.09.2004 15:39'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evDocumentsCache.pas'
+ UP extprop:rc:SelfName 'DocumentsCache'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentsCache'
+
+ENDME // ME_47F100430323 TevDocumentsCache

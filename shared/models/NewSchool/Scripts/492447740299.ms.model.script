@@ -24,16 +24,28 @@ ME ME_492447CE01A6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_492447740299 // TdsTreeAttributeFirstLevel
  ;
- MELINK Target WL 'ME_4683698E01BC' '49006FAB024A.ms.model.script' // TnsAttributeOneLevelTreeStruct
+ MELINK Target WL? 'ME_4683698E01BC' // TnsAttributeOneLevelTreeStruct
  ;
 
 ENDME // ME_492447CE01A6 
 
-ME ME_47F4C2B9014A_ME_492447740299
+MEREF ME_47F4C2B9014A_ME_492447740299_impl
  MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47F4C2B9014A_ME_492447740299 MakeSimpleTree
+ENDMEREF // ME_47F4C2B9014A_ME_492447740299_impl MakeSimpleTree
+
+MEREF ME_49242CB201D0_ME_492447740299_G
+ MELINK Original WL? 'ME_49242CB201D0' // dsSituation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49242CB201D0_ME_492447740299_G dsSituation
+
+MEREF ME_4924450800EC_ME_492447740299_R
+ MELINK Original WL 'ME_4924450800EC' '4AA5503000D7.ms.model.script' // IdsTreeAttributeFirstLevel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4924450800EC_ME_492447740299_R IdsTreeAttributeFirstLevel
 
 %%ImplementedBy ME_4924450800EC ME_492447740299
 
@@ -52,11 +64,11 @@ ME ME_492447740299
  MELINK Parent WL? 'ME_491DCA2C00A9' // Search
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_49242CB201D0' // dsSituation
+   Seq: ( ME_49242CB201D0_ME_492447740299_G // dsSituation
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4924450800EC' '4AA5503000D7.ms.model.script' // IdsTreeAttributeFirstLevel
+   Seq: ( ME_4924450800EC_ME_492447740299_R // IdsTreeAttributeFirstLevel
  )
  ; // Implements
  MELIST Attributes
@@ -64,7 +76,7 @@ ME ME_492447740299
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47F4C2B9014A_ME_492447740299 // MakeSimpleTree
+   Seq: ( ME_47F4C2B9014A_ME_492447740299_impl // MakeSimpleTree
  )
  ; // Implemented
  MELIST Dependencies

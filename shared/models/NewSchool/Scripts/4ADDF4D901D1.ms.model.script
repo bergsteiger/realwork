@@ -1,0 +1,251 @@
+// TnsJournalBookmarkNode 4ADDF4D901D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADDF4D901D1
+
+ME ME_4ADF239701F3
+ MEPROP UID '4ADF239701F3'
+ MEPROP Name 'f_Bookmark'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4ADF239701F3 f_Bookmark
+
+ME ME_4ADF23AB02CB
+ MEPROP UID '4ADF23AB02CB'
+ MEPROP Name 'f_DocName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4ADF23AB02CB f_DocName
+
+ME ME_4ADF23D601A1
+ MEPROP Name 'aBookmark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4ADF23D601A1 aBookmark
+
+ME ME_4ADF23D6020F
+ MEPROP Name 'aFullDocName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4ADF23D6020F aFullDocName
+
+ME ME_4ADF23C202CF
+ MEPROP UID '4ADF23C202CF'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF23D601A1 // aBookmark
+ ME_4ADF23D6020F // aFullDocName
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF23C202CF Create
+
+ME ME_4ADF23EA0273
+ MEPROP Name 'aBookmark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4ADF23EA0273 aBookmark
+
+ME ME_4ADF23EA02AB
+ MEPROP Name 'aFullDocName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4ADF23EA02AB aFullDocName
+
+ME ME_4ADF23DC02B4
+ MEPROP UID '4ADF23DC02B4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADF23EA0273 // aBookmark
+ ME_4ADF23EA02AB // aFullDocName
+ )
+ ; // Parameters
+
+ENDME // ME_4ADF23DC02B4 Make
+
+ME ME_4ADF2566020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4ADF2566020A 
+
+ME ME_4ADF25710268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4ADF25710268 
+
+ME ME_4ADF25810245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_4AB882990057' '4A6854C70390.ms.model.script' // nsCStr
+ ;
+
+ENDME // ME_4ADF25810245 
+
+ME ME_4ADF25A10330
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDF4D901D1 // TnsJournalBookmarkNode
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4ADF25A10330 
+
+MEREF ME_4A8BAAA50229_ME_4ADDF4D901D1_impl
+ MELINK Original WL 'ME_4A8BAAA50229' '49904AF102FD.ms.model.script' // DocName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A8BAAA50229_ME_4ADDF4D901D1_impl DocName
+
+MEREF ME_4A8BAACC02D5_ME_4ADDF4D901D1_impl
+ MELINK Original WL 'ME_4A8BAACC02D5' '49904AF102FD.ms.model.script' // Bookmark
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A8BAACC02D5_ME_4ADDF4D901D1_impl Bookmark
+
+MEREF ME_479731C50290_ME_4ADDF4D901D1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4ADDF4D901D1_over Cleanup
+
+MEREF ME_4A60B23E00C3_ME_4ADDF4D901D1_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_4ADDF4D901D1_over COMQueryInterface
+
+MEREF ME_4AC230590004_ME_4ADDF4D901D1_G
+ MELINK Original WL? 'ME_4AC230590004' // TnsWrapperNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC230590004_ME_4ADDF4D901D1_G TnsWrapperNode
+
+MEREF ME_4A8BAA7401EB_ME_4ADDF4D901D1_R
+ MELINK Original WL 'ME_4A8BAA7401EB' '49904AF102FD.ms.model.script' // InsJournalBookmarkNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8BAA7401EB_ME_4ADDF4D901D1_R InsJournalBookmarkNode
+
+%%ImplementedBy ME_4A8BAA7401EB ME_4ADDF4D901D1
+
+%%InheritedBy ME_4AC230590004 ME_4ADDF4D901D1
+
+ME ME_4ADDF4D901D1
+ MEPROP UID '4ADDF4D901D1'
+ MEPROP Name 'TnsJournalBookmarkNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4909EECE01D5' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AC230590004_ME_4ADDF4D901D1_G // TnsWrapperNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4A8BAA7401EB_ME_4ADDF4D901D1_R // InsJournalBookmarkNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADF239701F3 // f_Bookmark
+ HWL ME_4ADF23AB02CB // f_DocName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADF23C202CF // Create
+ HWL ME_4ADF23DC02B4 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8BAAA50229_ME_4ADDF4D901D1_impl // DocName
+ ME_4A8BAACC02D5_ME_4ADDF4D901D1_impl // Bookmark
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADDF4D901D1_over // Cleanup
+ ME_4A60B23E00C3_ME_4ADDF4D901D1_over // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADF2566020A // l3String
+ ME_4ADF25710268 // String
+ ME_4ADF25810245 // nsCStr
+ ME_4ADF25A10330 // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "no hands" true
+ UP "started" '21.10.2009 19:08'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsJournalBookmarkNode.pas'
+ UP extprop:rc:SelfName 'JournalBookmarkNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsJournalBookmarkNode'
+
+ENDME // ME_4ADDF4D901D1 TnsJournalBookmarkNode

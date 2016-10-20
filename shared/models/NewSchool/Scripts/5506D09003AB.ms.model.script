@@ -4,91 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_5506D09003AB
 
-FORWARD ME_5506D09003AB
-
-FORWARD ME_5506FEA6012A
-
-FORWARD ME_62280531B792
-
-FORWARD ME_5506FEB701D1
-
-ME ME_0AC8DEBDD602
- MEPROP UID '0AC8DEBDD602'
- MEPROP Name 'Clear'
- UP IsSummoned true
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_62280531B792 // Ml3DocumentsCacheService
- ;
- UPLINK Speller HWL ME_5506FEB701D1 // Clear
- ;
-
-ENDME // ME_0AC8DEBDD602 Clear
-
-ME ME_62280531B792
- MEPROP UID '62280531B792'
- MEPROP Name 'Ml3DocumentsCacheService'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_PureMixIn ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контракт сервиса Tl3DocumentsCacheService' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- MELIST Operations
-   Seq: ( HWL ME_0AC8DEBDD602 // Clear
- )
- ; // Operations
-
-ENDME // ME_62280531B792 Ml3DocumentsCacheService
-
-ME ME_5506FEB701D1
- MEPROP UID '5506FEB701D1'
- MEPROP Name 'Clear'
- MEPROP Class class_Operation
- MELINK Stereotype st_responsibility::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
-
-ENDME // ME_5506FEB701D1 Clear
-
-%%InheritedBy ME_49E7754802A9 ME_5506FEA6012A
-
-ME ME_5506FEA6012A
- MEPROP UID '5506FEA6012A'
- MEPROP Name 'Tl3DocumentsCacheService'
- MEPROP Class class_Class
- MELINK Stereotype st_Service ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5506D09003AB // EverestServices
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_5506FEB701D1 // Clear
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_62280531B792 // Ml3DocumentsCacheService
- )
- ; // Children
- UP "auto translate to alien" 'undefined'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DocumentsCacheService.pas'
- UP extprop:rc:SelfName 'DocumentsCacheService'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'l3DocumentsCacheService'
-
-ENDME // ME_5506FEA6012A Tl3DocumentsCacheService
-
 ME ME_5506D09003AB
  MEPROP UID '5506D09003AB'
  MEPROP Name 'EverestServices'
@@ -100,7 +15,7 @@ ME ME_5506D09003AB
  MELINK Parent WL? 'ME_550012C403C4' // L3$AFW
  ;
  MELIST Children
-   Seq: ( HWL ME_5506FEA6012A // Tl3DocumentsCacheService
+   Seq: ( WL? 'ME_5506FEA6012A' // Tl3DocumentsCacheService
  )
  ; // Children
  MELIST Depends

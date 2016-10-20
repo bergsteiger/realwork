@@ -1,0 +1,110 @@
+// Tm3BaseEnumStatStg 548588F802A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_548588F802A3
+
+ME ME_548590AE01A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_548588F802A3 // Tm3BaseEnumStatStg
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_548590AE01A8 
+
+ME ME_548590BE01A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_548588F802A3 // Tm3BaseEnumStatStg
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_548590BE01A3 
+
+ME ME_548590D00238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_548588F802A3 // Tm3BaseEnumStatStg
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_548590D00238 
+
+ME ME_548590E700D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_548588F802A3 // Tm3BaseEnumStatStg
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_548590E700D2 
+
+ME ME_5485910200BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_548588F802A3 // Tm3BaseEnumStatStg
+ ;
+ MELINK Target WL? 'ME_47BF045E0138' // m2MemLib
+ ;
+
+ENDME // ME_5485910200BA 
+
+MEREF ME_4AE5CA2D0034_ME_548588F802A3_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_548588F802A3_G Tl3CProtoObject
+
+MEREF ME_54523014032A_ME_548588F802A3_R
+ MELINK Original WL 'ME_54523014032A' '46A0E6C5023A.ms.model.script' // IEnumStatStg
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54523014032A_ME_548588F802A3_R IEnumStatStg
+
+%%ImplementedBy ME_54523014032A ME_548588F802A3
+
+%%InheritedBy ME_4AE5CA2D0034 ME_548588F802A3
+
+ME ME_548588F802A3
+ MEPROP UID '548588F802A3'
+ MEPROP Name 'Tm3BaseEnumStatStg'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для реализации IEnumStatStg' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_548588F802A3_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_54523014032A_ME_548588F802A3_R // IEnumStatStg
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_548590AE01A8 // SysUtils
+ ME_548590BE01A3 // Windows
+ ME_548590D00238 // ComObj
+ ME_548590E700D2 // l3Base
+ ME_5485910200BA // m2MemLib
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseEnumStatStg.pas'
+ UP extprop:rc:SelfName 'm3BaseEnumStatStg'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3BaseEnumStatStg'
+
+ENDME // ME_548588F802A3 Tm3BaseEnumStatStg

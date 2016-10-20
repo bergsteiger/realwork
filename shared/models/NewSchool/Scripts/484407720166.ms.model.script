@@ -25,6 +25,10 @@ ME ME_4860854902C8
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407B70220 // Базовый поиск
  ;
+ MELIST Implements
+   Seq: (  // Популярные запросы
+ )
+ ; // Implements
 
 ENDME // ME_4860854902C8 «Подсказки запросов»
 
@@ -39,6 +43,10 @@ ME ME_4A374225006A
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407B70220 // Базовый поиск
  ;
+ MELIST Implements
+   Seq: (  // Обозримость результатов поиска
+ )
+ ; // Implements
 
 ENDME // ME_4A374225006A Короткий список и сниппеты
 
@@ -67,6 +75,10 @@ ME ME_484407B70220
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
+ MELIST Implements
+   Seq: (  // Поиск документов
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4860854902C8 // «Подсказки запросов»
  HWL ME_4A374225006A // Короткий список и сниппеты
@@ -80,6 +92,12 @@ ME ME_484407B70220
 ENDME // ME_484407B70220 Базовый поиск
 
 FORWARD ME_484CE381033D
+
+MEREF ME_484CE59A0140_ME_484D048300DF_G
+ MELINK Original WL 'ME_484CE59A0140' '484CE48E02E6.ms.model.script' // Работа с древовидными структурами
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CE59A0140_ME_484D048300DF_G Работа с древовидными структурами
 
 %%InheritedBy ME_484CE59A0140 ME_484D048300DF
 
@@ -95,11 +113,17 @@ ME ME_484D048300DF
  MELINK Parent HWL ME_484CE381033D // Параметрический поиск
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_484CE59A0140' '484CE48E02E6.ms.model.script' // Работа с древовидными структурами
+   Seq: ( ME_484CE59A0140_ME_484D048300DF_G // Работа с древовидными структурами
  )
  ; // Inherits
 
 ENDME // ME_484D048300DF Выбор словарных атрибутов
+
+MEREF ME_4E82032103C9_ME_4E809398026C_G
+ MELINK Original WL 'ME_4E82032103C9' '4E5CF70B01E2.ms.model.script' // Карточки запроса должны уметь заполняться из скриптов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E82032103C9_ME_4E809398026C_G Карточки запроса должны уметь заполняться из скриптов
 
 %%InheritedBy ME_4E82032103C9 ME_4E809398026C
 
@@ -115,7 +139,7 @@ ME ME_4E809398026C
  MELINK Parent HWL ME_484CE381033D // Параметрический поиск
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E82032103C9' '4E5CF70B01E2.ms.model.script' // Карточки запроса должны уметь заполняться из скриптов
+   Seq: ( ME_4E82032103C9_ME_4E809398026C_G // Карточки запроса должны уметь заполняться из скриптов
  )
  ; // Inherits
 
@@ -183,6 +207,10 @@ ME ME_484CE381033D
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
+ MELIST Implements
+   Seq: (  // Поиск документов
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_484D048300DF // Выбор словарных атрибутов
  HWL ME_4E809398026C // Карточки запроса должны уметь заполняться из скриптов
@@ -195,6 +223,12 @@ ME ME_484CE381033D
  ; // DiagramsNames
 
 ENDME // ME_484CE381033D Параметрический поиск
+
+MEREF ME_484CE381033D_ME_484CE3CC0055_G
+ MELINK Original HWL ME_484CE381033D // Параметрический поиск
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CE381033D_ME_484CE3CC0055_G Параметрический поиск
 
 %%InheritedBy ME_484CE381033D ME_484CE3CC0055
 
@@ -210,7 +244,7 @@ ME ME_484CE3CC0055
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
  MELIST Inherits
-   Seq: ( HWL ME_484CE381033D // Параметрический поиск
+   Seq: ( ME_484CE381033D_ME_484CE3CC0055_G // Параметрический поиск
  )
  ; // Inherits
 
@@ -243,6 +277,10 @@ ME ME_484E2F2500C6
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
+ MELIST Implements
+   Seq: (  // Поиск текста
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4F325B840351 // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
  )
@@ -252,6 +290,12 @@ ME ME_484E2F2500C6
  ; // DiagramsNames
 
 ENDME // ME_484E2F2500C6 Поиск контекста
+
+MEREF ME_484CE3CC0055_ME_484E4F770035_G
+ MELINK Original HWL ME_484CE3CC0055 // Типизированный поиск
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CE3CC0055_ME_484E4F770035_G Типизированный поиск
 
 %%InheritedBy ME_484CE3CC0055 ME_484E4F770035
 
@@ -267,7 +311,7 @@ ME ME_484E4F770035
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
  MELIST Inherits
-   Seq: ( HWL ME_484CE3CC0055 // Типизированный поиск
+   Seq: ( ME_484CE3CC0055_ME_484E4F770035_G // Типизированный поиск
  )
  ; // Inherits
 
@@ -284,6 +328,10 @@ ME ME_48561B83016C
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
+ MELIST Implements
+   Seq: (  // Поиск собственной информации
+ )
+ ; // Implements
 
 ENDME // ME_48561B83016C Поиск комментариев пользователя
 
@@ -298,6 +346,10 @@ ME ME_486083160322
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484407720166 // Поиск
  ;
+ MELIST Implements
+   Seq: (  // Механизм исправления опечаток
+ )
+ ; // Implements
 
 ENDME // ME_486083160322 Исправление опечаток
 

@@ -1,0 +1,136 @@
+// TevLeafPara 48567B6E010E InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48567B6E010E
+
+ME ME_43B6F84979BB
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_47C6A7FF02C1' '47C5207602D1.ms.model.script' // InevLeafPara
+ ;
+
+ENDME // ME_43B6F84979BB 
+
+ME ME_E8D429E4FB0B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_E8D429E4FB0B 
+
+ME ME_97ACA5D804F8
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_97ACA5D804F8 
+
+ME ME_A45B46C3E2B7
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_47C6A7C0029F' '47C5207602D1.ms.model.script' // InevParaInternal
+ ;
+
+ENDME // ME_A45B46C3E2B7 
+
+ME ME_A52D9087AA52
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_A52D9087AA52 
+
+ME ME_908D0F1033A9
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48567B6E010E // TevLeafPara
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_908D0F1033A9 
+
+MEREF ME_4D63D26D033F_ME_48567B6E010E_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_48567B6E010E_over QueryTool
+
+MEREF ME_53CCBDA5026D_ME_48567B6E010E_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_48567B6E010E_over COMQueryTool
+
+MEREF ME_485678B701BD_ME_48567B6E010E_G
+ MELINK Original WL? 'ME_485678B701BD' // TevPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485678B701BD_ME_48567B6E010E_G TevPara
+
+%%InheritedBy ME_485678B701BD ME_48567B6E010E
+
+ME ME_48567B6E010E
+ MEPROP UID '48567B6E010E'
+ MEPROP Name 'TevLeafPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( ME_485678B701BD_ME_48567B6E010E_G // TevPara
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_48567B6E010E_over // QueryTool
+ ME_53CCBDA5026D_ME_48567B6E010E_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_43B6F84979BB // InevLeafPara
+ ME_E8D429E4FB0B // InevAnchor
+ ME_97ACA5D804F8 // InevPara
+ ME_A45B46C3E2B7 // InevParaInternal
+ ME_A52D9087AA52 // InevObject
+ ME_908D0F1033A9 // InevObjectPrim
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_4DDFB24401AD' '48D0F828032E.ms.model.script' // TnevLeafPara
+ WL 'ME_53D26C57009E' '53D26C1A026F.ms.model.script' // TevLeafParaCursorPair
+ WL 'ME_53D7D1FB020F' '49DF6D540096.ms.model.script' // TevLeafParaCursor
+ WL 'ME_53D7D2310353' '4A3B9AD60266.ms.model.script' // TnevLeafParaAnchor
+ WL 'ME_53D7D2C1020D' '53D7D29E0029.ms.model.script' // TnevLeafParaInevLeafParaMapper
+ )
+ ; // Injected
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLeafPara_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TevLeafParaInterfaceFactory'
+ UP extprop:rc:SelfName 'LeafParaInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evLeafPara_InterfaceFactory'
+
+ENDME // ME_48567B6E010E TevLeafPara

@@ -6,105 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_53BC0D22010F
 %%Inner ME_53BC0D22010F
 
-FORWARD ME_53BC0D22010F
-
-FORWARD ME_53BC0D3900DF
-
-ME ME_53BC0E010210
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53BC0D3900DF // TBadEVDTest
- ;
- MELINK Target WL 'ME_53BC0D790357' '47ECACA70141.ms.model.script' // TevdBadEVDToEmptyDocumentTranslator
- ;
-
-ENDME // ME_53BC0E010210 
-
-ME ME_4C07BCBE01F2_ME_53BC0D3900DF
- MELINK Original WL 'ME_4C07BCBE01F2' '4BACDD97014B.ms.model.script' // SetFilters
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4C07BCBE01F2_ME_53BC0D3900DF SetFilters
-
-%%InheritedBy ME_4C07B5E300F2 ME_53BC0D3900DF
-
-ME ME_53BC0D3900DF
- MEPROP UID '53BC0D3900DF'
- MEPROP Name 'TBadEVDTest'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_53BC0D22010F // BadEVD
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4C07B5E300F2' '4C07B59F0382.ms.model.script' // EVDtoEVDWriterTest
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4C07BCBE01F2_ME_53BC0D3900DF // SetFilters
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_53BC0E010210 // TevdBadEVDToEmptyDocumentTranslator
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\BadEVDTest.pas'
- UP extprop:rc:SelfName 'BadEVDTest'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'BadEVDTest'
-
-ENDME // ME_53BC0D3900DF TBadEVDTest
-
-%%InheritedBy ME_53BC0D3900DF ME_53BC205D036D
-
-ME ME_53BC205D036D
- MEPROP UID '53BC205D036D'
- MEPROP Name 'K553427493'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:553427493}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BC0D22010F // BadEVD
- ;
- MELIST Inherits
-   Seq: ( HWL ME_53BC0D3900DF // TBadEVDTest
- )
- ; // Inherits
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K553427493.pas'
- UP extprop:pas:TypeName 'TK553427493'
- UP extprop:rc:SelfName 'K553427493'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_53BC205D036D K553427493
-
-%%InheritedBy ME_53BC0D3900DF ME_53BC206602B8
-
-ME ME_53BC206602B8
- MEPROP UID '53BC206602B8'
- MEPROP Name 'K553427493_notBad'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:553427493}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53BC0D22010F // BadEVD
- ;
- MELIST Inherits
-   Seq: ( HWL ME_53BC0D3900DF // TBadEVDTest
- )
- ; // Inherits
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K553427493_notBad.pas'
- UP extprop:pas:TypeName 'TK553427493_notBad'
- UP extprop:rc:SelfName 'K553427493_notBad'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_53BC206602B8 K553427493_notBad
-
 ME ME_53BC0D22010F
  MEPROP UID '53BC0D22010F'
  MEPROP Name 'BadEVD'
@@ -116,9 +17,9 @@ ME ME_53BC0D22010F
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_53BC0D3900DF // TBadEVDTest
- HWL ME_53BC205D036D // K553427493
- HWL ME_53BC206602B8 // K553427493_notBad
+   Seq: ( WL? 'ME_53BC0D3900DF' // TBadEVDTest
+ WL? 'ME_53BC205D036D' // K553427493
+ WL? 'ME_53BC206602B8' // K553427493_notBad
  )
  ; // Children
  MELIST Depends

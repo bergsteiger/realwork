@@ -1,0 +1,60 @@
+// TnevSBSCellFormatInfo 4E706504020E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E706504020E
+
+MEREF ME_52021CDE00B2_ME_4E706504020E_over
+ MELINK Original WL 'ME_52021CDE00B2' '4678209200A6.ms.model.script' // VerticalAlignmentMargin
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52021CDE00B2_ME_4E706504020E_over VerticalAlignmentMargin
+
+MEREF ME_4815B8510359_ME_4E706504020E_G
+ MELINK Original WL? 'ME_4815B8510359' // TnevListFormatInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4815B8510359_ME_4E706504020E_G TnevListFormatInfo
+
+MEREF ME_5209DFCE0116_ME_4E706504020E_R
+ MELINK Original WL? 'ME_5209DFCE0116' // CellFormatInfoCommon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5209DFCE0116_ME_4E706504020E_R CellFormatInfoCommon
+
+%%ImplementedBy ME_5209DFCE0116 ME_4E706504020E
+
+%%InheritedBy ME_4815B8510359 ME_4E706504020E
+
+ME ME_4E706504020E
+ MEPROP UID '4E706504020E'
+ MEPROP Name 'TnevSBSCellFormatInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( ME_4815B8510359_ME_4E706504020E_G // TnevListFormatInfo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5209DFCE0116_ME_4E706504020E_R // CellFormatInfoCommon
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_52021CDE00B2_ME_4E706504020E_over // VerticalAlignmentMargin
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '14.09.2011 12:26'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevSBSCellFormatInfo.pas'
+ UP extprop:rc:SelfName 'SBSCellFormatInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevSBSCellFormatInfo'
+
+ENDME // ME_4E706504020E TnevSBSCellFormatInfo

@@ -1,0 +1,144 @@
+// Tm3DBProxyWriteStream 49BFC520008A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49BFC520008A
+
+ME ME_49BFE6600304
+ MEPROP UID '49BFE6600304'
+ MEPROP Name 'IsNewVersion'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Новая версия документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49BFC520008A // Tm3DBProxyWriteStream
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_49BFE6600304 IsNewVersion
+
+ME ME_49BFC9460116
+ MEPROP UID '49BFC9460116'
+ MEPROP Name 'f_NeedCommit'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Сохранять ли изменения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49BFC520008A // Tm3DBProxyWriteStream
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49BFC9460116 f_NeedCommit
+
+ME ME_49C75E5E02FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BFC520008A // Tm3DBProxyWriteStream
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49C75E5E02FA 
+
+ME ME_49C75E620014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49BFC520008A // Tm3DBProxyWriteStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_49C75E620014 
+
+MEREF ME_49C1040A0256_ME_49BFC520008A_impl
+ MELINK Original WL 'ME_49C1040A0256' '4677FBA70343.ms.model.script' // Rollback
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49C1040A0256_ME_49BFC520008A_impl Rollback
+
+MEREF ME_47A042E100E2_ME_49BFC520008A_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_49BFC520008A_over InitFields
+
+MEREF ME_49BFC98902FF_ME_49BFC520008A_over
+ MELINK Original WL 'ME_49BFC98902FF' '51612ED700B4.ms.model.script' // BeforeRelease
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49BFC98902FF_ME_49BFC520008A_over BeforeRelease
+
+MEREF ME_49BFBF3E00CD_ME_49BFC520008A_G
+ MELINK Original WL? 'ME_49BFBF3E00CD' // Tm3DBProxyStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49BFBF3E00CD_ME_49BFC520008A_G Tm3DBProxyStream
+
+MEREF ME_49C103E201AB_ME_49BFC520008A_R
+ MELINK Original WL 'ME_49C103E201AB' '4677FBA70343.ms.model.script' // Il3Rollback
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49C103E201AB_ME_49BFC520008A_R Il3Rollback
+
+%%ImplementedBy ME_49C103E201AB ME_49BFC520008A
+
+%%InheritedBy ME_49BFBF3E00CD ME_49BFC520008A
+
+ME ME_49BFC520008A
+ MEPROP UID '49BFC520008A'
+ MEPROP Name 'Tm3DBProxyWriteStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток, пишущий в базу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( ME_49BFBF3E00CD_ME_49BFC520008A_G // Tm3DBProxyStream
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49C103E201AB_ME_49BFC520008A_R // Il3Rollback
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49BFE6600304 // IsNewVersion
+ HWL ME_49BFC9460116 // f_NeedCommit
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_49C1040A0256_ME_49BFC520008A_impl // Rollback
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_49BFC520008A_over // InitFields
+ ME_49BFC98902FF_ME_49BFC520008A_over // BeforeRelease
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49C75E5E02FA // SysUtils
+ ME_49C75E620014 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '17.03.2009 18:44'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3DBProxyWriteStream.pas'
+ UP extprop:rc:SelfName 'm3DBProxyWriteStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3DBProxyWriteStream'
+
+ENDME // ME_49BFC520008A Tm3DBProxyWriteStream

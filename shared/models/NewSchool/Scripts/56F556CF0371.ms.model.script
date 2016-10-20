@@ -1,0 +1,73 @@
+// TtfwDebugScriptCaller 56F556CF0371 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56F556CF0371
+
+ME ME_56F557180045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F556CF0371 // TtfwDebugScriptCaller
+ ;
+ MELINK Target WL? 'ME_56F557030356' // TtfwDebugService
+ ;
+
+ENDME // ME_56F557180045 
+
+ME ME_56F55D6803B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F556CF0371 // TtfwDebugScriptCaller
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_56F55D6803B4 
+
+MEREF ME_55C491FC025C_ME_56F556CF0371_over
+ MELINK Original WL 'ME_55C491FC025C' '55C482690029.ms.model.script' // DoPrint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55C491FC025C_ME_56F556CF0371_over DoPrint
+
+MEREF ME_55C482690029_ME_56F556CF0371_G
+ MELINK Original WL? 'ME_55C482690029' // TtfwDefaultScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C482690029_ME_56F556CF0371_G TtfwDefaultScriptCaller
+
+%%InheritedBy ME_55C482690029 ME_56F556CF0371
+
+ME ME_56F556CF0371
+ MEPROP UID '56F556CF0371'
+ MEPROP Name 'TtfwDebugScriptCaller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_55C482690029_ME_56F556CF0371_G // TtfwDefaultScriptCaller
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55C491FC025C_ME_56F556CF0371_over // DoPrint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56F557180045 // TtfwDebugService
+ ME_56F55D6803B4 // ItfwScriptCaller
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDebugScriptCaller.pas'
+ UP extprop:rc:SelfName 'DebugScriptCaller'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDebugScriptCaller'
+
+ENDME // ME_56F556CF0371 TtfwDebugScriptCaller

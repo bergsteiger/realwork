@@ -1,0 +1,114 @@
+// TvgComponent 4D52A881018B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D52A881018B
+%%Inner ME_4D52A881018B
+
+FORWARD ME_4D52A881018B
+
+ME ME_4D52BFA10289
+ MEPROP UID '4D52BFA10289'
+ MEPROP Name '_UnknownIsComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+
+ENDME // ME_4D52BFA10289 _UnknownIsComponent
+
+ME ME_4D54139602F9
+ MEPROP UID '4D54139602F9'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D54139602F9 l3Unknown_NoIUnknown
+
+ME ME_4D52DB8D003A
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D52DB8D003A Dummy
+
+ME ME_4D52DB7F0148
+ MEPROP UID '4D52DB7F0148'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли просто Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D52A881018B // TvgComponent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D52DB8D003A // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D52DB7F0148 Free
+
+MEREF ME_47913F970159_ME_4D52A881018B_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4D52A881018B_G l3Unknown
+
+MEREF ME_479878FA0103_ME_4D52A881018B_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_4D52A881018B_G TComponent
+
+%%InheritedBy ME_47913F970159 ME_4D52A881018B
+%%InheritedBy ME_479878FA0103 ME_4D52A881018B
+
+ME ME_4D52A881018B
+ MEPROP UID '4D52A881018B'
+ MEPROP Name 'TvgComponent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D52A63D0365' // lulin
+ ;
+ MELIST Inherits
+   Seq: ( ME_47913F970159_ME_4D52A881018B_G // l3Unknown
+ ME_479878FA0103_ME_4D52A881018B_G // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D52DB7F0148 // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D52BFA10289 // _UnknownIsComponent
+ HWL ME_4D54139602F9 // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '09.02.2011 17:45'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgComponent.pas'
+ UP extprop:rc:SelfName 'Component'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgComponent'
+
+ENDME // ME_4D52A881018B TvgComponent

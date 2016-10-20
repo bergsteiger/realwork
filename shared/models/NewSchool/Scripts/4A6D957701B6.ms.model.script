@@ -1,0 +1,62 @@
+// TnsUserIDList 4A6D957701B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D957701B6
+
+ME ME_4A6D958E002A
+ MEPROP UID '4A6D958E002A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A6D957701B6 // TnsUserIDList
+ ;
+ MELINK Target WL 'ME_4A66BABA015C' '4A66B9840002.ms.model.script' // TbsUserID
+ ;
+
+ENDME // ME_4A6D958E002A ItemType
+
+MEREF ME_47A1B04702C2_ME_4A6D957701B6_G
+ MELINK Original WL? 'ME_47A1B04702C2' // l3AtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A1B04702C2_ME_4A6D957701B6_G l3AtomicList
+
+MEREF ME_47BC3A07027F_ME_4A6D957701B6_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4A6D957701B6_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47A1B04702C2 ME_4A6D957701B6
+%%InheritedBy ME_47BC3A07027F ME_4A6D957701B6
+
+ME ME_4A6D957701B6
+ MEPROP UID '4A6D957701B6'
+ MEPROP Name 'TnsUserIDList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( ME_47A1B04702C2_ME_4A6D957701B6_G // l3AtomicList
+ ME_47BC3A07027F_ME_4A6D957701B6_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A6D958E002A // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsUserIDList.pas'
+ UP extprop:rc:SelfName 'UserIDList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsUserIDList'
+
+ENDME // ME_4A6D957701B6 TnsUserIDList

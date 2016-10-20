@@ -9,39 +9,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_45EEAA6E01A9
 
-FORWARD ME_4889E960019F
-
-ME ME_488DCB920012
- MEPROP Class class_Dependency
- MELINK Stereotype st_friend::Dependency ;
- MELINK Parent HWL ME_4889E960019F // StoreSettingsToServer
- ;
-
-ENDME // ME_488DCB920012 
-
-ME ME_4889E960019F
- MEPROP UID '4889E960019F'
- MEPROP Name 'StoreSettingsToServer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'класс периодически сбрасывающий изменённые настройки на сервер' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_45EEAA6E01A9 // Settings_i
- ;
- MELIST Dependencies
-   Seq: ( ME_488DCB920012 // ConfigurationManager_i
- )
- ; // Dependencies
- UP "need objcounter" false
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.cpp'
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Settings_i\StoreSettingsToServer.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StoreSettingsToServer.pas'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4889E960019F StoreSettingsToServer
-
 FORWARD ME_488DD13303A4
 
 ME ME_488DD16702A2
@@ -335,7 +302,7 @@ ME ME_45EEAA6E01A9
  MELINK Parent WL? 'ME_456EA3D2031C' // GblAdapterLib
  ;
  MELIST Children
-   Seq: ( HWL ME_4889E960019F // StoreSettingsToServer
+   Seq: ( WL? 'ME_4889E960019F' // StoreSettingsToServer
  HWL ME_488DD13303A4 // ServerSettingData
  HWL ME_488DD1E30293 // CachedDataForServer
  HWL ME_4898316C03A1 // SettingsSaveStrategy

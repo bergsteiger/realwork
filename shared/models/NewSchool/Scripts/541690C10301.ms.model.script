@@ -1,0 +1,178 @@
+// TddFillAACStack 541690C10301 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_541690C10301
+
+ME ME_5416922A020D
+ MEPROP UID '5416922A020D'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_541690C10301 // TddFillAACStack
+ ;
+ MELINK Target WL 'ME_54168CB901A0' '52CFA9D5031E.ms.model.script' // TddFillAAC
+ ;
+
+ENDME // ME_5416922A020D ItemType
+
+FORWARD ME_5416925A01A0
+
+ME ME_54169A050283
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_54168CB901A0' '52CFA9D5031E.ms.model.script' // TddFillAAC
+ ;
+
+ENDME // ME_54169A050283 aValue
+
+ME ME_5416926D0148
+ MEPROP UID '5416926D0148'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5416925A01A0 // Push
+ ;
+ MELIST Parameters
+   Seq: ( ME_54169A050283 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_5416926D0148 DoIt
+
+ME ME_5416925A01A0
+ MEPROP UID '5416925A01A0'
+ MEPROP Name 'Push'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541690C10301 // TddFillAACStack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5416926D0148 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5416925A01A0 Push
+
+FORWARD ME_54169293003D
+
+ME ME_5416929B01C5
+ MEPROP UID '5416929B01C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54169293003D // Pop
+ ;
+ MELINK Target WL 'ME_54168CB901A0' '52CFA9D5031E.ms.model.script' // TddFillAAC
+ ;
+
+ENDME // ME_5416929B01C5 DoIt
+
+ME ME_54169293003D
+ MEPROP UID '54169293003D'
+ MEPROP Name 'Pop'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541690C10301 // TddFillAACStack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5416929B01C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54169293003D Pop
+
+FORWARD ME_541694B502B2
+
+ME ME_541694D00190
+ MEPROP UID '541694D00190'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541694B502B2 // Peek
+ ;
+ MELINK Target WL 'ME_54168CB901A0' '52CFA9D5031E.ms.model.script' // TddFillAAC
+ ;
+
+ENDME // ME_541694D00190 DoIt
+
+ME ME_541694B502B2
+ MEPROP UID '541694B502B2'
+ MEPROP Name 'Peek'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_541690C10301 // TddFillAACStack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_541694D00190 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_541694B502B2 Peek
+
+MEREF ME_47BC3A07027F_ME_541690C10301_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_541690C10301_G Tl3SimpleDataContainer
+
+MEREF ME_49142D7000F3_ME_541690C10301_G
+ MELINK Original WL? 'ME_49142D7000F3' // l3EnumList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49142D7000F3_ME_541690C10301_G l3EnumList
+
+%%InheritedBy ME_47BC3A07027F ME_541690C10301
+%%InheritedBy ME_49142D7000F3 ME_541690C10301
+
+ME ME_541690C10301
+ MEPROP UID '541690C10301'
+ MEPROP Name 'TddFillAACStack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F4BA770180' // Writers
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC3A07027F_ME_541690C10301_G // Tl3SimpleDataContainer
+ ME_49142D7000F3_ME_541690C10301_G // l3EnumList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5416922A020D // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5416925A01A0 // Push
+ HWL ME_54169293003D // Pop
+ HWL ME_541694B502B2 // Peek
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddFillAACStack.pas'
+ UP extprop:rc:SelfName 'ddFillAACStack'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddFillAACStack'
+
+ENDME // ME_541690C10301 TddFillAACStack

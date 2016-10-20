@@ -53,15 +53,34 @@ USES
 ;
 
 USES
- GarantMetaModel.ms.dict
-;
-
-USES
  ModelRoot.ms.dict
 ;
 
 USES
  DiagramExt.ms.dict
+;
+
+USES
+ largeMetaModel.ms.dict
+;
+
+USES
+ filterNil.ms.dict
+;
+
+BOOLEAN elem_func HasUses
+ Self .DiagramsNames
+ .filter> ( 'uses' SameText )
+ .NotEmpty
+ >>> Result
+; // HasUses
+
+USES
+ DiagramsRoot.ms.dict
+;
+
+USES
+ ViewSuffix.ms.dict
 ;
 
 elem_generator diagram.script
@@ -75,8 +94,8 @@ elem_generator diagram.script
    ( Self .IsAutoElement )
    // - это "автоматически выдуманый элемент"
     false
-   ( Self .IsSubRoot )
-    true
+   //( Self .IsSubRoot )
+   // true
    ( Self .Children .NotEmpty )
     true 
    ( Self .Constants .NotEmpty )
@@ -85,6 +104,21 @@ elem_generator diagram.script
     true
    ( Self .Attributes .NotEmpty )
     true
+   ( Self .HasUses )
+    begin
+     RULES
+      ( Self .Depends .NotEmpty )
+       true
+      (
+       Self .Dependencies
+       .filter> .IsUses
+       .NotEmpty
+      ) 
+       true
+      DEFAULT
+       false 
+     ; // RULES 
+    end // ( Self .HasUses )
    DEFAULT
     false
   ; // RULES
@@ -93,7 +127,7 @@ elem_generator diagram.script
 
  STRING elem_func FinalFileNamePrim
   [
-   ModelRoot
+   DiagramsRoot
    if ( Self .LUID .IsNil ) then
     ( Self .Name )
    else
@@ -143,11 +177,12 @@ elem_generator diagram.script
    >>> l_It
 
    VAR l_Suffix
-   '_view' >>> l_Suffix
+   ViewSuffix >>> l_Suffix
    VAR l_Views
    [] >>> l_Views
    VAR l_Viewed
    [] >>> l_Viewed
+   
    l_It 
    .filterNil>
    .for> (
@@ -187,6 +222,7 @@ elem_generator diagram.script
      ^ IN aLamdba
     Self aLamdba DO
     .filter> ( DROP l_LinkCount > 0 )
+    .map> .ReferencedTypeOriginal
     .for> (
       IN aLink
      if ( aLink .InArray: l_Viewed ) then
@@ -218,16 +254,31 @@ elem_generator diagram.script
      end // ( aLink .InArray: l_Viewed )
     ) // .for>
    ; // OutLinks:
-
+   
    l_Viewed .for> (
      IN anElement
 
-    anElement .OutLinks: .Depends
+    VAR l_HasUses
+    anElement .HasUses >>> l_HasUses
+    // - у элемента есть своя диаграмма связей, связи этого элемента рисовать не будем
+    
+    if ( l_HasUses ! ) then
+    begin
+     anElement .OutLinks: .Depends
+    end // ( l_HasUses ! )
     anElement .OutLinks: .Implements
     anElement .OutLinks: .Inherits
 
-    anElement .Dependencies
-    .filter> .IsUses
+    if l_HasUses then
+    begin
+     anElement .Dependencies
+     .filter> .IsUses
+    end // l_HasUses
+    else
+    begin
+     [empty]
+    end // l_HasUses
+      
     .join> ( anElement .Attributes )
     .filter> ( DROP l_LinkCount > 0 )
     .for> (

@@ -1,0 +1,76 @@
+// TMergeAndCheckSelectionTest 4CE133F801BA TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE133F801BA
+
+MEREF ME_4C9999C50326_ME_4CE133F801BA_over
+ MELINK Original WL 'ME_4C9999C50326' '4CE38AD60265.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9999C50326_ME_4CE133F801BA_over CheckOperation
+
+MEREF ME_4CC8189D02DF_ME_4CE133F801BA_over
+ MELINK Original WL 'ME_4CC8189D02DF' '4CC815A00031.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC8189D02DF_ME_4CE133F801BA_over NeedSelection
+
+MEREF ME_4C123E8103B3_ME_4CE133F801BA_G
+ MELINK Original WL? 'ME_4C123E8103B3' // TMergeCellsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C123E8103B3_ME_4CE133F801BA_G TMergeCellsTest
+
+MEREF ME_4CE1344403AC_ME_4CE133F801BA_R
+ MELINK Original WL? 'ME_4CE1344403AC' // ClipboardOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE1344403AC_ME_4CE133F801BA_R ClipboardOperations
+
+MEREF ME_4D4137E30326_ME_4CE133F801BA_R
+ MELINK Original WL? 'ME_4D4137E30326' // SelectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4137E30326_ME_4CE133F801BA_R SelectOperation
+
+%%ImplementedBy ME_4CE1344403AC ME_4CE133F801BA
+%%ImplementedBy ME_4D4137E30326 ME_4CE133F801BA
+
+%%InheritedBy ME_4C123E8103B3 ME_4CE133F801BA
+
+ME ME_4CE133F801BA
+ MEPROP UID '4CE133F801BA'
+ MEPROP Name 'TMergeAndCheckSelectionTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест проверки выделения после объединения ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C123E8103B3_ME_4CE133F801BA_G // TMergeCellsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CE1344403AC_ME_4CE133F801BA_R // ClipboardOperations
+ ME_4D4137E30326_ME_4CE133F801BA_R // SelectOperation
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4C9999C50326_ME_4CE133F801BA_over // CheckOperation
+ ME_4CC8189D02DF_ME_4CE133F801BA_over // NeedSelection
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\MergeAndCheckSelectionTest.pas'
+ UP extprop:rc:SelfName 'MergeAndCheckSelectionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MergeAndCheckSelectionTest'
+
+ENDME // ME_4CE133F801BA TMergeAndCheckSelectionTest

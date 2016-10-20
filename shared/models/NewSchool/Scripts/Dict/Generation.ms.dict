@@ -105,10 +105,6 @@ USES
  GenerationFramework.ms.dict
 ;
 
-STRING FUNCTION Ext
- '.dump' >>> Result
-; // Ext
-
 PROCEDURE ForceDirectories
   STRING IN aPath
  aPath sysutils:ForceDirectories ?ASSURE [ 'Не удалось создать директорию ' aPath ]  
@@ -226,21 +222,36 @@ USES
  FirstAttribute.ms.dict
 ;
 
-BOOLEAN elem_func IsMixInParamType
- Self .IsStereotype st_ImpurityParamType 
- >>> Result
-; // IsMixInParamType
-
 : g_MixInParamTypes
  @SELF
 ; // g_MixInParamTypes
-  
-BOOLEAN elem_func IsIterator
- Self .IsStereotype st_Iterator >>> Result
-; // IsIterator
 
 USES
+ msmMetaModel.ms.dict
+; 
+
+USES
+ tinyMetaModel.ms.dict
+;
+
+USES
+ smallMetaModel.ms.dict
+;
+
+USES
+ largeMetaModel.ms.dict
+;
+  
+USES
  GarantMetaModel.ms.dict
+;
+
+USES
+ TypeNamePrimPrim.ms.dict
+;
+
+USES
+ IsSameType.ms.dict
 ;
 
 FORWARD .IteratorAction
@@ -253,24 +264,10 @@ STRING elem_func TypeNamePrim
     ''
    ( Self IsString )
     Self
-   ( Self .IsOpenArray )
-    ( [ 'array of ' Self .FirstAttribute .Target call.me ] strings:Cat )
    ( Self .IsIterator )
     ( Self .IteratorAction call.me )
    DEFAULT  
-    (
-     STRING VAR l_ExtName
-     Self .GetUP 'extprop:pas:TypeName' >>> l_ExtName
-     RULES
-      ( l_ExtName .IsNotNil )
-       l_ExtName
-      ( Self .IsMixIn )
-      // - на самом деле ещё IsMixIn определяется ниже, это возможно надо учитывать
-       ( [ '_' Self .Name '_' ] strings:Cat )
-      DEFAULT
-       ( Self .Name )
-     ; // RULES
-    )
+    ( Self .TypeNamePrimPrim )
   ; // RULES  
  )
  >>> Result
@@ -293,33 +290,6 @@ STRING elem_func TypeName
   end // ( l_Field .IsNotNil )
  end // ( Self .IsMixInParamType )
 ; // TypeName
-
-BOOLEAN elem_func IsSameType
-  ModelElement IN anOther
- RULES
-  ( Self anOther .IsSameModelElement )
-   true
-  ( Self IsString )
-   RULES
-    ( anOther IsString )
-     false
-    DEFAULT 
-     ( Self anOther .TypeName == )
-   ; // RULES
-  ( anOther IsString )
-   RULES
-    ( Self IsString )
-     false
-    DEFAULT 
-     ( Self .TypeName anOther == )
-   ; // RULES
-  ( Self .TypeName anOther .TypeName == )
-   true
-  DEFAULT
-   false 
- ; // RULES  
- >>> Result 
-; // IsSameType
 
 USES
  GarantModel.ms.dict
@@ -435,11 +405,6 @@ USES
  UseNewGenExcluded.ms.dict
 ;
 
-BOOLEAN elem_func IsControllerInterfaces
- ( Self .IsStereotype st_ControllerInterfaces )
- >>> Result
-; // IsControllerInterfaces
-
 USES
  ForceUseNewGen.ms.dict
 ;
@@ -515,7 +480,10 @@ STRING CompileTime-VAR g_FinalFileName ''
 STRING CompileTime-VAR g_FinalFileNameForUC ''
 ARRAY CompileTime-VAR g_UCRead nil
 
-CONST cGenScriptsFolder 'W:\common\GenScripts\'
+USES
+ cGenScriptsFolder.ms.dict
+;
+
 CONST cTempGenScriptsFolder 'C:\Temp\GenScripts\'
 
 BOOLEAN elem_func CanCopyToFinalFile
@@ -669,17 +637,6 @@ elem_proc ReadUCFromFile:
   END // TRY..FINALLY
  end // ( l_FileName sysutils:FileExists )
 ; // ReadUCFromFile
-
-CONST cUCFileExt '.uc.txt'
-
-STRING elem_func UCFileName
- //g_RealFileName cUCFileExt Cat
- [
-  cGenScriptsFolder
-  [ Self .WordName .? Ext cUCFileExt ] strings:Cat
- ] cPathSep strings:CatSep
- >>> Result
-; // UCFileName
 
 STRING function .ChangeFilePath
   STRING IN aFileName
@@ -1170,7 +1127,7 @@ BOOLEAN elem_func IsClassOrMixIn
  >>> Result
 ; // IsClassOrMixIn
 
-BOOLEAN elem_func NeedOwnFilePrim
+BOOLEAN elem_func PasNeedOwnFilePrim
  Cached:
  (
   RULES
@@ -1283,7 +1240,7 @@ BOOLEAN elem_func NeedOwnFilePrim
   ; // RULES
  )
  >>> Result
-; // NeedOwnFilePrim
+; // PasNeedOwnFilePrim
 
 USES
  CallInherited.ms.dict
@@ -1292,10 +1249,6 @@ USES
 USES
  classRelations.ms.dict
 ;
-
-BOOLEAN elem_func NeedOwnFile
- Self .? .NeedOwnFilePrim >>> Result
-; // NeedOwnFile
 
 elem: WithDelim
   STRING IN aDelim
@@ -1482,40 +1435,6 @@ ModelElement elem_func CtxParam
  )
  >>> Result
 ; // CtxParam
-
-BOOLEAN elem_func IsCreator
- Self .IsStereotype st_creator::Operation 
- >>> Result
-; // IsCreator
-
-BOOLEAN elem_func IsVarWorker
- RULES
-  ( Self .IsStereotype st_varworker::Operation )
-   true
-  ( Self .IsStereotype st_globalvarworker::Operation )
-   true
-  DEFAULT
-   false 
- ; // RULES
- >>> Result
-; // IsVarWorker
-
-BOOLEAN elem_func IsWordWorker
- RULES
-  ( Self .IsStereotype st_wordworker::Operation )
-   true
-  ( Self .IsStereotype st_globalwordworker::Operation )
-   true
-  DEFAULT
-   false 
- ; // RULES
- >>> Result
-; // IsWordWorker
-
-STRING elem_func NameForScript
- Self .GetUP "NameForScript" ToPrintable
- >>> Result
-; // NameForScript
 
 USES
  string.ms.dict
@@ -2021,6 +1940,10 @@ STRING FUNCTION cGetterVarUserCodeName
 FORWARD .Properties
 FORWARD .MethodParameters
 
+USES
+ filterNil.ms.dict
+;
+
 ARRAY FUNCTION .With()>
   OUTABLE IN aValue
   ^ IN aLambda
@@ -2504,6 +2427,10 @@ BOOLEAN elem_func SomeAncestorImplements
  >>> Result 
 ; // SomeAncestorImplements
 
+USES
+ CopyWithoutDuplicates.ms.dict
+;
+
 elem_iterator ClassImplements
  Cached:
  (
@@ -2512,7 +2439,7 @@ elem_iterator ClassImplements
    .joinWithLambded> ( Self .ClassImplementsPrim ) .InterfaceForClassImplements
   ) 
   .filter> ( Self SWAP .SomeAncestorImplements ! )
-  array:CopyWithoutDuplicates
+  .CopyWithoutDuplicatedModelElements
  ) 
  >>> Result
 ; // ClassImplements
@@ -2580,33 +2507,6 @@ INTERFACE elem_func CastMethod
  )
  >>> Result
 ; // CastMethod
-
-BOOLEAN elem_func IsStaticOp
- Self .IsStereotype st_static::Operation
- >>> Result
-; // IsStaticOp
-
-BOOLEAN elem_func IsStaticMethod
- RULES
-  ( Self .IsModuleOperationPrim )
-   false
-  (
-   ( Self .IsMethod )
-   AND ( Self .GetUP "is static" false ?!= )
-   AND ( Self .Parent .IsVCMFormsPack )
-  )
-   true
-  ( Self .IsFormSetFactory )
-   true
-  ( Self .IsStaticOp )
-   true
-  ( Self .UPisTrue "is static" ) 
-   true
-  DEFAULT
-   false 
- ; // RULES 
- >>> Result
-; // IsStaticMethod
 
 elem_iterator InterfaceOwnOperations
  Self .OperationsEx
@@ -2816,26 +2716,6 @@ STRING elem_func UIDforUserCode
  >>> Result
 ; // UIDforUserCode
 
-BOOLEAN elem_func IsResultType
- Self .IsStereotype st_result_type::Attribute
- >>> Result
-; // IsResultType
-
-BOOLEAN elem_func IsElementType
- Self .IsStereotype st_element_type::Attribute
- >>> Result
-; // IsElementType
-
-BOOLEAN elem_func IsIndexType
- Self .IsStereotype st_index_type::Attribute
- >>> Result
-; // IsIndexType
-
-BOOLEAN elem_func IsServiceIterator
- Self .IsStereotype st_serviceiterator 
- >>> Result
-; // IsServiceIterator
-
 INTERFACE elem_func ItemParam
  Cached:
  (
@@ -2984,12 +2864,9 @@ ModelElement elem_func IteratorStub
 ; // IteratorStub
 
 BOOLEAN elem_func IsInParam
- Self .IsStereotype st_in::Attribute >>> Result
+ Self .IsStereotype st_in::Attribute 
+ >>> Result
 ; // IsInParam
-
-BOOLEAN elem_func IsContract
- Self .IsStereotype st_Contract >>> Result
-; // IsContract
 
 ModelElement elem_func FriendClass
  Cached:
@@ -3049,11 +2926,6 @@ BOOLEAN elem_func IsIteratorF
  >>> Result
 ; // IsIteratorF
 
-BOOLEAN elem_func IsWriteonlyProperty
- Self .IsStereotype st_writeonly::Attribute 
- >>> Result
-; // IsWriteonlyProperty
-
 BOOLEAN elem_func IsSetter
  RULES
   ( Self .IsWriteonlyProperty ) 
@@ -3082,11 +2954,6 @@ BOOLEAN elem_func IsAreaGetter
  Self .OpModify opModifyArea == >>> Result
 ; // IsAreaGetter
 
-BOOLEAN elem_func IsInternalOperation
- Self .IsStereotype st_InternalOperation::Operation 
- >>> Result
-; // IsInternalOperation
-
 INTERFACE elem_func ParamsParam
  Cached:
  (
@@ -3102,23 +2969,6 @@ INTERFACE elem_func StateParam
  ) 
  >>> Result
 ; // StateParam
-
-BOOLEAN elem_func IsFactoryMethod
- Self .IsStereotype st_Factory
- >>> Result
-; // IsFactoryMethod
-
-BOOLEAN elem_func IsFactory
-  RULES
-   ( Self .IsStereotype st_factory::Operation )
-    true
-   ( Self .IsFactoryMethod )
-    true
-   DEFAULT
-    false
-  ; //RULES   
- >>> Result
-; // IsFactory
 
 BOOLEAN elem_func NeedAggregate
  Self .UPisTrue "need Aggregate" 
@@ -3165,10 +3015,6 @@ elem_iterator PropertyKeys
  .filter> ( .IsAfterAttribute ! )
  >>> Result
 ; // PropertyKeys
-
-BOOLEAN elem_func IsReadonlyProperty
- Self .IsStereotype st_readonly::Attribute >>> Result
-; // IsReadonlyProperty
 
 BOOLEAN elem_func IsProperty
  Cached:
@@ -3637,18 +3483,6 @@ BOOLEAN elem_func IsAutoHelper
  >>> Result
 ; // IsAutoHelper
 
-BOOLEAN elem_func IsVCMController
- RULES
-  ( Self .IsStereotype st_UseCase::Attribute )
-   true
-  ( Self .IsStereotype st_VCMController )
-   true
-  DEFAULT
-   false
- ; // RULES
- >>> Result
-; // IsVCMController
-
 STRING elem_func AttrName
  RULES
   (
@@ -3728,11 +3562,6 @@ BOOLEAN elem_func HasFieldName
  >>> Result
 ; // HasFieldName
 
-BOOLEAN elem_func IsWrapper
- Self .IsStereotype st_Wrapper
- >>> Result
-; // IsWrapper
-
 USES
  MEPrefix.ms.dict
 ;
@@ -3769,7 +3598,7 @@ elem_iterator ImplementorsEx
  (
   Self .Implementors
   .join> ( Self cModelScript '.impl' Cat '_Implementors' .LoadList )
-  array:CopyWithoutDuplicates
+  .CopyWithoutDuplicatedModelElements
  )
  >>> Result
 ; // ImplementorsEx
@@ -3921,28 +3750,6 @@ STRING elem_func TagAttrSetType
  )
  >>> Result
 ; // TagAttrSetType
-
-BOOLEAN elem_func IsArea
- Self .IsStereotype st_Area
- >>> Result
-; // IsArea
-
-BOOLEAN elem_func IsAreaAttr
- Self .IsStereotype st_area::Attribute
- >>> Result
-; // IsAreaAttr
-
-BOOLEAN elem_func IsVCMArea
- RULES
-  ( Self .IsArea )
-   true
-  ( Self .IsAreaAttr ) 
-   true
-  DEFAULT
-   false
- ; // RULES
- >>> Result
-; // IsVCMArea
 
 BOOLEAN elem_func IsVCMAreaRef
  RULES
@@ -4419,16 +4226,6 @@ INTERFACE elem_func InstanceField
  >>> Result
 ; // InstanceField
 
-BOOLEAN elem_func IsLocalVar
- Self .IsStereotype st_var::Attribute 
- >>> Result
-; // IsLocalVar
-
-BOOLEAN elem_func IsGlobalVar
- Self .IsStereotype st_globalvar::Attribute
- >>> Result
-; // IsGlobalVar
-
 elem_iterator InnerGlobalVars
  Self .Attributes
  .filter> .IsGlobalVar
@@ -4601,46 +4398,6 @@ elem_iterator GlobalVars
  ) 
  >>> Result
 ; // GlobalVars
-
-BOOLEAN elem_func IsConstants
- Self .IsStereotype st_Constants 
- >>> Result
-; // IsConstants
-
-BOOLEAN elem_func IsSetConst
- Self .IsStereotype st_SetConst 
- >>> Result
-; // IsSetConst
-
-BOOLEAN elem_func IsConstantArray
- Self .IsStereotype st_ConstantArray 
- >>> Result
-; // IsConstantArray
-
-BOOLEAN elem_func IsLocalConst
- Self .IsStereotype st_LocalConst 
- >>> Result
-; // IsLocalConst
-
-BOOLEAN elem_func IsChoices
- Self .IsStereotype st_Choices
- >>> Result
-; // IsChoices
-
-BOOLEAN elem_func IsChoice
- Self .IsStereotype st_Choice
- >>> Result
-; // IsChoice
-
-BOOLEAN elem_func IsExcludeUserTypes
- Self .IsStereotype st_ExcludeUserTypes
- >>> Result
-; // IsExcludeUserTypes
-
-BOOLEAN elem_func IsIncludeUserTypes
- Self .IsStereotype st_IncludeUserTypes
- >>> Result
-; // IsIncludeUserTypes
 
 BOOLEAN elem_func IsConstantsButNotType
  RULES
@@ -4902,18 +4659,6 @@ elem_proc IfDefElse:
   ^ IN aElseLambda
  Self aElseLambda .IfDefPrim: .Out ( aLambda DO ) 
 ; // IfDefElse:
-
-BOOLEAN elem_func IsConstructor
-  RULES
-   ( Self .IsStereotype st_ctor::Operation )
-    true
-   ( Self .IsStereotype st_Constructor )
-    true
-   DEFAULT
-    false
-  ; //RULES   
- >>> Result
-; // IsConstructor
 
 BOOLEAN elem_func IsStaticConstructor
   RULES
@@ -5354,16 +5099,6 @@ elem_iterator RegAxiomUC
  >>> Result
 ; // RegAxiomUC
 
-BOOLEAN elem_func IsCustomChoice
- Self .IsStereotype st_CustomChoice::Attribute
- >>> Result
-; // IsCustomChoice
-
-BOOLEAN elem_func IsDefaultChoice
- Self .IsStereotype st_DefaultChoice::Attribute
- >>> Result
-; // IsDefaultChoice
-
 elem_iterator AdditionalInitCode
   STRING IN aName
   
@@ -5537,7 +5272,7 @@ ModelElement elem_func MethodType
   RULES
    ( Self .InTie )
     RULES
-     ( Self .Target .TypeName 'Boolean' == )
+     ( Self .Target .TypeName 'Boolean' ?== )
       GarantModel::ByteBool
      ( Self .Target .NeedsResultVarInTie )
       nil
@@ -5604,11 +5339,18 @@ ModelElement elem_func MethodType
       ( Self .MainImplements call.me )
      ( Self .MainAncestor .IsNotNil ) 
       ( Self .MainAncestor call.me )
+     ( Self .Target .NotIsNil ) 
+      ( Self .Target )
      DEFAULT
       ( Self .FirstOperation .Target )
     ; // RULES  
    ( Self .IsFunction )
-    ( Self .FirstOperation .Target )
+    RULES
+     ( Self .Target .NotIsNil )
+      ( Self .Target )
+     DEFAULT
+      ( Self .FirstOperation .Target )
+    ; // RULES  
    DEFAULT 
     ( Self .Target )
   ; // RULES
@@ -5680,7 +5422,8 @@ BOOLEAN elem_func HasSelf
 ; // HasSelf
 
 BOOLEAN elem_func IsOutParam
- Self .IsStereotype st_out >>> Result
+ Self .IsStereotype st_out 
+ >>> Result
 ; // IsOutParam
 
 ARRAY FUNCTION .filterOutParam>
@@ -7004,11 +6747,6 @@ INTERFACE FUNCTION MakeIniProcedure:
  ) // MakeProcedure:
  >>> Result
 ; // MakeIniProcedure:
-
-BOOLEAN elem_func IsFriend
- Self .IsStereotype st_friend::Dependency 
- >>> Result
-; // IsFriend
 
 elem_iterator FriendInDependencies
  Cached:
@@ -8459,7 +8197,7 @@ elem_iterator AttributesAndOperationsNeededElements
  Self .AttributesAndOperations
  .join> ( Self .Properties )
  .join> ( Self .Fields )
- array:CopyWithoutDuplicates
+ .CopyWithoutDuplicatedModelElements
  .OperationsNeededElements
  >>> Result
 ; // AttributesAndOperationsNeededElements
@@ -9987,7 +9725,7 @@ elem_iterator InjectedElements
   .filter> .IsInjects
   .map> .Parent
   .join> ( Self cModelScript '.inj' Cat '_InjectedElements' .LoadList )
-  array:CopyWithoutDuplicates
+  .CopyWithoutDuplicatedModelElements
  ) 
  >>> Result
 ; // InjectedElements
@@ -10493,7 +10231,7 @@ elem_iterator Used
   end // ( Self .IsVCMFormsPack )
 
   .join> ( Self .UsedElements )
-  array:CopyWithoutDuplicates
+  .CopyWithoutDuplicatedModelElements
  )
  >>> Result
 ; // Used
@@ -11081,16 +10819,6 @@ OUTABLE elem_func MethodKeyword
  )
  >>> Result
 ; // MethodKeyword
-
-BOOLEAN elem_func IsInline
- Self .IsStereotype st_inline::Operation 
- >>> Result
-; // IsInline
-
-BOOLEAN elem_func IsOperationOverride
- Self .IsStereotype st_override::Operation
- >>> Result
-; // IsOperationOverride
 
 INTEGER elem_func MethodAbstraction
  Cached:
@@ -11818,11 +11546,6 @@ BOOLEAN elem_func NeedsFakeMethod
  )
  >>> Result
 ; // NeedsFakeMethod
-
-BOOLEAN elem_func IsSettingsHolder
- Self .IsStereotype st_SettingsHolder
- >>> Result
-; // IsSettingsHolder
 
 BOOLEAN elem_func UseNewGen
  Cached:
@@ -15529,7 +15252,7 @@ STRING elem_func PasFinalFileName
       ] cPathSep strings:CatSep >>> Result
      end // ( Result .IsNotNil )
     end // ( Self .IsScriptKeywordsPack )
-   ( 'MSM'  Self .LUID StartsStr )
+   ( Self .IsNewSchoolElement )
    // - это элемент "новой системы"
     begin
      //Self .Name Msg
@@ -15568,7 +15291,7 @@ STRING elem_func PasFinalFileName
         end // ( Result .IsNotNil )
        end // ( Self .IsUtilityPack )
      ; // RULES
-    end // ( 'MSM'  Self .LUID StartsStr )
+    end // ( Self .IsNewSchoolElement )
   ; // RULES
  end // ( Result .IsNil )
 ; // PasFinalFileName
@@ -15590,6 +15313,10 @@ elem_generator pas
  STRING elem_func FinalFileNamePrim
   Self .PasFinalFileName >>> Result 
  ; // FinalFileNamePrim
+ 
+ BOOLEAN elem_func NeedOwnFilePrim
+  Self .PasNeedOwnFilePrim >>> Result
+ ; // NeedOwnFilePrim
  
  RULES
   ( Self .IsMixIn )
@@ -15931,27 +15658,9 @@ USES
  DiagramGeneration.ms.dict
 ;
 
-elem_generator null
-
- CONST Ext '.null'
-
- BOOLEAN elem_func NeedOwnFilePrim
-  false >>> Result
- ; // NeedOwnFilePrim
-
- BOOLEAN elem_func CanCopyToFinalFile
-  true >>> Result
- ; // CanCopyToFinalFile
-
- BOOLEAN elem_func UseNewGenExcluded
-  false >>> Result
- ; // UseNewGenExcluded
-
- STRING elem_func FinalFileNamePrim
-  '' >>> Result
- ; // FinalFileNamePrim
- 
-; // null
+USES
+ nullGeneration.ms.dict
+;
 
 ARRAY CompileTime-VAR g_GeneratedElements []
 %REMARK 'Ранее сгенерированные элементы'
@@ -16071,3 +15780,11 @@ elem_proc GenerateNull
   ) // TF g_TransformWord
  ) // TF g_ModelOnly
 ; // GenerateNull
+
+USES
+ CollectControls.ms.dict
+;
+
+USES
+ CollectBackLinks.ms.dict
+;

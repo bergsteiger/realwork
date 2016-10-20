@@ -293,7 +293,7 @@ ENDME // ME_57E2475B01DF DoIt
 ME ME_57E2474902DE
  MEPROP UID '57E2474902DE'
  MEPROP Name 'GetOwnerRect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Расположение главного контрола на экране.'#13#10'Относительно него будем автоматом располагать наше окно.' ;
@@ -326,7 +326,7 @@ ENDME // ME_1FCD1F20489E DoIt
 ME ME_57E248100136
  MEPROP UID '57E248100136'
  MEPROP Name 'AdjustPosition'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Размещаем окно относительно главного контрола' ;
@@ -344,7 +344,7 @@ ENDME // ME_57E248100136 AdjustPosition
 ME ME_57E24E360013
  MEPROP UID '57E24E360013'
  MEPROP Name 'Drop'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -372,7 +372,7 @@ ENDME // ME_57E2567D01C0 DoIt
 ME ME_57E2564902B7
  MEPROP UID '57E2564902B7'
  MEPROP Name 'GetTotalClientHeight'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Полная высота данных. Для скроллбара.' ;
@@ -405,7 +405,7 @@ ENDME // ME_57E2569E026A DoIt
 ME ME_57E2568B01E8
  MEPROP UID '57E2568B01E8'
  MEPROP Name 'GetTotalClientWidth'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Полная ширина данных. Для скроллбара.' ;
@@ -438,7 +438,7 @@ ENDME // ME_57E3BB8B03AE DoIt
 ME ME_57E3BB8101C2
  MEPROP UID '57E3BB8101C2'
  MEPROP Name 'GetOwnerHandle'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -455,7 +455,7 @@ ENDME // ME_57E3BB8101C2 GetOwnerHandle
 ME ME_57E3CB0F00A9
  MEPROP UID '57E3CB0F00A9'
  MEPROP Name 'CloseUp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -494,7 +494,7 @@ ENDME // ME_57F6449C03A2 DoIt
 ME ME_57E53C6D0303
  MEPROP UID '57E53C6D0303'
  MEPROP Name 'Paint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -557,7 +557,7 @@ ENDME // ME_57ED306B020B DoIt
 ME ME_57ED30620029
  MEPROP UID '57ED30620029'
  MEPROP Name 'BeginResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY '(PosX, PosY) - точка окна, за которую схватились мышью' ;
@@ -611,7 +611,7 @@ ENDME // ME_57EE6C8403BF DoIt
 ME ME_57EE6C32020D
  MEPROP UID '57EE6C32020D'
  MEPROP Name 'ProcessResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY '(PosX, PosY) - позиция мыши в экранных координатах' ;
@@ -644,7 +644,7 @@ ENDME // ME_36372F9A8E04 DoIt
 ME ME_57EE6CDD00B2
  MEPROP UID '57EE6CDD00B2'
  MEPROP Name 'FinishResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -687,7 +687,7 @@ ENDME // ME_57F62D7B03B2 DoIt
 ME ME_57F62D6B0111
  MEPROP UID '57F62D6B0111'
  MEPROP Name 'NCPaint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -730,7 +730,7 @@ ENDME // ME_57F7B599023D DoIt
 ME ME_57F7B58F0176
  MEPROP UID '57F7B58F0176'
  MEPROP Name 'HitTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -978,41 +978,53 @@ ME ME_57F23AD70393
 
 ENDME // ME_57F23AD70393 WMMouseActivate
 
-ME ME_479731C50290_ME_57E125C801C4
+MEREF ME_479731C50290_ME_57E125C801C4_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57E125C801C4 Cleanup
+ENDMEREF // ME_479731C50290_ME_57E125C801C4_over Cleanup
 
-ME ME_47D1602000C6_ME_57E125C801C4
+MEREF ME_47D1602000C6_ME_57E125C801C4_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_57E125C801C4 Create
+ENDMEREF // ME_47D1602000C6_ME_57E125C801C4_over Create
 
-ME ME_48C6BFF80313_ME_57E125C801C4
+MEREF ME_48C6BFF80313_ME_57E125C801C4_over
  MELINK Original WL 'ME_48C6BFF80313' '47E11FC3021E.ms.model.script' // PaintWindow
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C6BFF80313_ME_57E125C801C4 PaintWindow
+ENDMEREF // ME_48C6BFF80313_ME_57E125C801C4_over PaintWindow
 
-ME ME_48C7925A02E5_ME_57E125C801C4
+MEREF ME_48C7925A02E5_ME_57E125C801C4_over
  MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C7925A02E5_ME_57E125C801C4 CreateParams
+ENDMEREF // ME_48C7925A02E5_ME_57E125C801C4_over CreateParams
 
-ME ME_4E1350DE0094_ME_57E125C801C4
+MEREF ME_4E1350DE0094_ME_57E125C801C4_over
  MELINK Original WL 'ME_4E1350DE0094' '47E11FC3021E.ms.model.script' // CanFocus
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4E1350DE0094_ME_57E125C801C4 CanFocus
+ENDMEREF // ME_4E1350DE0094_ME_57E125C801C4_over CanFocus
 
-ME ME_57E12CDC0172_ME_57E125C801C4
+MEREF ME_57E12CDC0172_ME_57E125C801C4_over
  MELINK Original WL 'ME_57E12CDC0172' '47E11FC3021E.ms.model.script' // AdjustSize
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57E12CDC0172_ME_57E125C801C4 AdjustSize
+ENDMEREF // ME_57E12CDC0172_ME_57E125C801C4_over AdjustSize
+
+MEREF ME_47E124E90272_ME_57E125C801C4_G
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_57E125C801C4_G TWinControl
+
+MEREF ME_47913F970159_ME_57E125C801C4_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_57E125C801C4_R l3Unknown
 
 %%ImplementedBy ME_47913F970159 ME_57E125C801C4
 
@@ -1030,11 +1042,11 @@ ME ME_57E125C801C4
  MELINK Parent WL? 'ME_57E1256601B2' // DropDown
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+   Seq: ( ME_47E124E90272_ME_57E125C801C4_G // TWinControl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_47913F970159' // l3Unknown
+   Seq: ( ME_47913F970159_ME_57E125C801C4_R // l3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -1075,12 +1087,12 @@ ME ME_57E125C801C4
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57E125C801C4 // Cleanup
- ME_47D1602000C6_ME_57E125C801C4 // Create
- ME_48C6BFF80313_ME_57E125C801C4 // PaintWindow
- ME_48C7925A02E5_ME_57E125C801C4 // CreateParams
- ME_4E1350DE0094_ME_57E125C801C4 // CanFocus
- ME_57E12CDC0172_ME_57E125C801C4 // AdjustSize
+   Seq: ( ME_479731C50290_ME_57E125C801C4_over // Cleanup
+ ME_47D1602000C6_ME_57E125C801C4_over // Create
+ ME_48C6BFF80313_ME_57E125C801C4_over // PaintWindow
+ ME_48C7925A02E5_ME_57E125C801C4_over // CreateParams
+ ME_4E1350DE0094_ME_57E125C801C4_over // CanFocus
+ ME_57E12CDC0172_ME_57E125C801C4_over // AdjustSize
  )
  ; // Overridden
  MELIST Children

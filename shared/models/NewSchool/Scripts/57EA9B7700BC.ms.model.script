@@ -1,0 +1,70 @@
+// TmsmCaptionToListBinding 57EA9B7700BC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA9B7700BC
+
+ME ME_57EA9B8F0364
+ MEPROP UID '57EA9B8F0364'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA9B7700BC // TmsmCaptionToListBinding
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57EA9B8F0364 ModelToListen
+
+ME ME_57EA9BA4039E
+ MEPROP UID '57EA9BA4039E'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA9B7700BC // TmsmCaptionToListBinding
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+
+ENDME // ME_57EA9BA4039E ModelToFire
+
+MEREF ME_57B2B8FA0333_ME_57EA9B7700BC_G
+ MELINK Original WL? 'ME_57B2B8FA0333' // msmModelToModelBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2B8FA0333_ME_57EA9B7700BC_G msmModelToModelBinding
+
+%%InheritedBy ME_57B2B8FA0333 ME_57EA9B7700BC
+
+ME ME_57EA9B7700BC
+ MEPROP UID '57EA9B7700BC'
+ MEPROP Name 'TmsmCaptionToListBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57D263FC0311' // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_57B2B8FA0333_ME_57EA9B7700BC_G // msmModelToModelBinding
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EA9B8F0364 // ModelToListen
+ HWL ME_57EA9BA4039E // ModelToFire
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmCaptionToListBinding.pas'
+ UP extprop:rc:SelfName 'msmCaptionToListBinding'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmCaptionToListBinding'
+
+ENDME // ME_57EA9B7700BC TmsmCaptionToListBinding

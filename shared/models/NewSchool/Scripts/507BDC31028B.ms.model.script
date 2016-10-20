@@ -1,0 +1,109 @@
+// TryFocusOnForm 507BDC31028B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_507BDC31028B
+
+ME ME_507BF935030F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL 'ME_476A84380187' '4683F37902CF.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_507BF935030F 
+
+ME ME_507BFA24031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL 'ME_4788090E01D4' '47752AF90375.ms.model.script' // TafwCustomForm
+ ;
+
+ENDME // ME_507BFA24031F 
+
+ME ME_507BFAB50082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_507BFAB50082 
+
+ME ME_507BFB2003C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_507BFB2003C8 
+
+ME ME_507BFC6902A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+
+ENDME // ME_507BFC6902A3 
+
+ME ME_507BFCF30127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507BDC31028B // TryFocusOnForm
+ ;
+ MELINK Target WL 'ME_4C3F434301AA' '48A41FF10094.ms.model.script' // SetFocus
+ ;
+
+ENDME // ME_507BFCF30127 
+
+MEREF ME_4DB94A660083_ME_507BDC31028B_R
+ MELINK Original WL? 'ME_4DB94A660083' // VCMWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB94A660083_ME_507BDC31028B_R VCMWord
+
+%%ImplementedBy ME_4DB94A660083 ME_507BDC31028B
+
+ME ME_507BDC31028B
+ MEPROP UID '507BDC31028B'
+ MEPROP Name 'TryFocusOnForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Implements
+   Seq: ( ME_4DB94A660083_ME_507BDC31028B_R // VCMWord
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_507BF935030F // TvcmFormID
+ ME_507BFA24031F // TafwCustomForm
+ ME_507BFAB50082 // Supports
+ ME_507BFB2003C8 // Forms
+ ME_507BFC6902A3 // TvcmEntityForm
+ ME_507BFCF30127 // SetFocus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwTryFocusOnForm.pas'
+ UP extprop:pas:TypeName 'TkwTryFocusOnForm'
+ UP extprop:rc:SelfName 'TryFocusOnForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwTryFocusOnForm'
+
+ENDME // ME_507BDC31028B TryFocusOnForm

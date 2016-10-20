@@ -1,0 +1,66 @@
+// TevStyleTreeSearcher 4ADC82E80050 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADC82E80050
+
+ME ME_4ADC8752039B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC82E80050 // TevStyleTreeSearcher
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ADC8752039B 
+
+MEREF ME_4ADC80DC013E_ME_4ADC82E80050_over
+ MELINK Original WL 'ME_4ADC80DC013E' '47F1F94201F6.ms.model.script' // IsStyleFound
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ADC80DC013E_ME_4ADC82E80050_over IsStyleFound
+
+MEREF ME_4ADC80C703AF_ME_4ADC82E80050_G
+ MELINK Original WL 'ME_4ADC80C703AF' '47F1F94201F6.ms.model.script' // TevStyleSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADC80C703AF_ME_4ADC82E80050_G TevStyleSearcher
+
+%%InheritedBy ME_4ADC80C703AF ME_4ADC82E80050
+
+ME ME_4ADC82E80050
+ MEPROP UID '4ADC82E80050'
+ MEPROP Name 'TevStyleTreeSearcher'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ищет любой стиль, наследующийся от заданного' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F1F90A0391' // Searchers
+ ;
+ MELIST Inherits
+   Seq: ( ME_4ADC80C703AF_ME_4ADC82E80050_G // TevStyleSearcher
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ADC80DC013E_ME_4ADC82E80050_over // IsStyleFound
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADC8752039B // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.10.2009 19:17'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTreeSearcher.pas'
+ UP extprop:rc:SelfName 'StyleTreeSearcher'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evStyleTreeSearcher'
+
+ENDME // ME_4ADC82E80050 TevStyleTreeSearcher

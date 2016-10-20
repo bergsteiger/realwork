@@ -1,0 +1,64 @@
+// TalcuRegionAutoExportTask 5404675C01D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5404675C01D2
+
+ME ME_540571C00040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ MELINK Target WL? 'ME_54041EF10040' // TalcuFTPBrowser
+ ;
+
+ENDME // ME_540571C00040 
+
+ME ME_540571C502F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ MELINK Target WL? 'ME_54041EBF03C6' // TalcuFTPBrowserParams
+ ;
+
+ENDME // ME_540571C502F3 
+
+MEREF ME_540466FA008B_ME_5404675C01D2_G
+ MELINK Original WL? 'ME_540466FA008B' // TalcuRegionAutoExportTaskPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_540466FA008B_ME_5404675C01D2_G TalcuRegionAutoExportTaskPrim
+
+%%InheritedBy ME_540466FA008B ME_5404675C01D2
+
+ME ME_5404675C01D2
+ MEPROP UID '5404675C01D2'
+ MEPROP Name 'TalcuRegionAutoExportTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_540466FA008B_ME_5404675C01D2_G // TalcuRegionAutoExportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_540571C00040 // TalcuFTPBrowser
+ ME_540571C502F3 // TalcuFTPBrowserParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionAutoExportTask.pas'
+ UP extprop:rc:SelfName 'alcuRegionAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuRegionAutoExportTask'
+
+ENDME // ME_5404675C01D2 TalcuRegionAutoExportTask

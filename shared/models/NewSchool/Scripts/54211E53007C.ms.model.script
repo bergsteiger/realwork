@@ -5,27 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_54211E53007C
 %%Inner ME_54211E53007C
 
-FORWARD ME_54211E53007C
-
-ME ME_54211E9E038E
- MEPROP UID '54211E9E038E'
- MEPROP Name 'TChromeLikeFormFramePainter'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_54211E53007C // ChromeLikeFormFrameDecorator
- ;
- UP "finished" false
- UP "ifndef" 'NoVGScene, NoVCM'
- UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeFormFramePainter.pas'
- UP extprop:rc:SelfName 'ChromeLikeFormFramePainter'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'ChromeLikeFormFramePainter'
-
-ENDME // ME_54211E9E038E TChromeLikeFormFramePainter
-
 ME ME_54211E53007C
  MEPROP UID '54211E53007C'
  MEPROP Name 'ChromeLikeFormFrameDecorator'
@@ -38,7 +17,7 @@ ME ME_54211E53007C
  ;
  MELIST Children
    Seq: ( WL? 'ME_54211E830399' // TFormFrameDecorator
- HWL ME_54211E9E038E // TChromeLikeFormFramePainter
+ WL? 'ME_54211E9E038E' // TChromeLikeFormFramePainter
  )
  ; // Children
  MELIST Depends

@@ -393,7 +393,7 @@ ME ME_4A9806D7038D
 
 ENDME // ME_4A9806D7038D SetCaption
 
-ME ME_4AE9BF890271_ME_4A98004D0059
+MEREF ME_4AE9BF890271_ME_4A98004D0059_impl
  MELINK Original HWL ME_4AE9BF890271 // Close
  ;
  MEPROP OpKind opkind_Implemented
@@ -405,7 +405,13 @@ ME ME_4AE9BF890271_ME_4A98004D0059
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AE9BF890271_ME_4A98004D0059 Close
+ENDMEREF // ME_4AE9BF890271_ME_4A98004D0059_impl Close
+
+MEREF ME_4AE9BF190048_ME_4A98004D0059_G
+ MELINK Original HWL ME_4AE9BF190048 // AdditionInfo$ForFoldersInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE9BF190048_ME_4A98004D0059_G AdditionInfo$ForFoldersInfo
 
 %%InheritedBy ME_4AE9BF190048 ME_4A98004D0059
 
@@ -420,7 +426,7 @@ ME ME_4A98004D0059
  MELINK Parent HWL ME_4A96A8C10357 // Strange
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4AE9BF190048 // AdditionInfo$ForFoldersInfo
+   Seq: ( ME_4AE9BF190048_ME_4A98004D0059_G // AdditionInfo$ForFoldersInfo
  )
  ; // Inherits
  MELIST Operations
@@ -430,7 +436,7 @@ ME ME_4A98004D0059
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AE9BF890271_ME_4A98004D0059 // Close
+   Seq: ( ME_4AE9BF890271_ME_4A98004D0059_impl // Close
  )
  ; // Implemented
 
@@ -749,7 +755,7 @@ ME ME_4AF814650325
 
 ENDME // ME_4AF814650325 DisableSecurityPage
 
-ME ME_4AE9C01201BA_ME_4AE7070800A4
+MEREF ME_4AE9C01201BA_ME_4AE7070800A4_impl
  MELINK Original HWL ME_4AE9C01201BA // SetState
  ;
  MEPROP OpKind opkind_Implemented
@@ -761,7 +767,13 @@ ME ME_4AE9C01201BA_ME_4AE7070800A4
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AE9C01201BA_ME_4AE7070800A4 SetState
+ENDMEREF // ME_4AE9C01201BA_ME_4AE7070800A4_impl SetState
+
+MEREF ME_4AE9BFEA0177_ME_4AE7070800A4_G
+ MELINK Original HWL ME_4AE9BFEA0177 // FolderElement$ForFoldersInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE9BFEA0177_ME_4AE7070800A4_G FolderElement$ForFoldersInfo
 
 %%InheritedBy ME_4AE9BFEA0177 ME_4AE7070800A4
 
@@ -778,7 +790,7 @@ ME ME_4AE7070800A4
  MELINK Parent HWL ME_4A96A8C10357 // Strange
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4AE9BFEA0177 // FolderElement$ForFoldersInfo
+   Seq: ( ME_4AE9BFEA0177_ME_4AE7070800A4_G // FolderElement$ForFoldersInfo
  )
  ; // Inherits
  MELIST Operations
@@ -793,7 +805,7 @@ ME ME_4AE7070800A4
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AE9C01201BA_ME_4AE7070800A4 // SetState
+   Seq: ( ME_4AE9C01201BA_ME_4AE7070800A4_impl // SetState
  )
  ; // Implemented
 
@@ -1117,7 +1129,7 @@ FORWARD ME_4C7E65BE0317
 ME ME_4C7E65DF016E
  MEPROP UID '4C7E65DF016E'
  MEPROP Name 'Filtrate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1162,7 +1174,7 @@ FORWARD ME_4C7E667200A7
 ME ME_4C7E66850144
  MEPROP UID '4C7E66850144'
  MEPROP Name 'New'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1184,7 +1196,7 @@ ENDME // ME_4C7E66850144 New
 ME ME_4C7E66990246
  MEPROP UID '4C7E66990246'
  MEPROP Name 'AddToControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1206,7 +1218,7 @@ ENDME // ME_4C7E66990246 AddToControl
 ME ME_4C7E66B102FB
  MEPROP UID '4C7E66B102FB'
  MEPROP Name 'DelFromControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1228,7 +1240,7 @@ ENDME // ME_4C7E66B102FB DelFromControl
 ME ME_4C7E66C70264
  MEPROP UID '4C7E66C70264'
  MEPROP Name 'SetShare'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1250,7 +1262,7 @@ ENDME // ME_4C7E66C70264 SetShare
 ME ME_4C7E66DC00F5
  MEPROP UID '4C7E66DC00F5'
  MEPROP Name 'ExportToXML'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1272,7 +1284,7 @@ ENDME // ME_4C7E66DC00F5 ExportToXML
 ME ME_4C7E66F60347
  MEPROP UID '4C7E66F60347'
  MEPROP Name 'ImportFromXML'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1321,7 +1333,7 @@ FORWARD ME_4C7E673800A1
 ME ME_4C7E679702DA
  MEPROP UID '4C7E679702DA'
  MEPROP Name 'Edit'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1343,7 +1355,7 @@ ENDME // ME_4C7E679702DA Edit
 ME ME_4C7E67B301FD
  MEPROP UID '4C7E67B301FD'
  MEPROP Name 'EditExt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1365,7 +1377,7 @@ ENDME // ME_4C7E67B301FD EditExt
 ME ME_4C7E67CE01CB
  MEPROP UID '4C7E67CE01CB'
  MEPROP Name 'Open'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1387,7 +1399,7 @@ ENDME // ME_4C7E67CE01CB Open
 ME ME_4C7E685801E5
  MEPROP UID '4C7E685801E5'
  MEPROP Name 'OpenNewWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1409,7 +1421,7 @@ ENDME // ME_4C7E685801E5 OpenNewWindow
 ME ME_4C7E68D602DB
  MEPROP UID '4C7E68D602DB'
  MEPROP Name 'ControlStatus'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1431,7 +1443,7 @@ ENDME // ME_4C7E68D602DB ControlStatus
 ME ME_4C7E68E900DC
  MEPROP UID '4C7E68E900DC'
  MEPROP Name 'ExportForIntegration'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1481,7 +1493,7 @@ FORWARD ME_4C7E69DD02C0
 ME ME_4CB5802D00CB
  MEPROP UID '4CB5802D00CB'
  MEPROP Name 'CreateFilter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Создать фильтр...' ;
@@ -1527,7 +1539,7 @@ FORWARD ME_4C7E6AD102DF
 ME ME_4C7E6AE10291
  MEPROP UID '4C7E6AE10291'
  MEPROP Name 'Open'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1549,7 +1561,7 @@ ENDME // ME_4C7E6AE10291 Open
 ME ME_4C7E6AF2031C
  MEPROP UID '4C7E6AF2031C'
  MEPROP Name 'GiveMark'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1571,7 +1583,7 @@ ENDME // ME_4C7E6AF2031C GiveMark
 ME ME_4C7E6B1A019D
  MEPROP UID '4C7E6B1A019D'
  MEPROP Name 'ShowConsultationInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1593,7 +1605,7 @@ ENDME // ME_4C7E6B1A019D ShowConsultationInfo
 ME ME_4C7E6B310055
  MEPROP UID '4C7E6B310055'
  MEPROP Name 'ImportConsultation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

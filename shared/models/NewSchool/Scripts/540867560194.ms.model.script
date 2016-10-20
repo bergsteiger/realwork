@@ -1,0 +1,50 @@
+// TalcuRegionImportTask 540867560194 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540867560194
+
+ME ME_540867AE00CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540867560194 // TalcuRegionImportTask
+ ;
+ MELINK Target WL? 'ME_540867800117' // TalcuRegionImportTaskResult
+ ;
+
+ENDME // ME_540867AE00CE 
+
+MEREF ME_5408670901C0_ME_540867560194_G
+ MELINK Original WL? 'ME_5408670901C0' // TalcuRegionImportTaskPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5408670901C0_ME_540867560194_G TalcuRegionImportTaskPrim
+
+%%InheritedBy ME_5408670901C0 ME_540867560194
+
+ME ME_540867560194
+ MEPROP UID '540867560194'
+ MEPROP Name 'TalcuRegionImportTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_5408670901C0_ME_540867560194_G // TalcuRegionImportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_540867AE00CE // TalcuRegionImportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionImportTask.pas'
+ UP extprop:rc:SelfName 'alcuRegionImportTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuRegionImportTask'
+
+ENDME // ME_540867560194 TalcuRegionImportTask

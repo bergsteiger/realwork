@@ -1,0 +1,45 @@
+// TcsLineRequestPrim 53B683D900A9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52FA4AD90122_ME_53B683D900A9_G
+ MELINK Original WL 'ME_52FA4AD90122' '52FA4ACA0020.ms.model.script' // TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA4AD90122_ME_53B683D900A9_G TddRequestTask
+
+MEREF ME_53B680A00217_ME_53B683D900A9_R
+ MELINK Original WL 'ME_53B680A00217' '484A470100DD.ms.model.script' // LineRequest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B680A00217_ME_53B683D900A9_R LineRequest
+
+%%ImplementedBy ME_53B680A00217 ME_53B683D900A9
+
+%%InheritedBy ME_52FA4AD90122 ME_53B683D900A9
+
+ME ME_53B683D900A9
+ MEPROP UID '53B683D900A9'
+ MEPROP Name 'TcsLineRequestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA4AD90122_ME_53B683D900A9_G // TddRequestTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B680A00217_ME_53B683D900A9_R // LineRequest
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csLineRequestPrim.pas'
+ UP extprop:rc:SelfName 'csLineRequestPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csLineRequestPrim'
+
+ENDME // ME_53B683D900A9 TcsLineRequestPrim

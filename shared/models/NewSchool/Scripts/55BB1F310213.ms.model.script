@@ -1,0 +1,576 @@
+// TddRTFExpandedTextWriter 55BB1F310213 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55BB1F310213
+%%Inner ME_55BB1F310213
+%%Inner ME_55BB1F310213
+
+FORWARD ME_55BB1F310213
+
+FORWARD ME_56FA1B5B034D
+
+ME ME_56FA1B720090
+ MEPROP UID '56FA1B720090'
+ MEPROP Name 'dd_cbExpand'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56FA1B5B034D // TddCollapsed
+ ;
+
+ENDME // ME_56FA1B720090 dd_cbExpand
+
+ME ME_56FA1B7D00B5
+ MEPROP UID '56FA1B7D00B5'
+ MEPROP Name 'dd_cbCollapsed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56FA1B5B034D // TddCollapsed
+ ;
+
+ENDME // ME_56FA1B7D00B5 dd_cbCollapsed
+
+ME ME_56FA1B870011
+ MEPROP UID '56FA1B870011'
+ MEPROP Name 'dd_cbParentCollapsed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56FA1B5B034D // TddCollapsed
+ ;
+
+ENDME // ME_56FA1B870011 dd_cbParentCollapsed
+
+ME ME_56FA1B5B034D
+ MEPROP UID '56FA1B5B034D'
+ MEPROP Name 'TddCollapsed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56FA1B720090 // dd_cbExpand
+ HWL ME_56FA1B7D00B5 // dd_cbCollapsed
+ HWL ME_56FA1B870011 // dd_cbParentCollapsed
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56FA1B5B034D TddCollapsed
+
+FORWARD ME_55BB29ED03B6
+
+ME ME_55BB2A1801BD
+ MEPROP UID '55BB2A1801BD'
+ MEPROP Name 'StyleID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB29ED03B6 // TddBlockInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55BB2A1801BD StyleID
+
+ME ME_55BB2A220369
+ MEPROP UID '55BB2A220369'
+ MEPROP Name 'Collapsed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB29ED03B6 // TddBlockInfo
+ ;
+ MELINK Target HWL ME_56FA1B5B034D // TddCollapsed
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55BB2A220369 Collapsed
+
+ME ME_55BB822F0125
+ MEPROP UID '55BB822F0125'
+ MEPROP Name 'ParaID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB29ED03B6 // TddBlockInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55BB822F0125 ParaID
+
+MEREF ME_479731C50290_ME_55BB29ED03B6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55BB29ED03B6_over Cleanup
+
+MEREF ME_47A042E100E2_ME_55BB29ED03B6_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_55BB29ED03B6_over InitFields
+
+MEREF ME_4A54DD4E036F_ME_55BB29ED03B6_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55BB29ED03B6_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_4A54DD4E036F ME_55BB29ED03B6
+
+ME ME_55BB29ED03B6
+ MEPROP UID '55BB29ED03B6'
+ MEPROP Name 'TddBlockInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Свойства блока, нужные для выливки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_55BB29ED03B6_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55BB2A1801BD // StyleID
+ HWL ME_55BB2A220369 // Collapsed
+ HWL ME_55BB822F0125 // ParaID
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55BB29ED03B6_over // Cleanup
+ ME_47A042E100E2_ME_55BB29ED03B6_over // InitFields
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ddBlockInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55BB29ED03B6 TddBlockInfo
+
+FORWARD ME_55BB2AA70029
+
+ME ME_55BB2AFD005A
+ MEPROP UID '55BB2AFD005A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB2AA70029 // TddBlockInfoStack
+ ;
+ MELINK Target HWL ME_55BB29ED03B6 // TddBlockInfo
+ ;
+
+ENDME // ME_55BB2AFD005A ItemType
+
+MEREF ME_47B2C42A0163_ME_55BB2AA70029_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_55BB2AA70029_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_55BB2AA70029_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_55BB2AA70029_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_55BB2AA70029_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_55BB2AA70029_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_55BB2AA70029_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55BB2AA70029_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_55BB2AA70029
+%%InheritedBy ME_4A54DD4E036F ME_55BB2AA70029
+
+ME ME_55BB2AA70029
+ MEPROP UID '55BB2AA70029'
+ MEPROP Name 'TddBlockInfoStack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_55BB2AA70029_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_55BB2AA70029_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55BB2AFD005A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_55BB2AA70029_impl // AssignItem
+ ME_47B99D4503A2_ME_55BB2AA70029_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'ddBlockInfoStack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55BB2AA70029 TddBlockInfoStack
+
+ME ME_55BB2B20013B
+ MEPROP UID '55BB2B20013B'
+ MEPROP Name 'f_BlockStack'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target HWL ME_55BB2AA70029 // TddBlockInfoStack
+ ;
+
+ENDME // ME_55BB2B20013B f_BlockStack
+
+ME ME_55BB3C27015F
+ MEPROP UID '55BB3C27015F'
+ MEPROP Name 'f_StyledSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_55BB3C27015F f_StyledSpace
+
+ME ME_55BF8891028F
+ MEPROP UID '55BF8891028F'
+ MEPROP Name 'f_AddBlockStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55BF8891028F f_AddBlockStyle
+
+FORWARD ME_55BB652A0311
+
+ME ME_55BB663700A1
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55BB663700A1 aStyle
+
+ME ME_55BB65B7000D
+ MEPROP UID '55BB65B7000D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BB652A0311 // NeedCheckCollapsed
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55BB663700A1 // aStyle
+ )
+ ; // Parameters
+
+ENDME // ME_55BB65B7000D DoIt
+
+ME ME_55BB652A0311
+ MEPROP UID '55BB652A0311'
+ MEPROP Name 'NeedCheckCollapsed'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55BB65B7000D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55BB652A0311 NeedCheckCollapsed
+
+FORWARD ME_55BF76DD00EB
+
+ME ME_55BF77230343
+ MEPROP Name 'aStyleID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55BF77230343 aStyleID
+
+ME ME_55BF770F0019
+ MEPROP UID '55BF770F0019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BF76DD00EB // GetStyleLeftIndent
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_55BF77230343 // aStyleID
+ )
+ ; // Parameters
+
+ENDME // ME_55BF770F0019 DoIt
+
+ME ME_55BF76DD00EB
+ MEPROP UID '55BF76DD00EB'
+ MEPROP Name 'GetStyleLeftIndent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55BF770F0019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55BF76DD00EB GetStyleLeftIndent
+
+ME ME_55BB38F2021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55BB38F2021C 
+
+ME ME_55BB41640238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_47AC759800AF' '47AC75550330.ms.model.script' // ExtTags
+ ;
+
+ENDME // ME_55BB41640238 
+
+ME ME_55BB42A90127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL? 'ME_530F1BCA00B2' // Tk2VariantImpl
+ ;
+
+ENDME // ME_55BB42A90127 
+
+ME ME_55BB458E020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_55BB458E020D 
+
+ME ME_55BF775602E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_51DD5C720260' '52CFA9D5031E.ms.model.script' // Common
+ ;
+
+ENDME // ME_55BF775602E2 
+
+ME ME_55BF7BEB02C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55BB1F310213 // TddRTFExpandedTextWriter
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+
+ENDME // ME_55BF7BEB02C6 
+
+MEREF ME_479731C50290_ME_55BB1F310213_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55BB1F310213_over Cleanup
+
+MEREF ME_4836D4650177_ME_55BB1F310213_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_55BB1F310213_over StartChild
+
+MEREF ME_55BB1FC300A2_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB1FC300A2' '4E1C271501E5.ms.model.script' // DoStartBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB1FC300A2_ME_55BB1F310213_over DoStartBlock
+
+MEREF ME_55BB200700A0_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB200700A0' '4E1C271501E5.ms.model.script' // DoCloseBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB200700A0_ME_55BB1F310213_over DoCloseBlock
+
+MEREF ME_55BB2C2E01BD_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB2C2E01BD' '4E1C271501E5.ms.model.script' // Apply2Sub
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB2C2E01BD_ME_55BB1F310213_over Apply2Sub
+
+MEREF ME_55BB394E0074_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB394E0074' '4E1C271501E5.ms.model.script' // DoStartDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB394E0074_ME_55BB1F310213_over DoStartDocument
+
+MEREF ME_55BB58F60134_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB58F60134' '4E1C271501E5.ms.model.script' // BlockIndent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB58F60134_ME_55BB1F310213_over BlockIndent
+
+MEREF ME_55BB59B0034D_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55BB59B0034D' '4E1C271501E5.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55BB59B0034D_ME_55BB1F310213_over NeedWritePara
+
+MEREF ME_55C092BD009D_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55C092BD009D' '4E1C271501E5.ms.model.script' // IgnoreLeftIndent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55C092BD009D_ME_55BB1F310213_over IgnoreLeftIndent
+
+MEREF ME_55E97B4602E4_ME_55BB1F310213_over
+ MELINK Original WL 'ME_55E97B4602E4' '4E1C271501E5.ms.model.script' // CheckFilterPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55E97B4602E4_ME_55BB1F310213_over CheckFilterPara
+
+MEREF ME_52DCDD6201E9_ME_55BB1F310213_G
+ MELINK Original WL? 'ME_52DCDD6201E9' // TddRTFSegmentWriter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52DCDD6201E9_ME_55BB1F310213_G TddRTFSegmentWriter
+
+%%InheritedBy ME_52DCDD6201E9 ME_55BB1F310213
+
+ME ME_55BB1F310213
+ MEPROP UID '55BB1F310213'
+ MEPROP Name 'TddRTFExpandedTextWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F4BA770180' // Writers
+ ;
+ MELIST Inherits
+   Seq: ( ME_52DCDD6201E9_ME_55BB1F310213_G // TddRTFSegmentWriter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55BB2B20013B // f_BlockStack
+ HWL ME_55BB3C27015F // f_StyledSpace
+ HWL ME_55BF8891028F // f_AddBlockStyle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55BB652A0311 // NeedCheckCollapsed
+ HWL ME_55BF76DD00EB // GetStyleLeftIndent
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55BB1F310213_over // Cleanup
+ ME_4836D4650177_ME_55BB1F310213_over // StartChild
+ ME_55BB1FC300A2_ME_55BB1F310213_over // DoStartBlock
+ ME_55BB200700A0_ME_55BB1F310213_over // DoCloseBlock
+ ME_55BB2C2E01BD_ME_55BB1F310213_over // Apply2Sub
+ ME_55BB394E0074_ME_55BB1F310213_over // DoStartDocument
+ ME_55BB58F60134_ME_55BB1F310213_over // BlockIndent
+ ME_55BB59B0034D_ME_55BB1F310213_over // NeedWritePara
+ ME_55C092BD009D_ME_55BB1F310213_over // IgnoreLeftIndent
+ ME_55E97B4602E4_ME_55BB1F310213_over // CheckFilterPara
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_56FA1B5B034D // TddCollapsed
+ HWL ME_55BB29ED03B6 // TddBlockInfo
+ HWL ME_55BB2AA70029 // TddBlockInfoStack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55BB38F2021C // FreeAndNil
+ ME_55BB41640238 // ExtTags
+ ME_55BB42A90127 // Tk2VariantImpl
+ ME_55BB458E020D // Standard
+ ME_55BF775602E2 // Common
+ ME_55BF7BEB02C6 // TddStyleEntry
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFExpandedTextWriter.pas'
+ UP extprop:rc:SelfName 'ddRTFExpandedTextWriter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRTFExpandedTextWriter'
+
+ENDME // ME_55BB1F310213 TddRTFExpandedTextWriter

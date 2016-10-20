@@ -1,0 +1,193 @@
+// TnsDocumentPrintEvent 4B0FB5DC03BD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0FB5DC03BD
+
+ME ME_4B0FB60A02E7
+ MEPROP UID '4B0FB60A02E7'
+ MEPROP Name 'f_Doc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0FB5DC03BD // TnsDocumentPrintEvent
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B0FB60A02E7 f_Doc
+
+ME ME_4B0FB616039E
+ MEPROP UID '4B0FB616039E'
+ MEPROP Name 'f_Selection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B0FB5DC03BD // TnsDocumentPrintEvent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FB616039E f_Selection
+
+ME ME_4B0FB6400168
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B0FB6400168 aDoc
+
+ME ME_4B0FB6400197
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FB6400197 aSelection
+
+ME ME_4B0FB62D03D7
+ MEPROP UID '4B0FB62D03D7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0FB5DC03BD // TnsDocumentPrintEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0FB6400168 // aDoc
+ ME_4B0FB6400197 // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_4B0FB62D03D7 Create
+
+ME ME_4B0FB65402AF
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B0FB65402AF aDoc
+
+ME ME_4B0FB65402DE
+ MEPROP Name 'aSelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B0FB65402DE aSelection
+
+ME ME_4B0FB64F0140
+ MEPROP UID '4B0FB64F0140'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B0FB5DC03BD // TnsDocumentPrintEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0FB65402AF // aDoc
+ ME_4B0FB65402DE // aSelection
+ )
+ ; // Parameters
+
+ENDME // ME_4B0FB64F0140 Make
+
+ME ME_4B0FB5FC00DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0FB5DC03BD // TnsDocumentPrintEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B0FB5FC00DB 
+
+MEREF ME_4B0FA5CB0254_ME_4B0FB5DC03BD_impl
+ MELINK Original WL 'ME_4B0FA5CB0254' '49913F2C020C.ms.model.script' // FireLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B0FA5CB0254_ME_4B0FB5DC03BD_impl FireLog
+
+MEREF ME_479731C50290_ME_4B0FB5DC03BD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B0FB5DC03BD_over Cleanup
+
+MEREF ME_4B0A6109010C_ME_4B0FB5DC03BD_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0FB5DC03BD_G TnsLogEvent
+
+MEREF ME_4B0FA5B8011B_ME_4B0FB5DC03BD_R
+ MELINK Original WL 'ME_4B0FA5B8011B' '49913F2C020C.ms.model.script' // InsDefferedEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0FA5B8011B_ME_4B0FB5DC03BD_R InsDefferedEvent
+
+%%ImplementedBy ME_4B0FA5B8011B ME_4B0FB5DC03BD
+
+%%InheritedBy ME_4B0A6109010C ME_4B0FB5DC03BD
+
+ME ME_4B0FB5DC03BD
+ MEPROP UID '4B0FB5DC03BD'
+ MEPROP Name 'TnsDocumentPrintEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_4B0FB5DC03BD_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B0FA5B8011B_ME_4B0FB5DC03BD_R // InsDefferedEvent
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B0FB60A02E7 // f_Doc
+ HWL ME_4B0FB616039E // f_Selection
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B0FB62D03D7 // Create
+ HWL ME_4B0FB64F0140 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B0FA5CB0254_ME_4B0FB5DC03BD_impl // FireLog
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B0FB5DC03BD_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B0FB5FC00DB // LogEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentPrintEvent.pas'
+ UP extprop:rc:SelfName 'DocumentPrintEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDocumentPrintEvent'
+
+ENDME // ME_4B0FB5DC03BD TnsDocumentPrintEvent

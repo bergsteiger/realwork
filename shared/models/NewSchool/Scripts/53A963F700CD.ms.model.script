@@ -1,0 +1,606 @@
+// Tk2Attributes 53A963F700CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A963F700CD
+
+FORWARD ME_53A963F700CD
+
+FORWARD ME_53A9648F013C
+
+ME ME_53A964EE0021
+ MEPROP UID '53A964EE0021'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A964EE0021 rName
+
+ME ME_53A964F901E1
+ MEPROP UID '53A964F901E1'
+ MEPROP Name 'rID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A964F901E1 rID
+
+ME ME_53A994DD017A
+ MEPROP UID '53A994DD017A'
+ MEPROP Name 'rIsAlias'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53A994DD017A rIsAlias
+
+FORWARD ME_53A965100324
+
+ME ME_53A965260151
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_53A9648F013C // Tk2Attribute
+ ;
+
+ENDME // ME_53A965260151 anOther
+
+ME ME_53A9651B03B7
+ MEPROP UID '53A9651B03B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A965100324 // Compare
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A965260151 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_53A9651B03B7 DoIt
+
+ME ME_53A965100324
+ MEPROP UID '53A965100324'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A9651B03B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A965100324 Compare
+
+FORWARD ME_53A9654E0056
+
+ME ME_53A9656002E8
+ MEPROP Name 'aTagID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53A9656002E8 aTagID
+
+ME ME_53A965580368
+ MEPROP UID '53A965580368'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9654E0056 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A9656002E8 // aTagID
+ )
+ ; // Parameters
+
+ENDME // ME_53A965580368 DoIt
+
+ME ME_53A9654E0056
+ MEPROP UID '53A9654E0056'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A965580368 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A9654E0056 C
+
+FORWARD ME_53A96C5502B0
+
+ME ME_53A96C6900F4
+ MEPROP Name 'aTagID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53A96C6900F4 aTagID
+
+ME ME_53A96C69011B
+ MEPROP Name 'anAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A96C69011B anAlias
+
+ME ME_53A96C600072
+ MEPROP UID '53A96C600072'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A96C5502B0 // C$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A96C6900F4 // aTagID
+ ME_53A96C69011B // anAlias
+ )
+ ; // Parameters
+
+ENDME // ME_53A96C600072 DoIt
+
+ME ME_53A96C5502B0
+ MEPROP UID '53A96C5502B0'
+ MEPROP Name 'C'
+ MEPROP OriginalName 'C$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A96C600072 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A96C5502B0 C$1
+
+FORWARD ME_53A988CC00D2
+
+ME ME_53A988DE02D0
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A988DE02D0 aName
+
+ME ME_53A988D603D4
+ MEPROP UID '53A988D603D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A988CC00D2 // ForFind
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A988DE02D0 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53A988D603D4 DoIt
+
+ME ME_53A988CC00D2
+ MEPROP UID '53A988CC00D2'
+ MEPROP Name 'ForFind'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A988D603D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A988CC00D2 ForFind
+
+FORWARD ME_53A99219013B
+
+ME ME_53A99233001F
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A99233001F anID
+
+ME ME_53A99233003A
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A99233003A aName
+
+ME ME_53A99226005B
+ MEPROP UID '53A99226005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A99219013B // New
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A99233001F // anID
+ ME_53A99233003A // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53A99226005B DoIt
+
+ME ME_53A99219013B
+ MEPROP UID '53A99219013B'
+ MEPROP Name 'New'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A99226005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A99219013B New
+
+ME ME_53A96C4300C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A9648F013C // Tk2Attribute
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_53A96C4300C4 
+
+ME ME_53A9648F013C
+ MEPROP UID '53A9648F013C'
+ MEPROP Name 'Tk2Attribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A964EE0021 // rName
+ HWL ME_53A964F901E1 // rID
+ HWL ME_53A994DD017A // rIsAlias
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A965100324 // Compare
+ HWL ME_53A9654E0056 // C
+ HWL ME_53A96C5502B0 // C$1
+ HWL ME_53A988CC00D2 // ForFind
+ HWL ME_53A99219013B // New
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53A96C4300C4 // TTypeInfo
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Attribute'
+
+ENDME // ME_53A9648F013C Tk2Attribute
+
+ME ME_53A9649C02F2
+ MEPROP UID '53A9649C02F2'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELINK Target HWL ME_53A9648F013C // Tk2Attribute
+ ;
+
+ENDME // ME_53A9649C02F2 ItemType
+
+ME ME_53A991C10230
+ MEPROP UID '53A991C10230'
+ MEPROP Name 'f_IDDelta'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A991C10230 f_IDDelta
+
+FORWARD ME_53A9843302D9
+
+ME ME_53A9868D0396
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A9868D0396 aName
+
+ME ME_53A984650030
+ MEPROP UID '53A984650030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9843302D9 // IDByName
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A9868D0396 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53A984650030 DoIt
+
+ME ME_53A9843302D9
+ MEPROP UID '53A9843302D9'
+ MEPROP Name 'IDByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A984650030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A9843302D9 IDByName
+
+FORWARD ME_53A9847000CA
+
+ME ME_53A986960031
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A986960031 anID
+
+ME ME_53A9847B0118
+ MEPROP UID '53A9847B0118'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A9847000CA // NameByID
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A986960031 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_53A9847B0118 DoIt
+
+ME ME_53A9847000CA
+ MEPROP UID '53A9847000CA'
+ MEPROP Name 'NameByID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A9847B0118 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A9847000CA NameByID
+
+FORWARD ME_53A991E60226
+
+ME ME_53A992070373
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53A992070373 aName
+
+ME ME_53A991FB03DB
+ MEPROP UID '53A991FB03DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A991E60226 // CheckIDByName
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A992070373 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53A991FB03DB DoIt
+
+ME ME_53A991E60226
+ MEPROP UID '53A991E60226'
+ MEPROP Name 'CheckIDByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A991FB03DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A991E60226 CheckIDByName
+
+ME ME_53A9642F03D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A963F700CD // Tk2Attributes
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53A9642F03D3 
+
+MEREF ME_47B07CF403D0_ME_53A963F700CD_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_53A963F700CD_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_53A963F700CD_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_53A963F700CD_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_53A963F700CD_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_53A963F700CD_impl CompareExistingItems
+
+MEREF ME_47A042E100E2_ME_53A963F700CD_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_53A963F700CD_over InitFields
+
+MEREF ME_4A54DD4E036F_ME_53A963F700CD_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53A963F700CD_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_53A963F700CD_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_53A963F700CD_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_53A963F700CD
+%%InheritedBy ME_4B223ADC02BF ME_53A963F700CD
+
+ME ME_53A963F700CD
+ MEPROP UID '53A963F700CD'
+ MEPROP Name 'Tk2Attributes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53A963DD0356' // TagAttributes
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_53A963F700CD_G // Tl3ProtoDataContainer
+ ME_4B223ADC02BF_ME_53A963F700CD_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53A9649C02F2 // ItemType
+ HWL ME_53A991C10230 // f_IDDelta
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A9843302D9 // IDByName
+ HWL ME_53A9847000CA // NameByID
+ HWL ME_53A991E60226 // CheckIDByName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_53A963F700CD_impl // IsSameItems
+ ME_47B2C42A0163_ME_53A963F700CD_impl // AssignItem
+ ME_47B99D4503A2_ME_53A963F700CD_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_53A963F700CD_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53A9648F013C // Tk2Attribute
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53A9642F03D3 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2Attributes.pas'
+ UP extprop:rc:SelfName 'Attributes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2Attributes'
+
+ENDME // ME_53A963F700CD Tk2Attributes

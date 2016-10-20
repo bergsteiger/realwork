@@ -1,0 +1,96 @@
+// pop_editor_RepaintTableLinesAndCheckWithEtalon 4FA3BC08027F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FA3BC08027F
+
+ME ME_4FA3CB6A0092
+ MEPROP UID '4FA3CB6A0092'
+ MEPROP Name 'f_ScriptCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4FA3CB6A0092 f_ScriptCaller
+
+ME ME_4FA3CE3F0061
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA3BC08027F // pop_editor_RepaintTableLinesAndCheckWithEtalon
+ ;
+ MELINK Target WL 'ME_4B853D8301E9' '483C378301CB.ms.model.script' // AnsiStartsStr
+ ;
+
+ENDME // ME_4FA3CE3F0061 
+
+MEREF ME_4F4CB81200CA_ME_4FA3BC08027F_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4FA3BC08027F_impl DoWithEditor
+
+MEREF ME_4FA3C6D2025F_ME_4FA3BC08027F_impl
+ MELINK Original WL 'ME_4FA3C6D2025F' '4FA3BB1500BA.ms.model.script' // DoCloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FA3C6D2025F_ME_4FA3BC08027F_impl DoCloseLog
+
+MEREF ME_4F4CB625027A_ME_4FA3BC08027F_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4FA3BC08027F_G TkwEditorFromStackWord
+
+MEREF ME_4FA3BB1500BA_ME_4FA3BC08027F_G
+ MELINK Original WL? 'ME_4FA3BB1500BA' // LinesDrawOutput
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA3BB1500BA_ME_4FA3BC08027F_G LinesDrawOutput
+
+%%InheritedBy ME_4F4CB625027A ME_4FA3BC08027F
+%%InheritedBy ME_4FA3BB1500BA ME_4FA3BC08027F
+
+ME ME_4FA3BC08027F
+ MEPROP UID '4FA3BC08027F'
+ MEPROP Name 'pop_editor_RepaintTableLinesAndCheckWithEtalon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4FA3BC08027F_G // TkwEditorFromStackWord
+ ME_4FA3BB1500BA_ME_4FA3BC08027F_G // LinesDrawOutput
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FA3CB6A0092 // f_ScriptCaller
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4FA3BC08027F_impl // DoWithEditor
+ ME_4FA3C6D2025F_ME_4FA3BC08027F_impl // DoCloseLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FA3CE3F0061 // AnsiStartsStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintTableLinesAndCheckWithEtalon.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorRepaintTableLinesAndCheckWithEtalon'
+ UP extprop:rc:SelfName 'PopEditorRepaintTableLinesAndCheckWithEtalon'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorRepaintTableLinesAndCheckWithEtalon'
+
+ENDME // ME_4FA3BC08027F pop_editor_RepaintTableLinesAndCheckWithEtalon

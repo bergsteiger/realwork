@@ -1,0 +1,184 @@
+// TatUserComment 4B6AE7650002 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B6AE7650002
+
+FORWARD ME_4B6AE7650002
+
+FORWARD ME_48400B7E0236
+
+ME ME_484415F90238
+ MEPROP UID '484415F90238'
+ MEPROP Name 'CommentText'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_48400B7E0236 // IatUserComment
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_484415F90238 CommentText
+
+ME ME_48400B7E0236
+ MEPROP UID '48400B7E0236'
+ MEPROP GUID '4154A018-1A3E-4640-997F-FD9B825F8618'
+ MEPROP Name 'IatUserComment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_484415F90238 // CommentText
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'atUserComment'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48400B7E0236 IatUserComment
+
+ME ME_4B6AE8560374
+ MEPROP UID '4B6AE8560374'
+ MEPROP Name 'f_CommentText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B6AE8560374 f_CommentText
+
+ME ME_4B7A9881013C
+ MEPROP UID '4B7A9881013C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELINK Target HWL ME_48400B7E0236 // IatUserComment
+ ;
+
+ENDME // ME_4B7A9881013C Make
+
+ME ME_4B6AF0940324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4B6AF0940324 
+
+ME ME_4B6AF098007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4B6AF098007E 
+
+ME ME_4B6AF1690278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6AE7650002 // TatUserComment
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4B6AF1690278 
+
+MEREF ME_484415F90238_ME_4B6AE7650002_impl
+ MELINK Original HWL ME_484415F90238 // CommentText
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_484415F90238_ME_4B6AE7650002_impl CommentText
+
+MEREF ME_4B6AE81E0267_ME_4B6AE7650002_impl
+ MELINK Original WL 'ME_4B6AE81E0267' '48400B220217.ms.model.script' // DoGenerate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B6AE81E0267_ME_4B6AE7650002_impl DoGenerate
+
+MEREF ME_48400B220217_ME_4B6AE7650002_G
+ MELINK Original WL? 'ME_48400B220217' // TatBaseEvdHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48400B220217_ME_4B6AE7650002_G TatBaseEvdHelper
+
+MEREF ME_48400B7E0236_ME_4B6AE7650002_R
+ MELINK Original HWL ME_48400B7E0236 // IatUserComment
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48400B7E0236_ME_4B6AE7650002_R IatUserComment
+
+%%ImplementedBy ME_48400B7E0236 ME_4B6AE7650002
+
+%%InheritedBy ME_48400B220217 ME_4B6AE7650002
+
+ME ME_4B6AE7650002
+ MEPROP UID '4B6AE7650002'
+ MEPROP Name 'TatUserComment'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B6AE61900F5' // EvdHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_48400B220217_ME_4B6AE7650002_G // TatBaseEvdHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48400B7E0236_ME_4B6AE7650002_R // IatUserComment
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B6AE8560374 // f_CommentText
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7A9881013C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_484415F90238_ME_4B6AE7650002_impl // CommentText
+ ME_4B6AE81E0267_ME_4B6AE7650002_impl // DoGenerate
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48400B7E0236 // IatUserComment
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B6AF0940324 // Standard
+ ME_4B6AF098007E // Tk2TagID
+ ME_4B6AF1690278 // TextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\EvdHelpers\atUserComment.pas'
+ UP extprop:rc:SelfName 'atUserComment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atUserComment'
+
+ENDME // ME_4B6AE7650002 TatUserComment

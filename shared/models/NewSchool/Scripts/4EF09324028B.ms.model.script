@@ -1,0 +1,41 @@
+// mouse_GetCursorNameByIndex 4EF09324028B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF09324028B
+
+ME ME_4F22B19D0060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF09324028B // mouse_GetCursorNameByIndex
+ ;
+ MELINK Target WL? 'ME_47E11FC3021E' // Controls
+ ;
+
+ENDME // ME_4F22B19D0060 
+
+ME ME_4EF09324028B
+ MEPROP UID '4EF09324028B'
+ MEPROP Name 'mouse_GetCursorNameByIndex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22B19D0060 // Controls
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas'
+ UP extprop:pas:TypeName 'TkwMouseGetCursorNameByIndex'
+ UP extprop:rc:SelfName 'MouseGetCursorNameByIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseGetCursorNameByIndex'
+
+ENDME // ME_4EF09324028B mouse_GetCursorNameByIndex

@@ -1,0 +1,517 @@
+// TChromeLikeFormTabParamsList 552609F40060 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_552609F40060
+
+FORWARD ME_552609F40060
+
+FORWARD ME_55260AB7022B
+
+ME ME_55260AFF035A
+ MEPROP UID '55260AFF035A'
+ MEPROP Name 'f_Params'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55260AB7022B // TChromeLikeFormTabParamsItem
+ ;
+ MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+
+ENDME // ME_55260AFF035A f_Params
+
+ME ME_55260B1C01CA
+ MEPROP UID '55260B1C01CA'
+ MEPROP Name 'f_Form'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55260AB7022B // TChromeLikeFormTabParamsItem
+ ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260B1C01CA f_Form
+
+FORWARD ME_55260B8B0071
+
+ME ME_55260BA20109
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260BA20109 aForm
+
+ME ME_55260BA2011F
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+
+ENDME // ME_55260BA2011F aParams
+
+ME ME_55260B9502FE
+ MEPROP UID '55260B9502FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260B8B0071 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260BA20109 // aForm
+ ME_55260BA2011F // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_55260B9502FE DoIt
+
+ME ME_55260B8B0071
+ MEPROP UID '55260B8B0071'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260AB7022B // TChromeLikeFormTabParamsItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260B9502FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55260B8B0071 Create
+
+MEREF ME_55260B8B0071_ME_55260CCF0274_G
+ MELINK Original HWL ME_55260B8B0071 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55260B8B0071_ME_55260CCF0274_G Create
+
+%%InheritedBy ME_55260B8B0071 ME_55260CCF0274
+
+ME ME_55260CCF0274
+ MEPROP UID '55260CCF0274'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260AB7022B // TChromeLikeFormTabParamsItem
+ ;
+ MELIST Inherits
+   Seq: ( ME_55260B8B0071_ME_55260CCF0274_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_55260CCF0274 Make
+
+MEREF ME_55260C7502E1_ME_55260AB7022B_impl
+ MELINK Original WL 'ME_55260C7502E1' '553213D902E0.ms.model.script' // Params
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_55260C7502E1_ME_55260AB7022B_impl Params
+
+MEREF ME_55260C8102CA_ME_55260AB7022B_impl
+ MELINK Original WL 'ME_55260C8102CA' '553213D902E0.ms.model.script' // Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_55260C8102CA_ME_55260AB7022B_impl Form
+
+MEREF ME_55261F0F00EB_ME_55260AB7022B_impl
+ MELINK Original WL 'ME_55261F0F00EB' '553213D902E0.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55261F0F00EB_ME_55260AB7022B_impl Update
+
+MEREF ME_479731C50290_ME_55260AB7022B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55260AB7022B_over Cleanup
+
+MEREF ME_49E7754802A9_ME_55260AB7022B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55260AB7022B_G Tl3ProtoObject
+
+MEREF ME_55260C3F02C8_ME_55260AB7022B_R
+ MELINK Original WL 'ME_55260C3F02C8' '553213D902E0.ms.model.script' // Il3FormTabParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55260C3F02C8_ME_55260AB7022B_R Il3FormTabParams
+
+%%ImplementedBy ME_55260C3F02C8 ME_55260AB7022B
+
+%%InheritedBy ME_49E7754802A9 ME_55260AB7022B
+
+ME ME_55260AB7022B
+ MEPROP UID '55260AB7022B'
+ MEPROP Name 'TChromeLikeFormTabParamsItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55260AB7022B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55260C3F02C8_ME_55260AB7022B_R // Il3FormTabParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55260AFF035A // f_Params
+ HWL ME_55260B1C01CA // f_Form
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55260B8B0071 // Create
+ HWL ME_55260CCF0274 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55260C7502E1_ME_55260AB7022B_impl // Params
+ ME_55260C8102CA_ME_55260AB7022B_impl // Form
+ ME_55261F0F00EB_ME_55260AB7022B_impl // Update
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55260AB7022B_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ChromeLikeFormTabParamsItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55260AB7022B TChromeLikeFormTabParamsItem
+
+ME ME_55260D3E01F2
+ MEPROP UID '55260D3E01F2'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELINK Target WL 'ME_55260C3F02C8' '553213D902E0.ms.model.script' // Il3FormTabParams
+ ;
+
+ENDME // ME_55260D3E01F2 ItemType
+
+FORWARD ME_55260D5602B1
+
+ME ME_55260DEA02FF
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260DEA02FF aForm
+
+ME ME_55260DEA0312
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+
+ENDME // ME_55260DEA0312 aParams
+
+ME ME_55260D980391
+ MEPROP UID '55260D980391'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260D5602B1 // SetFormParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260DEA02FF // aForm
+ ME_55260DEA0312 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_55260D980391 DoIt
+
+ME ME_55260D5602B1
+ MEPROP UID '55260D5602B1'
+ MEPROP Name 'SetFormParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260D980391 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55260D5602B1 SetFormParams
+
+FORWARD ME_55260D6C0245
+
+ME ME_55260DB3020D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260DB3020D aForm
+
+ME ME_55260DAC0241
+ MEPROP UID '55260DAC0241'
+ MEPROP Name 'DotIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260D6C0245 // GetFormParams
+ ;
+ MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260DB3020D // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_55260DAC0241 DotIt
+
+ME ME_55260D6C0245
+ MEPROP UID '55260D6C0245'
+ MEPROP Name 'GetFormParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260DAC0241 // DotIt
+ )
+ ; // Operations
+
+ENDME // ME_55260D6C0245 GetFormParams
+
+FORWARD ME_55260DC5010D
+
+ME ME_55260DDA0391
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260DDA0391 aForm
+
+ME ME_55260DD502A9
+ MEPROP UID '55260DD502A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260DC5010D // DeleteFormParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260DDA0391 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_55260DD502A9 DoIt
+
+ME ME_55260DC5010D
+ MEPROP UID '55260DC5010D'
+ MEPROP Name 'DeleteFormParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260DD502A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55260DC5010D DeleteFormParams
+
+FORWARD ME_55260E100131
+
+ME ME_55260E2702C2
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260E2702C2 aForm
+
+ME ME_55260E1A004C
+ MEPROP UID '55260E1A004C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260E100131 // FindFormTabParams
+ ;
+ MELINK Target WL 'ME_55260C3F02C8' '553213D902E0.ms.model.script' // Il3FormTabParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260E2702C2 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_55260E1A004C DoIt
+
+ME ME_55260E100131
+ MEPROP UID '55260E100131'
+ MEPROP Name 'FindFormTabParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260E1A004C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55260E100131 FindFormTabParams
+
+FORWARD ME_55260E320249
+
+ME ME_55260E4D00DB
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_55260E4D00DB aForm
+
+ME ME_55260E4D0105
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53F2D7D90245' '553213D902E0.ms.model.script' // Il3TabParams
+ ;
+
+ENDME // ME_55260E4D0105 aParams
+
+ME ME_55260E410243
+ MEPROP UID '55260E410243'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55260E320249 // MakeParamsItem
+ ;
+ MELINK Target WL 'ME_55260C3F02C8' '553213D902E0.ms.model.script' // Il3FormTabParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_55260E4D00DB // aForm
+ ME_55260E4D0105 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_55260E410243 DoIt
+
+ME ME_55260E320249
+ MEPROP UID '55260E320249'
+ MEPROP Name 'MakeParamsItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552609F40060 // TChromeLikeFormTabParamsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55260E410243 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55260E320249 MakeParamsItem
+
+MEREF ME_47B57D830369_ME_552609F40060_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_552609F40060_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_552609F40060_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_552609F40060_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_552609F40060
+%%InheritedBy ME_4A54DD4E036F ME_552609F40060
+
+ME ME_552609F40060
+ MEPROP UID '552609F40060'
+ MEPROP Name 'TChromeLikeFormTabParamsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533E6F73014E' // ChromeLikeTabSet
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_552609F40060_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_552609F40060_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55260D3E01F2 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55260D5602B1 // SetFormParams
+ HWL ME_55260D6C0245 // GetFormParams
+ HWL ME_55260DC5010D // DeleteFormParams
+ HWL ME_55260E100131 // FindFormTabParams
+ HWL ME_55260E320249 // MakeParamsItem
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_55260AB7022B // TChromeLikeFormTabParamsItem
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormTabParamsList.pas'
+ UP extprop:rc:SelfName 'ChromeLikeFormTabParamsList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChromeLikeFormTabParamsList'
+
+ENDME // ME_552609F40060 TChromeLikeFormTabParamsList

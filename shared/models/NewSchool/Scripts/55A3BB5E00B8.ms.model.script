@@ -4,58 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_55A3BB5E00B8
 
-FORWARD ME_55A3BB5E00B8
-
-FORWARD ME_55A3BBAE01E2
-
-ME ME_55A3BBC7002F
- MEPROP UID '55A3BBC7002F'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55A3BBAE01E2 // TnsDeferredTreeList
- ;
- MELINK Target WL 'ME_4911B284005F' '4990135D02F1.ms.model.script' // InsDeferredTree
- ;
-
-ENDME // ME_55A3BBC7002F ItemType
-
-%%ImplementedBy ME_47B57D830369 ME_55A3BBAE01E2
-
-%%InheritedBy ME_4A54DD4E036F ME_55A3BBAE01E2
-
-ME ME_55A3BBAE01E2
- MEPROP UID '55A3BBAE01E2'
- MEPROP Name 'TnsDeferredTreeList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55A3BB5E00B8 // List
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_47B57D830369' // l3InterfaceRefList
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_55A3BBC7002F // ItemType
- )
- ; // Attributes
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsDeferredTreeList.pas'
- UP extprop:rc:SelfName 'DeferredTreeList'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nsDeferredTreeList'
-
-ENDME // ME_55A3BBAE01E2 TnsDeferredTreeList
-
 ME ME_55A3BB5E00B8
  MEPROP UID '55A3BB5E00B8'
  MEPROP Name 'List'
@@ -67,7 +15,7 @@ ME ME_55A3BB5E00B8
  MELINK Parent WL? 'ME_4A9FFD3F01AD' // Search
  ;
  MELIST Children
-   Seq: ( HWL ME_55A3BBAE01E2 // TnsDeferredTreeList
+   Seq: ( WL? 'ME_55A3BBAE01E2' // TnsDeferredTreeList
  )
  ; // Children
  MELIST Depends

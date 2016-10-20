@@ -1,0 +1,181 @@
+// TmsmModelService 57E538DB0262 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57E538DB0262
+
+FORWARD ME_57E538DB0262
+
+FORWARD ME_7B7454AF831D
+
+FORWARD ME_57E5392F0101
+
+ME ME_1DD1AF01B3B1
+ MEPROP UID '1DD1AF01B3B1'
+ MEPROP Name 'ModelRoot'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_7B7454AF831D // MmsmModelService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UPLINK Speller HWL ME_57E5392F0101 // ModelRoot
+ ;
+
+ENDME // ME_1DD1AF01B3B1 ModelRoot
+
+FORWARD ME_57E5393C00B8
+
+ME ME_2759BF5BC349
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_2759BF5BC349 aValue
+
+ME ME_3CE0C97271C6
+ MEPROP UID '3CE0C97271C6'
+ MEPROP Name 'SetModelRoot'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_7B7454AF831D // MmsmModelService
+ ;
+ MELIST Parameters
+   Seq: ( ME_2759BF5BC349 // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57E5393C00B8 // SetModelRoot
+ ;
+
+ENDME // ME_3CE0C97271C6 SetModelRoot
+
+ME ME_7B7454AF831D
+ MEPROP UID '7B7454AF831D'
+ MEPROP Name 'MmsmModelService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TmsmModelService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E538DB0262 // TmsmModelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_1DD1AF01B3B1 // ModelRoot
+ HWL ME_3CE0C97271C6 // SetModelRoot
+ )
+ ; // Operations
+
+ENDME // ME_7B7454AF831D MmsmModelService
+
+ME ME_57E539650294
+ MEPROP UID '57E539650294'
+ MEPROP Name 'f_ModelRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E538DB0262 // TmsmModelService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57E539650294 f_ModelRoot
+
+ME ME_57E5392F0101
+ MEPROP UID '57E5392F0101'
+ MEPROP Name 'ModelRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E538DB0262 // TmsmModelService
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57E5392F0101 ModelRoot
+
+ME ME_57E53947030F
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57E53947030F aValue
+
+ME ME_57E5393C00B8
+ MEPROP UID '57E5393C00B8'
+ MEPROP Name 'SetModelRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E538DB0262 // TmsmModelService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E53947030F // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57E5393C00B8 SetModelRoot
+
+MEREF ME_49E7754802A9_ME_57E538DB0262_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57E538DB0262_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57E538DB0262
+
+ME ME_57E538DB0262
+ MEPROP UID '57E538DB0262'
+ MEPROP Name 'TmsmModelService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57E538DB0262_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E539650294 // f_ModelRoot
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E5392F0101 // ModelRoot
+ HWL ME_57E5393C00B8 // SetModelRoot
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_7B7454AF831D // MmsmModelService
+ )
+ ; // Children
+ MELIST Injected
+   Seq: ( WL 'ME_57EE6C6B02FD' '57EE6C5602EB.ms.model.script' // msmModelServicePack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelService.pas'
+ UP extprop:rc:SelfName 'msmModelService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmModelService'
+
+ENDME // ME_57E538DB0262 TmsmModelService

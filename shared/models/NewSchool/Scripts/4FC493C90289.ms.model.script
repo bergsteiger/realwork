@@ -1,0 +1,218 @@
+// TevRow 4FC493C90289 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FC493C90289
+
+FORWARD ME_4FC4942400EF
+
+ME ME_5342B8480290
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5342B8480290 aView
+
+ME ME_5342B84802EA
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_5342B84802EA aTable
+
+ME ME_5342B8480326
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B8480326 aTagWrap
+
+ME ME_5342B848035C
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_5342B848035C aProcessor
+
+ME ME_5342B84803B1
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5342B84803B1 aLocation
+
+ME ME_4FC49437020F
+ MEPROP UID '4FC49437020F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC4942400EF // Make
+ ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B8480290 // aView
+ ME_5342B84802EA // aTable
+ ME_5342B8480326 // aTagWrap
+ ME_5342B848035C // aProcessor
+ ME_5342B84803B1 // aLocation
+ )
+ ; // Parameters
+
+ENDME // ME_4FC49437020F DoIt
+
+ME ME_4FC4942400EF
+ MEPROP UID '4FC4942400EF'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC493C90289 // TevRow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC49437020F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4FC4942400EF Make
+
+ME ME_4FC495EB0359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC493C90289 // TevRow
+ ;
+ MELINK Target WL? 'ME_4FC48D1B02AC' // TevCellsIterator
+ ;
+
+ENDME // ME_4FC495EB0359 
+
+ME ME_4FC49611022B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC493C90289 // TevRow
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4FC49611022B 
+
+ME ME_4FC5D86B03C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC493C90289 // TevRow
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4FC5D86B03C1 
+
+ME ME_515AF4890335
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC493C90289 // TevRow
+ ;
+ MELINK Target WL? 'ME_4C3849220132' // evTableCellUtils
+ ;
+
+ENDME // ME_515AF4890335 
+
+MEREF ME_4BBC94CF038F_ME_4FC493C90289_impl
+ MELINK Original WL 'ME_4BBC94CF038F' '48E3836D00C8.ms.model.script' // Table
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4BBC94CF038F_ME_4FC493C90289_impl Table
+
+MEREF ME_4BBC94F0016E_ME_4FC493C90289_impl
+ MELINK Original WL 'ME_4BBC94F0016E' '48E3836D00C8.ms.model.script' // CellsIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4BBC94F0016E_ME_4FC493C90289_impl CellsIterator
+
+MEREF ME_4FC49F620379_ME_4FC493C90289_impl
+ MELINK Original WL 'ME_4FC49F620379' '48E3836D00C8.ms.model.script' // AnalizeRowCells
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FC49F620379_ME_4FC493C90289_impl AnalizeRowCells
+
+MEREF ME_4FA4F2AA0302_ME_4FC493C90289_G
+ MELINK Original WL 'ME_4FA4F2AA0302' '4F6C2D7901D1.ms.model.script' // TevTableChild
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA4F2AA0302_ME_4FC493C90289_G TevTableChild
+
+MEREF ME_4BBC94B70059_ME_4FC493C90289_R
+ MELINK Original WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBC94B70059_ME_4FC493C90289_R IedRow
+
+%%ImplementedBy ME_4BBC94B70059 ME_4FC493C90289
+
+%%InheritedBy ME_4FA4F2AA0302 ME_4FC493C90289
+
+ME ME_4FC493C90289
+ MEPROP UID '4FC493C90289'
+ MEPROP Name 'TevRow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FA4F2AA0302_ME_4FC493C90289_G // TevTableChild
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBC94B70059_ME_4FC493C90289_R // IedRow
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4FC4942400EF // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC94CF038F_ME_4FC493C90289_impl // Table
+ ME_4BBC94F0016E_ME_4FC493C90289_impl // CellsIterator
+ ME_4FC49F620379_ME_4FC493C90289_impl // AnalizeRowCells
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FC495EB0359 // TevCellsIterator
+ ME_4FC49611022B // l3Free
+ ME_4FC5D86B03C1 // MergeStatus
+ ME_515AF4890335 // evTableCellUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'evNeedEditableCursors'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evRow.pas'
+ UP extprop:rc:SelfName 'Row'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evRow'
+
+ENDME // ME_4FC493C90289 TevRow

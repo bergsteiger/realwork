@@ -1,0 +1,42 @@
+// SearchWin_SaveDocumentList 537076040297 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537076040297
+
+ME ME_53707732029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537076040297 // SearchWin_SaveDocumentList
+ ;
+ MELINK Target WL 'ME_537075A70219' '4E4B5F29031C.ms.model.script' // acSaveDocAs
+ ;
+
+ENDME // ME_53707732029C 
+
+ME ME_537076040297
+ MEPROP UID '537076040297'
+ MEPROP Name 'SearchWin_SaveDocumentList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Формат: '#13#10'{code}'#13#10'aFileName SearchWin:SaveDocumentList'#13#10'{code}'#13#10'Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне выборке. Окно выборки должно быть активно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53707732029C // acSaveDocAs
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwSearchWinSaveDocumentList.pas'
+ UP extprop:pas:TypeName 'TkwSearchWinSaveDocumentList'
+ UP extprop:rc:SelfName 'SearchWinSaveDocumentList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSearchWinSaveDocumentList'
+
+ENDME // ME_537076040297 SearchWin_SaveDocumentList

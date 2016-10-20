@@ -1,0 +1,187 @@
+// TevCellsOffsetsList 509228200297 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509228200297
+
+ME ME_50922ACE019F
+ MEPROP UID '50922ACE019F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_509228200297 // TevCellsOffsetsList
+ ;
+ MELINK Target WL? 'ME_4F2F6CA40273' // TevCellsCharOffsets
+ ;
+
+ENDME // ME_50922ACE019F ItemType
+
+FORWARD ME_50922CA3006F
+
+ME ME_50922CC10232
+ MEPROP Name 'anIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+
+ENDME // ME_50922CC10232 anIterator
+
+ME ME_50922CB40275
+ MEPROP UID '50922CB40275'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50922CA3006F // Try2RemeberWidths
+ ;
+ MELIST Parameters
+   Seq: ( ME_50922CC10232 // anIterator
+ )
+ ; // Parameters
+
+ENDME // ME_50922CB40275 DoIt
+
+ME ME_50922CA3006F
+ MEPROP UID '50922CA3006F'
+ MEPROP Name 'Try2RemeberWidths'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509228200297 // TevCellsOffsetsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50922CB40275 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50922CA3006F Try2RemeberWidths
+
+FORWARD ME_509375AF03C8
+
+ME ME_50937603003C
+ MEPROP Name 'anIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+
+ENDME // ME_50937603003C anIterator
+
+ME ME_50937603005B
+ MEPROP Name 'aForTempate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50937603005B aForTempate
+
+ME ME_509375CA0284
+ MEPROP UID '509375CA0284'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509375AF03C8 // FindList
+ ;
+ MELINK Target WL? 'ME_4F2F6CA40273' // TevCellsCharOffsets
+ ;
+ MELIST Parameters
+   Seq: ( ME_50937603003C // anIterator
+ ME_50937603005B // aForTempate
+ )
+ ; // Parameters
+
+ENDME // ME_509375CA0284 DoIt
+
+ME ME_509375AF03C8
+ MEPROP UID '509375AF03C8'
+ MEPROP Name 'FindList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509228200297 // TevCellsOffsetsList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_509375CA0284 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_509375AF03C8 FindList
+
+MEREF ME_47B2C42A0163_ME_509228200297_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_509228200297_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_509228200297_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_509228200297_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_509228200297_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_509228200297_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_509228200297_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_509228200297_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_509228200297
+%%InheritedBy ME_4A54DD4E036F ME_509228200297
+
+ME ME_509228200297
+ MEPROP UID '509228200297'
+ MEPROP Name 'TevCellsOffsetsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_509228200297_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_509228200297_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50922ACE019F // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50922CA3006F // Try2RemeberWidths
+ HWL ME_509375AF03C8 // FindList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_509228200297_impl // AssignItem
+ ME_47B99D4503A2_ME_509228200297_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
+ UP extprop:rc:SelfName 'CellsOffsetsList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCellsOffsetsList'
+
+ENDME // ME_509228200297 TevCellsOffsetsList

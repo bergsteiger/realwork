@@ -1,0 +1,190 @@
+// TkwDualCompiledWordContainer 4DBAC27801EF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAC27801EF
+
+ME ME_5284E1E90114
+ MEPROP UID '5284E1E90114'
+ MEPROP Name 'f_ElseBranch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5284E1E90114 f_ElseBranch
+
+ME ME_53DB68CF0124
+ MEPROP UID '53DB68CF0124'
+ MEPROP Name 'ElseBranch'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "pm" true
+
+ENDME // ME_53DB68CF0124 ElseBranch
+
+FORWARD ME_4DB6F4CB03BE
+
+ME ME_4DB6F4E40359
+ MEPROP Name 'aIf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4DB6F4E40359 aIf
+
+ME ME_4DB6F4E4039E
+ MEPROP Name 'aElse'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4DB6F4E4039E aElse
+
+ME ME_55645B1702CF
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_55645B1702CF aCtx
+
+ME ME_4DB6F4DA01BF
+ MEPROP UID '4DB6F4DA01BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB6F4CB03BE // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB6F4E40359 // aIf
+ ME_4DB6F4E4039E // aElse
+ ME_55645B1702CF // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4DB6F4DA01BF DoIt
+
+ME ME_4DB6F4CB03BE
+ MEPROP UID '4DB6F4CB03BE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB6F4DA01BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB6F4CB03BE Create
+
+ME ME_4DBAC31D03A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4DBAC31D03A9 
+
+ME ME_4DBACAFF0071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DBACAFF0071 
+
+ME ME_53DA7B8B0160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC27801EF // TkwDualCompiledWordContainer
+ ;
+ MELINK Target WL? 'ME_508528D10384' // TtfwClassRef
+ ;
+
+ENDME // ME_53DA7B8B0160 
+
+MEREF ME_479731C50290_ME_4DBAC27801EF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DBAC27801EF_over Cleanup
+
+MEREF ME_4DB6E4630256_ME_4DBAC27801EF_G
+ MELINK Original WL? 'ME_4DB6E4630256' // TkwCompiledWordContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6E4630256_ME_4DBAC27801EF_G TkwCompiledWordContainer
+
+%%InheritedBy ME_4DB6E4630256 ME_4DBAC27801EF
+
+ME ME_4DBAC27801EF
+ MEPROP UID '4DBAC27801EF'
+ MEPROP Name 'TkwDualCompiledWordContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер для хранения парных скомпилированных слов (begin end)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB6E4630256_ME_4DBAC27801EF_G // TkwCompiledWordContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5284E1E90114 // f_ElseBranch
+ HWL ME_53DB68CF0124 // ElseBranch
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DB6F4CB03BE // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DBAC27801EF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DBAC31D03A9 // l3Set
+ ME_4DBACAFF0071 // FreeAndNil
+ ME_53DA7B8B0160 // TtfwClassRef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '29.04.2011 17:52'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwDualCompiledWordContainer.pas'
+ UP extprop:rc:SelfName 'DualCompiledWordContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDualCompiledWordContainer'
+
+ENDME // ME_4DBAC27801EF TkwDualCompiledWordContainer

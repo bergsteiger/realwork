@@ -1,0 +1,65 @@
+// TevEditorControlFieldList 47CEDDA9005A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CEDDA9005A
+
+ME ME_47CEDDBF023A
+ MEPROP UID '47CEDDBF023A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEDDA9005A // TevEditorControlFieldList
+ ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+
+ENDME // ME_47CEDDBF023A ItemType
+
+MEREF ME_47B57D830369_ME_47CEDDA9005A_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47CEDDA9005A_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47CEDDA9005A_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47CEDDA9005A_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47CEDDA9005A
+%%InheritedBy ME_4A54DD4E036F ME_47CEDDA9005A
+
+ME ME_47CEDDA9005A
+ MEPROP UID '47CEDDA9005A'
+ MEPROP Name 'TevEditorControlFieldList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47CEDDA9005A_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47CEDDA9005A_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47CEDDBF023A // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '05.03.2008 20:52'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evEditorControlFieldList.pas'
+ UP extprop:rc:SelfName 'EditorControlFieldList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evEditorControlFieldList'
+
+ENDME // ME_47CEDDA9005A TevEditorControlFieldList

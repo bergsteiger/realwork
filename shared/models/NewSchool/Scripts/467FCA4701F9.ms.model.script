@@ -1,0 +1,183 @@
+// TnsBaseTagNode 467FCA4701F9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467FCA4701F9
+
+FORWARD ME_4C6CEDA601C5
+
+ME ME_4C6CEDC602B2
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C6CEDC602B2 anIndex
+
+ME ME_4C6CEDC602CB
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A51CF380145' '4678137501EA.ms.model.script' // Ik2Op
+ ;
+
+ENDME // ME_4C6CEDC602CB aContext
+
+ME ME_4C6CEDAD0035
+ MEPROP UID '4C6CEDAD0035'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6CEDA601C5 // BaseDeleteChild
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C6CEDC602B2 // anIndex
+ ME_4C6CEDC602CB // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4C6CEDAD0035 DoIt
+
+ME ME_4C6CEDA601C5
+ MEPROP UID '4C6CEDA601C5'
+ MEPROP Name 'BaseDeleteChild'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_467FCA4701F9 // TnsBaseTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C6CEDAD0035 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C6CEDA601C5 BaseDeleteChild
+
+ME ME_4C6CED1B0052
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C6CED1B0052 anIndex
+
+ME ME_4C6CED1B0083
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C6CED1B0083 aChild
+
+ME ME_4C6CED10018F
+ MEPROP UID '4C6CED10018F'
+ MEPROP Name 'CheckChildDelete'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_467FCA4701F9 // TnsBaseTagNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C6CED1B0052 // anIndex
+ ME_4C6CED1B0083 // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_4C6CED10018F CheckChildDelete
+
+ME ME_4C6CED5E0132
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C6CED5E0132 anIndex
+
+ME ME_4C6CED5E0166
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A51CF380145' '4678137501EA.ms.model.script' // Ik2Op
+ ;
+
+ENDME // ME_4C6CED5E0166 aContext
+
+ME ME_4C6CED4C009B
+ MEPROP UID '4C6CED4C009B'
+ MEPROP Name 'DoDeleteChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_467FCA4701F9 // TnsBaseTagNode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C6CED5E0132 // anIndex
+ ME_4C6CED5E0166 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4C6CED4C009B DoDeleteChild
+
+MEREF ME_4C6CE735026E_ME_467FCA4701F9_over
+ MELINK Original WL 'ME_4C6CE735026E' '53317D14019D.ms.model.script' // DeleteChildPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6CE735026E_ME_467FCA4701F9_over DeleteChildPrim
+
+MEREF ME_467FC49800E8_ME_467FCA4701F9_G
+ MELINK Original WL? 'ME_467FC49800E8' // Tk2HugeTagObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467FC49800E8_ME_467FCA4701F9_G Tk2HugeTagObject
+
+%%InheritedBy ME_467FC49800E8 ME_467FCA4701F9
+
+ME ME_467FCA4701F9
+ MEPROP UID '467FCA4701F9'
+ MEPROP Name 'TnsBaseTagNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая реализация тега на уровне оболочки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_467FC49800E8_ME_467FCA4701F9_G // Tk2HugeTagObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C6CEDA601C5 // BaseDeleteChild
+ HWL ME_4C6CED10018F // CheckChildDelete
+ HWL ME_4C6CED4C009B // DoDeleteChild
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C6CE735026E_ME_467FCA4701F9_over // DeleteChildPrim
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.08.2010 14:33'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBaseTagNode.pas'
+ UP extprop:rc:SelfName 'BaseTagNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBaseTagNode'
+
+ENDME // ME_467FCA4701F9 TnsBaseTagNode

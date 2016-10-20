@@ -1,0 +1,50 @@
+// Tl3CacheableBase 46780E690001 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46780E690001
+
+MEREF ME_47A6FEE600FC_ME_46780E690001_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_46780E690001_over IsCacheable
+
+MEREF ME_47BC391D0259_ME_46780E690001_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_46780E690001_G Tl3SimpleObject
+
+%%InheritedBy ME_47BC391D0259 ME_46780E690001
+
+ME ME_46780E690001
+ MEPROP UID '46780E690001'
+ MEPROP Name 'Tl3CacheableBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для кешируемых объектов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_46780E690001_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_46780E690001_over // IsCacheable
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.04.1998 16:28'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CacheableBase.pas'
+ UP extprop:rc:SelfName 'CacheableBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3CacheableBase'
+
+ENDME // ME_46780E690001 Tl3CacheableBase

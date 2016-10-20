@@ -1,0 +1,87 @@
+// TevQueryCardSelection 48E2466300B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E2466300B3
+
+ME ME_48E258030096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E2466300B3 // TevQueryCardSelection
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48E258030096 
+
+ME ME_48E25846026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E2466300B3 // TevQueryCardSelection
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_48E25846026B 
+
+ME ME_49AE74610233
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E2466300B3 // TevQueryCardSelection
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_49AE74610233 
+
+MEREF ME_48E252D40298_ME_48E2466300B3_over
+ MELINK Original WL 'ME_48E252D40298' '487B5D2D004E.ms.model.script' // DoGetBlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E252D40298_ME_48E2466300B3_over DoGetBlock
+
+MEREF ME_487B5DD202DF_ME_48E2466300B3_G
+ MELINK Original WL? 'ME_487B5DD202DF' // TnevSelection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_487B5DD202DF_ME_48E2466300B3_G TnevSelection
+
+%%InheritedBy ME_487B5DD202DF ME_48E2466300B3
+
+ME ME_48E2466300B3
+ MEPROP UID '48E2466300B3'
+ MEPROP Name 'TevQueryCardSelection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48E225F102A3' // QueryCard
+ ;
+ MELIST Inherits
+   Seq: ( ME_487B5DD202DF_ME_48E2466300B3_G // TnevSelection
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48E252D40298_ME_48E2466300B3_over // DoGetBlock
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E258030096 // Tk2TagID
+ ME_48E25846026B // Operations
+ ME_49AE74610233 // LeafPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '01.11.2005 09:03'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evQueryCardSelection.pas'
+ UP extprop:rc:SelfName 'QueryCardSelection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evQueryCardSelection'
+
+ENDME // ME_48E2466300B3 TevQueryCardSelection

@@ -1,0 +1,235 @@
+// TncsMessageFactory 54539F4702B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54539F4702B1
+
+ME ME_54539F5D03D6
+ MEPROP UID '54539F5D03D6'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL? 'ME_54539F0C00AD' // TncsMessageClassList
+ ;
+
+ENDME // ME_54539F5D03D6 f_List
+
+ME ME_545B868002AF
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5453989A0161' '5453986402AC.ms.model.script' // TncsMessageClass
+ ;
+
+ENDME // ME_545B868002AF aClass
+
+ME ME_545A23D30081
+ MEPROP UID '545A23D30081'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELIST Parameters
+   Seq: ( ME_545B868002AF // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_545A23D30081 Register
+
+ME ME_545B86850353
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5453989A0161' '5453986402AC.ms.model.script' // TncsMessageClass
+ ;
+
+ENDME // ME_545B86850353 aClass
+
+ME ME_545A23FB02E0
+ MEPROP UID '545A23FB02E0'
+ MEPROP Name 'UnRegister'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELIST Parameters
+   Seq: ( ME_545B86850353 // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_545A23FB02E0 UnRegister
+
+ME ME_545A242C01AB
+ MEPROP Name 'aMessageTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_545A242C01AB aMessageTag
+
+ME ME_545A24130098
+ MEPROP UID '545A24130098'
+ MEPROP Name 'Find'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL 'ME_5453989A0161' '5453986402AC.ms.model.script' // TncsMessageClass
+ ;
+ MELIST Parameters
+   Seq: ( ME_545A242C01AB // aMessageTag
+ )
+ ; // Parameters
+
+ENDME // ME_545A24130098 Find
+
+ME ME_545B86710018
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_545B86710018 aStream
+
+ME ME_54538B990208
+ MEPROP UID '54538B990208'
+ MEPROP Name 'MakeFromEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_545B86710018 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_54538B990208 MakeFromEVD
+
+ME ME_545B8677028E
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_545B8677028E aData
+
+ME ME_54538F64032E
+ MEPROP UID '54538F64032E'
+ MEPROP Name 'MakeFromTaggedData'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_545B8677028E // aData
+ )
+ ; // Parameters
+
+ENDME // ME_54538F64032E MakeFromTaggedData
+
+ME ME_545A292E0276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_545A292E0276 
+
+ME ME_545A2BAB00FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54539F4702B1 // TncsMessageFactory
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+
+ENDME // ME_545A2BAB00FD 
+
+MEREF ME_479731C50290_ME_54539F4702B1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54539F4702B1_over Cleanup
+
+MEREF ME_47A042E100E2_ME_54539F4702B1_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_54539F4702B1_over InitFields
+
+MEREF ME_49E7754802A9_ME_54539F4702B1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54539F4702B1_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_54539F4702B1
+
+ME ME_54539F4702B1
+ MEPROP UID '54539F4702B1'
+ MEPROP Name 'TncsMessageFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_54539F4702B1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54539F5D03D6 // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_545A23D30081 // Register
+ HWL ME_545A23FB02E0 // UnRegister
+ HWL ME_545A24130098 // Find
+ HWL ME_54538B990208 // MakeFromEVD
+ HWL ME_54538F64032E // MakeFromTaggedData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54539F4702B1_over // Cleanup
+ ME_47A042E100E2_ME_54539F4702B1_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_545A292E0276 // FreeAndNil
+ ME_545A2BAB00FD // Tl3Duplicates
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageFactory.pas'
+ UP extprop:rc:SelfName 'ncsMessageFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsMessageFactory'
+
+ENDME // ME_54539F4702B1 TncsMessageFactory

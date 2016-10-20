@@ -1,0 +1,62 @@
+// TnsJournalTreeStruct 4A8260EC0099 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8260EC0099
+
+ME ME_4A8274F500E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8260EC0099 // TnsJournalTreeStruct
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4A8274F500E6 
+
+MEREF ME_48FF64F60078_ME_4A8260EC0099_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_4A8260EC0099_impl ReAqurieUnfilteredRoot
+
+MEREF ME_468361010204_ME_4A8260EC0099_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_4A8260EC0099_G TnsDataResetTreeStruct
+
+%%InheritedBy ME_468361010204 ME_4A8260EC0099
+
+ME ME_4A8260EC0099
+ MEPROP UID '4A8260EC0099'
+ MEPROP Name 'TnsJournalTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A825D760190' // WorkJournalImpl
+ ;
+ MELIST Inherits
+   Seq: ( ME_468361010204_ME_4A8260EC0099_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_4A8260EC0099_impl // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4A8274F500E6 // DataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsJournalTreeStruct.pas'
+ UP extprop:rc:SelfName 'JournalTreeStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsJournalTreeStruct'
+
+ENDME // ME_4A8260EC0099 TnsJournalTreeStruct

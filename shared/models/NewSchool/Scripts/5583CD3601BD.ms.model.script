@@ -1,0 +1,74 @@
+// TalcuTaskChangeHelper 5583CD3601BD ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5583CD3601BD
+
+ME ME_5583CD580330
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5583CD3601BD // TalcuTaskChangeHelper
+ ;
+ MELINK Target WL? 'ME_5583BE960064' // TcsTaskChangeHelper
+ ;
+
+ENDME // ME_5583CD580330 
+
+ME ME_5583CD8D0105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5583CD3601BD // TalcuTaskChangeHelper
+ ;
+ MELINK Target WL? 'ME_5583CD7A0364' // alcuMailServer
+ ;
+
+ENDME // ME_5583CD8D0105 
+
+ME ME_5583D6AA0104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5583CD3601BD // TalcuTaskChangeHelper
+ ;
+ MELINK Target WL 'ME_5583D680016C' '5583D62701B8.ms.model.script' // TalcuStatus
+ ;
+
+ENDME // ME_5583D6AA0104 
+
+MEREF ME_49E7754802A9_ME_5583CD3601BD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5583CD3601BD_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5583CD3601BD
+
+ME ME_5583CD3601BD
+ MEPROP UID '5583CD3601BD'
+ MEPROP Name 'TalcuTaskChangeHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_53D656130130' // Server
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5583CD3601BD_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5583CD580330 // TcsTaskChangeHelper
+ ME_5583CD8D0105 // alcuMailServer
+ ME_5583D6AA0104 // TalcuStatus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas'
+ UP extprop:rc:SelfName 'alcuTaskChangeHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuTaskChangeHelper'
+
+ENDME // ME_5583CD3601BD TalcuTaskChangeHelper

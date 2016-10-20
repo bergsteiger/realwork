@@ -1,0 +1,95 @@
+// pop_editor_CursorCoordsToScreen 4FABE1110175 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FABE1110175
+
+ME ME_4FABEA040112
+ MEPROP UID '4FABEA040112'
+ MEPROP Name 'f_Editor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4FABEA040112 f_Editor
+
+ME ME_54F06F0E03B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
+ ;
+ MELINK Target WL? 'ME_48E0E5C1032A' // TnevControl
+ ;
+
+ENDME // ME_54F06F0E03B0 
+
+MEREF ME_479731C50290_ME_4FABE1110175_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FABE1110175_over Cleanup
+
+MEREF ME_4C3C927B027E_ME_4FABE1110175_over
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C3C927B027E_ME_4FABE1110175_over GetPoint
+
+MEREF ME_4F4CB81200CA_ME_4FABE1110175_over
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F4CB81200CA_ME_4FABE1110175_over DoWithEditor
+
+MEREF ME_4F955027033B_ME_4FABE1110175_G
+ MELINK Original WL? 'ME_4F955027033B' // TkwParaCoordsToScreen
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F955027033B_ME_4FABE1110175_G TkwParaCoordsToScreen
+
+%%InheritedBy ME_4F955027033B ME_4FABE1110175
+
+ME ME_4FABE1110175
+ MEPROP UID '4FABE1110175'
+ MEPROP Name 'pop_editor_CursorCoordsToScreen'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F954EC9038E' // MoveMouseByPara
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F955027033B_ME_4FABE1110175_G // TkwParaCoordsToScreen
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FABEA040112 // f_Editor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FABE1110175_over // Cleanup
+ ME_4C3C927B027E_ME_4FABE1110175_over // GetPoint
+ ME_4F4CB81200CA_ME_4FABE1110175_over // DoWithEditor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54F06F0E03B0 // TnevControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCursorCoordsToScreen'
+ UP extprop:rc:SelfName 'PopEditorCursorCoordsToScreen'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCursorCoordsToScreen'
+
+ENDME // ME_4FABE1110175 pop_editor_CursorCoordsToScreen

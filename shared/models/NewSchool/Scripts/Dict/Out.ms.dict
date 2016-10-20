@@ -20,7 +20,11 @@ USES
  SaveVarAndDo.ms.dict
 ;
 
-CONST cPathSep '\'
+USES
+ cPathSep.ms.dict
+;
+
+WordAlias cPathSep cPathSep
 
 FILE CompileTime-VAR g_OutFile nil
 %REMARK 'Текущий файл'
@@ -204,15 +208,34 @@ USES
  MEPrefix.ms.dict
 ;
 
-elem_proc OutWordLink
+USES
+ ModelScriptExt.ms.dict
+;
+
+PROCEDURE .OutWordLinkDef
+  STRING IN aUID
+  STRING IN aName
   STRING IN aDictFileName
  [ 
-  'WL' ' ' 
-  cQuote MEPrefix Self .UID cQuote 
-  ' ' 
-  cQuote aDictFileName cQuote 
-  ' // ' Self .Name
+  if ( aUID ModelScriptExt Cat aDictFileName ?== ) then
+  begin
+   'WL?' ' ' 
+   cQuote MEPrefix aUID cQuote 
+  end // ( aUID ModelScriptExt Cat aDictFileName ?== )
+  else
+  begin
+   'WL' ' ' 
+   cQuote MEPrefix aUID cQuote 
+   ' ' 
+   cQuote aDictFileName cQuote 
+  end // ( aUID ModelScriptExt Cat aDictFileName ?== )
+  ' // ' aName
  ] .Out
+; // .OutWordLinkDef
+
+elem_proc OutWordLink
+  STRING IN aDictFileName
+ Self .UID Self .Name aDictFileName .OutWordLinkDef 
 ; // OutWordLink
 
 PROCEDURE OutSeq:

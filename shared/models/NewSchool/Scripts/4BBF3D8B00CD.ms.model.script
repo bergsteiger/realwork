@@ -1,0 +1,298 @@
+// Tk2ProcessorTagTool 4BBF3D8B00CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BBF3D8B00CD
+
+ME ME_54BD169902EF
+ MEPROP UID '54BD169902EF'
+ MEPROP Name 'Processor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ ;
+ MELINK Target WL 'ME_4A51D59703DF' '4678137501EA.ms.model.script' // Ik2Processor
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_54BD169902EF Processor
+
+FORWARD ME_4BBF40C603BD
+
+ME ME_4BBF40EA0117
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4BBF40EA0117 aTag
+
+ME ME_4BBF40EA0169
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A51D59703DF' '4678137501EA.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_4BBF40EA0169 aProcessor
+
+ME ME_4BBF40D0021D
+ MEPROP UID '4BBF40D0021D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BBF40C603BD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BBF40EA0117 // aTag
+ ME_4BBF40EA0169 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_4BBF40D0021D DoIt
+
+ME ME_4BBF40C603BD
+ MEPROP UID '4BBF40C603BD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BBF40D0021D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BBF40C603BD Create
+
+FORWARD ME_54BD0F310322
+
+ME ME_54BD0F400339
+ MEPROP UID '54BD0F400339'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54BD0F310322 // GetProcessor
+ ;
+ MELINK Target WL 'ME_4A51D59703DF' '4678137501EA.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_54BD0F400339 DoIt
+
+ME ME_54BD0F310322
+ MEPROP UID '54BD0F310322'
+ MEPROP Name 'GetProcessor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54BD0F400339 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54BD0F310322 GetProcessor
+
+FORWARD ME_54BD16B6032F
+
+ME ME_54BD16D7039A
+ MEPROP Name 'OpCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_54BD16D7039A OpCode
+
+ME ME_54BD16D703CC
+ MEPROP Name 'DoLock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_54BD16D703CC DoLock
+
+ME ME_54BD16CB00B2
+ MEPROP UID '54BD16CB00B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54BD16B6032F // StartOp
+ ;
+ MELINK Target WL 'ME_4A51CF380145' '4678137501EA.ms.model.script' // Ik2Op
+ ;
+ MELIST Parameters
+   Seq: ( ME_54BD16D7039A // OpCode
+ ME_54BD16D703CC // DoLock
+ )
+ ; // Parameters
+
+ENDME // ME_54BD16CB00B2 DoIt
+
+ME ME_54BD16B6032F
+ MEPROP UID '54BD16B6032F'
+ MEPROP Name 'StartOp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54BD16CB00B2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54BD16B6032F StartOp
+
+MEREF ME_4BBF40C603BD_ME_54BD284F0204_G
+ MELINK Original HWL ME_4BBF40C603BD // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF40C603BD_ME_54BD284F0204_G Create
+
+MEREF ME_467818430333_ME_54BD284F0204_R
+ MELINK Original WL 'ME_467818430333' '4678137501EA.ms.model.script' // Ik2TagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467818430333_ME_54BD284F0204_R Ik2TagTool
+
+%%ImplementedBy ME_467818430333 ME_54BD284F0204
+
+%%InheritedBy ME_4BBF40C603BD ME_54BD284F0204
+
+ME ME_54BD284F0204
+ MEPROP UID '54BD284F0204'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BBF3D8B00CD // Tk2ProcessorTagTool
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BBF40C603BD_ME_54BD284F0204_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_467818430333_ME_54BD284F0204_R // Ik2TagTool
+ )
+ ; // Implements
+
+ENDME // ME_54BD284F0204 Make
+
+MEREF ME_4BBF42BF004D_ME_4BBF3D8B00CD_impl
+ MELINK Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.ms.model.script' // Processor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4BBF42BF004D_ME_4BBF3D8B00CD_impl Processor
+
+MEREF ME_479731C50290_ME_4BBF3D8B00CD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4BBF3D8B00CD_over Cleanup
+
+MEREF ME_48CF73CE00B5_ME_4BBF3D8B00CD_over
+ MELINK Original WL 'ME_48CF73CE00B5' '467C185C03E7.ms.model.script' // DoFire
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48CF73CE00B5_ME_4BBF3D8B00CD_over DoFire
+
+MEREF ME_4A60B23E00C3_ME_4BBF3D8B00CD_over
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A60B23E00C3_ME_4BBF3D8B00CD_over COMQueryInterface
+
+MEREF ME_467C18A303CB_ME_4BBF3D8B00CD_G
+ MELINK Original WL? 'ME_467C18A303CB' // Tk2TagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C18A303CB_ME_4BBF3D8B00CD_G Tk2TagTool
+
+MEREF ME_4BBF4290001A_ME_4BBF3D8B00CD_R
+ MELINK Original WL 'ME_4BBF4290001A' '4BC83B8301E5.ms.model.script' // Mk2ProcessorHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF4290001A_ME_4BBF3D8B00CD_R Mk2ProcessorHolder
+
+%%ImplementedBy ME_4BBF4290001A ME_4BBF3D8B00CD
+
+%%InheritedBy ME_467C18A303CB ME_4BBF3D8B00CD
+
+ME ME_4BBF3D8B00CD
+ MEPROP UID '4BBF3D8B00CD'
+ MEPROP Name 'Tk2ProcessorTagTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467C182A01BE' // k2TagTool
+ ;
+ MELIST Inherits
+   Seq: ( ME_467C18A303CB_ME_4BBF3D8B00CD_G // Tk2TagTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBF4290001A_ME_4BBF3D8B00CD_R // Mk2ProcessorHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54BD169902EF // Processor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BBF40C603BD // Create
+ HWL ME_54BD0F310322 // GetProcessor
+ HWL ME_54BD16B6032F // StartOp
+ HWL ME_54BD284F0204 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBF42BF004D_ME_4BBF3D8B00CD_impl // Processor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4BBF3D8B00CD_over // Cleanup
+ ME_48CF73CE00B5_ME_4BBF3D8B00CD_over // DoFire
+ ME_4A60B23E00C3_ME_4BBF3D8B00CD_over // COMQueryInterface
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
+ UP extprop:rc:SelfName 'ProcessorTagTool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2ProcessorTagTool'
+
+ENDME // ME_4BBF3D8B00CD Tk2ProcessorTagTool

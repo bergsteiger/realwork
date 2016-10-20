@@ -4,17 +4,29 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4FCF9DCF00E8
 
-ME ME_48089F460352_ME_4FCF9DCF00E8
+MEREF ME_48089F460352_ME_4FCF9DCF00E8_impl
  MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48089F460352_ME_4FCF9DCF00E8 ExecuteSelf
+ENDMEREF // ME_48089F460352_ME_4FCF9DCF00E8_impl ExecuteSelf
 
-ME ME_4FCF8EE001D4_ME_4FCF9DCF00E8
- MELINK Original WL 'ME_4FCF8EE001D4' '48078CC202EC.ms.model.script' // OnFoldersNode
+MEREF ME_4FCF8EE001D4_ME_4FCF9DCF00E8_impl
+ MELINK Original WL 'ME_4FCF8EE001D4' '480864400141.ms.model.script' // OnFoldersNode
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4FCF8EE001D4_ME_4FCF9DCF00E8 OnFoldersNode
+ENDMEREF // ME_4FCF8EE001D4_ME_4FCF9DCF00E8_impl OnFoldersNode
+
+MEREF ME_4FCF8EBF0006_ME_4FCF9DCF00E8_R
+ MELINK Original WL 'ME_4FCF8EBF0006' '480864400141.ms.model.script' // IatFoldersNodeCallback
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FCF8EBF0006_ME_4FCF9DCF00E8_R IatFoldersNodeCallback
+
+MEREF ME_4FD0D8A60276_ME_4FCF9DCF00E8_R
+ MELINK Original WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D8A60276_ME_4FCF9DCF00E8_R MatOperationBase
 
 %%ImplementedBy ME_4FCF8EBF0006 ME_4FCF9DCF00E8
 %%ImplementedBy ME_4FD0D8A60276 ME_4FCF9DCF00E8
@@ -31,13 +43,13 @@ ME ME_4FCF9DCF00E8
  MELINK Parent WL? 'ME_4808ADB9014E' // Operations
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4FCF8EBF0006' '48078CC202EC.ms.model.script' // IatFoldersNodeCallback
- WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+   Seq: ( ME_4FCF8EBF0006_ME_4FCF9DCF00E8_R // IatFoldersNodeCallback
+ ME_4FD0D8A60276_ME_4FCF9DCF00E8_R // MatOperationBase
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_48089F460352_ME_4FCF9DCF00E8 // ExecuteSelf
- ME_4FCF8EE001D4_ME_4FCF9DCF00E8 // OnFoldersNode
+   Seq: ( ME_48089F460352_ME_4FCF9DCF00E8_impl // ExecuteSelf
+ ME_4FCF8EE001D4_ME_4FCF9DCF00E8_impl // OnFoldersNode
  )
  ; // Implemented
  UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersObjectAddon.imp.pas'

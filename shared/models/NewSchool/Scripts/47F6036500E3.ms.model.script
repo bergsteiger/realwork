@@ -1,0 +1,512 @@
+// TnevAfterEndPoint 47F6036500E3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F6036500E3
+
+ME ME_47F6048001C5
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47F6048001C5 aPoint
+
+ME ME_47F6046E01B1
+ MEPROP UID '47F6046E01B1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F6036500E3 // TnevAfterEndPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F6048001C5 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_47F6046E01B1 Create
+
+ME ME_47F6049C016D
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47F6049C016D aPoint
+
+ME ME_47F6048F00C7
+ MEPROP UID '47F6048F00C7'
+ MEPROP Name 'DoMake'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F6036500E3 // TnevAfterEndPoint
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F6049C016D // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_47F6048F00C7 DoMake
+
+ME ME_47F633A20212
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_47F633A20212 aView
+
+ME ME_47F633A2023C
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47F633A2023C aPoint
+
+ME ME_47F604A60159
+ MEPROP UID '47F604A60159'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F6036500E3 // TnevAfterEndPoint
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F633A20212 // aView
+ ME_47F633A2023C // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_47F604A60159 Make
+
+MEREF ME_47C5B55D00B4_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B55D00B4' '47C5207602D1.ms.model.script' // Range
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B55D00B4_ME_47F6036500E3_impl Range
+
+MEREF ME_47C5B603039F_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B603039F' '47C5207602D1.ms.model.script' // Formatting
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47C5B603039F_ME_47F6036500E3_impl Formatting
+
+MEREF ME_47C5B65D0195_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B65D0195' '47C5207602D1.ms.model.script' // VertPosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B65D0195_ME_47F6036500E3_impl VertPosition
+
+MEREF ME_47C5B6D30128_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B6D30128' '47C5207602D1.ms.model.script' // NeedWindowsCaret
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B6D30128_ME_47F6036500E3_impl NeedWindowsCaret
+
+MEREF ME_47C5B6E503C3_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B6E503C3' '47C5207602D1.ms.model.script' // ClonePoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B6E503C3_ME_47F6036500E3_impl ClonePoint
+
+MEREF ME_47C5B6F202A0_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B6F202A0' '47C5207602D1.ms.model.script' // DeltaX
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B6F202A0_ME_47F6036500E3_impl DeltaX
+
+MEREF ME_47C5B7400152_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B7400152' '47C5207602D1.ms.model.script' // Inner
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47C5B7400152_ME_47F6036500E3_impl Inner
+
+MEREF ME_47C5B75F00AF_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5B75F00AF' '47C5207602D1.ms.model.script' // Position
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47C5B75F00AF_ME_47F6036500E3_impl Position
+
+MEREF ME_47C5C25C022F_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5C25C022F' '47C5207602D1.ms.model.script' // AssignPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5C25C022F_ME_47F6036500E3_impl AssignPoint
+
+MEREF ME_47C5C2970095_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5C2970095' '47C5207602D1.ms.model.script' // Bottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5C2970095_ME_47F6036500E3_impl Bottom
+
+MEREF ME_47C5C2A40309_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47C5C2A40309' '47C5207602D1.ms.model.script' // IncLine
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5C2A40309_ME_47F6036500E3_impl IncLine
+
+MEREF ME_47F5FDA303BC_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47F5FDA303BC' '47C5207602D1.ms.model.script' // InnerFor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47F5FDA303BC_ME_47F6036500E3_impl InnerFor
+
+MEREF ME_47F618A90162_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47F618A90162' '47C5207602D1.ms.model.script' // AfterEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47F618A90162_ME_47F6036500E3_impl AfterEnd
+
+MEREF ME_47FB32280262_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47FB32280262' '47C5207602D1.ms.model.script' // AsLeaf
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47FB32280262_ME_47F6036500E3_impl AsLeaf
+
+MEREF ME_47FCC68B03B1_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47FCC68B03B1' '47C5207602D1.ms.model.script' // LinkedPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47FCC68B03B1_ME_47F6036500E3_impl LinkedPoint
+
+MEREF ME_47FF3F1800FE_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47FF3F1800FE' '47C5207602D1.ms.model.script' // AtEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47FF3F1800FE_ME_47F6036500E3_impl AtEnd
+
+MEREF ME_47FF414E039D_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_47FF414E039D' '47C5207602D1.ms.model.script' // AtStart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47FF414E039D_ME_47F6036500E3_impl AtStart
+
+MEREF ME_49DF51870234_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_49DF51870234' '47C5207602D1.ms.model.script' // Diff
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49DF51870234_ME_47F6036500E3_impl Diff
+
+MEREF ME_49E6FB10002A_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_49E6FB10002A' '47C5207602D1.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49E6FB10002A_ME_47F6036500E3_impl Text
+
+MEREF ME_4A4C856300DF_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A4C856300DF' '47C5207602D1.ms.model.script' // DisableListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4C856300DF_ME_47F6036500E3_impl DisableListener
+
+MEREF ME_4A4C8581014B_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A4C8581014B' '47C5207602D1.ms.model.script' // EnableListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4C8581014B_ME_47F6036500E3_impl EnableListener
+
+MEREF ME_4A58B79A0360_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A58B79A0360' '47C5207602D1.ms.model.script' // HasInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A58B79A0360_ME_47F6036500E3_impl HasInner
+
+MEREF ME_4A5B48A701A9_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5B48A701A9' '47C5207602D1.ms.model.script' // ShowCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A5B48A701A9_ME_47F6036500E3_impl ShowCollapsed
+
+MEREF ME_4A5B60870158_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5B60870158' '47C5207602D1.ms.model.script' // Compare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5B60870158_ME_47F6036500E3_impl Compare
+
+MEREF ME_4A5B6D370262_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5B6D370262' '47C5207602D1.ms.model.script' // CheckPos
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5B6D370262_ME_47F6036500E3_impl CheckPos
+
+MEREF ME_4A5C66200185_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C66200185' '47C5207602D1.ms.model.script' // ReadOnly
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C66200185_ME_47F6036500E3_impl ReadOnly
+
+MEREF ME_4A5C6DB4014D_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C6DB4014D' '47C5207602D1.ms.model.script' // AsPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C6DB4014D_ME_47F6036500E3_impl AsPoint
+
+MEREF ME_4A5C750E01F7_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C750E01F7' '47C5207602D1.ms.model.script' // AsCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C750E01F7_ME_47F6036500E3_impl AsCursor
+
+MEREF ME_4A5C7D2F0079_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C7D2F0079' '47C5207602D1.ms.model.script' // MarkersSource
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'evNeedMarkers'
+ UP "pm" false
+ENDMEREF // ME_4A5C7D2F0079_ME_47F6036500E3_impl MarkersSource
+
+MEREF ME_4A5C8A9D0324_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C8A9D0324' '47C5207602D1.ms.model.script' // ProcessMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C8A9D0324_ME_47F6036500E3_impl ProcessMessage
+
+MEREF ME_4A5C9138035D_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C9138035D' '47C5207602D1.ms.model.script' // Listener
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A5C9138035D_ME_47F6036500E3_impl Listener
+
+MEREF ME_4A5C913F0235_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A5C913F0235' '47C5207602D1.ms.model.script' // GetBlockLength
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C913F0235_ME_47F6036500E3_impl GetBlockLength
+
+MEREF ME_4A810F81018E_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4A810F81018E' '47C5207602D1.ms.model.script' // MergeTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A810F81018E_ME_47F6036500E3_impl MergeTo
+
+MEREF ME_4AA76AE00147_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4AA76AE00147' '47C5207602D1.ms.model.script' // InnerForChildThatNotAfterEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4AA76AE00147_ME_47F6036500E3_impl InnerForChildThatNotAfterEnd
+
+MEREF ME_4AA76AF90174_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4AA76AF90174' '47C5207602D1.ms.model.script' // HasBaseLine
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4AA76AF90174_ME_47F6036500E3_impl HasBaseLine
+
+MEREF ME_4B90DA600047_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4B90DA600047' '47C5207602D1.ms.model.script' // AddInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B90DA600047_ME_47F6036500E3_impl AddInner
+
+MEREF ME_4B9623150178_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4B9623150178' '47C5207602D1.ms.model.script' // CompareWithOtherInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B9623150178_ME_47F6036500E3_impl CompareWithOtherInner
+
+MEREF ME_4BBB0DDD026D_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4BBB0DDD026D' '47C5207602D1.ms.model.script' // PartiallyVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBB0DDD026D_ME_47F6036500E3_impl PartiallyVisible
+
+MEREF ME_4C456C8E027F_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4C456C8E027F' '47C5207602D1.ms.model.script' // InnerHead
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C456C8E027F_ME_47F6036500E3_impl InnerHead
+
+MEREF ME_4C456CEA01DE_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4C456CEA01DE' '47C5207602D1.ms.model.script' // HasHeadPart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C456CEA01DE_ME_47F6036500E3_impl HasHeadPart
+
+MEREF ME_4C456D220317_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4C456D220317' '47C5207602D1.ms.model.script' // AddHeadInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C456D220317_ME_47F6036500E3_impl AddHeadInner
+
+MEREF ME_4C457D0502E1_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4C457D0502E1' '47C5207602D1.ms.model.script' // CopyHeadParts
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C457D0502E1_ME_47F6036500E3_impl CopyHeadParts
+
+MEREF ME_4C735E600112_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4C735E600112' '47C5207602D1.ms.model.script' // InitByCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C735E600112_ME_47F6036500E3_impl InitByCursor
+
+MEREF ME_4D9C113C0320_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4D9C113C0320' '47C5207602D1.ms.model.script' // InitBaseLineInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4D9C113C0320_ME_47F6036500E3_impl InitBaseLineInner
+
+MEREF ME_4DDCD59301D5_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4DDCD59301D5' '47C5207602D1.ms.model.script' // InnerTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DDCD59301D5_ME_47F6036500E3_impl InnerTop
+
+MEREF ME_4EC3B0330271_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_4EC3B0330271' '47C5207602D1.ms.model.script' // BeforeStart
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4EC3B0330271_ME_47F6036500E3_impl BeforeStart
+
+MEREF ME_50DAA7010050_ME_47F6036500E3_impl
+ MELINK Original WL 'ME_50DAA7010050' '47C5207602D1.ms.model.script' // CorrectMoveRight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50DAA7010050_ME_47F6036500E3_impl CorrectMoveRight
+
+MEREF ME_4A5CCD9D028D_ME_47F6036500E3_over
+ MELINK Original WL 'ME_4A5CCD9D028D' '4A5CCD5F00C1.ms.model.script' // GetViewBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A5CCD9D028D_ME_47F6036500E3_over GetViewBounds
+
+MEREF ME_49D24C980306_ME_47F6036500E3_G
+ MELINK Original WL? 'ME_49D24C980306' // nevPrimPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49D24C980306_ME_47F6036500E3_G nevPrimPoint
+
+MEREF ME_47C5B56900DA_ME_47F6036500E3_R
+ MELINK Original WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B56900DA_ME_47F6036500E3_R InevPoint
+
+MEREF ME_47C5B57E0390_ME_47F6036500E3_R
+ MELINK Original WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B57E0390_ME_47F6036500E3_R InevBasePoint
+
+%%ImplementedBy ME_47C5B56900DA ME_47F6036500E3
+%%ImplementedBy ME_47C5B57E0390 ME_47F6036500E3
+
+%%InheritedBy ME_49D24C980306 ME_47F6036500E3
+
+ME ME_47F6036500E3
+ MEPROP UID '47F6036500E3'
+ MEPROP Name 'TnevAfterEndPoint'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Точка, указывающая ЗА КОНЕЦ параграфа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_49D24C980306_ME_47F6036500E3_G // nevPrimPoint
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C5B56900DA_ME_47F6036500E3_R // InevPoint
+ ME_47C5B57E0390_ME_47F6036500E3_R // InevBasePoint
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_47F6046E01B1 // Create
+ HWL ME_47F6048F00C7 // DoMake
+ HWL ME_47F604A60159 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C5B55D00B4_ME_47F6036500E3_impl // Range
+ ME_47C5B603039F_ME_47F6036500E3_impl // Formatting
+ ME_47C5B65D0195_ME_47F6036500E3_impl // VertPosition
+ ME_47C5B6D30128_ME_47F6036500E3_impl // NeedWindowsCaret
+ ME_47C5B6E503C3_ME_47F6036500E3_impl // ClonePoint
+ ME_47C5B6F202A0_ME_47F6036500E3_impl // DeltaX
+ ME_47C5B7400152_ME_47F6036500E3_impl // Inner
+ ME_47C5B75F00AF_ME_47F6036500E3_impl // Position
+ ME_47C5C25C022F_ME_47F6036500E3_impl // AssignPoint
+ ME_47C5C2970095_ME_47F6036500E3_impl // Bottom
+ ME_47C5C2A40309_ME_47F6036500E3_impl // IncLine
+ ME_47F5FDA303BC_ME_47F6036500E3_impl // InnerFor
+ ME_47F618A90162_ME_47F6036500E3_impl // AfterEnd
+ ME_47FB32280262_ME_47F6036500E3_impl // AsLeaf
+ ME_47FCC68B03B1_ME_47F6036500E3_impl // LinkedPoint
+ ME_47FF3F1800FE_ME_47F6036500E3_impl // AtEnd
+ ME_47FF414E039D_ME_47F6036500E3_impl // AtStart
+ ME_49DF51870234_ME_47F6036500E3_impl // Diff
+ ME_49E6FB10002A_ME_47F6036500E3_impl // Text
+ ME_4A4C856300DF_ME_47F6036500E3_impl // DisableListener
+ ME_4A4C8581014B_ME_47F6036500E3_impl // EnableListener
+ ME_4A58B79A0360_ME_47F6036500E3_impl // HasInner
+ ME_4A5B48A701A9_ME_47F6036500E3_impl // ShowCollapsed
+ ME_4A5B60870158_ME_47F6036500E3_impl // Compare
+ ME_4A5B6D370262_ME_47F6036500E3_impl // CheckPos
+ ME_4A5C66200185_ME_47F6036500E3_impl // ReadOnly
+ ME_4A5C6DB4014D_ME_47F6036500E3_impl // AsPoint
+ ME_4A5C750E01F7_ME_47F6036500E3_impl // AsCursor
+ ME_4A5C7D2F0079_ME_47F6036500E3_impl // MarkersSource
+ ME_4A5C8A9D0324_ME_47F6036500E3_impl // ProcessMessage
+ ME_4A5C9138035D_ME_47F6036500E3_impl // Listener
+ ME_4A5C913F0235_ME_47F6036500E3_impl // GetBlockLength
+ ME_4A810F81018E_ME_47F6036500E3_impl // MergeTo
+ ME_4AA76AE00147_ME_47F6036500E3_impl // InnerForChildThatNotAfterEnd
+ ME_4AA76AF90174_ME_47F6036500E3_impl // HasBaseLine
+ ME_4B90DA600047_ME_47F6036500E3_impl // AddInner
+ ME_4B9623150178_ME_47F6036500E3_impl // CompareWithOtherInner
+ ME_4BBB0DDD026D_ME_47F6036500E3_impl // PartiallyVisible
+ ME_4C456C8E027F_ME_47F6036500E3_impl // InnerHead
+ ME_4C456CEA01DE_ME_47F6036500E3_impl // HasHeadPart
+ ME_4C456D220317_ME_47F6036500E3_impl // AddHeadInner
+ ME_4C457D0502E1_ME_47F6036500E3_impl // CopyHeadParts
+ ME_4C735E600112_ME_47F6036500E3_impl // InitByCursor
+ ME_4D9C113C0320_ME_47F6036500E3_impl // InitBaseLineInner
+ ME_4DDCD59301D5_ME_47F6036500E3_impl // InnerTop
+ ME_4EC3B0330271_ME_47F6036500E3_impl // BeforeStart
+ ME_50DAA7010050_ME_47F6036500E3_impl // CorrectMoveRight
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A5CCD9D028D_ME_47F6036500E3_over // GetViewBounds
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '04.04.2008 14:32'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevAfterEndPoint.pas'
+ UP extprop:rc:SelfName 'AfterEndPoint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevAfterEndPoint'
+
+ENDME // ME_47F6036500E3 TnevAfterEndPoint

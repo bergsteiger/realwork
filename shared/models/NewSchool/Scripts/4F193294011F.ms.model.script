@@ -1,0 +1,270 @@
+// TStgIndexTest 4F193294011F TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F193294011F
+
+FORWARD ME_4F193A4F034C
+
+ME ME_4F193A660008
+ MEPROP UID '4F193A660008'
+ MEPROP Name 'cFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F193A4F034C // DBNames
+ ;
+ MEPROP Value '''bserv001'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''bserv001'''
+
+ENDME // ME_4F193A660008 cFileName
+
+ME ME_4FC3795D015E
+ MEPROP UID '4FC3795D015E'
+ MEPROP Name 'cIndexFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F193A4F034C // DBNames
+ ;
+ MEPROP Value '''bserv001.idx'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''bserv001.idx'''
+
+ENDME // ME_4FC3795D015E cIndexFileName
+
+ME ME_4F193A4F034C
+ MEPROP UID '4F193A4F034C'
+ MEPROP Name 'DBNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F193A660008 // cFileName
+ HWL ME_4FC3795D015E // cIndexFileName
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4F193A4F034C DBNames
+
+FORWARD ME_4F19335D01E9
+
+ME ME_4F19337C00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL? 'ME_4F19108601F3' // Tm3StorageIndexAdapter
+ ;
+
+ENDME // ME_4F19337C00A3 
+
+ME ME_4F197313019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_4F197313019C 
+
+ME ME_4F197D720153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4BB3766601CC' '4B57004201BD.ms.model.script' // CopyFile
+ ;
+
+ENDME // ME_4F197D720153 
+
+ME ME_4FBF783100B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4742CA9702AE' '4742D9F50189.ms.model.script' // Tm3DB
+ ;
+
+ENDME // ME_4FBF783100B0 
+
+ME ME_4FBF7AD8012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_4FBF7AD8012D 
+
+ME ME_4FBF9B0502F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_476BC039022B' '476BBF330336.ms.model.script' // Im4DB
+ ;
+
+ENDME // ME_4FBF9B0502F2 
+
+ME ME_4FBF9B4901E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL? 'ME_4F191E6C0189' // Tm4DB
+ ;
+
+ENDME // ME_4FBF9B4901E6 
+
+ME ME_4FCC678C0037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4BA7BE3B0114' '4773D64E036C.ms.model.script' // l3LocalStub
+ ;
+
+ENDME // ME_4FCC678C0037 
+
+ME ME_4FCC6A1C0092
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4FA4EF660273' '49B9535B0235.ms.model.script' // Tm3StorageManager
+ ;
+
+ENDME // ME_4FCC6A1C0092 
+
+ME ME_4F19335D01E9
+ MEPROP UID '4F19335D01E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F19337C00A3 // Tm3StorageIndexAdapter
+ ME_4F197313019C // ChangeFileExt
+ ME_4F197D720153 // CopyFile
+ ME_4FBF783100B0 // Tm3DB
+ ME_4FBF7AD8012D // Im3DB
+ ME_4FBF9B0502F2 // Im4DB
+ ME_4FBF9B4901E6 // Tm4DB
+ ME_4FCC678C0037 // l3LocalStub
+ ME_4FCC6A1C0092 // Tm3StorageManager
+ )
+ ; // Dependencies
+
+ENDME // ME_4F19335D01E9 DoIt
+
+ME ME_540F2BDE01F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELINK Target WL? 'ME_4FA278B00247' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_540F2BDE01F0 
+
+MEREF ME_4B4F588B0241_ME_4F193294011F_over
+ MELINK Original WL 'ME_4B4F588B0241' '4B2A11BC0255.ms.model.script' // FileForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B4F588B0241_ME_4F193294011F_over FileForOutput
+
+MEREF ME_4C937013031D_ME_4F193294011F_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4F193294011F_over GetFolder
+
+MEREF ME_4CA5DAD4014C_ME_4F193294011F_over
+ MELINK Original WL 'ME_4CA5DAD4014C' '4B2A11BC0255.ms.model.script' // RaiseIfEtalonCreated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA5DAD4014C_ME_4F193294011F_over RaiseIfEtalonCreated
+
+MEREF ME_4DAED6F60146_ME_4F193294011F_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_4F193294011F_over GetModelElementGUID
+
+MEREF ME_4DCA41A20364_ME_4F193294011F_over
+ MELINK Original WL 'ME_4DCA41A20364' '4B2A11BC0255.ms.model.script' // FileNameForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCA41A20364_ME_4F193294011F_over FileNameForOutput
+
+MEREF ME_4B2A11BC0255_ME_4F193294011F_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4F193294011F_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4F193294011F
+
+ME ME_4F193294011F
+ MEPROP UID '4F193294011F'
+ MEPROP Name 'TStgIndexTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F19320901A0' // DataBase
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4F193294011F_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F19335D01E9 // DoIt
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4B4F588B0241_ME_4F193294011F_over // FileForOutput
+ ME_4C937013031D_ME_4F193294011F_over // GetFolder
+ ME_4CA5DAD4014C_ME_4F193294011F_over // RaiseIfEtalonCreated
+ ME_4DAED6F60146_ME_4F193294011F_over // GetModelElementGUID
+ ME_4DCA41A20364_ME_4F193294011F_over // FileNameForOutput
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4F193A4F034C // DBNames
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_540F2BDE01F0 // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas'
+ UP extprop:rc:SelfName 'StgIndexTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StgIndexTest'
+
+ENDME // ME_4F193294011F TStgIndexTest

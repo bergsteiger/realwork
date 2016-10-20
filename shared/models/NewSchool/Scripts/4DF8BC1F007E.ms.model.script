@@ -1,0 +1,68 @@
+// K269062434 4DF8BC1F007E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF8BC1F007E
+
+MEREF ME_4C07AC6F036D_ME_4DF8BC1F007E_over
+ MELINK Original WL 'ME_4C07AC6F036D' '4BE425C70228.ms.model.script' // GetNormalFontSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07AC6F036D_ME_4DF8BC1F007E_over GetNormalFontSize
+
+MEREF ME_4C937013031D_ME_4DF8BC1F007E_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4DF8BC1F007E_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_4DF8BC1F007E_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_4DF8BC1F007E_over GetModelElementGUID
+
+MEREF ME_51AF49E5001B_ME_4DF8BC1F007E_over
+ MELINK Original WL 'ME_51AF49E5001B' '4B2A11BC0255.ms.model.script' // EtalonNeedsXE
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'XE'
+ENDMEREF // ME_51AF49E5001B_ME_4DF8BC1F007E_over EtalonNeedsXE
+
+MEREF ME_4DF1E915017B_ME_4DF8BC1F007E_G
+ MELINK Original WL? 'ME_4DF1E915017B' // TPreviewWithRowCompare
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DF1E915017B_ME_4DF8BC1F007E_G TPreviewWithRowCompare
+
+%%InheritedBy ME_4DF1E915017B ME_4DF8BC1F007E
+
+ME ME_4DF8BC1F007E
+ MEPROP UID '4DF8BC1F007E'
+ MEPROP Name 'K269062434'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$269062434]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D02571C01D0' // 7.7
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DF1E915017B_ME_4DF8BC1F007E_G // TPreviewWithRowCompare
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07AC6F036D_ME_4DF8BC1F007E_over // GetNormalFontSize
+ ME_4C937013031D_ME_4DF8BC1F007E_over // GetFolder
+ ME_4DAED6F60146_ME_4DF8BC1F007E_over // GetModelElementGUID
+ ME_51AF49E5001B_ME_4DF8BC1F007E_over // EtalonNeedsXE
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K269062434.pas'
+ UP extprop:pas:TypeName 'TK269062434'
+ UP extprop:rc:SelfName 'K269062434'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DF8BC1F007E K269062434

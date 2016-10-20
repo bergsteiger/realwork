@@ -50,6 +50,12 @@ ME ME_6CA6AB1D6951
 
 ENDME // ME_6CA6AB1D6951 OutlinerForm$Def
 
+MEREF ME_4D46A125003A_ME_4D469966011E_G
+ MELINK Original WL? 'ME_4D46A125003A' // TvtOutlinerControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D46A125003A_ME_4D469966011E_G TvtOutlinerControl
+
 %%InheritedBy ME_4D46A125003A ME_4D469966011E
 
 ME ME_4D469966011E
@@ -63,7 +69,7 @@ ME ME_4D469966011E
  MELINK Parent HWL ME_4D4697F30281 // OutlinerForm
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4D46A125003A' // TvtOutlinerControl
+   Seq: ( ME_4D46A125003A_ME_4D469966011E_G // TvtOutlinerControl
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -100,11 +106,23 @@ ME ME_4D47C399028D
 
 ENDME // ME_4D47C399028D 
 
-ME ME_4A8E8F2E0195_ME_4D4697F30281
+MEREF ME_4A8E8F2E0195_ME_4D4697F30281_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4D4697F30281_over InitControls
+
+MEREF ME_49525B34022A_ME_4D4697F30281_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4D4697F30281_G TvcmEntityForm
+
+MEREF ME_6CA6AB1D6951_ME_4D4697F30281_R
+ MELINK Original HWL ME_6CA6AB1D6951 // OutlinerForm$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_6CA6AB1D6951_ME_4D4697F30281_R OutlinerForm$Def
 
 %%ImplementedBy ME_6CA6AB1D6951 ME_4D4697F30281
 
@@ -123,11 +141,11 @@ ME ME_4D4697F30281
  MELINK Parent WL? 'ME_4D469729019F' // Outliner
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_4D4697F30281_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_6CA6AB1D6951 // OutlinerForm$Def
+   Seq: ( ME_6CA6AB1D6951_ME_4D4697F30281_R // OutlinerForm$Def
  )
  ; // Implements
  MELIST Attributes
@@ -139,7 +157,7 @@ ME ME_4D4697F30281
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4D4697F30281 // InitControls
+   Seq: ( ME_4A8E8F2E0195_ME_4D4697F30281_over // InitControls
  )
  ; // Overridden
  MELIST Children

@@ -22,6 +22,12 @@ ME ME_4F86DBD6005C
 
 ENDME // ME_4F86DBD6005C 
 
+MEREF ME_4F86D90400CD_ME_4F86D8A903E2_G
+ MELINK Original WL 'ME_4F86D90400CD' '4D90583503C2.ms.model.script' // TvtTailPosition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F86D90400CD_ME_4F86D8A903E2_G TvtTailPosition
+
 %%InheritedBy ME_4F86D90400CD ME_4F86D8A903E2
 
 ME ME_4F86D8A903E2
@@ -35,7 +41,7 @@ ME ME_4F86D8A903E2
  MELINK Parent HWL ME_4D9058880214 // TvtPopupFormModelPart
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F86D90400CD' '4D90583503C2.ms.model.script' // TvtTailPosition
+   Seq: ( ME_4F86D90400CD_ME_4F86D8A903E2_G // TvtTailPosition
  )
  ; // Inherits
  MELIST Attributes
@@ -106,11 +112,23 @@ ME ME_4D905C2A0349
 
 ENDME // ME_4D905C2A0349 
 
-ME ME_4D905A2A00D6_ME_4D9058880214
+MEREF ME_4D905A2A00D6_ME_4D9058880214_impl
  MELINK Original WL 'ME_4D905A2A00D6' '467BAB7F021E.ms.model.script' // DataSourceChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4D905A2A00D6_ME_4D9058880214 DataSourceChanged
+ENDMEREF // ME_4D905A2A00D6_ME_4D9058880214_impl DataSourceChanged
+
+MEREF ME_4D90583503C2_ME_4D9058880214_G
+ MELINK Original WL? 'ME_4D90583503C2' // TvtPopupForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D90583503C2_ME_4D9058880214_G TvtPopupForm
+
+MEREF ME_4D905A0F0316_ME_4D9058880214_R
+ MELINK Original WL 'ME_4D905A0F0316' '467BAB7F021E.ms.model.script' // IvcmDatasourceChangeListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D905A0F0316_ME_4D9058880214_R IvcmDatasourceChangeListener
 
 %%ImplementedBy ME_4D905A0F0316 ME_4D9058880214
 
@@ -128,15 +146,15 @@ ME ME_4D9058880214
  MELINK Parent WL? 'ME_4D90513F009C' // Reminders
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4D90583503C2' // TvtPopupForm
+   Seq: ( ME_4D90583503C2_ME_4D9058880214_G // TvtPopupForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4D905A0F0316' '467BAB7F021E.ms.model.script' // IvcmDatasourceChangeListener
+   Seq: ( ME_4D905A0F0316_ME_4D9058880214_R // IvcmDatasourceChangeListener
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4D905A2A00D6_ME_4D9058880214 // DataSourceChanged
+   Seq: ( ME_4D905A2A00D6_ME_4D9058880214_impl // DataSourceChanged
  )
  ; // Implemented
  MELIST Children

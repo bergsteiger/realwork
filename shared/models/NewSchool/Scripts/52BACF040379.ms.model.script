@@ -1,0 +1,200 @@
+// TddBaseObject 52BACF040379 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52BACF040379
+
+FORWARD ME_52BACF8A01A9
+
+ME ME_52BACFB901AA
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52BACF040379 // TddBaseObject
+ ;
+
+ENDME // ME_52BACFB901AA anObject
+
+ME ME_52BACFB1025E
+ MEPROP UID '52BACFB1025E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52BACF8A01A9 // Assign
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BACFB901AA // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_52BACFB1025E DoIt
+
+ME ME_52BACF8A01A9
+ MEPROP UID '52BACF8A01A9'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52BACF040379 // TddBaseObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52BACFB1025E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52BACF8A01A9 Assign
+
+FORWARD ME_52BACFBE00D9
+
+ME ME_E7D5AB66E2A4
+ MEPROP UID 'E7D5AB66E2A4'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Create' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52BACFBE00D9 // Create
+ ;
+
+ENDME // ME_E7D5AB66E2A4 DoIt
+
+ME ME_52BACFBE00D9
+ MEPROP UID '52BACFBE00D9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52BACF040379 // TddBaseObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E7D5AB66E2A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52BACFBE00D9 Create
+
+FORWARD ME_54DC9795018B
+
+ME ME_56C2C6E500B2
+ MEPROP Name 'Generator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_56C2C6E500B2 Generator
+
+ME ME_56C2C6E500D1
+ MEPROP Name 'aLiteVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56C2B20A03B9' '52CFA9D5031E.ms.model.script' // TddLiteVersion
+ ;
+
+ENDME // ME_56C2C6E500D1 aLiteVersion
+
+ME ME_54DC97B803B4
+ MEPROP UID '54DC97B803B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54DC9795018B // Write2Generator
+ ;
+ MELIST Parameters
+   Seq: ( ME_56C2C6E500B2 // Generator
+ ME_56C2C6E500D1 // aLiteVersion
+ )
+ ; // Parameters
+
+ENDME // ME_54DC97B803B4 DoIt
+
+ME ME_54DC9C690348
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54DC9795018B // Write2Generator
+ ;
+ MELINK Target WL 'ME_54D88E10002A' '521B05D60264.ms.model.script' // StartObjectSegment
+ ;
+
+ENDME // ME_54DC9C690348 
+
+ME ME_54DC9C8003DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54DC9795018B // Write2Generator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_54DC9C8003DF 
+
+ME ME_54DC9795018B
+ MEPROP UID '54DC9795018B'
+ MEPROP Name 'Write2Generator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52BACF040379 // TddBaseObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54DC97B803B4 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54DC9C690348 // StartObjectSegment
+ ME_54DC9C8003DF // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_54DC9795018B Write2Generator
+
+MEREF ME_49E7754802A9_ME_52BACF040379_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_52BACF040379_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_52BACF040379
+
+ME ME_52BACF040379
+ MEPROP UID '52BACF040379'
+ MEPROP Name 'TddBaseObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_52BACF040379_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52BACF8A01A9 // Assign
+ HWL ME_52BACFBE00D9 // Create
+ HWL ME_54DC9795018B // Write2Generator
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddBaseObject.pas'
+ UP extprop:rc:SelfName 'ddBaseObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddBaseObject'
+
+ENDME // ME_52BACF040379 TddBaseObject

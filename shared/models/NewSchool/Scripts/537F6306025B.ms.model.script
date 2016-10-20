@@ -1,0 +1,178 @@
+// TCsProcWithId 537F6306025B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537F6306025B
+
+FORWARD ME_537F6306025B
+
+FORWARD ME_537F63170355
+
+ME ME_537F6332037F
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
+ ;
+
+ENDME // ME_537F6332037F aPipe
+
+ME ME_537F632E0101
+ MEPROP UID '537F632E0101'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F63170355 // TCsReplyProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_537F6332037F // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_537F632E0101 DoIt
+
+ME ME_537F63170355
+ MEPROP UID '537F63170355'
+ MEPROP Name 'TCsReplyProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F6306025B // TCsProcWithId
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537F632E0101 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_537F63170355 TCsReplyProc
+
+ME ME_537F639102DF
+ MEPROP UID '537F639102DF'
+ MEPROP Name 'QueryId'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F6306025B // TCsProcWithId
+ ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_537F639102DF QueryId
+
+ME ME_537F63A1001E
+ MEPROP UID '537F63A1001E'
+ MEPROP Name 'Proc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F6306025B // TCsProcWithId
+ ;
+ MELINK Target HWL ME_537F63170355 // TCsReplyProc
+ ;
+
+ENDME // ME_537F63A1001E Proc
+
+FORWARD ME_537F63B40386
+
+ME ME_537F63C5009E
+ MEPROP Name 'aQueryId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_537F63C5009E aQueryId
+
+ME ME_537F63C500C5
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_537F63170355 // TCsReplyProc
+ ;
+
+ENDME // ME_537F63C500C5 aProc
+
+ME ME_537F63C10100
+ MEPROP UID '537F63C10100'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F63B40386 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_537F63C5009E // aQueryId
+ ME_537F63C500C5 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_537F63C10100 DoIt
+
+ME ME_537F63B40386
+ MEPROP UID '537F63B40386'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F6306025B // TCsProcWithId
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537F63C10100 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537F63B40386 Create
+
+MEREF ME_52FBB30A01C6_ME_537F6306025B_G
+ MELINK Original WL? 'ME_52FBB30A01C6' // TCsObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FBB30A01C6_ME_537F6306025B_G TCsObject
+
+%%InheritedBy ME_52FBB30A01C6 ME_537F6306025B
+
+ME ME_537F6306025B
+ MEPROP UID '537F6306025B'
+ MEPROP Name 'TCsProcWithId'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FBB30A01C6_ME_537F6306025B_G // TCsObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F639102DF // QueryId
+ HWL ME_537F63A1001E // Proc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_537F63B40386 // Create
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_537F63170355 // TCsReplyProc
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsProcWithId.pas'
+ UP extprop:rc:SelfName 'CsProcWithId'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsProcWithId'
+
+ENDME // ME_537F6306025B TCsProcWithId

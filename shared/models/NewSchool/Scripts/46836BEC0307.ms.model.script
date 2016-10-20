@@ -1,0 +1,171 @@
+// TnsDictListChild 46836BEC0307 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46836BEC0307
+
+ME ME_490825C1006D
+ MEPROP UID '490825C1006D'
+ MEPROP Name 'f_Language'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46836BEC0307 // TnsDictListChild
+ ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_490825C1006D f_Language
+
+ME ME_490826090358
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_490826090358 aNode
+
+ME ME_49082609039C
+ MEPROP Name 'aLang'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_49082609039C aLang
+
+ME ME_490825F40070
+ MEPROP UID '490825F40070'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46836BEC0307 // TnsDictListChild
+ ;
+ MELIST Parameters
+   Seq: ( ME_490826090358 // aNode
+ ME_49082609039C // aLang
+ )
+ ; // Parameters
+
+ENDME // ME_490825F40070 Create
+
+ME ME_4908262A01D4
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4908262A01D4 aNode
+
+ME ME_4908262A021D
+ MEPROP Name 'aLang'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_4908262A021D aLang
+
+ME ME_4908261E02F4
+ MEPROP UID '4908261E02F4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46836BEC0307 // TnsDictListChild
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4908262A01D4 // aNode
+ ME_4908262A021D // aLang
+ )
+ ; // Parameters
+
+ENDME // ME_4908261E02F4 Make
+
+ME ME_49082AC30307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836BEC0307 // TnsDictListChild
+ ;
+ MELINK Target WL 'ME_456EB2F1034B' '456EA56002BF.ms.model.script' // Languages
+ ;
+
+ENDME // ME_49082AC30307 
+
+ME ME_49082B0F0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_46836BEC0307 // TnsDictListChild
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_49082B0F0014 
+
+MEREF ME_490825370178_ME_46836BEC0307_over
+ MELINK Original WL 'ME_490825370178' '4682732A02F9.ms.model.script' // DoGetText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_490825370178_ME_46836BEC0307_over DoGetText
+
+MEREF ME_468275E600B1_ME_46836BEC0307_G
+ MELINK Original WL? 'ME_468275E600B1' // TnsINodeOneLevelWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468275E600B1_ME_46836BEC0307_G TnsINodeOneLevelWrap
+
+%%InheritedBy ME_468275E600B1 ME_46836BEC0307
+
+ME ME_46836BEC0307
+ MEPROP UID '46836BEC0307'
+ MEPROP Name 'TnsDictListChild'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_468275E600B1_ME_46836BEC0307_G // TnsINodeOneLevelWrap
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_490825C1006D // f_Language
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_490825F40070 // Create
+ HWL ME_4908261E02F4 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_490825370178_ME_46836BEC0307_over // DoGetText
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49082AC30307 // Languages
+ ME_49082B0F0014 // Code Pages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" true
+ UP "started" '2004/02/20 08:36:17'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsDictListChild.pas'
+ UP extprop:rc:SelfName 'DictListChild'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDictListChild'
+
+ENDME // ME_46836BEC0307 TnsDictListChild

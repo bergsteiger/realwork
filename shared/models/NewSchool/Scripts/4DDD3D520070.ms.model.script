@@ -1,0 +1,630 @@
+// TnsStyleParser 4DDD3D520070 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DDD3D520070
+%%Inner ME_4DDD3D520070
+
+FORWARD ME_4DDD3D520070
+
+FORWARD ME_4EAA9EA101C9
+
+ME ME_4EAA9EFB038F
+ MEPROP UID '4EAA9EFB038F'
+ MEPROP Name 'f_Processor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4EAA9EA101C9 // TnsStyleParserContext
+ ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_4EAA9EFB038F f_Processor
+
+FORWARD ME_4EA97C6C021C
+
+ME ME_4EA97C9503BF
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47F226C7001F' // Tk2DocumentGenerator
+ ;
+
+ENDME // ME_4EA97C9503BF G
+
+ME ME_4EA97C96002D
+ MEPROP Name 'Atom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47F2272B0394' '47F226C7001F.ms.model.script' // Tk2StackAtom
+ ;
+
+ENDME // ME_4EA97C96002D Atom
+
+ME ME_4EA97C78024F
+ MEPROP UID '4EA97C78024F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA97C6C021C // DoFinishAtom
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EA97C9503BF // G
+ ME_4EA97C96002D // Atom
+ )
+ ; // Parameters
+
+ENDME // ME_4EA97C78024F DoIt
+
+ME ME_4EA97C6C021C
+ MEPROP UID '4EA97C6C021C'
+ MEPROP Name 'DoFinishAtom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EAA9EA101C9 // TnsStyleParserContext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EA97C78024F // DoIt
+ )
+ ; // Operations
+ UP "is static" false
+
+ENDME // ME_4EA97C6C021C DoFinishAtom
+
+FORWARD ME_4EAA9F0A03D5
+
+ME ME_4EAA9F1F021D
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_4EAA9F1F021D aProcessor
+
+ME ME_4EAA9F1100F6
+ MEPROP UID '4EAA9F1100F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EAA9F0A03D5 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EAA9F1F021D // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_4EAA9F1100F6 DoIt
+
+ME ME_4EAA9F0A03D5
+ MEPROP UID '4EAA9F0A03D5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EAA9EA101C9 // TnsStyleParserContext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EAA9F1100F6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EAA9F0A03D5 Create
+
+MEREF ME_4AE5CA2D0034_ME_4EAA9EA101C9_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4EAA9EA101C9_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4EAA9EA101C9
+
+ME ME_4EAA9EA101C9
+ MEPROP UID '4EAA9EA101C9'
+ MEPROP Name 'TnsStyleParserContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_4EAA9EA101C9_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4EAA9EFB038F // f_Processor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4EA97C6C021C // DoFinishAtom
+ HWL ME_4EAA9F0A03D5 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.10.2011 16:23'
+ UP extprop:rc:SelfName 'StyleParserContext'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EAA9EA101C9 TnsStyleParserContext
+
+FORWARD ME_57A4A44F02FA
+
+FORWARD ME_4507D3F4B306
+
+FORWARD ME_57A4A4740274
+
+ME ME_34DE7CEFC29D
+ MEPROP UID '34DE7CEFC29D'
+ MEPROP Name 'ShowChangesInfoSetting'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4507D3F4B306 // MDocumentSettingsService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_57A4A4740274 // ShowChangesInfoSetting
+ ;
+
+ENDME // ME_34DE7CEFC29D ShowChangesInfoSetting
+
+ME ME_4507D3F4B306
+ MEPROP UID '4507D3F4B306'
+ MEPROP Name 'MDocumentSettingsService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TDocumentSettingsService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A4A44F02FA // TDocumentSettingsService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_34DE7CEFC29D // ShowChangesInfoSetting
+ )
+ ; // Operations
+
+ENDME // ME_4507D3F4B306 MDocumentSettingsService
+
+ME ME_57A4A4740274
+ MEPROP UID '57A4A4740274'
+ MEPROP Name 'ShowChangesInfoSetting'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A4A44F02FA // TDocumentSettingsService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57A4A4740274 ShowChangesInfoSetting
+
+MEREF ME_49E7754802A9_ME_57A4A44F02FA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A4A44F02FA_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57A4A44F02FA
+
+ME ME_57A4A44F02FA
+ MEPROP UID '57A4A44F02FA'
+ MEPROP Name 'TDocumentSettingsService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57A4A44F02FA_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57A4A4740274 // ShowChangesInfoSetting
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4507D3F4B306 // MDocumentSettingsService
+ )
+ ; // Children
+ UP "auto translate to alien" true
+ UP extprop:rc:SelfName 'DocumentSettingsService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57A4A44F02FA TDocumentSettingsService
+
+ME ME_4C6D283B011F
+ MEPROP UID '4C6D283B011F'
+ MEPROP Name 'g_Gen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELINK Target WL? 'ME_4C6D285C0052' // Tk2InPlaceGenerator
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL? 'ME_4C6D285C0052' // Tk2InPlaceGenerator
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4C6D283B011F g_Gen
+
+ME ME_4C6D2825027B
+ MEPROP UID '4C6D2825027B'
+ MEPROP Name 'g_Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4C6D2825027B g_Reader
+
+FORWARD ME_4DDD3DBD02A1
+
+ME ME_4DDD3DD8019D
+ MEPROP Name 'aStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4DDD3DD8019D aStyle
+
+ME ME_4DDD3DD801C3
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4DDD3DD801C3 aTag
+
+ME ME_4DDD3DCD0217
+ MEPROP UID '4DDD3DCD0217'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DDD3DD8019D // aStyle
+ ME_4DDD3DD801C3 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4DDD3DCD0217 DoIt
+
+ME ME_4DDD3DF101B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DDD3DF101B1 
+
+ME ME_4DDD3DF403DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4DDD3DF403DA 
+
+ME ME_4DDD3DF800C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL? 'ME_4C1B918900FD' // Ver
+ ;
+
+ENDME // ME_4DDD3DF800C2 
+
+ME ME_4DDD401B0118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4DDD401B0118 
+
+ME ME_4E15CE4202AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL? 'ME_4E15CCEC0256' // TevNestedCommentsEliminator
+ ;
+
+ENDME // ME_4E15CE4202AE 
+
+ME ME_4E15CE810232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_4E15CE810232 
+
+ME ME_4E15D0AC0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4E15D0AC0014 
+
+ME ME_4E30E83D0253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_48567D1900F6' '48492FC0029D.ms.model.script' // StyledLeafPara
+ ;
+
+ENDME // ME_4E30E83D0253 
+
+ME ME_4E30E85401B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4D872BBC03C0' '48492FC0029D.ms.model.script' // ChangesInfo
+ ;
+
+ENDME // ME_4E30E85401B8 
+
+ME ME_4E30E88E01E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E30E88E01E4 
+
+ME ME_4E30E8F801C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4E30E8F801C7 
+
+ME ME_4E898A7C03B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_4E898A7C03B6 
+
+ME ME_4E898A96017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4E898A96017E 
+
+ME ME_4E898B040379
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4E898AA2012C' '4C6E92E9016E.ms.model.script' // If1EditionDocumentContainer
+ ;
+
+ENDME // ME_4E898B040379 
+
+ME ME_5269064601C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_5266A6750356' '52669BFC024E.ms.model.script' // Empty
+ ;
+
+ENDME // ME_5269064601C5 
+
+ME ME_55B8EE6C00F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3DBD02A1 // Parse
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_55B8EE6C00F9 
+
+ME ME_4DDD3DBD02A1
+ MEPROP UID '4DDD3DBD02A1'
+ MEPROP Name 'Parse'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDD3DCD0217 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DDD3DF101B1 // FreeAndNil
+ ME_4DDD3DF403DA // l3Set
+ ME_4DDD3DF800C2 // Ver
+ ME_4DDD401B0118 // Tk2Type
+ ME_4E15CE4202AE // TevNestedCommentsEliminator
+ ME_4E15CE810232 // Tk2TagGenerator
+ ME_4E15D0AC0014 // CommentPara
+ ME_4E30E83D0253 // StyledLeafPara
+ ME_4E30E85401B8 // ChangesInfo
+ ME_4E30E88E01E4 // Tk2TagID
+ ME_4E30E8F801C7 // StdRes
+ ME_4E898A7C03B6 // InevObjectPrim
+ ME_4E898A96017E // Supports
+ ME_4E898B040379 // If1EditionDocumentContainer
+ ME_5269064601C5 // Empty
+ ME_55B8EE6C00F9 // Block
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" true
+
+ENDME // ME_4DDD3DBD02A1 Parse
+
+ME ME_4C6E5E6E025B
+ MEPROP UID '4C6E5E6E025B'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+
+ENDME // ME_4C6E5E6E025B ini
+
+ME ME_4C6E5E780305
+ MEPROP UID '4C6E5E780305'
+ MEPROP Name 'fini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+
+ENDME // ME_4C6E5E780305 fini
+
+ME ME_4EA984730144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_4EA984730144 
+
+ME ME_4EA984C503B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+
+ENDME // ME_4EA984C503B7 
+
+ME ME_4EA984CF0125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD3D520070 // TnsStyleParser
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4EA984CF0125 
+
+ME ME_4DDD3D520070
+ MEPROP UID '4DDD3D520070'
+ MEPROP Name 'TnsStyleParser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C6D283B011F // g_Gen
+ HWL ME_4C6D2825027B // g_Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DDD3DBD02A1 // Parse
+ HWL ME_4C6E5E6E025B // ini
+ HWL ME_4C6E5E780305 // fini
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4EAA9EA101C9 // TnsStyleParserContext
+ HWL ME_57A4A44F02FA // TDocumentSettingsService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4EA984730144 // Para
+ ME_4EA984C503B7 // InevDocumentContainer
+ ME_4EA984CF0125 // InevPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '25.05.2011 21:33'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsStyleParser.pas'
+ UP extprop:rc:SelfName 'StyleParser'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsStyleParser'
+
+ENDME // ME_4DDD3D520070 TnsStyleParser

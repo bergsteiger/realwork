@@ -1,0 +1,162 @@
+// TvcmMainMenuAction 47E7652402FF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E7652402FF
+
+ME ME_47E765F0013D
+ MEPROP UID '47E765F0013D'
+ MEPROP Name 'OnTest'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ MELINK Target WL 'ME_47E765A20100' '4683F37902CF.ms.model.script' // TvcmTestEvent
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_47E765F0013D OnTest
+
+ME ME_47E7672D030D
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_47E7672D030D anOwner
+
+ME ME_47E7672D032A
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E765A20100' '4683F37902CF.ms.model.script' // TvcmTestEvent
+ ;
+
+ENDME // ME_47E7672D032A aTest
+
+ME ME_47E7670B000F
+ MEPROP UID '47E7670B000F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E7672D030D // anOwner
+ ME_47E7672D032A // aTest
+ )
+ ; // Parameters
+
+ENDME // ME_47E7670B000F Create
+
+ME ME_47E7AC3602AE
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_47E7AC3602AE anItem
+
+ME ME_47E7AC3602D1
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E765A20100' '4683F37902CF.ms.model.script' // TvcmTestEvent
+ ;
+
+ENDME // ME_47E7AC3602D1 aTest
+
+ME ME_47E7AC17020C
+ MEPROP UID '47E7AC17020C'
+ MEPROP Name 'MakeForMenu'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ MELINK Target HWL ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E7AC3602AE // anItem
+ ME_47E7AC3602D1 // aTest
+ )
+ ; // Parameters
+
+ENDME // ME_47E7AC17020C MakeForMenu
+
+ME ME_47E7B1910352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E7652402FF // TvcmMainMenuAction
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_47E7B1910352 
+
+MEREF ME_47E766E10053_ME_47E7652402FF_over
+ MELINK Original WL 'ME_47E766E10053' '47E761BB02FE.ms.model.script' // DoUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47E766E10053_ME_47E7652402FF_over DoUpdate
+
+MEREF ME_47E761BB02FE_ME_47E7652402FF_G
+ MELINK Original WL? 'ME_47E761BB02FE' // TvcmAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E761BB02FE_ME_47E7652402FF_G TvcmAction
+
+%%InheritedBy ME_47E761BB02FE ME_47E7652402FF
+
+ME ME_47E7652402FF
+ MEPROP UID '47E7652402FF'
+ MEPROP Name 'TvcmMainMenuAction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E7617C0275' // Actions
+ ;
+ MELIST Inherits
+   Seq: ( ME_47E761BB02FE_ME_47E7652402FF_G // TvcmAction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E765F0013D // OnTest
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47E7670B000F // Create
+ HWL ME_47E7AC17020C // MakeForMenu
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47E766E10053_ME_47E7652402FF_over // DoUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47E7B1910352 // l3Base
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '24.03.2008 11:24'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainMenuAction.pas'
+ UP extprop:rc:SelfName 'MainMenuAction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMainMenuAction'
+
+ENDME // ME_47E7652402FF TvcmMainMenuAction

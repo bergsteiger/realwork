@@ -7,92 +7,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4E202BD501B7
 %%Inner ME_4E202BD501B7
 
-FORWARD ME_4E202BD501B7
-
-ME ME_4E202C090145
- MEPROP UID '4E202C090145'
- MEPROP Name 'TDictMetaForm'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E202BD501B7 // BaseForms
- ;
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\Archi\MetaForms\NOT_FINISHED_DictMetaForm.pas'
- UP extprop:rc:SelfName 'DictMetaForm'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'DictMetaForm'
-
-ENDME // ME_4E202C090145 TDictMetaForm
-
-ME ME_4E4B62690034
- MEPROP UID '4E4B62690034'
- MEPROP Name 'TBtnDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E202BD501B7 // BaseForms
- ;
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\Archi\MetaForms\NOT_FINISHED_BtnDlg.pas'
- UP extprop:rc:SelfName 'BtnDlg'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'BtnDlg'
-
-ENDME // ME_4E4B62690034 TBtnDlg
-
-%%InheritedBy ME_4E4B62690034 ME_4E4B6244039A
-
-ME ME_4E4B6244039A
- MEPROP UID '4E4B6244039A'
- MEPROP Name 'TTabBBtnDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E202BD501B7 // BaseForms
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4E4B62690034 // TBtnDlg
- )
- ; // Inherits
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\Archi\MetaForms\NOT_FINISHED_TabBBtnDlg.pas'
- UP extprop:rc:SelfName 'TabBBtnDlg'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'TabBBtnDlg'
-
-ENDME // ME_4E4B6244039A TTabBBtnDlg
-
-%%InheritedBy ME_4E4B62690034 ME_4E4B62A40251
-
-ME ME_4E4B62A40251
- MEPROP UID '4E4B62A40251'
- MEPROP Name 'TBottomBtnDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E202BD501B7 // BaseForms
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4E4B62690034 // TBtnDlg
- )
- ; // Inherits
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\Archi\MetaForms\NOT_FINISHED_BottomBtnDlg.pas'
- UP extprop:rc:SelfName 'BottomBtnDlg'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'BottomBtnDlg'
-
-ENDME // ME_4E4B62A40251 TBottomBtnDlg
-
 ME ME_4E202BD501B7
  MEPROP UID '4E202BD501B7'
  MEPROP Name 'BaseForms'
@@ -104,10 +18,10 @@ ME ME_4E202BD501B7
  MELINK Parent WL? 'ME_4E202B8C01A0' // MetaForms
  ;
  MELIST Children
-   Seq: ( HWL ME_4E202C090145 // TDictMetaForm
- HWL ME_4E4B62690034 // TBtnDlg
- HWL ME_4E4B6244039A // TTabBBtnDlg
- HWL ME_4E4B62A40251 // TBottomBtnDlg
+   Seq: ( WL? 'ME_4E202C090145' // TDictMetaForm
+ WL? 'ME_4E4B62690034' // TBtnDlg
+ WL? 'ME_4E4B6244039A' // TTabBBtnDlg
+ WL? 'ME_4E4B62A40251' // TBottomBtnDlg
  )
  ; // Children
  MESTRINGLIST DiagramsNames

@@ -40,17 +40,29 @@ ME ME_571FEC8D00DA
 
 ENDME // ME_571FEC8D00DA 
 
-ME ME_561D436002B8_ME_561E4A7E0070
+MEREF ME_561D436002B8_ME_561E4A7E0070_over
  MELINK Original WL 'ME_561D436002B8' '561D307100B4.ms.model.script' // path
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_561D436002B8_ME_561E4A7E0070 path
+ENDMEREF // ME_561D436002B8_ME_561E4A7E0070_over path
 
-ME ME_563245390156_ME_561E4A7E0070
+MEREF ME_563245390156_ME_561E4A7E0070_over
  MELINK Original WL 'ME_563245390156' '4773984F02AA.ms.model.script' // pas_script_Path
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_563245390156_ME_561E4A7E0070 pas_script_Path
+ENDMEREF // ME_563245390156_ME_561E4A7E0070_over pas_script_Path
+
+MEREF ME_484914950379_ME_561E4A7E0070_R
+ MELINK Original WL 'ME_484914950379' '4732AE850271.ms.model.script' // Project
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484914950379_ME_561E4A7E0070_R Project
+
+MEREF ME_561D335D01B2_ME_561E4A7E0070_R
+ MELINK Original WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_561D335D01B2_ME_561E4A7E0070_R Delphi ST
 
 %%ImplementedBy ME_484914950379 ME_561E4A7E0070
 %%ImplementedBy ME_561D335D01B2 ME_561E4A7E0070
@@ -66,13 +78,13 @@ ME ME_561E4A7E0070
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_484914950379' '4732AE850271.ms.model.script' // Project
- WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+   Seq: ( ME_484914950379_ME_561E4A7E0070_R // Project
+ ME_561D335D01B2_ME_561E4A7E0070_R // Delphi ST
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_561D436002B8_ME_561E4A7E0070 // path
- ME_563245390156_ME_561E4A7E0070 // pas_script_Path
+   Seq: ( ME_561D436002B8_ME_561E4A7E0070_over // path
+ ME_563245390156_ME_561E4A7E0070_over // pas_script_Path
  )
  ; // Overridden
  MELIST Dependencies
@@ -98,11 +110,17 @@ ME ME_561FCB95007B
 
 ENDME // ME_561FCB95007B 
 
-ME ME_56239E15029D_ME_561D304C03DC
+MEREF ME_56239E15029D_ME_561D304C03DC_over
  MELINK Original WL 'ME_56239E15029D' '561D307100B4.ms.model.script' // IsLibraryGroup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_56239E15029D_ME_561D304C03DC IsLibraryGroup
+ENDMEREF // ME_56239E15029D_ME_561D304C03DC_over IsLibraryGroup
+
+MEREF ME_561E4A7E0070_ME_561D304C03DC_G
+ MELINK Original HWL ME_561E4A7E0070 // Project
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_561E4A7E0070_ME_561D304C03DC_G Project
 
 %%InheritedBy ME_561E4A7E0070 ME_561D304C03DC
 
@@ -118,11 +136,11 @@ ME ME_561D304C03DC
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Inherits
-   Seq: ( HWL ME_561E4A7E0070 // Project
+   Seq: ( ME_561E4A7E0070_ME_561D304C03DC_G // Project
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_56239E15029D_ME_561D304C03DC // IsLibraryGroup
+   Seq: ( ME_56239E15029D_ME_561D304C03DC_over // IsLibraryGroup
  )
  ; // Overridden
  MELIST Dependencies
@@ -179,113 +197,131 @@ ME ME_571FEC8301F1
 
 ENDME // ME_571FEC8301F1 
 
-ME ME_46E28D830109_ME_561FCB1E032C
+MEREF ME_46E28D830109_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_46E28D830109' '46E16545033C.ms.model.script' // mda
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46E28D830109_ME_561FCB1E032C mda
+ENDMEREF // ME_46E28D830109_ME_561FCB1E032C_impl mda
 
-ME ME_46E6D4BB0339_ME_561FCB1E032C
+MEREF ME_46E6D4BB0339_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46E6D4BB0339_ME_561FCB1E032C wiki
+ENDMEREF // ME_46E6D4BB0339_ME_561FCB1E032C_impl wiki
 
-ME ME_47022C88029F_ME_561FCB1E032C
+MEREF ME_47022C88029F_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef_suffix" 'H'
  UP "lang id" 'cpp'
-ENDME // ME_47022C88029F_ME_561FCB1E032C h
+ENDMEREF // ME_47022C88029F_ME_561FCB1E032C_impl h
 
-ME ME_47022CB8034B_ME_561FCB1E032C
+MEREF ME_47022CB8034B_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'cpp'
-ENDME // ME_47022CB8034B_ME_561FCB1E032C cpp
+ENDMEREF // ME_47022CB8034B_ME_561FCB1E032C_impl cpp
 
-ME ME_47022CCF00EA_ME_561FCB1E032C
+MEREF ME_47022CCF00EA_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'cpp'
-ENDME // ME_47022CCF00EA_ME_561FCB1E032C i.h
+ENDMEREF // ME_47022CCF00EA_ME_561FCB1E032C_impl i.h
 
-ME ME_470484D50138_ME_561FCB1E032C
+MEREF ME_470484D50138_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_470484D50138_ME_561FCB1E032C wiki_up_add_gen
+ENDMEREF // ME_470484D50138_ME_561FCB1E032C_impl wiki_up_add_gen
 
-ME ME_4704C0E30186_ME_561FCB1E032C
+MEREF ME_4704C0E30186_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4704C0E30186_ME_561FCB1E032C constraint
+ENDMEREF // ME_4704C0E30186_ME_561FCB1E032C_impl constraint
 
-ME ME_4705CBD6003E_ME_561FCB1E032C
+MEREF ME_4705CBD6003E_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4705CBD6003E_ME_561FCB1E032C wiki_child_kind
+ENDMEREF // ME_4705CBD6003E_ME_561FCB1E032C_impl wiki_child_kind
 
-ME ME_470F1571031C_ME_561FCB1E032C
+MEREF ME_470F1571031C_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_470F1571031C_ME_561FCB1E032C intf.pas
+ENDMEREF // ME_470F1571031C_ME_561FCB1E032C_impl intf.pas
 
-ME ME_470F15B800CB_ME_561FCB1E032C
+MEREF ME_470F15B800CB_ME_561FCB1E032C_impl
  MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
  ;
  MEPROP OpKind opkind_Implemented
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_470F15B800CB_ME_561FCB1E032C impl.pas
+ENDMEREF // ME_470F15B800CB_ME_561FCB1E032C_impl impl.pas
 
-ME ME_477398E501C0_ME_561FCB1E032C
+MEREF ME_477398E501C0_ME_561FCB1E032C_over
  MELINK Original WL 'ME_477398E501C0' '4773984F02AA.ms.model.script' // intf2.pas
  ;
  MEPROP OpKind opkind_Overridden
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_477398E501C0_ME_561FCB1E032C intf2.pas
+ENDMEREF // ME_477398E501C0_ME_561FCB1E032C_over intf2.pas
 
-ME ME_4774D2A20372_ME_561FCB1E032C
+MEREF ME_4774D2A20372_ME_561FCB1E032C_over
  MELINK Original WL 'ME_4774D2A20372' '4773984F02AA.ms.model.script' // intf3.pas
  ;
  MEPROP OpKind opkind_Overridden
  UP "lang id" 'delphi'
  UP "tab replace" '\\s'
-ENDME // ME_4774D2A20372_ME_561FCB1E032C intf3.pas
+ENDMEREF // ME_4774D2A20372_ME_561FCB1E032C_over intf3.pas
 
-ME ME_4A09484300C6_ME_561FCB1E032C
+MEREF ME_4A09484300C6_ME_561FCB1E032C_over
  MELINK Original WL 'ME_4A09484300C6' '46E16545033C.ms.model.script' // mda.inc
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A09484300C6_ME_561FCB1E032C mda.inc
+ENDMEREF // ME_4A09484300C6_ME_561FCB1E032C_over mda.inc
 
-ME ME_4A41A13D03D5_ME_561FCB1E032C
+MEREF ME_4A41A13D03D5_ME_561FCB1E032C_over
  MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A41A13D03D5_ME_561FCB1E032C spell
+ENDMEREF // ME_4A41A13D03D5_ME_561FCB1E032C_over spell
 
-ME ME_56239DF403C0_ME_561FCB1E032C
+MEREF ME_56239DF403C0_ME_561FCB1E032C_over
  MELINK Original WL 'ME_56239DF403C0' '561D307100B4.ms.model.script' // IsProjectGroup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_56239DF403C0_ME_561FCB1E032C IsProjectGroup
+ENDMEREF // ME_56239DF403C0_ME_561FCB1E032C_over IsProjectGroup
 
-ME ME_563245390156_ME_561FCB1E032C
+MEREF ME_563245390156_ME_561FCB1E032C_over
  MELINK Original WL 'ME_563245390156' '4773984F02AA.ms.model.script' // pas_script_Path
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_563245390156_ME_561FCB1E032C pas_script_Path
+ENDMEREF // ME_563245390156_ME_561FCB1E032C_over pas_script_Path
+
+MEREF ME_46E28D3A01E4_ME_561FCB1E032C_R
+ MELINK Original WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E28D3A01E4_ME_561FCB1E032C_R Мета-MDA
+
+MEREF ME_47022C670251_ME_561FCB1E032C_R
+ MELINK Original WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47022C670251_ME_561FCB1E032C_R C++ интерфейсы и реализация
+
+MEREF ME_561D335D01B2_ME_561FCB1E032C_R
+ MELINK Original WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_561D335D01B2_ME_561FCB1E032C_R Delphi ST
 
 %%ImplementedBy ME_46E28D3A01E4 ME_561FCB1E032C
 %%ImplementedBy ME_47022C670251 ME_561FCB1E032C
@@ -303,31 +339,31 @@ ME ME_561FCB1E032C
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E28D3A01E4' '46E16545033C.ms.model.script' // Мета-MDA
- WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
- WL 'ME_561D335D01B2' '561D307100B4.ms.model.script' // Delphi ST
+   Seq: ( ME_46E28D3A01E4_ME_561FCB1E032C_R // Мета-MDA
+ ME_47022C670251_ME_561FCB1E032C_R // C++ интерфейсы и реализация
+ ME_561D335D01B2_ME_561FCB1E032C_R // Delphi ST
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_46E28D830109_ME_561FCB1E032C // mda
- ME_46E6D4BB0339_ME_561FCB1E032C // wiki
- ME_47022C88029F_ME_561FCB1E032C // h
- ME_47022CB8034B_ME_561FCB1E032C // cpp
- ME_47022CCF00EA_ME_561FCB1E032C // i.h
- ME_470484D50138_ME_561FCB1E032C // wiki_up_add_gen
- ME_4704C0E30186_ME_561FCB1E032C // constraint
- ME_4705CBD6003E_ME_561FCB1E032C // wiki_child_kind
- ME_470F1571031C_ME_561FCB1E032C // intf.pas
- ME_470F15B800CB_ME_561FCB1E032C // impl.pas
+   Seq: ( ME_46E28D830109_ME_561FCB1E032C_impl // mda
+ ME_46E6D4BB0339_ME_561FCB1E032C_impl // wiki
+ ME_47022C88029F_ME_561FCB1E032C_impl // h
+ ME_47022CB8034B_ME_561FCB1E032C_impl // cpp
+ ME_47022CCF00EA_ME_561FCB1E032C_impl // i.h
+ ME_470484D50138_ME_561FCB1E032C_impl // wiki_up_add_gen
+ ME_4704C0E30186_ME_561FCB1E032C_impl // constraint
+ ME_4705CBD6003E_ME_561FCB1E032C_impl // wiki_child_kind
+ ME_470F1571031C_ME_561FCB1E032C_impl // intf.pas
+ ME_470F15B800CB_ME_561FCB1E032C_impl // impl.pas
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_477398E501C0_ME_561FCB1E032C // intf2.pas
- ME_4774D2A20372_ME_561FCB1E032C // intf3.pas
- ME_4A09484300C6_ME_561FCB1E032C // mda.inc
- ME_4A41A13D03D5_ME_561FCB1E032C // spell
- ME_56239DF403C0_ME_561FCB1E032C // IsProjectGroup
- ME_563245390156_ME_561FCB1E032C // pas_script_Path
+   Seq: ( ME_477398E501C0_ME_561FCB1E032C_over // intf2.pas
+ ME_4774D2A20372_ME_561FCB1E032C_over // intf3.pas
+ ME_4A09484300C6_ME_561FCB1E032C_over // mda.inc
+ ME_4A41A13D03D5_ME_561FCB1E032C_over // spell
+ ME_56239DF403C0_ME_561FCB1E032C_over // IsProjectGroup
+ ME_563245390156_ME_561FCB1E032C_over // pas_script_Path
  )
  ; // Overridden
  MELIST Dependencies
@@ -346,6 +382,18 @@ ME ME_561FCB1E032C
 
 ENDME // ME_561FCB1E032C ProjectGroup
 
+MEREF ME_470478900251_ME_567422BE01A7_R
+ MELINK Original WL 'ME_470478900251' '470335E60290.ms.model.script' // UseCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470478900251_ME_567422BE01A7_R UseCase
+
+MEREF ME_470F151302FD_ME_567422BE01A7_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_567422BE01A7_R Delphi интерфейсы и реализация
+
 %%ImplementedBy ME_470478900251 ME_567422BE01A7
 %%ImplementedBy ME_470F151302FD ME_567422BE01A7
 
@@ -360,8 +408,8 @@ ME ME_567422BE01A7
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_470478900251' '470335E60290.ms.model.script' // UseCase
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_470478900251_ME_567422BE01A7_R // UseCase
+ ME_470F151302FD_ME_567422BE01A7_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCase.tpi'
@@ -369,6 +417,18 @@ ME ME_567422BE01A7
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_567422BE01A7 UseCase
+
+MEREF ME_470472F6005D_ME_5674231C022D_R
+ MELINK Original WL 'ME_470472F6005D' '470335E60290.ms.model.script' // UseCases
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470472F6005D_ME_5674231C022D_R UseCases
+
+MEREF ME_470F151302FD_ME_5674231C022D_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_5674231C022D_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_470472F6005D ME_5674231C022D
 %%ImplementedBy ME_470F151302FD ME_5674231C022D
@@ -384,8 +444,8 @@ ME ME_5674231C022D
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_470472F6005D' '470335E60290.ms.model.script' // UseCases
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_470472F6005D_ME_5674231C022D_R // UseCases
+ ME_470F151302FD_ME_5674231C022D_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCases.tpi'
@@ -393,6 +453,18 @@ ME ME_5674231C022D
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_5674231C022D UseCases
+
+MEREF ME_47047244009C_ME_567423420230_R
+ MELINK Original WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47047244009C_ME_567423420230_R Requirements
+
+MEREF ME_470F151302FD_ME_567423420230_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_567423420230_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_47047244009C ME_567423420230
 %%ImplementedBy ME_470F151302FD ME_567423420230
@@ -408,8 +480,8 @@ ME ME_567423420230
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_47047244009C' '470335E60290.ms.model.script' // Requirements
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_47047244009C_ME_567423420230_R // Requirements
+ ME_470F151302FD_ME_567423420230_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\Requirements.tpi'
@@ -417,6 +489,18 @@ ME ME_567423420230
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_567423420230 Requirements
+
+MEREF ME_470F151302FD_ME_5677F0B40216_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_5677F0B40216_R Delphi интерфейсы и реализация
+
+MEREF ME_4E30271A0247_ME_5677F0B40216_R
+ MELINK Original WL 'ME_4E30271A0247' '470335E60290.ms.model.script' // UseCaseSettingValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E30271A0247_ME_5677F0B40216_R UseCaseSettingValue
 
 %%ImplementedBy ME_470F151302FD ME_5677F0B40216
 %%ImplementedBy ME_4E30271A0247 ME_5677F0B40216
@@ -432,8 +516,8 @@ ME ME_5677F0B40216
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
- WL 'ME_4E30271A0247' '470335E60290.ms.model.script' // UseCaseSettingValue
+   Seq: ( ME_470F151302FD_ME_5677F0B40216_R // Delphi интерфейсы и реализация
+ ME_4E30271A0247_ME_5677F0B40216_R // UseCaseSettingValue
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\UseCaseSettingValue.tpi'
@@ -441,6 +525,18 @@ ME ME_5677F0B40216
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_5677F0B40216 UseCaseSettingValue
+
+MEREF ME_46E13A69005D_ME_57B5B7340174_R
+ MELINK Original WL 'ME_46E13A69005D' '46E13A54030D.ms.model.script' // MDATemplates
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E13A69005D_ME_57B5B7340174_R MDATemplates
+
+MEREF ME_470F151302FD_ME_57B5B7340174_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5B7340174_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_46E13A69005D ME_57B5B7340174
 %%ImplementedBy ME_470F151302FD ME_57B5B7340174
@@ -456,8 +552,8 @@ ME ME_57B5B7340174
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E13A69005D' '46E13A54030D.ms.model.script' // MDATemplates
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_46E13A69005D_ME_57B5B7340174_R // MDATemplates
+ ME_470F151302FD_ME_57B5B7340174_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDATemplates.tpi'
@@ -465,6 +561,18 @@ ME ME_57B5B7340174
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_57B5B7340174 MDATemplates
+
+MEREF ME_46E155F80242_ME_57B5B764010F_R
+ MELINK Original WL 'ME_46E155F80242' '46E13A54030D.ms.model.script' // MDALibrary
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E155F80242_ME_57B5B764010F_R MDALibrary
+
+MEREF ME_470F151302FD_ME_57B5B764010F_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5B764010F_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_46E155F80242 ME_57B5B764010F
 %%ImplementedBy ME_470F151302FD ME_57B5B764010F
@@ -480,8 +588,8 @@ ME ME_57B5B764010F
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E155F80242' '46E13A54030D.ms.model.script' // MDALibrary
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_46E155F80242_ME_57B5B764010F_R // MDALibrary
+ ME_470F151302FD_ME_57B5B764010F_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALibrary.tpi'
@@ -489,6 +597,18 @@ ME ME_57B5B764010F
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_57B5B764010F MDALibrary
+
+MEREF ME_46E1534D0399_ME_57B5B78D029E_R
+ MELINK Original WL 'ME_46E1534D0399' '46E13A54030D.ms.model.script' // MDALayer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E1534D0399_ME_57B5B78D029E_R MDALayer
+
+MEREF ME_470F151302FD_ME_57B5B78D029E_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5B78D029E_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_46E1534D0399 ME_57B5B78D029E
 %%ImplementedBy ME_470F151302FD ME_57B5B78D029E
@@ -504,8 +624,8 @@ ME ME_57B5B78D029E
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E1534D0399' '46E13A54030D.ms.model.script' // MDALayer
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_46E1534D0399_ME_57B5B78D029E_R // MDALayer
+ ME_470F151302FD_ME_57B5B78D029E_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDALayer.tpi'
@@ -513,6 +633,18 @@ ME ME_57B5B78D029E
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_57B5B78D029E MDALayer
+
+MEREF ME_46E1540F00AB_ME_57B5B7FA01F5_R
+ MELINK Original WL 'ME_46E1540F00AB' '46E1536802AF.ms.model.script' // MDAGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E1540F00AB_ME_57B5B7FA01F5_R MDAGenerator
+
+MEREF ME_470F151302FD_ME_57B5B7FA01F5_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5B7FA01F5_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_46E1540F00AB ME_57B5B7FA01F5
 %%ImplementedBy ME_470F151302FD ME_57B5B7FA01F5
@@ -528,8 +660,8 @@ ME ME_57B5B7FA01F5
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E1540F00AB' '46E1536802AF.ms.model.script' // MDAGenerator
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_46E1540F00AB_ME_57B5B7FA01F5_R // MDAGenerator
+ ME_470F151302FD_ME_57B5B7FA01F5_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGenerator.tpi'
@@ -537,6 +669,18 @@ ME ME_57B5B7FA01F5
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_57B5B7FA01F5 MDAGenerator
+
+MEREF ME_470F151302FD_ME_57B5D53F0058_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5D53F0058_R Delphi интерфейсы и реализация
+
+MEREF ME_57B5D4FD0184_ME_57B5D53F0058_R
+ MELINK Original WL 'ME_57B5D4FD0184' '46E1536802AF.ms.model.script' // MDAGeneratorInner
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B5D4FD0184_ME_57B5D53F0058_R MDAGeneratorInner
 
 %%ImplementedBy ME_470F151302FD ME_57B5D53F0058
 %%ImplementedBy ME_57B5D4FD0184 ME_57B5D53F0058
@@ -552,8 +696,8 @@ ME ME_57B5D53F0058
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
- WL 'ME_57B5D4FD0184' '46E1536802AF.ms.model.script' // MDAGeneratorInner
+   Seq: ( ME_470F151302FD_ME_57B5D53F0058_R // Delphi интерфейсы и реализация
+ ME_57B5D4FD0184_ME_57B5D53F0058_R // MDAGeneratorInner
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAGeneratorInner.tpi'
@@ -561,6 +705,18 @@ ME ME_57B5D53F0058
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_57B5D53F0058 MDAGeneratorInner
+
+MEREF ME_46E6CEA300A8_ME_57B5DC0001DA_R
+ MELINK Original WL 'ME_46E6CEA300A8' '46E1536802AF.ms.model.script' // MDAUtilityPack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46E6CEA300A8_ME_57B5DC0001DA_R MDAUtilityPack
+
+MEREF ME_470F151302FD_ME_57B5DC0001DA_R
+ MELINK Original WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_470F151302FD_ME_57B5DC0001DA_R Delphi интерфейсы и реализация
 
 %%ImplementedBy ME_46E6CEA300A8 ME_57B5DC0001DA
 %%ImplementedBy ME_470F151302FD ME_57B5DC0001DA
@@ -576,8 +732,8 @@ ME ME_57B5DC0001DA
  MELINK Parent HWL ME_561D302000A4 // RootStereotypes
  ;
  MELIST Implements
-   Seq: ( WL 'ME_46E6CEA300A8' '46E1536802AF.ms.model.script' // MDAUtilityPack
- WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+   Seq: ( ME_46E6CEA300A8_ME_57B5DC0001DA_R // MDAUtilityPack
+ ME_470F151302FD_ME_57B5DC0001DA_R // Delphi интерфейсы и реализация
  )
  ; // Implements
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\RootStereotypes\MDAUtilityPack.tpi'

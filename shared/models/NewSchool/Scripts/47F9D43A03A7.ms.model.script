@@ -1,0 +1,216 @@
+// TnsDocumentStreamWrapper 47F9D43A03A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F9D43A03A7
+
+ME ME_495386370031
+ MEPROP UID '495386370031'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_495386370031 f_Document
+
+ME ME_4953866A005C
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4953866A005C aDocument
+
+ME ME_4953865E0377
+ MEPROP UID '4953865E0377'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4953866A005C // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4953865E0377 Create
+
+ME ME_4953867F00EC
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4953867F00EC aDocument
+
+ME ME_495386730242
+ MEPROP UID '495386730242'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабричный метод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4953867F00EC // aDocument
+ )
+ ; // Parameters
+ UP "check nil" true
+
+ENDME // ME_495386730242 Make
+
+ME ME_495386BE002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_495386BE002E 
+
+ME ME_495386D802A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_495386D802A0 
+
+ME ME_4953874402D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL? 'ME_47F61C4C0040' // nsDocumentTools
+ ;
+
+ENDME // ME_4953874402D2 
+
+ME ME_495388530105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_495388530105 
+
+ME ME_4CB2F4FF0300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F9D43A03A7 // TnsDocumentStreamWrapper
+ ;
+ MELINK Target WL 'ME_4D3EC093030F' '4CB2EE9F02FE.ms.model.script' // nsGetText
+ ;
+
+ENDME // ME_4CB2F4FF0300 
+
+MEREF ME_495276050302_ME_47F9D43A03A7_impl
+ MELINK Original WL 'ME_495276050302' '47ECAAF901F8.ms.model.script' // InternalNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_495276050302_ME_47F9D43A03A7_impl InternalNumber
+
+MEREF ME_49527634025F_ME_47F9D43A03A7_impl
+ MELINK Original WL 'ME_49527634025F' '47ECAAF901F8.ms.model.script' // EVDStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49527634025F_ME_47F9D43A03A7_impl EVDStream
+
+MEREF ME_479731C50290_ME_47F9D43A03A7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47F9D43A03A7_over Cleanup
+
+MEREF ME_47BC391D0259_ME_47F9D43A03A7_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_47F9D43A03A7_G Tl3SimpleObject
+
+MEREF ME_495275E40046_ME_47F9D43A03A7_R
+ MELINK Original WL 'ME_495275E40046' '47ECAAF901F8.ms.model.script' // IbsDocumentStreamWrapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_495275E40046_ME_47F9D43A03A7_R IbsDocumentStreamWrapper
+
+%%ImplementedBy ME_495275E40046 ME_47F9D43A03A7
+
+%%InheritedBy ME_47BC391D0259 ME_47F9D43A03A7
+
+ME ME_47F9D43A03A7
+ MEPROP UID '47F9D43A03A7'
+ MEPROP Name 'TnsDocumentStreamWrapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обертка работы с потоком для узла адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F22C7501F6' // Document
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_47F9D43A03A7_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_495275E40046_ME_47F9D43A03A7_R // IbsDocumentStreamWrapper
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_495386370031 // f_Document
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4953865E0377 // Create
+ HWL ME_495386730242 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_495276050302_ME_47F9D43A03A7_impl // InternalNumber
+ ME_49527634025F_ME_47F9D43A03A7_impl // EVDStream
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F9D43A03A7_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_495386BE002E // SysUtils
+ ME_495386D802A0 // StdRes
+ ME_4953874402D2 // nsDocumentTools
+ ME_495388530105 // vcmBase
+ ME_4CB2F4FF0300 // nsGetText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2007/03/05 10:50:04'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentStreamWrapper.pas'
+ UP extprop:rc:SelfName 'DocumentStreamWrapper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDocumentStreamWrapper'
+
+ENDME // ME_47F9D43A03A7 TnsDocumentStreamWrapper

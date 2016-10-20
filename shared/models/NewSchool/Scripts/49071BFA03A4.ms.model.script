@@ -1,0 +1,202 @@
+// TnsMedicFirmsCountryFilterTreeBase 49071BFA03A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49071BFA03A4
+
+ME ME_49071CBB02BA
+ MEPROP UID '49071CBB02BA'
+ MEPROP Name 'f_MFSubscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL? 'ME_49071C6300FF' // TnsMedicFirmsSubscribersList
+ ;
+
+ENDME // ME_49071CBB02BA f_MFSubscribers
+
+ME ME_49071D400235
+ MEPROP UID '49071D400235'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+
+ENDME // ME_49071D400235 Create
+
+ME ME_49071D53036B
+ MEPROP UID '49071D53036B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49071D53036B Make
+
+ME ME_49071EDC0216
+ MEPROP UID '49071EDC0216'
+ MEPROP Name 'NotifyMedicFirmsRecipients'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+
+ENDME // ME_49071EDC0216 NotifyMedicFirmsRecipients
+
+ME ME_49071DAF031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49071DAF031C 
+
+ME ME_49071DBD015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_49071DBD015A 
+
+ME ME_49071F9A00A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_49071F9A00A0 
+
+ME ME_49071FDA00E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49071BFA03A4 // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_49071FDA00E9 
+
+MEREF ME_48FF64F60078_ME_49071BFA03A4_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_49071BFA03A4_impl ReAqurieUnfilteredRoot
+
+MEREF ME_49071B0F0100_ME_49071BFA03A4_impl
+ MELINK Original WL 'ME_49071B0F0100' '47ECAAF901F8.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49071B0F0100_ME_49071BFA03A4_impl Subscribe
+
+MEREF ME_49071B1D0098_ME_49071BFA03A4_impl
+ MELINK Original WL 'ME_49071B1D0098' '47ECAAF901F8.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49071B1D0098_ME_49071BFA03A4_impl Unsubscribe
+
+MEREF ME_479731C50290_ME_49071BFA03A4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49071BFA03A4_over Cleanup
+
+MEREF ME_48FF64E700E5_ME_49071BFA03A4_over
+ MELINK Original WL 'ME_48FF64E700E5' '468361010204.ms.model.script' // BeforeReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF64E700E5_ME_49071BFA03A4_over BeforeReset
+
+MEREF ME_468361010204_ME_49071BFA03A4_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_49071BFA03A4_G TnsDataResetTreeStruct
+
+MEREF ME_49071AFF0024_ME_49071BFA03A4_R
+ MELINK Original WL 'ME_49071AFF0024' '47ECAAF901F8.ms.model.script' // InsMedicFirmsTreeNotificationSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49071AFF0024_ME_49071BFA03A4_R InsMedicFirmsTreeNotificationSource
+
+%%ImplementedBy ME_49071AFF0024 ME_49071BFA03A4
+
+%%InheritedBy ME_468361010204 ME_49071BFA03A4
+
+ME ME_49071BFA03A4
+ MEPROP UID '49071BFA03A4'
+ MEPROP Name 'TnsMedicFirmsCountryFilterTreeBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901F07D039B' // Medic$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_468361010204_ME_49071BFA03A4_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49071AFF0024_ME_49071BFA03A4_R // InsMedicFirmsTreeNotificationSource
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49071CBB02BA // f_MFSubscribers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49071D400235 // Create
+ HWL ME_49071D53036B // Make
+ HWL ME_49071EDC0216 // NotifyMedicFirmsRecipients
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_49071BFA03A4_impl // ReAqurieUnfilteredRoot
+ ME_49071B0F0100_ME_49071BFA03A4_impl // Subscribe
+ ME_49071B1D0098_ME_49071BFA03A4_impl // Unsubscribe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49071BFA03A4_over // Cleanup
+ ME_48FF64E700E5_ME_49071BFA03A4_over // BeforeReset
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49071DAF031C // SysUtils
+ ME_49071DBD015A // DataAdapter
+ ME_49071F9A00A0 // StringRoutines
+ ME_49071FDA00E9 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "started" '2008/03/21 11:36:49'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsCountryFilterTreeBase.pas'
+ UP extprop:rc:SelfName 'MedicFirmsCountryFilterTreeBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsMedicFirmsCountryFilterTreeBase'
+
+ENDME // ME_49071BFA03A4 TnsMedicFirmsCountryFilterTreeBase

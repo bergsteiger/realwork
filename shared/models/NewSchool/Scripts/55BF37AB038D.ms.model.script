@@ -1,0 +1,98 @@
+// TtfwValueTypesCache 55BF37AB038D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55BF37AB038D
+
+FORWARD ME_55C0A4040157
+
+ME ME_55C0A4140396
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
+ ;
+
+ENDME // ME_55C0A4140396 aValue
+
+ME ME_55C0A40C0291
+ MEPROP UID '55C0A40C0291'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0A4040157 // CheckList
+ ;
+ MELINK Target WL? 'ME_55BF2B000047' // TtfwValueTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C0A4140396 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55C0A40C0291 DoIt
+
+ME ME_55C0A4040157
+ MEPROP UID '55C0A4040157'
+ MEPROP Name 'CheckList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BF37AB038D // TtfwValueTypesCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C0A40C0291 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55C0A4040157 CheckList
+
+MEREF ME_47A042E100E2_ME_55BF37AB038D_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_55BF37AB038D_over InitFields
+
+MEREF ME_55BF43BA0204_ME_55BF37AB038D_G
+ MELINK Original WL? 'ME_55BF43BA0204' // TtfwValueTypesList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55BF43BA0204_ME_55BF37AB038D_G TtfwValueTypesList
+
+%%InheritedBy ME_55BF43BA0204 ME_55BF37AB038D
+
+ME ME_55BF37AB038D
+ MEPROP UID '55BF37AB038D'
+ MEPROP Name 'TtfwValueTypesCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55BF29CB003B' // TypeInfoCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_55BF43BA0204_ME_55BF37AB038D_G // TtfwValueTypesList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C0A4040157 // CheckList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_55BF37AB038D_over // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesCache.pas'
+ UP extprop:rc:SelfName 'ValueTypesCache'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwValueTypesCache'
+
+ENDME // ME_55BF37AB038D TtfwValueTypesCache

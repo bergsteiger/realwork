@@ -1,0 +1,41 @@
+// base_RelCorrecter 526E5B5D033B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_526E5B5D033B
+
+ME ME_526E5BEF00BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_526E5B5D033B // base_RelCorrecter
+ ;
+ MELINK Target WL 'ME_526E5BAA00E9' '4E4B5F29031C.ms.model.script' // acCorrectRelatedText
+ ;
+
+ENDME // ME_526E5BEF00BB 
+
+ME ME_526E5B5D033B
+ MEPROP UID '526E5B5D033B'
+ MEPROP Name 'base_RelCorrecter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_526E5BEF00BB // acCorrectRelatedText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseRelCorrecter.pas'
+ UP extprop:pas:TypeName 'TkwBaseRelCorrecter'
+ UP extprop:rc:SelfName 'BaseRelCorrecter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwBaseRelCorrecter'
+
+ENDME // ME_526E5B5D033B base_RelCorrecter

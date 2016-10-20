@@ -1,0 +1,75 @@
+// TIterateableServiceProvider 5519612B01D3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5519612B01D3
+
+FORWARD ME_5519612B01D3
+
+FORWARD ME_551961470035
+
+ME ME_5519615C0325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_551961470035 // TIterateableServiceImpl
+ ;
+ MELINK Target WL? 'ME_5519611903CF' // TIterateableService
+ ;
+
+ENDME // ME_5519615C0325 
+
+MEREF ME_49E7754802A9_ME_551961470035_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_551961470035_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_551961470035
+
+ME ME_551961470035
+ MEPROP UID '551961470035'
+ MEPROP Name 'TIterateableServiceImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5519612B01D3 // TIterateableServiceProvider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_551961470035_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5519615C0325 // TIterateableService
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'IterateableServiceImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_551961470035 TIterateableServiceImpl
+
+ME ME_5519612B01D3
+ MEPROP UID '5519612B01D3'
+ MEPROP Name 'TIterateableServiceProvider'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55196110004E' // Services
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551961470035 // TIterateableServiceImpl
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\SandBox\IterateableServiceProvider.pas'
+ UP extprop:rc:SelfName 'IterateableServiceProvider'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IterateableServiceProvider'
+
+ENDME // ME_5519612B01D3 TIterateableServiceProvider

@@ -1,0 +1,139 @@
+// TvcmModuleContractImplementation 57A0BF7D02BD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A0BF7D02BD
+
+FORWARD ME_57A0BFB00067
+
+ME ME_57A0BFE801EE
+ MEPROP UID '57A0BFE801EE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A0BFB00067 // DefaultContainer
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57A0BFE801EE DoIt
+
+ME ME_57A0C03D01C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A0BFB00067 // DefaultContainer
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_57A0C03D01C8 
+
+ME ME_57A0BFB00067
+ MEPROP UID '57A0BFB00067'
+ MEPROP Name 'DefaultContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A0BF7D02BD // TvcmModuleContractImplementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A0BFE801EE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57A0C03D01C8 // vcmDispatcher
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" true
+
+ENDME // ME_57A0BFB00067 DefaultContainer
+
+FORWARD ME_57A0C00002B5
+
+ME ME_57A0C018028E
+ MEPROP Name 'aCont'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57A0C018028E aCont
+
+ME ME_57A0C00F00E9
+ MEPROP UID '57A0C00F00E9'
+ MEPROP Name 'DoId'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A0C00002B5 // CheckContainer
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A0C018028E // aCont
+ )
+ ; // Parameters
+
+ENDME // ME_57A0C00F00E9 DoId
+
+ME ME_57A0C00002B5
+ MEPROP UID '57A0C00002B5'
+ MEPROP Name 'CheckContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A0BF7D02BD // TvcmModuleContractImplementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57A0C00F00E9 // DoId
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_57A0C00002B5 CheckContainer
+
+MEREF ME_49E7754802A9_ME_57A0BF7D02BD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A0BF7D02BD_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57A0BF7D02BD
+
+ME ME_57A0BF7D02BD
+ MEPROP UID '57A0BF7D02BD'
+ MEPROP Name 'TvcmModuleContractImplementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57A0BF7D02BD_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57A0BFB00067 // DefaultContainer
+ HWL ME_57A0C00002B5 // CheckContainer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmModuleContractImplementation.pas'
+ UP extprop:rc:SelfName 'ModuleContractImplementation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmModuleContractImplementation'
+
+ENDME // ME_57A0BF7D02BD TvcmModuleContractImplementation

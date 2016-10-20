@@ -1,0 +1,47 @@
+// Tl3CObjectList 4773DBEA0260 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773DBEA0260
+
+MEREF ME_47A6FEE600FC_ME_4773DBEA0260_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4773DBEA0260_over IsCacheable
+
+MEREF ME_4773DBBD000D_ME_4773DBEA0260_G
+ MELINK Original WL? 'ME_4773DBBD000D' // Tl3ObjectList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DBBD000D_ME_4773DBEA0260_G Tl3ObjectList
+
+%%InheritedBy ME_4773DBBD000D ME_4773DBEA0260
+
+ME ME_4773DBEA0260
+ MEPROP UID '4773DBEA0260'
+ MEPROP Name 'Tl3CObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кешируемый список указателей на объекты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DBBD000D_ME_4773DBEA0260_G // Tl3ObjectList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4773DBEA0260_over // IsCacheable
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CObjectList.pas'
+ UP extprop:rc:SelfName 'CObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3CObjectList'
+
+ENDME // ME_4773DBEA0260 Tl3CObjectList

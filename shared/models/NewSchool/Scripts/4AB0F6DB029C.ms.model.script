@@ -34,7 +34,7 @@ ENDME // ME_4154305890A1 DoIt
 ME ME_4FD08E8503DC
  MEPROP UID '4FD08E8503DC'
  MEPROP Name 'Change'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -77,7 +77,7 @@ ENDME // ME_4FD08F8A031D DoIt
 ME ME_4FD08F7F01AD
  MEPROP UID '4FD08F7F01AD'
  MEPROP Name 'ReadData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -120,7 +120,7 @@ ENDME // ME_4FD08FB102BA DoIt
 ME ME_4FD08FA7008C
  MEPROP UID '4FD08FA7008C'
  MEPROP Name 'WriteData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -213,7 +213,7 @@ ENDME // ME_4FD093D6008E DoIt
 ME ME_4FD093CB025F
  MEPROP UID '4FD093CB025F'
  MEPROP Name 'DoDraw'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -258,7 +258,7 @@ ENDME // ME_4FD09457029C DoIt
 ME ME_4FD0944D0202
  MEPROP UID '4FD0944D0202'
  MEPROP Name 'ImageExtent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -291,7 +291,7 @@ ENDME // ME_4FD095E20159 DoIt
 ME ME_4FD095D20217
  MEPROP UID '4FD095D20217'
  MEPROP Name 'IsSmart'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -305,6 +305,12 @@ ME ME_4FD095D20217
  UP "ifndef" 'DesignTimeLibrary,XE'
 
 ENDME // ME_4FD095D20217 IsSmart
+
+MEREF ME_479878FA0103_ME_473DA2AF0168_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_473DA2AF0168_G TComponent
 
 %%InheritedBy ME_479878FA0103 ME_473DA2AF0168
 
@@ -320,7 +326,7 @@ ME ME_473DA2AF0168
  MELINK Parent HWL ME_4AB0F6DB029C // ImgList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+   Seq: ( ME_479878FA0103_ME_473DA2AF0168_G // TComponent
  )
  ; // Inherits
  MELIST Operations
@@ -374,6 +380,12 @@ ME ME_47881BC201CF
 
 ENDME // ME_47881BC201CF Sender
 
+MEREF ME_4807745602C8_ME_47881A17009F_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_47881A17009F_G TObject
+
 %%InheritedBy ME_4807745602C8 ME_47881A17009F
 
 ME ME_47881A17009F
@@ -388,7 +400,7 @@ ME ME_47881A17009F
  MELINK Parent HWL ME_4AB0F6DB029C // ImgList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+   Seq: ( ME_4807745602C8_ME_47881A17009F_G // TObject
  )
  ; // Inherits
  MELIST Attributes
@@ -433,6 +445,12 @@ ME ME_47881F7603DD
 
 ENDME // ME_47881F7603DD 3
 
+MEREF ME_46A606AC03B2_ME_47881F5002C3_G
+ MELINK Original WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A606AC03B2_ME_47881F5002C3_G Integer
+
 %%InheritedBy ME_46A606AC03B2 ME_47881F5002C3
 
 ME ME_47881F5002C3
@@ -447,7 +465,7 @@ ME ME_47881F5002C3
  MELINK Parent HWL ME_4AB0F6DB029C // ImgList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+   Seq: ( ME_46A606AC03B2_ME_47881F5002C3_G // Integer
  )
  ; // Inherits
  MELIST Attributes
@@ -749,6 +767,12 @@ ME ME_47881F9C0018
 
 ENDME // ME_47881F9C0018 TLoadResource
 
+MEREF ME_47881F9C0018_ME_4788204B0354_G
+ MELINK Original HWL ME_47881F9C0018 // TLoadResource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881F9C0018_ME_4788204B0354_G TLoadResource
+
 %%InheritedBy ME_47881F9C0018 ME_4788204B0354
 
 ME ME_4788204B0354
@@ -763,11 +787,17 @@ ME ME_4788204B0354
  MELINK Parent HWL ME_4AB0F6DB029C // ImgList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_47881F9C0018 // TLoadResource
+   Seq: ( ME_47881F9C0018_ME_4788204B0354_G // TLoadResource
  )
  ; // Inherits
 
 ENDME // ME_4788204B0354 TLoadResources
+
+MEREF ME_46A606AC03B2_ME_4788207F0056_G
+ MELINK Original WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A606AC03B2_ME_4788207F0056_G Integer
 
 %%InheritedBy ME_46A606AC03B2 ME_4788207F0056
 
@@ -783,7 +813,7 @@ ME ME_4788207F0056
  MELINK Parent HWL ME_4AB0F6DB029C // ImgList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+   Seq: ( ME_46A606AC03B2_ME_4788207F0056_G // Integer
  )
  ; // Inherits
  UP "newRTTI" true

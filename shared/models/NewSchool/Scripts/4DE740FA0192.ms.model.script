@@ -1,0 +1,103 @@
+// TkwClickOnCommentHeader 4DE740FA0192 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE740FA0192
+
+ME ME_4DE75634036A
+ MEPROP UID '4DE75634036A'
+ MEPROP Name 'f_Engine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DE740FA0192 // TkwClickOnCommentHeader
+ ;
+ MELINK Target WL 'ME_4DB008DD01BD' '4DAF19F600C5.ms.model.script' // ItfwScriptEngine
+ ;
+
+ENDME // ME_4DE75634036A f_Engine
+
+MEREF ME_4DE7421F03DF_ME_4DE740FA0192_impl
+ MELINK Original WL 'ME_4DE7421F03DF' '4DE643F100CB.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DE7421F03DF_ME_4DE740FA0192_impl DoWithEditor
+
+MEREF ME_4DE7456800BE_ME_4DE740FA0192_impl
+ MELINK Original WL 'ME_4DE7456800BE' '4DE7451703C8.ms.model.script' // CheckCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DE7456800BE_ME_4DE740FA0192_impl CheckCollapsed
+
+MEREF ME_4BF4E6A00093_ME_4DE740FA0192_over
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BF4E6A00093_ME_4DE740FA0192_over GetInnerPara
+
+MEREF ME_4DB0614603C8_ME_4DE740FA0192_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DE740FA0192_over GetWordNameForRegister
+
+MEREF ME_4DE643F100CB_ME_4DE740FA0192_G
+ MELINK Original WL? 'ME_4DE643F100CB' // TarEditorControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE643F100CB_ME_4DE740FA0192_G TarEditorControl
+
+MEREF ME_4DE7451703C8_ME_4DE740FA0192_R
+ MELINK Original WL? 'ME_4DE7451703C8' // ClickOnCommentHeader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE7451703C8_ME_4DE740FA0192_R ClickOnCommentHeader
+
+%%ImplementedBy ME_4DE7451703C8 ME_4DE740FA0192
+
+%%InheritedBy ME_4DE643F100CB ME_4DE740FA0192
+
+ME ME_4DE740FA0192
+ MEPROP UID '4DE740FA0192'
+ MEPROP Name 'TkwClickOnCommentHeader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DE643F100CB_ME_4DE740FA0192_G // TarEditorControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DE7451703C8_ME_4DE740FA0192_R // ClickOnCommentHeader
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DE75634036A // f_Engine
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4DE7421F03DF_ME_4DE740FA0192_impl // DoWithEditor
+ ME_4DE7456800BE_ME_4DE740FA0192_impl // CheckCollapsed
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4DE740FA0192_over // GetInnerPara
+ ME_4DB0614603C8_ME_4DE740FA0192_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'редактор:параграф:щелкнуть_на_заголовке'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClickOnCommentHeader.pas'
+ UP extprop:rc:SelfName 'ClickOnCommentHeader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwClickOnCommentHeader'
+
+ENDME // ME_4DE740FA0192 TkwClickOnCommentHeader

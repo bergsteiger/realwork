@@ -1,0 +1,74 @@
+// TddRunCommandTaskPrim 53B6A75A024C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B6A75A024C
+
+ME ME_53B6A79900FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B6A75A024C // TddRunCommandTaskPrim
+ ;
+ MELINK Target WL? 'ME_53A953FD016B' // evdTaskTypes
+ ;
+
+ENDME // ME_53B6A79900FA 
+
+MEREF ME_53B3D8A8011F_ME_53B6A75A024C_over
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53B3D8A8011F_ME_53B6A75A024C_over Create
+
+MEREF ME_52F8C2BF0110_ME_53B6A75A024C_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53B6A75A024C_G TddProcessTask
+
+MEREF ME_53B6A6B80318_ME_53B6A75A024C_R
+ MELINK Original WL 'ME_53B6A6B80318' '484A470100DD.ms.model.script' // RunCommandTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6A6B80318_ME_53B6A75A024C_R RunCommandTask
+
+%%ImplementedBy ME_53B6A6B80318 ME_53B6A75A024C
+
+%%InheritedBy ME_52F8C2BF0110 ME_53B6A75A024C
+
+ME ME_53B6A75A024C
+ MEPROP UID '53B6A75A024C'
+ MEPROP Name 'TddRunCommandTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8C2BF0110_ME_53B6A75A024C_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B6A6B80318_ME_53B6A75A024C_R // RunCommandTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_53B6A75A024C_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B6A79900FA // evdTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas'
+ UP extprop:rc:SelfName 'ddRunCommandTaskPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRunCommandTaskPrim'
+
+ENDME // ME_53B6A75A024C TddRunCommandTaskPrim

@@ -1,0 +1,123 @@
+// TatIterateDocumentsUnderControlOperation 50507A250036 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50507A250036
+
+ME ME_50507A7800CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50507A250036 // TatIterateDocumentsUnderControlOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_50507A7800CA 
+
+ME ME_50507AAB025C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50507A250036 // TatIterateDocumentsUnderControlOperation
+ ;
+ MELINK Target WL 'ME_45F118FC0312' '45EEAA800226.ms.model.script' // ControlledObjects
+ ;
+
+ENDME // ME_50507AAB025C 
+
+ME ME_50507AB0016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50507A250036 // TatIterateDocumentsUnderControlOperation
+ ;
+ MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
+ ;
+
+ENDME // ME_50507AB0016A 
+
+ME ME_50507AB4005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50507A250036 // TatIterateDocumentsUnderControlOperation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_50507AB4005A 
+
+ME ME_505084BE0354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50507A250036 // TatIterateDocumentsUnderControlOperation
+ ;
+ MELINK Target WL? 'ME_504F47A401F7' // TatControlStatusConverter
+ ;
+
+ENDME // ME_505084BE0354 
+
+MEREF ME_48089F460352_ME_50507A250036_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_50507A250036_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_50507A250036_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_50507A250036_over InitParamList
+
+MEREF ME_48089F660238_ME_50507A250036_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_50507A250036_over ExecuteChilds
+
+MEREF ME_48076E9D013E_ME_50507A250036_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_50507A250036_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_50507A250036
+
+ME ME_50507A250036
+ MEPROP UID '50507A250036'
+ MEPROP Name 'TatIterateDocumentsUnderControlOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_50507A250036_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_50507A250036_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_50507A250036_over // InitParamList
+ ME_48089F660238_ME_50507A250036_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50507A7800CA // atLogger
+ ME_50507AAB025C // ControlledObjects
+ ME_50507AB0016A // Controllable
+ ME_50507AB4005A // Document
+ ME_505084BE0354 // TatControlStatusConverter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atIterateDocumentsUnderControlOperation.pas'
+ UP extprop:rc:SelfName 'atIterateDocumentsUnderControlOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atIterateDocumentsUnderControlOperation'
+
+ENDME // ME_50507A250036 TatIterateDocumentsUnderControlOperation

@@ -1,0 +1,45 @@
+// TnsPageSetup 4ABB686202B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB686202B1
+
+ME ME_4AD5AEF20160
+ MEPROP UID '4AD5AEF20160'
+ MEPROP Name 'f_Metrics'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABB686202B1 // TnsPageSetup
+ ;
+ MELINK Target WL 'ME_499166CF011C' '499164F501ED.ms.model.script' // TnsMetrics
+ ;
+
+ENDME // ME_4AD5AEF20160 f_Metrics
+
+ME ME_4ABB686202B1
+ MEPROP UID '4ABB686202B1'
+ MEPROP Name 'TnsPageSetup'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ABB68530117' // Printing
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AD5AEF20160 // f_Metrics
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsPageSetup.pas'
+ UP extprop:rc:SelfName 'PageSetup'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsPageSetup'
+
+ENDME // ME_4ABB686202B1 TnsPageSetup

@@ -1,0 +1,600 @@
+// TevdBlockNameAdder 4A2CFFA30282 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A2CFFA30282
+%%Inner ME_4A2CFFA30282
+
+FORWARD ME_4A2CFFA30282
+
+FORWARD ME_4A2D046A01BE
+
+ME ME_4A2E86CF0325
+ MEPROP UID '4A2E86CF0325'
+ MEPROP Name 'rInContents'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Попадает ли блок в оглавление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A2E86CF0325 rInContents
+
+ME ME_4A2FE6D302E8
+ MEPROP UID '4A2FE6D302E8'
+ MEPROP Name 'rBlockType'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Тип блока' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4A2FE6D302E8 rBlockType
+
+ME ME_4CF61FD302A9
+ MEPROP UID '4CF61FD302A9'
+ MEPROP Name 'rBlockID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Идентификатор блока' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CF61FD302A9 rBlockID
+
+ME ME_4A2D05AF005F
+ MEPROP UID '4A2D05AF005F'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Имя блока' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4A2D05AF005F rName
+
+ME ME_4A2D05BA0399
+ MEPROP UID '4A2D05BA0399'
+ MEPROP Name 'rSaved'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Информация о блоке уже была сохранена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A2D05BA0399 rSaved
+
+ME ME_4A2D146303C5
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4A2D146303C5 aName
+
+ME ME_4A2D14530087
+ MEPROP UID '4A2D14530087'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A2D146303C5 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4A2D14530087 C
+
+ME ME_4A2D263C02BE
+ MEPROP UID '4A2D263C02BE'
+ MEPROP Name 'E'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'Создаёт пустую структуру' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+
+ENDME // ME_4A2D263C02BE E
+
+ME ME_4A2FE6F6015A
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4A2FE6F6015A aType
+
+ME ME_4A2FE6E60214
+ MEPROP UID '4A2FE6E60214'
+ MEPROP Name 'T'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A2FE6F6015A // aType
+ )
+ ; // Parameters
+
+ENDME // ME_4A2FE6E60214 T
+
+ME ME_4A2D046A01BE
+ MEPROP UID '4A2D046A01BE'
+ MEPROP Name 'TevdBlockInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о блоке' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A2E86CF0325 // rInContents
+ HWL ME_4A2FE6D302E8 // rBlockType
+ HWL ME_4CF61FD302A9 // rBlockID
+ HWL ME_4A2D05AF005F // rName
+ HWL ME_4A2D05BA0399 // rSaved
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A2D14530087 // C
+ HWL ME_4A2D263C02BE // E
+ HWL ME_4A2FE6E60214 // T
+ )
+ ; // Operations
+
+ENDME // ME_4A2D046A01BE TevdBlockInfo
+
+FORWARD ME_4A2D03DC0068
+
+ME ME_4A2D0491020A
+ MEPROP UID '4A2D0491020A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D03DC0068 // TevdBlocks
+ ;
+ MELINK Target HWL ME_4A2D046A01BE // TevdBlockInfo
+ ;
+
+ENDME // ME_4A2D0491020A ItemType
+
+MEREF ME_47B07CF403D0_ME_4A2D03DC0068_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4A2D03DC0068_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4A2D03DC0068_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4A2D03DC0068_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4A2D03DC0068_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4A2D03DC0068_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4A2D03DC0068_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4A2D03DC0068_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_4A2D03DC0068_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_4A2D03DC0068_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4A2D03DC0068
+%%InheritedBy ME_4B223ADC02BF ME_4A2D03DC0068
+
+ME ME_4A2D03DC0068
+ MEPROP UID '4A2D03DC0068'
+ MEPROP Name 'TevdBlocks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Накопленные в результате анализа документа блоки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_4A2D03DC0068_G // Tl3ProtoDataContainer
+ ME_4B223ADC02BF_ME_4A2D03DC0068_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A2D0491020A // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4A2D03DC0068_impl // IsSameItems
+ ME_47B2C42A0163_ME_4A2D03DC0068_impl // AssignItem
+ ME_47B99D4503A2_ME_4A2D03DC0068_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.06.2009 16:29'
+ UP extprop:rc:SelfName 'dBlocks'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A2D03DC0068 TevdBlocks
+
+ME ME_4A2D04B60127
+ MEPROP UID '4A2D04B60127'
+ MEPROP Name 'f_Blocks'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Накопленные блоки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target HWL ME_4A2D03DC0068 // TevdBlocks
+ ;
+
+ENDME // ME_4A2D04B60127 f_Blocks
+
+ME ME_5601042E01EB
+ MEPROP UID '5601042E01EB'
+ MEPROP Name 'f_NeedDecorHeader'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5601042E01EB f_NeedDecorHeader
+
+ME ME_4A2D053C0347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A2D053C0347 
+
+ME ME_4A2D0A960316
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4A2D0A960316 
+
+ME ME_4A2D0AA803A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A2D0AA803A9 
+
+ME ME_4A2D0F57020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4A2D0F57020F 
+
+ME ME_4A2D112503BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_48616CE000AF' '48492FC0029D.ms.model.script' // TxtHeader1
+ ;
+
+ENDME // ME_4A2D112503BE 
+
+ME ME_4A2D132A0329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+
+ENDME // ME_4A2D132A0329 
+
+ME ME_4A2E456700CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4A2E44B70095' '48492FC0029D.ms.model.script' // ContentsElement
+ ;
+
+ENDME // ME_4A2E456700CD 
+
+ME ME_4A2E6CFD0241
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4A2E6CFD0241 
+
+ME ME_4A2F6B8802A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4A2F6B8802A5 
+
+ME ME_4B7006160062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4B7006160062 
+
+ME ME_4C0FA66902F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_48566A8103C1' '484A470100DD.ms.model.script' // PageBreak
+ ;
+
+ENDME // ME_4C0FA66902F9 
+
+ME ME_4CF620630047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4CF620630047 
+
+ME ME_4CF6206D01E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
+ ;
+
+ENDME // ME_4CF6206D01E7 
+
+ME ME_4CF6232F01A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4CF6232F01A9 
+
+ME ME_4CF624AA006E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_484FD1360343' '484A470100DD.ms.model.script' // SegmentsLayer
+ ;
+
+ENDME // ME_4CF624AA006E 
+
+ME ME_4CF624BB0367
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_4CF624BB0367 
+
+ME ME_4CF624D20103
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_48495E29035B' '484A470100DD.ms.model.script' // Address
+ ;
+
+ENDME // ME_4CF624D20103 
+
+ME ME_5149898901DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4E6DB23A01AB' '48492FC0029D.ms.model.script' // LinkToPublication
+ ;
+
+ENDME // ME_5149898901DC 
+
+ME ME_514989AC0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_485FB71E0374' '484A470100DD.ms.model.script' // TxtNormalANSI
+ ;
+
+ENDME // ME_514989AC0349 
+
+ME ME_55FA8B1D0131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2CFFA30282 // TevdBlockNameAdder
+ ;
+ MELINK Target WL 'ME_4857920901AF' '48492FC0029D.ms.model.script' // DecorTextPara
+ ;
+
+ENDME // ME_55FA8B1D0131 
+
+MEREF ME_479731C50290_ME_4A2CFFA30282_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A2CFFA30282_over Cleanup
+
+MEREF ME_4836D4C20059_ME_4A2CFFA30282_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4A2CFFA30282_over CloseStructure
+
+MEREF ME_4A2D1217037A_ME_4A2CFFA30282_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_4A2CFFA30282_over DoStartChild
+
+MEREF ME_4A2D1634025B_ME_4A2CFFA30282_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_4A2CFFA30282_over DoAddAtomEx
+
+MEREF ME_4CF513300102_ME_4A2CFFA30282_over
+ MELINK Original WL 'ME_4CF513300102' '4CF50F7D0203.ms.model.script' // OutBlockNames
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF513300102_ME_4A2CFFA30282_over OutBlockNames
+
+MEREF ME_4CF50F7D0203_ME_4A2CFFA30282_G
+ MELINK Original WL? 'ME_4CF50F7D0203' // TevdHeaderHyperlinkAdder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CF50F7D0203_ME_4A2CFFA30282_G TevdHeaderHyperlinkAdder
+
+%%InheritedBy ME_4CF50F7D0203 ME_4A2CFFA30282
+
+ME ME_4A2CFFA30282
+ MEPROP UID '4A2CFFA30282'
+ MEPROP Name 'TevdBlockNameAdder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, добавляющий имена блоков' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CF50F7D0203_ME_4A2CFFA30282_G // TevdHeaderHyperlinkAdder
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A2D04B60127 // f_Blocks
+ HWL ME_5601042E01EB // f_NeedDecorHeader
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A2CFFA30282_over // Cleanup
+ ME_4836D4C20059_ME_4A2CFFA30282_over // CloseStructure
+ ME_4A2D1217037A_ME_4A2CFFA30282_over // DoStartChild
+ ME_4A2D1634025B_ME_4A2CFFA30282_over // DoAddAtomEx
+ ME_4CF513300102_ME_4A2CFFA30282_over // OutBlockNames
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4A2D046A01BE // TevdBlockInfo
+ HWL ME_4A2D03DC0068 // TevdBlocks
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A2D053C0347 // SysUtils
+ ME_4A2D0A960316 // Block
+ ME_4A2D0AA803A9 // Tk2TagID
+ ME_4A2D0F57020F // TextPara
+ ME_4A2D112503BE // TxtHeader1
+ ME_4A2D132A0329 // Tl3CustomString
+ ME_4A2E456700CD // ContentsElement
+ ME_4A2E6CFD0241 // Document
+ ME_4A2F6B8802A5 // IndentType
+ ME_4B7006160062 // Table
+ ME_4C0FA66902F9 // PageBreak
+ ME_4CF620630047 // l3String
+ ME_4CF6206D01E7 // k2Facade
+ ME_4CF6232F01A9 // Tk2Type
+ ME_4CF624AA006E // SegmentsLayer
+ ME_4CF624BB0367 // HyperLink
+ ME_4CF624D20103 // Address
+ ME_5149898901DC // LinkToPublication
+ ME_514989AC0349 // TxtNormalANSI
+ ME_55FA8B1D0131 // DecorTextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.06.2009 16:10'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdBlockNameAdder.pas'
+ UP extprop:rc:SelfName 'dBlockNameAdder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdBlockNameAdder'
+
+ENDME // ME_4A2CFFA30282 TevdBlockNameAdder

@@ -1,0 +1,439 @@
+// TvcmAggregateContainerRegistry 578CA6EC0255 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_578CA6EC0255
+
+FORWARD ME_578CA6EC0255
+
+FORWARD ME_578CA7B90020
+
+ME ME_578CA80100E5
+ MEPROP UID '578CA80100E5'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_578CA80100E5 KeyType
+
+ME ME_578CA82B01FC
+ MEPROP UID '578CA82B01FC'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_578CA82B01FC ValueType
+
+MEREF ME_5609091B00C0_ME_578CA7B90020_impl
+ MELINK Original WL 'ME_5609091B00C0' '560907E00134.ms.model.script' // CompareKeys
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5609091B00C0_ME_578CA7B90020_impl CompareKeys
+
+MEREF ME_4A54DD4E036F_ME_578CA7B90020_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_578CA7B90020_G Tl3ProtoDataContainer
+
+MEREF ME_5609096C03BE_ME_578CA7B90020_G
+ MELINK Original WL? 'ME_5609096C03BE' // l3Map
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5609096C03BE_ME_578CA7B90020_G l3Map
+
+%%InheritedBy ME_4A54DD4E036F ME_578CA7B90020
+%%InheritedBy ME_5609096C03BE ME_578CA7B90020
+
+ME ME_578CA7B90020
+ MEPROP UID '578CA7B90020'
+ MEPROP Name 'TvcmAggregateContainerMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_578CA7B90020_G // Tl3ProtoDataContainer
+ ME_5609096C03BE_ME_578CA7B90020_G // l3Map
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_578CA80100E5 // KeyType
+ HWL ME_578CA82B01FC // ValueType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5609091B00C0_ME_578CA7B90020_impl // CompareKeys
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'AggregateContainerMap'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_578CA7B90020 TvcmAggregateContainerMap
+
+ME ME_578CB50E0397
+ MEPROP UID '578CB50E0397'
+ MEPROP Name 'Map'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELINK Target HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_578CB50E0397 Map
+
+FORWARD ME_578CA8350324
+
+ME ME_578CAAB6025C
+ MEPROP Name 'aAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_578CAAB6025C aAggregate
+
+ME ME_578CA84B0303
+ MEPROP UID '578CA84B0303'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA8350324 // GetAggregateContainer
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_578CAAB6025C // aAggregate
+ )
+ ; // Parameters
+
+ENDME // ME_578CA84B0303 DoIt
+
+ME ME_578CA8350324
+ MEPROP UID '578CA8350324'
+ MEPROP Name 'GetAggregateContainer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578CA84B0303 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578CA8350324 GetAggregateContainer
+
+FORWARD ME_578CAABD001E
+
+ME ME_578CAAD2031E
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_578CAAD2031E aContainer
+
+ME ME_578CAAC90399
+ MEPROP UID '578CAAC90399'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CAABD001E // GetContainedAggregate
+ ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+ MELIST Parameters
+   Seq: ( ME_578CAAD2031E // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_578CAAC90399 DoIt
+
+ME ME_578CAABD001E
+ MEPROP UID '578CAABD001E'
+ MEPROP Name 'GetContainedAggregate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578CAAC90399 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578CAABD001E GetContainedAggregate
+
+FORWARD ME_578CAAD80333
+
+ME ME_578CC05201BA
+ MEPROP Name 'aAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_578CC05201BA aAggregate
+
+ME ME_578CC05201CA
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_578CC05201CA aContainer
+
+ME ME_578CAAE30381
+ MEPROP UID '578CAAE30381'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CAAD80333 // RegisterAggregate
+ ;
+ MELIST Parameters
+   Seq: ( ME_578CC05201BA // aAggregate
+ ME_578CC05201CA // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_578CAAE30381 DoIt
+
+ME ME_578CAAD80333
+ MEPROP UID '578CAAD80333'
+ MEPROP Name 'RegisterAggregate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578CAAE30381 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578CAAD80333 RegisterAggregate
+
+FORWARD ME_578CAAF1030D
+
+ME ME_578CAB0B02C7
+ MEPROP Name 'aAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_578CAB0B02C7 aAggregate
+
+ME ME_578CAB01019F
+ MEPROP UID '578CAB01019F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CAAF1030D // UnregisterAggregate
+ ;
+ MELIST Parameters
+   Seq: ( ME_578CAB0B02C7 // aAggregate
+ )
+ ; // Parameters
+
+ENDME // ME_578CAB01019F DoIt
+
+ME ME_578CAAF1030D
+ MEPROP UID '578CAAF1030D'
+ MEPROP Name 'UnregisterAggregate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578CAB01019F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578CAAF1030D UnregisterAggregate
+
+FORWARD ME_578CC3C40049
+
+ME ME_578CC3E8031D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_578CC3E8031D aForm
+
+ME ME_578CC3E303D1
+ MEPROP UID '578CC3E303D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CC3C40049 // RegisterFormAggregate
+ ;
+ MELIST Parameters
+   Seq: ( ME_578CC3E8031D // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_578CC3E303D1 DoIt
+
+ME ME_578CC3C40049
+ MEPROP UID '578CC3C40049'
+ MEPROP Name 'RegisterFormAggregate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578CC3E303D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578CC3C40049 RegisterFormAggregate
+
+ME ME_578CAC690353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_578CAC690353 
+
+ME ME_578CAC6D03B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_578CAC6D03B2 
+
+ME ME_578DD55300E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_578CA6EC0255 // TvcmAggregateContainerRegistry
+ ;
+ MELINK Target WL? 'ME_5559A3F601FD' // TvcmFormSetContainerRegistry
+ ;
+
+ENDME // ME_578DD55300E8 
+
+MEREF ME_479731C50290_ME_578CA6EC0255_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_578CA6EC0255_over Cleanup
+
+MEREF ME_47A042E100E2_ME_578CA6EC0255_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_578CA6EC0255_over InitFields
+
+MEREF ME_49E7754802A9_ME_578CA6EC0255_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_578CA6EC0255_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_578CA6EC0255
+
+ME ME_578CA6EC0255
+ MEPROP UID '578CA6EC0255'
+ MEPROP Name 'TvcmAggregateContainerRegistry'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_578CA6EC0255_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_578CB50E0397 // Map
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_578CA8350324 // GetAggregateContainer
+ HWL ME_578CAABD001E // GetContainedAggregate
+ HWL ME_578CAAD80333 // RegisterAggregate
+ HWL ME_578CAAF1030D // UnregisterAggregate
+ HWL ME_578CC3C40049 // RegisterFormAggregate
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_578CA6EC0255_over // Cleanup
+ ME_47A042E100E2_ME_578CA6EC0255_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_578CA7B90020 // TvcmAggregateContainerMap
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_578CAC690353 // IvcmAggregate
+ ME_578CAC6D03B2 // IvcmContainer
+ ME_578DD55300E8 // TvcmFormSetContainerRegistry
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmAggregateContainerRegistry.pas'
+ UP extprop:rc:SelfName 'AggregateContainerRegistry'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmAggregateContainerRegistry'
+
+ENDME // ME_578CA6EC0255 TvcmAggregateContainerRegistry

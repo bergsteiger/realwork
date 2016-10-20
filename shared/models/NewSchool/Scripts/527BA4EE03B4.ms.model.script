@@ -1,0 +1,117 @@
+// Tk2TypedHugeListTag 527BA4EE03B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_527BA4EE03B4
+%%Inner ME_527BA4EE03B4
+%%Inner ME_527BA4EE03B4
+
+FORWARD ME_527BA4EE03B4
+
+ME ME_4FBE321B00EC
+ MEPROP UID '4FBE321B00EC'
+ MEPROP Name 'k2TagIsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ ;
+ UP extprop:rc:SelfName 'TagIsList'
+
+ENDME // ME_4FBE321B00EC k2TagIsList
+
+ME ME_4FBE324100A6
+ MEPROP UID '4FBE324100A6'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_4FBE324100A6 k2Tag_No_f_TagType
+
+ME ME_53023F480187
+ MEPROP UID '53023F480187'
+ MEPROP Name 'k2TagNoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ ;
+ UP extprop:rc:SelfName 'TagNoSort'
+
+ENDME // ME_53023F480187 k2TagNoSort
+
+ME ME_4FBE31E10251
+ MEPROP UID '4FBE31E10251'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_527BA4EE03B4 // Tk2TypedHugeListTag
+ ;
+ MELINK Target WL 'ME_47AC5BBC025C' '47AC5ABE00B6.ms.model.script' // Tl3PtrHash
+ ;
+
+ENDME // ME_4FBE31E10251 HashType
+
+MEREF ME_47AC562D0134_ME_527BA4EE03B4_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_527BA4EE03B4_G k2HashTag
+
+MEREF ME_4A6062FE02AD_ME_527BA4EE03B4_G
+ MELINK Original WL? 'ME_4A6062FE02AD' // TevHugeParaListPrimWithFind
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6062FE02AD_ME_527BA4EE03B4_G TevHugeParaListPrimWithFind
+
+%%InheritedBy ME_47AC562D0134 ME_527BA4EE03B4
+%%InheritedBy ME_4A6062FE02AD ME_527BA4EE03B4
+
+ME ME_527BA4EE03B4
+ MEPROP UID '527BA4EE03B4'
+ MEPROP Name 'Tk2TypedHugeListTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47AC562D0134_ME_527BA4EE03B4_G // k2HashTag
+ ME_4A6062FE02AD_ME_527BA4EE03B4_G // TevHugeParaListPrimWithFind
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FBE31E10251 // HashType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4FBE321B00EC // k2TagIsList
+ HWL ME_4FBE324100A6 // k2Tag_No_f_TagType
+ HWL ME_53023F480187 // k2TagNoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedHugeListTag.pas'
+ UP extprop:rc:SelfName 'TypedHugeListTag'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2TypedHugeListTag'
+
+ENDME // ME_527BA4EE03B4 Tk2TypedHugeListTag

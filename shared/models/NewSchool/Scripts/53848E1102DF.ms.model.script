@@ -1,0 +1,86 @@
+// TddTaskRecord 53848E1102DF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53848E1102DF
+
+ME ME_53848EB50145
+ MEPROP UID '53848EB50145'
+ MEPROP Name 'TaskType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53848E1102DF // TddTaskRecord
+ ;
+ MELINK Target WL 'ME_532047140237' '532046D302C2.ms.model.script' // TcsTaskType
+ ;
+
+ENDME // ME_53848EB50145 TaskType
+
+ME ME_53848EED02F5
+ MEPROP UID '53848EED02F5'
+ MEPROP Name 'TaskClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53848E1102DF // TddTaskRecord
+ ;
+ MELINK Target WL 'ME_53170EB30071' '52FA49C7022C.ms.model.script' // TddTaskClass
+ ;
+
+ENDME // ME_53848EED02F5 TaskClass
+
+ME ME_53848EFC0066
+ MEPROP UID '53848EFC0066'
+ MEPROP Name 'Description'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53848E1102DF // TddTaskRecord
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53848EFC0066 Description
+
+MEREF ME_49E7754802A9_ME_53848E1102DF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53848E1102DF_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_53848E1102DF
+
+ME ME_53848E1102DF
+ MEPROP UID '53848E1102DF'
+ MEPROP Name 'TddTaskRecord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA49B901D3' // ArchiClientServer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_53848E1102DF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53848EB50145 // TaskType
+ HWL ME_53848EED02F5 // TaskClass
+ HWL ME_53848EFC0066 // Description
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddTaskRecord.pas'
+ UP extprop:rc:SelfName 'ddTaskRecord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddTaskRecord'
+
+ENDME // ME_53848E1102DF TddTaskRecord

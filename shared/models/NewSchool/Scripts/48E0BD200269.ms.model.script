@@ -1,0 +1,66 @@
+// TnevNullPara 48E0BD200269 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E0BD200269
+
+ME ME_48E0BD4601D4
+ MEPROP UID '48E0BD4601D4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E0BD200269 // TnevNullPara
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_48E0BD4601D4 Make
+
+ME ME_48E0BD4D0277
+ MEPROP UID '48E0BD4D0277'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48E0BD200269 // TnevNullPara
+ ;
+
+ENDME // ME_48E0BD4D0277 Create
+
+MEREF ME_48CE0A490377_ME_48E0BD200269_G
+ MELINK Original WL? 'ME_48CE0A490377' // TnevParaPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48CE0A490377_ME_48E0BD200269_G TnevParaPrim
+
+%%InheritedBy ME_48CE0A490377 ME_48E0BD200269
+
+ME ME_48E0BD200269
+ MEPROP UID '48E0BD200269'
+ MEPROP Name 'TnevNullPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_48CE0A490377_ME_48E0BD200269_G // TnevParaPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48E0BD4601D4 // Make
+ HWL ME_48E0BD4D0277 // Create
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevNullPara.pas'
+ UP extprop:rc:SelfName 'NullPara'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevNullPara'
+
+ENDME // ME_48E0BD200269 TnevNullPara

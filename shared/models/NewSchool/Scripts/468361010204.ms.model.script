@@ -1,0 +1,274 @@
+// TnsDataResetTreeStruct 468361010204 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468361010204
+
+ME ME_48FF644500DC
+ MEPROP UID '48FF644500DC'
+ MEPROP Name 'BeenReseted'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_48FF644500DC BeenReseted
+
+ME ME_48FF645A00F6
+ MEPROP UID '48FF645A00F6'
+ MEPROP Name 'f_InGetRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48FF645A00F6 f_InGetRoot
+
+FORWARD ME_4F1D334C0371
+
+ME ME_4F1D3441028E
+ MEPROP UID '4F1D3441028E'
+ MEPROP Name 'Signature'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F1D334C0371 // ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4F1D3441028E Signature
+
+ME ME_4F1D334C0371
+ MEPROP UID '4F1D334C0371'
+ MEPROP Name 'ReAqurieUnfilteredRootForMakeResettedSimpleRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F1D3441028E // Signature
+ )
+ ; // Operations
+
+ENDME // ME_4F1D334C0371 ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+
+ME ME_48FF64E700E5
+ MEPROP UID '48FF64E700E5'
+ MEPROP Name 'BeforeReset'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+
+ENDME // ME_48FF64E700E5 BeforeReset
+
+ME ME_48FF64F60078
+ MEPROP UID '48FF64F60078'
+ MEPROP Name 'ReAqurieUnfilteredRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_48FF64F60078 ReAqurieUnfilteredRoot
+
+ME ME_48FF667E00CF
+ MEPROP UID '48FF667E00CF'
+ MEPROP Name 'NotifyUpdated'
+ MEPROP Class class_Operation
+ %SUMMARY 'уведомляет об обновлении данных дерева' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+
+ENDME // ME_48FF667E00CF NotifyUpdated
+
+ME ME_48FF66900153
+ MEPROP UID '48FF66900153'
+ MEPROP Name 'MakeResettedSimpleRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+
+ENDME // ME_48FF66900153 MakeResettedSimpleRoot
+
+ME ME_48FF6D74016D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_48FF6D050234' '47ECAAF901F8.ms.model.script' // InsTreeDataListener
+ ;
+
+ENDME // ME_48FF6D74016D 
+
+ME ME_48FF6DA40270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48FF6DA40270 
+
+ME ME_4AC48448022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4AC48448022C 
+
+ME ME_4EA19E570338
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL 'ME_4872576702D1' '4678193C009C.ms.model.script' // EDoChangedAlreadyDone
+ ;
+
+ENDME // ME_4EA19E570338 
+
+ME ME_4F16FFBB031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468361010204 // TnsDataResetTreeStruct
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4F16FFBB031B 
+
+MEREF ME_479731C50290_ME_468361010204_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_468361010204_over Cleanup
+
+MEREF ME_47EA4E9002C6_ME_468361010204_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_468361010204_over FinishDataUpdate
+
+MEREF ME_48FDA14302AE_ME_468361010204_over
+ MELINK Original WL 'ME_48FDA14302AE' '48FD8F78038B.ms.model.script' // ResetChildrenCountPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FDA14302AE_ME_468361010204_over ResetChildrenCountPrim
+
+MEREF ME_48FDD9D901BB_ME_468361010204_over
+ MELINK Original WL 'ME_48FDD9D901BB' '46835B4001A4.ms.model.script' // Root
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_48FDD9D901BB_ME_468361010204_over Root
+
+MEREF ME_48FF5A9002CC_ME_468361010204_over
+ MELINK Original WL 'ME_48FF5A9002CC' '46835BD201D6.ms.model.script' // DoMakeFiltered
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF5A9002CC_ME_468361010204_over DoMakeFiltered
+
+MEREF ME_46835BD201D6_ME_468361010204_G
+ MELINK Original WL? 'ME_46835BD201D6' // TnsFilterableTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46835BD201D6_ME_468361010204_G TnsFilterableTreeStruct
+
+MEREF ME_47EA4BEF0140_ME_468361010204_G
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_468361010204_G afwApplicationDataUpdate
+
+%%InheritedBy ME_46835BD201D6 ME_468361010204
+%%InheritedBy ME_47EA4BEF0140 ME_468361010204
+
+ME ME_468361010204
+ MEPROP UID '468361010204'
+ MEPROP Name 'TnsDataResetTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево, которое умеет обновляться при смене данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( ME_46835BD201D6_ME_468361010204_G // TnsFilterableTreeStruct
+ ME_47EA4BEF0140_ME_468361010204_G // afwApplicationDataUpdate
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48FF644500DC // BeenReseted
+ HWL ME_48FF645A00F6 // f_InGetRoot
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F1D334C0371 // ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+ HWL ME_48FF64E700E5 // BeforeReset
+ HWL ME_48FF64F60078 // ReAqurieUnfilteredRoot
+ HWL ME_48FF667E00CF // NotifyUpdated
+ HWL ME_48FF66900153 // MakeResettedSimpleRoot
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_468361010204_over // Cleanup
+ ME_47EA4E9002C6_ME_468361010204_over // FinishDataUpdate
+ ME_48FDA14302AE_ME_468361010204_over // ResetChildrenCountPrim
+ ME_48FDD9D901BB_ME_468361010204_over // Root
+ ME_48FF5A9002CC_ME_468361010204_over // DoMakeFiltered
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48FF6D74016D // InsTreeDataListener
+ ME_48FF6DA40270 // SysUtils
+ ME_4AC48448022C // CanNotFindData
+ ME_4EA19E570338 // EDoChangedAlreadyDone
+ ME_4F16FFBB031B // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2005/11/22 18:54:29'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTreeStruct.pas'
+ UP extprop:rc:SelfName 'DataResetTreeStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDataResetTreeStruct'
+
+ENDME // ME_468361010204 TnsDataResetTreeStruct

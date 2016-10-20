@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4F91452D0004
 
+MEREF ME_4F9161AE00F2_ME_4F9161C303A6_G
+ MELINK Original WL 'ME_4F9161AE00F2' '48C78D5402A6.ms.model.script' // TCustomCheckBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F9161AE00F2_ME_4F9161C303A6_G TCustomCheckBox
+
 %%InheritedBy ME_4F9161AE00F2 ME_4F9161C303A6
 
 ME ME_4F9161C303A6
@@ -20,13 +26,19 @@ ME ME_4F9161C303A6
  MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F9161AE00F2' '48C78D5402A6.ms.model.script' // TCustomCheckBox
+   Seq: ( ME_4F9161AE00F2_ME_4F9161C303A6_G // TCustomCheckBox
  )
  ; // Inherits
  UP extprop:rc:SelfName 'CheckBoxHack'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_4F9161C303A6 TCustomCheckBoxHack
+
+MEREF ME_4D49562A01B7_ME_4F9161E00120_G
+ MELINK Original WL? 'ME_4D49562A01B7' // TvgVisualObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D49562A01B7_ME_4F9161E00120_G TvgVisualObject
 
 %%InheritedBy ME_4D49562A01B7 ME_4F9161E00120
 
@@ -41,7 +53,7 @@ ME ME_4F9161E00120
  MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+   Seq: ( ME_4D49562A01B7_ME_4F9161E00120_G // TvgVisualObject
  )
  ; // Inherits
  UP extprop:rc:SelfName 'VisualObjectHack'
@@ -180,7 +192,7 @@ ME ME_4F9167C301B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F91452D0004 // TvcmMessageFormPrim
  ;
- MELINK Target WL 'ME_4D49562A01B7' '4CFCE51A00B0.ms.model.script' // TvgVisualObject
+ MELINK Target WL? 'ME_4D49562A01B7' // TvgVisualObject
  ;
 
 ENDME // ME_4F9167C301B3 
@@ -205,11 +217,17 @@ ME ME_543BAC000204
 
 ENDME // ME_543BAC000204 
 
-ME ME_4FC38C4C0119_ME_4F91452D0004
+MEREF ME_4FC38C4C0119_ME_4F91452D0004_over
  MELINK Original WL 'ME_4FC38C4C0119' '47F4EED50062.ms.model.script' // NeedSaveInSettings
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4FC38C4C0119_ME_4F91452D0004 NeedSaveInSettings
+ENDMEREF // ME_4FC38C4C0119_ME_4F91452D0004_over NeedSaveInSettings
+
+MEREF ME_49525B34022A_ME_4F91452D0004_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4F91452D0004_G TvcmEntityForm
 
 %%InheritedBy ME_49525B34022A ME_4F91452D0004
 
@@ -225,7 +243,7 @@ ME ME_4F91452D0004
  MELINK Parent WL? 'ME_4AADF9450143' // Visual
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_4F91452D0004_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes
@@ -240,7 +258,7 @@ ME ME_4F91452D0004
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4FC38C4C0119_ME_4F91452D0004 // NeedSaveInSettings
+   Seq: ( ME_4FC38C4C0119_ME_4F91452D0004_over // NeedSaveInSettings
  )
  ; // Overridden
  MELIST Children

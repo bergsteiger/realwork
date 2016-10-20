@@ -11,7 +11,7 @@ ME ME_57C687F5010F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
+ MELINK Target WL? 'ME_54539F4702B1' // TncsMessageFactory
  ;
 
 ENDME // ME_57C687F5010F 
@@ -21,7 +21,7 @@ ME ME_57C6881102F6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_57BFF6EA005F' '57C686B70253.ms.model.script' // TcsDownloadDocStreamReply
+ MELINK Target WL? 'ME_57BFF6EA005F' // TcsDownloadDocStreamReply
  ;
 
 ENDME // ME_57C6881102F6 
@@ -41,7 +41,7 @@ ME ME_57D2732B035B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_57D270880150' '57C686B70253.ms.model.script' // TcsUploadDocStreamReply
+ MELINK Target WL? 'ME_57D270880150' // TcsUploadDocStreamReply
  ;
 
 ENDME // ME_57D2732B035B 
@@ -51,7 +51,7 @@ ME ME_57DA77E501C7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_57DA7796002F' '57C686B70253.ms.model.script' // TcsMultiModifyDocsReply
+ MELINK Target WL? 'ME_57DA7796002F' // TcsMultiModifyDocsReply
  ;
 
 ENDME // ME_57DA77E501C7 
@@ -61,7 +61,7 @@ ME ME_57EBBEE9037F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_57EBA06202BE' '57C686B70253.ms.model.script' // TcsMultiClearAttributesReply
+ MELINK Target WL? 'ME_57EBA06202BE' // TcsMultiClearAttributesReply
  ;
 
 ENDME // ME_57EBBEE9037F 
@@ -71,15 +71,25 @@ ME ME_57EE51AD0051
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
  ;
- MELINK Target WL 'ME_57EE517102EC' '57C686B70253.ms.model.script' // TcsMultiOperationReply
+ MELINK Target WL? 'ME_57EE517102EC' // TcsMultiOperationReply
  ;
 
 ENDME // ME_57EE51AD0051 
 
+ME ME_5800BDC800B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
+ ;
+ MELINK Target WL? 'ME_5800BD8000B6' // TcsMultiChangeHyperLinksReply
+ ;
+
+ENDME // ME_5800BDC800B6 
+
 ME ME_57C687CA01EE
  MEPROP UID '57C687CA01EE'
  MEPROP Name 'ncsClientRegister'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -94,6 +104,7 @@ ME ME_57C687CA01EE
  ME_57DA77E501C7 // TcsMultiModifyDocsReply
  ME_57EBBEE9037F // TcsMultiClearAttributesReply
  ME_57EE51AD0051 // TcsMultiOperationReply
+ ME_5800BDC800B6 // TcsMultiChangeHyperLinksReply
  )
  ; // Dependencies
 
@@ -106,7 +117,7 @@ ME ME_57C687FB00E6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
+ MELINK Target WL? 'ME_54539F4702B1' // TncsMessageFactory
  ;
 
 ENDME // ME_57C687FB00E6 
@@ -116,7 +127,7 @@ ME ME_57C6880C0261
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_57BECED40109' '57C686B70253.ms.model.script' // TcsDownloadDocStream
+ MELINK Target WL? 'ME_57BECED40109' // TcsDownloadDocStream
  ;
 
 ENDME // ME_57C6880C0261 
@@ -136,7 +147,7 @@ ME ME_57D275B602AF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' // TcsUploadDocStream
+ MELINK Target WL? 'ME_57D2706902F8' // TcsUploadDocStream
  ;
 
 ENDME // ME_57D275B602AF 
@@ -146,7 +157,7 @@ ME ME_57DA77E000F4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_57DA77B80161' '57C686B70253.ms.model.script' // TcsMultiModifyDocs
+ MELINK Target WL? 'ME_57DA77B80161' // TcsMultiModifyDocs
  ;
 
 ENDME // ME_57DA77E000F4 
@@ -156,7 +167,7 @@ ME ME_57EBBEEF02CA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_57EBA087012F' '57C686B70253.ms.model.script' // TcsMultiClearAttributes
+ MELINK Target WL? 'ME_57EBA087012F' // TcsMultiClearAttributes
  ;
 
 ENDME // ME_57EBBEEF02CA 
@@ -166,15 +177,25 @@ ME ME_57EE51A60378
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
  ;
- MELINK Target WL 'ME_57EE51860032' '57C686B70253.ms.model.script' // TcsMultiOperation
+ MELINK Target WL? 'ME_57EE51860032' // TcsMultiOperation
  ;
 
 ENDME // ME_57EE51A60378 
 
+ME ME_5800BDBF02E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
+ ;
+ MELINK Target WL? 'ME_5800BD960017' // TcsMultiChangeHyperLinks
+ ;
+
+ENDME // ME_5800BDBF02E0 
+
 ME ME_57C687E100FF
  MEPROP UID '57C687E100FF'
  MEPROP Name 'ncsServerRegister'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -189,6 +210,7 @@ ME ME_57C687E100FF
  ME_57DA77E000F4 // TcsMultiModifyDocs
  ME_57EBBEEF02CA // TcsMultiClearAttributes
  ME_57EE51A60378 // TcsMultiOperation
+ ME_5800BDBF02E0 // TcsMultiChangeHyperLinks
  )
  ; // Dependencies
 

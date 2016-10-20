@@ -1,0 +1,281 @@
+// ThtDataConverter 55599B5C014A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55599B5C014A
+
+ME ME_55599D240026
+ MEPROP UID '55599D240026'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+
+ENDME // ME_55599D240026 Create
+
+MEREF ME_55599D240026_ME_55599D3302BD_G
+ MELINK Original HWL ME_55599D240026 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55599D240026_ME_55599D3302BD_G Create
+
+MEREF ME_55C0B2A30315_ME_55599D3302BD_R
+ MELINK Original WL 'ME_55C0B2A30315' '550981B402B9.ms.model.script' // IhtDataConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C0B2A30315_ME_55599D3302BD_R IhtDataConverter
+
+%%ImplementedBy ME_55C0B2A30315 ME_55599D3302BD
+
+%%InheritedBy ME_55599D240026 ME_55599D3302BD
+
+ME ME_55599D3302BD
+ MEPROP UID '55599D3302BD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELIST Inherits
+   Seq: ( ME_55599D240026_ME_55599D3302BD_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55C0B2A30315_ME_55599D3302BD_R // IhtDataConverter
+ )
+ ; // Implements
+
+ENDME // ME_55599D3302BD Make
+
+FORWARD ME_562E1BAB0090
+
+ME ME_562E1C180303
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_562E1C180303 aData
+
+ME ME_562E1C180322
+ MEPROP Name 'aDesc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_559FA10A0133' '5553320F016B.ms.model.script' // OPEL
+ ;
+
+ENDME // ME_562E1C180322 aDesc
+
+ME ME_562E1BEE020C
+ MEPROP UID '562E1BEE020C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_562E1BAB0090 // MakeString
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_562E1C180303 // aData
+ ME_562E1C180322 // aDesc
+ )
+ ; // Parameters
+
+ENDME // ME_562E1BEE020C DoIt
+
+ME ME_562E1BAB0090
+ MEPROP UID '562E1BAB0090'
+ MEPROP Name 'MakeString'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_562E1BEE020C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_562E1BAB0090 MakeString
+
+ME ME_5559A54A029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELINK Target WL 'ME_5535180A0366' '5432448401BC.ms.model.script' // TdaDataType
+ ;
+
+ENDME // ME_5559A54A029E 
+
+ME ME_5559A9B802DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_5559A9B802DD 
+
+ME ME_55FAA475026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELINK Target WL 'ME_55FAA491026E' '47878E0E0191.ms.model.script' // l3ArrayToString
+ ;
+
+ENDME // ME_55FAA475026C 
+
+ME ME_55FAAA320369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55599B5C014A // ThtDataConverter
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_55FAAA320369 
+
+MEREF ME_555995210007_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_555995210007' '5432518A0316.ms.model.script' // AllocateParamBuffer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_555995210007_ME_55599B5C014A_impl AllocateParamBuffer
+
+MEREF ME_5559955500DF_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_5559955500DF' '5432518A0316.ms.model.script' // ParamToDataBase
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5559955500DF_ME_55599B5C014A_impl ParamToDataBase
+
+MEREF ME_55599596005B_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55599596005B' '5432518A0316.ms.model.script' // ParamFromDataBase
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55599596005B_ME_55599B5C014A_impl ParamFromDataBase
+
+MEREF ME_5559D14D02D1_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_5559D14D02D1' '5432518A0316.ms.model.script' // FreeParamBuffer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5559D14D02D1_ME_55599B5C014A_impl FreeParamBuffer
+
+MEREF ME_55C89B830012_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55C89B830012' '550981B402B9.ms.model.script' // ToLargeInt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55C89B830012_ME_55599B5C014A_impl ToLargeInt
+
+MEREF ME_55C89BB40093_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55C89BB40093' '550981B402B9.ms.model.script' // ToInteger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55C89BB40093_ME_55599B5C014A_impl ToInteger
+
+MEREF ME_55C89BC8017D_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55C89BC8017D' '550981B402B9.ms.model.script' // ToStDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55C89BC8017D_ME_55599B5C014A_impl ToStDate
+
+MEREF ME_55C89BDC012F_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55C89BDC012F' '550981B402B9.ms.model.script' // ToStTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55C89BDC012F_ME_55599B5C014A_impl ToStTime
+
+MEREF ME_55FA9B9301D7_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_55FA9B9301D7' '550981B402B9.ms.model.script' // ToString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55FA9B9301D7_ME_55599B5C014A_impl ToString
+
+MEREF ME_562E0F8F02F3_ME_55599B5C014A_impl
+ MELINK Original WL 'ME_562E0F8F02F3' '550981B402B9.ms.model.script' // ToByte
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_562E0F8F02F3_ME_55599B5C014A_impl ToByte
+
+MEREF ME_49E7754802A9_ME_55599B5C014A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55599B5C014A_G Tl3ProtoObject
+
+MEREF ME_55C0B2A30315_ME_55599B5C014A_R
+ MELINK Original WL 'ME_55C0B2A30315' '550981B402B9.ms.model.script' // IhtDataConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C0B2A30315_ME_55599B5C014A_R IhtDataConverter
+
+%%ImplementedBy ME_55C0B2A30315 ME_55599B5C014A
+
+%%InheritedBy ME_49E7754802A9 ME_55599B5C014A
+
+ME ME_55599B5C014A
+ MEPROP UID '55599B5C014A'
+ MEPROP Name 'ThtDataConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9AF550087' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55599B5C014A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55C0B2A30315_ME_55599B5C014A_R // IhtDataConverter
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55599D240026 // Create
+ HWL ME_55599D3302BD // Make
+ HWL ME_562E1BAB0090 // MakeString
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_555995210007_ME_55599B5C014A_impl // AllocateParamBuffer
+ ME_5559955500DF_ME_55599B5C014A_impl // ParamToDataBase
+ ME_55599596005B_ME_55599B5C014A_impl // ParamFromDataBase
+ ME_5559D14D02D1_ME_55599B5C014A_impl // FreeParamBuffer
+ ME_55C89B830012_ME_55599B5C014A_impl // ToLargeInt
+ ME_55C89BB40093_ME_55599B5C014A_impl // ToInteger
+ ME_55C89BC8017D_ME_55599B5C014A_impl // ToStDate
+ ME_55C89BDC012F_ME_55599B5C014A_impl // ToStTime
+ ME_55FA9B9301D7_ME_55599B5C014A_impl // ToString
+ ME_562E0F8F02F3_ME_55599B5C014A_impl // ToByte
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5559A54A029E // TdaDataType
+ ME_5559A9B802DD // l3System
+ ME_55FAA475026C // l3ArrayToString
+ ME_55FAAA320369 // IntToStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\HT\htDataConverter.pas'
+ UP extprop:rc:SelfName 'htDataConverter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'htDataConverter'
+
+ENDME // ME_55599B5C014A ThtDataConverter

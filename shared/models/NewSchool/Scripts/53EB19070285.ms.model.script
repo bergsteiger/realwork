@@ -1,0 +1,42 @@
+// MainForm_FormClose 53EB19070285 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EB19070285
+
+ME ME_53EB4DE901E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EB19070285 // MainForm_FormClose
+ ;
+ MELINK Target WL 'ME_53EB4DC6007B' '4E4B5F29031C.ms.model.script' // acMainFormFormClose
+ ;
+
+ENDME // ME_53EB4DE901E4 
+
+ME ME_53EB19070285
+ MEPROP UID '53EB19070285'
+ MEPROP Name 'MainForm_FormClose'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Эмулирует выполнение FormClose главной формы, возращая после выполнения все в исходное состояние.'#13#10'Формат: '#13#10'{code}'#13#10'MainForm:FormClose'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53EB4DE901E4 // acMainFormFormClose
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormFormClose.pas'
+ UP extprop:pas:TypeName 'TkwMainFormFormClose'
+ UP extprop:rc:SelfName 'MainFormFormClose'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMainFormFormClose'
+
+ENDME // ME_53EB19070285 MainForm_FormClose

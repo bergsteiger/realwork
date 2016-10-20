@@ -4,105 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_47B311890174
 
-FORWARD ME_47B311890174
-
-FORWARD ME_47B71BF6005C
-
-ME ME_47B71C0D0102
- MEPROP UID '47B71C0D0102'
- MEPROP Name 'NodeType_'
- MEPROP Class class_Attribute
- MELINK Stereotype st_template::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_47B71BF6005C // TipsTree
- ;
-
-ENDME // ME_47B71C0D0102 NodeType_
-
-ME ME_47B71C2C037F
- MEPROP UID '47B71C2C037F'
- MEPROP Name 'NodeDelegateType_'
- MEPROP Class class_Attribute
- MELINK Stereotype st_template::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_47B71BF6005C // TipsTree
- ;
-
-ENDME // ME_47B71C2C037F NodeDelegateType_
-
-ME ME_4ABB4D2A02C3
- MEPROP Name 'tree'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
-
-ENDME // ME_4ABB4D2A02C3 tree
-
-ME ME_4ABB4D2800C9
- MEPROP UID '4ABB4D2800C9'
- MEPROP Name 'make'
- MEPROP Class class_Operation
- MELINK Stereotype st_ctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47B71BF6005C // TipsTree
- ;
- MELIST Parameters
-   Seq: ( ME_4ABB4D2A02C3 // tree
- )
- ; // Parameters
-
-ENDME // ME_4ABB4D2800C9 make
-
-ME ME_47B71C3201F0
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47B71BF6005C // TipsTree
- ;
-
-ENDME // ME_47B71C3201F0 
-
-%%ImplementedBy ME_45F585F802AF ME_47B71BF6005C
-
-ME ME_47B71BF6005C
- MEPROP UID '47B71BF6005C'
- MEPROP Name 'TipsTree'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47B311890174 // Tips_i
- ;
- MELIST Implements
-   Seq: ( WL 'ME_45F585F802AF' '45EEA4490239.ms.model.script' // Tree
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_47B71C0D0102 // NodeType_
- HWL ME_47B71C2C037F // NodeDelegateType_
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4ABB4D2800C9 // make
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_47B71C3201F0 // TipsTreeNode_i
- )
- ; // Dependencies
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Tips_i\TipsTree.cpp'
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Tips_i\TipsTree.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ipsTree.pas'
- UP extprop:rc:SelfName 'ipsTree'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'ipsTree'
-
-ENDME // ME_47B71BF6005C TipsTree
-
 ME ME_47B311890174
  MEPROP UID '47B311890174'
  MEPROP Name 'Tips_i'
@@ -114,7 +15,7 @@ ME ME_47B311890174
  MELINK Parent WL? 'ME_456EA3D2031C' // GblAdapterLib
  ;
  MELIST Children
-   Seq: ( HWL ME_47B71BF6005C // TipsTree
+   Seq: ( WL? 'ME_47B71BF6005C' // TipsTree
  )
  ; // Children
  MELIST Depends

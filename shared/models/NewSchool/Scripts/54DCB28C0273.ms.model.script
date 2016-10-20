@@ -96,7 +96,7 @@ ME ME_57F3663F000E
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_57F3663F000E aForm
@@ -127,6 +127,12 @@ ME ME_54DCB3050025
 
 ENDME // ME_54DCB3050025 
 
+MEREF ME_49525B34022A_ME_54DCB28C0273_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_54DCB28C0273_G TvcmEntityForm
+
 %%InjectedBy ME_4F22CB1E0009 ME_54DCB28C0273
 
 %%InheritedBy ME_49525B34022A ME_54DCB28C0273
@@ -143,7 +149,7 @@ ME ME_54DCB28C0273
  MELINK Parent WL? 'ME_54DCB32F019F' // VCMFormsProcessing
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_54DCB28C0273_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes

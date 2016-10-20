@@ -1,0 +1,46 @@
+// K263750307 4DAFEB7300EE TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAFEB7300EE
+
+MEREF ME_4DAFEAFC033F_ME_4DAFEB7300EE_impl
+ MELINK Original WL 'ME_4DAFEAFC033F' '4DAFEAAD012D.ms.model.script' // GetFormulaText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAFEAFC033F_ME_4DAFEB7300EE_impl GetFormulaText
+
+MEREF ME_4DAFEAAD012D_ME_4DAFEB7300EE_G
+ MELINK Original WL? 'ME_4DAFEAAD012D' // TInsertFormulaTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAFEAAD012D_ME_4DAFEB7300EE_G TInsertFormulaTest
+
+%%InheritedBy ME_4DAFEAAD012D ME_4DAFEB7300EE
+
+ME ME_4DAFEB7300EE
+ MEPROP UID '4DAFEB7300EE'
+ MEPROP Name 'K263750307'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$263750307]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D02571C01D0' // 7.7
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DAFEAAD012D_ME_4DAFEB7300EE_G // TInsertFormulaTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAFEAFC033F_ME_4DAFEB7300EE_impl // GetFormulaText
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K263750307.pas'
+ UP extprop:pas:TypeName 'TK263750307'
+ UP extprop:rc:SelfName 'K263750307'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DAFEB7300EE K263750307

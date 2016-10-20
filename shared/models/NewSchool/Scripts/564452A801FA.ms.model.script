@@ -4,105 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_564452A801FA
 
-FORWARD ME_564452A801FA
-
-FORWARD ME_564452C80377
-
-FORWARD ME_5644533F0088
-
-ME ME_5645BF3100A3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5644533F0088 // DoIt
- ;
- MELINK Target WL 'ME_53A05AFD02CC' '47A0686803A5.ms.model.script' // Tl3DOSFiler
- ;
-
-ENDME // ME_5645BF3100A3 
-
-ME ME_5645C9380255
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5644533F0088 // DoIt
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_5645C9380255 
-
-ME ME_5644533F0088
- MEPROP UID '5644533F0088'
- MEPROP Name 'DoIt'
- MEPROP Class class_Class
- MELINK Stereotype st_Test ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_564452C80377 // DiffTest
- ;
- MELIST Dependencies
-   Seq: ( ME_5645BF3100A3 // Tl3DOSFiler
- ME_5645C9380255 // FreeAndNil
- )
- ; // Dependencies
-
-ENDME // ME_5644533F0088 DoIt
-
-ME ME_5645BE980354
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_564452C80377 // DiffTest
- ;
- MELINK Target WL? 'ME_5644774902C8' // l3Diff
- ;
-
-ENDME // ME_5645BE980354 
-
-ME ME_5645BEA10224
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_564452C80377 // DiffTest
- ;
- MELINK Target WL? 'ME_5645BDF50334' // l3DiffSupport
- ;
-
-ENDME // ME_5645BEA10224 
-
-%%InheritedBy ME_4B2A11BC0255 ME_564452C80377
-
-ME ME_564452C80377
- MEPROP UID '564452C80377'
- MEPROP Name 'DiffTest'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_564452A801FA // Diff
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_5644533F0088 // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_5645BE980354 // l3Diff
- ME_5645BEA10224 // l3DiffSupport
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\DiffTest.pas'
- UP extprop:pas:TypeName 'TDiffTest'
- UP extprop:rc:SelfName 'DiffTest'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_564452C80377 DiffTest
-
 ME ME_564452A801FA
  MEPROP UID '564452A801FA'
  MEPROP Name 'Diff'
@@ -114,7 +15,7 @@ ME ME_564452A801FA
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_564452C80377 // DiffTest
+   Seq: ( WL? 'ME_564452C80377' // DiffTest
  )
  ; // Children
  MELIST Depends

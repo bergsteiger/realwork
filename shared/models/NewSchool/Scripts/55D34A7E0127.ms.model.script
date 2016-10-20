@@ -1,0 +1,47 @@
+// TtfwArchiHyperlinkScriptCaller 55D34A7E0127 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55D34A7E0127
+
+MEREF ME_55D34AD90105_ME_55D34A7E0127_over
+ MELINK Original WL 'ME_55D34AD90105' '55C482690029.ms.model.script' // DoResolveIncludedFilePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_55D34AD90105_ME_55D34A7E0127_over DoResolveIncludedFilePath
+
+MEREF ME_55D345A40226_ME_55D34A7E0127_G
+ MELINK Original WL? 'ME_55D345A40226' // TtfwHyperlinkScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55D345A40226_ME_55D34A7E0127_G TtfwHyperlinkScriptCaller
+
+%%InheritedBy ME_55D345A40226 ME_55D34A7E0127
+
+ME ME_55D34A7E0127
+ MEPROP UID '55D34A7E0127'
+ MEPROP Name 'TtfwArchiHyperlinkScriptCaller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55C481E00003' // ScriptCallers
+ ;
+ MELIST Inherits
+   Seq: ( ME_55D345A40226_ME_55D34A7E0127_G // TtfwHyperlinkScriptCaller
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55D34AD90105_ME_55D34A7E0127_over // DoResolveIncludedFilePath
+ )
+ ; // Overridden
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.pas'
+ UP extprop:rc:SelfName 'ArchiHyperlinkScriptCaller'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwArchiHyperlinkScriptCaller'
+
+ENDME // ME_55D34A7E0127 TtfwArchiHyperlinkScriptCaller

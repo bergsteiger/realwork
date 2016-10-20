@@ -1,0 +1,130 @@
+// base_export 50580B6C00E6 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50580B6C00E6
+
+FORWARD ME_50580B6C00E6
+
+MEREF ME_5059903E037D_ME_508E230C018A_G
+ MELINK Original WL 'ME_5059903E037D' '50598FF6003B.ms.model.script' // TSewerPipe
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5059903E037D_ME_508E230C018A_G TSewerPipe
+
+%%InheritedBy ME_5059903E037D ME_508E230C018A
+
+ME ME_508E230C018A
+ MEPROP UID '508E230C018A'
+ MEPROP Name 'TSewerPipeHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELIST Inherits
+   Seq: ( ME_5059903E037D_ME_508E230C018A_G // TSewerPipe
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'SewerPipeHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_508E230C018A TSewerPipeHack
+
+ME ME_5059896902F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5059896902F3 
+
+ME ME_50598A4500A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL 'ME_50598A2101B7' '47BC51FE018B.ms.model.script' // TDiapasonRec
+ ;
+
+ENDME // ME_50598A4500A6 
+
+ME ME_50598CED0002
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL 'ME_50598AA402C9' '4C9CD0E8038A.ms.model.script' // TdtAttribute
+ ;
+
+ENDME // ME_50598CED0002 
+
+ME ME_50598D7E039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_50598D7E039F 
+
+ME ME_50598EBC01B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_50598EBC01B5 
+
+ME ME_5059907E006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50580B6C00E6 // base_export
+ ;
+ MELINK Target WL 'ME_5059903E037D' '50598FF6003B.ms.model.script' // TSewerPipe
+ ;
+
+ENDME // ME_5059907E006B 
+
+ME ME_50580B6C00E6
+ MEPROP UID '50580B6C00E6'
+ MEPROP Name 'base_export'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ёкспорт документа из базы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Children
+   Seq: ( HWL ME_508E230C018A // TSewerPipeHack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5059896902F3 // FreeAndNil
+ ME_50598A4500A6 // TDiapasonRec
+ ME_50598CED0002 // TdtAttribute
+ ME_50598D7E039F // Tk2TagGenerator
+ ME_50598EBC01B5 // TevdNativeWriter
+ ME_5059907E006B // TSewerPipe
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseExport.pas'
+ UP extprop:pas:TypeName 'TkwBaseExport'
+ UP extprop:rc:SelfName 'BaseExport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwBaseExport'
+
+ENDME // ME_50580B6C00E6 base_export

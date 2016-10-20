@@ -1,0 +1,248 @@
+// TddServerTaskManagerForTests 52F8E8A101EC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F8E8A101EC
+%%Inner ME_52F8E8A101EC
+
+FORWARD ME_52F8E8A101EC
+
+FORWARD ME_52F8EE5400B0
+
+ME ME_52F8EE7401C2
+ MEPROP UID '52F8EE7401C2'
+ MEPROP Name 'f_Task'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8EE5400B0 // TTaskDone
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_52F8EE7401C2 f_Task
+
+ME ME_52F8EE8E0293
+ MEPROP UID '52F8EE8E0293'
+ MEPROP Name 'ServerTaskManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8EE5400B0 // TTaskDone
+ ;
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
+ ;
+
+ENDME // ME_52F8EE8E0293 ServerTaskManager
+
+MEREF ME_4FFFDF740099_ME_52F8EE5400B0_impl
+ MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FFFDF740099_ME_52F8EE5400B0_impl Execute
+
+MEREF ME_4FFFDF4601F9_ME_52F8EE5400B0_G
+ MELINK Original WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFFDF4601F9_ME_52F8EE5400B0_G TThread
+
+%%InheritedBy ME_4FFFDF4601F9 ME_52F8EE5400B0
+
+ME ME_52F8EE5400B0
+ MEPROP UID '52F8EE5400B0'
+ MEPROP Name 'TTaskDone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FFFDF4601F9_ME_52F8EE5400B0_G // TThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52F8EE7401C2 // f_Task
+ HWL ME_52F8EE8E0293 // ServerTaskManager
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FFFDF740099_ME_52F8EE5400B0_impl // Execute
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'TaskDone'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52F8EE5400B0 TTaskDone
+
+FORWARD ME_52FA2C470046
+
+MEREF ME_52FA2C99010A_ME_52FA2C470046_over
+ MELINK Original WL 'ME_52FA2C99010A' '52FA29AE02C2.ms.model.script' // DoMake
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_52FA2C99010A_ME_52FA2C470046_over DoMake
+
+MEREF ME_52FA29AE02C2_ME_52FA2C470046_G
+ MELINK Original WL? 'ME_52FA29AE02C2' // TalcuServerTaskManagerFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA29AE02C2_ME_52FA2C470046_G TalcuServerTaskManagerFactory
+
+%%InheritedBy ME_52FA29AE02C2 ME_52FA2C470046
+
+ME ME_52FA2C470046
+ MEPROP UID '52FA2C470046'
+ MEPROP Name 'TalcuServerTaskManagerFactoryForTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA29AE02C2_ME_52FA2C470046_G // TalcuServerTaskManagerFactory
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52FA2C99010A_ME_52FA2C470046_over // DoMake
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'alcuServerTaskManagerFactoryForTests'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52FA2C470046 TalcuServerTaskManagerFactoryForTests
+
+ME ME_52FA2A9C014E
+ MEPROP UID '52FA2A9C014E'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+
+ENDME // ME_52FA2A9C014E ini
+
+ME ME_52F8EF0C014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELINK Target WL 'ME_52F8EEFA01C4' '47877EB202FB.ms.model.script' // Sleep
+ ;
+
+ENDME // ME_52F8EF0C014A 
+
+ME ME_52FA24F8016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELINK Target WL? 'ME_4E03119F00B2' // afwAnswer
+ ;
+
+ENDME // ME_52FA24F8016A 
+
+ME ME_52FA2A950070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELINK Target WL? 'ME_52FA29AE02C2' // TalcuServerTaskManagerFactory
+ ;
+
+ENDME // ME_52FA2A950070 
+
+ME ME_557696F8026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
+ ;
+ MELINK Target WL? 'ME_5507FDD203E1' // Tl3BatchService
+ ;
+
+ENDME // ME_557696F8026C 
+
+MEREF ME_52F8EDDA037F_ME_52F8E8A101EC_over
+ MELINK Original WL 'ME_52F8EDDA037F' '52F8BE3100F5.ms.model.script' // SimulateTaskDone
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'InsiderTest'
+ENDMEREF // ME_52F8EDDA037F_ME_52F8E8A101EC_over SimulateTaskDone
+
+MEREF ME_52F8EDF703C0_ME_52F8E8A101EC_over
+ MELINK Original WL 'ME_52F8EDF703C0' '52F8BE3100F5.ms.model.script' // BeforeSaveQuery
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'InsiderTest'
+ENDMEREF // ME_52F8EDF703C0_ME_52F8E8A101EC_over BeforeSaveQuery
+
+MEREF ME_52F8F0990208_ME_52F8E8A101EC_over
+ MELINK Original WL 'ME_52F8F0990208' '52F8BE3100F5.ms.model.script' // NeedRaiseInProcessQuery
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'InsiderTest'
+ENDMEREF // ME_52F8F0990208_ME_52F8E8A101EC_over NeedRaiseInProcessQuery
+
+MEREF ME_52F8E80D00A5_ME_52F8E8A101EC_G
+ MELINK Original WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8E80D00A5_ME_52F8E8A101EC_G TddServerTaskManager
+
+%%InheritedBy ME_52F8E80D00A5 ME_52F8E8A101EC
+
+ME ME_52F8E8A101EC
+ MEPROP UID '52F8E8A101EC'
+ MEPROP Name 'TddServerTaskManagerForTests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8E847028C' // TaskProcessingTuningForTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8E80D00A5_ME_52F8E8A101EC_G // TddServerTaskManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52FA2A9C014E // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_52F8EDDA037F_ME_52F8E8A101EC_over // SimulateTaskDone
+ ME_52F8EDF703C0_ME_52F8E8A101EC_over // BeforeSaveQuery
+ ME_52F8F0990208_ME_52F8E8A101EC_over // NeedRaiseInProcessQuery
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_52F8EE5400B0 // TTaskDone
+ HWL ME_52FA2C470046 // TalcuServerTaskManagerFactoryForTests
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52F8EF0C014A // Sleep
+ ME_52FA24F8016A // afwAnswer
+ ME_52FA2A950070 // TalcuServerTaskManagerFactory
+ ME_557696F8026C // Tl3BatchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\ddServerTaskManagerForTests.pas'
+ UP extprop:rc:SelfName 'ddServerTaskManagerForTests'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddServerTaskManagerForTests'
+
+ENDME // ME_52F8E8A101EC TddServerTaskManagerForTests

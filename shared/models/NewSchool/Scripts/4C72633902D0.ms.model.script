@@ -1,0 +1,106 @@
+// TnsDocumentTagNodeBase 4C72633902D0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C72633902D0
+
+FORWARD ME_4C72528B0170
+
+ME ME_4C7252980111
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+
+ENDME // ME_4C7252980111 aNode
+
+ME ME_4C7252930397
+ MEPROP UID '4C7252930397'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C72528B0170 // CreatePrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C7252980111 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4C7252930397 DoIt
+
+ME ME_4C725AD9029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72528B0170 // CreatePrim
+ ;
+ MELINK Target WL? 'ME_480DBA760390' // k2Facade
+ ;
+
+ENDME // ME_4C725AD9029B 
+
+ME ME_4C72528B0170
+ MEPROP UID '4C72528B0170'
+ MEPROP Name 'CreatePrim'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C72633902D0 // TnsDocumentTagNodeBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7252930397 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C725AD9029B // k2Facade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C72528B0170 CreatePrim
+
+MEREF ME_4C724FC1029F_ME_4C72633902D0_G
+ MELINK Original WL? 'ME_4C724FC1029F' // TnsOwnedDocumentTagNodePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C724FC1029F_ME_4C72633902D0_G TnsOwnedDocumentTagNodePrim
+
+%%InheritedBy ME_4C724FC1029F ME_4C72633902D0
+
+ME ME_4C72633902D0
+ MEPROP UID '4C72633902D0'
+ MEPROP Name 'TnsDocumentTagNodeBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая нода документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C724FC1029F_ME_4C72633902D0_G // TnsOwnedDocumentTagNodePrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C72528B0170 // CreatePrim
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '23.08.2010 16:02'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsDocumentTagNodeBase.pas'
+ UP extprop:rc:SelfName 'DocumentTagNodeBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDocumentTagNodeBase'
+
+ENDME // ME_4C72633902D0 TnsDocumentTagNodeBase

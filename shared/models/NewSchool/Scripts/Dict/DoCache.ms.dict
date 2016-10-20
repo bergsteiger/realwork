@@ -15,6 +15,10 @@ USES
 //ARRAY CompileTime-VAR g_CachedInterfacesAutoreleasePool []
 //%REMARK 'Интерфейсные элементы, которые надо будет почистить'
 
+USES
+ cCachePrefix.ms.dict
+;
+
 : DoCache
   ModelElement IN aCacheWhere
   STRING IN aKey
@@ -54,7 +58,7 @@ USES
    aCacheWhere >>> l_CacheWhere
   end // ( aCacheWhere IsIntf )
   
-  'cache:' aKey Cat >>> aKey
+  cCachePrefix aKey Cat >>> aKey
   VAR l_FieldVar
   l_CacheWhere %% aKey >>> l_FieldVar
  

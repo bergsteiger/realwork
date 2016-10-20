@@ -1,0 +1,46 @@
+// TatCycleOperation 489B0B86039C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_489B0B86039C
+
+MEREF ME_48089F460352_ME_489B0B86039C_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_489B0B86039C_impl ExecuteSelf
+
+MEREF ME_48076E9D013E_ME_489B0B86039C_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_489B0B86039C_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_489B0B86039C
+
+ME ME_489B0B86039C
+ MEPROP UID '489B0B86039C'
+ MEPROP Name 'TatCycleOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пустая операция. Нужна чтобы циклически исполнять вложенные операции.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_489B0B86039C_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_489B0B86039C_impl // ExecuteSelf
+ )
+ ; // Implemented
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atCycleOperation.pas'
+ UP extprop:rc:SelfName 'atCycleOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atCycleOperation'
+
+ENDME // ME_489B0B86039C TatCycleOperation

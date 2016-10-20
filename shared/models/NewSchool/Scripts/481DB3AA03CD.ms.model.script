@@ -1,0 +1,204 @@
+// TnevHAFPainterView 481DB3AA03CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481DB3AA03CD
+
+ME ME_481DB4050297
+ MEPROP UID '481DB4050297'
+ MEPROP Name 'f_DocView'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_481DB4050297 f_DocView
+
+ME ME_481DBC1202C6
+ MEPROP UID '481DBC1202C6'
+ MEPROP Name 'f_Holder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELINK Target WL? 'ME_481866FC03E0' // TnevObjectHolder
+ ;
+
+ENDME // ME_481DBC1202C6 f_Holder
+
+FORWARD ME_4CB5BF260122
+
+ME ME_4CB5BF3D0239
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C699120129' '47C5207602D1.ms.model.script' // InevObjectList
+ ;
+
+ENDME // ME_4CB5BF3D0239 aText
+
+ME ME_4CB5BF3D0272
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF9230071' '4678209200A6.ms.model.script' // InevCanvas
+ ;
+
+ENDME // ME_4CB5BF3D0272 aCanvas
+
+ME ME_4CB5BF3C01E9
+ MEPROP UID '4CB5BF3C01E9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB5BF260122 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5BF3D0239 // aText
+ ME_4CB5BF3D0272 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5BF3C01E9 Create
+
+ME ME_4CB5BF260122
+ MEPROP UID '4CB5BF260122'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BF3C01E9 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB5BF260122 Create
+
+MEREF ME_4CB5BF260122_ME_4CB5BF43015E_G
+ MELINK Original HWL ME_4CB5BF260122 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB5BF260122_ME_4CB5BF43015E_G Create
+
+MEREF ME_47C5B97302B2_ME_4CB5BF43015E_R
+ MELINK Original WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B97302B2_ME_4CB5BF43015E_R InevView
+
+%%ImplementedBy ME_47C5B97302B2 ME_4CB5BF43015E
+
+%%InheritedBy ME_4CB5BF260122 ME_4CB5BF43015E
+
+ME ME_4CB5BF43015E
+ MEPROP UID '4CB5BF43015E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CB5BF260122_ME_4CB5BF43015E_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C5B97302B2_ME_4CB5BF43015E_R // InevView
+ )
+ ; // Implements
+
+ENDME // ME_4CB5BF43015E Make
+
+ME ME_481DB56C00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELINK Target WL? 'ME_48120C1C0060' // TnevBaseDetachedView
+ ;
+
+ENDME // ME_481DB56C00F6 
+
+ME ME_481DBCA202EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481DB3AA03CD // TnevHAFPainterView
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_481DBCA202EF 
+
+MEREF ME_479731C50290_ME_481DB3AA03CD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_481DB3AA03CD_over Cleanup
+
+MEREF ME_481213C903A2_ME_481DB3AA03CD_G
+ MELINK Original WL? 'ME_481213C903A2' // TnevVirtualDrawView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_481213C903A2_ME_481DB3AA03CD_G TnevVirtualDrawView
+
+%%InheritedBy ME_481213C903A2 ME_481DB3AA03CD
+
+ME ME_481DB3AA03CD
+ MEPROP UID '481DB3AA03CD'
+ MEPROP Name 'TnevHAFPainterView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_481213C903A2_ME_481DB3AA03CD_G // TnevVirtualDrawView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_481DB4050297 // f_DocView
+ HWL ME_481DBC1202C6 // f_Holder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5BF260122 // Create
+ HWL ME_4CB5BF43015E // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_481DB3AA03CD_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_481DB56C00F6 // TnevBaseDetachedView
+ ME_481DBCA202EF // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '14.09.2001 17:33'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevHAFPainterView.pas'
+ UP extprop:rc:SelfName 'HAFPainterView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevHAFPainterView'
+
+ENDME // ME_481DB3AA03CD TnevHAFPainterView

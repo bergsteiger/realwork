@@ -1,0 +1,59 @@
+// TevParaListCursor 4A3A444900B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3A444900B3
+
+ME ME_4D63CD4E023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A3A444900B3 // TevParaListCursor
+ ;
+ MELINK Target WL? 'ME_48579EA1011D' // TevParaList
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_4D63CD4E023F 
+
+MEREF ME_4A3A43F6003A_ME_4A3A444900B3_G
+ MELINK Original WL? 'ME_4A3A43F6003A' // TevParaListCursorDeletable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3A43F6003A_ME_4A3A444900B3_G TevParaListCursorDeletable
+
+%%InjectedBy ME_48579EA1011D ME_4A3A444900B3
+
+%%InheritedBy ME_4A3A43F6003A ME_4A3A444900B3
+
+ME ME_4A3A444900B3
+ MEPROP UID '4A3A444900B3'
+ MEPROP Name 'TevParaListCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Курсор для списка параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3A43F6003A_ME_4A3A444900B3_G // TevParaListCursorDeletable
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4D63CD4E023F // TevParaList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '16.12.2002 17:50'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursor.pas'
+ UP extprop:rc:SelfName 'ParaListCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evParaListCursor'
+
+ENDME // ME_4A3A444900B3 TevParaListCursor

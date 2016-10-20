@@ -1,0 +1,567 @@
+// Tl3SimpleMemoryManager 5453AE0C0100 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5453AE0C0100
+%%Inner ME_5453AE0C0100
+
+FORWARD ME_5453AE0C0100
+
+FORWARD ME_54B91B8A00CB
+
+FORWARD ME_54B91B7E02A5
+
+ME ME_54B91BA2034E
+ MEPROP UID '54B91BA2034E'
+ MEPROP Name 'rNext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54B91B7E02A5 // Tl3MemoryBlock
+ ;
+ MELINK Target HWL ME_54B91B8A00CB // Pl3MemoryBlock
+ ;
+
+ENDME // ME_54B91BA2034E rNext
+
+ME ME_54B91BC202C1
+ MEPROP UID '54B91BC202C1'
+ MEPROP Name 'rFree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_54B91B7E02A5 // Tl3MemoryBlock
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B91BC202C1 rFree
+
+ME ME_54B91B7E02A5
+ MEPROP UID '54B91B7E02A5'
+ MEPROP Name 'Tl3MemoryBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54B91BA2034E // rNext
+ HWL ME_54B91BC202C1 // rFree
+ )
+ ; // Attributes
+ MELIST Forwarded
+   Seq: ( HWL ME_54B91B8A00CB // Pl3MemoryBlock
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'MemoryBlock'
+
+ENDME // ME_54B91B7E02A5 Tl3MemoryBlock
+
+MEREF ME_54B91B7E02A5_ME_54B91B8A00CB_G
+ MELINK Original HWL ME_54B91B7E02A5 // Tl3MemoryBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B91B7E02A5_ME_54B91B8A00CB_G Tl3MemoryBlock
+
+%%InheritedBy ME_54B91B7E02A5 ME_54B91B8A00CB
+
+ME ME_54B91B8A00CB
+ MEPROP UID '54B91B8A00CB'
+ MEPROP Name 'Pl3MemoryBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_54B91B7E02A5_ME_54B91B8A00CB_G // Tl3MemoryBlock
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_54B91B8A00CB Pl3MemoryBlock
+
+ME ME_54B91BDA0204
+ MEPROP UID '54B91BDA0204'
+ MEPROP Name 'f_AllocCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B91BDA0204 f_AllocCount
+
+ME ME_54B91BE8018A
+ MEPROP UID '54B91BE8018A'
+ MEPROP Name 'f_Head'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target HWL ME_54B91B8A00CB // Pl3MemoryBlock
+ ;
+
+ENDME // ME_54B91BE8018A f_Head
+
+ME ME_54B91C0C032E
+ MEPROP UID '54B91C0C032E'
+ MEPROP Name 'f_BlockSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B91C0C032E f_BlockSize
+
+ME ME_54B91C1F0365
+ MEPROP UID '54B91C1F0365'
+ MEPROP Name 'f_WasAllocCountWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54B91C1F0365 f_WasAllocCountWarning
+
+ME ME_54B91C3700BE
+ MEPROP UID '54B91C3700BE'
+ MEPROP Name 'f_GlobalAlloc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "ifdef" 'MMTrace'
+
+ENDME // ME_54B91C3700BE f_GlobalAlloc
+
+FORWARD ME_545A2F6800D6
+
+ME ME_545A2F84018D
+ MEPROP UID '545A2F84018D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545A2F6800D6 // CanFreeBlocks
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_545A2F84018D DoIt
+
+ME ME_545A2F6800D6
+ MEPROP UID '545A2F6800D6'
+ MEPROP Name 'CanFreeBlocks'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545A2F84018D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545A2F6800D6 CanFreeBlocks
+
+FORWARD ME_54B69FF202FB
+
+ME ME_810B15F9C2DF
+ MEPROP UID '810B15F9C2DF'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода FreeBlocks' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B69FF202FB // FreeBlocks
+ ;
+
+ENDME // ME_810B15F9C2DF DoIt
+
+ME ME_54B69FF202FB
+ MEPROP UID '54B69FF202FB'
+ MEPROP Name 'FreeBlocks'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_810B15F9C2DF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B69FF202FB FreeBlocks
+
+FORWARD ME_54B6A20201D7
+
+ME ME_54B6A21C00D3
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B6A21C00D3 P
+
+ME ME_54B6A21C00FD
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B6A21C00FD aSize
+
+ME ME_54B6A21303B9
+ MEPROP UID '54B6A21303B9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6A20201D7 // DoGetMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B6A21C00D3 // P
+ ME_54B6A21C00FD // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_54B6A21303B9 DoIt
+
+ME ME_54B6A20201D7
+ MEPROP UID '54B6A20201D7'
+ MEPROP Name 'DoGetMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6A21303B9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B6A20201D7 DoGetMem
+
+FORWARD ME_54B6A22902AB
+
+ME ME_54B6A23D0143
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B6A23D0143 P
+
+ME ME_54B6A23603A0
+ MEPROP UID '54B6A23603A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6A22902AB // DoFreeMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B6A23D0143 // P
+ )
+ ; // Parameters
+
+ENDME // ME_54B6A23603A0 DoIt
+
+ME ME_54B6A22902AB
+ MEPROP UID '54B6A22902AB'
+ MEPROP Name 'DoFreeMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6A23603A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B6A22902AB DoFreeMem
+
+ME ME_54B91C7A027A
+ MEPROP UID '54B91C7A027A'
+ MEPROP Name 'AllocNewBlock'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+
+ENDME // ME_54B91C7A027A AllocNewBlock
+
+FORWARD ME_54B91C9103A2
+
+ME ME_54B91CA4030C
+ MEPROP Name 'aBlockSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B91CA4030C aBlockSize
+
+ME ME_54B91CA102A4
+ MEPROP UID '54B91CA102A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B91C9103A2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B91CA4030C // aBlockSize
+ )
+ ; // Parameters
+
+ENDME // ME_54B91CA102A4 DoIt
+
+ME ME_54B91C9103A2
+ MEPROP UID '54B91C9103A2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91CA102A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B91C9103A2 Create
+
+FORWARD ME_54B91CB0028C
+
+ME ME_54B91CCB00CA
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B91CCB00CA P
+
+ME ME_54B91CCB0110
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_54B91CCB0110 aSize
+
+ME ME_54B91CBE03A7
+ MEPROP UID '54B91CBE03A7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B91CB0028C // GetMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B91CCB00CA // P
+ ME_54B91CCB0110 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_54B91CBE03A7 DoIt
+
+ME ME_54B91CB0028C
+ MEPROP UID '54B91CB0028C'
+ MEPROP Name 'GetMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91CBE03A7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B91CB0028C GetMem
+
+FORWARD ME_54B91CD502DD
+
+ME ME_54B91CEC0109
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_54B91CEC0109 P
+
+ME ME_54B91CE303B2
+ MEPROP UID '54B91CE303B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B91CD502DD // FreeMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B91CEC0109 // P
+ )
+ ; // Parameters
+
+ENDME // ME_54B91CE303B2 DoIt
+
+ME ME_54B91CD502DD
+ MEPROP UID '54B91CD502DD'
+ MEPROP Name 'FreeMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91CE303B2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B91CD502DD FreeMem
+
+ME ME_54B931040229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL? 'ME_51DD554C0205' // Tl3MemUtils
+ ;
+
+ENDME // ME_54B931040229 
+
+ME ME_54B931130196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL? 'ME_540EE24702BC' // Tl3ExceptionsLog
+ ;
+
+ENDME // ME_54B931130196 
+
+ME ME_54B9392C009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453AE0C0100 // Tl3SimpleMemoryManager
+ ;
+ MELINK Target WL 'ME_5485794702B0' '47877EB202FB.ms.model.script' // EOutOfMemory
+ ;
+
+ENDME // ME_54B9392C009C 
+
+MEREF ME_479731C50290_ME_5453AE0C0100_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5453AE0C0100_over Cleanup
+
+MEREF ME_54B67EB9023D_ME_5453AE0C0100_G
+ MELINK Original WL? 'ME_54B67EB9023D' // Tl3SimpleMemoryManagerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B67EB9023D_ME_5453AE0C0100_G Tl3SimpleMemoryManagerPrim
+
+%%InheritedBy ME_54B67EB9023D ME_5453AE0C0100
+
+ME ME_5453AE0C0100
+ MEPROP UID '5453AE0C0100'
+ MEPROP Name 'Tl3SimpleMemoryManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( ME_54B67EB9023D_ME_5453AE0C0100_G // Tl3SimpleMemoryManagerPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54B91BDA0204 // f_AllocCount
+ HWL ME_54B91BE8018A // f_Head
+ HWL ME_54B91C0C032E // f_BlockSize
+ HWL ME_54B91C1F0365 // f_WasAllocCountWarning
+ HWL ME_54B91C3700BE // f_GlobalAlloc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_545A2F6800D6 // CanFreeBlocks
+ HWL ME_54B69FF202FB // FreeBlocks
+ HWL ME_54B6A20201D7 // DoGetMem
+ HWL ME_54B6A22902AB // DoFreeMem
+ HWL ME_54B91C7A027A // AllocNewBlock
+ HWL ME_54B91C9103A2 // Create
+ HWL ME_54B91CB0028C // GetMem
+ HWL ME_54B91CD502DD // FreeMem
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5453AE0C0100_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_54B91B7E02A5 // Tl3MemoryBlock
+ HWL ME_54B91B8A00CB // Pl3MemoryBlock
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_54B931040229 // Tl3MemUtils
+ ME_54B931130196 // Tl3ExceptionsLog
+ ME_54B9392C009C // EOutOfMemory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SimpleMemoryManager.pas'
+ UP extprop:rc:SelfName 'SimpleMemoryManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3SimpleMemoryManager'
+
+ENDME // ME_5453AE0C0100 Tl3SimpleMemoryManager

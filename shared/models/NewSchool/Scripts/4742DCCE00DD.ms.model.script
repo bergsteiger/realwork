@@ -1,0 +1,263 @@
+// Tm3DBDocument 4742DCCE00DD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4742DCCE00DD
+
+ME ME_555B2DDA0391
+ MEPROP UID '555B2DDA0391'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_555B2DDA0391 ID
+
+FORWARD ME_555B2DEC002E
+
+ME ME_555B2E0F00C8
+ MEPROP Name 'aDB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_49BFBC690162' // Tm3PrimDB
+ ;
+
+ENDME // ME_555B2E0F00C8 aDB
+
+ME ME_555B2E0F00FA
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_555B2E0F00FA anID
+
+ME ME_555B2DFE0279
+ MEPROP UID '555B2DFE0279'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555B2DEC002E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_555B2E0F00C8 // aDB
+ ME_555B2E0F00FA // anID
+ )
+ ; // Parameters
+
+ENDME // ME_555B2DFE0279 DoIt
+
+ME ME_555B2DEC002E
+ MEPROP UID '555B2DEC002E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555B2DFE0279 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_555B2DEC002E Create
+
+MEREF ME_555B2DEC002E_ME_555B2E1502AF_G
+ MELINK Original HWL ME_555B2DEC002E // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555B2DEC002E_ME_555B2E1502AF_G Create
+
+MEREF ME_472084C101C4_ME_555B2E1502AF_R
+ MELINK Original WL 'ME_472084C101C4' '4720831F012D.ms.model.script' // Im3DBDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_472084C101C4_ME_555B2E1502AF_R Im3DBDocument
+
+%%ImplementedBy ME_472084C101C4 ME_555B2E1502AF
+
+%%InheritedBy ME_555B2DEC002E ME_555B2E1502AF
+
+ME ME_555B2E1502AF
+ MEPROP UID '555B2E1502AF'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_555B2DEC002E_ME_555B2E1502AF_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_472084C101C4_ME_555B2E1502AF_R // Im3DBDocument
+ )
+ ; // Implements
+
+ENDME // ME_555B2E1502AF Make
+
+ME ME_555B2E5E0087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_555B2E5E0087 
+
+ME ME_555B36CD010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELINK Target WL? 'ME_4742DCFF02DC' // Tm3DBDocumentPart
+ ;
+
+ENDME // ME_555B36CD010D 
+
+ME ME_555B42B30236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4742DCCE00DD // Tm3DBDocument
+ ;
+ MELINK Target WL? 'ME_4742D9F50189' // m3DB
+ ;
+
+ENDME // ME_555B42B30236 
+
+MEREF ME_472084D802D5_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_472084D802D5' '4720831F012D.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_472084D802D5_ME_4742DCCE00DD_impl ID
+
+MEREF ME_472084FC00BA_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_472084FC00BA' '4720831F012D.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_472084FC00BA_ME_4742DCCE00DD_impl Delete
+
+MEREF ME_47208516014E_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_47208516014E' '4720831F012D.ms.model.script' // Undelete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47208516014E_ME_4742DCCE00DD_impl Undelete
+
+MEREF ME_472085390162_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_472085390162' '4720831F012D.ms.model.script' // GetConst
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_472085390162_ME_4742DCCE00DD_impl GetConst
+
+MEREF ME_4720856602B2_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_4720856602B2' '4720831F012D.ms.model.script' // GetVersion
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4720856602B2_ME_4742DCCE00DD_impl GetVersion
+
+MEREF ME_472085990020_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_472085990020' '4720831F012D.ms.model.script' // Open
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_472085990020_ME_4742DCCE00DD_impl Open
+
+MEREF ME_486B7FD901A7_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_486B7FD901A7' '4720831F012D.ms.model.script' // GetFreeObjectID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_486B7FD901A7_ME_4742DCCE00DD_impl GetFreeObjectID
+
+MEREF ME_486B7FE5002E_ME_4742DCCE00DD_impl
+ MELINK Original WL 'ME_486B7FE5002E' '4720831F012D.ms.model.script' // DeleteObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_486B7FE5002E_ME_4742DCCE00DD_impl DeleteObject
+
+MEREF ME_4742DC5C0219_ME_4742DCCE00DD_G
+ MELINK Original WL? 'ME_4742DC5C0219' // Tm3BaseObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4742DC5C0219_ME_4742DCCE00DD_G Tm3BaseObject
+
+MEREF ME_472084C101C4_ME_4742DCCE00DD_R
+ MELINK Original WL 'ME_472084C101C4' '4720831F012D.ms.model.script' // Im3DBDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_472084C101C4_ME_4742DCCE00DD_R Im3DBDocument
+
+%%ImplementedBy ME_472084C101C4 ME_4742DCCE00DD
+
+%%InheritedBy ME_4742DC5C0219 ME_4742DCCE00DD
+
+ME ME_4742DCCE00DD
+ MEPROP UID '4742DCCE00DD'
+ MEPROP Name 'Tm3DBDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( ME_4742DC5C0219_ME_4742DCCE00DD_G // Tm3BaseObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_472084C101C4_ME_4742DCCE00DD_R // Im3DBDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_555B2DDA0391 // ID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_555B2DEC002E // Create
+ HWL ME_555B2E1502AF // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_472084D802D5_ME_4742DCCE00DD_impl // ID
+ ME_472084FC00BA_ME_4742DCCE00DD_impl // Delete
+ ME_47208516014E_ME_4742DCCE00DD_impl // Undelete
+ ME_472085390162_ME_4742DCCE00DD_impl // GetConst
+ ME_4720856602B2_ME_4742DCCE00DD_impl // GetVersion
+ ME_472085990020_ME_4742DCCE00DD_impl // Open
+ ME_486B7FD901A7_ME_4742DCCE00DD_impl // GetFreeObjectID
+ ME_486B7FE5002E_ME_4742DCCE00DD_impl // DeleteObject
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_555B2E5E0087 // IStream
+ ME_555B36CD010D // Tm3DBDocumentPart
+ ME_555B42B30236 // m3DB
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3DBDocument.pas'
+ UP extprop:rc:SelfName 'm3DBDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3DBDocument'
+
+ENDME // ME_4742DCCE00DD Tm3DBDocument

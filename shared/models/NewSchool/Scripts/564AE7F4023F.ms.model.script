@@ -1,0 +1,50 @@
+// TvcmMainMenuBuilder 564AE7F4023F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_564AE7F4023F
+
+ME ME_564AE8C70236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_564AE7F4023F // TvcmMainMenuBuilder
+ ;
+ MELINK Target WL? 'ME_564AE8B10025' // TvcmEntityDefList
+ ;
+
+ENDME // ME_564AE8C70236 
+
+ME ME_564AE8CB03C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_564AE7F4023F // TvcmMainMenuBuilder
+ ;
+ MELINK Target WL? 'ME_564AE89E00CB' // TvcmModuleDefList
+ ;
+
+ENDME // ME_564AE8CB03C5 
+
+ME ME_564AE7F4023F
+ MEPROP UID '564AE7F4023F'
+ MEPROP Name 'TvcmMainMenuBuilder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сервис, предназначенный для регистрации модулей и сущностей'#13#10'и построения главного меню в любой нужный момент времени.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Dependencies
+   Seq: ( ME_564AE8C70236 // TvcmEntityDefList
+ ME_564AE8CB03C5 // TvcmModuleDefList
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmMainMenuBuilder.pas'
+ UP extprop:rc:SelfName 'MainMenuBuilder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMainMenuBuilder'
+
+ENDME // ME_564AE7F4023F TvcmMainMenuBuilder

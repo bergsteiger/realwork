@@ -1,0 +1,105 @@
+// TddAppConfigBase 5301EC0E0156 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5301EC0E0156
+
+FORWARD ME_5301EC5A006A
+
+ME ME_5301EC6701AE
+ MEPROP UID '5301EC6701AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5301EC5A006A // Create
+ ;
+
+ENDME // ME_5301EC6701AE DoIt
+
+ME ME_5301EC5A006A
+ MEPROP UID '5301EC5A006A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5301EC0E0156 // TddAppConfigBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5301EC6701AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5301EC5A006A Create
+
+FORWARD ME_5301EC7500FF
+
+ME ME_5301EC8000EB
+ MEPROP UID '5301EC8000EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5301EC7500FF // Clone
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_5301EC8000EB DoIt
+
+ME ME_5301EC7500FF
+ MEPROP UID '5301EC7500FF'
+ MEPROP Name 'Clone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5301EC0E0156 // TddAppConfigBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5301EC8000EB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5301EC7500FF Clone
+
+MEREF ME_49E7725102DA_ME_5301EC0E0156_G
+ MELINK Original WL? 'ME_49E7725102DA' // Tl3ProtoPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7725102DA_ME_5301EC0E0156_G Tl3ProtoPersistent
+
+%%InheritedBy ME_49E7725102DA ME_5301EC0E0156
+
+ME ME_5301EC0E0156
+ MEPROP UID '5301EC0E0156'
+ MEPROP Name 'TddAppConfigBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B990EDE031A' // AppConfig
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7725102DA_ME_5301EC0E0156_G // Tl3ProtoPersistent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5301EC5A006A // Create
+ HWL ME_5301EC7500FF // Clone
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigBase.pas'
+ UP extprop:rc:SelfName 'ddAppConfigBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddAppConfigBase'
+
+ENDME // ME_5301EC0E0156 TddAppConfigBase

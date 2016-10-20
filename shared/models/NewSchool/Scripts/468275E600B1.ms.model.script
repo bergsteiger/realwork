@@ -1,0 +1,63 @@
+// TnsINodeOneLevelWrap 468275E600B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468275E600B1
+
+MEREF ME_4909A13402E2_ME_468275E600B1_over
+ MELINK Original WL 'ME_4909A13402E2' '4682732A02F9.ms.model.script' // DoGetChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909A13402E2_ME_468275E600B1_over DoGetChild
+
+MEREF ME_4909A1790056_ME_468275E600B1_over
+ MELINK Original WL 'ME_4909A1790056' '4682732A02F9.ms.model.script' // GetHasChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909A1790056_ME_468275E600B1_over GetHasChild
+
+MEREF ME_4909A1AA0089_ME_468275E600B1_over
+ MELINK Original WL 'ME_4909A1AA0089' '4682732A02F9.ms.model.script' // GetMaybeChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909A1AA0089_ME_468275E600B1_over GetMaybeChild
+
+MEREF ME_4909AEB00352_ME_468275E600B1_G
+ MELINK Original WL? 'ME_4909AEB00352' // TnsINodeWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4909AEB00352_ME_468275E600B1_G TnsINodeWrap
+
+%%InheritedBy ME_4909AEB00352 ME_468275E600B1
+
+ME ME_468275E600B1
+ MEPROP UID '468275E600B1'
+ MEPROP Name 'TnsINodeOneLevelWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент одноуровневого дерево' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48FD8B2702F6' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( ME_4909AEB00352_ME_468275E600B1_G // TnsINodeWrap
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4909A13402E2_ME_468275E600B1_over // DoGetChild
+ ME_4909A1790056_ME_468275E600B1_over // GetHasChild
+ ME_4909A1AA0089_ME_468275E600B1_over // GetMaybeChild
+ )
+ ; // Overridden
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" true
+ UP "started" '2004/04/20 11:08:38'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeOneLevelWrap.pas'
+ UP extprop:rc:SelfName 'INodeOneLevelWrap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsINodeOneLevelWrap'
+
+ENDME // ME_468275E600B1 TnsINodeOneLevelWrap

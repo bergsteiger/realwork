@@ -1,0 +1,134 @@
+// TnsUserFlagsFilter 4901E8E20154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4901E8E20154
+
+ME ME_4901E93E0010
+ MEPROP UID '4901E93E0010'
+ MEPROP Name 'f_Flags'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4901E8E20154 // TnsUserFlagsFilter
+ ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901E93E0010 f_Flags
+
+ME ME_4901E934001C
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901E934001C aFlags
+
+ME ME_4901E932025A
+ MEPROP UID '4901E932025A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4901E8E20154 // TnsUserFlagsFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4901E934001C // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_4901E932025A Create
+
+ME ME_4901E94901BF
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4901E94901BF aFlags
+
+ME ME_4901E9480107
+ MEPROP UID '4901E9480107'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4901E8E20154 // TnsUserFlagsFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4901E94901BF // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_4901E9480107 Make
+
+MEREF ME_4901E65C0092_ME_4901E8E20154_impl
+ MELINK Original WL 'ME_4901E65C0092' '47ECAAF901F8.ms.model.script' // UserFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4901E65C0092_ME_4901E8E20154_impl UserFlag
+
+MEREF ME_46780E690001_ME_4901E8E20154_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4901E8E20154_G Tl3CacheableBase
+
+MEREF ME_4901E64C0042_ME_4901E8E20154_R
+ MELINK Original WL 'ME_4901E64C0042' '47ECAAF901F8.ms.model.script' // InsUserFlagsFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4901E64C0042_ME_4901E8E20154_R InsUserFlagsFilter
+
+%%ImplementedBy ME_4901E64C0042 ME_4901E8E20154
+
+%%InheritedBy ME_46780E690001 ME_4901E8E20154
+
+ME ME_4901E8E20154
+ MEPROP UID '4901E8E20154'
+ MEPROP Name 'TnsUserFlagsFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ACF68160358' // Users$CommonForAdminAndF1
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_4901E8E20154_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4901E64C0042_ME_4901E8E20154_R // InsUserFlagsFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4901E93E0010 // f_Flags
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4901E932025A // Create
+ HWL ME_4901E9480107 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4901E65C0092_ME_4901E8E20154_impl // UserFlag
+ )
+ ; // Implemented
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "started" '12.03.2007 18:03'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilter.pas'
+ UP extprop:rc:SelfName 'UserFlagsFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsUserFlagsFilter'
+
+ENDME // ME_4901E8E20154 TnsUserFlagsFilter

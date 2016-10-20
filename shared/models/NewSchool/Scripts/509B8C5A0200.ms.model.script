@@ -1,0 +1,53 @@
+// SetFontSize 509B8C5A0200 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509B8C5A0200
+
+ME ME_509B92AC027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
+ ;
+ MELINK Target WL? 'ME_480DB927035A' // TevStyleInterface
+ ;
+
+ENDME // ME_509B92AC027B 
+
+ME ME_509B9AEC03D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_509B9AEC03D3 
+
+ME ME_509B8C5A0200
+ MEPROP UID '509B8C5A0200'
+ MEPROP Name 'SetFontSize'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Устанавливает размер шрифта для стиля "Нормальный".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_509A5CB50110' // SupportWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509B92AC027B // TevStyleInterface
+ ME_509B9AEC03D3 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
+ UP extprop:pas:TypeName 'TkwSetFontSize'
+ UP extprop:rc:SelfName 'SetFontSize'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSetFontSize'
+
+ENDME // ME_509B8C5A0200 SetFontSize

@@ -1,0 +1,292 @@
+// Tm3StoreHeader 5411C42800B8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5411C42800B8
+
+ME ME_5411C44602B9
+ MEPROP UID '5411C44602B9'
+ MEPROP Name 'HeaderData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL? 'ME_54084CDE023E' // Tm3StoreHeaderDataPrim
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5411C44602B9 HeaderData
+
+ME ME_5411C460001A
+ MEPROP UID '5411C460001A'
+ MEPROP Name 'RootStreamManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5411C460001A RootStreamManager
+
+ME ME_5411C49E0248
+ MEPROP UID '5411C49E0248'
+ MEPROP Name 'TOCListPosition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+ UP "pm" true
+
+ENDME // ME_5411C49E0248 TOCListPosition
+
+ME ME_5411C4C10298
+ MEPROP UID '5411C4C10298'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5411C4C10298 Name
+
+FORWARD ME_5411C4EB00A3
+
+ME ME_5411C522012F
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_5411C522012F aName
+
+ME ME_5411C5220154
+ MEPROP Name 'aRootStreamManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_5411C5220154 aRootStreamManager
+
+ME ME_5418356C0320
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_54084CDE023E' // Tm3StoreHeaderDataPrim
+ ;
+
+ENDME // ME_5418356C0320 aData
+
+ME ME_5411C4F70190
+ MEPROP UID '5411C4F70190'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411C4EB00A3 // CreatePrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_5411C522012F // aName
+ ME_5411C5220154 // aRootStreamManager
+ ME_5418356C0320 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_5411C4F70190 DoIt
+
+ME ME_5411C4EB00A3
+ MEPROP UID '5411C4EB00A3'
+ MEPROP Name 'CreatePrim'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5411C4F70190 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5411C4EB00A3 CreatePrim
+
+FORWARD ME_54183548003F
+
+ME ME_54183B7303A3
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_54183B7303A3 anAccess
+
+ME ME_5418355800E7
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_5418355800E7 aName
+
+ME ME_54183558010E
+ MEPROP Name 'aRootStreamManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_54183558010E aRootStreamManager
+
+ME ME_541835580137
+ MEPROP Name 'aTOCItemDataPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_541835580137 aTOCItemDataPosition
+
+ME ME_5418355503D6
+ MEPROP UID '5418355503D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54183548003F // Create
+ ;
+ MELINK Target HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELIST Parameters
+   Seq: ( ME_54183B7303A3 // anAccess
+ ME_5418355800E7 // aName
+ ME_54183558010E // aRootStreamManager
+ ME_541835580137 // aTOCItemDataPosition
+ )
+ ; // Parameters
+
+ENDME // ME_5418355503D6 DoIt
+
+ME ME_54183548003F
+ MEPROP UID '54183548003F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5418355503D6 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_54183548003F Create
+
+ME ME_5411C489033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5411C489033F 
+
+ME ME_54183F590014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411C42800B8 // Tm3StoreHeader
+ ;
+ MELINK Target WL 'ME_46A5B13C018B' '46A0E6C5023A.ms.model.script' // TStgMedium
+ ;
+
+ENDME // ME_54183F590014 
+
+MEREF ME_479731C50290_ME_5411C42800B8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5411C42800B8_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_5411C42800B8_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_5411C42800B8_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_5411C42800B8
+
+ME ME_5411C42800B8
+ MEPROP UID '5411C42800B8'
+ MEPROP Name 'Tm3StoreHeader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описатель элемента хранилища (потока или подхранилища)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_5411C42800B8_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5411C44602B9 // HeaderData
+ HWL ME_5411C460001A // RootStreamManager
+ HWL ME_5411C49E0248 // TOCListPosition
+ HWL ME_5411C4C10298 // Name
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5411C4EB00A3 // CreatePrim
+ HWL ME_54183548003F // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5411C42800B8_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5411C489033F // FreeAndNil
+ ME_54183F590014 // TStgMedium
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StoreHeader.pas'
+ UP extprop:rc:SelfName 'm3StoreHeader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3StoreHeader'
+
+ENDME // ME_5411C42800B8 Tm3StoreHeader

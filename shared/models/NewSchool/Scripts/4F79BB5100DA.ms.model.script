@@ -1,0 +1,62 @@
+// Tl3MouseWheelListenersList 4F79BB5100DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F79BB5100DA
+
+ME ME_4F79BB8B0019
+ MEPROP UID '4F79BB8B0019'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F79BB5100DA // Tl3MouseWheelListenersList
+ ;
+ MELINK Target WL 'ME_4F79CE030257' '4677FBA70343.ms.model.script' // Il3MouseWheelListener
+ ;
+
+ENDME // ME_4F79BB8B0019 ItemType
+
+MEREF ME_47B57D630029_ME_4F79BB5100DA_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_4F79BB5100DA_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_4F79BB5100DA_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F79BB5100DA_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_4F79BB5100DA
+%%InheritedBy ME_4A54DD4E036F ME_4F79BB5100DA
+
+ME ME_4F79BB5100DA
+ MEPROP UID '4F79BB5100DA'
+ MEPROP Name 'Tl3MouseWheelListenersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F635E1901E5' // l3Listeners
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D630029_ME_4F79BB5100DA_G // l3InterfacePtrList
+ ME_4A54DD4E036F_ME_4F79BB5100DA_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F79BB8B0019 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MouseWheelListenersList.pas'
+ UP extprop:rc:SelfName 'MouseWheelListenersList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3MouseWheelListenersList'
+
+ENDME // ME_4F79BB5100DA Tl3MouseWheelListenersList

@@ -1,0 +1,828 @@
+// FlagNodeBase 45F52C0602BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F52C0602BF
+
+ME ME_45F80BA20280
+ MEPROP UID '45F80BA20280'
+ MEPROP Name 'flags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+ UP "pm" true
+
+ENDME // ME_45F80BA20280 flags
+
+ME ME_45F803B0000F
+ MEPROP UID '45F803B0000F'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+
+ENDME // ME_45F803B0000F make
+
+ME ME_461A3FB2004E
+ MEPROP Name 'parent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_461A3FB2004E parent
+
+ME ME_45F8046500FA
+ MEPROP UID '45F8046500FA'
+ MEPROP Name 'set_my_parent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_461A3FB2004E // parent
+ )
+ ; // Parameters
+
+ENDME // ME_45F8046500FA set_my_parent
+
+ME ME_45F8049F0128
+ MEPROP UID '45F8049F0128'
+ MEPROP Name 'get_my_parent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+
+ENDME // ME_45F8049F0128 get_my_parent
+
+ME ME_45F8129900BB
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F8129900BB flag
+
+ME ME_45F812990148
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F812990148 value
+
+ME ME_45F8129901C5
+ MEPROP Name 'with_notify'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F8129901C5 with_notify
+
+ME ME_45F80922032C
+ MEPROP UID '45F80922032C'
+ MEPROP Name 'set_all_flag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F8129900BB // flag
+ ME_45F812990148 // value
+ ME_45F8129901C5 // with_notify
+ )
+ ; // Parameters
+
+ENDME // ME_45F80922032C set_all_flag
+
+ME ME_45F812A703A9
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F812A703A9 flag
+
+ME ME_45F812A8001F
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F812A8001F value
+
+ME ME_45F812A8008C
+ MEPROP Name 'children_only'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F812A8008C children_only
+
+ME ME_45F810730290
+ MEPROP UID '45F810730290'
+ MEPROP Name 'internal_set_all_flag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'возвращает количество взведённых (изменённых?) флагов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_4538E9230233' '3DBFDB23006E.ms.model.script' // size
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F812A703A9 // flag
+ ME_45F812A8001F // value
+ ME_45F812A8008C // children_only
+ )
+ ; // Parameters
+
+ENDME // ME_45F810730290 internal_set_all_flag
+
+ME ME_45F81284029F
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F81284029F flag
+
+ME ME_45F81284030D
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F81284030D value
+
+ME ME_45F81284036B
+ MEPROP Name 'with_notify'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F81284036B with_notify
+
+ME ME_45F8123602DE
+ MEPROP UID '45F8123602DE'
+ MEPROP Name 'set_flag'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F81284029F // flag
+ ME_45F81284030D // value
+ ME_45F81284036B // with_notify
+ )
+ ; // Parameters
+
+ENDME // ME_45F8123602DE set_flag
+
+ME ME_45F9308D02DE
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F9308D02DE flag
+
+ME ME_45F9305601F4
+ MEPROP UID '45F9305601F4'
+ MEPROP Name 'has_flag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F9308D02DE // flag
+ )
+ ; // Parameters
+
+ENDME // ME_45F9305601F4 has_flag
+
+ME ME_45F8124B0138
+ MEPROP UID '45F8124B0138'
+ MEPROP Name 'get_flags'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F8124B0138 get_flags
+
+ME ME_45F812D20290
+ MEPROP UID '45F812D20290'
+ MEPROP Name 'make_visible'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+
+ENDME // ME_45F812D20290 make_visible
+
+ME ME_45F8145B0203
+ MEPROP UID '45F8145B0203'
+ MEPROP Name 'is_visible'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F8145B0203 is_visible
+
+ME ME_461A3DF30290
+ MEPROP Name 'index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC48C01EC' '457450470167.ms.model.script' // VisibleIndex
+ ;
+
+ENDME // ME_461A3DF30290 index
+
+ME ME_45F8151D02CE
+ MEPROP UID '45F8151D02CE'
+ MEPROP Name 'get_node_by_visible_index'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_461A3DF30290 // index
+ )
+ ; // Parameters
+
+ENDME // ME_45F8151D02CE get_node_by_visible_index
+
+ME ME_45F909DD007D
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_45F909DD007D flag
+
+ME ME_45F815520109
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F815520109 skip_stub
+
+ME ME_45F815330251
+ MEPROP UID '45F815330251'
+ MEPROP Name 'next_with_flag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F909DD007D // flag
+ ME_45F815520109 // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F815330251 next_with_flag
+
+ME ME_45F93EC10109
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F93EC10109 shift_counter
+
+ME ME_45F93EC101A5
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F93EC101A5 for_constructed
+
+ME ME_45F93EC10261
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F93EC10261 skip_stub
+
+ME ME_45F81F0B02BF
+ MEPROP UID '45F81F0B02BF'
+ MEPROP Name 'next_visible'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F93EC10109 // shift_counter
+ ME_45F93EC101A5 // for_constructed
+ ME_45F93EC10261 // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F81F0B02BF next_visible
+
+ME ME_45F81F730222
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F81F730222 shift_counter
+
+ME ME_45F941DC003E
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941DC003E for_constructed
+
+ME ME_45F81F73033C
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F81F73033C skip_stub
+
+ME ME_45F81F6B01C5
+ MEPROP UID '45F81F6B01C5'
+ MEPROP Name 'plane_next'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F81F730222 // shift_counter
+ ME_45F941DC003E // for_constructed
+ ME_45F81F73033C // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F81F6B01C5 plane_next
+
+ME ME_45F907280148
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F907280148 shift_counter
+
+ME ME_45F941E4034B
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941E4034B for_constructed
+
+ME ME_45F907280251
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F907280251 skip_stub
+
+ME ME_45F9071F035B
+ MEPROP UID '45F9071F035B'
+ MEPROP Name 'plane_next_back'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F907280148 // shift_counter
+ ME_45F941E4034B // for_constructed
+ ME_45F907280251 // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F9071F035B plane_next_back
+
+ME ME_45F907520213
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F907520213 shift_counter
+
+ME ME_45F941EA030D
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941EA030D for_constructed
+
+ME ME_45F90752033C
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F90752033C skip_stub
+
+ME ME_45F9074B034B
+ MEPROP UID '45F9074B034B'
+ MEPROP Name 'prev_visible'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F907520213 // shift_counter
+ ME_45F941EA030D // for_constructed
+ ME_45F90752033C // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F9074B034B prev_visible
+
+ME ME_45F90A0900EA
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F90A0900EA shift_counter
+
+ME ME_45F941F002AF
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941F002AF for_constructed
+
+ME ME_45F90A090222
+ MEPROP Name 'skip_stub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_45F90A090222 skip_stub
+
+ME ME_45F9077A003E
+ MEPROP UID '45F9077A003E'
+ MEPROP Name 'prev_visible_stop'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F90A0900EA // shift_counter
+ ME_45F941F002AF // for_constructed
+ ME_45F90A090222 // skip_stub
+ )
+ ; // Parameters
+
+ENDME // ME_45F9077A003E prev_visible_stop
+
+ME ME_45F90A2B01B5
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F90A2B01B5 shift_counter
+
+ME ME_45F941F501E4
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941F501E4 for_constructed
+
+ME ME_45F90792004E
+ MEPROP UID '45F90792004E'
+ MEPROP Name 'next_one_level'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F90A2B01B5 // shift_counter
+ ME_45F941F501E4 // for_constructed
+ )
+ ; // Parameters
+
+ENDME // ME_45F90792004E next_one_level
+
+ME ME_45F90A3C031C
+ MEPROP Name 'shift_counter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F90A3C031C shift_counter
+
+ME ME_45F941FE009C
+ MEPROP Name 'for_constructed'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45F93D0D0290' '45EEA4490239.ms.model.script' // GCL::StaticNode_var
+ ;
+
+ENDME // ME_45F941FE009C for_constructed
+
+ME ME_45F907B000EA
+ MEPROP UID '45F907B000EA'
+ MEPROP Name 'prev_one_level'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F90A3C031C // shift_counter
+ ME_45F941FE009C // for_constructed
+ )
+ ; // Parameters
+
+ENDME // ME_45F907B000EA prev_one_level
+
+ME ME_45F907DE033C
+ MEPROP UID '45F907DE033C'
+ MEPROP Name 'all_visible_children_count'
+ MEPROP Class class_Operation
+ %SUMMARY '// TODO: hide in cache' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_4538E9230233' '3DBFDB23006E.ms.model.script' // size
+ ;
+
+ENDME // ME_45F907DE033C all_visible_children_count
+
+ME ME_51EFC6FA0389
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_51EFC6FA0389 flag
+
+ME ME_51EFC6FA03C7
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_51EFC6FA03C7 value
+
+ME ME_51EFC6FB001C
+ MEPROP Name 'with_notify'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_51EFC6FB001C with_notify
+
+ME ME_51EFC6D0015B
+ MEPROP UID '51EFC6D0015B'
+ MEPROP Name 'set_all_flag_except_first_children_of_root_children'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_51EFC6FA0389 // flag
+ ME_51EFC6FA03C7 // value
+ ME_51EFC6FB001C // with_notify
+ )
+ ; // Parameters
+
+ENDME // ME_51EFC6D0015B set_all_flag_except_first_children_of_root_children
+
+ME ME_51EFC72402D2
+ MEPROP Name 'flag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45F80B600000' '45F66E6A02BF.ms.model.script' // FlagMask
+ ;
+
+ENDME // ME_51EFC72402D2 flag
+
+ME ME_51EFC7240313
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_51EFC7240313 value
+
+ME ME_51EFC7240353
+ MEPROP Name 'children_only'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_51EFC7240353 children_only
+
+ME ME_51EFC7130001
+ MEPROP UID '51EFC7130001'
+ MEPROP Name 'internal_set_all_flag_except_first_children_of_root_children'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+ MELINK Target WL 'ME_4538E9230233' '3DBFDB23006E.ms.model.script' // size
+ ;
+ MELIST Parameters
+   Seq: ( ME_51EFC72402D2 // flag
+ ME_51EFC7240313 // value
+ ME_51EFC7240353 // children_only
+ )
+ ; // Parameters
+
+ENDME // ME_51EFC7130001 internal_set_all_flag_except_first_children_of_root_children
+
+ME ME_4619FE930186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45F52C0602BF // FlagNodeBase
+ ;
+
+ENDME // ME_4619FE930186 
+
+ME ME_45F52C0602BF
+ MEPROP UID '45F52C0602BF'
+ MEPROP Name 'FlagNodeBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'нода с флагами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_45EEA4490239' // DynamicTree_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45F80BA20280 // flags
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45F803B0000F // make
+ HWL ME_45F8046500FA // set_my_parent
+ HWL ME_45F8049F0128 // get_my_parent
+ HWL ME_45F80922032C // set_all_flag
+ HWL ME_45F810730290 // internal_set_all_flag
+ HWL ME_45F8123602DE // set_flag
+ HWL ME_45F9305601F4 // has_flag
+ HWL ME_45F8124B0138 // get_flags
+ HWL ME_45F812D20290 // make_visible
+ HWL ME_45F8145B0203 // is_visible
+ HWL ME_45F8151D02CE // get_node_by_visible_index
+ HWL ME_45F815330251 // next_with_flag
+ HWL ME_45F81F0B02BF // next_visible
+ HWL ME_45F81F6B01C5 // plane_next
+ HWL ME_45F9071F035B // plane_next_back
+ HWL ME_45F9074B034B // prev_visible
+ HWL ME_45F9077A003E // prev_visible_stop
+ HWL ME_45F90792004E // next_one_level
+ HWL ME_45F907B000EA // prev_one_level
+ HWL ME_45F907DE033C // all_visible_children_count
+ HWL ME_51EFC6D0015B // set_all_flag_except_first_children_of_root_children
+ HWL ME_51EFC7130001 // internal_set_all_flag_except_first_children_of_root_children
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4619FE930186 // 
+ )
+ ; // Dependencies
+ UP "need UC" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\FlagNodeBase.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicTree_i\FlagNodeBase.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FlagNodeBase.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_45F52C0602BF FlagNodeBase

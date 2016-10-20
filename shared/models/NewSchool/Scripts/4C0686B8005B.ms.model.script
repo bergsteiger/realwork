@@ -14,7 +14,7 @@ ME ME_4C068806023E
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4C0686B8005B // BlockSelector
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_4C068806023E f_NotFoundBlocks
@@ -29,7 +29,7 @@ ME ME_4B61ABD70289
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4C0686B8005B // BlockSelector
  ;
- MELINK Target WL 'ME_4B61AB64033F' '4D8A25430335.ms.model.script' // TnsFoundBlocksList
+ MELINK Target WL? 'ME_4B61AB64033F' // TnsFoundBlocksList
  ;
 
 ENDME // ME_4B61ABD70289 f_FoundBlocks
@@ -75,7 +75,7 @@ ENDME // ME_4C069201033E
 ME ME_4C06874C0070
  MEPROP UID '4C06874C0070'
  MEPROP Name 'GotoBlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Переходит на ближайший возможный блок' ;
@@ -113,7 +113,7 @@ ENDME // ME_4C0688B301C1 DoIt
 ME ME_4C0688930095
  MEPROP UID '4C0688930095'
  MEPROP Name 'ClearBlocksInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Очищает информацию о найденных и ненайденных блоках' ;
@@ -175,7 +175,7 @@ ENDME // ME_4C06915D0356 DoIt
 ME ME_4C0691370291
  MEPROP UID '4C0691370291'
  MEPROP Name 'GotoSub'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Переход на Sub принадлежащий параграфу' ;
@@ -221,17 +221,23 @@ ME ME_4C06888C02D4
 
 ENDME // ME_4C06888C02D4 
 
-ME ME_479731C50290_ME_4C0686B8005B
+MEREF ME_479731C50290_ME_4C0686B8005B_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4C0686B8005B Cleanup
+ENDMEREF // ME_479731C50290_ME_4C0686B8005B_over Cleanup
 
-ME ME_497469C90140_ME_4C0686B8005B
+MEREF ME_497469C90140_ME_4C0686B8005B_over
  MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_497469C90140_ME_4C0686B8005B NotifyDataSourceChanged
+ENDMEREF // ME_497469C90140_ME_4C0686B8005B_over NotifyDataSourceChanged
+
+MEREF ME_4A82BCFA02EF_ME_4C0686B8005B_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4C0686B8005B_R MvcmEntityForm
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4C0686B8005B
 
@@ -247,7 +253,7 @@ ME ME_4C0686B8005B
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( ME_4A82BCFA02EF_ME_4C0686B8005B_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Attributes
@@ -263,8 +269,8 @@ ME ME_4C0686B8005B
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4C0686B8005B // Cleanup
- ME_497469C90140_ME_4C0686B8005B // NotifyDataSourceChanged
+   Seq: ( ME_479731C50290_ME_4C0686B8005B_over // Cleanup
+ ME_497469C90140_ME_4C0686B8005B_over // NotifyDataSourceChanged
  )
  ; // Overridden
  MELIST Dependencies

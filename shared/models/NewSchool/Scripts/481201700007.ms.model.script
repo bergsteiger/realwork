@@ -1,0 +1,336 @@
+// TnevMeasureView 481201700007 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481201700007
+
+ME ME_481202360261
+ MEPROP UID '481202360261'
+ MEPROP Name 'f_CaretPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_481202360261 f_CaretPoint
+
+ME ME_4812033C0383
+ MEPROP UID '4812033C0383'
+ MEPROP Name 'f_Caret'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL 'ME_478E4C070069' '467823B7002C.ms.model.script' // IafwScrollCaret
+ ;
+
+ENDME // ME_4812033C0383 f_Caret
+
+FORWARD ME_4CB5C07B03E3
+
+ME ME_4CB5C0840148
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5BD7C0329' '47C5207602D1.ms.model.script' // InevControl
+ ;
+
+ENDME // ME_4CB5C0840148 aControl
+
+ME ME_4CB5C0820355
+ MEPROP UID '4CB5C0820355'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB5C07B03E3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5C0840148 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5C0820355 Create
+
+ME ME_4CB5C07B03E3
+ MEPROP UID '4CB5C07B03E3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5C0820355 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CB5C07B03E3 Create
+
+MEREF ME_4CB5C07B03E3_ME_4CB5C0C90376_G
+ MELINK Original HWL ME_4CB5C07B03E3 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB5C07B03E3_ME_4CB5C0C90376_G Create
+
+MEREF ME_47C7D08301E2_ME_4CB5C0C90376_R
+ MELINK Original WL 'ME_47C7D08301E2' '47C5207602D1.ms.model.script' // InevMeasureView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C7D08301E2_ME_4CB5C0C90376_R InevMeasureView
+
+%%ImplementedBy ME_47C7D08301E2 ME_4CB5C0C90376
+
+%%InheritedBy ME_4CB5C07B03E3 ME_4CB5C0C90376
+
+ME ME_4CB5C0C90376
+ MEPROP UID '4CB5C0C90376'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CB5C07B03E3_ME_4CB5C0C90376_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C7D08301E2_ME_4CB5C0C90376_R // InevMeasureView
+ )
+ ; // Implements
+
+ENDME // ME_4CB5C0C90376 Make
+
+ME ME_481203AD0062
+ MEPROP UID '481203AD0062'
+ MEPROP Name 'IsCaretInited'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_481203AD0062 IsCaretInited
+
+ME ME_481203CD0044
+ MEPROP UID '481203CD0044'
+ MEPROP Name 'IsCaretVisible'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_481203CD0044 IsCaretVisible
+
+ME ME_481203E001FE
+ MEPROP UID '481203E001FE'
+ MEPROP Name 'CheckShapes'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+
+ENDME // ME_481203E001FE CheckShapes
+
+ME ME_4812036D01CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL? 'ME_47414D0C018A' // TafwMeasureCanvas
+ ;
+
+ENDME // ME_4812036D01CD 
+
+ME ME_48120593012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48120593012E 
+
+ME ME_481206B00382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_481206B00382 
+
+ME ME_481206DE0396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL? 'ME_474154CE0081' // TafwVirtualCaret
+ ;
+
+ENDME // ME_481206DE0396 
+
+ME ME_481206FB0223
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_481206FB0223 
+
+ME ME_481208220345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481201700007 // TnevMeasureView
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_481208220345 
+
+MEREF ME_47C7D0950051_ME_481201700007_impl
+ MELINK Original WL 'ME_47C7D0950051' '47C5207602D1.ms.model.script' // MakePointVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C7D0950051_ME_481201700007_impl MakePointVisible
+
+MEREF ME_479731C50290_ME_481201700007_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_481201700007_over Cleanup
+
+MEREF ME_4811EAEB030F_ME_481201700007_over
+ MELINK Original WL 'ME_4811EAEB030F' '4811E4BA020A.ms.model.script' // DoSignalScroll
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811EAEB030F_ME_481201700007_over DoSignalScroll
+
+MEREF ME_4811F0AC0140_ME_481201700007_over
+ MELINK Original WL 'ME_4811F0AC0140' '4811E4BA020A.ms.model.script' // GetCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811F0AC0140_ME_481201700007_over GetCanvas
+
+MEREF ME_4811F158015E_ME_481201700007_over
+ MELINK Original WL 'ME_4811F158015E' '4811E4BA020A.ms.model.script' // CaretCursor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811F158015E_ME_481201700007_over CaretCursor
+
+MEREF ME_4811F4A502F6_ME_481201700007_over
+ MELINK Original WL 'ME_4811F4A502F6' '4811E4BA020A.ms.model.script' // LinkControl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811F4A502F6_ME_481201700007_over LinkControl
+
+MEREF ME_4811F4B801DC_ME_481201700007_over
+ MELINK Original WL 'ME_4811F4B801DC' '4811E4BA020A.ms.model.script' // DoUnlinkControl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811F4B801DC_ME_481201700007_over DoUnlinkControl
+
+MEREF ME_4811FD87039D_ME_481201700007_G
+ MELINK Original WL? 'ME_4811FD87039D' // TnevVirtualView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4811FD87039D_ME_481201700007_G TnevVirtualView
+
+MEREF ME_47C7D08301E2_ME_481201700007_R
+ MELINK Original WL 'ME_47C7D08301E2' '47C5207602D1.ms.model.script' // InevMeasureView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C7D08301E2_ME_481201700007_R InevMeasureView
+
+%%ImplementedBy ME_47C7D08301E2 ME_481201700007
+
+%%InheritedBy ME_4811FD87039D ME_481201700007
+
+ME ME_481201700007
+ MEPROP UID '481201700007'
+ MEPROP Name 'TnevMeasureView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Область вывода для измерений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_4811FD87039D_ME_481201700007_G // TnevVirtualView
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C7D08301E2_ME_481201700007_R // InevMeasureView
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_481202360261 // f_CaretPoint
+ HWL ME_4812033C0383 // f_Caret
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB5C07B03E3 // Create
+ HWL ME_4CB5C0C90376 // Make
+ HWL ME_481203AD0062 // IsCaretInited
+ HWL ME_481203CD0044 // IsCaretVisible
+ HWL ME_481203E001FE // CheckShapes
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C7D0950051_ME_481201700007_impl // MakePointVisible
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_481201700007_over // Cleanup
+ ME_4811EAEB030F_ME_481201700007_over // DoSignalScroll
+ ME_4811F0AC0140_ME_481201700007_over // GetCanvas
+ ME_4811F158015E_ME_481201700007_over // CaretCursor
+ ME_4811F4A502F6_ME_481201700007_over // LinkControl
+ ME_4811F4B801DC_ME_481201700007_over // DoUnlinkControl
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4812036D01CD // TafwMeasureCanvas
+ ME_48120593012E // SysUtils
+ ME_481206B00382 // nevFacade
+ ME_481206DE0396 // TafwVirtualCaret
+ ME_481206FB0223 // l3MinMax
+ ME_481208220345 // Tl3Point
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.02.2006 19:33'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevMeasureView.pas'
+ UP extprop:rc:SelfName 'MeasureView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevMeasureView'
+
+ENDME // ME_481201700007 TnevMeasureView

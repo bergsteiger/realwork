@@ -35,6 +35,12 @@ ME ME_4B14D6220258
 
 ENDME // ME_4B14D6220258 
 
+MEREF ME_4B0A6109010C_ME_4B14D5890031_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B14D5890031_G TnsLogEvent
+
 %%InheritedBy ME_4B0A6109010C ME_4B14D5890031
 
 ME ME_4B14D5890031
@@ -48,7 +54,7 @@ ME ME_4B14D5890031
  MELINK Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+   Seq: ( ME_4B0A6109010C_ME_4B14D5890031_G // TnsLogEvent
  )
  ; // Inherits
  MELIST Operations
@@ -117,7 +123,7 @@ ENDME // ME_4AA53319030D
 ME ME_4AA532E202C1
  MEPROP UID '4AA532E202C1'
  MEPROP Name 'OpenFoldersPrim'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -169,7 +175,7 @@ ENDME // ME_4AA534860325 DoIt
 ME ME_4AA534760215
  MEPROP UID '4AA534760215'
  MEPROP Name 'FindFoldersForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -224,7 +230,7 @@ ENDME // ME_4ABCDB760086 DoIt
 ME ME_4ABCDB5D034C
  MEPROP UID '4ABCDB5D034C'
  MEPROP Name 'Open'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -401,7 +407,7 @@ ENDME // ME_4AC0C318006E
 ME ME_4AC0B80702DE
  MEPROP UID '4AC0B80702DE'
  MEPROP Name 'OpenFoldersForSelect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -544,7 +550,7 @@ ME ME_4ABCE4A60131
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
  ;
- MELINK Target WL 'ME_4AB8CB4B0256' '47D0E1500033.ms.model.script' // TvcmItems
+ MELINK Target WL? 'ME_4AB8CB4B0256' // TvcmItems
  ;
 
 ENDME // ME_4ABCE4A60131 
@@ -644,16 +650,22 @@ ME ME_5797738002B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A96B68A03B1 // PrimFolders$UC
  ;
- MELINK Target WL 'ME_4AC0ABB70051' '497DCBF8017B.ms.model.script' // TnsFormCoordinates
+ MELINK Target WL? 'ME_4AC0ABB70051' // TnsFormCoordinates
  ;
 
 ENDME // ME_5797738002B3 
 
-ME ME_479731C50290_ME_4A96B68A03B1
+MEREF ME_479731C50290_ME_4A96B68A03B1_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4A96B68A03B1 Cleanup
+ENDMEREF // ME_479731C50290_ME_4A96B68A03B1_over Cleanup
+
+MEREF ME_4AB33E14004E_ME_4A96B68A03B1_G
+ MELINK Original WL? 'ME_4AB33E14004E' // TvcmModule
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB33E14004E_ME_4A96B68A03B1_G TvcmModule
 
 %%InheritedBy ME_4AB33E14004E ME_4A96B68A03B1
 
@@ -670,7 +682,7 @@ ME ME_4A96B68A03B1
  MELINK Parent WL? 'ME_497DCBF8017B' // Folders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AB33E14004E' '47D0E1500033.ms.model.script' // TvcmModule
+   Seq: ( ME_4AB33E14004E_ME_4A96B68A03B1_G // TvcmModule
  )
  ; // Inherits
  MELIST Attributes
@@ -685,7 +697,7 @@ ME ME_4A96B68A03B1
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4A96B68A03B1 // Cleanup
+   Seq: ( ME_479731C50290_ME_4A96B68A03B1_over // Cleanup
  )
  ; // Overridden
  MELIST Children

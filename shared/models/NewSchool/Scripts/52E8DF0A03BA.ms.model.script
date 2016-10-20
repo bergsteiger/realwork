@@ -1,0 +1,75 @@
+// TAutoPipeServerForm 52E8DF0A03BA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52E8DF0A03BA
+
+FORWARD ME_52E8DF0A03BA
+
+MEREF ME_4952591E0263_ME_52E8DD1002BE_G
+ MELINK Original WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4952591E0263_ME_52E8DD1002BE_G TForm
+
+%%InheritedBy ME_4952591E0263 ME_52E8DD1002BE
+
+ME ME_52E8DD1002BE
+ MEPROP UID '52E8DD1002BE'
+ MEPROP Name 'TArchiServerForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E8DF0A03BA // TAutoPipeServerForm
+ ;
+ MELIST Inherits
+   Seq: ( ME_4952591E0263_ME_52E8DD1002BE_G // TForm
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ArchiServerForm'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52E8DD1002BE TArchiServerForm
+
+ME ME_52F8CA0D0075
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E8DF0A03BA // TAutoPipeServerForm
+ ;
+ MELINK Target WL? 'ME_52F8C9E00037' // TalcuServer
+ ;
+
+ENDME // ME_52F8CA0D0075 
+
+ME ME_52E8DF0A03BA
+ MEPROP UID '52E8DF0A03BA'
+ MEPROP Name 'TAutoPipeServerForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52E8D676018A' // AutoPipeServer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52E8DD1002BE // TArchiServerForm
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52F8CA0D0075 // TalcuServer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\NOT_FINISHED_AutoPipeServerForm.pas'
+ UP extprop:rc:SelfName 'AutoPipeServerForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AutoPipeServerForm'
+
+ENDME // ME_52E8DF0A03BA TAutoPipeServerForm

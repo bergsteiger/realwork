@@ -1,0 +1,60 @@
+// TevParaListCursorInsertable 4A3A4398010A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3A4398010A
+
+MEREF ME_48E4FEB90365_ME_4A3A4398010A_impl
+ MELINK Original WL 'ME_48E4FEB90365' '47C5207602D1.ms.model.script' // DoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48E4FEB90365_ME_4A3A4398010A_impl DoIt
+
+MEREF ME_4A3A237A01C0_ME_4A3A4398010A_G
+ MELINK Original WL? 'ME_4A3A237A01C0' // TevParaListCursorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3A237A01C0_ME_4A3A4398010A_G TevParaListCursorPrim
+
+MEREF ME_48E4FEB001B3_ME_4A3A4398010A_R
+ MELINK Original WL 'ME_48E4FEB001B3' '47C5207602D1.ms.model.script' // IevOpInsertPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E4FEB001B3_ME_4A3A4398010A_R IevOpInsertPara
+
+%%ImplementedBy ME_48E4FEB001B3 ME_4A3A4398010A
+
+%%InheritedBy ME_4A3A237A01C0 ME_4A3A4398010A
+
+ME ME_4A3A4398010A
+ MEPROP UID '4A3A4398010A'
+ MEPROP Name 'TevParaListCursorInsertable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3A237A01C0_ME_4A3A4398010A_G // TevParaListCursorPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48E4FEB001B3_ME_4A3A4398010A_R // IevOpInsertPara
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_48E4FEB90365_ME_4A3A4398010A_impl // DoIt
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '18.06.2009 17:40'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaListCursorInsertable.pas'
+ UP extprop:rc:SelfName 'ParaListCursorInsertable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evParaListCursorInsertable'
+
+ENDME // ME_4A3A4398010A TevParaListCursorInsertable

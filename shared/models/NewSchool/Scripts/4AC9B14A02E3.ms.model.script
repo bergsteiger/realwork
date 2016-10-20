@@ -11,104 +11,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4AC9B14A02E3
 %%Inner ME_4AC9B14A02E3
 
-FORWARD ME_4AC9B14A02E3
-
-ME ME_4AC9CB12015D
- MEPROP UID '4AC9CB12015D'
- MEPROP Name 'TnscTabTable'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTable.pas'
- UP extprop:rc:SelfName 'TabTable'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nscTabTable'
-
-ENDME // ME_4AC9CB12015D TnscTabTable
-
-FORWARD ME_4ACA30C3014C
-
-ME ME_4ACA31830369_ME_4ACA30C3014C
- MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4ACA31830369_ME_4ACA30C3014C Create
-
-%%InheritedBy ME_4ACA309200D3 ME_4ACA30C3014C
-
-ME ME_4ACA30C3014C
- MEPROP UID '4ACA30C3014C'
- MEPROP Name 'TnscFixedHeightControlCell'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4ACA31830369_ME_4ACA30C3014C // Create
- )
- ; // Overridden
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '05.10.2009 21:45'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas'
- UP extprop:rc:SelfName 'FixedHeightControlCell'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nscFixedHeightControlCell'
-
-ENDME // ME_4ACA30C3014C TnscFixedHeightControlCell
-
-FORWARD ME_4ACA39B902E9
-
-ME ME_4ACA31830369_ME_4ACA39B902E9
- MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4ACA31830369_ME_4ACA39B902E9 Create
-
-%%InheritedBy ME_4ACA309200D3 ME_4ACA39B902E9
-
-ME ME_4ACA39B902E9
- MEPROP UID '4ACA39B902E9'
- MEPROP Name 'TnscFixedWidthControlCell'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4ACA31830369_ME_4ACA39B902E9 // Create
- )
- ; // Overridden
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '05.10.2009 22:24'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedWidthControlCell.pas'
- UP extprop:rc:SelfName 'FixedWidthControlCell'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nscFixedWidthControlCell'
-
-ENDME // ME_4ACA39B902E9 TnscFixedWidthControlCell
-
 ME ME_4AC9B14A02E3
  MEPROP UID '4AC9B14A02E3'
  MEPROP Name 'Grid'
@@ -122,10 +24,10 @@ ME ME_4AC9B14A02E3
  MELIST Children
    Seq: ( WL? 'ME_4AC9B15903E7' // nscArrangeGrid
  WL? 'ME_4AC9C67300A2' // TnscHideField
- HWL ME_4AC9CB12015D // TnscTabTable
+ WL? 'ME_4AC9CB12015D' // TnscTabTable
  WL? 'ME_4AC9DB95006B' // nscArrangeGridCell
- HWL ME_4ACA30C3014C // TnscFixedHeightControlCell
- HWL ME_4ACA39B902E9 // TnscFixedWidthControlCell
+ WL? 'ME_4ACA30C3014C' // TnscFixedHeightControlCell
+ WL? 'ME_4ACA39B902E9' // TnscFixedWidthControlCell
  WL? 'ME_4AD59B96038C' // nscTabTableCell
  WL? 'ME_530495650309' // nscFormWithArrangeGrid
  )

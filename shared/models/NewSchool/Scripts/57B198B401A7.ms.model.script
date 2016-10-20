@@ -1,0 +1,94 @@
+// TmsmTreeModelPrim 57B198B401A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B198B401A7
+
+ME ME_57E415640204
+ MEPROP UID '57E415640204'
+ MEPROP Name 'f_Tree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B198B401A7 // TmsmTreeModelPrim
+ ;
+ MELINK Target WL 'ME_57ADF14D01B1' '57B565F200E5.ms.model.script' // ImsmModelElementTree
+ ;
+
+ENDME // ME_57E415640204 f_Tree
+
+MEREF ME_57ADC5D70104_ME_57B198B401A7_impl
+ MELINK Original WL 'ME_57ADC5D70104' '57ADC53E00B6.ms.model.script' // Tree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_57ADC5D70104_ME_57B198B401A7_impl Tree
+
+MEREF ME_57D271E300C2_ME_57B198B401A7_impl
+ MELINK Original WL 'ME_57D271E300C2' '57B57EDB003F.ms.model.script' // DoGetList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D271E300C2_ME_57B198B401A7_impl DoGetList
+
+MEREF ME_57D2A7D900FE_ME_57B198B401A7_impl
+ MELINK Original WL 'ME_57D2A7D900FE' '57B57EDB003F.ms.model.script' // DoShowElementAsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D2A7D900FE_ME_57B198B401A7_impl DoShowElementAsList
+
+MEREF ME_57B57EDB003F_ME_57B198B401A7_G
+ MELINK Original WL? 'ME_57B57EDB003F' // TmsmListLikeModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B57EDB003F_ME_57B198B401A7_G TmsmListLikeModel
+
+MEREF ME_57B198570162_ME_57B198B401A7_R
+ MELINK Original WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B198570162_ME_57B198B401A7_R ImsmTreeModel
+
+%%ImplementedBy ME_57B198570162 ME_57B198B401A7
+
+%%InheritedBy ME_57B57EDB003F ME_57B198B401A7
+
+ME ME_57B198B401A7
+ MEPROP UID '57B198B401A7'
+ MEPROP Name 'TmsmTreeModelPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( ME_57B57EDB003F_ME_57B198B401A7_G // TmsmListLikeModel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57B198570162_ME_57B198B401A7_R // ImsmTreeModel
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57E415640204 // f_Tree
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57ADC5D70104_ME_57B198B401A7_impl // Tree
+ ME_57D271E300C2_ME_57B198B401A7_impl // DoGetList
+ ME_57D2A7D900FE_ME_57B198B401A7_impl // DoShowElementAsList
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Refcount" 'standard'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmTreeModelPrim.pas'
+ UP extprop:rc:SelfName 'msmTreeModelPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmTreeModelPrim'
+
+ENDME // ME_57B198B401A7 TmsmTreeModelPrim

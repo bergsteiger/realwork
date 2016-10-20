@@ -1,0 +1,220 @@
+// TtfwOutToFileScriptCaller 56456E3E01E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56456E3E01E4
+
+ME ME_56456E910302
+ MEPROP UID '56456E910302'
+ MEPROP Name 'f_OutFiler'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL 'ME_53A05AFD02CC' '47A0686803A5.ms.model.script' // Tl3DOSFiler
+ ;
+
+ENDME // ME_56456E910302 f_OutFiler
+
+ME ME_564571210221
+ MEPROP UID '564571210221'
+ MEPROP Name 'f_FileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_564571210221 f_FileName
+
+FORWARD ME_5645710E0083
+
+ME ME_564571370276
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_564571370276 aFileName
+
+ME ME_5645712D01A1
+ MEPROP UID '5645712D01A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5645710E0083 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_564571370276 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_5645712D01A1 DoIt
+
+ME ME_5645710E0083
+ MEPROP UID '5645710E0083'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5645712D01A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5645710E0083 Create
+
+MEREF ME_5645710E0083_ME_5645713B035C_G
+ MELINK Original HWL ME_5645710E0083 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5645710E0083_ME_5645713B035C_G Create
+
+MEREF ME_4DAF1A1700F7_ME_5645713B035C_R
+ MELINK Original WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAF1A1700F7_ME_5645713B035C_R ItfwScriptCaller
+
+%%ImplementedBy ME_4DAF1A1700F7 ME_5645713B035C
+
+%%InheritedBy ME_5645710E0083 ME_5645713B035C
+
+ME ME_5645713B035C
+ MEPROP UID '5645713B035C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELIST Inherits
+   Seq: ( ME_5645710E0083_ME_5645713B035C_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DAF1A1700F7_ME_5645713B035C_R // ItfwScriptCaller
+ )
+ ; // Implements
+
+ENDME // ME_5645713B035C Make
+
+ME ME_56456E760304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_56456E760304 
+
+ME ME_56456EBF01AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_56456EBF01AD 
+
+ME ME_56456ECF02B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_56456ECF02B3 
+
+ME ME_5645886600F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56456E3E01E4 // TtfwOutToFileScriptCaller
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_5645886600F0 
+
+MEREF ME_479731C50290_ME_56456E3E01E4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_56456E3E01E4_over Cleanup
+
+MEREF ME_55C491FC025C_ME_56456E3E01E4_over
+ MELINK Original WL 'ME_55C491FC025C' '55C482690029.ms.model.script' // DoPrint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55C491FC025C_ME_56456E3E01E4_over DoPrint
+
+MEREF ME_55C48FCE03AB_ME_56456E3E01E4_G
+ MELINK Original WL? 'ME_55C48FCE03AB' // TtfwConsoleScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C48FCE03AB_ME_56456E3E01E4_G TtfwConsoleScriptCaller
+
+%%InheritedBy ME_55C48FCE03AB ME_56456E3E01E4
+
+ME ME_56456E3E01E4
+ MEPROP UID '56456E3E01E4'
+ MEPROP Name 'TtfwOutToFileScriptCaller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55C481E00003' // ScriptCallers
+ ;
+ MELIST Inherits
+   Seq: ( ME_55C48FCE03AB_ME_56456E3E01E4_G // TtfwConsoleScriptCaller
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56456E910302 // f_OutFiler
+ HWL ME_564571210221 // f_FileName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5645710E0083 // Create
+ HWL ME_5645713B035C // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56456E3E01E4_over // Cleanup
+ ME_55C491FC025C_ME_56456E3E01E4_over // DoPrint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56456E760304 // SysUtils
+ ME_56456EBF01AD // Tl3FileMode
+ ME_56456ECF02B3 // l3String
+ ME_5645886600F0 // Code Pages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwOutToFileScriptCaller.pas'
+ UP extprop:rc:SelfName 'OutToFileScriptCaller'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwOutToFileScriptCaller'
+
+ENDME // ME_56456E3E01E4 TtfwOutToFileScriptCaller

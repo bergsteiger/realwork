@@ -4,11 +4,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4BE42D490361
 
-ME ME_467813E40207_ME_4BE42D490361
+MEREF ME_467813E40207_ME_4BE42D490361_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_4BE42D490361 CheckStamp
+ENDMEREF // ME_467813E40207_ME_4BE42D490361_impl CheckStamp
+
+MEREF ME_54D8A952031C_ME_4BE42D490361_R
+ MELINK Original WL 'ME_54D8A952031C' '47D810610398.ms.model.script' // Ml3CheckStamp
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D8A952031C_ME_4BE42D490361_R Ml3CheckStamp
 
 %%ImplementedBy ME_54D8A952031C ME_4BE42D490361
 
@@ -24,11 +30,11 @@ ME ME_4BE42D490361
  MELINK Parent WL? 'ME_47BB24D30205' // Стандартные примеси
  ;
  MELIST Implements
-   Seq: ( WL 'ME_54D8A952031C' '47D810610398.ms.model.script' // Ml3CheckStamp
+   Seq: ( ME_54D8A952031C_ME_4BE42D490361_R // Ml3CheckStamp
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_4BE42D490361 // CheckStamp
+   Seq: ( ME_467813E40207_ME_4BE42D490361_impl // CheckStamp
  )
  ; // Implemented
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CheckStamp.imp.pas'

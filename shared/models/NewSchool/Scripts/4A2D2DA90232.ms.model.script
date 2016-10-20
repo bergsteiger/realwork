@@ -1,0 +1,139 @@
+// TevDocumentCursorPair 4A2D2DA90232 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A2D2DA90232
+
+ME ME_52D92C07038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_52D92C07038F 
+
+ME ME_52D92C0B00F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL? 'ME_4A3918BB0114' // l3UnitsTools
+ ;
+
+ENDME // ME_52D92C0B00F2 
+
+ME ME_52D92C0D01EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL? 'ME_480CA9AD0198' // evSectionPara
+ ;
+
+ENDME // ME_52D92C0D01EC 
+
+ME ME_52D92C0F023D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL 'ME_4A23D3F70344' '4A23D24F0125.ms.model.script' // PaperSize
+ ;
+
+ENDME // ME_52D92C0F023D 
+
+ME ME_52D92C110273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL 'ME_47AC759800AF' '47AC75550330.ms.model.script' // ExtTags
+ ;
+
+ENDME // ME_52D92C110273 
+
+ME ME_52D92C1302F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_52D92C1302F5 
+
+ME ME_53D26D690025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A2D2DA90232 // TevDocumentCursorPair
+ ;
+ MELINK Target WL? 'ME_4857B637007C' // TevDocument
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_53D26D690025 
+
+MEREF ME_5108D5CB0048_ME_4A2D2DA90232_over
+ MELINK Original WL 'ME_5108D5CB0048' '4A2D30DB039E.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5108D5CB0048_ME_4A2D2DA90232_over DoStore
+
+MEREF ME_5108D66900C9_ME_4A2D2DA90232_over
+ MELINK Original WL 'ME_5108D66900C9' '4A2D30DB039E.ms.model.script' // DoDelete
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'evNeedEditableCursors'
+ENDMEREF // ME_5108D66900C9_ME_4A2D2DA90232_over DoDelete
+
+MEREF ME_4A2D2D6E027B_ME_4A2D2DA90232_G
+ MELINK Original WL? 'ME_4A2D2D6E027B' // TevParaListCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2D2D6E027B_ME_4A2D2DA90232_G TevParaListCursorPair
+
+%%InjectedBy ME_4857B637007C ME_4A2D2DA90232
+
+%%InheritedBy ME_4A2D2D6E027B ME_4A2D2DA90232
+
+ME ME_4A2D2DA90232
+ MEPROP UID '4A2D2DA90232'
+ MEPROP Name 'TevDocumentCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A2D2D6E027B_ME_4A2D2DA90232_G // TevParaListCursorPair
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5108D5CB0048_ME_4A2D2DA90232_over // DoStore
+ ME_5108D66900C9_ME_4A2D2DA90232_over // DoDelete
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D92C07038F // StoreFlag
+ ME_52D92C0B00F2 // l3UnitsTools
+ ME_52D92C0D01EC // evSectionPara
+ ME_52D92C0F023D // PaperSize
+ ME_52D92C110273 // ExtTags
+ ME_52D92C1302F5 // Para
+ ME_53D26D690025 // TevDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentCursorPair.pas'
+ UP extprop:rc:SelfName 'DocumentCursorPair'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentCursorPair'
+
+ENDME // ME_4A2D2DA90232 TevDocumentCursorPair

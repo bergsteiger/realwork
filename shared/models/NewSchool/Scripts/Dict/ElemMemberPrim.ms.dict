@@ -345,6 +345,11 @@ STRING elem_func Name
  end // Self IsString
 ; // Name
 
+STRING elem_func FullName
+ Self 'FullName' .ElemString 
+ >>> Result
+; // FullName
+
 STRING elem_func OriginalName
  if ( Self IsString ) then
  begin
@@ -379,13 +384,11 @@ USES
   ModelElement IN aCacheWhere
   TtfwWord IN aWord
   ^ IN aLambda
- aCacheWhere aWord .WordName nil DoCache ( aLambda DO )
+ aCacheWhere aWord .WordName 
+ nil 
+ // - вообще это надо вычислять из типа слова
+ DoCache ( aLambda DO )
 ; // CacheWord
-
-MACRO Cache
- axiom:PushSymbol @SELF
- axiom:PushSymbol CacheWord
-; // Cache
 
 MACRO CacheMethod
  'Self' Ctx:Parser:PushSymbol
@@ -449,6 +452,84 @@ elem_iterator Implements
  Self 'Implements' .ElemList >>> Result
 ; // Implements
 
+STRING elem_func UID
+ Self 'UID' '' .ElemMember >>> Result
+; // UID
+
+STRING elem_func LUID
+ Self .UID
+ >>> Result
+; // LUID
+
+ARRAY FUNCTION array:CopyWithoutDuplicates
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_Copy
+    [] >>> l_Copy
+    VAR l_Empty
+    true >>> l_Empty
+    anArray 
+    .filter> .AddToArray?: l_Copy
+    .for> ( 
+      IN anElement
+     false >>> l_Empty
+    ) // anArray .for>
+    RULES
+     l_Empty
+      [nil]
+     DEFAULT
+      l_Copy 
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // array:CopyWithoutDuplicates
+
+WordAlias .CopyWithoutDuplicates array:CopyWithoutDuplicates
+
+ARRAY FUNCTION .CopyWithoutDuplicatedUIDs
+  IN anArray
+ RULES
+  ( anArray .IsNil )
+   [nil]
+  DEFAULT 
+   (
+    VAR l_CopyNames
+    [] >>> l_CopyNames
+    VAR l_Copy
+    [] >>> l_Copy
+    VAR l_Empty
+    true >>> l_Empty
+    anArray 
+    .filter> ( .LUID .AddToArray?: l_CopyNames )
+    .for> ( 
+      IN anElement
+     anElement .AddToArray: l_Copy
+     false >>> l_Empty
+    ) // anArray .for>
+    RULES
+     l_Empty
+      [nil]
+     DEFAULT
+      l_Copy 
+    ; // RULES
+   ) 
+ ; // RULES 
+ >>> Result
+; // .CopyWithoutDuplicatedUIDs
+
+ARRAY FUNCTION .CopyWithoutDuplicatedModelElements
+  IN anArray
+ anArray
+ .CopyWithoutDuplicates
+ .CopyWithoutDuplicatedUIDs
+ >>> Result 
+; // .CopyWithoutDuplicatedModelElements  
+
 elem_iterator StereotypeAncestors
  Cached:
  (
@@ -459,7 +540,7 @@ elem_iterator StereotypeAncestors
    Self .Inherits
    .join> ( Self .Implements ) 
   )
-  array:CopyWithoutDuplicates
+  .CopyWithoutDuplicatedModelElements
  ) 
  >>> Result
 ; // StereotypeAncestors
@@ -529,27 +610,34 @@ BOOLEAN elem_func IsStereotypeInModelKindOf:
 BOOLEAN elem_func IsStereotype
   ^ IN aStereo
   
- ModelElement VAR l_OurStereo
- Self .Stereotype >>> l_OurStereo
- 
- RULES 
-  ( l_OurStereo .IsNil )
-    false
-  (  
-   ( l_OurStereo .IsMeStub )
-   OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
-  ) 
-   begin
-    ModelElement VAR l_Stereo
-    aStereo DO >>> l_Stereo
-    l_OurStereo l_Stereo IsStereoKindOf
-   end // // l_OurStereo IsNil
+ RULES
+  ( Self .IsNil )
+   false
   DEFAULT 
    begin
-    ModelElement VAR l_Stereo
-    aStereo DO >>> l_Stereo
-    l_OurStereo l_Stereo .IsStereotypeInModelKindOf
-   end // // l_OurStereo IsNil
+    ModelElement VAR l_OurStereo
+    Self .Stereotype >>> l_OurStereo
+    
+    RULES 
+     ( l_OurStereo .IsNil )
+       false
+     (  
+      ( l_OurStereo .IsMeStub )
+      OR ( l_OurStereo .StereotypeInModel l_OurStereo ?== )
+     ) 
+      begin
+       ModelElement VAR l_Stereo
+       aStereo DO >>> l_Stereo
+       l_OurStereo l_Stereo IsStereoKindOf
+      end // // l_OurStereo IsNil
+     DEFAULT 
+      begin
+       ModelElement VAR l_Stereo
+       aStereo DO >>> l_Stereo
+       l_OurStereo l_Stereo .IsStereotypeInModelKindOf
+      end // // l_OurStereo IsNil
+    ; // RULES
+   end // DEFAULT 
  ; // RULES
  >>> Result
  
@@ -580,3 +668,69 @@ elem_iterator Attributes
  Self 'Attributes' .ElemList >>> Result
 ; // Attributes
 
+ModelElement elem_func Target
+ Self 'Target' .ElemWord >>> Result
+; // Target
+
+ANY elem_func GetUP
+  Literal IN aName
+  
+ Self aName |N '' .ElemMember >>> Result 
+; // GetUP
+
+INTEGER elem_func Abstraction
+ Self 'Abstraction' /*at_unknown*/ at_final .ElemMember >>> Result
+; // Abstraction
+
+BOOLEAN elem_func IsNewSchool
+ Self 'IsNewSchool' false .ElemMember >>> Result
+; // IsNewSchool
+
+ModelElement elem_func Parent
+ Self 'Parent' .ElemWord >>> Result
+; // Parent
+
+INTEGER elem_func OpKind
+ Self 'OpKind' opkind_Normal .ElemMember >>> Result
+; // OpKind
+
+ModelElement elem_func Original
+ Self 'Original' .ElemWord >>> Result
+; // Original
+
+BOOLEAN elem_func IsNewSchoolRec
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    false
+   ( Self .IsNewSchool )
+    true
+   ( Self .Parent call.me )
+    true
+   DEFAULT
+    false
+  ; // RULES
+ )
+ >>> Result
+; // IsNewSchoolRec
+
+BOOLEAN elem_func IsReferencedType
+ RULES
+  ( Self .OpKind opkind_ReferencedType ?== )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // IsReferencedType
+
+ModelElement elem_func ReferencedTypeOriginal
+ RULES
+  ( Self .IsReferencedType )
+   ( Self .Original )
+  DEFAULT
+   Self 
+ ; // RULES
+ >>> Result
+; // ReferencedTypeOriginal

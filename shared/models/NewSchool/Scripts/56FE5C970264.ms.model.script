@@ -1,0 +1,45 @@
+// TcsContainerTask 56FE5C970264 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52F8C2BF0110_ME_56FE5C970264_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_56FE5C970264_G TddProcessTask
+
+MEREF ME_56FE456C0292_ME_56FE5C970264_R
+ MELINK Original WL 'ME_56FE456C0292' '484A470100DD.ms.model.script' // ContainerTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56FE456C0292_ME_56FE5C970264_R ContainerTask
+
+%%ImplementedBy ME_56FE456C0292 ME_56FE5C970264
+
+%%InheritedBy ME_52F8C2BF0110 ME_56FE5C970264
+
+ME ME_56FE5C970264
+ MEPROP UID '56FE5C970264'
+ MEPROP Name 'TcsContainerTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8C2BF0110_ME_56FE5C970264_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_56FE456C0292_ME_56FE5C970264_R // ContainerTask
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csContainerTask.pas'
+ UP extprop:rc:SelfName 'csContainerTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csContainerTask'
+
+ENDME // ME_56FE5C970264 TcsContainerTask

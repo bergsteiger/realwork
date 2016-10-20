@@ -13,7 +13,7 @@ ME ME_4F51EC4E0133
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F51EC180118 // RULES
  ;
- MELINK Target WL 'ME_4F51EC380222' '5284E8850019.ms.model.script' // TkwCompiledRules
+ MELINK Target WL? 'ME_4F51EC380222' // TkwCompiledRules
  ;
 
 ENDME // ME_4F51EC4E0133 
@@ -23,22 +23,28 @@ ME ME_52D7AE530364
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F51EC180118 // RULES
  ;
- MELINK Target WL 'ME_52D6AC5402E7' '4DAEEA14018A.ms.model.script' // StandardProcedureCloseBracket
+ MELINK Target WL? 'ME_52D6AC5402E7' // StandardProcedureCloseBracket
  ;
 
 ENDME // ME_52D7AE530364 
 
-ME ME_4DB6C99F026E_ME_4F51EC180118
- MELINK Original WL 'ME_4DB6C99F026E' '54F079B5035C.ms.model.script' // EndBracket
+MEREF ME_4DB6C99F026E_ME_4F51EC180118_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6C99F026E_ME_4F51EC180118 EndBracket
+ENDMEREF // ME_4DB6C99F026E_ME_4F51EC180118_impl EndBracket
 
-ME ME_4DBAEE0D028D_ME_4F51EC180118
- MELINK Original WL 'ME_4DBAEE0D028D' '54F079B5035C.ms.model.script' // CompiledWordClass
+MEREF ME_4DBAEE0D028D_ME_4F51EC180118_over
+ MELINK Original WL 'ME_4DBAEE0D028D' '4DB6C8F30161.ms.model.script' // CompiledWordClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4DBAEE0D028D_ME_4F51EC180118 CompiledWordClass
+ENDMEREF // ME_4DBAEE0D028D_ME_4F51EC180118_over CompiledWordClass
+
+MEREF ME_4DBAEF29031F_ME_4F51EC180118_G
+ MELINK Original WL? 'ME_4DBAEF29031F' // TtfwBeginLikeWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DBAEF29031F_ME_4F51EC180118_G TtfwBeginLikeWord
 
 %%InheritedBy ME_4DBAEF29031F ME_4F51EC180118
 
@@ -54,15 +60,15 @@ ME ME_4F51EC180118
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4DBAEF29031F' '54F079B5035C.ms.model.script' // TtfwBeginLikeWord
+   Seq: ( ME_4DBAEF29031F_ME_4F51EC180118_G // TtfwBeginLikeWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4DB6C99F026E_ME_4F51EC180118 // EndBracket
+   Seq: ( ME_4DB6C99F026E_ME_4F51EC180118_impl // EndBracket
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4DBAEE0D028D_ME_4F51EC180118 // CompiledWordClass
+   Seq: ( ME_4DBAEE0D028D_ME_4F51EC180118_over // CompiledWordClass
  )
  ; // Overridden
  MELIST Dependencies
@@ -86,7 +92,7 @@ ME ME_5284E97C020E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_5284E9670258' '5284E8850019.ms.model.script' // if_else
+ MELINK Target WL? 'ME_5284E9670258' // if_else
  ;
 
 ENDME // ME_5284E97C020E 
@@ -96,7 +102,7 @@ ME ME_5284F7490075
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_5284F739012F' '5284E8850019.ms.model.script' // else
+ MELINK Target WL? 'ME_5284F739012F' // else
  ;
 
 ENDME // ME_5284F7490075 
@@ -106,7 +112,7 @@ ME ME_52D691A603DE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_4DBAEE8103DB' '5284E8850019.ms.model.script' // CASE
+ MELINK Target WL? 'ME_4DBAEE8103DB' // CASE
  ;
 
 ENDME // ME_52D691A603DE 
@@ -116,7 +122,7 @@ ME ME_52D691B5027E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_4DBAF3D60039' '5284E8850019.ms.model.script' // DEFAULT
+ MELINK Target WL? 'ME_4DBAF3D60039' // DEFAULT
  ;
 
 ENDME // ME_52D691B5027E 
@@ -126,7 +132,7 @@ ME ME_52D693380394
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_4DBAE64F02F7' '5284E8850019.ms.model.script' // RAISE
+ MELINK Target WL? 'ME_4DBAE64F02F7' // RAISE
  ;
 
 ENDME // ME_52D693380394 
@@ -136,7 +142,7 @@ ME ME_52D693E80012
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_4DBFBBE603E5' '5284E8850019.ms.model.script' // BracketBegin
+ MELINK Target WL? 'ME_4DBFBBE603E5' // BracketBegin
  ;
 
 ENDME // ME_52D693E80012 
@@ -146,7 +152,7 @@ ME ME_52D6947400E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
  ;
- MELINK Target WL 'ME_4DB9BB8D0388' '5284E8850019.ms.model.script' // BEGIN
+ MELINK Target WL? 'ME_4DB9BB8D0388' // BEGIN
  ;
 
 ENDME // ME_52D6947400E2 

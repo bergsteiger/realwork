@@ -1,0 +1,75 @@
+// TPl3MessageIDListPrim 4F9BCAD90297 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9BCAD90297
+
+ME ME_4F9BCB4D0365
+ MEPROP UID '4F9BCB4D0365'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F9BCAD90297 // TPl3MessageIDListPrim
+ ;
+ MELINK Target WL 'ME_4F9BC9DC0069' '4E01D1980071.ms.model.script' // Pl3MessageID
+ ;
+
+ENDME // ME_4F9BCB4D0365 ItemType
+
+MEREF ME_47B99D4503A2_ME_4F9BCAD90297_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4F9BCAD90297_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4F9BCAD90297_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F9BCAD90297_G Tl3ProtoDataContainer
+
+MEREF ME_4B71611400B3_ME_4F9BCAD90297_G
+ MELINK Original WL? 'ME_4B71611400B3' // l3AtomicListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B71611400B3_ME_4F9BCAD90297_G l3AtomicListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4F9BCAD90297
+%%InheritedBy ME_4B71611400B3 ME_4F9BCAD90297
+
+ME ME_4F9BCAD90297
+ MEPROP UID '4F9BCAD90297'
+ MEPROP Name 'TPl3MessageIDListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9BDEEE01BC' // Поддержка локализованных сообщений
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_4F9BCAD90297_G // Tl3ProtoDataContainer
+ ME_4B71611400B3_ME_4F9BCAD90297_G // l3AtomicListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F9BCB4D0365 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_4F9BCAD90297_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
+ UP extprop:rc:SelfName 'Pl3MessageIDListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Pl3MessageIDListPrim'
+
+ENDME // ME_4F9BCAD90297 TPl3MessageIDListPrim

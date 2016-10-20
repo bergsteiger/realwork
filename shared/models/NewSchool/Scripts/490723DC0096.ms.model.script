@@ -1,0 +1,117 @@
+// TnsNavigatorTreeStruct 490723DC0096 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490723DC0096
+
+ME ME_4907242100D7
+ MEPROP UID '4907242100D7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Создаёт экземпляр дерева навигатора (которое в оболочке справа)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4907242100D7 Make
+
+ME ME_4907245403BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4907245403BE 
+
+ME ME_490727C1004A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+
+ENDME // ME_490727C1004A 
+
+ME ME_4908805E0198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490723DC0096 // TnsNavigatorTreeStruct
+ ;
+ MELINK Target WL? 'ME_490724F202F5' // TnsRubricatorCache
+ ;
+
+ENDME // ME_4908805E0198 
+
+MEREF ME_48FF64F60078_ME_490723DC0096_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_490723DC0096_impl ReAqurieUnfilteredRoot
+
+MEREF ME_48FF56D003E6_ME_490723DC0096_over
+ MELINK Original WL 'ME_48FF56D003E6' '46835BD201D6.ms.model.script' // SettingsID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF56D003E6_ME_490723DC0096_over SettingsID
+
+MEREF ME_468361010204_ME_490723DC0096_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_490723DC0096_G TnsDataResetTreeStruct
+
+%%InheritedBy ME_468361010204 ME_490723DC0096
+
+ME ME_490723DC0096
+ MEPROP UID '490723DC0096'
+ MEPROP Name 'TnsNavigatorTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево навигатора с поддержкой сброса кэшированных данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4907236C0171' // Rubricator
+ ;
+ MELIST Inherits
+   Seq: ( ME_468361010204_ME_490723DC0096_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4907242100D7 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_490723DC0096_impl // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48FF56D003E6_ME_490723DC0096_over // SettingsID
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4907245403BE // nsConst
+ ME_490727C1004A // TnsResetTreeStatus
+ ME_4908805E0198 // TnsRubricatorCache
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" true
+ UP "started" '2004/03/01 08:52:40 '
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsNavigatorTreeStruct.pas'
+ UP extprop:rc:SelfName 'NavigatorTreeStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNavigatorTreeStruct'
+
+ENDME // ME_490723DC0096 TnsNavigatorTreeStruct

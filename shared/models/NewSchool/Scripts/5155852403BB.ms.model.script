@@ -1,0 +1,62 @@
+// TIntStackFromComponent 5155852403BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5155852403BB
+
+ME ME_515585470009
+ MEPROP UID '515585470009'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5155852403BB // TIntStackFromComponent
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_515585470009 ItemType
+
+MEREF ME_479878FA0103_ME_5155852403BB_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_5155852403BB_G TComponent
+
+MEREF ME_51545DEA00FB_ME_5155852403BB_G
+ MELINK Original WL? 'ME_51545DEA00FB' // StackPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51545DEA00FB_ME_5155852403BB_G StackPrim
+
+%%InheritedBy ME_479878FA0103 ME_5155852403BB
+%%InheritedBy ME_51545DEA00FB ME_5155852403BB
+
+ME ME_5155852403BB
+ MEPROP UID '5155852403BB'
+ MEPROP Name 'TIntStackFromComponent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51545DDC0252' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( ME_479878FA0103_ME_5155852403BB_G // TComponent
+ ME_51545DEA00FB_ME_5155852403BB_G // StackPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_515585470009 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\SandBox\IntStackFromComponent.pas'
+ UP extprop:rc:SelfName 'IntStackFromComponent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IntStackFromComponent'
+
+ENDME // ME_5155852403BB TIntStackFromComponent

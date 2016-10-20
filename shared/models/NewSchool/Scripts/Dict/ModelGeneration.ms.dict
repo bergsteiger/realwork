@@ -33,7 +33,11 @@ USES
 ;
 
 USES
- GarantMetaModel.ms.dict
+ msmMetaModel.ms.dict
+;
+
+USES
+ smallMetaModel.ms.dict
 ;
 
 USES
@@ -146,6 +150,8 @@ STRING elem_func OpKindString
    'Overridden'
   ( Self .OpKind opkind_DecoratedType == )
    'DecoratedType'
+  ( Self .OpKind opkind_ReferencedType == )
+   'ReferencedType'
   DEFAULT
    ( Self .OpKind ToPrintable )
  ; // RULES
@@ -170,9 +176,17 @@ USES
  ModelScriptExt.ms.dict
 ;
 
+USES
+ IsDeletedElement.ms.dict
+;
+
 STRING elem_func ScriptWordLink
  [
   RULES
+   ( Self .IsNil )
+    'nil'
+   ( Self .IsDeletedElement )
+     'nil'
    ( 
     Self .WordName MEPrefix .CutPrefix
     Self .DictName 
@@ -201,54 +215,11 @@ USES
  ModelRoot.ms.dict
 ;
 
-elem_generator model.script
+USES
+ filterNil.ms.dict
+;
 
- CONST Ext '.model.script'
-
- BOOLEAN elem_func NeedOwnFilePrim
-  RULES
-   ( Self .IsAutoElement )
-   // - это "автоматически выдуманый элемент"
-    false
-   ( Self .IsSubRoot )
-    true
-   DEFAULT
-    false
-  ; // RULES
-  >>> Result
- ; // NeedOwnFilePrim
-
- BOOLEAN elem_func CanCopyToFinalFile
-  true >>> Result
- ; // CanCopyToFinalFile
-
- BOOLEAN elem_func CanDeleteFinalFile
-  RULES
-   ( Self .MDAClass class_Category == )
-    true
-   ( Self .IsSimpleClass )
-    true
-   DEFAULT
-    false 
-  ; // RULES
-  >>> Result
- ; // CanDeleteFinalFile
-
- BOOLEAN elem_func UseNewGenExcluded
-  false >>> Result
- ; // UseNewGenExcluded
- 
- STRING elem_func FinalFileNamePrim
-  [
-   ModelRoot
-   if ( Self .LUID .IsNil ) then
-    ( Self .Name )
-   else
-    ( Self .LUID )
-   cModelScript
-  ] strings:Cat >>> Result
- ; // FinalFileNamePrim
-
+elem_proc ModelGeneration
  [
   '// '
   Self .NameInModel ' '
@@ -286,10 +257,14 @@ elem_generator model.script
   [
    RULES
     ( Self .IsNil )
-     ''
+     'nil'
+    ( Self .IsDeletedElement )
+     'nil'
     DEFAULT
      begin
       RULES
+       ( Self .IsReferencedType )
+        ( [ 'HWL ' Self .WordName ] strings:Cat )
        (
         ( Self .IsSubRoot )
         AND ( Self l_LinkFrom ?!= )
@@ -355,6 +330,8 @@ elem_generator model.script
      ()
     ( Self .IsNil )
      ()
+    ( Self .IsDeletedElement )
+     ()
     ( l_DictName Self .DictName != )
      ()
     DEFAULT
@@ -365,14 +342,23 @@ elem_generator model.script
    ; // RULES
   ; // OutForward
 
-  Self .Forwarded .for> .OutForward
-  Self .Injected .for> .OutForward
-  Self .Inherits .for> .OutForward
-  Self .Implements .for> .OutForward
-  Self .Implementors .for> .OutForward
-  Self .Zones .for> .OutForward
-  Self .CanRaise .for> .OutForward
-  Self .CanRaiseInSet .for> .OutForward
+  Self .Forwarded .filterNil> .for> .OutForward
+  Self .Injected .filterNil> .for> .OutForward
+  
+  Self .Inherits 
+  .filterNil> 
+  .filter> .Not: .IsReferencedType
+  .for> .OutForward
+  
+  Self .Implements 
+  .filter> .Not: .IsReferencedType
+  .filterNil> 
+  .for> .OutForward
+  
+  Self .Implementors .filterNil> .for> .OutForward
+  Self .Zones .filterNil> .for> .OutForward
+  Self .CanRaise .filterNil> .for> .OutForward
+  Self .CanRaiseInSet .filterNil> .for> .OutForward
   Self .Target .OutForward
   Self .ValueType .OutForward
   Self .Original .OutForward
@@ -438,7 +424,7 @@ elem_generator model.script
 
   elem_proc OutImplemented
    Self .Original .OutForward
-   [ 'ME ' Self .WordName ] .Out
+   [ 'MEREF ' Self .WordName ] .Out
    Indented: (
     Self .Original .NotIsNil ?
      ( [ 'MELINK Original ' Self .Original .pas_script_Reference ' ;' ] .Out )
@@ -448,10 +434,10 @@ elem_generator model.script
      ( [ 'UP IsAuto ' 'true' ] .Out )
     Self .OutUPs 
    ) // Indented:
-   [ 'ENDME ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
+   [ 'ENDMEREF ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
    OutLn
   ; // OutImplemented
-
+  
   Self .Implemented
   .filterNil>
   .filter> .Not: .NeedOwnFile
@@ -462,6 +448,16 @@ elem_generator model.script
   .filter> .Not: .NeedOwnFile
   .for> .OutImplemented
 
+  Self .Inherits
+  .filterNil>
+  .filter> .IsReferencedType
+  .for> .OutImplemented
+
+  Self .Implements
+  .filterNil>
+  .filter> .IsReferencedType
+  .for> .OutImplemented
+  
   Self .AddToArray?: g_ForwardedTypes DROP
   
   begin
@@ -486,7 +482,7 @@ elem_generator model.script
    .filterNil>
    .for> (
      IN aDep
-    [ '%%ImplementedBy ' aDep .WordName ' ' Self .WordName ] .Out 
+    [ '%%ImplementedBy ' aDep .ReferencedTypeOriginal .WordName ' ' Self .WordName ] .Out 
     true >>> l_NeedLn
    ) // .for>
    if l_NeedLn then
@@ -500,7 +496,7 @@ elem_generator model.script
    .filterNil>
    .for> (
      IN aDep
-    [ '%%InheritedBy ' aDep .WordName ' ' Self .WordName ] .Out 
+    [ '%%InheritedBy ' aDep .ReferencedTypeOriginal .WordName ' ' Self .WordName ] .Out 
     true >>> l_NeedLn
    ) // .for>
    if l_NeedLn then
@@ -509,12 +505,16 @@ elem_generator model.script
   
   [ 'ME ' Self .WordName ] .Out
   Indented: (
+   Self .IsNewSchoolElement ?
+    ( [ 'MEPROP IsNewSchool ' 'true' ] .Out )
    Self .UID .NotIsNil ?
     ( [ 'MEPROP UID ' cQuote Self .UID cQuote ] .Out )
    Self .GUID .NotIsNil ?
     ( [ 'MEPROP GUID ' cQuote Self .GUID cQuote ] .Out )
    Self .Name .NotIsNil ?
     ( [ 'MEPROP Name ' cQuote Self .Name .FineString cQuote ] .Out )
+   Self .FullName .NotIsNil ?
+    ( [ 'MEPROP FullName ' cQuote Self .FullName .FineString cQuote ] .Out )
    Self .OriginalName .NotIsNil ?
     ( [ 'MEPROP OriginalName ' cQuote Self .OriginalName .FineString cQuote ] .Out )
    Self .IsSummoned ?
@@ -524,11 +524,37 @@ elem_generator model.script
    Self .IsSubRoot ?
     ( [ 'MEPROP IsSubRoot ' 'true' ] .Out )
    Self .MDAClass class_Unknown != ?
-    ( [ 'MEPROP Class class_' Self .MDAClassString ] .Out )
-   Self .Stereotype .NotIsNil 
-   AND ( Self .Stereotype .UPisTrue "unstereotyped" ! )
+    ( [ 
+       'MEPROP Class class_' 
+       if ( Self .IsMethod ) then
+       begin
+        'Operation'
+       end // ( Self .IsMethod )
+       else
+       begin
+        Self .MDAClassString 
+       end // ( Self .IsMethod )
+      ] .Out )
+   VAR l_Stereo   
+   Self .Stereotype >>> l_Stereo
+   l_Stereo .NotIsNil 
+   AND ( l_Stereo .UPisTrue "unstereotyped" ! )
    ?
-    ( [ 'MELINK Stereotype st_' Self .Stereotype .Name ' ;' ] .Out )
+    ( [ 
+       'MELINK Stereotype st_' 
+       l_Stereo .Name ' ' '_' string:Replace
+       RULES
+        (
+         ( l_Stereo .IsMeStub ! )
+         AND ( l_Stereo .Stereotype .NotIsNil )
+         AND ( l_Stereo .Stereotype .StereotypeInModel .IsStereotypeInModelKindOf: st_MDASubStereotype )
+         AND ( Self .MDAClassString 'Class' ?!= )
+         AND ( Self .MDAClassString 'Category' ?!= )
+        ) 
+         ( '::' Self .MDAClassString )
+       ; // RULES
+       ' ;' 
+      ] .Out )
    Self .Kind kind_Unknown != ?
     ( [ 'MEPROP Kind kind_' Self .KindString ] .Out )
    Self .Documentation .NotIsNil ?
@@ -559,126 +585,126 @@ elem_generator model.script
    Self .Inherits .NotEmpty ?
    (
     [ 'MELIST Inherits' ] .Out
-    [ '  Seq: ( ' Self .Inherits .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Inherits .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Inherits' ] .Out
    )
 
    Self .Implements .NotEmpty ?
    (
     [ 'MELIST Implements' ] .Out
-    [ '  Seq: ( ' Self .Implements .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Implements .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Implements' ] .Out
    )
 
    Self .CanRaise .NotEmpty ?
    (
     [ 'MELIST CanRaise' ] .Out
-    [ '  Seq: ( ' Self .CanRaise .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .CanRaise .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // CanRaise' ] .Out
    )
 
    Self .CanRaiseInSet .NotEmpty ?
    (
     [ 'MELIST CanRaiseInSet' ] .Out
-    [ '  Seq: ( ' Self .CanRaiseInSet .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .CanRaiseInSet .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // CanRaiseInSet' ] .Out
    )
 
    Self .Attributes .NotEmpty ?
    (
     [ 'MELIST Attributes' ] .Out
-    [ '  Seq: ( ' Self .Attributes .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Attributes .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Attributes' ] .Out
    )
 
    Self .Operations .NotEmpty ?
    (
     [ 'MELIST Operations' ] .Out
-    [ '  Seq: ( ' Self .Operations .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Operations .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Operations' ] .Out
    )
 
    Self .Implemented .NotEmpty ?
    (
     [ 'MELIST Implemented' ] .Out
-    [ '  Seq: ( ' Self .Implemented .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Implemented .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Implemented' ] .Out
    )
 
    Self .Overridden .NotEmpty ?
    (
     [ 'MELIST Overridden' ] .Out
-    [ '  Seq: ( ' Self .Overridden .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Overridden .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Overridden' ] .Out
    )
 
    Self .Children .NotEmpty ?
    (
     [ 'MELIST Children' ] .Out
-    [ '  Seq: ( ' Self .Children .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Children .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Children' ] .Out
    )
    
    Self .Constants .NotEmpty ?
    (
     [ 'MELIST Constants' ] .Out
-    [ '  Seq: ( ' Self .Constants .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Constants .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Constants' ] .Out
    )
    
    Self .Parameters .NotEmpty ?
    (
     [ 'MELIST Parameters' ] .Out
-    [ '  Seq: ( ' Self .Parameters .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Parameters .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Parameters' ] .Out
    )
 
    Self .Dependencies .NotEmpty ?
    (
     [ 'MELIST Dependencies' ] .Out
-    [ '  Seq: ( ' Self .Dependencies .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Dependencies .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Dependencies' ] .Out
    )
    
    Self .Injected .NotEmpty ?
    (
     [ 'MELIST Injected' ] .Out
-    [ '  Seq: ( ' Self .Injected .for> ( DUP .Parent .NameInModel .pas_script_ReferencePrim ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Injected .filterNil> .for> ( DUP .Parent .NameInModel .pas_script_ReferencePrim ' ' ) ')' ] .Out
     [ '; // Injected' ] .Out
    )
    
    Self .Zones .NotEmpty ?
    (
     [ 'MELIST Zones' ] .Out
-    [ '  Seq: ( ' Self .Zones .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Zones .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Zones' ] .Out
    )
    
    Self .Implementors .NotEmpty ?
    (
     [ 'MELIST Implementors' ] .Out
-    [ '  Seq: ( ' Self .Implementors .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Implementors .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Implementors' ] .Out
    )
    
    Self .Depends .NotEmpty ?
    (
     [ 'MELIST Depends' ] .Out
-    [ '  Seq: ( ' Self .Depends .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Depends .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Depends' ] .Out
    )
    
    Self .Forwarded .NotEmpty ?
    (
     [ 'MELIST Forwarded' ] .Out
-    [ '  Seq: ( ' Self .Forwarded .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .Forwarded .filterNil> .for> ( .pas_script_Reference ' ' ) ')' ] .Out
     [ '; // Forwarded' ] .Out
    )
 
    Self .DiagramsNames .NotEmpty ?
    (
     [ 'MESTRINGLIST DiagramsNames' ] .Out
-    [ '  Seq: ( ' Self .DiagramsNames .for> ( .Name cQuote SWAP cQuote ' ' ) ')' ] .Out
+    [ '  Seq: ( ' Self .DiagramsNames .filterNil> .for> ( .Name cQuote SWAP cQuote ' ' ) ')' ] .Out
     [ '; // DiagramsNames' ] .Out
    )
    
@@ -695,5 +721,60 @@ elem_generator model.script
   Self .pas_script_GenerateDescription
  ) // TF g_ForwardedTypes
 
-; // model.script
+; // ModelGeneration
 
+elem_generator model.script
+
+ CONST Ext '.model.script'
+
+ BOOLEAN elem_func NeedOwnFilePrim
+  RULES
+   ( Self .IsAutoElement )
+   // - это "автоматически выдуманый элемент"
+    false
+   ( Self .IsSubRoot )
+    true
+   DEFAULT
+    false
+  ; // RULES
+  >>> Result
+ ; // NeedOwnFilePrim
+
+ BOOLEAN elem_func CanCopyToFinalFile
+  true >>> Result
+ ; // CanCopyToFinalFile
+
+ BOOLEAN elem_func CanDeleteFinalFile
+  RULES
+   ( Self .MDAClass class_Category == )
+    true
+   ( Self .IsSimpleClass )
+    true
+   DEFAULT
+    false 
+  ; // RULES
+  >>> Result
+ ; // CanDeleteFinalFile
+
+ BOOLEAN elem_func UseNewGenExcluded
+  false >>> Result
+ ; // UseNewGenExcluded
+ 
+ STRING elem_func FinalFileNamePrim
+  [
+   ModelRoot
+   if ( Self .LUID .IsNil ) then
+    ( Self .Name )
+   else
+    ( Self .LUID )
+   cModelScript
+  ] strings:Cat >>> Result
+ ; // FinalFileNamePrim
+ 
+ BOOLEAN elem_func NewSchoolGenerator
+  false >>> Result
+ ; // NewSchoolGenerator
+ 
+ Self .ModelGeneration
+
+; // model.script

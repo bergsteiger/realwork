@@ -1,0 +1,66 @@
+// TnsBlockNode 467FCEA901AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467FCEA901AC
+
+ME ME_4C6E7D8C0118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCEA901AC // TnsBlockNode
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C6E7D8C0118 
+
+MEREF ME_49A545D501F6_ME_467FCEA901AC_over
+ MELINK Original WL 'ME_49A545D501F6' '53317D14019D.ms.model.script' // DoIterateProperties
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49A545D501F6_ME_467FCEA901AC_over DoIterateProperties
+
+MEREF ME_467FCE89008E_ME_467FCEA901AC_G
+ MELINK Original WL? 'ME_467FCE89008E' // TnsBlockNodePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467FCE89008E_ME_467FCEA901AC_G TnsBlockNodePrim
+
+%%InheritedBy ME_467FCE89008E ME_467FCEA901AC
+
+ME ME_467FCEA901AC
+ MEPROP UID '467FCEA901AC'
+ MEPROP Name 'TnsBlockNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Блок документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_467FCE89008E_ME_467FCEA901AC_G // TnsBlockNodePrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49A545D501F6_ME_467FCEA901AC_over // DoIterateProperties
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C6E7D8C0118 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2005/06/23 16:38:20'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBlockNode.pas'
+ UP extprop:rc:SelfName 'BlockNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBlockNode'
+
+ENDME // ME_467FCEA901AC TnsBlockNode

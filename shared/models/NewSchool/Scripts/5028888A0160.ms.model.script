@@ -71,7 +71,7 @@ ENDME // ME_5028A0110376 DoIt
 ME ME_5028A00600B5
  MEPROP UID '5028A00600B5'
  MEPROP Name 'ExecuteHandler'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -103,7 +103,7 @@ ENDME // ME_568672D064D3 DoIt
 ME ME_5028A09900D5
  MEPROP UID '5028A09900D5'
  MEPROP Name 'ExecuteDefered'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -135,7 +135,7 @@ ENDME // ME_503DE7BA0232 DoIt
 ME ME_503DE79F02BA
  MEPROP UID '503DE79F02BA'
  MEPROP Name 'IsGToolbarSizeNeeded'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -152,7 +152,7 @@ ENDME // ME_503DE79F02BA IsGToolbarSizeNeeded
 ME ME_504F06E0002A
  MEPROP UID '504F06E0002A'
  MEPROP Name 'LockResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -165,7 +165,7 @@ ENDME // ME_504F06E0002A LockResize
 ME ME_504F06EB033F
  MEPROP UID '504F06EB033F'
  MEPROP Name 'UnlockResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -193,7 +193,7 @@ ENDME // ME_51EE05C4C915 DoIt
 ME ME_5058B29A007C
  MEPROP UID '5058B29A007C'
  MEPROP Name 'AdjustSizeForPanels'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -207,11 +207,17 @@ ME ME_5058B29A007C
 
 ENDME // ME_5058B29A007C AdjustSizeForPanels
 
-ME ME_4F2A599E0283_ME_502888EA0114
+MEREF ME_4F2A599E0283_ME_502888EA0114_over
  MELINK Original WL 'ME_4F2A599E0283' '47E11FC3021E.ms.model.script' // SetBounds
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F2A599E0283_ME_502888EA0114 SetBounds
+ENDMEREF // ME_4F2A599E0283_ME_502888EA0114_over SetBounds
+
+MEREF ME_50288A3D023C_ME_502888EA0114_G
+ MELINK Original WL 'ME_50288A3D023C' '502889FF0054.ms.model.script' // TCustomToolWindow97
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50288A3D023C_ME_502888EA0114_G TCustomToolWindow97
 
 %%InheritedBy ME_50288A3D023C ME_502888EA0114
 
@@ -226,7 +232,7 @@ ME ME_502888EA0114
  MELINK Parent HWL ME_5028888A0160 // TB97Tlbr
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50288A3D023C' '502889FF0054.ms.model.script' // TCustomToolWindow97
+   Seq: ( ME_50288A3D023C_ME_502888EA0114_G // TCustomToolWindow97
  )
  ; // Inherits
  MELIST Attributes
@@ -244,7 +250,7 @@ ME ME_502888EA0114
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4F2A599E0283_ME_502888EA0114 // SetBounds
+   Seq: ( ME_4F2A599E0283_ME_502888EA0114_over // SetBounds
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -254,6 +260,12 @@ ME ME_502888EA0114
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_502888EA0114 TCustomToolbar97
+
+MEREF ME_502888EA0114_ME_502888D60048_G
+ MELINK Original HWL ME_502888EA0114 // TCustomToolbar97
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502888EA0114_ME_502888D60048_G TCustomToolbar97
 
 %%InheritedBy ME_502888EA0114 ME_502888D60048
 
@@ -268,13 +280,19 @@ ME ME_502888D60048
  MELINK Parent HWL ME_5028888A0160 // TB97Tlbr
  ;
  MELIST Inherits
-   Seq: ( HWL ME_502888EA0114 // TCustomToolbar97
+   Seq: ( ME_502888EA0114_ME_502888D60048_G // TCustomToolbar97
  )
  ; // Inherits
  UP extprop:rc:SelfName 'Toolbar97'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_502888D60048 TToolbar97
+
+MEREF ME_502CD936004A_ME_5028A2FC03A5_G
+ MELINK Original WL 'ME_502CD936004A' '502CD8FA02E1.ms.model.script' // Ttb97CustomGraphicControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502CD936004A_ME_5028A2FC03A5_G Ttb97CustomGraphicControl
 
 %%InheritedBy ME_502CD936004A ME_5028A2FC03A5
 
@@ -289,7 +307,7 @@ ME ME_5028A2FC03A5
  MELINK Parent HWL ME_5028888A0160 // TB97Tlbr
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_502CD936004A' '5028898902A2.ms.model.script' // Ttb97CustomGraphicControl
+   Seq: ( ME_502CD936004A_ME_5028A2FC03A5_G // Ttb97CustomGraphicControl
  )
  ; // Inherits
  UP extprop:rc:SelfName 'ToolbarSep97'

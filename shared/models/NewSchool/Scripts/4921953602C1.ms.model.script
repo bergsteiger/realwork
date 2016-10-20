@@ -1,0 +1,224 @@
+// TdeSaveObject 4921953602C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4921953602C1
+
+ME ME_4B1F6E4D031C
+ MEPROP UID '4B1F6E4D031C'
+ MEPROP Name 'f_ObjectType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4921953602C1 // TdeSaveObject
+ ;
+ MELINK Target WL 'ME_49901B7F0265' '4990135D02F1.ms.model.script' // TFoldersElementType
+ ;
+
+ENDME // ME_4B1F6E4D031C f_ObjectType
+
+ME ME_4B1F6E530330
+ MEPROP UID '4B1F6E530330'
+ MEPROP Name 'f_ObjectValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4921953602C1 // TdeSaveObject
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4B1F6E530330 f_ObjectValue
+
+FORWARD ME_4B1F6E830244
+
+ME ME_4B1F6EA0037D
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49901B7F0265' '4990135D02F1.ms.model.script' // TFoldersElementType
+ ;
+
+ENDME // ME_4B1F6EA0037D aType
+
+ME ME_4B1F6EA003A3
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4B1F6EA003A3 anObject
+
+ME ME_4B1F6E8E03AF
+ MEPROP UID '4B1F6E8E03AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F6E830244 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1F6EA0037D // aType
+ ME_4B1F6EA003A3 // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F6E8E03AF DoIt
+
+ME ME_4B1F6E830244
+ MEPROP UID '4B1F6E830244'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4921953602C1 // TdeSaveObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F6E8E03AF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F6E830244 Create
+
+FORWARD ME_4B1F6EA700F7
+
+ME ME_4B1F6ED3034D
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49901B7F0265' '4990135D02F1.ms.model.script' // TFoldersElementType
+ ;
+ MEPROP Value 'fetNone'
+ MELINK ValueType WL 'ME_49901B7F0265' '4990135D02F1.ms.model.script' // TFoldersElementType
+ ;
+ UP extprop:pas:Value 'FoldersDomainInterfaces.fetNone'
+
+ENDME // ME_4B1F6ED3034D aType
+
+ME ME_4B1F6ED30372
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4B1F6ED30372 anObject
+
+ME ME_4B1F6ED00039
+ MEPROP UID '4B1F6ED00039'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F6EA700F7 // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1F6ED3034D // aType
+ ME_4B1F6ED30372 // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F6ED00039 DoIt
+
+ME ME_4B1F6EA700F7
+ MEPROP UID '4B1F6EA700F7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4921953602C1 // TdeSaveObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F6ED00039 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F6EA700F7 Make
+
+MEREF ME_4B1D0A0503A5_ME_4921953602C1_impl
+ MELINK Original WL 'ME_4B1D0A0503A5' '4990135D02F1.ms.model.script' // ObjectType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4B1D0A0503A5_ME_4921953602C1_impl ObjectType
+
+MEREF ME_4B1D0A35011E_ME_4921953602C1_impl
+ MELINK Original WL 'ME_4B1D0A35011E' '4990135D02F1.ms.model.script' // ObjectValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4B1D0A35011E_ME_4921953602C1_impl ObjectValue
+
+MEREF ME_49E7754802A9_ME_4921953602C1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4921953602C1_G Tl3ProtoObject
+
+MEREF ME_492192160370_ME_4921953602C1_R
+ MELINK Original WL 'ME_492192160370' '4990135D02F1.ms.model.script' // IdeSaveObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492192160370_ME_4921953602C1_R IdeSaveObject
+
+%%ImplementedBy ME_492192160370 ME_4921953602C1
+
+%%InheritedBy ME_49E7754802A9 ME_4921953602C1
+
+ME ME_4921953602C1
+ MEPROP UID '4921953602C1'
+ MEPROP Name 'TdeSaveObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4921954E019B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4921953602C1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_492192160370_ME_4921953602C1_R // IdeSaveObject
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B1F6E4D031C // f_ObjectType
+ HWL ME_4B1F6E530330 // f_ObjectValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1F6E830244 // Create
+ HWL ME_4B1F6EA700F7 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1D0A0503A5_ME_4921953602C1_impl // ObjectType
+ ME_4B1D0A35011E_ME_4921953602C1_impl // ObjectValue
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '09.12.2009 12:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\deSaveObject.pas'
+ UP extprop:rc:SelfName 'deSaveObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'deSaveObject'
+
+ENDME // ME_4921953602C1 TdeSaveObject

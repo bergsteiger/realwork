@@ -1,0 +1,131 @@
+// Tm3BaseStream 4FA276800294 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FA276800294
+
+ME ME_548578E3006C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_548578E3006C 
+
+ME ME_5485790B03C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_5485790B03C3 
+
+ME ME_54857958025C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL 'ME_5485794702B0' '47877EB202FB.ms.model.script' // EOutOfMemory
+ ;
+
+ENDME // ME_54857958025C 
+
+ME ME_5485798E00AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_5485798E00AB 
+
+ME ME_548579A2018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_548579A2018B 
+
+ME ME_548579D90212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL 'ME_48F47C8001FF' '478CF30500C1.ms.model.script' // TSeekOrigin
+ ;
+
+ENDME // ME_548579D90212 
+
+ME ME_54857A3701AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA276800294 // Tm3BaseStream
+ ;
+ MELINK Target WL? 'ME_47BF045E0138' // m2MemLib
+ ;
+
+ENDME // ME_54857A3701AB 
+
+MEREF ME_5481CCCF0319_ME_4FA276800294_G
+ MELINK Original WL? 'ME_5481CCCF0319' // Tm3PrimStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5481CCCF0319_ME_4FA276800294_G Tm3PrimStream
+
+MEREF ME_46A5AFF103CA_ME_4FA276800294_R
+ MELINK Original WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5AFF103CA_ME_4FA276800294_R IStream
+
+%%ImplementedBy ME_46A5AFF103CA ME_4FA276800294
+
+%%InheritedBy ME_5481CCCF0319 ME_4FA276800294
+
+ME ME_4FA276800294
+ MEPROP UID '4FA276800294'
+ MEPROP Name 'Tm3BaseStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( ME_5481CCCF0319_ME_4FA276800294_G // Tm3PrimStream
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A5AFF103CA_ME_4FA276800294_R // IStream
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_548578E3006C // Windows
+ ME_5485790B03C3 // m2COMLib
+ ME_54857958025C // EOutOfMemory
+ ME_5485798E00AB // ComObj
+ ME_548579A2018B // l3Base
+ ME_548579D90212 // TSeekOrigin
+ ME_54857A3701AB // m2MemLib
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseStream.pas'
+ UP extprop:rc:SelfName 'm3BaseStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3BaseStream'
+
+ENDME // ME_4FA276800294 Tm3BaseStream

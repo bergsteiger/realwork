@@ -1,0 +1,151 @@
+// TddProcessTaskPrim 53AC09FE03C7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53AC09FE03C7
+
+FORWARD ME_53AC09FE03C7
+
+FORWARD ME_53CCC56502C7
+
+ME ME_53CCC56F0067
+ MEPROP UID '53CCC56F0067'
+ MEPROP Name 'rProgressor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53CCC56502C7 // TddRunContext
+ ;
+ MELINK Target WL 'ME_53A2EFA901C0' '53A2EF8B0204.ms.model.script' // TddProgressObject
+ ;
+
+ENDME // ME_53CCC56F0067 rProgressor
+
+FORWARD ME_53CCC5AA01BD
+
+ME ME_53CCC5D101AF
+ MEPROP Name 'aProgressor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53A2EFA901C0' '53A2EF8B0204.ms.model.script' // TddProgressObject
+ ;
+
+ENDME // ME_53CCC5D101AF aProgressor
+
+ME ME_53CCC5BE038C
+ MEPROP UID '53CCC5BE038C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCC5AA01BD // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CCC5D101AF // aProgressor
+ )
+ ; // Parameters
+
+ENDME // ME_53CCC5BE038C DoIt
+
+ME ME_53CCC5AA01BD
+ MEPROP UID '53CCC5AA01BD'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCC56502C7 // TddRunContext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CCC5BE038C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CCC5AA01BD C
+
+ME ME_53CCC56502C7
+ MEPROP UID '53CCC56502C7'
+ MEPROP Name 'TddRunContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53AC09FE03C7 // TddProcessTaskPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53CCC56F0067 // rProgressor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53CCC5AA01BD // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddRunContext'
+
+ENDME // ME_53CCC56502C7 TddRunContext
+
+MEREF ME_53AC03EE01FD_ME_53AC09FE03C7_over
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_53AC03EE01FD_ME_53AC09FE03C7_over GetTaggedDataType
+
+MEREF ME_52FA49DF00EF_ME_53AC09FE03C7_G
+ MELINK Original WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA49DF00EF_ME_53AC09FE03C7_G TddTaskItem
+
+MEREF ME_53A95D9F02E9_ME_53AC09FE03C7_R
+ MELINK Original WL 'ME_53A95D9F02E9' '484A470100DD.ms.model.script' // ProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A95D9F02E9_ME_53AC09FE03C7_R ProcessTask
+
+%%ImplementedBy ME_53A95D9F02E9 ME_53AC09FE03C7
+
+%%InheritedBy ME_52FA49DF00EF ME_53AC09FE03C7
+
+ME ME_53AC09FE03C7
+ MEPROP UID '53AC09FE03C7'
+ MEPROP Name 'TddProcessTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA49DF00EF_ME_53AC09FE03C7_G // TddTaskItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53A95D9F02E9_ME_53AC09FE03C7_R // ProcessTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53AC09FE03C7_over // GetTaggedDataType
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53CCC56502C7 // TddRunContext
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddProcessTaskPrim.pas'
+ UP extprop:rc:SelfName 'ddProcessTaskPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddProcessTaskPrim'
+
+ENDME // ME_53AC09FE03C7 TddProcessTaskPrim

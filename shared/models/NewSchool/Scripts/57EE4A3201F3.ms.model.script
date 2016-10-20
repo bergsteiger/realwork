@@ -1,0 +1,210 @@
+// TarRemoteMultiOperationHelper 57EE4A3201F3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EE4A3201F3
+
+ME ME_57EE5FD200DB
+ MEPROP UID '57EE5FD200DB'
+ MEPROP Name 'f_Message'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL? 'ME_57EE51860032' // TcsMultiOperation
+ ;
+
+ENDME // ME_57EE5FD200DB f_Message
+
+ME ME_57EE5FDA039C
+ MEPROP UID '57EE5FDA039C'
+ MEPROP Name 'f_Reply'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL? 'ME_57EE517102EC' // TcsMultiOperationReply
+ ;
+
+ENDME // ME_57EE5FDA039C f_Reply
+
+MEREF ME_57ED15530391_ME_57EE606D010C_G
+ MELINK Original WL 'ME_57ED15530391' '57ED151F00AA.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ED15530391_ME_57EE606D010C_G Create
+
+%%InheritedBy ME_57ED15530391 ME_57EE606D010C
+
+ME ME_57EE606D010C
+ MEPROP UID '57EE606D010C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELIST Inherits
+   Seq: ( ME_57ED15530391_ME_57EE606D010C_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_57EE606D010C Create
+
+ME ME_57EE60AB0172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
+ ;
+
+ENDME // ME_57EE60AB0172 
+
+ME ME_57EE60B000ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57EE60B000ED 
+
+ME ME_57EE60B40079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL 'ME_57CFC26A0059' '57CFC223011F.ms.model.script' // ArchiRequestManager
+ ;
+
+ENDME // ME_57EE60B40079 
+
+ME ME_57EE60B702F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL 'ME_57EB9A4601EC' '53BD13B4023B.ms.model.script' // AttributesHelper
+ ;
+
+ENDME // ME_57EE60B702F4 
+
+ME ME_57EE60BB0177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ ;
+
+ENDME // ME_57EE60BB0177 
+
+ME ME_57F339510143
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE4A3201F3 // TarRemoteMultiOperationHelper
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_57F339510143 
+
+MEREF ME_57ED15AC02A7_ME_57EE4A3201F3_impl
+ MELINK Original WL 'ME_57ED15AC02A7' '57ED151F00AA.ms.model.script' // ModifyDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57ED15AC02A7_ME_57EE4A3201F3_impl ModifyDocs
+
+MEREF ME_57FB778D0148_ME_57EE4A3201F3_impl
+ MELINK Original WL 'ME_57FB778D0148' '57ED151F00AA.ms.model.script' // HasErrorDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57FB778D0148_ME_57EE4A3201F3_impl HasErrorDocs
+
+MEREF ME_57FB77AB0147_ME_57EE4A3201F3_impl
+ MELINK Original WL 'ME_57FB77AB0147' '57ED151F00AA.ms.model.script' // FillErrorDocsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57FB77AB0147_ME_57EE4A3201F3_impl FillErrorDocsList
+
+MEREF ME_57FDE80903AE_ME_57EE4A3201F3_impl
+ MELINK Original WL 'ME_57FDE80903AE' '57ED151F00AA.ms.model.script' // ProcessedDocsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57FDE80903AE_ME_57EE4A3201F3_impl ProcessedDocsCount
+
+MEREF ME_479731C50290_ME_57EE4A3201F3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57EE4A3201F3_over Cleanup
+
+MEREF ME_57ED151F00AA_ME_57EE4A3201F3_G
+ MELINK Original WL? 'ME_57ED151F00AA' // TarCustomMultiOperationHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ED151F00AA_ME_57EE4A3201F3_G TarCustomMultiOperationHelper
+
+%%InheritedBy ME_57ED151F00AA ME_57EE4A3201F3
+
+ME ME_57EE4A3201F3
+ MEPROP UID '57EE4A3201F3'
+ MEPROP Name 'TarRemoteMultiOperationHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CFC13E033D' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_57ED151F00AA_ME_57EE4A3201F3_G // TarCustomMultiOperationHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EE5FD200DB // f_Message
+ HWL ME_57EE5FDA039C // f_Reply
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EE606D010C // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57ED15AC02A7_ME_57EE4A3201F3_impl // ModifyDocs
+ ME_57FB778D0148_ME_57EE4A3201F3_impl // HasErrorDocs
+ ME_57FB77AB0147_ME_57EE4A3201F3_impl // FillErrorDocsList
+ ME_57FDE80903AE_ME_57EE4A3201F3_impl // ProcessedDocsCount
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57EE4A3201F3_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57EE60AB0172 // dt_Sab
+ ME_57EE60B000ED // FreeAndNil
+ ME_57EE60B40079 // ArchiRequestManager
+ ME_57EE60B702F4 // AttributesHelper
+ ME_57EE60BB0177 // TncsReply
+ ME_57F339510143 // GlobalDataProvider
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arRemoteMultiOperationHelper.pas'
+ UP extprop:rc:SelfName 'arRemoteMultiOperationHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arRemoteMultiOperationHelper'
+
+ENDME // ME_57EE4A3201F3 TarRemoteMultiOperationHelper

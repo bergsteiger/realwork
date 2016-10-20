@@ -1,0 +1,103 @@
+// TvcmMainFormModelPart 4F7B0CBE0283 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7B0CBE0283
+
+FORWARD ME_4F7B0CF50022
+
+ME ME_4F7B0D0100EF
+ MEPROP UID '4F7B0D0100EF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7B0CF50022 // DispatcherCreated
+ ;
+
+ENDME // ME_4F7B0D0100EF DoIt
+
+ME ME_4F7B0CF50022
+ MEPROP UID '4F7B0CF50022'
+ MEPROP Name 'DispatcherCreated'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7B0CBE0283 // TvcmMainFormModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7B0D0100EF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7B0CF50022 DispatcherCreated
+
+FORWARD ME_537DB0AD03D8
+
+ME ME_537DB0C101DE
+ MEPROP UID '537DB0C101DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537DB0AD03D8 // AfterModulesRegistered
+ ;
+
+ENDME // ME_537DB0C101DE DoIt
+
+ME ME_537DB0AD03D8
+ MEPROP UID '537DB0AD03D8'
+ MEPROP Name 'AfterModulesRegistered'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7B0CBE0283 // TvcmMainFormModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537DB0C101DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537DB0AD03D8 AfterModulesRegistered
+
+MEREF ME_49525C240170_ME_4F7B0CBE0283_G
+ MELINK Original WL? 'ME_49525C240170' // TvcmContainerForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525C240170_ME_4F7B0CBE0283_G TvcmContainerForm
+
+%%InheritedBy ME_49525C240170 ME_4F7B0CBE0283
+
+ME ME_4F7B0CBE0283
+ MEPROP UID '4F7B0CBE0283'
+ MEPROP Name 'TvcmMainFormModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( ME_49525C240170_ME_4F7B0CBE0283_G // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F7B0CF50022 // DispatcherCreated
+ HWL ME_537DB0AD03D8 // AfterModulesRegistered
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormModelPart.pas'
+ UP extprop:rc:SelfName 'MainFormModelPart'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMainFormModelPart'
+
+ENDME // ME_4F7B0CBE0283 TvcmMainFormModelPart

@@ -1,0 +1,110 @@
+// TmsmMemo 57FCCF280377 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57FCCF280377
+
+FORWARD ME_57FCCF280377
+
+MEREF ME_4829D7E80085_ME_57FD5BCC034A_G
+ MELINK Original WL? 'ME_4829D7E80085' // TevCustomEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4829D7E80085_ME_57FD5BCC034A_G TevCustomEdit
+
+%%InheritedBy ME_4829D7E80085 ME_57FD5BCC034A
+
+ME ME_57FD5BCC034A
+ MEPROP UID '57FD5BCC034A'
+ MEPROP Name 'TmsmCustomEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57FCCF280377 // TmsmMemo
+ ;
+ MELIST Inherits
+   Seq: ( ME_4829D7E80085_ME_57FD5BCC034A_G // TevCustomEdit
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'msmCustomEdit'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57FD5BCC034A TmsmCustomEdit
+
+ME ME_57FCCF7301DC
+ MEPROP UID '57FCCF7301DC'
+ MEPROP Name 'OnTextChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57FCCF280377 // TmsmMemo
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_57FCCF7301DC OnTextChange
+
+MEREF ME_47D1602000C6_ME_57FCCF280377_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57FCCF280377_over Create
+
+MEREF ME_482C26D6006A_ME_57FCCF280377_over
+ MELINK Original WL 'ME_482C26D6006A' '4829D92A037B.ms.model.script' // TextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482C26D6006A_ME_57FCCF280377_over TextChange
+
+MEREF ME_48454EBB0050_ME_57FCCF280377_G
+ MELINK Original WL? 'ME_48454EBB0050' // TevMemo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48454EBB0050_ME_57FCCF280377_G TevMemo
+
+%%InheritedBy ME_48454EBB0050 ME_57FCCF280377
+
+ME ME_57FCCF280377
+ MEPROP UID '57FCCF280377'
+ MEPROP Name 'TmsmMemo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( ME_48454EBB0050_ME_57FCCF280377_G // TevMemo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57FCCF7301DC // OnTextChange
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57FCCF280377_over // Create
+ ME_482C26D6006A_ME_57FCCF280377_over // TextChange
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57FD5BCC034A // TmsmCustomEdit
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMemo.pas'
+ UP extprop:rc:SelfName 'msmMemo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmMemo'
+
+ENDME // ME_57FCCF280377 TmsmMemo

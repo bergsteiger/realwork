@@ -1,0 +1,129 @@
+// ThtFromTable 55530BB9007A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55530BB9007A
+
+ME ME_55FFB642011B
+ MEPROP UID '55FFB642011B'
+ MEPROP Name 'f_Handle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55530BB9007A // ThtFromTable
+ ;
+ MELINK Target WL 'ME_555C84FC0026' '5553320F016B.ms.model.script' // ThtTblHandle
+ ;
+
+ENDME // ME_55FFB642011B f_Handle
+
+ME ME_555DC29E00CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55530BB9007A // ThtFromTable
+ ;
+ MELINK Target WL? 'ME_55533C7600A0' // HT_DLL
+ ;
+
+ENDME // ME_555DC29E00CD 
+
+ME ME_555DCBCA021B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55530BB9007A // ThtFromTable
+ ;
+ MELINK Target WL? 'ME_5406A83E013E' // dt_Serv
+ ;
+
+ENDME // ME_555DCBCA021B 
+
+ME ME_555F037C0358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55530BB9007A // ThtFromTable
+ ;
+ MELINK Target WL 'ME_555F035A031E' '555F034A01B6.ms.model.script' // HT
+ ;
+
+ENDME // ME_555F037C0358 
+
+MEREF ME_555C8490016F_ME_55530BB9007A_impl
+ MELINK Original WL 'ME_555C8490016F' '550981B402B9.ms.model.script' // Handle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_555C8490016F_ME_55530BB9007A_impl Handle
+
+MEREF ME_555C91AF003A_ME_55530BB9007A_impl
+ MELINK Original WL 'ME_555C91AF003A' '550981B402B9.ms.model.script' // Prepare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_555C91AF003A_ME_55530BB9007A_impl Prepare
+
+MEREF ME_555C91D8022C_ME_55530BB9007A_impl
+ MELINK Original WL 'ME_555C91D8022C' '550981B402B9.ms.model.script' // Unprepare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_555C91D8022C_ME_55530BB9007A_impl Unprepare
+
+MEREF ME_55FFB14A031C_ME_55530BB9007A_G
+ MELINK Original WL? 'ME_55FFB14A031C' // TdaFromTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55FFB14A031C_ME_55530BB9007A_G TdaFromTable
+
+MEREF ME_555C848200DA_ME_55530BB9007A_R
+ MELINK Original WL 'ME_555C848200DA' '550981B402B9.ms.model.script' // IhtFromTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555C848200DA_ME_55530BB9007A_R IhtFromTable
+
+%%ImplementedBy ME_555C848200DA ME_55530BB9007A
+
+%%InheritedBy ME_55FFB14A031C ME_55530BB9007A
+
+ME ME_55530BB9007A
+ MEPROP UID '55530BB9007A'
+ MEPROP Name 'ThtFromTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9AF550087' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_55FFB14A031C_ME_55530BB9007A_G // TdaFromTable
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_555C848200DA_ME_55530BB9007A_R // IhtFromTable
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55FFB642011B // f_Handle
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_555C8490016F_ME_55530BB9007A_impl // Handle
+ ME_555C91AF003A_ME_55530BB9007A_impl // Prepare
+ ME_555C91D8022C_ME_55530BB9007A_impl // Unprepare
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_555DC29E00CD // HT_DLL
+ ME_555DCBCA021B // dt_Serv
+ ME_555F037C0358 // HT
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\HT\htFromTable.pas'
+ UP extprop:rc:SelfName 'htFromTable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'htFromTable'
+
+ENDME // ME_55530BB9007A ThtFromTable

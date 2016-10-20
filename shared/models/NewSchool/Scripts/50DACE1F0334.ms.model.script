@@ -1,0 +1,135 @@
+// TevTableCellCursor 50DACE1F0334 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50DACE1F0334
+
+ME ME_50DAD01D01E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_50DAD01D01E7 
+
+ME ME_50DAD049018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_50DAD049018C 
+
+ME ME_50DAD07900C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL? 'ME_48D3D038036A' // TevTableImplementation
+ ;
+
+ENDME // ME_50DAD07900C7 
+
+ME ME_50DAD0D3019A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL 'ME_4A38EDD100E3' '4A38ED8203CD.ms.model.script' // Cursor Positions
+ ;
+
+ENDME // ME_50DAD0D3019A 
+
+ME ME_52BD344C03C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD344C03C7 
+
+ME ME_53D267570300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_50DACE1F0334 // TevTableCellCursor
+ ;
+ MELINK Target WL? 'ME_4857CDBF0197' // TevTableCell
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D267570300 
+
+MEREF ME_49E31657038E_ME_50DACE1F0334_over
+ MELINK Original WL 'ME_49E31657038E' '49DE2726027E.ms.model.script' // DoMovePrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E31657038E_ME_50DACE1F0334_over DoMovePrim
+
+MEREF ME_4A38AA5C019F_ME_50DACE1F0334_over
+ MELINK Original WL 'ME_4A38AA5C019F' '49DE22650362.ms.model.script' // DoGetMarkers
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'evNeedMarkers'
+ENDMEREF // ME_4A38AA5C019F_ME_50DACE1F0334_over DoGetMarkers
+
+MEREF ME_4D5D161A030C_ME_50DACE1F0334_over
+ MELINK Original WL 'ME_4D5D161A030C' '4A3A237A01C0.ms.model.script' // ChangePointByPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D5D161A030C_ME_50DACE1F0334_over ChangePointByPara
+
+MEREF ME_4A3A444900B3_ME_50DACE1F0334_G
+ MELINK Original WL? 'ME_4A3A444900B3' // TevParaListCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3A444900B3_ME_50DACE1F0334_G TevParaListCursor
+
+%%InjectedBy ME_4857CDBF0197 ME_50DACE1F0334
+
+%%InheritedBy ME_4A3A444900B3 ME_50DACE1F0334
+
+ME ME_50DACE1F0334
+ MEPROP UID '50DACE1F0334'
+ MEPROP Name 'TevTableCellCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3A444900B3_ME_50DACE1F0334_G // TevParaListCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E31657038E_ME_50DACE1F0334_over // DoMovePrim
+ ME_4A38AA5C019F_ME_50DACE1F0334_over // DoGetMarkers
+ ME_4D5D161A030C_ME_50DACE1F0334_over // ChangePointByPara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50DAD01D01E7 // MergeStatus
+ ME_50DAD049018C // Operations
+ ME_50DAD07900C7 // TevTableImplementation
+ ME_50DAD0D3019A // Cursor Positions
+ ME_52BD344C03C7 // Tk2TagID
+ ME_53D267570300 // TevTableCell
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellCursor.pas'
+ UP extprop:rc:SelfName 'TableCellCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTableCellCursor'
+
+ENDME // ME_50DACE1F0334 TevTableCellCursor

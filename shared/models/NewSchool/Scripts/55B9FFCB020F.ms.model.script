@@ -1,0 +1,204 @@
+// TnsLoggingTestService 55B9FFCB020F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B9FFCB020F
+
+ME ME_55BA00AC0098
+ MEPROP UID '55BA00AC0098'
+ MEPROP Name 'f_Listening'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55BA00AC0098 f_Listening
+
+ME ME_55BA014E01C9
+ MEPROP UID '55BA014E01C9'
+ MEPROP Name 'f_LogRecords'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+ MELINK Target WL 'ME_46A4756D00CC' '4677FBA70343.ms.model.script' // Il3StringsEx
+ ;
+
+ENDME // ME_55BA014E01C9 f_LogRecords
+
+ME ME_55BA00C202EE
+ MEPROP UID '55BA00C202EE'
+ MEPROP Name 'StartListening'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+
+ENDME // ME_55BA00C202EE StartListening
+
+ME ME_55BA00CE00C0
+ MEPROP UID '55BA00CE00C0'
+ MEPROP Name 'StopListening'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+
+ENDME // ME_55BA00CE00C0 StopListening
+
+FORWARD ME_55BA01020317
+
+ME ME_55BA0115020A
+ MEPROP UID '55BA0115020A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55BA01020317 // GetLogStrings
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55BA0115020A DoIt
+
+ME ME_55BA01020317
+ MEPROP UID '55BA01020317'
+ MEPROP Name 'GetLogStrings'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55BA0115020A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55BA01020317 GetLogStrings
+
+ME ME_55BA01F10098
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_55BA01F10098 
+
+ME ME_55BA3EBD0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B9FFCB020F // TnsLoggingTestService
+ ;
+ MELINK Target WL 'ME_48721F730220' '48721EA10381.ms.model.script' // Tl3Strings
+ ;
+
+ENDME // ME_55BA3EBD0365 
+
+MEREF ME_566AEC8A0092_ME_55B9FFCB020F_impl
+ MELINK Original WL 'ME_566AEC8A0092' '55B75E6E034C.ms.model.script' // AddLogString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_566AEC8A0092_ME_55B9FFCB020F_impl AddLogString
+
+MEREF ME_479731C50290_ME_55B9FFCB020F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55B9FFCB020F_over Cleanup
+
+MEREF ME_47A042E100E2_ME_55B9FFCB020F_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_55B9FFCB020F_over InitFields
+
+MEREF ME_47BC391D0259_ME_55B9FFCB020F_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_55B9FFCB020F_G Tl3SimpleObject
+
+MEREF ME_566AEC770091_ME_55B9FFCB020F_R
+ MELINK Original WL 'ME_566AEC770091' '55B75E6E034C.ms.model.script' // InsLoggingTestService
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_566AEC770091_ME_55B9FFCB020F_R InsLoggingTestService
+
+%%ImplementedBy ME_566AEC770091 ME_55B9FFCB020F
+
+%%InheritedBy ME_47BC391D0259 ME_55B9FFCB020F
+
+ME ME_55B9FFCB020F
+ MEPROP UID '55B9FFCB020F'
+ MEPROP Name 'TnsLoggingTestService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B9FF5B03CB' // LoggingTestService
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_55B9FFCB020F_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_566AEC770091_ME_55B9FFCB020F_R // InsLoggingTestService
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55BA00AC0098 // f_Listening
+ HWL ME_55BA014E01C9 // f_LogRecords
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55BA00C202EE // StartListening
+ HWL ME_55BA00CE00C0 // StopListening
+ HWL ME_55BA01020317 // GetLogStrings
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_566AEC8A0092_ME_55B9FFCB020F_impl // AddLogString
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55B9FFCB020F_over // Cleanup
+ ME_47A042E100E2_ME_55B9FFCB020F_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55BA01F10098 // SysUtils
+ ME_55BA3EBD0365 // Tl3Strings
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_55BA0271031A' '55B75D980276.ms.model.script' // LoggingWordsPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsLoggingTestService.pas'
+ UP extprop:rc:SelfName 'LoggingTestService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLoggingTestService'
+
+ENDME // ME_55B9FFCB020F TnsLoggingTestService

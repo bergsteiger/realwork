@@ -69,7 +69,7 @@ ME ME_4B1E980F030D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D89A001A9 // TdsDrugDocument
  ;
- MELINK Target WL 'ME_47F33E9E03C8' '491DCA2C00A9.ms.model.script' // TdeList
+ MELINK Target WL? 'ME_47F33E9E03C8' // TdeList
  ;
 
 ENDME // ME_4B1E980F030D 
@@ -79,41 +79,59 @@ ME ME_4D35780301B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D89A001A9 // TdsDrugDocument
  ;
- MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ MELINK Target WL? 'ME_4C6A9AD101B4' // TnsF1DocumentContainer
  ;
 
 ENDME // ME_4D35780301B2 
 
-ME ME_491465BF0275_ME_491D89A001A9
+MEREF ME_491465BF0275_ME_491D89A001A9_impl
  MELINK Original WL 'ME_491465BF0275' '4914640A0125.ms.model.script' // DoReturnToList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_491465BF0275_ME_491D89A001A9 DoReturnToList
+ENDMEREF // ME_491465BF0275_ME_491D89A001A9_impl DoReturnToList
 
-ME ME_491D88070148_ME_491D89A001A9
+MEREF ME_491D88070148_ME_491D89A001A9_impl
  MELINK Original WL 'ME_491D88070148' '4AC241AC01FC.ms.model.script' // OpenDrugInternationalNameSynonims
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_491D88070148_ME_491D89A001A9 OpenDrugInternationalNameSynonims
+ENDMEREF // ME_491D88070148_ME_491D89A001A9_impl OpenDrugInternationalNameSynonims
 
-ME ME_4953D3B20211_ME_491D89A001A9
+MEREF ME_4953D3B20211_ME_491D89A001A9_impl
  MELINK Original WL 'ME_4953D3B20211' '491B305A0096.ms.model.script' // OpenContents
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4953D3B20211_ME_491D89A001A9 OpenContents
+ENDMEREF // ME_4953D3B20211_ME_491D89A001A9_impl OpenContents
 
-ME ME_4E7B663D00A9_ME_491D89A001A9
+MEREF ME_4E7B663D00A9_ME_491D89A001A9_impl
  MELINK Original WL 'ME_4E7B663D00A9' '491B305A0096.ms.model.script' // dsContents
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4E7B663D00A9_ME_491D89A001A9 dsContents
+ENDMEREF // ME_4E7B663D00A9_ME_491D89A001A9_impl dsContents
 
-ME ME_4C6AB38800F3_ME_491D89A001A9
+MEREF ME_4C6AB38800F3_ME_491D89A001A9_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_491D89A001A9 MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_491D89A001A9_over MakeContainer
+
+MEREF ME_491D846C0297_ME_491D89A001A9_G
+ MELINK Original WL? 'ME_491D846C0297' // dsBaseDrugDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491D846C0297_ME_491D89A001A9_G dsBaseDrugDocument
+
+MEREF ME_4914640A0125_ME_491D89A001A9_R
+ MELINK Original WL? 'ME_4914640A0125' // dsDocumentFromList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4914640A0125_ME_491D89A001A9_R dsDocumentFromList
+
+MEREF ME_491D87F50062_ME_491D89A001A9_R
+ MELINK Original WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' // IdsDrugDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491D87F50062_ME_491D89A001A9_R IdsDrugDocument
 
 %%ImplementedBy ME_4914640A0125 ME_491D89A001A9
 %%ImplementedBy ME_491D87F50062 ME_491D89A001A9
@@ -133,12 +151,12 @@ ME ME_491D89A001A9
  MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_491D846C0297' // dsBaseDrugDocument
+   Seq: ( ME_491D846C0297_ME_491D89A001A9_G // dsBaseDrugDocument
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4914640A0125' // dsDocumentFromList
- WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' // IdsDrugDocument
+   Seq: ( ME_4914640A0125_ME_491D89A001A9_R // dsDocumentFromList
+ ME_491D87F50062_ME_491D89A001A9_R // IdsDrugDocument
  )
  ; // Implements
  MELIST Attributes
@@ -147,14 +165,14 @@ ME ME_491D89A001A9
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_491465BF0275_ME_491D89A001A9 // DoReturnToList
- ME_491D88070148_ME_491D89A001A9 // OpenDrugInternationalNameSynonims
- ME_4953D3B20211_ME_491D89A001A9 // OpenContents
- ME_4E7B663D00A9_ME_491D89A001A9 // dsContents
+   Seq: ( ME_491465BF0275_ME_491D89A001A9_impl // DoReturnToList
+ ME_491D88070148_ME_491D89A001A9_impl // OpenDrugInternationalNameSynonims
+ ME_4953D3B20211_ME_491D89A001A9_impl // OpenContents
+ ME_4E7B663D00A9_ME_491D89A001A9_impl // dsContents
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4C6AB38800F3_ME_491D89A001A9 // MakeContainer
+   Seq: ( ME_4C6AB38800F3_ME_491D89A001A9_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

@@ -13,16 +13,22 @@ ME ME_5776502302CC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DD4F6FB0012 // TevOperationDispatcher
  ;
- MELINK Target WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' // Tl3ClipSpyService
+ MELINK Target WL? 'ME_57762BA20039' // Tl3ClipSpyService
  ;
 
 ENDME // ME_5776502302CC 
 
-ME ME_57762C1A029F_ME_4DD4F6FB0012
+MEREF ME_57762C1A029F_ME_4DD4F6FB0012_impl
  MELINK Original WL 'ME_57762C1A029F' '57762BD601E1.ms.model.script' // Change
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57762C1A029F_ME_4DD4F6FB0012 Change
+ENDMEREF // ME_57762C1A029F_ME_4DD4F6FB0012_impl Change
+
+MEREF ME_57762C030193_ME_4DD4F6FB0012_R
+ MELINK Original WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57762C030193_ME_4DD4F6FB0012_R Il3ClipListner
 
 %%ImplementedBy ME_57762C030193 ME_4DD4F6FB0012
 
@@ -37,11 +43,11 @@ ME ME_4DD4F6FB0012
  MELINK Parent HWL ME_4DD4F6EA03D9 // evDisp
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+   Seq: ( ME_57762C030193_ME_4DD4F6FB0012_R // Il3ClipListner
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_57762C1A029F_ME_4DD4F6FB0012 // Change
+   Seq: ( ME_57762C1A029F_ME_4DD4F6FB0012_impl // Change
  )
  ; // Implemented
  MELIST Dependencies
@@ -58,7 +64,7 @@ ME ME_4DD4F71E0262
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DD4F6EA03D9 // evDisp
  ;
- MELINK Target WL 'ME_4DD4F7060070' '4DD4F6C40009.ms.model.script' // TevOperationDispatcherEx
+ MELINK Target WL? 'ME_4DD4F7060070' // TevOperationDispatcherEx
  ;
 
 ENDME // ME_4DD4F71E0262 

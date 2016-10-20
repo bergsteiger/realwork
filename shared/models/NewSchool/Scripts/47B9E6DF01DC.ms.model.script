@@ -1,0 +1,115 @@
+// Tl3ValueMapManagerPrim 47B9E6DF01DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47B9E6DF01DC
+
+FORWARD ME_47B9E6DF01DC
+
+ME ME_4DF0E7190081
+ MEPROP UID '4DF0E7190081'
+ MEPROP Name 'l3Items_HasCustomSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B9E6DF01DC // Tl3ValueMapManagerPrim
+ ;
+ UP extprop:rc:SelfName 'Items_HasCustomSort'
+
+ENDME // ME_4DF0E7190081 l3Items_HasCustomSort
+
+ME ME_47A1C822037C
+ MEPROP UID '47A1C822037C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47B9E6DF01DC // Tl3ValueMapManagerPrim
+ ;
+ MELINK Target WL 'ME_46A5EFC20052' '4677FBA70343.ms.model.script' // Il3ValueMap
+ ;
+
+ENDME // ME_47A1C822037C ItemType
+
+MEREF ME_47B07CF403D0_ME_47B9E6DF01DC_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_47B9E6DF01DC_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_47B9E6DF01DC_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_47B9E6DF01DC_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_47B9E6DF01DC_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_47B9E6DF01DC_impl CompareExistingItems
+
+MEREF ME_47B9AF6E0228_ME_47B9E6DF01DC_G
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_47B9E6DF01DC_G l3InterfaceRefListPrim
+
+MEREF ME_47BC3A07027F_ME_47B9E6DF01DC_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_47B9E6DF01DC_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B9AF6E0228 ME_47B9E6DF01DC
+%%InheritedBy ME_47BC3A07027F ME_47B9E6DF01DC
+
+ME ME_47B9E6DF01DC
+ MEPROP UID '47B9E6DF01DC'
+ MEPROP Name 'Tl3ValueMapManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9AF6E0228_ME_47B9E6DF01DC_G // l3InterfaceRefListPrim
+ ME_47BC3A07027F_ME_47B9E6DF01DC_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A1C822037C // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_47B9E6DF01DC_impl // IsSameItems
+ ME_47B2C42A0163_ME_47B9E6DF01DC_impl // AssignItem
+ ME_47B99D4503A2_ME_47B9E6DF01DC_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4DF0E7190081 // l3Items_HasCustomSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '18.02.2008 23:13'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas'
+ UP extprop:rc:SelfName 'ValueMapManagerPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ValueMapManagerPrim'
+
+ENDME // ME_47B9E6DF01DC Tl3ValueMapManagerPrim

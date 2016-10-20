@@ -1,0 +1,99 @@
+// Tl3GraphicControlCanvas 4F29376B00C7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F29376B00C7
+
+FORWARD ME_56B9CBE7022E
+
+ME ME_56B9CC020310
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F2A5AA1012C' '47E11FC3021E.ms.model.script' // TGraphicControl
+ ;
+
+ENDME // ME_56B9CC020310 aControl
+
+ME ME_56B9CBFD0250
+ MEPROP UID '56B9CBFD0250'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56B9CBE7022E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56B9CC020310 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_56B9CBFD0250 DoIt
+
+ME ME_56B9CBE7022E
+ MEPROP UID '56B9CBE7022E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F29376B00C7 // Tl3GraphicControlCanvas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56B9CBFD0250 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56B9CBE7022E Create
+
+ME ME_56B9CBD002C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4F29376B00C7 // Tl3GraphicControlCanvas
+ ;
+ MELINK Target WL 'ME_4F2A5AA1012C' '47E11FC3021E.ms.model.script' // TGraphicControl
+ ;
+
+ENDME // ME_56B9CBD002C7 
+
+MEREF ME_48C68AC60396_ME_4F29376B00C7_G
+ MELINK Original WL? 'ME_48C68AC60396' // Tl3ControlCanvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C68AC60396_ME_4F29376B00C7_G Tl3ControlCanvas
+
+%%InheritedBy ME_48C68AC60396 ME_4F29376B00C7
+
+ME ME_4F29376B00C7
+ MEPROP UID '4F29376B00C7'
+ MEPROP Name 'Tl3GraphicControlCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_48C68AC60396_ME_4F29376B00C7_G // Tl3ControlCanvas
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_56B9CBE7022E // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56B9CBD002C7 // TGraphicControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas'
+ UP extprop:rc:SelfName 'GraphicControlCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3GraphicControlCanvas'
+
+ENDME // ME_4F29376B00C7 Tl3GraphicControlCanvas

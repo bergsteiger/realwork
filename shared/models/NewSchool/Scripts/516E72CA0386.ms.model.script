@@ -1,0 +1,288 @@
+// EVDtoHTMLWriterTest 516E72CA0386 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516E72CA0386
+
+FORWARD ME_516E73FC02CE
+
+ME ME_516E741E03B5
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_516E741E03B5 aFileName
+
+ME ME_516E741401FE
+ MEPROP UID '516E741401FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516E73FC02CE // EVDtoHTML
+ ;
+ MELIST Parameters
+   Seq: ( ME_516E741E03B5 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_516E741401FE DoIt
+
+ME ME_516E78DA0191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516E73FC02CE // EVDtoHTML
+ ;
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
+ ;
+
+ENDME // ME_516E78DA0191 
+
+ME ME_516E78F201B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516E73FC02CE // EVDtoHTML
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_516E78F201B8 
+
+ME ME_516E73FC02CE
+ MEPROP UID '516E73FC02CE'
+ MEPROP Name 'EVDtoHTML'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516E72CA0386 // EVDtoHTMLWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_516E741401FE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_516E78DA0191 // TevdNativeReader
+ ME_516E78F201B8 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_516E73FC02CE EVDtoHTML
+
+FORWARD ME_516E775B03C9
+
+ME ME_516E7C2302F4
+ MEPROP UID '516E7C2302F4'
+ MEPROP Name 'Filter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_516E775B03C9 // SomeFormatToHTML
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" false
+
+ENDME // ME_516E7C2302F4 Filter
+
+ME ME_516E7C3300F6
+ MEPROP UID '516E7C3300F6'
+ MEPROP Name 'Writer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_516E775B03C9 // SomeFormatToHTML
+ ;
+ MELINK Target WL 'ME_4B9E54770095' '4B9E545B0118.ms.model.script' // TddHTMLGenerator
+ ;
+ UP "IsResult" false
+
+ENDME // ME_516E7C3300F6 Writer
+
+ME ME_516E778001F7
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_516E778001F7 aReader
+
+ME ME_516E776C03D7
+ MEPROP UID '516E776C03D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516E775B03C9 // SomeFormatToHTML
+ ;
+ MELIST Parameters
+   Seq: ( ME_516E778001F7 // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_516E776C03D7 DoIt
+
+ME ME_516E775B03C9
+ MEPROP UID '516E775B03C9'
+ MEPROP Name 'SomeFormatToHTML'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516E72CA0386 // EVDtoHTMLWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_516E7C2302F4 // Filter
+ HWL ME_516E7C3300F6 // Writer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_516E776C03D7 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_516E775B03C9 SomeFormatToHTML
+
+FORWARD ME_56D9300D018D
+
+ME ME_56D9304101F9
+ MEPROP Name 'aHTMLReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B9E54770095' '4B9E545B0118.ms.model.script' // TddHTMLGenerator
+ ;
+
+ENDME // ME_56D9304101F9 aHTMLReader
+
+ME ME_56D9302300CF
+ MEPROP UID '56D9302300CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56D9300D018D // TuningHTMLGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_56D9304101F9 // aHTMLReader
+ )
+ ; // Parameters
+
+ENDME // ME_56D9302300CF DoIt
+
+ME ME_56D9300D018D
+ MEPROP UID '56D9300D018D'
+ MEPROP Name 'TuningHTMLGenerator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_516E72CA0386 // EVDtoHTMLWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56D9302300CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56D9300D018D TuningHTMLGenerator
+
+FORWARD ME_57613C5F000C
+
+ME ME_57613CE400BB
+ MEPROP UID '57613CE400BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57613C5F000C // GetHTMLWriter
+ ;
+ MELINK Target WL 'ME_4B9E54770095' '4B9E545B0118.ms.model.script' // TddHTMLGenerator
+ ;
+
+ENDME // ME_57613CE400BB DoIt
+
+ME ME_57613C5F000C
+ MEPROP UID '57613C5F000C'
+ MEPROP Name 'GetHTMLWriter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_516E72CA0386 // EVDtoHTMLWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57613CE400BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57613C5F000C GetHTMLWriter
+
+ME ME_516E732F028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516E72CA0386 // EVDtoHTMLWriterTest
+ ;
+ MELINK Target WL 'ME_4B9E54770095' '4B9E545B0118.ms.model.script' // TddHTMLGenerator
+ ;
+
+ENDME // ME_516E732F028C 
+
+MEREF ME_4BACDDB500CE_ME_516E72CA0386_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_516E72CA0386_G WriterTest
+
+%%InheritedBy ME_4BACDDB500CE ME_516E72CA0386
+
+ME ME_516E72CA0386
+ MEPROP UID '516E72CA0386'
+ MEPROP Name 'EVDtoHTMLWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4E847D6D002B' // HTML
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BACDDB500CE_ME_516E72CA0386_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_516E73FC02CE // EVDtoHTML
+ HWL ME_516E775B03C9 // SomeFormatToHTML
+ HWL ME_56D9300D018D // TuningHTMLGenerator
+ HWL ME_57613C5F000C // GetHTMLWriter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_516E732F028C // TddHTMLGenerator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoHTMLWriterTest.pas'
+ UP extprop:pas:TypeName 'TEVDtoHTMLWriterTest'
+ UP extprop:rc:SelfName 'EVDtoHTMLWriterTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_516E72CA0386 EVDtoHTMLWriterTest

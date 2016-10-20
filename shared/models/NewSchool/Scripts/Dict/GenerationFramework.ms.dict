@@ -45,6 +45,10 @@ TtfwWord CompileTime-VAR g_CurrentGenerator nil
  ) // TF g_CurrentGenerator
 ; // WithGen:
 
+USES
+ filterNil.ms.dict
+;
+
 TtfwWord FUNCTION .FindMemberRecur
   STRING IN aName
   TtfwWord IN aGen
@@ -133,6 +137,75 @@ USES
  ElementsRTTI.ms.dict
 ;
 
+USES
+ cGenScriptsFolder.ms.dict
+;
+
+STRING FUNCTION Ext
+ '.dump' >>> Result
+; // Ext
+
+CONST cUCFileExt '.uc.txt'
+
+STRING elem_func UCFileName
+ //g_RealFileName cUCFileExt Cat
+ [
+  cGenScriptsFolder
+  [ Self .WordName .? Ext cUCFileExt ] strings:Cat
+ ] cPathSep strings:CatSep
+ >>> Result
+; // UCFileName
+
+BOOLEAN elem_func NewSchoolGenerator
+ false >>> Result
+; // NewSchoolGenerator
+
+BOOLEAN elem_func IsNewSchoolGenerator
+ Self .? .NewSchoolGenerator >>> Result
+; // IsNewSchoolGenerator
+
+BOOLEAN elem_func IsNewSchoolElement
+ RULES
+  ( Self .IsNewSchoolGenerator )
+   true
+  ( Self .IsNewSchoolRec )
+   true 
+  DEFAULT
+   false 
+ ; // RULES  
+ >>> Result
+; // IsNewSchoolElement
+
+elem_proc SavePrimPrim
+ RULES
+  ( Self .NeedOwnFile )
+   begin
+    VAR l_FileName
+    Self .? .FinalFileNamePrim .CheckDrive >>> l_FileName
+    if ( l_FileName .NotIsNil ) then
+    begin
+     l_FileName .ProcessTmpOut: (
+      Self .CurrentGenerator
+     ) // l_FileName .ProcessTmpOut:
+    end // ( l_FileName .NotIsNil )
+   end // ( Self .NeedOwnFile )
+  DEFAULT
+   () 
+ ; // RULES
+; // SavePrimPrim
+
+elem_proc SavePrim
+ Self .SavePrimPrim
+/*{ if ( Self .IsNewSchoolGenerator ) then
+ // - сохраняем элементы, сохранённые СТАРЫМ генератором
+ begin
+  Self .Children
+  .join> ( Self .Constants )
+  .filter> ( .IsNewSchool ! )
+  .for> call.me
+ end // ( Self .IsNewSchoolGenerator )}*/
+; // SavePrim
+
 elem_proc Save
   IN aGenerator
  WithGen: aGenerator (
@@ -140,20 +213,11 @@ elem_proc Save
    ( Self .IsNil )
     ()
    ( Self .NeedOwnFile )
-    begin
-     VAR l_FileName
-     Self .? .FinalFileNamePrim .CheckDrive >>> l_FileName
-     if ( l_FileName .NotIsNil ) then
-     begin
-      l_FileName .ProcessTmpOut: (
-       Self .CurrentGenerator
-      ) // l_FileName .ProcessTmpOut:
-     end // ( l_FileName .NotIsNil )
-    end // ( Self .NeedOwnFile )
+    ( Self .SavePrim )
    DEFAULT
     begin
      Self .Parent aGenerator call.me
-    end // ( Self .NeedOwnFile )
+    end // DEFAULT
   ; // RULES
  ) // WithGen:
 ; // Save

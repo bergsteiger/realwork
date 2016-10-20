@@ -1,0 +1,152 @@
+// TtfwAnonimousWord 4DB9BB43017B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB9BB43017B
+
+FORWARD ME_4DB9BBD6024F
+
+ME ME_4DB9BBFD025F
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4DB9BBFD025F aWord
+
+ME ME_4DB9BE900230
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DB9BE900230 aContext
+
+ME ME_4DB9BBF900A5
+ MEPROP UID '4DB9BBF900A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB9BBD6024F // DoCompiledWord
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB9BBFD025F // aWord
+ ME_4DB9BE900230 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4DB9BBF900A5 DoIt
+
+ME ME_4DB9BBD6024F
+ MEPROP UID '4DB9BBD6024F'
+ MEPROP Name 'DoCompiledWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB9BB43017B // TtfwAnonimousWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB9BBF900A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB9BBD6024F DoCompiledWord
+
+FORWARD ME_5512949D0048
+
+ME ME_551294B900E8
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_551294B900E8 aCtx
+
+ME ME_551294AF0050
+ MEPROP UID '551294AF0050'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5512949D0048 // DoRun
+ ;
+ MELIST Parameters
+   Seq: ( ME_551294B900E8 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_551294AF0050 DoIt
+
+ME ME_5512949D0048
+ MEPROP UID '5512949D0048'
+ MEPROP Name 'DoRun'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB9BB43017B // TtfwAnonimousWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551294AF0050 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5512949D0048 DoRun
+
+MEREF ME_4F3AB3600008_ME_4DB9BB43017B_over
+ MELINK Original WL 'ME_4F3AB3600008' '4DAF19F600C5.ms.model.script' // IsAnonimous
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F3AB3600008_ME_4DB9BB43017B_over IsAnonimous
+
+MEREF ME_4DB6C8F30161_ME_4DB9BB43017B_G
+ MELINK Original WL? 'ME_4DB6C8F30161' // TtfwCompilingWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6C8F30161_ME_4DB9BB43017B_G TtfwCompilingWord
+
+%%InheritedBy ME_4DB6C8F30161 ME_4DB9BB43017B
+
+ME ME_4DB9BB43017B
+ MEPROP UID '4DB9BB43017B'
+ MEPROP Name 'TtfwAnonimousWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB6C8F30161_ME_4DB9BB43017B_G // TtfwCompilingWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DB9BBD6024F // DoCompiledWord
+ HWL ME_5512949D0048 // DoRun
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4F3AB3600008_ME_4DB9BB43017B_over // IsAnonimous
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '28.04.2011 23:09'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ UP extprop:rc:SelfName 'AnonimousWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwAnonimousWord'
+
+ENDME // ME_4DB9BB43017B TtfwAnonimousWord

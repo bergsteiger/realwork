@@ -1,0 +1,279 @@
+// TncsGetFilePartExecutor 54B7B3D203C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B7B3D203C6
+
+ME ME_54B8DB6F0011
+ MEPROP UID '54B8DB6F0011'
+ MEPROP Name 'f_FileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB6F0011 f_FileName
+
+ME ME_54B8DB7C000C
+ MEPROP UID '54B8DB7C000C'
+ MEPROP Name 'f_BasePath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB7C000C f_BasePath
+
+FORWARD ME_54B7B6E402A1
+
+ME ME_54B8DB950053
+ MEPROP Name 'aBasePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B8DB950053 aBasePath
+
+ME ME_54B7CAD603BD
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B7CAD603BD aFileName
+
+ME ME_54B7CAC30061
+ MEPROP UID '54B7CAC30061'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B6E402A1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B8DB950053 // aBasePath
+ ME_54B7CAD603BD // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_54B7CAC30061 DoIt
+
+ME ME_54B7B6E402A1
+ MEPROP UID '54B7B6E402A1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B7CAC30061 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B7B6E402A1 Create
+
+MEREF ME_54B7B6E402A1_ME_54B7B6ED02B2_G
+ MELINK Original HWL ME_54B7B6E402A1 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B7B6E402A1_ME_54B7B6ED02B2_G Create
+
+MEREF ME_5460731E025E_ME_54B7B6ED02B2_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54B7B6ED02B2_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54B7B6ED02B2
+
+%%InheritedBy ME_54B7B6E402A1 ME_54B7B6ED02B2
+
+ME ME_54B7B6ED02B2
+ MEPROP UID '54B7B6ED02B2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELIST Inherits
+   Seq: ( ME_54B7B6E402A1_ME_54B7B6ED02B2_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460731E025E_ME_54B7B6ED02B2_R // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_54B7B6ED02B2 Make
+
+ME ME_54B8EC3D02F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL? 'ME_548940970391' // TncsPushFilePart
+ ;
+
+ENDME // ME_54B8EC3D02F8 
+
+ME ME_54B8EC430040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_5475911A0274' '4808A20402DC.ms.model.script' // Min
+ ;
+
+ENDME // ME_54B8EC430040 
+
+ME ME_54B8EC4600F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B8EC4600F6 
+
+ME ME_54B8EC490371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_54B8EC490371 
+
+ME ME_54B8EC4E00E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54B8EC4E00E9 
+
+ME ME_54B8EC5200B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_54B8EC5200B4 
+
+ME ME_54B8EC5503AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL? 'ME_547583540319' // TncsGetFilePartReply
+ ;
+
+ENDME // ME_54B8EC5503AC 
+
+ME ME_54B8EC5902BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B7B3D203C6 // TncsGetFilePartExecutor
+ ;
+ MELINK Target WL? 'ME_547583330291' // TncsGetFilePart
+ ;
+
+ENDME // ME_54B8EC5902BB 
+
+MEREF ME_54607DDC0159_ME_54B7B3D203C6_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_54B7B3D203C6_impl Execute
+
+MEREF ME_49E7754802A9_ME_54B7B3D203C6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54B7B3D203C6_G Tl3ProtoObject
+
+MEREF ME_5460731E025E_ME_54B7B3D203C6_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_54B7B3D203C6_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_54B7B3D203C6
+
+%%InheritedBy ME_49E7754802A9 ME_54B7B3D203C6
+
+ME ME_54B7B3D203C6
+ MEPROP UID '54B7B3D203C6'
+ MEPROP Name 'TncsGetFilePartExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54855BDB033D' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_54B7B3D203C6_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460731E025E_ME_54B7B3D203C6_R // IncsExecutor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54B8DB6F0011 // f_FileName
+ HWL ME_54B8DB7C000C // f_BasePath
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B7B6E402A1 // Create
+ HWL ME_54B7B6ED02B2 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_54B7B3D203C6_impl // Execute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54B8EC3D02F8 // TncsPushFilePart
+ ME_54B8EC430040 // Min
+ ME_54B8EC4600F6 // FreeAndNil
+ ME_54B8EC490371 // Tl3FileMode
+ ME_54B8EC4E00E9 // TStream
+ ME_54B8EC5200B4 // Tl3FileStream
+ ME_54B8EC5503AC // TncsGetFilePartReply
+ ME_54B8EC5902BB // TncsGetFilePart
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetFilePartExecutor.pas'
+ UP extprop:rc:SelfName 'ncsGetFilePartExecutor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsGetFilePartExecutor'
+
+ENDME // ME_54B7B3D203C6 TncsGetFilePartExecutor

@@ -1,0 +1,238 @@
+// ThtDataSchemeHelper 555F0C89007D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_555F0C89007D
+
+ME ME_555F0D0D013F
+ MEPROP UID '555F0D0D013F'
+ MEPROP Name 'f_Params'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL? 'ME_54F9AF6B00DD' // ThtDataProviderParams
+ ;
+
+ENDME // ME_555F0D0D013F f_Params
+
+FORWARD ME_555F0CCD008C
+
+ME ME_555F0CE60229
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_54F9AF6B00DD' // ThtDataProviderParams
+ ;
+
+ENDME // ME_555F0CE60229 aParams
+
+ME ME_555F0CD5012B
+ MEPROP UID '555F0CD5012B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555F0CCD008C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_555F0CE60229 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_555F0CD5012B DoIt
+
+ME ME_555F0CCD008C
+ MEPROP UID '555F0CCD008C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555F0CD5012B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_555F0CCD008C Create
+
+MEREF ME_555F0CCD008C_ME_555F0CEB0175_G
+ MELINK Original HWL ME_555F0CCD008C // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555F0CCD008C_ME_555F0CEB0175_G Create
+
+MEREF ME_555EF7B1002F_ME_555F0CEB0175_R
+ MELINK Original WL 'ME_555EF7B1002F' '550981B402B9.ms.model.script' // IhtDataSchemeHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555EF7B1002F_ME_555F0CEB0175_R IhtDataSchemeHelper
+
+%%ImplementedBy ME_555EF7B1002F ME_555F0CEB0175
+
+%%InheritedBy ME_555F0CCD008C ME_555F0CEB0175
+
+ME ME_555F0CEB0175
+ MEPROP UID '555F0CEB0175'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELIST Inherits
+   Seq: ( ME_555F0CCD008C_ME_555F0CEB0175_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_555EF7B1002F_ME_555F0CEB0175_R // IhtDataSchemeHelper
+ )
+ ; // Implements
+
+ENDME // ME_555F0CEB0175 Make
+
+ME ME_555F146C02D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL 'ME_5511283A02C9' '47877EB202FB.ms.model.script' // IntToHex
+ ;
+
+ENDME // ME_555F146C02D5 
+
+ME ME_555F146F03BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_555F146F03BA 
+
+ME ME_555F1488026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_555F1488026B 
+
+ME ME_576D0CBE03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_576D0CBE03A0 
+
+ME ME_577232F4002B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555F0C89007D // ThtDataSchemeHelper
+ ;
+ MELINK Target WL 'ME_565593D90132' '5654635F0268.ms.model.script' // cFamilies
+ ;
+
+ENDME // ME_577232F4002B 
+
+MEREF ME_555EF7F5009F_ME_555F0C89007D_impl
+ MELINK Original WL 'ME_555EF7F5009F' '550981B402B9.ms.model.script' // TableFullPath
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_555EF7F5009F_ME_555F0C89007D_impl TableFullPath
+
+MEREF ME_555EF81A03BF_ME_555F0C89007D_impl
+ MELINK Original WL 'ME_555EF81A03BF' '550981B402B9.ms.model.script' // TablePassword
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_555EF81A03BF_ME_555F0C89007D_impl TablePassword
+
+MEREF ME_479731C50290_ME_555F0C89007D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_555F0C89007D_over Cleanup
+
+MEREF ME_49E7754802A9_ME_555F0C89007D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_555F0C89007D_G Tl3ProtoObject
+
+MEREF ME_555EF7B1002F_ME_555F0C89007D_R
+ MELINK Original WL 'ME_555EF7B1002F' '550981B402B9.ms.model.script' // IhtDataSchemeHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555EF7B1002F_ME_555F0C89007D_R IhtDataSchemeHelper
+
+%%ImplementedBy ME_555EF7B1002F ME_555F0C89007D
+
+%%InheritedBy ME_49E7754802A9 ME_555F0C89007D
+
+ME ME_555F0C89007D
+ MEPROP UID '555F0C89007D'
+ MEPROP Name 'ThtDataSchemeHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9AF550087' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_555F0C89007D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_555EF7B1002F_ME_555F0C89007D_R // IhtDataSchemeHelper
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_555F0D0D013F // f_Params
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_555F0CCD008C // Create
+ HWL ME_555F0CEB0175 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_555EF7F5009F_ME_555F0C89007D_impl // TableFullPath
+ ME_555EF81A03BF_ME_555F0C89007D_impl // TablePassword
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_555F0C89007D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_555F146C02D5 // IntToHex
+ ME_555F146F03BA // FreeAndNil
+ ME_555F1488026B // ConcatDirName
+ ME_576D0CBE03A0 // TdaScheme
+ ME_577232F4002B // cFamilies
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\HT\htDataSchemeHelper.pas'
+ UP extprop:rc:SelfName 'htDataSchemeHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'htDataSchemeHelper'
+
+ENDME // ME_555F0C89007D ThtDataSchemeHelper

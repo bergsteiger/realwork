@@ -94,6 +94,12 @@ ME ME_4FC76E1C0380
 
 ENDME // ME_4FC76E1C0380 
 
+MEREF ME_4F86D90400CD_ME_4FC76B5B0371_G
+ MELINK Original HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F86D90400CD_ME_4FC76B5B0371_G TvtTailPosition
+
 %%InheritedBy ME_4F86D90400CD ME_4FC76B5B0371
 
 ME ME_4FC76B5B0371
@@ -107,7 +113,7 @@ ME ME_4FC76B5B0371
  MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F86D90400CD // TvtTailPosition
+   Seq: ( ME_4F86D90400CD_ME_4FC76B5B0371_G // TvtTailPosition
  )
  ; // Inherits
  MELIST Attributes
@@ -117,6 +123,12 @@ ME ME_4FC76B5B0371
  UP "array type" 'dynamic'
 
 ENDME // ME_4FC76B5B0371 TvtCurrentBounds
+
+MEREF ME_47E124E90272_ME_4FC772F5013E_G
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_4FC772F5013E_G TWinControl
 
 %%InheritedBy ME_47E124E90272 ME_4FC772F5013E
 
@@ -131,7 +143,7 @@ ME ME_4FC772F5013E
  MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+   Seq: ( ME_47E124E90272_ME_4FC772F5013E_G // TWinControl
  )
  ; // Inherits
  UP extprop:rc:SelfName 'HackWinControl'
@@ -487,7 +499,7 @@ ENDME // ME_4FC7716A0107 Do
 ME ME_4FC7711F014B
  MEPROP UID '4FC7711F014B'
  MEPROP Name 'AdjustBalloonSize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона.' ;
@@ -572,7 +584,7 @@ ENDME // ME_4FC87DA5011D Do
 ME ME_4FC87D8002D6
  MEPROP UID '4FC87D8002D6'
  MEPROP Name 'PanelGetSiteInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -707,28 +719,34 @@ ME ME_4FC7850403D5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
  ;
- MELINK Target WL 'ME_4FC784BC014D' '4AADF9450143.ms.model.script' // TvcmDockTree
+ MELINK Target WL? 'ME_4FC784BC014D' // TvcmDockTree
  ;
 
 ENDME // ME_4FC7850403D5 
 
-ME ME_48C7925A02E5_ME_4D90583503C2
+MEREF ME_48C7925A02E5_ME_4D90583503C2_over
  MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48C7925A02E5_ME_4D90583503C2 CreateParams
+ENDMEREF // ME_48C7925A02E5_ME_4D90583503C2_over CreateParams
 
-ME ME_4F2A599E0283_ME_4D90583503C2
+MEREF ME_4F2A599E0283_ME_4D90583503C2_over
  MELINK Original WL 'ME_4F2A599E0283' '47E11FC3021E.ms.model.script' // SetBounds
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F2A599E0283_ME_4D90583503C2 SetBounds
+ENDMEREF // ME_4F2A599E0283_ME_4D90583503C2_over SetBounds
 
-ME ME_4F9007B20376_ME_4D90583503C2
+MEREF ME_4F9007B20376_ME_4D90583503C2_over
  MELINK Original WL 'ME_4F9007B20376' '47E13C6B0341.ms.model.script' // CreateNew
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F9007B20376_ME_4D90583503C2 CreateNew
+ENDMEREF // ME_4F9007B20376_ME_4D90583503C2_over CreateNew
+
+MEREF ME_484529DC0276_ME_4D90583503C2_G
+ MELINK Original WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484529DC0276_ME_4D90583503C2_G TCustomForm
 
 %%InheritedBy ME_484529DC0276 ME_4D90583503C2
 
@@ -744,7 +762,7 @@ ME ME_4D90583503C2
  MELINK Parent WL? 'ME_4D90513F009C' // Reminders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+   Seq: ( ME_484529DC0276_ME_4D90583503C2_G // TCustomForm
  )
  ; // Inherits
  MELIST Attributes
@@ -766,9 +784,9 @@ ME ME_4D90583503C2
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_48C7925A02E5_ME_4D90583503C2 // CreateParams
- ME_4F2A599E0283_ME_4D90583503C2 // SetBounds
- ME_4F9007B20376_ME_4D90583503C2 // CreateNew
+   Seq: ( ME_48C7925A02E5_ME_4D90583503C2_over // CreateParams
+ ME_4F2A599E0283_ME_4D90583503C2_over // SetBounds
+ ME_4F9007B20376_ME_4D90583503C2_over // CreateNew
  )
  ; // Overridden
  MELIST Children

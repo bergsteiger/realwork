@@ -1,0 +1,345 @@
+// TnsF1DocumentTagNode 4C6A750F024E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C6A750F024E
+
+FORWARD ME_4C7275540230
+
+ME ME_4C72756F01BC
+ MEPROP Name 'aProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+
+ENDME // ME_4C72756F01BC aProvider
+
+ME ME_4C72755F01B3
+ MEPROP UID '4C72755F01B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7275540230 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C72756F01BC // aProvider
+ )
+ ; // Parameters
+
+ENDME // ME_4C72755F01B3 DoIt
+
+ME ME_4C7283C30106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C7275540230 // Create
+ ;
+ MELINK Target WL? 'ME_4C727C990284' // Tf1DocumentTagDataFromDTP
+ ;
+
+ENDME // ME_4C7283C30106 
+
+ME ME_4C7275540230
+ MEPROP UID '4C7275540230'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C72755F01B3 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C7283C30106 // Tf1DocumentTagDataFromDTP
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C7275540230 Create
+
+FORWARD ME_4C727576036D
+
+ME ME_535A3DCF00C9
+ MEPROP Name 'aProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+
+ENDME // ME_535A3DCF00C9 aProvider
+
+ME ME_535A3DC8038C
+ MEPROP UID '535A3DC8038C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C727576036D // Make
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_535A3DCF00C9 // aProvider
+ )
+ ; // Parameters
+
+ENDME // ME_535A3DC8038C DoIt
+
+ME ME_535A3E010131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C727576036D // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A3E010131 
+
+ME ME_4C727576036D
+ MEPROP UID '4C727576036D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535A3DC8038C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_535A3E010131 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_4C727576036D Make
+
+FORWARD ME_4D66AE430241
+
+ME ME_4D66AE65005E
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4D66AE65005E aHandle
+
+ME ME_4D66B00501D4
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4D66B00501D4 aDoc
+
+ME ME_4D66AE5A0050
+ MEPROP UID '4D66AE5A0050'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66AE430241 // Create$FromDescrHandle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D66AE65005E // aHandle
+ ME_4D66B00501D4 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4D66AE5A0050 DoIt
+
+ME ME_4D66AFF9001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D66AE430241 // Create$FromDescrHandle
+ ;
+ MELINK Target WL? 'ME_4D66AE9800B7' // Tf1DocumentTagDataFromDTPHandle
+ ;
+
+ENDME // ME_4D66AFF9001A 
+
+ME ME_4D66AE430241
+ MEPROP UID '4D66AE430241'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$FromDescrHandle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D66AE5A0050 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D66AFF9001A // Tf1DocumentTagDataFromDTPHandle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4D66AE430241 Create$FromDescrHandle
+
+FORWARD ME_4D66AE6A01E2
+
+ME ME_535A3DE50148
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_535A3DE50148 aHandle
+
+ME ME_535A3DE5016B
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_535A3DE5016B aDoc
+
+ME ME_535A3DDB037B
+ MEPROP UID '535A3DDB037B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66AE6A01E2 // Make$FromDescrHandle
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_535A3DE50148 // aHandle
+ ME_535A3DE5016B // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_535A3DDB037B DoIt
+
+ME ME_535A3E0503E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D66AE6A01E2 // Make$FromDescrHandle
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_535A3E0503E0 
+
+ME ME_4D66AE6A01E2
+ MEPROP UID '4D66AE6A01E2'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$FromDescrHandle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_535A3DDB037B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_535A3E0503E0 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_4D66AE6A01E2 Make$FromDescrHandle
+
+ME ME_4D6D139701CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELINK Target WL 'ME_476C03270253' '469D0AC7005E.ms.model.script' // SubPlace
+ ;
+
+ENDME // ME_4D6D139701CB 
+
+ME ME_4D6D13A600F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C6A750F024E // TnsF1DocumentTagNode
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D6D13A600F8 
+
+MEREF ME_4C6D1D450332_ME_4C6A750F024E_over
+ MELINK Original WL 'ME_4C6D1D450332' '467FCCB101CF.ms.model.script' // DoGetSubAtom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6D1D450332_ME_4C6A750F024E_over DoGetSubAtom
+
+MEREF ME_4C72633902D0_ME_4C6A750F024E_G
+ MELINK Original WL? 'ME_4C72633902D0' // TnsDocumentTagNodeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C72633902D0_ME_4C6A750F024E_G TnsDocumentTagNodeBase
+
+%%InheritedBy ME_4C72633902D0 ME_4C6A750F024E
+
+ME ME_4C6A750F024E
+ MEPROP UID '4C6A750F024E'
+ MEPROP Name 'TnsF1DocumentTagNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C72633902D0_ME_4C6A750F024E_G // TnsDocumentTagNodeBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C7275540230 // Create
+ HWL ME_4C727576036D // Make
+ HWL ME_4D66AE430241 // Create$FromDescrHandle
+ HWL ME_4D66AE6A01E2 // Make$FromDescrHandle
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C6D1D450332_ME_4C6A750F024E_over // DoGetSubAtom
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D6D139701CB // SubPlace
+ ME_4D6D13A600F8 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '17.08.2010 15:40'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsF1DocumentTagNode.pas'
+ UP extprop:rc:SelfName 'F1DocumentTagNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsF1DocumentTagNode'
+
+ENDME // ME_4C6A750F024E TnsF1DocumentTagNode

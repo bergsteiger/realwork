@@ -1,0 +1,64 @@
+// TalcuMdpSyncStages 573D9F0A01BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_573D9F0A01BB
+
+ME ME_574D92A2002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ MELINK Target WL? 'ME_574D928F01C4' // alcuMdpSyncParamUtils
+ ;
+
+ENDME // ME_574D92A2002C 
+
+ME ME_574D92E3021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ MELINK Target WL? 'ME_574C0F390376' // TalcuMdpStagesSyncronizer
+ ;
+
+ENDME // ME_574D92E3021E 
+
+MEREF ME_573D91050026_ME_573D9F0A01BB_G
+ MELINK Original WL? 'ME_573D91050026' // TcsMdpSyncStages
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_573D91050026_ME_573D9F0A01BB_G TcsMdpSyncStages
+
+%%InheritedBy ME_573D91050026 ME_573D9F0A01BB
+
+ME ME_573D9F0A01BB
+ MEPROP UID '573D9F0A01BB'
+ MEPROP Name 'TalcuMdpSyncStages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_573D91050026_ME_573D9F0A01BB_G // TcsMdpSyncStages
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_574D92A2002C // alcuMdpSyncParamUtils
+ ME_574D92E3021E // TalcuMdpStagesSyncronizer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncStages.pas'
+ UP extprop:rc:SelfName 'alcuMdpSyncStages'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuMdpSyncStages'
+
+ENDME // ME_573D9F0A01BB TalcuMdpSyncStages

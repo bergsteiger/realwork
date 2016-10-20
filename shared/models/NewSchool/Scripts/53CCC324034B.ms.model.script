@@ -1,0 +1,312 @@
+// TalcuAsyncSubmitterManager 53CCC324034B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53CCC324034B
+
+ME ME_53CE59D60301
+ MEPROP UID '53CE59D60301'
+ MEPROP Name 'f_BaseEngineHolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_53CE59D60301 f_BaseEngineHolder
+
+ME ME_53D0AE49004F
+ MEPROP UID '53D0AE49004F'
+ MEPROP Name 'f_ExecutingList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_53D0AC2C0288' '53D0ABFF01D1.ms.model.script' // TalcuTaskExecutingList
+ ;
+
+ENDME // ME_53D0AE49004F f_ExecutingList
+
+FORWARD ME_53CCF63B0139
+
+ME ME_53CF4EF700DB
+ MEPROP Name 'aBaseEngineHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_53CF4EF700DB aBaseEngineHolder
+
+ME ME_53CCFD170192
+ MEPROP UID '53CCFD170192'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCF63B0139 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CF4EF700DB // aBaseEngineHolder
+ )
+ ; // Parameters
+
+ENDME // ME_53CCFD170192 DoIt
+
+ME ME_53CCF63B0139
+ MEPROP UID '53CCF63B0139'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CCFD170192 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CCF63B0139 Create
+
+MEREF ME_53CCF63B0139_ME_53CCF6A902D8_G
+ MELINK Original HWL ME_53CCF63B0139 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53CCF63B0139_ME_53CCF6A902D8_G Create
+
+MEREF ME_53CCB9880360_ME_53CCF6A902D8_R
+ MELINK Original WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53CCB9880360_ME_53CCF6A902D8_R IalcuAsyncSubmitterManager
+
+%%ImplementedBy ME_53CCB9880360 ME_53CCF6A902D8
+
+%%InheritedBy ME_53CCF63B0139 ME_53CCF6A902D8
+
+ME ME_53CCF6A902D8
+ MEPROP UID '53CCF6A902D8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_53CCF63B0139_ME_53CCF6A902D8_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53CCB9880360_ME_53CCF6A902D8_R // IalcuAsyncSubmitterManager
+ )
+ ; // Implements
+
+ENDME // ME_53CCF6A902D8 Make
+
+ME ME_53CD21C3003D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53CD21C3003D 
+
+ME ME_53CF9518031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_52FB98DE00E8' '52FB98CB008D.ms.model.script' // TCsNotificationType
+ ;
+
+ENDME // ME_53CF9518031E 
+
+ME ME_53D0BBEB002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_53D0BBEB002C 
+
+ME ME_53D0BBF001E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_53D0BBF001E8 
+
+ME ME_5406A86C037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_55228D9D03B2' '5437B276039C.ms.model.script' // UserIsService
+ ;
+
+ENDME // ME_5406A86C037B 
+
+ME ME_573441CE0049
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_573441CE0049 
+
+ME ME_573598B50212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_573598B50212 
+
+MEREF ME_53CCB9F20088_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53CCB9F20088' '53CCB94A02A5.ms.model.script' // ServerHostName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_53CCB9F20088_ME_53CCC324034B_impl ServerHostName
+
+MEREF ME_53CCBA0D01C7_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53CCBA0D01C7' '53CCB94A02A5.ms.model.script' // ServerPort
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_53CCBA0D01C7_ME_53CCC324034B_impl ServerPort
+
+MEREF ME_53CCBA3D0104_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53CCBA3D0104' '53CCB94A02A5.ms.model.script' // GetUserAccountByID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53CCBA3D0104_ME_53CCC324034B_impl GetUserAccountByID
+
+MEREF ME_53CCBA9702A7_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53CCBA9702A7' '53CCB94A02A5.ms.model.script' // IsUserLogined
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53CCBA9702A7_ME_53CCC324034B_impl IsUserLogined
+
+MEREF ME_53CF91EC007A_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53CF91EC007A' '53CCB94A02A5.ms.model.script' // SendAbortNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53CF91EC007A_ME_53CCC324034B_impl SendAbortNotification
+
+MEREF ME_53D0AB57028E_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53D0AB57028E' '53CCB94A02A5.ms.model.script' // EnterTaskExecution
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53D0AB57028E_ME_53CCC324034B_impl EnterTaskExecution
+
+MEREF ME_53D0AB7A03A7_ME_53CCC324034B_impl
+ MELINK Original WL 'ME_53D0AB7A03A7' '53CCB94A02A5.ms.model.script' // LeaveTaskExecution
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53D0AB7A03A7_ME_53CCC324034B_impl LeaveTaskExecution
+
+MEREF ME_479731C50290_ME_53CCC324034B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53CCC324034B_over Cleanup
+
+MEREF ME_49E7754802A9_ME_53CCC324034B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53CCC324034B_G Tl3ProtoObject
+
+MEREF ME_53CCB9880360_ME_53CCC324034B_R
+ MELINK Original WL 'ME_53CCB9880360' '53CCB94A02A5.ms.model.script' // IalcuAsyncSubmitterManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53CCB9880360_ME_53CCC324034B_R IalcuAsyncSubmitterManager
+
+%%ImplementedBy ME_53CCB9880360 ME_53CCC324034B
+
+%%InheritedBy ME_49E7754802A9 ME_53CCC324034B
+
+ME ME_53CCC324034B
+ MEPROP UID '53CCC324034B'
+ MEPROP Name 'TalcuAsyncSubmitterManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53CCC2F702C7' // Managers
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_53CCC324034B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53CCB9880360_ME_53CCC324034B_R // IalcuAsyncSubmitterManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53CE59D60301 // f_BaseEngineHolder
+ HWL ME_53D0AE49004F // f_ExecutingList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53CCF63B0139 // Create
+ HWL ME_53CCF6A902D8 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53CCB9F20088_ME_53CCC324034B_impl // ServerHostName
+ ME_53CCBA0D01C7_ME_53CCC324034B_impl // ServerPort
+ ME_53CCBA3D0104_ME_53CCC324034B_impl // GetUserAccountByID
+ ME_53CCBA9702A7_ME_53CCC324034B_impl // IsUserLogined
+ ME_53CF91EC007A_ME_53CCC324034B_impl // SendAbortNotification
+ ME_53D0AB57028E_ME_53CCC324034B_impl // EnterTaskExecution
+ ME_53D0AB7A03A7_ME_53CCC324034B_impl // LeaveTaskExecution
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53CCC324034B_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53CD21C3003D // FreeAndNil
+ ME_53CF9518031E // TCsNotificationType
+ ME_53D0BBEB002C // PLong
+ ME_53D0BBF001E8 // l3L2IA
+ ME_5406A86C037B // UserIsService
+ ME_573441CE0049 // IdaArchiUser
+ ME_573598B50212 // GlobalDataProvider
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas'
+ UP extprop:rc:SelfName 'alcuAsyncSubmitterManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuAsyncSubmitterManager'
+
+ENDME // ME_53CCC324034B TalcuAsyncSubmitterManager

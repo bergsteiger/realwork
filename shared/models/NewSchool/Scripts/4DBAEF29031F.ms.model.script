@@ -1,0 +1,70 @@
+// TtfwBeginLikeWord 4DBAEF29031F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAEF29031F
+
+ME ME_52DFF05800FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAEF29031F // TtfwBeginLikeWord
+ ;
+ MELINK Target WL? 'ME_52DFF03B0030' // TkwBeginLikeCompiledCode
+ ;
+
+ENDME // ME_52DFF05800FB 
+
+MEREF ME_4DB6CE2302C9_ME_4DBAEF29031F_over
+ MELINK Original WL 'ME_4DB6CE2302C9' '4DB6C8F30161.ms.model.script' // AfterCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6CE2302C9_ME_4DBAEF29031F_over AfterCompile
+
+MEREF ME_4DBAEE0D028D_ME_4DBAEF29031F_over
+ MELINK Original WL 'ME_4DBAEE0D028D' '4DB6C8F30161.ms.model.script' // CompiledWordClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DBAEE0D028D_ME_4DBAEF29031F_over CompiledWordClass
+
+MEREF ME_4DB9BB43017B_ME_4DBAEF29031F_G
+ MELINK Original WL? 'ME_4DB9BB43017B' // TtfwAnonimousWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB9BB43017B_ME_4DBAEF29031F_G TtfwAnonimousWord
+
+%%InheritedBy ME_4DB9BB43017B ME_4DBAEF29031F
+
+ME ME_4DBAEF29031F
+ MEPROP UID '4DBAEF29031F'
+ MEPROP Name 'TtfwBeginLikeWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка слов-скобок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB9BB43017B_ME_4DBAEF29031F_G // TtfwAnonimousWord
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB6CE2302C9_ME_4DBAEF29031F_over // AfterCompile
+ ME_4DBAEE0D028D_ME_4DBAEF29031F_over // CompiledWordClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52DFF05800FB // TkwBeginLikeCompiledCode
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '29.04.2011 21:02'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwBeginLikeWord.pas'
+ UP extprop:rc:SelfName 'BeginLikeWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwBeginLikeWord'
+
+ENDME // ME_4DBAEF29031F TtfwBeginLikeWord

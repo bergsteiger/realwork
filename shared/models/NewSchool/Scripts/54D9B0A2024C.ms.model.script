@@ -1,0 +1,79 @@
+// TddObjectSegment 54D9B0A2024C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54D9B0A2024C
+
+ME ME_54D9C46700D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D9B0A2024C // TddObjectSegment
+ ;
+ MELINK Target WL 'ME_51DD5C720260' '52CFA9D5031E.ms.model.script' // Common
+ ;
+
+ENDME // ME_54D9C46700D8 
+
+MEREF ME_54D888450259_ME_54D9B0A2024C_impl
+ MELINK Original WL 'ME_54D888450259' '5111FC5402AA.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54D888450259_ME_54D9B0A2024C_impl Write2Generator
+
+MEREF ME_54E4325C00BE_ME_54D9B0A2024C_impl
+ MELINK Original WL 'ME_54E4325C00BE' '5111FC5402AA.ms.model.script' // SkipSegment
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E4325C00BE_ME_54D9B0A2024C_impl SkipSegment
+
+MEREF ME_55E013DF03B9_ME_54D9B0A2024C_over
+ MELINK Original WL 'ME_55E013DF03B9' '5111FC5402AA.ms.model.script' // IsObjectSegment
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55E013DF03B9_ME_54D9B0A2024C_over IsObjectSegment
+
+MEREF ME_5111FC5402AA_ME_54D9B0A2024C_G
+ MELINK Original WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5111FC5402AA_ME_54D9B0A2024C_G TddTextSegment
+
+%%InheritedBy ME_5111FC5402AA ME_54D9B0A2024C
+
+ME ME_54D9B0A2024C
+ MEPROP UID '54D9B0A2024C'
+ MEPROP Name 'TddObjectSegment'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_5111FC5402AA_ME_54D9B0A2024C_G // TddTextSegment
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_54D888450259_ME_54D9B0A2024C_impl // Write2Generator
+ ME_54E4325C00BE_ME_54D9B0A2024C_impl // SkipSegment
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_55E013DF03B9_ME_54D9B0A2024C_over // IsObjectSegment
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54D9C46700D8 // Common
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddObjectSegment.pas'
+ UP extprop:rc:SelfName 'ddObjectSegment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddObjectSegment'
+
+ENDME // ME_54D9B0A2024C TddObjectSegment

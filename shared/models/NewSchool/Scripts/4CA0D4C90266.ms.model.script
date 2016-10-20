@@ -1,0 +1,181 @@
+// TGarClientSecurity 4CA0D4C90266 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0D4C90266
+
+ME ME_4CA0DD470280
+ MEPROP UID '4CA0DD470280'
+ MEPROP Name 'authorized_session'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CA0D4C90266 // TGarClientSecurity
+ ;
+ MELINK Target WL 'ME_4CA0DD3403CA' '4CA0DD21015F.ms.model.script' // TCoreSrv_SecuritySrv_Token
+ ;
+
+ENDME // ME_4CA0DD470280 authorized_session
+
+FORWARD ME_4CA0D4D6026F
+
+ME ME_4CA0D4EA004F
+ MEPROP Name 'info'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA0D21F022E' '4CA0D1FB01E0.ms.model.script' // IORBInitInfo
+ ;
+
+ENDME // ME_4CA0D4EA004F info
+
+ME ME_4CA0D4E301F5
+ MEPROP UID '4CA0D4E301F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D4D6026F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA0D4EA004F // info
+ )
+ ; // Parameters
+
+ENDME // ME_4CA0D4E301F5 DoIt
+
+ME ME_4CA0D4D6026F
+ MEPROP UID '4CA0D4D6026F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D4C90266 // TGarClientSecurity
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D4E301F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA0D4D6026F Create
+
+ME ME_4CA0D580004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0D4C90266 // TGarClientSecurity
+ ;
+ MELINK Target WL 'ME_4CA0D53B0284' '4CA0D52900F5.ms.model.script' // ServiceContext
+ ;
+
+ENDME // ME_4CA0D580004D 
+
+ME ME_4CA35896027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0D4C90266 // TGarClientSecurity
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4CA35896027E 
+
+MEREF ME_4CA0D39501A8_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D39501A8' '4CA0D16702D5.ms.model.script' // __destroy
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D39501A8_ME_4CA0D4C90266_impl __destroy
+
+MEREF ME_4CA0D3AD017C_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D3AD017C' '4CA0D16702D5.ms.model.script' // __get__name
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D3AD017C_ME_4CA0D4C90266_impl __get__name
+
+MEREF ME_4CA0D42302FC_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D42302FC' '4CA0D16702D5.ms.model.script' // send__request
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D42302FC_ME_4CA0D4C90266_impl send__request
+
+MEREF ME_4CA0D43401E5_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D43401E5' '4CA0D16702D5.ms.model.script' // send__poll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D43401E5_ME_4CA0D4C90266_impl send__poll
+
+MEREF ME_4CA0D44F0352_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D44F0352' '4CA0D16702D5.ms.model.script' // receive__reply
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D44F0352_ME_4CA0D4C90266_impl receive__reply
+
+MEREF ME_4CA0D46502E4_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D46502E4' '4CA0D16702D5.ms.model.script' // receive__exception
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D46502E4_ME_4CA0D4C90266_impl receive__exception
+
+MEREF ME_4CA0D47C037F_ME_4CA0D4C90266_impl
+ MELINK Original WL 'ME_4CA0D47C037F' '4CA0D16702D5.ms.model.script' // receive__other
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D47C037F_ME_4CA0D4C90266_impl receive__other
+
+MEREF ME_4CA0D3070257_ME_4CA0D4C90266_G
+ MELINK Original WL 'ME_4CA0D3070257' '4CA0D16702D5.ms.model.script' // TClientRequestInterceptor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CA0D3070257_ME_4CA0D4C90266_G TClientRequestInterceptor
+
+%%InheritedBy ME_4CA0D3070257 ME_4CA0D4C90266
+
+ME ME_4CA0D4C90266
+ MEPROP UID '4CA0D4C90266'
+ MEPROP Name 'TGarClientSecurity'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CA0D18B0351' // IniAndFini
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CA0D3070257_ME_4CA0D4C90266_G // TClientRequestInterceptor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CA0DD470280 // authorized_session
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D4D6026F // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CA0D39501A8_ME_4CA0D4C90266_impl // __destroy
+ ME_4CA0D3AD017C_ME_4CA0D4C90266_impl // __get__name
+ ME_4CA0D42302FC_ME_4CA0D4C90266_impl // send__request
+ ME_4CA0D43401E5_ME_4CA0D4C90266_impl // send__poll
+ ME_4CA0D44F0352_ME_4CA0D4C90266_impl // receive__reply
+ ME_4CA0D46502E4_ME_4CA0D4C90266_impl // receive__exception
+ ME_4CA0D47C037F_ME_4CA0D4C90266_impl // receive__other
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CA0D580004D // ServiceContext
+ ME_4CA35896027E // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\GarORB\GarClientSecurity.pas'
+ UP extprop:rc:SelfName 'GarClientSecurity'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'GarClientSecurity'
+
+ENDME // ME_4CA0D4C90266 TGarClientSecurity

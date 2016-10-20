@@ -1,0 +1,63 @@
+// TmsmListOpener 57CD5F5603E5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CD5F5603E5
+
+ME ME_57CD5FBC0236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
+ ;
+ MELINK Target WL 'ME_57B2B0C602DF' '57C99A680247.ms.model.script' // ActionElementEvent
+ ;
+
+ENDME // ME_57CD5FBC0236 
+
+ME ME_57CED53C0250
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
+ ;
+ MELINK Target WL? 'ME_57CED46B03BD' // TmsmOpenService
+ ;
+
+ENDME // ME_57CED53C0250 
+
+MEREF ME_57D25B3702FE_ME_57CD5F5603E5_G
+ MELINK Original WL? 'ME_57D25B3702FE' // TmsmListToListBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D25B3702FE_ME_57CD5F5603E5_G TmsmListToListBinding
+
+%%InheritedBy ME_57D25B3702FE ME_57CD5F5603E5
+
+ME ME_57CD5F5603E5
+ MEPROP UID '57CD5F5603E5'
+ MEPROP Name 'TmsmListOpener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D25B3702FE_ME_57CD5F5603E5_G // TmsmListToListBinding
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57CD5FBC0236 // ActionElementEvent
+ ME_57CED53C0250 // TmsmOpenService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOpener.pas'
+ UP extprop:rc:SelfName 'msmListOpener'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmListOpener'
+
+ENDME // ME_57CD5F5603E5 TmsmListOpener

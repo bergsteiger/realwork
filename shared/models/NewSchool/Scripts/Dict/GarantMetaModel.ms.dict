@@ -8,55 +8,23 @@ USES
  IsNil.ms.dict
 ;
 
-BOOLEAN elem_func IsScriptKeyword
- Self .IsStereotype st_ScriptKeyword 
- >>> Result
-; // IsScriptKeyword
+USES
+ msmMetaModel.ms.dict
+;
 
-BOOLEAN elem_func IsScriptKeywordsPack
- Self .IsStereotype st_ScriptKeywordsPack 
- >>> Result
-; // IsScriptKeywordsPack
-
-BOOLEAN elem_func IsUtilityPack
- Cached:
- (
-  RULES
-   ( Self .IsStereotype st_UtilityPack )
-    true
-   ( Self .IsScriptKeywordsPack ) 
-    true
-   DEFAULT
-    false
-  ; // RULES 
- ) 
- >>> Result
-; // IsUtilityPack
+USES
+ smallMetaModel.ms.dict
+;
 
 BOOLEAN elem_func IsAcceptableForScripts
  Self .UPisTrue 'extprop:rc:isAcceptableForScripts' 
  >>> Result
 ; // IsAcceptableForScripts
 
-BOOLEAN elem_func IsVCMFormDefinition
- Self .IsStereotype st_VCMFormDefinition
- >>> Result
-; // IsVCMFormDefinition
-
-BOOLEAN elem_func IsAtom
- Self .IsStereotype st_Atom
- >>> Result
-; // IsAtom
-
 BOOLEAN elem_func IsTag
  Self .IsStereotype st_Tag
  >>> Result
 ; // IsTag
-
-BOOLEAN elem_func IsMethod
- Self .IsStereotype st_method 
- >>> Result
-; // IsMethod
 
 BOOLEAN elem_func IsFacetMethod
  Self .IsStereotype st_facetmethod
@@ -92,11 +60,6 @@ BOOLEAN elem_func IsComponent
  Self .IsStereotype st_Component
  >>> Result
 ; // IsComponent
-
-BOOLEAN elem_func IsGuiControl
- Self .IsStereotype st_GuiControl
- >>> Result
-; //IsGuiControl
 
 BOOLEAN elem_func IsImplements
  Self .IsStereotype st_implements::Dependency 
@@ -168,16 +131,6 @@ BOOLEAN elem_func IsVCMModuleContract
  >>> Result
 ; // IsVCMModuleContract
 
-BOOLEAN elem_func IsServiceImplementation
- Self .IsStereotype st_ServiceImplementation
- >>> Result
-; // IsServiceImplementation
-
-BOOLEAN elem_func IsService
- Self .IsStereotype st_Service
- >>> Result
-; // IsService
-
 USES
  classRelations.ms.dict
 ;
@@ -229,20 +182,10 @@ BOOLEAN elem_func IsAfterAttribute
  >>> Result
 ; // IsAfterAttribute
 
-BOOLEAN elem_func IsUseCase
- Self .IsStereotype st_UseCase
- >>> Result
-; // IsUseCase
-
 BOOLEAN elem_func IsUseCaseSetting
  Self .IsStereotype st_UseCaseSetting
  >>> Result
 ; // IsUseCaseSetting
-
-BOOLEAN elem_func IsTestCase
- Self .IsStereotype st_TestCase 
- >>> Result
-; // IsTestCase
 
 BOOLEAN elem_func IsTestLibrary
  Self .IsStereotype st_TestLibrary
@@ -254,30 +197,10 @@ BOOLEAN elem_func IsTestUnit
  >>> Result
 ; // IsTestUnit
 
-BOOLEAN elem_func IsUnit
- Self .IsStereotype st_Unit
- >>> Result
-; // IsUnit
-
 BOOLEAN elem_func IsImpl
  Self .IsStereotype st_Impl
  >>> Result
 ; // IsImpl
-
-BOOLEAN elem_func IsLibrary
- Self .IsStereotype st_Library
- >>> Result
-; // IsLibrary
-
-BOOLEAN elem_func IsProject
- Self .IsStereotype st_Project
- >>> Result
-; // IsProject
-
-BOOLEAN elem_func IsProjectGroup
- Self .IsStereotype st_ProjectGroup
- >>> Result
-; // IsProjectGroup
 
 BOOLEAN elem_func IsVCMModule
  Self .IsStereotype st_VCMModule
@@ -294,16 +217,6 @@ BOOLEAN elem_func IsVCMDataModule
  >>> Result
 ; // IsVCMDataModule
 
-BOOLEAN elem_func IsVCMForm
- Self .IsStereotype st_VCMForm 
- >>> Result
-; // IsVCMForm
-
-BOOLEAN elem_func IsVCMContainer
- Self .IsStereotype st_VCMContainer
- >>> Result
-; // IsVCMContainer
-
 BOOLEAN elem_func IsVCMMainForm
  Self .IsStereotype st_VCMMainForm
  >>> Result
@@ -318,90 +231,6 @@ BOOLEAN elem_func IsViewAreaController
  Self .IsStereotype st_ViewAreaController 
  >>> Result
 ; // IsViewAreaController
-
-BOOLEAN elem_func IsUseCaseControllerImp
- Self .IsStereotype st_UseCaseControllerImp 
- >>> Result
-; // IsUseCaseControllerImp
-
-BOOLEAN elem_func IsViewAreaControllerImp
- Self .IsStereotype st_ViewAreaControllerImp 
- >>> Result
-; // IsViewAreaControllerImp
-
-BOOLEAN elem_func IsEvent
- Self .IsStereotype st_Event
- >>> Result
-; // IsEvent
-
-BOOLEAN elem_func IsMixIn
- Self .IsStereotype st_Impurity
- >>> Result
-; // IsMixIn
-
-BOOLEAN elem_func IsSimpleClass
- Cached:
- (
-  RULES
-   ( Self .IsEvent )
-    true
-   ( Self .IsUseCaseControllerImp )
-    ( Self .Abstraction at_abstract != )
-   ( Self .IsViewAreaControllerImp )
-    ( Self .Abstraction at_abstract != )
-   ( Self .IsStereotype st_SimpleClass ) 
-    true
-   ( Self .IsStereotype st_ObjStub ) 
-    true
-   ( Self .IsService ) 
-    true
-   ( Self .IsServiceImplementation ) 
-    true
-   ( Self .IsScriptKeyword ) 
-    true
-   ( Self .IsTestCase ) 
-    true
-   ( Self .IsGuiControl ) 
-    true
-   ( Self .IsVCMForm ) 
-    true
-   ( Self .IsStereotype st_VCMFinalForm ) 
-    true
-   ( Self .IsVCMContainer ) 
-    true
-   ( Self .IsStereotype st_VCMFinalContainer ) 
-    true
-   DEFAULT
-    false 
-  ; // RULES
- )  
- >>> Result
-; // IsSimpleClass
-
-BOOLEAN elem_func IsInternalInterfaces
- Self .IsStereotype st_InternalInterfaces
- >>> Result
-; // IsInternalInterfaces
-
-BOOLEAN elem_func IsInterfaces
- Cached:
- (
-  RULES
-   ( Self .IsStereotype st_Interfaces ) 
-    true
-   ( Self .IsInternalInterfaces )
-    true
-   DEFAULT
-    false
-  ; // RULES 
- )
- >>> Result
-; // IsInterfaces
-
-BOOLEAN elem_func IsTypedef
- Self .IsStereotype st_Typedef 
- >>> Result
-; // IsTypedef
 
 BOOLEAN elem_func IsPointer
  Self .UPisTrue "isPointer"
@@ -422,16 +251,6 @@ BOOLEAN elem_func IsRange
  Self .IsStereotype st_Range 
  >>> Result
 ; // IsRange
-
-BOOLEAN elem_func IsEnum
- Self .IsStereotype st_Enum 
- >>> Result
-; // IsEnum
-
-BOOLEAN elem_func IsFunction
- Self .IsStereotype st_Function 
- >>> Result
-; // IsFunction
 
 BOOLEAN elem_func IsDefine
  Self .IsStereotype st_Define 
@@ -492,11 +311,6 @@ BOOLEAN elem_func IsVCMTestTarget
  Self .IsStereotype st_VCMTestTarget 
  >>> Result
 ; // IsVCMTestTarget
-
-BOOLEAN elem_func IsExeTarget
- Self .IsStereotype st_ExeTarget 
- >>> Result
-; // IsExeTarget
 
 BOOLEAN elem_func IsExe
  RULES
@@ -591,11 +405,6 @@ BOOLEAN elem_func IsMessage
  >>> Result
 ; // IsMessage
 
-BOOLEAN elem_func IsLocalMethod
- Self .IsStereotype st_localmethod 
- >>> Result
-; // IsLocalMethod
-
 ModelElement elem_func KeywordOperation
  Self .SpelledFor
  >>> Result
@@ -641,37 +450,267 @@ BOOLEAN elem_func IsFacetIterator
  >>> Result
 ; // IsFacetIterator
 
-BOOLEAN elem_func IsMixInMirror
- Self .IsStereotype st_MixInMirror
+BOOLEAN elem_func IsIterator
+ Self .IsStereotype st_Iterator 
  >>> Result
-; // IsMixInMirror
+; // IsIterator
 
-BOOLEAN elem_func IsUses
+BOOLEAN elem_func IsMixInParamType
+ Self .IsStereotype st_ImpurityParamType 
+ >>> Result
+; // IsMixInParamType
+
+BOOLEAN elem_func IsControllerInterfaces
+ ( Self .IsStereotype st_ControllerInterfaces )
+ >>> Result
+; // IsControllerInterfaces
+
+BOOLEAN elem_func IsCreator
+ Self .IsStereotype st_creator::Operation 
+ >>> Result
+; // IsCreator
+
+BOOLEAN elem_func IsVarWorker
  RULES
-  ( Self .IsStereotype st_uses::Dependency )
+  ( Self .IsStereotype st_varworker::Operation )
    true
-  ( Self .IsStereotype st_consume::Dependency )
+  ( Self .IsStereotype st_globalvarworker::Operation )
    true
-  ( Self .IsStereotype st_ContextMenuWeight::Dependency )
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
+; // IsVarWorker
+
+BOOLEAN elem_func IsWordWorker
+ RULES
+  ( Self .IsStereotype st_wordworker::Operation )
+   true
+  ( Self .IsStereotype st_globalwordworker::Operation )
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
+; // IsWordWorker
+
+STRING elem_func NameForScript
+ Self .GetUP "NameForScript" ToPrintable
+ >>> Result
+; // NameForScript
+
+BOOLEAN elem_func IsStaticOp
+ Self .IsStereotype st_static::Operation
+ >>> Result
+; // IsStaticOp
+
+BOOLEAN elem_func IsStaticMethod
+ RULES
+  ( Self .IsModuleOperationPrim )
+   false
+  (
+   ( Self .IsMethod )
+   AND ( Self .GetUP "is static" false ?!= )
+   AND ( Self .Parent .IsVCMFormsPack )
+  )
+   true
+  ( Self .IsFormSetFactory )
+   true
+  ( Self .IsStaticOp )
+   true
+  ( Self .UPisTrue "is static" ) 
+   true
+  DEFAULT
+   false 
+ ; // RULES 
+ >>> Result
+; // IsStaticMethod
+
+BOOLEAN elem_func IsResultType
+ Self .IsStereotype st_result_type::Attribute
+ >>> Result
+; // IsResultType
+
+BOOLEAN elem_func IsElementType
+ Self .IsStereotype st_element_type::Attribute
+ >>> Result
+; // IsElementType
+
+BOOLEAN elem_func IsIndexType
+ Self .IsStereotype st_index_type::Attribute
+ >>> Result
+; // IsIndexType
+
+BOOLEAN elem_func IsServiceIterator
+ Self .IsStereotype st_serviceiterator 
+ >>> Result
+; // IsServiceIterator
+
+BOOLEAN elem_func IsContract
+ Self .IsStereotype st_Contract 
+ >>> Result
+; // IsContract
+
+BOOLEAN elem_func IsWriteonlyProperty
+ Self .IsStereotype st_writeonly::Attribute 
+ >>> Result
+; // IsWriteonlyProperty
+
+BOOLEAN elem_func IsInternalOperation
+ Self .IsStereotype st_InternalOperation::Operation 
+ >>> Result
+; // IsInternalOperation
+
+BOOLEAN elem_func IsFactoryMethod
+ Self .IsStereotype st_Factory
+ >>> Result
+; // IsFactoryMethod
+
+BOOLEAN elem_func IsFactory
+  RULES
+   ( Self .IsStereotype st_factory::Operation )
+    true
+   ( Self .IsFactoryMethod )
+    true
+   DEFAULT
+    false
+  ; //RULES   
+ >>> Result
+; // IsFactory
+
+BOOLEAN elem_func IsReadonlyProperty
+ Self .IsStereotype st_readonly::Attribute 
+ >>> Result
+; // IsReadonlyProperty
+
+BOOLEAN elem_func IsVCMController
+ RULES
+  ( Self .IsStereotype st_UseCase::Attribute )
+   true
+  ( Self .IsStereotype st_VCMController )
    true
   DEFAULT
    false
- ; // RULES   
+ ; // RULES
  >>> Result
-; // IsUses
+; // IsVCMController
 
-BOOLEAN elem_func IsInjects
- Self .IsStereotype st_injects::Dependency 
+BOOLEAN elem_func IsWrapper
+ Self .IsStereotype st_Wrapper
  >>> Result
-; // IsInjects
+; // IsWrapper
 
-BOOLEAN elem_func IsArray
- Self .IsStereotype st_Vector
+BOOLEAN elem_func IsArea
+ Self .IsStereotype st_Area
  >>> Result
-; // IsArray
+; // IsArea
 
-BOOLEAN elem_func IsOpenArray
- Self .IsArray
- AND ( Self .GetUP "array type" 'open' == )
+BOOLEAN elem_func IsAreaAttr
+ Self .IsStereotype st_area::Attribute
  >>> Result
-; // IsOpenArray
+; // IsAreaAttr
+
+BOOLEAN elem_func IsVCMArea
+ RULES
+  ( Self .IsArea )
+   true
+  ( Self .IsAreaAttr ) 
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // IsVCMArea
+
+BOOLEAN elem_func IsLocalVar
+ Self .IsStereotype st_var::Attribute 
+ >>> Result
+; // IsLocalVar
+
+BOOLEAN elem_func IsGlobalVar
+ Self .IsStereotype st_globalvar::Attribute
+ >>> Result
+; // IsGlobalVar
+
+BOOLEAN elem_func IsConstants
+ Self .IsStereotype st_Constants 
+ >>> Result
+; // IsConstants
+
+BOOLEAN elem_func IsSetConst
+ Self .IsStereotype st_SetConst 
+ >>> Result
+; // IsSetConst
+
+BOOLEAN elem_func IsConstantArray
+ Self .IsStereotype st_ConstantArray 
+ >>> Result
+; // IsConstantArray
+
+BOOLEAN elem_func IsLocalConst
+ Self .IsStereotype st_LocalConst 
+ >>> Result
+; // IsLocalConst
+
+BOOLEAN elem_func IsChoices
+ Self .IsStereotype st_Choices
+ >>> Result
+; // IsChoices
+
+BOOLEAN elem_func IsChoice
+ Self .IsStereotype st_Choice
+ >>> Result
+; // IsChoice
+
+BOOLEAN elem_func IsExcludeUserTypes
+ Self .IsStereotype st_ExcludeUserTypes
+ >>> Result
+; // IsExcludeUserTypes
+
+BOOLEAN elem_func IsIncludeUserTypes
+ Self .IsStereotype st_IncludeUserTypes
+ >>> Result
+; // IsIncludeUserTypes
+
+BOOLEAN elem_func IsConstructor
+  RULES
+   ( Self .IsStereotype st_ctor::Operation )
+    true
+   ( Self .IsStereotype st_Constructor )
+    true
+   DEFAULT
+    false
+  ; //RULES   
+ >>> Result
+; // IsConstructor
+
+BOOLEAN elem_func IsCustomChoice
+ Self .IsStereotype st_CustomChoice::Attribute
+ >>> Result
+; // IsCustomChoice
+
+BOOLEAN elem_func IsDefaultChoice
+ Self .IsStereotype st_DefaultChoice::Attribute
+ >>> Result
+; // IsDefaultChoice
+
+BOOLEAN elem_func IsFriend
+ Self .IsStereotype st_friend::Dependency 
+ >>> Result
+; // IsFriend
+
+BOOLEAN elem_func IsInline
+ Self .IsStereotype st_inline::Operation 
+ >>> Result
+; // IsInline
+
+BOOLEAN elem_func IsOperationOverride
+ Self .IsStereotype st_override::Operation
+ >>> Result
+; // IsOperationOverride
+
+BOOLEAN elem_func IsSettingsHolder
+ Self .IsStereotype st_SettingsHolder
+ >>> Result
+; // IsSettingsHolder
+

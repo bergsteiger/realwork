@@ -1,0 +1,46 @@
+// TOldNSRCFlagCnahge 4C3FEBB500B2 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3FEBB500B2
+
+MEREF ME_4C3FF0DB0072_ME_4C3FEBB500B2_impl
+ MELINK Original WL 'ME_4C3FF0DB0072' '4C3FEB280134.ms.model.script' // ApplyEditorTool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C3FF0DB0072_ME_4C3FEBB500B2_impl ApplyEditorTool
+
+MEREF ME_4C3FEB280134_ME_4C3FEBB500B2_G
+ MELINK Original WL? 'ME_4C3FEB280134' // TChangeAllTablesTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C3FEB280134_ME_4C3FEBB500B2_G TChangeAllTablesTest
+
+%%InheritedBy ME_4C3FEB280134 ME_4C3FEBB500B2
+
+ME ME_4C3FEBB500B2
+ MEPROP UID '4C3FEBB500B2'
+ MEPROP Name 'TOldNSRCFlagCnahge'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменить флаг "Выливать в псевдографику" во всех таблицах в документе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C3FEB280134_ME_4C3FEBB500B2_G // TChangeAllTablesTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C3FF0DB0072_ME_4C3FEBB500B2_impl // ApplyEditorTool
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas'
+ UP extprop:rc:SelfName 'OldNSRCFlagCnahge'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'OldNSRCFlagCnahge'
+
+ENDME // ME_4C3FEBB500B2 TOldNSRCFlagCnahge

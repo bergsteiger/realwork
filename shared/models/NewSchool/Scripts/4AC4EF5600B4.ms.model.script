@@ -31,6 +31,12 @@ ME ME_4BD5B59500D6
 
 ENDME // ME_4BD5B59500D6 chatContacts
 
+MEREF ME_4BD5B59500D6_ME_4BD5B5C8019F_G
+ MELINK Original HWL ME_4BD5B59500D6 // chatContacts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD5B59500D6_ME_4BD5B5C8019F_G chatContacts
+
 %%InheritedBy ME_4BD5B59500D6 ME_4BD5B5C8019F
 
 ME ME_4BD5B5C8019F
@@ -45,7 +51,7 @@ ME ME_4BD5B5C8019F
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4BD5B59500D6 // chatContacts
+   Seq: ( ME_4BD5B59500D6_ME_4BD5B5C8019F_G // chatContacts
  )
  ; // Inherits
  UP "ImageIndex" 196
@@ -57,7 +63,7 @@ ENDME // ME_4BD5B5C8019F chatAddContact
 
 FORWARD ME_4C2B24B800D0
 
-ME ME_4C2B245F01F2_ME_4C2B24B800D0
+MEREF ME_4C2B245F01F2_ME_4C2B24B800D0_impl
  MELINK Original WL 'ME_4C2B245F01F2' '4A8AE21B0210.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
@@ -70,9 +76,9 @@ ME ME_4C2B245F01F2_ME_4C2B24B800D0
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C2B245F01F2_ME_4C2B24B800D0 Add
+ENDMEREF // ME_4C2B245F01F2_ME_4C2B24B800D0_impl Add
 
-ME ME_4C84CC2E0253_ME_4C2B24B800D0
+MEREF ME_4C84CC2E0253_ME_4C2B24B800D0_impl
  MELINK Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.ms.model.script' // History
  ;
  MEPROP OpKind opkind_Implemented
@@ -85,7 +91,19 @@ ME ME_4C84CC2E0253_ME_4C2B24B800D0
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C84CC2E0253_ME_4C2B24B800D0 History
+ENDMEREF // ME_4C84CC2E0253_ME_4C2B24B800D0_impl History
+
+MEREF ME_4BD5B5C8019F_ME_4C2B24B800D0_G
+ MELINK Original HWL ME_4BD5B5C8019F // chatAddContact
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD5B5C8019F_ME_4C2B24B800D0_G chatAddContact
+
+MEREF ME_4C2B24490026_ME_4C2B24B800D0_R
+ MELINK Original WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C2B24490026_ME_4C2B24B800D0_R Chat$Contacts
 
 %%ImplementedBy ME_4C2B24490026 ME_4C2B24B800D0
 
@@ -102,16 +120,16 @@ ME ME_4C2B24B800D0
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4BD5B5C8019F // chatAddContact
+   Seq: ( ME_4BD5B5C8019F_ME_4C2B24B800D0_G // chatAddContact
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+   Seq: ( ME_4C2B24490026_ME_4C2B24B800D0_R // Chat$Contacts
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4C2B245F01F2_ME_4C2B24B800D0 // Add
- ME_4C84CC2E0253_ME_4C2B24B800D0 // History
+   Seq: ( ME_4C2B245F01F2_ME_4C2B24B800D0_impl // Add
+ ME_4C84CC2E0253_ME_4C2B24B800D0_impl // History
  )
  ; // Implemented
 
@@ -119,7 +137,7 @@ ENDME // ME_4C2B24B800D0 ExcludeAddAndHistoryForAddContact
 
 FORWARD ME_4C2B2EAC0190
 
-ME ME_4A8AD46D0226_ME_4C2B2EAC0190
+MEREF ME_4A8AD46D0226_ME_4C2B2EAC0190_impl
  MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
@@ -132,9 +150,9 @@ ME ME_4A8AD46D0226_ME_4C2B2EAC0190
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4A8AD46D0226_ME_4C2B2EAC0190 Cancel
+ENDMEREF // ME_4A8AD46D0226_ME_4C2B2EAC0190_impl Cancel
 
-ME ME_4A97EBE702F8_ME_4C2B2EAC0190
+MEREF ME_4A97EBE702F8_ME_4C2B2EAC0190_impl
  MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
@@ -147,9 +165,9 @@ ME ME_4A97EBE702F8_ME_4C2B2EAC0190
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4A97EBE702F8_ME_4C2B2EAC0190 Ok
+ENDMEREF // ME_4A97EBE702F8_ME_4C2B2EAC0190_impl Ok
 
-ME ME_4C762A1501FC_ME_4C2B2EAC0190
+MEREF ME_4C762A1501FC_ME_4C2B2EAC0190_impl
  MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
@@ -162,9 +180,9 @@ ME ME_4C762A1501FC_ME_4C2B2EAC0190
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C762A1501FC_ME_4C2B2EAC0190 Ok
+ENDMEREF // ME_4C762A1501FC_ME_4C2B2EAC0190_impl Ok
 
-ME ME_4C762AB601E1_ME_4C2B2EAC0190
+MEREF ME_4C762AB601E1_ME_4C2B2EAC0190_impl
  MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
@@ -177,7 +195,25 @@ ME ME_4C762AB601E1_ME_4C2B2EAC0190
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C762AB601E1_ME_4C2B2EAC0190 Cancel
+ENDMEREF // ME_4C762AB601E1_ME_4C2B2EAC0190_impl Cancel
+
+MEREF ME_4BD5B59500D6_ME_4C2B2EAC0190_G
+ MELINK Original HWL ME_4BD5B59500D6 // chatContacts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD5B59500D6_ME_4C2B2EAC0190_G chatContacts
+
+MEREF ME_4A8AD409003A_ME_4C2B2EAC0190_R
+ MELINK Original WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8AD409003A_ME_4C2B2EAC0190_R Result$Cancel
+
+MEREF ME_4A97EBC80201_ME_4C2B2EAC0190_R
+ MELINK Original WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A97EBC80201_ME_4C2B2EAC0190_R Result$Ok
 
 %%ImplementedBy ME_4A8AD409003A ME_4C2B2EAC0190
 %%ImplementedBy ME_4A97EBC80201 ME_4C2B2EAC0190
@@ -195,19 +231,19 @@ ME ME_4C2B2EAC0190
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4BD5B59500D6 // chatContacts
+   Seq: ( ME_4BD5B59500D6_ME_4C2B2EAC0190_G // chatContacts
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
- WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+   Seq: ( ME_4A8AD409003A_ME_4C2B2EAC0190_R // Result$Cancel
+ ME_4A97EBC80201_ME_4C2B2EAC0190_R // Result$Ok
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4A8AD46D0226_ME_4C2B2EAC0190 // Cancel
- ME_4A97EBE702F8_ME_4C2B2EAC0190 // Ok
- ME_4C762A1501FC_ME_4C2B2EAC0190 // Ok
- ME_4C762AB601E1_ME_4C2B2EAC0190 // Cancel
+   Seq: ( ME_4A8AD46D0226_ME_4C2B2EAC0190_impl // Cancel
+ ME_4A97EBE702F8_ME_4C2B2EAC0190_impl // Ok
+ ME_4C762A1501FC_ME_4C2B2EAC0190_impl // Ok
+ ME_4C762AB601E1_ME_4C2B2EAC0190_impl // Cancel
  )
  ; // Implemented
 
@@ -249,6 +285,12 @@ ME ME_4C2B34D50059
 
 ENDME // ME_4C2B34D50059 ActiveUsers
 
+MEREF ME_4A66BA3A0268_ME_4C2B33F40028_G
+ MELINK Original WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A66BA3A0268_ME_4C2B33F40028_G TContactListFilterTypes
+
 %%InheritedBy ME_4A66BA3A0268 ME_4C2B33F40028
 
 ME ME_4C2B33F40028
@@ -262,7 +304,7 @@ ME ME_4C2B33F40028
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+   Seq: ( ME_4A66BA3A0268_ME_4C2B33F40028_G // TContactListFilterTypes
  )
  ; // Inherits
  MELIST Attributes
@@ -335,6 +377,12 @@ ME ME_519A125E0377
 
 ENDME // ME_519A125E0377 CurrentFlagFilter
 
+MEREF ME_4683CEAD00CF_ME_519A11F80011_G
+ MELINK Original WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683CEAD00CF_ME_519A11F80011_G IvcmBase
+
 %%InheritedBy ME_4683CEAD00CF ME_519A11F80011
 
 ME ME_519A11F80011
@@ -349,7 +397,7 @@ ME ME_519A11F80011
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+   Seq: ( ME_4683CEAD00CF_ME_519A11F80011_G // IvcmBase
  )
  ; // Inherits
  MELIST Attributes
@@ -409,7 +457,7 @@ ENDME // ME_519A13A103E6 Do
 ME ME_519A138E01CC
  MEPROP UID '519A138E01CC'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -423,12 +471,18 @@ ME ME_519A138E01CC
 
 ENDME // ME_519A138E01CC Create
 
+MEREF ME_519A138E01CC_ME_519A13AE026D_G
+ MELINK Original HWL ME_519A138E01CC // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A138E01CC_ME_519A13AE026D_G Create
+
 %%InheritedBy ME_519A138E01CC ME_519A13AE026D
 
 ME ME_519A13AE026D
  MEPROP UID '519A13AE026D'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -436,18 +490,30 @@ ME ME_519A13AE026D
  MELINK Parent HWL ME_519A11C801A1 // TContactListFormState
  ;
  MELIST Inherits
-   Seq: ( HWL ME_519A138E01CC // Create
+   Seq: ( ME_519A138E01CC_ME_519A13AE026D_G // Create
  )
  ; // Inherits
 
 ENDME // ME_519A13AE026D Make
 
-ME ME_519A125E0377_ME_519A11C801A1
+MEREF ME_519A125E0377_ME_519A11C801A1_impl
  MELINK Original HWL ME_519A125E0377 // CurrentFlagFilter
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_519A125E0377_ME_519A11C801A1 CurrentFlagFilter
+ENDMEREF // ME_519A125E0377_ME_519A11C801A1_impl CurrentFlagFilter
+
+MEREF ME_519A130C00B6_ME_519A11C801A1_G
+ MELINK Original WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A130C00B6_ME_519A11C801A1_G TvcmCacheableBase
+
+MEREF ME_519A11F80011_ME_519A11C801A1_R
+ MELINK Original HWL ME_519A11F80011 // IContactListFormState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_519A11F80011_ME_519A11C801A1_R IContactListFormState
 
 %%ImplementedBy ME_519A11F80011 ME_519A11C801A1
 
@@ -464,11 +530,11 @@ ME ME_519A11C801A1
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+   Seq: ( ME_519A130C00B6_ME_519A11C801A1_G // TvcmCacheableBase
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_519A11F80011 // IContactListFormState
+   Seq: ( ME_519A11F80011_ME_519A11C801A1_R // IContactListFormState
  )
  ; // Implements
  MELIST Attributes
@@ -481,7 +547,7 @@ ME ME_519A11C801A1
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_519A125E0377_ME_519A11C801A1 // CurrentFlagFilter
+   Seq: ( ME_519A125E0377_ME_519A11C801A1_impl // CurrentFlagFilter
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -611,6 +677,18 @@ ME ME_BBE31F3E1E40
 
 ENDME // ME_BBE31F3E1E40 ActiveUsers
 
+MEREF ME_4B3B49B40262_ME_7AAC84FA6DB8_G
+ MELINK Original WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B3B49B40262_ME_7AAC84FA6DB8_G Pl3StringIDEx
+
+MEREF ME_4A66BA3A0268_ME_7AAC84FA6DB8_R
+ MELINK Original WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A66BA3A0268_ME_7AAC84FA6DB8_R TContactListFilterTypes
+
 %%ImplementedBy ME_4A66BA3A0268 ME_7AAC84FA6DB8
 
 %%InheritedBy ME_4B3B49B40262 ME_7AAC84FA6DB8
@@ -628,11 +706,11 @@ ME ME_7AAC84FA6DB8
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+   Seq: ( ME_4B3B49B40262_ME_7AAC84FA6DB8_G // Pl3StringIDEx
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A66BA3A0268' '4A66B9840002.ms.model.script' // TContactListFilterTypes
+   Seq: ( ME_4A66BA3A0268_ME_7AAC84FA6DB8_R // TContactListFilterTypes
  )
  ; // Implements
  MELIST Attributes
@@ -748,7 +826,7 @@ ENDME // ME_4C84D6E9011A ContextFilter
 
 FORWARD ME_4C2B270E010F
 
-ME ME_494F89C30197_ME_4C2B270E010F
+MEREF ME_494F89C30197_ME_4C2B270E010F_impl
  MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
@@ -761,9 +839,9 @@ ME ME_494F89C30197_ME_4C2B270E010F
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_494F89C30197_ME_4C2B270E010F Delete
+ENDMEREF // ME_494F89C30197_ME_4C2B270E010F_impl Delete
 
-ME ME_4C7D0CC90052_ME_4C2B270E010F
+MEREF ME_4C7D0CC90052_ME_4C2B270E010F_impl
  MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
  ;
  MEPROP OpKind opkind_Implemented
@@ -776,7 +854,13 @@ ME ME_4C7D0CC90052_ME_4C2B270E010F
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C7D0CC90052_ME_4C2B270E010F Delete
+ENDMEREF // ME_4C7D0CC90052_ME_4C2B270E010F_impl Delete
+
+MEREF ME_494F89AA0017_ME_4C2B270E010F_R
+ MELINK Original WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_494F89AA0017_ME_4C2B270E010F_R Edit
 
 %%ImplementedBy ME_494F89AA0017 ME_4C2B270E010F
 
@@ -791,12 +875,12 @@ ME ME_4C2B270E010F
  MELINK Parent HWL ME_5199D121037F // BackgroundPanel
  ;
  MELIST Implements
-   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+   Seq: ( ME_494F89AA0017_ME_4C2B270E010F_R // Edit
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_494F89C30197_ME_4C2B270E010F // Delete
- ME_4C7D0CC90052_ME_4C2B270E010F // Delete
+   Seq: ( ME_494F89C30197_ME_4C2B270E010F_impl // Delete
+ ME_4C7D0CC90052_ME_4C2B270E010F_impl // Delete
  )
  ; // Implemented
  UP "ControlClass" 'TeeTreeView'
@@ -875,7 +959,7 @@ ENDME // ME_4C2B2B3003A5 DoIt
 ME ME_4C2B2B220052
  MEPROP UID '4C2B2B220052'
  MEPROP Name 'AddingContact'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -892,7 +976,7 @@ ENDME // ME_4C2B2B220052 AddingContact
 ME ME_4C2B2FEE01AB
  MEPROP UID '4C2B2FEE01AB'
  MEPROP Name 'DoAddContact'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -902,12 +986,18 @@ ME ME_4C2B2FEE01AB
 
 ENDME // ME_4C2B2FEE01AB DoAddContact
 
+MEREF ME_47881B22005A_ME_5199D7B40201_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5199D7B40201_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_5199D7B40201
 
 ME ME_5199D7B40201
  MEPROP UID '5199D7B40201'
  MEPROP Name 'ContextFilterChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -915,18 +1005,24 @@ ME ME_5199D7B40201
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( ME_47881B22005A_ME_5199D7B40201_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5199D7B40201 ContextFilterChange
+
+MEREF ME_47881B22005A_ME_5199D7C7035C_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5199D7C7035C_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5199D7C7035C
 
 ME ME_5199D7C7035C
  MEPROP UID '5199D7C7035C'
  MEPROP Name 'ContextFilterWrongContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -934,18 +1030,24 @@ ME ME_5199D7C7035C
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( ME_47881B22005A_ME_5199D7C7035C_G // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_5199D7C7035C ContextFilterWrongContext
+
+MEREF ME_5199D8F700DB_ME_5199D9F30296_G
+ MELINK Original WL 'ME_5199D8F700DB' '494B949E022B.ms.model.script' // TeeMakeTreeSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5199D8F700DB_ME_5199D9F30296_G TeeMakeTreeSource
 
 %%InheritedBy ME_5199D8F700DB ME_5199D9F30296
 
 ME ME_5199D9F30296
  MEPROP UID '5199D9F30296'
  MEPROP Name 'trContactListMakeTreeSource'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -953,18 +1055,24 @@ ME ME_5199D9F30296
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.ms.model.script' // TeeMakeTreeSource
+   Seq: ( ME_5199D8F700DB_ME_5199D9F30296_G // TeeMakeTreeSource
  )
  ; // Inherits
 
 ENDME // ME_5199D9F30296 trContactListMakeTreeSource
+
+MEREF ME_47D63B6D0157_ME_5199DAAF00FD_G
+ MELINK Original WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D63B6D0157_ME_5199DAAF00FD_G Tl3GetItemImage
 
 %%InheritedBy ME_47D63B6D0157 ME_5199DAAF00FD
 
 ME ME_5199DAAF00FD
  MEPROP UID '5199DAAF00FD'
  MEPROP Name 'trContactListGetItemImage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -972,18 +1080,24 @@ ME ME_5199DAAF00FD
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+   Seq: ( ME_47D63B6D0157_ME_5199DAAF00FD_G // Tl3GetItemImage
  )
  ; // Inherits
 
 ENDME // ME_5199DAAF00FD trContactListGetItemImage
+
+MEREF ME_51432026033F_ME_5199DAFF0296_G
+ MELINK Original WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51432026033F_ME_5199DAFF0296_G TActionElement
 
 %%InheritedBy ME_51432026033F ME_5199DAFF0296
 
 ME ME_5199DAFF0296
  MEPROP UID '5199DAFF0296'
  MEPROP Name 'trContactListActionElement'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -991,18 +1105,24 @@ ME ME_5199DAFF0296
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+   Seq: ( ME_51432026033F_ME_5199DAFF0296_G // TActionElement
  )
  ; // Inherits
 
 ENDME // ME_5199DAFF0296 trContactListActionElement
+
+MEREF ME_5143245F0209_ME_5199DBBE021D_G
+ MELINK Original WL 'ME_5143245F0209' '499C0B7B012E.ms.model.script' // TeeFormatStatusInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5143245F0209_ME_5199DBBE021D_G TeeFormatStatusInfo
 
 %%InheritedBy ME_5143245F0209 ME_5199DBBE021D
 
 ME ME_5199DBBE021D
  MEPROP UID '5199DBBE021D'
  MEPROP Name 'trContactListFormatStatusInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1010,18 +1130,24 @@ ME ME_5199DBBE021D
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5143245F0209' '499C0B7B012E.ms.model.script' // TeeFormatStatusInfo
+   Seq: ( ME_5143245F0209_ME_5199DBBE021D_G // TeeFormatStatusInfo
  )
  ; // Inherits
 
 ENDME // ME_5199DBBE021D trContactListFormatStatusInfo
+
+MEREF ME_5143230F01E4_ME_5199DC120058_G
+ MELINK Original WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5143230F01E4_ME_5199DC120058_G TeeNewCharPressed
 
 %%InheritedBy ME_5143230F01E4 ME_5199DC120058
 
 ME ME_5199DC120058
  MEPROP UID '5199DC120058'
  MEPROP Name 'trContactListNewCharPressed'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1029,18 +1155,24 @@ ME ME_5199DC120058
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+   Seq: ( ME_5143230F01E4_ME_5199DC120058_G // TeeNewCharPressed
  )
  ; // Inherits
 
 ENDME // ME_5199DC120058 trContactListNewCharPressed
+
+MEREF ME_47881B22005A_ME_5199DC98012F_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_5199DC98012F_G TNotifyEvent
 
 %%InheritedBy ME_47881B22005A ME_5199DC98012F
 
 ME ME_5199DC98012F
  MEPROP UID '5199DC98012F'
  MEPROP Name 'trContactListFooterClick'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1048,7 +1180,7 @@ ME ME_5199DC98012F
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( ME_47881B22005A_ME_5199DC98012F_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -1131,7 +1263,7 @@ ME ME_4C84D6C20213
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AC4EF5600B4 // PrimContactList
  ;
- MELINK Target WL 'ME_4901E8E20154' '4ACF68160358.ms.model.script' // TnsUserFlagsFilter
+ MELINK Target WL? 'ME_4901E8E20154' // TnsUserFlagsFilter
  ;
 
 ENDME // ME_4C84D6C20213 
@@ -1250,13 +1382,13 @@ ME ME_97DB904DF9B4
 
 ENDME // ME_97DB904DF9B4 
 
-ME ME_4A728A4900FD_ME_4AC4EF5600B4
+MEREF ME_4A728A4900FD_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4A728A4900FD' '4A66DD3C01E8.ms.model.script' // NotifyContactListChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A728A4900FD_ME_4AC4EF5600B4 NotifyContactListChanged
+ENDMEREF // ME_4A728A4900FD_ME_4AC4EF5600B4_impl NotifyContactListChanged
 
-ME ME_4A8AD46D0226_ME_4AC4EF5600B4
+MEREF ME_4A8AD46D0226_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
@@ -1269,9 +1401,9 @@ ME ME_4A8AD46D0226_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4A8AD46D0226_ME_4AC4EF5600B4 Cancel
+ENDMEREF // ME_4A8AD46D0226_ME_4AC4EF5600B4_impl Cancel
 
-ME ME_4A97EBE702F8_ME_4AC4EF5600B4
+MEREF ME_4A97EBE702F8_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
@@ -1284,9 +1416,9 @@ ME ME_4A97EBE702F8_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4A97EBE702F8_ME_4AC4EF5600B4 Ok
+ENDMEREF // ME_4A97EBE702F8_ME_4AC4EF5600B4_impl Ok
 
-ME ME_4C2B245F01F2_ME_4AC4EF5600B4
+MEREF ME_4C2B245F01F2_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C2B245F01F2' '4A8AE21B0210.ms.model.script' // Add
  ;
  MEPROP OpKind opkind_Implemented
@@ -1299,9 +1431,9 @@ ME ME_4C2B245F01F2_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C2B245F01F2_ME_4AC4EF5600B4 Add
+ENDMEREF // ME_4C2B245F01F2_ME_4AC4EF5600B4_impl Add
 
-ME ME_4C762A1501FC_ME_4AC4EF5600B4
+MEREF ME_4C762A1501FC_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
  ;
  MEPROP OpKind opkind_Implemented
@@ -1314,9 +1446,9 @@ ME ME_4C762A1501FC_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C762A1501FC_ME_4AC4EF5600B4 Ok
+ENDMEREF // ME_4C762A1501FC_ME_4AC4EF5600B4_impl Ok
 
-ME ME_4C762AB601E1_ME_4AC4EF5600B4
+MEREF ME_4C762AB601E1_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
  ;
  MEPROP OpKind opkind_Implemented
@@ -1329,9 +1461,9 @@ ME ME_4C762AB601E1_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C762AB601E1_ME_4AC4EF5600B4 Cancel
+ENDMEREF // ME_4C762AB601E1_ME_4AC4EF5600B4_impl Cancel
 
-ME ME_4C84CC2E0253_ME_4AC4EF5600B4
+MEREF ME_4C84CC2E0253_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C84CC2E0253' '4A8AE21B0210.ms.model.script' // History
  ;
  MEPROP OpKind opkind_Implemented
@@ -1344,9 +1476,9 @@ ME ME_4C84CC2E0253_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C84CC2E0253_ME_4AC4EF5600B4 History
+ENDMEREF // ME_4C84CC2E0253_ME_4AC4EF5600B4_impl History
 
-ME ME_4C84D2AD01D0_ME_4AC4EF5600B4
+MEREF ME_4C84D2AD01D0_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C84D2AD01D0' '4A8AE21B0210.ms.model.script' // UserFilter
  ;
  MEPROP OpKind opkind_Implemented
@@ -1359,9 +1491,9 @@ ME ME_4C84D2AD01D0_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C84D2AD01D0_ME_4AC4EF5600B4 UserFilter
+ENDMEREF // ME_4C84D2AD01D0_ME_4AC4EF5600B4_impl UserFilter
 
-ME ME_4C84D2C001D5_ME_4AC4EF5600B4
+MEREF ME_4C84D2C001D5_ME_4AC4EF5600B4_impl
  MELINK Original WL 'ME_4C84D2C001D5' '4A8AE21B0210.ms.model.script' // OpenChatWindow
  ;
  MEPROP OpKind opkind_Implemented
@@ -1374,43 +1506,73 @@ ME ME_4C84D2C001D5_ME_4AC4EF5600B4
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C84D2C001D5_ME_4AC4EF5600B4 OpenChatWindow
+ENDMEREF // ME_4C84D2C001D5_ME_4AC4EF5600B4_impl OpenChatWindow
 
-ME ME_479731C50290_ME_4AC4EF5600B4
+MEREF ME_479731C50290_ME_4AC4EF5600B4_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AC4EF5600B4 Cleanup
+ENDMEREF // ME_479731C50290_ME_4AC4EF5600B4_over Cleanup
 
-ME ME_49806ED503D5_ME_4AC4EF5600B4
- MELINK Original WL 'ME_49806ED503D5' '4AADF9450143.ms.model.script' // DoSaveState
+MEREF ME_49806ED503D5_ME_4AC4EF5600B4_over
+ MELINK Original WL 'ME_49806ED503D5' '49525B34022A.ms.model.script' // DoSaveState
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49806ED503D5_ME_4AC4EF5600B4 DoSaveState
+ENDMEREF // ME_49806ED503D5_ME_4AC4EF5600B4_over DoSaveState
 
-ME ME_49807428008C_ME_4AC4EF5600B4
- MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+MEREF ME_49807428008C_ME_4AC4EF5600B4_over
+ MELINK Original WL 'ME_49807428008C' '49525B34022A.ms.model.script' // DoLoadState
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49807428008C_ME_4AC4EF5600B4 DoLoadState
+ENDMEREF // ME_49807428008C_ME_4AC4EF5600B4_over DoLoadState
 
-ME ME_4A8E8F2E0195_ME_4AC4EF5600B4
+MEREF ME_4A8E8F2E0195_ME_4AC4EF5600B4_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4AC4EF5600B4 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4AC4EF5600B4_over InitControls
 
-ME ME_4D78E2BB0211_ME_4AC4EF5600B4
- MELINK Original WL 'ME_4D78E2BB0211' '4AADF9450143.ms.model.script' // NotifyUserTypeSet
+MEREF ME_4D78E2BB0211_ME_4AC4EF5600B4_over
+ MELINK Original WL 'ME_4D78E2BB0211' '49525B34022A.ms.model.script' // NotifyUserTypeSet
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4D78E2BB0211_ME_4AC4EF5600B4 NotifyUserTypeSet
+ENDMEREF // ME_4D78E2BB0211_ME_4AC4EF5600B4_over NotifyUserTypeSet
 
-ME ME_4F7C65380244_ME_4AC4EF5600B4
+MEREF ME_4F7C65380244_ME_4AC4EF5600B4_over
  MELINK Original WL 'ME_4F7C65380244' '4F22CB1E0009.ms.model.script' // FormInsertedIntoContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
+ENDMEREF // ME_4F7C65380244_ME_4AC4EF5600B4_over FormInsertedIntoContainer
+
+MEREF ME_49525B34022A_ME_4AC4EF5600B4_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AC4EF5600B4_G TvcmEntityForm
+
+MEREF ME_4A728A3C01FC_ME_4AC4EF5600B4_R
+ MELINK Original WL 'ME_4A728A3C01FC' '4A66DD3C01E8.ms.model.script' // IbsContactList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A728A3C01FC_ME_4AC4EF5600B4_R IbsContactList
+
+MEREF ME_4A8AD409003A_ME_4AC4EF5600B4_R
+ MELINK Original WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8AD409003A_ME_4AC4EF5600B4_R Result$Cancel
+
+MEREF ME_4A97EBC80201_ME_4AC4EF5600B4_R
+ MELINK Original WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A97EBC80201_ME_4AC4EF5600B4_R Result$Ok
+
+MEREF ME_4C2B24490026_ME_4AC4EF5600B4_R
+ MELINK Original WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C2B24490026_ME_4AC4EF5600B4_R Chat$Contacts
 
 %%ImplementedBy ME_4A728A3C01FC ME_4AC4EF5600B4
 %%ImplementedBy ME_4A8AD409003A ME_4AC4EF5600B4
@@ -1432,14 +1594,14 @@ ME ME_4AC4EF5600B4
  MELINK Parent WL? 'ME_4A66D6BF0190' // Chat
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_4AC4EF5600B4_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A728A3C01FC' '4A66DD3C01E8.ms.model.script' // IbsContactList
- WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
- WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
- WL 'ME_4C2B24490026' '4A8AE21B0210.ms.model.script' // Chat$Contacts
+   Seq: ( ME_4A728A3C01FC_ME_4AC4EF5600B4_R // IbsContactList
+ ME_4A8AD409003A_ME_4AC4EF5600B4_R // Result$Cancel
+ ME_4A97EBC80201_ME_4AC4EF5600B4_R // Result$Ok
+ ME_4C2B24490026_ME_4AC4EF5600B4_R // Chat$Contacts
  )
  ; // Implements
  MELIST Attributes
@@ -1463,24 +1625,24 @@ ME ME_4AC4EF5600B4
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4A728A4900FD_ME_4AC4EF5600B4 // NotifyContactListChanged
- ME_4A8AD46D0226_ME_4AC4EF5600B4 // Cancel
- ME_4A97EBE702F8_ME_4AC4EF5600B4 // Ok
- ME_4C2B245F01F2_ME_4AC4EF5600B4 // Add
- ME_4C762A1501FC_ME_4AC4EF5600B4 // Ok
- ME_4C762AB601E1_ME_4AC4EF5600B4 // Cancel
- ME_4C84CC2E0253_ME_4AC4EF5600B4 // History
- ME_4C84D2AD01D0_ME_4AC4EF5600B4 // UserFilter
- ME_4C84D2C001D5_ME_4AC4EF5600B4 // OpenChatWindow
+   Seq: ( ME_4A728A4900FD_ME_4AC4EF5600B4_impl // NotifyContactListChanged
+ ME_4A8AD46D0226_ME_4AC4EF5600B4_impl // Cancel
+ ME_4A97EBE702F8_ME_4AC4EF5600B4_impl // Ok
+ ME_4C2B245F01F2_ME_4AC4EF5600B4_impl // Add
+ ME_4C762A1501FC_ME_4AC4EF5600B4_impl // Ok
+ ME_4C762AB601E1_ME_4AC4EF5600B4_impl // Cancel
+ ME_4C84CC2E0253_ME_4AC4EF5600B4_impl // History
+ ME_4C84D2AD01D0_ME_4AC4EF5600B4_impl // UserFilter
+ ME_4C84D2C001D5_ME_4AC4EF5600B4_impl // OpenChatWindow
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AC4EF5600B4 // Cleanup
- ME_49806ED503D5_ME_4AC4EF5600B4 // DoSaveState
- ME_49807428008C_ME_4AC4EF5600B4 // DoLoadState
- ME_4A8E8F2E0195_ME_4AC4EF5600B4 // InitControls
- ME_4D78E2BB0211_ME_4AC4EF5600B4 // NotifyUserTypeSet
- ME_4F7C65380244_ME_4AC4EF5600B4 // FormInsertedIntoContainer
+   Seq: ( ME_479731C50290_ME_4AC4EF5600B4_over // Cleanup
+ ME_49806ED503D5_ME_4AC4EF5600B4_over // DoSaveState
+ ME_49807428008C_ME_4AC4EF5600B4_over // DoLoadState
+ ME_4A8E8F2E0195_ME_4AC4EF5600B4_over // InitControls
+ ME_4D78E2BB0211_ME_4AC4EF5600B4_over // NotifyUserTypeSet
+ ME_4F7C65380244_ME_4AC4EF5600B4_over // FormInsertedIntoContainer
  )
  ; // Overridden
  MELIST Children

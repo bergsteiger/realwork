@@ -1,0 +1,246 @@
+// TdeDocumentListCR 493D4D1A0388 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D4D1A0388
+
+ME ME_4B1F7B87036C
+ MEPROP UID '4B1F7B87036C'
+ MEPROP Name 'fType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_493D4D1A0388 // TdeDocumentListCR
+ ;
+ MELINK Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.ms.model.script' // TlstCRType
+ ;
+
+ENDME // ME_4B1F7B87036C fType
+
+ME ME_4B1F7B8F03C6
+ MEPROP UID '4B1F7B8F03C6'
+ MEPROP Name 'fCategory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_493D4D1A0388 // TdeDocumentListCR
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B1F7B8F03C6 fCategory
+
+FORWARD ME_4B1F7BB10212
+
+ME ME_4B1F7BC8004A
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4B1F7BC8004A aList
+
+ME ME_4B1F7BC80074
+ MEPROP Name 'aCategory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B1F7BC80074 aCategory
+
+ME ME_4B1F7BC8009F
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.ms.model.script' // TlstCRType
+ ;
+
+ENDME // ME_4B1F7BC8009F aType
+
+ME ME_4B1F7BB803D8
+ MEPROP UID '4B1F7BB803D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F7BB10212 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1F7BC8004A // aList
+ ME_4B1F7BC80074 // aCategory
+ ME_4B1F7BC8009F // aType
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F7BB803D8 DoIt
+
+ME ME_4B1F7BB10212
+ MEPROP UID '4B1F7BB10212'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_493D4D1A0388 // TdeDocumentListCR
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7BB803D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F7BB10212 Create
+
+FORWARD ME_4B1F7BCC00A2
+
+ME ME_4B1F7BDD00FD
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4B1F7BDD00FD aList
+
+ME ME_4B1F7BDD012C
+ MEPROP Name 'aCategory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B1F7BDD012C aCategory
+
+ME ME_4B1F7BDD0157
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F1CDD203D9' '47EA07FA02CE.ms.model.script' // TlstCRType
+ ;
+
+ENDME // ME_4B1F7BDD0157 aType
+
+ME ME_4B1F7BD70207
+ MEPROP UID '4B1F7BD70207'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1F7BCC00A2 // Make
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1F7BDD00FD // aList
+ ME_4B1F7BDD012C // aCategory
+ ME_4B1F7BDD0157 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_4B1F7BD70207 DoIt
+
+ME ME_4B1F7BCC00A2
+ MEPROP UID '4B1F7BCC00A2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_493D4D1A0388 // TdeDocumentListCR
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7BD70207 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1F7BCC00A2 Make
+
+MEREF ME_4B1D1100018E_ME_493D4D1A0388_impl
+ MELINK Original WL 'ME_4B1D1100018E' '4B1D394B00E5.ms.model.script' // ListType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4B1D1100018E_ME_493D4D1A0388_impl ListType
+
+MEREF ME_4B1D1135025F_ME_493D4D1A0388_impl
+ MELINK Original WL 'ME_4B1D1135025F' '4B1D394B00E5.ms.model.script' // Category
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4B1D1135025F_ME_493D4D1A0388_impl Category
+
+MEREF ME_4B1F7AE80158_ME_493D4D1A0388_over
+ MELINK Original WL 'ME_4B1F7AE80158' '492FF76202CA.ms.model.script' // AssignClonned
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1F7AE80158_ME_493D4D1A0388_over AssignClonned
+
+MEREF ME_492FF76202CA_ME_493D4D1A0388_G
+ MELINK Original WL? 'ME_492FF76202CA' // TdeDocumentList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492FF76202CA_ME_493D4D1A0388_G TdeDocumentList
+
+MEREF ME_492D74C60183_ME_493D4D1A0388_R
+ MELINK Original WL 'ME_492D74C60183' '4B1D394B00E5.ms.model.script' // IdeDocumentListCR
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492D74C60183_ME_493D4D1A0388_R IdeDocumentListCR
+
+%%ImplementedBy ME_492D74C60183 ME_493D4D1A0388
+
+%%InheritedBy ME_492FF76202CA ME_493D4D1A0388
+
+ME ME_493D4D1A0388
+ MEPROP UID '493D4D1A0388'
+ MEPROP Name 'TdeDocumentListCR'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_492FF76202CA_ME_493D4D1A0388_G // TdeDocumentList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_492D74C60183_ME_493D4D1A0388_R // IdeDocumentListCR
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B1F7B87036C // fType
+ HWL ME_4B1F7B8F03C6 // fCategory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1F7BB10212 // Create
+ HWL ME_4B1F7BCC00A2 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1D1100018E_ME_493D4D1A0388_impl // ListType
+ ME_4B1D1135025F_ME_493D4D1A0388_impl // Category
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B1F7AE80158_ME_493D4D1A0388_over // AssignClonned
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '09.12.2009 14:04'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\deDocumentListCR.pas'
+ UP extprop:rc:SelfName 'deDocumentListCR'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'deDocumentListCR'
+
+ENDME // ME_493D4D1A0388 TdeDocumentListCR

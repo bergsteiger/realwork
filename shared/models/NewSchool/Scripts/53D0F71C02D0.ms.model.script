@@ -1,0 +1,56 @@
+// TevFormulaCursor 53D0F71C02D0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D0F71C02D0
+
+ME ME_53D0F7390059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0F71C02D0 // TevFormulaCursor
+ ;
+ MELINK Target WL? 'ME_4857934201E3' // TevFormula
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D0F7390059 
+
+MEREF ME_49DF7D98029A_ME_53D0F71C02D0_G
+ MELINK Original WL? 'ME_49DF7D98029A' // TevTextParaCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DF7D98029A_ME_53D0F71C02D0_G TevTextParaCursor
+
+%%InjectedBy ME_4857934201E3 ME_53D0F71C02D0
+
+%%InheritedBy ME_49DF7D98029A ME_53D0F71C02D0
+
+ME ME_53D0F71C02D0
+ MEPROP UID '53D0F71C02D0'
+ MEPROP Name 'TevFormulaCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DF7D98029A_ME_53D0F71C02D0_G // TevTextParaCursor
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0F7390059 // TevFormula
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evFormulaCursor.pas'
+ UP extprop:rc:SelfName 'FormulaCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evFormulaCursor'
+
+ENDME // ME_53D0F71C02D0 TevFormulaCursor

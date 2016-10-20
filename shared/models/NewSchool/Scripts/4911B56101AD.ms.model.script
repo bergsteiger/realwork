@@ -1,0 +1,349 @@
+// TnsDeferredTree 4911B56101AD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4911B56101AD
+
+FORWARD ME_4911B56101AD
+
+FORWARD ME_4911B6CC0061
+
+ME ME_4911B6F20018
+ MEPROP UID '4911B6F20018'
+ MEPROP Name 'f_Tree'
+ MEPROP Class class_Attribute
+ %SUMMARY 'InsDeferredTree' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4911B6F20018 f_Tree
+
+ME ME_4911B70903E2
+ MEPROP UID '4911B70903E2'
+ MEPROP Name 'f_Root'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4911B70903E2 f_Root
+
+ME ME_4911B71302B4
+ MEPROP UID '4911B71302B4'
+ MEPROP Name 'AssignRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+
+ENDME // ME_4911B71302B4 AssignRoot
+
+ME ME_4911B7220027
+ MEPROP UID '4911B7220027'
+ MEPROP Name 'Tree'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ MELINK Target WL 'ME_4911B284005F' '4990135D02F1.ms.model.script' // InsDeferredTree
+ ;
+
+ENDME // ME_4911B7220027 Tree
+
+ME ME_4911B77401FC
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4911B284005F' '4990135D02F1.ms.model.script' // InsDeferredTree
+ ;
+
+ENDME // ME_4911B77401FC aTree
+
+ME ME_4911B76C0033
+ MEPROP UID '4911B76C0033'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_4911B77401FC // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_4911B76C0033 Create
+
+MEREF ME_4911B69E037D_ME_4911B6CC0061_impl
+ MELINK Original WL 'ME_4911B69E037D' '4773D64E036C.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4911B69E037D_ME_4911B6CC0061_impl DoExecute
+
+MEREF ME_479731C50290_ME_4911B6CC0061_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4911B6CC0061_over Cleanup
+
+MEREF ME_4911B24C01F6_ME_4911B6CC0061_G
+ MELINK Original WL 'ME_4911B24C01F6' '4773D64E036C.ms.model.script' // Tl3ThreadContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4911B24C01F6_ME_4911B6CC0061_G Tl3ThreadContainer
+
+%%InheritedBy ME_4911B24C01F6 ME_4911B6CC0061
+
+ME ME_4911B6CC0061
+ MEPROP UID '4911B6CC0061'
+ MEPROP Name 'TnsDeferredTreeWaitThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_4911B24C01F6_ME_4911B6CC0061_G // Tl3ThreadContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4911B6F20018 // f_Tree
+ HWL ME_4911B70903E2 // f_Root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4911B71302B4 // AssignRoot
+ HWL ME_4911B7220027 // Tree
+ HWL ME_4911B76C0033 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4911B69E037D_ME_4911B6CC0061_impl // DoExecute
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4911B6CC0061_over // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'DeferredTreeWaitThread'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4911B6CC0061 TnsDeferredTreeWaitThread
+
+ME ME_4911B794015A
+ MEPROP UID '4911B794015A'
+ MEPROP Name 'f_isReady'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4911B794015A f_isReady
+
+ME ME_4911B7A500D3
+ MEPROP UID '4911B7A500D3'
+ MEPROP Name 'f_BuilderThread'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELINK Target HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+
+ENDME // ME_4911B7A500D3 f_BuilderThread
+
+ME ME_4911B7C70062
+ MEPROP UID '4911B7C70062'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELINK Target WL 'ME_4911B284005F' '4990135D02F1.ms.model.script' // InsDeferredTree
+ ;
+
+ENDME // ME_4911B7C70062 Make
+
+ME ME_4911BAA50390
+ MEPROP UID '4911BAA50390'
+ MEPROP Name 'DoMakeRealRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4911BAA50390 DoMakeRealRoot
+
+ME ME_4911BD1202B8
+ MEPROP UID '4911BD1202B8'
+ MEPROP Name 'MakeFakeRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4911BD1202B8 MakeFakeRoot
+
+ME ME_4911C5FB00BC
+ MEPROP Name 'aNewRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4911C5FB00BC aNewRoot
+
+ME ME_4911C5EC0155
+ MEPROP UID '4911C5EC0155'
+ MEPROP Name 'DoSetBuildedRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4911B56101AD // TnsDeferredTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4911C5FB00BC // aNewRoot
+ )
+ ; // Parameters
+
+ENDME // ME_4911C5EC0155 DoSetBuildedRoot
+
+MEREF ME_4911B2900238_ME_4911B56101AD_impl
+ MELINK Original WL 'ME_4911B2900238' '4990135D02F1.ms.model.script' // MakeRealRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4911B2900238_ME_4911B56101AD_impl MakeRealRoot
+
+MEREF ME_4911B29F0366_ME_4911B56101AD_impl
+ MELINK Original WL 'ME_4911B29F0366' '4990135D02F1.ms.model.script' // SetBuildedRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4911B29F0366_ME_4911B56101AD_impl SetBuildedRoot
+
+MEREF ME_4911B2AA014F_ME_4911B56101AD_impl
+ MELINK Original WL 'ME_4911B2AA014F' '4990135D02F1.ms.model.script' // WaitForReady
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4911B2AA014F_ME_4911B56101AD_impl WaitForReady
+
+MEREF ME_4911B2B500D6_ME_4911B56101AD_impl
+ MELINK Original WL 'ME_4911B2B500D6' '4990135D02F1.ms.model.script' // IsReady
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4911B2B500D6_ME_4911B56101AD_impl IsReady
+
+MEREF ME_479731C50290_ME_4911B56101AD_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4911B56101AD_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4911B56101AD_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4911B56101AD_over InitFields
+
+MEREF ME_4804BDA10127_ME_4911B56101AD_G
+ MELINK Original WL? 'ME_4804BDA10127' // Tl3Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4804BDA10127_ME_4911B56101AD_G Tl3Tree
+
+MEREF ME_4911B284005F_ME_4911B56101AD_R
+ MELINK Original WL 'ME_4911B284005F' '4990135D02F1.ms.model.script' // InsDeferredTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4911B284005F_ME_4911B56101AD_R InsDeferredTree
+
+%%ImplementedBy ME_4911B284005F ME_4911B56101AD
+
+%%InheritedBy ME_4804BDA10127 ME_4911B56101AD
+
+ME ME_4911B56101AD
+ MEPROP UID '4911B56101AD'
+ MEPROP Name 'TnsDeferredTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4921954E019B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( ME_4804BDA10127_ME_4911B56101AD_G // Tl3Tree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4911B284005F_ME_4911B56101AD_R // InsDeferredTree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4911B794015A // f_isReady
+ HWL ME_4911B7A500D3 // f_BuilderThread
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4911B7C70062 // Make
+ HWL ME_4911BAA50390 // DoMakeRealRoot
+ HWL ME_4911BD1202B8 // MakeFakeRoot
+ HWL ME_4911C5EC0155 // DoSetBuildedRoot
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4911B2900238_ME_4911B56101AD_impl // MakeRealRoot
+ ME_4911B29F0366_ME_4911B56101AD_impl // SetBuildedRoot
+ ME_4911B2AA014F_ME_4911B56101AD_impl // WaitForReady
+ ME_4911B2B500D6_ME_4911B56101AD_impl // IsReady
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4911B56101AD_over // Cleanup
+ ME_47A042E100E2_ME_4911B56101AD_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "started" '2006/10/23 08:36:25'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\nsDeferredTree.pas'
+ UP extprop:rc:SelfName 'DeferredTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDeferredTree'
+
+ENDME // ME_4911B56101AD TnsDeferredTree

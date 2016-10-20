@@ -1,0 +1,95 @@
+// Tf1StartupCompleteNotificationService 55B0CFA90241 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55B0CFA90241
+
+FORWARD ME_55B0CFA90241
+
+FORWARD ME_3044CBAC1F5E
+
+FORWARD ME_55B0DDC00044
+
+ME ME_2627E933260B
+ MEPROP UID '2627E933260B'
+ MEPROP Name 'Notify'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
+ ;
+ UPLINK Speller HWL ME_55B0DDC00044 // Notify
+ ;
+
+ENDME // ME_2627E933260B Notify
+
+ME ME_3044CBAC1F5E
+ MEPROP UID '3044CBAC1F5E'
+ MEPROP Name 'Mf1StartupCompleteNotificationService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tf1StartupCompleteNotificationService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_2627E933260B // Notify
+ )
+ ; // Operations
+
+ENDME // ME_3044CBAC1F5E Mf1StartupCompleteNotificationService
+
+ME ME_55B0DDC00044
+ MEPROP UID '55B0DDC00044'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0CFA90241 // Tf1StartupCompleteNotificationService
+ ;
+
+ENDME // ME_55B0DDC00044 Notify
+
+MEREF ME_49E7754802A9_ME_55B0CFA90241_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55B0CFA90241_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55B0CFA90241
+
+ME ME_55B0CFA90241
+ MEPROP UID '55B0CFA90241'
+ MEPROP Name 'Tf1StartupCompleteNotificationService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4A924BCA0092' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55B0CFA90241_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B0DDC00044 // Notify
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_3044CBAC1F5E // Mf1StartupCompleteNotificationService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompleteNotificationService.pas'
+ UP extprop:rc:SelfName 'f1StartupCompleteNotificationService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'f1StartupCompleteNotificationService'
+
+ENDME // ME_55B0CFA90241 Tf1StartupCompleteNotificationService

@@ -22,7 +22,7 @@ ENDME // ME_F5AAE6B2C2F4 DoIt
 ME ME_54D9E08D0212
  MEPROP UID '54D9E08D0212'
  MEPROP Name 'DoChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -54,7 +54,7 @@ ENDME // ME_5738FC697CCD DoIt
 ME ME_54D9E09D018D
  MEPROP UID '54D9E09D018D'
  MEPROP Name 'DoChanging'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -68,17 +68,23 @@ ME ME_54D9E09D018D
 
 ENDME // ME_54D9E09D018D DoChanging
 
-ME ME_4A5CBFFE0157_ME_4A5CBFAB03AF
+MEREF ME_4A5CBFFE0157_ME_4A5CBFAB03AF_impl
  MELINK Original WL 'ME_4A5CBFFE0157' '47D810610398.ms.model.script' // Changing
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A5CBFFE0157_ME_4A5CBFAB03AF Changing
+ENDMEREF // ME_4A5CBFFE0157_ME_4A5CBFAB03AF_impl Changing
 
-ME ME_4A5CC00B03D5_ME_4A5CBFAB03AF
+MEREF ME_4A5CC00B03D5_ME_4A5CBFAB03AF_impl
  MELINK Original WL 'ME_4A5CC00B03D5' '47D810610398.ms.model.script' // Changed
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A5CC00B03D5_ME_4A5CBFAB03AF Changed
+ENDMEREF // ME_4A5CC00B03D5_ME_4A5CBFAB03AF_impl Changed
+
+MEREF ME_54D8B06301D2_ME_4A5CBFAB03AF_R
+ MELINK Original WL 'ME_54D8B06301D2' '47D810610398.ms.model.script' // Ml3ChangingChanged
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D8B06301D2_ME_4A5CBFAB03AF_R Ml3ChangingChanged
 
 %%ImplementedBy ME_54D8B06301D2 ME_4A5CBFAB03AF
 
@@ -95,7 +101,7 @@ ME ME_4A5CBFAB03AF
  MELINK Parent WL? 'ME_47BB24D30205' // Стандартные примеси
  ;
  MELIST Implements
-   Seq: ( WL 'ME_54D8B06301D2' '47D810610398.ms.model.script' // Ml3ChangingChanged
+   Seq: ( ME_54D8B06301D2_ME_4A5CBFAB03AF_R // Ml3ChangingChanged
  )
  ; // Implements
  MELIST Operations
@@ -104,8 +110,8 @@ ME ME_4A5CBFAB03AF
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4A5CBFFE0157_ME_4A5CBFAB03AF // Changing
- ME_4A5CC00B03D5_ME_4A5CBFAB03AF // Changed
+   Seq: ( ME_4A5CBFFE0157_ME_4A5CBFAB03AF_impl // Changing
+ ME_4A5CC00B03D5_ME_4A5CBFAB03AF_impl // Changed
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

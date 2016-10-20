@@ -1,0 +1,127 @@
+// TstevStylesPrintAndExportFontSizeItem DF1A3014EEBC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_DF1A3014EEBC
+
+ME ME_F1A65C2410E1
+ MEPROP Name 'aMasterItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E302F4201D5' '52161F2B00C4.ms.model.script' // TddBaseConfigItem
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4E302F4201D5' '52161F2B00C4.ms.model.script' // TddBaseConfigItem
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_F1A65C2410E1 aMasterItem
+
+ME ME_6F57065EDC92
+ MEPROP UID '6F57065EDC92'
+ MEPROP Name 'Create'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_DF1A3014EEBC // TstevStylesPrintAndExportFontSizeItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_F1A65C2410E1 // aMasterItem
+ )
+ ; // Parameters
+
+ENDME // ME_6F57065EDC92 Create
+
+ME ME_FD50B6653B13
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_DF1A3014EEBC // TstevStylesPrintAndExportFontSizeItem
+ ;
+ MELINK Target WL? 'ME_C9ADD4944F97' // evStylesPrintAndExportFontSizeSettingRes
+ ;
+
+ENDME // ME_FD50B6653B13 
+
+ME ME_1C26C8D57EE2
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_DF1A3014EEBC // TstevStylesPrintAndExportFontSizeItem
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_1C26C8D57EE2 
+
+ME ME_ED3B9BFF01F7
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_DF1A3014EEBC // TstevStylesPrintAndExportFontSizeItem
+ ;
+ MELINK Target WL 'ME_4E304DE50368' '4E304DD10316.ms.model.script' // TddConfigValue
+ ;
+
+ENDME // ME_ED3B9BFF01F7 
+
+MEREF ME_522461B00212_ME_DF1A3014EEBC_G
+ MELINK Original WL 'ME_522461B00212' '52161F2B00C4.ms.model.script' // TddComboBoxConfigItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_522461B00212_ME_DF1A3014EEBC_G TddComboBoxConfigItem
+
+MEREF ME_4E314EC80391_ME_DF1A3014EEBC_R
+ MELINK Original WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E314EC80391_ME_DF1A3014EEBC_R Использовать для экспорта и печати следующий размер шрифта
+
+%%ImplementedBy ME_4E314EC80391 ME_DF1A3014EEBC
+
+%%InheritedBy ME_522461B00212 ME_DF1A3014EEBC
+
+ME ME_DF1A3014EEBC
+ MEPROP UID 'DF1A3014EEBC'
+ MEPROP Name 'TstevStylesPrintAndExportFontSizeItem'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B990EDE031A' // AppConfig
+ ;
+ MELIST Inherits
+   Seq: ( ME_522461B00212_ME_DF1A3014EEBC_G // TddComboBoxConfigItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E314EC80391_ME_DF1A3014EEBC_R // Использовать для экспорта и печати следующий размер шрифта
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_6F57065EDC92 // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_FD50B6653B13 // evStylesPrintAndExportFontSizeSettingRes
+ ME_1C26C8D57EE2 // l3FillChar
+ ME_ED3B9BFF01F7 // TddConfigValue
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\stevStylesPrintAndExportFontSizeItem.pas'
+ UP extprop:rc:SelfName 'stevStylesPrintAndExportFontSizeItem'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'stevStylesPrintAndExportFontSizeItem'
+ UPLINK Speller WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
+ ;
+ UPLINK SpelledFor WL? 'ME_522ED9B4018B' // evStyles
+ ;
+
+ENDME // ME_DF1A3014EEBC TstevStylesPrintAndExportFontSizeItem

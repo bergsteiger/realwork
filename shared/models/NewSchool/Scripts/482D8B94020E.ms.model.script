@@ -1,0 +1,54 @@
+// TevEditProcessor 482D8B94020E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D8B94020E
+
+MEREF ME_47A042E100E2_ME_482D8B94020E_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_482D8B94020E_over InitFields
+
+MEREF ME_482D91730258_ME_482D8B94020E_over
+ MELINK Original WL 'ME_482D91730258' '47F351BC0145.ms.model.script' // BeepOnParaLimit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482D91730258_ME_482D8B94020E_over BeepOnParaLimit
+
+MEREF ME_4864C01000A7_ME_482D8B94020E_G
+ MELINK Original WL? 'ME_4864C01000A7' // TevMemoProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4864C01000A7_ME_482D8B94020E_G TevMemoProcessor
+
+%%InheritedBy ME_4864C01000A7 ME_482D8B94020E
+
+ME ME_482D8B94020E
+ MEPROP UID '482D8B94020E'
+ MEPROP Name 'TevEditProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4864C01000A7_ME_482D8B94020E_G // TevMemoProcessor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_482D8B94020E_over // InitFields
+ ME_482D91730258_ME_482D8B94020E_over // BeepOnParaLimit
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '13.05.2008 20:35'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evEditProcessor.pas'
+ UP extprop:rc:SelfName 'EditProcessor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evEditProcessor'
+
+ENDME // ME_482D8B94020E TevEditProcessor

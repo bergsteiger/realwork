@@ -1,0 +1,45 @@
+// TcsRelPublishTask 53BA76F9001C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_530356B20280_ME_53BA76F9001C_G
+ MELINK Original WL 'ME_530356B20280' '530356A1014F.ms.model.script' // TcsImportTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530356B20280_ME_53BA76F9001C_G TcsImportTaskItem
+
+MEREF ME_53BA76BC00D8_ME_53BA76F9001C_R
+ MELINK Original WL 'ME_53BA76BC00D8' '484A470100DD.ms.model.script' // RelPublishTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53BA76BC00D8_ME_53BA76F9001C_R RelPublishTask
+
+%%ImplementedBy ME_53BA76BC00D8 ME_53BA76F9001C
+
+%%InheritedBy ME_530356B20280 ME_53BA76F9001C
+
+ME ME_53BA76F9001C
+ MEPROP UID '53BA76F9001C'
+ MEPROP Name 'TcsRelPublishTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_530356B20280_ME_53BA76F9001C_G // TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53BA76BC00D8_ME_53BA76F9001C_R // RelPublishTask
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csRelPublishTask.pas'
+ UP extprop:rc:SelfName 'csRelPublishTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csRelPublishTask'
+
+ENDME // ME_53BA76F9001C TcsRelPublishTask

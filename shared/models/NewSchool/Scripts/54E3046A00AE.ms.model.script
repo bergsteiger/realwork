@@ -1,0 +1,134 @@
+// TdestWrite2Parent 54E3046A00AE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54E3046A00AE
+
+ME ME_54E304DB03E3
+ MEPROP UID '54E304DB03E3'
+ MEPROP Name 'ParentDestination'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E3046A00AE // TdestWrite2Parent
+ ;
+ MELINK Target WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_54E304DB03E3 ParentDestination
+
+FORWARD ME_54E3055F033C
+
+ME ME_54E305860103
+ MEPROP Name 'aRTFReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51E7BF4200C0' // TddCustomRTFReader
+ ;
+
+ENDME // ME_54E305860103 aRTFReader
+
+ME ME_54E305860112
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+
+ENDME // ME_54E305860112 aParent
+
+ME ME_54E3057100AB
+ MEPROP UID '54E3057100AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E3055F033C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E305860103 // aRTFReader
+ ME_54E305860112 // aParent
+ )
+ ; // Parameters
+
+ENDME // ME_54E3057100AB DoIt
+
+ME ME_54E3055F033C
+ MEPROP UID '54E3055F033C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E3046A00AE // TdestWrite2Parent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E3057100AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E3055F033C Create
+
+MEREF ME_479731C50290_ME_54E3046A00AE_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54E3046A00AE_over Cleanup
+
+MEREF ME_54E1F08400F9_ME_54E3046A00AE_over
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_54E1F08400F9_ME_54E3046A00AE_over WriteText$1
+
+MEREF ME_5461C67A0207_ME_54E3046A00AE_G
+ MELINK Original WL? 'ME_5461C67A0207' // TdestSkip
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5461C67A0207_ME_54E3046A00AE_G TdestSkip
+
+%%InheritedBy ME_5461C67A0207 ME_54E3046A00AE
+
+ME ME_54E3046A00AE
+ MEPROP UID '54E3046A00AE'
+ MEPROP Name 'TdestWrite2Parent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_5461C67A0207_ME_54E3046A00AE_G // TdestSkip
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E304DB03E3 // ParentDestination
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54E3055F033C // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54E3046A00AE_over // Cleanup
+ ME_54E1F08400F9_ME_54E3046A00AE_over // WriteText$1
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destWrite2Parent.pas'
+ UP extprop:rc:SelfName 'destWrite2Parent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'destWrite2Parent'
+
+ENDME // ME_54E3046A00AE TdestWrite2Parent

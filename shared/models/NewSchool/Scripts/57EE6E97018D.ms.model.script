@@ -1,0 +1,150 @@
+// TalcuMultiOperationExecutor 57EE6E97018D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EE6E97018D
+
+ME ME_57EE789A02E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57EE789A02E7 
+
+ME ME_57EE789E01B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57EE789E01B8 
+
+ME ME_57EE78A102EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_57EE78A102EB 
+
+ME ME_57EE78A5017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL? 'ME_57EE51860032' // TcsMultiOperation
+ ;
+
+ENDME // ME_57EE78A5017E 
+
+ME ME_57EE78AC00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL? 'ME_57EE517102EC' // TcsMultiOperationReply
+ ;
+
+ENDME // ME_57EE78AC00A8 
+
+ME ME_57EE78B2014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57EE78B2014A 
+
+ME ME_57F207E90054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL? 'ME_57F206DC02EB' // TalcuMultiOperationRequest
+ ;
+
+ENDME // ME_57F207E90054 
+
+ME ME_57F2428200E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_57F2428200E8 
+
+ME ME_57F2454D03AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EE6E97018D // TalcuMultiOperationExecutor
+ ;
+ MELINK Target WL 'ME_57ED10DC019F' '57BEAF780201.ms.model.script' // TarMultiOperation
+ ;
+
+ENDME // ME_57F2454D03AA 
+
+MEREF ME_57D2A771002F_ME_57EE6E97018D_impl
+ MELINK Original WL 'ME_57D2A771002F' '57D2A6A70025.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D2A771002F_ME_57EE6E97018D_impl DoExecute
+
+MEREF ME_57D2A6A70025_ME_57EE6E97018D_G
+ MELINK Original WL? 'ME_57D2A6A70025' // TalcuDocTransferRequestExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D2A6A70025_ME_57EE6E97018D_G TalcuDocTransferRequestExecutor
+
+%%InheritedBy ME_57D2A6A70025 ME_57EE6E97018D
+
+ME ME_57EE6E97018D
+ MEPROP UID '57EE6E97018D'
+ MEPROP Name 'TalcuMultiOperationExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C00B6201B3' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D2A6A70025_ME_57EE6E97018D_G // TalcuDocTransferRequestExecutor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57D2A771002F_ME_57EE6E97018D_impl // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57EE789A02E7 // Tl3StopWatch
+ ME_57EE789E01B8 // l3System
+ ME_57EE78A102EB // Logging Levels
+ ME_57EE78A5017E // TcsMultiOperation
+ ME_57EE78AC00A8 // TcsMultiOperationReply
+ ME_57EE78B2014A // FreeAndNil
+ ME_57F207E90054 // TalcuMultiOperationRequest
+ ME_57F2428200E8 // TTypeInfo
+ ME_57F2454D03AA // TarMultiOperation
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationExecutor.pas'
+ UP extprop:rc:SelfName 'alcuMultiOperationExecutor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuMultiOperationExecutor'
+
+ENDME // ME_57EE6E97018D TalcuMultiOperationExecutor

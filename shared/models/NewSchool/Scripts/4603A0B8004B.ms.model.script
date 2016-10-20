@@ -1,0 +1,244 @@
+// ListTree 4603A0B8004B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4603A0B8004B
+
+ME ME_4603AB9D03A2
+ MEPROP UID '4603AB9D03A2'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+
+ENDME // ME_4603AB9D03A2 NodeDelegateType_
+
+ME ME_4603C2C901CC
+ MEPROP UID '4603C2C901CC'
+ MEPROP Name 'node_pointer_2_block_position'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELINK Target WL 'ME_4602856802CD' '45741B780271.ms.model.script' // NodePointerMap
+ ;
+
+ENDME // ME_4603C2C901CC node_pointer_2_block_position
+
+ME ME_4603B739029E
+ MEPROP Name 'active_changeable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4603B739029E active_changeable
+
+ME ME_4603AC6A0320
+ MEPROP UID '4603AC6A0320'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4603B739029E // active_changeable
+ )
+ ; // Parameters
+
+ENDME // ME_4603AC6A0320 make
+
+ME ME_4603C7980280
+ MEPROP Name 'pointer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4603C7980280 pointer
+
+ME ME_4603C79802CE
+ MEPROP Name 'position'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4603C79802CE position
+
+ME ME_4603C5FF036D
+ MEPROP UID '4603C5FF036D'
+ MEPROP Name 'add_block_position'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4603C7980280 // pointer
+ ME_4603C79802CE // position
+ )
+ ; // Parameters
+
+ENDME // ME_4603C5FF036D add_block_position
+
+ME ME_462F5EDB0271
+ MEPROP Name 'pointer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_462F5EDB0271 pointer
+
+ME ME_4603C55B00DE
+ MEPROP UID '4603C55B00DE'
+ MEPROP Name 'get_block_position'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MELIST Parameters
+   Seq: ( ME_462F5EDB0271 // pointer
+ )
+ ; // Parameters
+
+ENDME // ME_4603C55B00DE get_block_position
+
+ME ME_4603C5490003
+ MEPROP UID '4603C5490003'
+ MEPROP Name 'clear_block_positions'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+
+ENDME // ME_4603C5490003 clear_block_positions
+
+FORWARD ME_4603AC4602A4
+
+ME ME_4603AC4602A4
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target ME_4603AC4602A4 // NodeType_
+ ;
+
+ENDME // ME_4603AC4602A4 NodeType_
+
+ME ME_4628BAC30290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELINK Target WL? 'ME_460A6EF8024B' // ApplicationHelper
+ ;
+
+ENDME // ME_4628BAC30290 
+
+ME ME_4628BCC400CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+
+ENDME // ME_4628BCC400CB 
+
+ME ME_462F60D50222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+
+ENDME // ME_462F60D50222 
+
+ME ME_5464D023028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+
+ENDME // ME_5464D023028B 
+
+ME ME_5465C53A0240
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4603A0B8004B // ListTree
+ ;
+ MELINK Target WL? 'ME_5465B85E011B' // ListTreeView
+ ;
+
+ENDME // ME_5465C53A0240 
+
+MEREF ME_460127E400EA_ME_4603A0B8004B_over
+ MELINK Original WL 'ME_460127E400EA' '45F554750213.ms.model.script' // alloc_new_view
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_460127E400EA_ME_4603A0B8004B_over alloc_new_view
+
+MEREF ME_45F585F802AF_ME_4603A0B8004B_G
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_4603A0B8004B_G Tree
+
+%%InheritedBy ME_45F585F802AF ME_4603A0B8004B
+
+ME ME_4603A0B8004B
+ MEPROP UID '4603A0B8004B'
+ MEPROP Name 'ListTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_ParameterizedClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45741B780271' // DynamicDocList_i
+ ;
+ MELIST Inherits
+   Seq: ( ME_45F585F802AF_ME_4603A0B8004B_G // Tree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4603AB9D03A2 // NodeDelegateType_
+ HWL ME_4603C2C901CC // node_pointer_2_block_position
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4603AC6A0320 // make
+ HWL ME_4603C5FF036D // add_block_position
+ HWL ME_4603C55B00DE // get_block_position
+ HWL ME_4603C5490003 // clear_block_positions
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_460127E400EA_ME_4603A0B8004B_over // alloc_new_view
+ )
+ ; // Overridden
+ MELIST Parameters
+   Seq: ( ME_4603AC4602A4 // NodeType_
+ )
+ ; // Parameters
+ MELIST Dependencies
+   Seq: ( ME_4628BAC30290 // ApplicationHelper
+ ME_4628BCC400CB // ContextFilter_i
+ ME_462F60D50222 // DynListNode_i
+ ME_5464D023028B // DynListNodeDelegate
+ ME_5465C53A0240 // ListTreeView
+ )
+ ; // Dependencies
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicDocList_i\ListTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListTree.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4603A0B8004B ListTree

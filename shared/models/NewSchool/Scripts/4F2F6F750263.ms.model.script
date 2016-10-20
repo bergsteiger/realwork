@@ -1,0 +1,1243 @@
+// TevCellsOffsetsPair 4F2F6F750263 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F2F6F750263
+
+FORWARD ME_4F2F6F750263
+
+FORWARD ME_4FC628290340
+
+ME ME_4FC628830018
+ MEPROP UID '4FC628830018'
+ MEPROP Name 'ed_cpNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC628290340 // TedCellPosType
+ ;
+
+ENDME // ME_4FC628830018 ed_cpNone
+
+ME ME_4FC6288E03E7
+ MEPROP UID '4FC6288E03E7'
+ MEPROP Name 'ed_cpLast'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC628290340 // TedCellPosType
+ ;
+
+ENDME // ME_4FC6288E03E7 ed_cpLast
+
+ME ME_4FC6289D006B
+ MEPROP UID '4FC6289D006B'
+ MEPROP Name 'ed_cpIgnoreLast'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC628290340 // TedCellPosType
+ ;
+
+ENDME // ME_4FC6289D006B ed_cpIgnoreLast
+
+ME ME_4FC628290340
+ MEPROP UID '4FC628290340'
+ MEPROP Name 'TedCellPosType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FC628830018 // ed_cpNone
+ HWL ME_4FC6288E03E7 // ed_cpLast
+ HWL ME_4FC6289D006B // ed_cpIgnoreLast
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC628290340 TedCellPosType
+
+ME ME_4F2F6FC70101
+ MEPROP UID '4F2F6FC70101'
+ MEPROP Name 'f_FoundUpper'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2F6FC70101 f_FoundUpper
+
+ME ME_4F2F7FD40033
+ MEPROP UID '4F2F7FD40033'
+ MEPROP Name 'f_OldOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL? 'ME_4F2F6CA40273' // TevCellsCharOffsets
+ ;
+
+ENDME // ME_4F2F7FD40033 f_OldOffset
+
+ME ME_4F2F7FE10238
+ MEPROP UID '4F2F7FE10238'
+ MEPROP Name 'f_NewOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL? 'ME_4F2F6CA40273' // TevCellsCharOffsets
+ ;
+
+ENDME // ME_4F2F7FE10238 f_NewOffset
+
+ME ME_5112066A0268
+ MEPROP UID '5112066A0268'
+ MEPROP Name 'CellsType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Массив с типами содержимого ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL? 'ME_511205FA00E2' // TedCellTypesList
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5112066A0268 CellsType
+
+ME ME_5114D122029E
+ MEPROP UID '5114D122029E'
+ MEPROP Name 'RowType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL 'ME_4FC5C77503C7' '572305620264.ms.model.script' // TedRowType
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5114D122029E RowType
+
+FORWARD ME_4F2F7030001E
+
+ME ME_4F2F703B0215
+ MEPROP UID '4F2F703B0215'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F7030001E // Create
+ ;
+
+ENDME // ME_4F2F703B0215 DoIt
+
+ME ME_4F2F7030001E
+ MEPROP UID '4F2F7030001E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F703B0215 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F7030001E Create
+
+FORWARD ME_4F2F704A01F8
+
+ME ME_4F2F7050020A
+ MEPROP UID '4F2F7050020A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F704A01F8 // Clear
+ ;
+
+ENDME // ME_4F2F7050020A DoIt
+
+ME ME_4F2F704A01F8
+ MEPROP UID '4F2F704A01F8'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F7050020A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F704A01F8 Clear
+
+FORWARD ME_4F2F70660228
+
+ME ME_4F2F70740293
+ MEPROP UID '4F2F70740293'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F70660228 // AddCellWidthAndRecalc
+ ;
+
+ENDME // ME_4F2F70740293 DoIt
+
+ME ME_4F2F70660228
+ MEPROP UID '4F2F70660228'
+ MEPROP Name 'AddCellWidthAndRecalc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F70740293 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F70660228 AddCellWidthAndRecalc
+
+FORWARD ME_4F2F708E0299
+
+ME ME_4F2F70A90371
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2F70A90371 aNew
+
+ME ME_4F2F70A1005A
+ MEPROP UID '4F2F70A1005A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F708E0299 // GetOffset
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F70A90371 // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F70A1005A DoIt
+
+ME ME_4F2F708E0299
+ MEPROP UID '4F2F708E0299'
+ MEPROP Name 'GetOffset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F70A1005A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F708E0299 GetOffset
+
+FORWARD ME_4F2F70B6006A
+
+ME ME_4F2F70E103AC
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2F70E103AC aNew
+
+ME ME_4F2F70D50001
+ MEPROP UID '4F2F70D50001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F70B6006A // GetWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F70E103AC // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F70D50001 DoIt
+
+ME ME_4F2F70B6006A
+ MEPROP UID '4F2F70B6006A'
+ MEPROP Name 'GetWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F70D50001 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F70B6006A GetWidth
+
+FORWARD ME_4F2F70EB0222
+
+ME ME_4F2F70F4035A
+ MEPROP UID '4F2F70F4035A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F70EB0222 // LastNewWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F70F4035A DoIt
+
+ME ME_4F2F70EB0222
+ MEPROP UID '4F2F70EB0222'
+ MEPROP Name 'LastNewWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F70F4035A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F70EB0222 LastNewWidth
+
+FORWARD ME_4F2F710D00D6
+
+ME ME_4F2F7115025B
+ MEPROP UID '4F2F7115025B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F710D00D6 // PrevNewWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F7115025B DoIt
+
+ME ME_4F2F710D00D6
+ MEPROP UID '4F2F710D00D6'
+ MEPROP Name 'PrevNewWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F7115025B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F710D00D6 PrevNewWidth
+
+FORWARD ME_4F2F712F0179
+
+ME ME_4F2F716900C1
+ MEPROP Name 'aNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F716900C1 aNewWidth
+
+ME ME_4F2F716900FD
+ MEPROP Name 'aOldWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F716900FD aOldWidth
+
+ME ME_4F2F71430041
+ MEPROP UID '4F2F71430041'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F712F0179 // SetWidthPair
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F716900C1 // aNewWidth
+ ME_4F2F716900FD // aOldWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F71430041 DoIt
+
+ME ME_4F2F712F0179
+ MEPROP UID '4F2F712F0179'
+ MEPROP Name 'SetWidthPair'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F71430041 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F712F0179 SetWidthPair
+
+FORWARD ME_4F2F719C01AF
+
+ME ME_4F2F71B60020
+ MEPROP Name 'aOffsetList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4F2F71B60020 aOffsetList
+
+ME ME_4F2F71B60043
+ MEPROP Name 'l_Delta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F71B60043 l_Delta
+
+ME ME_4F2F71A60111
+ MEPROP UID '4F2F71A60111'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F719C01AF // CompareWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F71B60020 // aOffsetList
+ ME_4F2F71B60043 // l_Delta
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F71A60111 DoIt
+
+ME ME_4F2F719C01AF
+ MEPROP UID '4F2F719C01AF'
+ MEPROP Name 'CompareWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F71A60111 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F719C01AF CompareWidth
+
+FORWARD ME_4F2F71C0015D
+
+ME ME_4F2F71E5023F
+ MEPROP Name 'aOffsetList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4F2F71E5023F aOffsetList
+
+ME ME_4F2F71E50268
+ MEPROP Name 'l_Delta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F71E50268 l_Delta
+
+ME ME_4F2F71D302BD
+ MEPROP UID '4F2F71D302BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F71C0015D // FindUpper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F71E5023F // aOffsetList
+ ME_4F2F71E50268 // l_Delta
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F71D302BD DoIt
+
+ME ME_4F2F71C0015D
+ MEPROP UID '4F2F71C0015D'
+ MEPROP Name 'FindUpper'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F71D302BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F71C0015D FindUpper
+
+FORWARD ME_4F2F71EF028D
+
+ME ME_4F2F721401C4
+ MEPROP Name 'aOffsetList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4F2F721401C4 aOffsetList
+
+ME ME_4F2F721401CE
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F721401CE anIndex
+
+ME ME_4F2F721401EC
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F721401EC aDelta
+
+ME ME_4F2F720702E1
+ MEPROP UID '4F2F720702E1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F71EF028D // FindLower
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F721401C4 // aOffsetList
+ ME_4F2F721401CE // anIndex
+ ME_4F2F721401EC // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F720702E1 DoIt
+
+ME ME_4F2F71EF028D
+ MEPROP UID '4F2F71EF028D'
+ MEPROP Name 'FindLower'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F720702E1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F71EF028D FindLower
+
+FORWARD ME_4F2F7226039B
+
+ME ME_4F2F724803C9
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F724803C9 anIndex
+
+ME ME_4F2F72490000
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2F72490000 aDelta
+
+ME ME_4F2F723D0126
+ MEPROP UID '4F2F723D0126'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F7226039B // UpdateNewWidth
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F724803C9 // anIndex
+ ME_4F2F72490000 // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F723D0126 DoIt
+
+ME ME_4F2F7226039B
+ MEPROP UID '4F2F7226039B'
+ MEPROP Name 'UpdateNewWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F723D0126 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F7226039B UpdateNewWidth
+
+FORWARD ME_4F2F7268015A
+
+ME ME_4F2F727E03E3
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2F727E03E3 aNew
+
+ME ME_4F2F727700E9
+ MEPROP UID '4F2F727700E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F7268015A // GetNextOffset
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F727E03E3 // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F727700E9 DoIt
+
+ME ME_4F2F7268015A
+ MEPROP UID '4F2F7268015A'
+ MEPROP Name 'GetNextOffset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F727700E9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F7268015A GetNextOffset
+
+FORWARD ME_4F2FABC40294
+
+ME ME_4FC762AD0247
+ MEPROP Name 'anIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+
+ENDME // ME_4FC762AD0247 anIterator
+
+ME ME_4F2FABD7028C
+ MEPROP UID '4F2FABD7028C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2FABC40294 // EqualCells
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC762AD0247 // anIterator
+ )
+ ; // Parameters
+
+ENDME // ME_4F2FABD7028C DoIt
+
+ME ME_4F2FABC40294
+ MEPROP UID '4F2FABC40294'
+ MEPROP Name 'EqualCells'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2FABD7028C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2FABC40294 EqualCells
+
+FORWARD ME_4FAB83530326
+
+ME ME_4FC72A0502F7
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC72A0502F7 aNew
+
+ME ME_4FAB836403CB
+ MEPROP UID '4FAB836403CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FAB83530326 // GetRowWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC72A0502F7 // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_4FAB836403CB DoIt
+
+ME ME_4FAB83530326
+ MEPROP UID '4FAB83530326'
+ MEPROP Name 'GetRowWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FAB836403CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FAB83530326 GetRowWidth
+
+FORWARD ME_4FC5F3CF0017
+
+ME ME_4FC62EAF0192
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4FC62EAF0192 aList
+
+ME ME_4FC62EAF01B0
+ MEPROP Name 'aNewWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC62EAF01B0 aNewWidth
+
+ME ME_4FC62EAF01D3
+ MEPROP Name 'anOldCellWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC62EAF01D3 anOldCellWidth
+
+ME ME_4FC62EAF01F6
+ MEPROP Name 'aPrevRowWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC62EAF01F6 aPrevRowWidth
+
+ME ME_4FC62EAF0214
+ MEPROP Name 'aCelPosl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4FC628290340 // TedCellPosType
+ ;
+
+ENDME // ME_4FC62EAF0214 aCelPosl
+
+ME ME_4FC62EAF0243
+ MEPROP Name 'aNeedBreak'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC62EAF0243 aNeedBreak
+
+ME ME_4FC5F3FD00A2
+ MEPROP UID '4FC5F3FD00A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC5F3CF0017 // CheckCurrentRow
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC62EAF0192 // aList
+ ME_4FC62EAF01B0 // aNewWidth
+ ME_4FC62EAF01D3 // anOldCellWidth
+ ME_4FC62EAF01F6 // aPrevRowWidth
+ ME_4FC62EAF0214 // aCelPosl
+ ME_4FC62EAF0243 // aNeedBreak
+ )
+ ; // Parameters
+
+ENDME // ME_4FC5F3FD00A2 DoIt
+
+ME ME_4FC5F3CF0017
+ MEPROP UID '4FC5F3CF0017'
+ MEPROP Name 'CheckCurrentRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC5F3FD00A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC5F3CF0017 CheckCurrentRow
+
+FORWARD ME_4F2F716F0249
+
+ME ME_4F2F7187000A
+ MEPROP Name 'aOffsetList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4F2F7187000A aOffsetList
+
+ME ME_4F2F717C0043
+ MEPROP UID '4F2F717C0043'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F716F0249 // FindOffset
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2F7187000A // aOffsetList
+ )
+ ; // Parameters
+
+ENDME // ME_4F2F717C0043 DoIt
+
+ME ME_4F2F716F0249
+ MEPROP UID '4F2F716F0249'
+ MEPROP Name 'FindOffset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2F717C0043 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2F716F0249 FindOffset
+
+FORWARD ME_4FC76FA7005D
+
+ME ME_4FC76FF6019A
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_4FC76FF6019A aData
+
+ME ME_4FC76FDB027E
+ MEPROP UID '4FC76FDB027E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выравнять ширину ячеек по переданному списку.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC76FA7005D // AlignByPrevious
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC76FF6019A // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4FC76FDB027E DoIt
+
+ME ME_4FC76FA7005D
+ MEPROP UID '4FC76FA7005D'
+ MEPROP Name 'AlignByPrevious'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC76FDB027E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC76FA7005D AlignByPrevious
+
+FORWARD ME_50925F0800F6
+
+ME ME_509260EA0057
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4F2F6CA40273' // TevCellsCharOffsets
+ ;
+
+ENDME // ME_509260EA0057 aData
+
+ME ME_509260EA0076
+ MEPROP Name 'anIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+
+ENDME // ME_509260EA0076 anIterator
+
+ME ME_50925F560173
+ MEPROP UID '50925F560173'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50925F0800F6 // CopyData
+ ;
+ MELIST Parameters
+   Seq: ( ME_509260EA0057 // aData
+ ME_509260EA0076 // anIterator
+ )
+ ; // Parameters
+
+ENDME // ME_50925F560173 DoIt
+
+ME ME_50925F0800F6
+ MEPROP UID '50925F0800F6'
+ MEPROP Name 'CopyData'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50925F560173 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50925F0800F6 CopyData
+
+FORWARD ME_528DED3F007E
+
+ME ME_528DED9E031B
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_528DED9E031B aData
+
+ME ME_528DED9E033B
+ MEPROP Name 'anIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+
+ENDME // ME_528DED9E033B anIterator
+
+ME ME_528DED5B01F5
+ MEPROP UID '528DED5B01F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528DED3F007E // CopyData$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_528DED9E031B // aData
+ ME_528DED9E033B // anIterator
+ )
+ ; // Parameters
+
+ENDME // ME_528DED5B01F5 DoIt
+
+ME ME_528DED3F007E
+ MEPROP UID '528DED3F007E'
+ MEPROP Name 'CopyData'
+ MEPROP OriginalName 'CopyData$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528DED5B01F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528DED3F007E CopyData$1
+
+FORWARD ME_52F1EFF800A6
+
+ME ME_52F1F00F00EE
+ MEPROP Name 'aPrev'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_52F1F00F00EE aPrev
+
+ME ME_52F1F0080195
+ MEPROP UID '52F1F0080195'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F1EFF800A6 // CheckPrevAlignment
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F1F00F00EE // aPrev
+ )
+ ; // Parameters
+
+ENDME // ME_52F1F0080195 DoIt
+
+ME ME_52F1EFF800A6
+ MEPROP UID '52F1EFF800A6'
+ MEPROP Name 'CheckPrevAlignment'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F1F0080195 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52F1EFF800A6 CheckPrevAlignment
+
+ME ME_4F2F86AD0037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL 'ME_4F2A40EA0064' '4A3918BB0114.ms.model.script' // evCellWidthEpsilon
+ ;
+
+ENDME // ME_4F2F86AD0037 
+
+ME ME_4F2F89540166
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2F6F750263 // TevCellsOffsetsPair
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4F2F89540166 
+
+MEREF ME_479731C50290_ME_4F2F6F750263_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F2F6F750263_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4F2F6F750263_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4F2F6F750263_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4F2F6F750263
+
+ME ME_4F2F6F750263
+ MEPROP UID '4F2F6F750263'
+ MEPROP Name 'TevCellsOffsetsPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4F2F6F750263_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F2F6FC70101 // f_FoundUpper
+ HWL ME_4F2F7FD40033 // f_OldOffset
+ HWL ME_4F2F7FE10238 // f_NewOffset
+ HWL ME_5112066A0268 // CellsType
+ HWL ME_5114D122029E // RowType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F2F7030001E // Create
+ HWL ME_4F2F704A01F8 // Clear
+ HWL ME_4F2F70660228 // AddCellWidthAndRecalc
+ HWL ME_4F2F708E0299 // GetOffset
+ HWL ME_4F2F70B6006A // GetWidth
+ HWL ME_4F2F70EB0222 // LastNewWidth
+ HWL ME_4F2F710D00D6 // PrevNewWidth
+ HWL ME_4F2F712F0179 // SetWidthPair
+ HWL ME_4F2F719C01AF // CompareWidth
+ HWL ME_4F2F71C0015D // FindUpper
+ HWL ME_4F2F71EF028D // FindLower
+ HWL ME_4F2F7226039B // UpdateNewWidth
+ HWL ME_4F2F7268015A // GetNextOffset
+ HWL ME_4F2FABC40294 // EqualCells
+ HWL ME_4FAB83530326 // GetRowWidth
+ HWL ME_4FC5F3CF0017 // CheckCurrentRow
+ HWL ME_4F2F716F0249 // FindOffset
+ HWL ME_4FC76FA7005D // AlignByPrevious
+ HWL ME_50925F0800F6 // CopyData
+ HWL ME_528DED3F007E // CopyData$1
+ HWL ME_52F1EFF800A6 // CheckPrevAlignment
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F2F6F750263_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FC628290340 // TedCellPosType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F2F86AD0037 // evCellWidthEpsilon
+ ME_4F2F89540166 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
+ UP extprop:rc:SelfName 'CellsOffsetsPair'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCellsOffsetsPair'
+
+ENDME // ME_4F2F6F750263 TevCellsOffsetsPair

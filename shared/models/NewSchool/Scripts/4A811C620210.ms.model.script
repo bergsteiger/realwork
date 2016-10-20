@@ -46,6 +46,18 @@ ME ME_F17A163F736E
 
 ENDME // ME_F17A163F736E Ini_FormFactory_WorkJournal$Def
 
+MEREF ME_4CC7E19400DE_ME_4A811C620210_G
+ MELINK Original WL? 'ME_4CC7E19400DE' // PrimWorkJournalOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC7E19400DE_ME_4A811C620210_G PrimWorkJournalOptions
+
+MEREF ME_ED055FCF64DC_ME_4A811C620210_R
+ MELINK Original HWL ME_ED055FCF64DC // WorkJournal$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_ED055FCF64DC_ME_4A811C620210_R WorkJournal$Def
+
 %%ImplementedBy ME_ED055FCF64DC ME_4A811C620210
 
 %%InheritedBy ME_4CC7E19400DE ME_4A811C620210
@@ -63,11 +75,11 @@ ME ME_4A811C620210
  MELINK Parent WL? 'ME_4A811C1A0293' // BaseWorkJournal
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CC7E19400DE' // PrimWorkJournalOptions
+   Seq: ( ME_4CC7E19400DE_ME_4A811C620210_G // PrimWorkJournalOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_ED055FCF64DC // WorkJournal$Def
+   Seq: ( ME_ED055FCF64DC_ME_4A811C620210_R // WorkJournal$Def
  )
  ; // Implements
  MELIST Operations

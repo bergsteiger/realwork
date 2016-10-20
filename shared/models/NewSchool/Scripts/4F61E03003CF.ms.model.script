@@ -1,0 +1,116 @@
+// TnpNavigatorList 4F61E03003CF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F61E03003CF
+
+ME ME_4F6728B30396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F61E03003CF // TnpNavigatorList
+ ;
+ MELINK Target WL? 'ME_4F636139008F' // Tl3ListenersManager
+ ;
+
+ENDME // ME_4F6728B30396 
+
+ME ME_4F6AE23503A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F61E03003CF // TnpNavigatorList
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F6AE23503A8 
+
+MEREF ME_4F62032D0058_ME_4F61E03003CF_impl
+ MELINK Original WL 'ME_4F62032D0058' '4677FBA70343.ms.model.script' // GetMessageListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F62032D0058_ME_4F61E03003CF_impl GetMessageListenerNotify
+
+MEREF ME_4F79CF3400BB_ME_4F61E03003CF_impl
+ MELINK Original WL 'ME_4F79CF3400BB' '4677FBA70343.ms.model.script' // WndProcListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F79CF3400BB_ME_4F61E03003CF_impl WndProcListenerNotify
+
+MEREF ME_479731C50290_ME_4F61E03003CF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F61E03003CF_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4F61E03003CF_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F61E03003CF_over InitFields
+
+MEREF ME_4F61FEEB00A5_ME_4F61E03003CF_G
+ MELINK Original WL? 'ME_4F61FEEB00A5' // TnpNavigatorListCBT
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F61FEEB00A5_ME_4F61E03003CF_G TnpNavigatorListCBT
+
+MEREF ME_46A5B4170363_ME_4F61E03003CF_R
+ MELINK Original WL 'ME_46A5B4170363' '4677FBA70343.ms.model.script' // Il3WndProcListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5B4170363_ME_4F61E03003CF_R Il3WndProcListener
+
+MEREF ME_4F62031400F6_ME_4F61E03003CF_R
+ MELINK Original WL 'ME_4F62031400F6' '4677FBA70343.ms.model.script' // Il3GetMessageListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F62031400F6_ME_4F61E03003CF_R Il3GetMessageListener
+
+%%ImplementedBy ME_46A5B4170363 ME_4F61E03003CF
+%%ImplementedBy ME_4F62031400F6 ME_4F61E03003CF
+
+%%InheritedBy ME_4F61FEEB00A5 ME_4F61E03003CF
+
+ME ME_4F61E03003CF
+ MEPROP UID '4F61E03003CF'
+ MEPROP Name 'TnpNavigatorList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список навигаторов созданных в приложении. Список используется для рассылки сообщений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F61FEEB00A5_ME_4F61E03003CF_G // TnpNavigatorListCBT
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A5B4170363_ME_4F61E03003CF_R // Il3WndProcListener
+ ME_4F62031400F6_ME_4F61E03003CF_R // Il3GetMessageListener
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4F62032D0058_ME_4F61E03003CF_impl // GetMessageListenerNotify
+ ME_4F79CF3400BB_ME_4F61E03003CF_impl // WndProcListenerNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F61E03003CF_over // Cleanup
+ ME_47A042E100E2_ME_4F61E03003CF_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F6728B30396 // Tl3ListenersManager
+ ME_4F6AE23503A8 // Msg Codes
+ )
+ ; // Dependencies
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\VT\npNavigatorList.pas'
+ UP extprop:rc:SelfName 'npNavigatorList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'npNavigatorList'
+
+ENDME // ME_4F61E03003CF TnpNavigatorList

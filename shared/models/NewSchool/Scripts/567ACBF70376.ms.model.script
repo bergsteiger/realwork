@@ -1,0 +1,45 @@
+// TkwKeyValues 567ACBF70376 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_567ACBF70376
+
+MEREF ME_4DAEEDE10285_ME_567ACBF70376_over
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAEEDE10285_ME_567ACBF70376_over DoDoIt
+
+MEREF ME_4F216D8D01A0_ME_567ACBF70376_G
+ MELINK Original WL? 'ME_4F216D8D01A0' // TkwCompiledProcedure
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F216D8D01A0_ME_567ACBF70376_G TkwCompiledProcedure
+
+%%InheritedBy ME_4F216D8D01A0 ME_567ACBF70376
+
+ME ME_567ACBF70376
+ MEPROP UID '567ACBF70376'
+ MEPROP Name 'TkwKeyValues'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F216D8D01A0_ME_567ACBF70376_G // TkwCompiledProcedure
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DAEEDE10285_ME_567ACBF70376_over // DoDoIt
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyValues.pas'
+ UP extprop:rc:SelfName 'KeyValues'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwKeyValues'
+
+ENDME // ME_567ACBF70376 TkwKeyValues

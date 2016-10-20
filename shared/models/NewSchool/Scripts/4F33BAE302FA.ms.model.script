@@ -1,0 +1,74 @@
+// TevdHypelinkDocIDEliminator 4F33BAE302FA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F33BAE302FA
+
+ME ME_4F33C46A0166
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F33C46A0166 
+
+ME ME_4F33C48B0310
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F33BAE302FA // TevdHypelinkDocIDEliminator
+ ;
+ MELINK Target WL 'ME_48495E29035B' '484A470100DD.ms.model.script' // Address
+ ;
+
+ENDME // ME_4F33C48B0310 
+
+MEREF ME_4A2D1634025B_ME_4F33BAE302FA_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_4F33BAE302FA_over DoAddAtomEx
+
+MEREF ME_49E487A70144_ME_4F33BAE302FA_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4F33BAE302FA_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4F33BAE302FA
+
+ME ME_4F33BAE302FA
+ MEPROP UID '4F33BAE302FA'
+ MEPROP Name 'TevdHypelinkDocIDEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обнуляет DocID у ссылок. Создан для тестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487A70144_ME_4F33BAE302FA_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A2D1634025B_ME_4F33BAE302FA_over // DoAddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F33C46A0166 // Tk2TagID
+ ME_4F33C48B0310 // Address
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdHypelinkDocIDEliminator.pas'
+ UP extprop:rc:SelfName 'dHypelinkDocIDEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdHypelinkDocIDEliminator'
+
+ENDME // ME_4F33BAE302FA TevdHypelinkDocIDEliminator

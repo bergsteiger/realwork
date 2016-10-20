@@ -1,0 +1,79 @@
+// TnevFormulaPara 4D5A9CA80141 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5A9CA80141
+
+ME ME_4DDFB65C028F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4D5A9CA80141 // TnevFormulaPara
+ ;
+ MELINK Target WL? 'ME_4857934201E3' // TevFormula
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DDFB65C028F 
+
+ME ME_53D0F6BD0118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4D5A9CA80141 // TnevFormulaPara
+ ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+
+ENDME // ME_53D0F6BD0118 
+
+MEREF ME_4D596369028C_ME_4D5A9CA80141_over
+ MELINK Original WL 'ME_4D596369028C' '48CE0A490377.ms.model.script' // TreatCollapsedAsHidden
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D596369028C_ME_4D5A9CA80141_over TreatCollapsedAsHidden
+
+MEREF ME_48D100920185_ME_4D5A9CA80141_G
+ MELINK Original WL? 'ME_48D100920185' // TnevTextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D100920185_ME_4D5A9CA80141_G TnevTextPara
+
+%%InjectedBy ME_4857934201E3 ME_4D5A9CA80141
+
+%%InheritedBy ME_48D100920185 ME_4D5A9CA80141
+
+ME ME_4D5A9CA80141
+ MEPROP UID '4D5A9CA80141'
+ MEPROP Name 'TnevFormulaPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_48D100920185_ME_4D5A9CA80141_G // TnevTextPara
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D596369028C_ME_4D5A9CA80141_over // TreatCollapsedAsHidden
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DDFB65C028F // TevFormula
+ ME_53D0F6BD0118 // InevTextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '15.02.2011 18:33'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormulaPara.pas'
+ UP extprop:rc:SelfName 'FormulaPara'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevFormulaPara'
+
+ENDME // ME_4D5A9CA80141 TnevFormulaPara

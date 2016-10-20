@@ -1,0 +1,135 @@
+// TatExecuteUserJournalOperation 4FC8B0A8002E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FC8B0A8002E
+
+ME ME_4FC8B10D00D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8B0A8002E // TatExecuteUserJournalOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4FC8B10D00D4 
+
+ME ME_4FC9045D00ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8B0A8002E // TatExecuteUserJournalOperation
+ ;
+ MELINK Target WL 'ME_4DD39F320114' '4815C75902A2.ms.model.script' // TatDocReader
+ ;
+
+ENDME // ME_4FC9045D00ED 
+
+ME ME_4FC9046303C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8B0A8002E // TatExecuteUserJournalOperation
+ ;
+ MELINK Target WL? 'ME_4FC8DA4E01A4' // TatSearchHelper
+ ;
+
+ENDME // ME_4FC9046303C6 
+
+ME ME_4FF5CB0503CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8B0A8002E // TatExecuteUserJournalOperation
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4FF5CB0503CE 
+
+ME ME_5006FDB00147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8B0A8002E // TatExecuteUserJournalOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5006FDB00147 
+
+MEREF ME_5006F37302DF_ME_4FC8B0A8002E_impl
+ MELINK Original WL 'ME_5006F37302DF' '5006EE59000E.ms.model.script' // OnQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5006F37302DF_ME_4FC8B0A8002E_impl OnQuery
+
+MEREF ME_5006F4130346_ME_4FC8B0A8002E_impl
+ MELINK Original WL 'ME_5006F4130346' '5006EE59000E.ms.model.script' // OnBookmark
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5006F4130346_ME_4FC8B0A8002E_impl OnBookmark
+
+MEREF ME_48089F3701B4_ME_4FC8B0A8002E_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4FC8B0A8002E_over InitParamList
+
+MEREF ME_5006EE59000E_ME_4FC8B0A8002E_G
+ MELINK Original WL? 'ME_5006EE59000E' // TatIterateUserJournalOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5006EE59000E_ME_4FC8B0A8002E_G TatIterateUserJournalOperation
+
+MEREF ME_502A79B80186_ME_4FC8B0A8002E_R
+ MELINK Original WL? 'ME_502A79B80186' // atExecutesQueryAddOn
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502A79B80186_ME_4FC8B0A8002E_R atExecutesQueryAddOn
+
+%%ImplementedBy ME_502A79B80186 ME_4FC8B0A8002E
+
+%%InheritedBy ME_5006EE59000E ME_4FC8B0A8002E
+
+ME ME_4FC8B0A8002E
+ MEPROP UID '4FC8B0A8002E'
+ MEPROP Name 'TatExecuteUserJournalOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_5006EE59000E_ME_4FC8B0A8002E_G // TatIterateUserJournalOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_502A79B80186_ME_4FC8B0A8002E_R // atExecutesQueryAddOn
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_5006F37302DF_ME_4FC8B0A8002E_impl // OnQuery
+ ME_5006F4130346_ME_4FC8B0A8002E_impl // OnBookmark
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4FC8B0A8002E_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FC8B10D00D4 // atLogger
+ ME_4FC9045D00ED // TatDocReader
+ ME_4FC9046303C6 // TatSearchHelper
+ ME_4FF5CB0503CE // CanNotFindData
+ ME_5006FDB00147 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atExecuteUserJournalOperation.pas'
+ UP extprop:rc:SelfName 'atExecuteUserJournalOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atExecuteUserJournalOperation'
+
+ENDME // ME_4FC8B0A8002E TatExecuteUserJournalOperation

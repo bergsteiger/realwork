@@ -1,0 +1,626 @@
+// TddCustomRTFReader 51E7BF4200C0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E7BF4200C0
+
+ME ME_54E3281702D1
+ MEPROP UID '54E3281702D1'
+ MEPROP Name 'SkipPicture'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Флаг для пропуска картинки в процессе чтения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_54E3281702D1 SkipPicture
+
+ME ME_54E328450236
+ MEPROP UID '54E328450236'
+ MEPROP Name 'EnablePictures'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Читать картинки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_54E328450236 EnablePictures
+
+ME ME_54E32868039D
+ MEPROP UID '54E32868039D'
+ MEPROP Name 'ReadWMFIfExists'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Читать WMF-файлы, вместо растровых картинок (если такое возможно)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_54E32868039D ReadWMFIfExists
+
+ME ME_55012CF00077
+ MEPROP UID '55012CF00077'
+ MEPROP Name 'NextFootnoteNumber'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55012CF00077 NextFootnoteNumber
+
+ME ME_56023F490306
+ MEPROP UID '56023F490306'
+ MEPROP Name 'MinPicWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Если у картники меньше ширина, то такая картинка не добавляется в документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_56023F490306 MinPicWidth
+
+ME ME_56023F7A0028
+ MEPROP UID '56023F7A0028'
+ MEPROP Name 'MinPicHeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Если у картники меньше высота, то такая картинка не добавляется в документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_56023F7A0028 MinPicHeight
+
+ME ME_56162C9F01E8
+ MEPROP UID '56162C9F01E8'
+ MEPROP Name 'IdenticalRowWidths'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Делать ширину ячеек одинаковой (дополняя справа ячейками без границ). Для вставки в комментарии.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_56162C9F01E8 IdenticalRowWidths
+
+ME ME_56A86CFB0055
+ MEPROP UID '56A86CFB0055'
+ MEPROP Name 'ReadURL'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Читать гиперссылки. Ссылка добавляется в поле URL.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_56A86CFB0055 ReadURL
+
+FORWARD ME_51E7C1E90092
+
+ME ME_5582E9BA01EC
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5582E9BA01EC aID
+
+ME ME_5582E9BA01FC
+ MEPROP Name 'aWasRestart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5582E9BA01FC aWasRestart
+
+ME ME_51E7C20900BE
+ MEPROP UID '51E7C20900BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7C1E90092 // ListByID
+ ;
+ MELINK Target WL 'ME_51DD4DB6034E' '51DD4C5301CD.ms.model.script' // TrtfList
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582E9BA01EC // aID
+ ME_5582E9BA01FC // aWasRestart
+ )
+ ; // Parameters
+
+ENDME // ME_51E7C20900BE DoIt
+
+ME ME_51E7C1E90092
+ MEPROP UID '51E7C1E90092'
+ MEPROP Name 'ListByID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E7C20900BE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E7C1E90092 ListByID
+
+FORWARD ME_51E7CF130368
+
+ME ME_51E7D134032A
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51E7D134032A anIndex
+
+ME ME_51E7CF2C0272
+ MEPROP UID '51E7CF2C0272'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7CF130368 // ColorByIndex
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '47D15712022D.ms.model.script' // TColor
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E7D134032A // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_51E7CF2C0272 DoIt
+
+ME ME_51E7CF130368
+ MEPROP UID '51E7CF130368'
+ MEPROP Name 'ColorByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E7CF2C0272 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E7CF130368 ColorByIndex
+
+FORWARD ME_51E7CF89008F
+
+ME ME_51E7CF9E0353
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51E7CF9E0353 aNumber
+
+ME ME_51E7CF920248
+ MEPROP UID '51E7CF920248'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7CF89008F // StyleByNumber
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E7CF9E0353 // aNumber
+ )
+ ; // Parameters
+
+ENDME // ME_51E7CF920248 DoIt
+
+ME ME_51E7CF89008F
+ MEPROP UID '51E7CF89008F'
+ MEPROP Name 'StyleByNumber'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E7CF920248 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E7CF89008F StyleByNumber
+
+FORWARD ME_51E7CFC002AA
+
+ME ME_51E7CFD60308
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51E7CFD60308 anID
+
+ME ME_51E7CFC703E6
+ MEPROP UID '51E7CFC703E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7CFC002AA // GetFonts
+ ;
+ MELINK Target WL 'ME_54E19074022B' '51E7D2010032.ms.model.script' // TddFontEntry
+ ;
+ MELIST Parameters
+   Seq: ( ME_51E7CFD60308 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_51E7CFC703E6 DoIt
+
+ME ME_51E7CFC002AA
+ MEPROP UID '51E7CFC002AA'
+ MEPROP Name 'GetFonts'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E7CFC703E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E7CFC002AA GetFonts
+
+FORWARD ME_534F8F4D0317
+
+ME ME_565EF63500BE
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_4FACE0E4032F' // TddDocumentAtom
+ ;
+
+ENDME // ME_565EF63500BE aPara
+
+ME ME_565EF63500CE
+ MEPROP Name 'aNewStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_565EF63500CE aNewStyle
+
+ME ME_534F8F5F03A6
+ MEPROP UID '534F8F5F03A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_534F8F4D0317 // BeforeClosePara
+ ;
+ MELIST Parameters
+   Seq: ( ME_565EF63500BE // aPara
+ ME_565EF63500CE // aNewStyle
+ )
+ ; // Parameters
+
+ENDME // ME_534F8F5F03A6 DoIt
+
+ME ME_534F8F4D0317
+ MEPROP UID '534F8F4D0317'
+ MEPROP Name 'BeforeClosePara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_534F8F5F03A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_534F8F4D0317 BeforeClosePara
+
+FORWARD ME_54E32B7D034A
+
+ME ME_54E33105030B
+ MEPROP Name 'aPicture'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51E8DC3E0361' // TddPicture
+ ;
+
+ENDME // ME_54E33105030B aPicture
+
+ME ME_54E32B8D01E8
+ MEPROP UID '54E32B8D01E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E32B7D034A // NeedSkip
+ ;
+ MELINK Target WL 'ME_54E32E0F0359' '518A1E9F0274.ms.model.script' // TRTFPictureSkip
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E33105030B // aPicture
+ )
+ ; // Parameters
+
+ENDME // ME_54E32B8D01E8 DoIt
+
+ME ME_54E32B7D034A
+ MEPROP UID '54E32B7D034A'
+ MEPROP Name 'NeedSkip'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E32B8D01E8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E32B7D034A NeedSkip
+
+FORWARD ME_55012D100317
+
+ME ME_55012D1C0323
+ MEPROP UID '55012D1C0323'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55012D100317 // IncNextFootnoteNumber
+ ;
+
+ENDME // ME_55012D1C0323 DoIt
+
+ME ME_55012D100317
+ MEPROP UID '55012D100317'
+ MEPROP Name 'IncNextFootnoteNumber'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55012D1C0323 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55012D100317 IncNextFootnoteNumber
+
+FORWARD ME_5624D5E80387
+
+ME ME_5624D5F8014B
+ MEPROP UID '5624D5F8014B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5624D5E80387 // AddFooterHyperlink
+ ;
+
+ENDME // ME_5624D5F8014B DoIt
+
+ME ME_5624D5E80387
+ MEPROP UID '5624D5E80387'
+ MEPROP Name 'AddFooterHyperlink'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5624D5F8014B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5624D5E80387 AddFooterHyperlink
+
+FORWARD ME_562616AD01DF
+
+ME ME_562616C00356
+ MEPROP UID '562616C00356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_562616AD01DF // FootNoteSymbol
+ ;
+
+ENDME // ME_562616C00356 DoIt
+
+ME ME_562616AD01DF
+ MEPROP UID '562616AD01DF'
+ MEPROP Name 'FootNoteSymbol'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_562616C00356 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_562616AD01DF FootNoteSymbol
+
+ME ME_54E3346102C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E7BF4200C0 // TddCustomRTFReader
+ ;
+ MELINK Target WL 'ME_521AFDE50046' '521AFDDA02E4.ms.model.script' // PictureFormat
+ ;
+
+ENDME // ME_54E3346102C9 
+
+MEREF ME_479731C50290_ME_51E7BF4200C0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_51E7BF4200C0_over Cleanup
+
+MEREF ME_47A042E100E2_ME_51E7BF4200C0_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_51E7BF4200C0_over InitFields
+
+MEREF ME_51E7BEC302DB_ME_51E7BF4200C0_G
+ MELINK Original WL 'ME_51E7BEC302DB' '51E7BEA10022.ms.model.script' // TddRTFParser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E7BEC302DB_ME_51E7BF4200C0_G TddRTFParser
+
+%%InheritedBy ME_51E7BEC302DB ME_51E7BF4200C0
+
+ME ME_51E7BF4200C0
+ MEPROP UID '51E7BF4200C0'
+ MEPROP Name 'TddCustomRTFReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Попытка разделить TddRTFReader на две части, чтобы используемые в нем классы могли знать об нем.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51E7BEC302DB_ME_51E7BF4200C0_G // TddRTFParser
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E3281702D1 // SkipPicture
+ HWL ME_54E328450236 // EnablePictures
+ HWL ME_54E32868039D // ReadWMFIfExists
+ HWL ME_55012CF00077 // NextFootnoteNumber
+ HWL ME_56023F490306 // MinPicWidth
+ HWL ME_56023F7A0028 // MinPicHeight
+ HWL ME_56162C9F01E8 // IdenticalRowWidths
+ HWL ME_56A86CFB0055 // ReadURL
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51E7C1E90092 // ListByID
+ HWL ME_51E7CF130368 // ColorByIndex
+ HWL ME_51E7CF89008F // StyleByNumber
+ HWL ME_51E7CFC002AA // GetFonts
+ HWL ME_534F8F4D0317 // BeforeClosePara
+ HWL ME_54E32B7D034A // NeedSkip
+ HWL ME_55012D100317 // IncNextFootnoteNumber
+ HWL ME_5624D5E80387 // AddFooterHyperlink
+ HWL ME_562616AD01DF // FootNoteSymbol
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51E7BF4200C0_over // Cleanup
+ ME_47A042E100E2_ME_51E7BF4200C0_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54E3346102C9 // PictureFormat
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddCustomRTFReader.pas'
+ UP extprop:rc:SelfName 'ddCustomRTFReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddCustomRTFReader'
+
+ENDME // ME_51E7BF4200C0 TddCustomRTFReader

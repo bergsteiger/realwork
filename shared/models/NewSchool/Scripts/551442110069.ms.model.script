@@ -1,0 +1,127 @@
+// Tl3FormatActionInfoHelper 551442110069 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_551442110069
+
+FORWARD ME_551442110069
+
+FORWARD ME_2B0D8771E8B2
+
+FORWARD ME_5514424D01A2
+
+ME ME_1B4D9FCCF6EF
+ MEPROP Name 'anAction'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E7626B0083' '47E76250004C.ms.model.script' // TCustomAction
+ ;
+
+ENDME // ME_1B4D9FCCF6EF anAction
+
+ME ME_781F06EEA149
+ MEPROP UID '781F06EEA149'
+ MEPROP Name 'Format'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_1B4D9FCCF6EF // anAction
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5514424D01A2 // Format
+ ;
+
+ENDME // ME_781F06EEA149 Format
+
+ME ME_2B0D8771E8B2
+ MEPROP UID '2B0D8771E8B2'
+ MEPROP Name 'Ml3FormatActionInfoHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3FormatActionInfoHelper' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_781F06EEA149 // Format
+ )
+ ; // Operations
+
+ENDME // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
+
+ME ME_5514426501EC
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E7626B0083' '47E76250004C.ms.model.script' // TCustomAction
+ ;
+
+ENDME // ME_5514426501EC anAction
+
+ME ME_5514424D01A2
+ MEPROP UID '5514424D01A2'
+ MEPROP Name 'Format'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551442110069 // Tl3FormatActionInfoHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5514426501EC // anAction
+ )
+ ; // Parameters
+
+ENDME // ME_5514424D01A2 Format
+
+MEREF ME_49E7754802A9_ME_551442110069_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_551442110069_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_551442110069
+
+ME ME_551442110069
+ MEPROP UID '551442110069'
+ MEPROP Name 'Tl3FormatActionInfoHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_55001317029B' // VCLHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_551442110069_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5514424D01A2 // Format
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatActionInfoHelper.pas'
+ UP extprop:rc:SelfName 'FormatActionInfoHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FormatActionInfoHelper'
+
+ENDME // ME_551442110069 Tl3FormatActionInfoHelper

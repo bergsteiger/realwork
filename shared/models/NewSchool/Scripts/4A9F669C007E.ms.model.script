@@ -1,0 +1,144 @@
+// ListAnalysisTree 4A9F669C007E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9F669C007E
+
+ME ME_4A9F6EAA03C1
+ MEPROP UID '4A9F6EAA03C1'
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+
+ENDME // ME_4A9F6EAA03C1 NodeType_
+
+ME ME_4A9F6EFC029B
+ MEPROP UID '4A9F6EFC029B'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+
+ENDME // ME_4A9F6EFC029B NodeDelegateType_
+
+ME ME_4DAE86500104
+ MEPROP UID '4DAE86500104'
+ MEPROP Name 'expanded'
+ MEPROP Class class_Attribute
+ %SUMMARY 'флажок, были ли развёрнуты узлы дерева в соответствии с правилом:'#13#10''#13#10'Если узел пуст, он показывается свернутым с нулем напротив в скобках. Если в нем что-то есть, то разворачивается.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4DAE86500104 expanded
+
+ME ME_4A9F727C01CC
+ MEPROP Name 'stree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4A9F727C01CC stree
+
+ME ME_4A9F727601E7
+ MEPROP UID '4A9F727601E7'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A9F727C01CC // stree
+ )
+ ; // Parameters
+
+ENDME // ME_4A9F727601E7 make
+
+ME ME_4A9F73BD029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+
+ENDME // ME_4A9F73BD029C 
+
+ME ME_4B6A8BFD03C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9F669C007E // ListAnalysisTree
+ ;
+ MELINK Target WL? 'ME_460A6EF8024B' // ApplicationHelper
+ ;
+
+ENDME // ME_4B6A8BFD03C8 
+
+MEREF ME_46011F130203_ME_4A9F669C007E_over
+ MELINK Original WL 'ME_46011F130203' '45F554750213.ms.model.script' // add_notifier
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_46011F130203_ME_4A9F669C007E_over add_notifier
+
+MEREF ME_45F585F802AF_ME_4A9F669C007E_R
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_4A9F669C007E_R Tree
+
+%%ImplementedBy ME_45F585F802AF ME_4A9F669C007E
+
+ME ME_4A9F669C007E
+ MEPROP UID '4A9F669C007E'
+ MEPROP Name 'ListAnalysisTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дерево анализа списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_45741B780271' // DynamicDocList_i
+ ;
+ MELIST Implements
+   Seq: ( ME_45F585F802AF_ME_4A9F669C007E_R // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A9F6EAA03C1 // NodeType_
+ HWL ME_4A9F6EFC029B // NodeDelegateType_
+ HWL ME_4DAE86500104 // expanded
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A9F727601E7 // make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_46011F130203_ME_4A9F669C007E_over // add_notifier
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A9F73BD029C // AnalysisNode_i
+ ME_4B6A8BFD03C8 // ApplicationHelper
+ )
+ ; // Dependencies
+ UP "need dctor" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicDocList_i\ListAnalysisTree.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DynamicDocList_i\ListAnalysisTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListAnalysisTree.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A9F669C007E ListAnalysisTree

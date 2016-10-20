@@ -1,0 +1,115 @@
+// TFoldersChangeUserInteraction 51F65A1A03D3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51F65A1A03D3
+
+ME ME_51F65ADD01D0
+ MEPROP UID '51F65ADD01D0'
+ MEPROP Name 'AskAllowMerge'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL 'ME_4A7FE5870289' '4990135D02F1.ms.model.script' // TnsListMergeKind
+ ;
+
+ENDME // ME_51F65ADD01D0 AskAllowMerge
+
+ME ME_51F65B500160
+ MEPROP UID '51F65B500160'
+ MEPROP Name 'SayChildNodeDuplicated'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+
+ENDME // ME_51F65B500160 SayChildNodeDuplicated
+
+ME ME_51F65AC10334
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL 'ME_4A7FE5870289' '4990135D02F1.ms.model.script' // TnsListMergeKind
+ ;
+
+ENDME // ME_51F65AC10334 
+
+ME ME_51F65E98025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL? 'ME_4E01D696020C' // vcmMessagesSupport
+ ;
+
+ENDME // ME_51F65E98025B 
+
+ME ME_51F6626602E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_51F6626602E4 
+
+ME ME_51F6647F02AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL? 'ME_4F9BB14900E7' // nsQuestionsWithChoices
+ ;
+
+ENDME // ME_51F6647F02AB 
+
+ME ME_51F66B7E038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51F65A1A03D3 // TFoldersChangeUserInteraction
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_51F66B7E038C 
+
+ME ME_51F65A1A03D3
+ MEPROP UID '51F65A1A03D3'
+ MEPROP Name 'TFoldersChangeUserInteraction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_497DCBF8017B' // Folders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51F65ADD01D0 // AskAllowMerge
+ HWL ME_51F65B500160 // SayChildNodeDuplicated
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51F65AC10334 // TnsListMergeKind
+ ME_51F65E98025B // vcmMessagesSupport
+ ME_51F6626602E4 // StdRes
+ ME_51F6647F02AB // nsQuestionsWithChoices
+ ME_51F66B7E038C // ModalResults
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersChangeUserInteraction.pas'
+ UP extprop:rc:SelfName 'FoldersChangeUserInteraction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'FoldersChangeUserInteraction'
+
+ENDME // ME_51F65A1A03D3 TFoldersChangeUserInteraction

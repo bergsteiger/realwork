@@ -1,0 +1,625 @@
+// TnsNewsLine 4C87BD1A0218 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C87BD1A0218
+%%Inner ME_4C87BD1A0218
+
+FORWARD ME_4C87BD1A0218
+
+FORWARD ME_524D45100324
+
+ME ME_524D455C00F0
+ MEPROP UID '524D455C00F0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D45100324 // TnsNewsLineSubscribersList
+ ;
+ MELINK Target WL 'ME_49918CBB000C' '499032720106.ms.model.script' // InsNewsLineNotifier
+ ;
+
+ENDME // ME_524D455C00F0 ItemType
+
+MEREF ME_47BC3A07027F_ME_524D45100324_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_524D45100324_G Tl3SimpleDataContainer
+
+MEREF ME_47B57D630029_ME_524D45100324_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_524D45100324_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_524D45100324
+
+%%InheritedBy ME_47BC3A07027F ME_524D45100324
+
+ME ME_524D45100324
+ MEPROP UID '524D45100324'
+ MEPROP Name 'TnsNewsLineSubscribersList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC3A07027F_ME_524D45100324_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D630029_ME_524D45100324_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_524D455C00F0 // ItemType
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'NewsLineSubscribersList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_524D45100324 TnsNewsLineSubscribersList
+
+FORWARD ME_524D3E260036
+
+ME ME_524D3F740063
+ MEPROP UID '524D3F740063'
+ MEPROP Name 'CurrentThemeNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_524D3F740063 CurrentThemeNode
+
+ME ME_524D3FF9018A
+ MEPROP UID '524D3FF9018A'
+ MEPROP Name 'f_Root'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_524D3FF9018A f_Root
+
+ME ME_524D40A602AE
+ MEPROP UID '524D40A602AE'
+ MEPROP Name 'f_CurrentThemeIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_524D40A602AE f_CurrentThemeIndex
+
+ME ME_524D40AF00C2
+ MEPROP UID '524D40AF00C2'
+ MEPROP Name 'f_ThemeCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_524D40AF00C2 f_ThemeCount
+
+ME ME_524D410A03CF
+ MEPROP UID '524D410A03CF'
+ MEPROP Name 'f_ThemeList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target WL 'ME_4683CF0601DB' '467BAB7F021E.ms.model.script' // IvcmStrings
+ ;
+
+ENDME // ME_524D410A03CF f_ThemeList
+
+ME ME_524D45AD006D
+ MEPROP UID '524D45AD006D'
+ MEPROP Name 'f_Subscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELINK Target HWL ME_524D45100324 // TnsNewsLineSubscribersList
+ ;
+
+ENDME // ME_524D45AD006D f_Subscribers
+
+ME ME_524D3EAE02E1
+ MEPROP UID '524D3EAE02E1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+
+ENDME // ME_524D3EAE02E1 Create
+
+ME ME_524D3FAC00F2
+ MEPROP UID '524D3FAC00F2'
+ MEPROP Name 'LoadThemeList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+
+ENDME // ME_524D3FAC00F2 LoadThemeList
+
+FORWARD ME_524D3FC101AA
+
+ME ME_524D3FC802F3
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_524D3FC802F3 anIndex
+
+ME ME_524D3FC602D3
+ MEPROP UID '524D3FC602D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3FC101AA // SetCurrentThemeIndex
+ ;
+ MELIST Parameters
+   Seq: ( ME_524D3FC802F3 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_524D3FC602D3 DoIt
+
+ME ME_524D3FC101AA
+ MEPROP UID '524D3FC101AA'
+ MEPROP Name 'SetCurrentThemeIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_524D3FC602D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_524D3FC101AA SetCurrentThemeIndex
+
+ME ME_524D590B0136
+ MEPROP UID '524D590B0136'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+
+ENDME // ME_524D590B0136 NotifySubscribers
+
+MEREF ME_524D3EAE02E1_ME_524EA091009B_G
+ MELINK Original HWL ME_524D3EAE02E1 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_524D3EAE02E1_ME_524EA091009B_G Create
+
+MEREF ME_49918CD601C8_ME_524EA091009B_R
+ MELINK Original WL 'ME_49918CD601C8' '499032720106.ms.model.script' // InsNewsLine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49918CD601C8_ME_524EA091009B_R InsNewsLine
+
+%%ImplementedBy ME_49918CD601C8 ME_524EA091009B
+
+%%InheritedBy ME_524D3EAE02E1 ME_524EA091009B
+
+ME ME_524EA091009B
+ MEPROP UID '524EA091009B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELIST Inherits
+   Seq: ( ME_524D3EAE02E1_ME_524EA091009B_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49918CD601C8_ME_524EA091009B_R // InsNewsLine
+ )
+ ; // Implements
+
+ENDME // ME_524EA091009B Make
+
+FORWARD ME_54366C58003B
+
+ME ME_54366C920212
+ MEPROP Name 'aSaveCurrentTheme'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54366C920212 aSaveCurrentTheme
+
+ME ME_54366C8702D3
+ MEPROP UID '54366C8702D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54366C58003B // DoDataUpdate
+ ;
+ MELIST Parameters
+   Seq: ( ME_54366C920212 // aSaveCurrentTheme
+ )
+ ; // Parameters
+
+ENDME // ME_54366C8702D3 DoIt
+
+ME ME_54366C58003B
+ MEPROP UID '54366C58003B'
+ MEPROP Name 'DoDataUpdate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54366C8702D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54366C58003B DoDataUpdate
+
+MEREF ME_49918CE0025D_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918CE0025D' '499032720106.ms.model.script' // SaveThemeToSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49918CE0025D_ME_524D3E260036_impl SaveThemeToSettings
+
+MEREF ME_49918CE900C9_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918CE900C9' '499032720106.ms.model.script' // LoadThemeFromSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49918CE900C9_ME_524D3E260036_impl LoadThemeFromSettings
+
+MEREF ME_49918CFD0326_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918CFD0326' '499032720106.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49918CFD0326_ME_524D3E260036_impl Subscribe
+
+MEREF ME_49918D0B03A3_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918D0B03A3' '499032720106.ms.model.script' // UnSubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49918D0B03A3_ME_524D3E260036_impl UnSubscribe
+
+MEREF ME_49918D340382_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918D340382' '499032720106.ms.model.script' // ThemeList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49918D340382_ME_524D3E260036_impl ThemeList
+
+MEREF ME_49918D570335_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49918D570335' '499032720106.ms.model.script' // CurrentTheme
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49918D570335_ME_524D3E260036_impl CurrentTheme
+
+MEREF ME_49F7028D024F_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49F7028D024F' '499032720106.ms.model.script' // MakeCurrentThemeTreeStruct
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49F7028D024F_ME_524D3E260036_impl MakeCurrentThemeTreeStruct
+
+MEREF ME_49F7F4E603A4_ME_524D3E260036_impl
+ MELINK Original WL 'ME_49F7F4E603A4' '499032720106.ms.model.script' // ExtractAutoreferat
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49F7F4E603A4_ME_524D3E260036_impl ExtractAutoreferat
+
+MEREF ME_542BF11D00B6_ME_524D3E260036_impl
+ MELINK Original WL 'ME_542BF11D00B6' '542BED480295.ms.model.script' // nsNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542BF11D00B6_ME_524D3E260036_impl nsNotification
+
+MEREF ME_479731C50290_ME_524D3E260036_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_524D3E260036_over Cleanup
+
+MEREF ME_47A042E100E2_ME_524D3E260036_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_524D3E260036_over InitFields
+
+MEREF ME_47EA4E9002C6_ME_524D3E260036_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_524D3E260036_over FinishDataUpdate
+
+MEREF ME_49E7754802A9_ME_524D3E260036_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_524D3E260036_G Tl3ProtoObject
+
+MEREF ME_47EA4BEF0140_ME_524D3E260036_R
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_524D3E260036_R afwApplicationDataUpdate
+
+MEREF ME_49918CD601C8_ME_524D3E260036_R
+ MELINK Original WL 'ME_49918CD601C8' '499032720106.ms.model.script' // InsNewsLine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49918CD601C8_ME_524D3E260036_R InsNewsLine
+
+MEREF ME_542BEEB003E1_ME_524D3E260036_R
+ MELINK Original WL 'ME_542BEEB003E1' '542BED480295.ms.model.script' // InsNotificationListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542BEEB003E1_ME_524D3E260036_R InsNotificationListener
+
+%%ImplementedBy ME_47EA4BEF0140 ME_524D3E260036
+%%ImplementedBy ME_49918CD601C8 ME_524D3E260036
+%%ImplementedBy ME_542BEEB003E1 ME_524D3E260036
+
+%%InheritedBy ME_49E7754802A9 ME_524D3E260036
+
+ME ME_524D3E260036
+ MEPROP UID '524D3E260036'
+ MEPROP Name 'TnsNewsLinePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_524D3E260036_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47EA4BEF0140_ME_524D3E260036_R // afwApplicationDataUpdate
+ ME_49918CD601C8_ME_524D3E260036_R // InsNewsLine
+ ME_542BEEB003E1_ME_524D3E260036_R // InsNotificationListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_524D3F740063 // CurrentThemeNode
+ HWL ME_524D3FF9018A // f_Root
+ HWL ME_524D40A602AE // f_CurrentThemeIndex
+ HWL ME_524D40AF00C2 // f_ThemeCount
+ HWL ME_524D410A03CF // f_ThemeList
+ HWL ME_524D45AD006D // f_Subscribers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_524D3EAE02E1 // Create
+ HWL ME_524D3FAC00F2 // LoadThemeList
+ HWL ME_524D3FC101AA // SetCurrentThemeIndex
+ HWL ME_524D590B0136 // NotifySubscribers
+ HWL ME_524EA091009B // Make
+ HWL ME_54366C58003B // DoDataUpdate
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49918CE0025D_ME_524D3E260036_impl // SaveThemeToSettings
+ ME_49918CE900C9_ME_524D3E260036_impl // LoadThemeFromSettings
+ ME_49918CFD0326_ME_524D3E260036_impl // Subscribe
+ ME_49918D0B03A3_ME_524D3E260036_impl // UnSubscribe
+ ME_49918D340382_ME_524D3E260036_impl // ThemeList
+ ME_49918D570335_ME_524D3E260036_impl // CurrentTheme
+ ME_49F7028D024F_ME_524D3E260036_impl // MakeCurrentThemeTreeStruct
+ ME_49F7F4E603A4_ME_524D3E260036_impl // ExtractAutoreferat
+ ME_542BF11D00B6_ME_524D3E260036_impl // nsNotification
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_524D3E260036_over // Cleanup
+ ME_47A042E100E2_ME_524D3E260036_over // InitFields
+ ME_47EA4E9002C6_ME_524D3E260036_over // FinishDataUpdate
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'NewsLinePrim'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_524D3E260036 TnsNewsLinePrim
+
+ME ME_524EC01C0008
+ MEPROP UID '524EC01C0008'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL 'ME_49918CD601C8' '499032720106.ms.model.script' // InsNewsLine
+ ;
+
+ENDME // ME_524EC01C0008 Make
+
+ME ME_524D5A040337
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_524D5A040337 
+
+ME ME_524D5AC0005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL 'ME_456EB4540186' '456EA56002BF.ms.model.script' // StorageLocked
+ ;
+
+ENDME // ME_524D5AC0005A 
+
+ME ME_524D5ADD0274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL? 'ME_4A6854C70390' // nsTypes
+ ;
+
+ENDME // ME_524D5ADD0274 
+
+ME ME_524D5B0102CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_524D5B0102CA 
+
+ME ME_524D5B17009F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL? 'ME_4AB8CB630173' // TvcmStringList
+ ;
+
+ENDME // ME_524D5B17009F 
+
+ME ME_524D5B2D0214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL? 'ME_46835B4001A4' // TnsTreeStruct
+ ;
+
+ENDME // ME_524D5B2D0214 
+
+ME ME_524D5B4003C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C87BD1A0218 // TnsNewsLine
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_524D5B4003C7 
+
+MEREF ME_524D3E260036_ME_4C87BD1A0218_G
+ MELINK Original HWL ME_524D3E260036 // TnsNewsLinePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_524D3E260036_ME_4C87BD1A0218_G TnsNewsLinePrim
+
+%%InheritedBy ME_524D3E260036 ME_4C87BD1A0218
+
+ME ME_4C87BD1A0218
+ MEPROP UID '4C87BD1A0218'
+ MEPROP Name 'TnsNewsLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4A92D644009B' // Search
+ ;
+ MELIST Inherits
+   Seq: ( ME_524D3E260036_ME_4C87BD1A0218_G // TnsNewsLinePrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_524EC01C0008 // Make
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_524D45100324 // TnsNewsLineSubscribersList
+ HWL ME_524D3E260036 // TnsNewsLinePrim
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_524D5A040337 // String
+ ME_524D5AC0005A // StorageLocked
+ ME_524D5ADD0274 // nsTypes
+ ME_524D5B0102CA // DataAdapter
+ ME_524D5B17009F // TvcmStringList
+ ME_524D5B2D0214 // TnsTreeStruct
+ ME_524D5B4003C7 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\nsNewsLine.pas'
+ UP extprop:rc:SelfName 'NewsLine'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNewsLine'
+
+ENDME // ME_4C87BD1A0218 TnsNewsLine

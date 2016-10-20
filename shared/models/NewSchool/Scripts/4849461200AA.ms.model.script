@@ -1,0 +1,67 @@
+// Wl3List 4849461200AA Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4849461200AA
+
+ME ME_49A6D270027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849461200AA // Wl3List
+ ;
+ MELINK Target WL? 'ME_47AC59170251' // Tk2List
+ ;
+
+ENDME // ME_49A6D270027E 
+
+MEREF ME_48493F800373_ME_4849461200AA_G
+ MELINK Original WL? 'ME_48493F800373' // WPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48493F800373_ME_4849461200AA_G WPersistent
+
+MEREF ME_48492AD90142_ME_4849461200AA_R
+ MELINK Original WL 'ME_48492AD90142' '52669BFC024E.ms.model.script' // OList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492AD90142_ME_4849461200AA_R OList
+
+%%ImplementedBy ME_48492AD90142 ME_4849461200AA
+
+%%InheritedBy ME_48493F800373 ME_4849461200AA
+
+ME ME_4849461200AA
+ MEPROP UID '4849461200AA'
+ MEPROP Name 'Wl3List'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Wl3List' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_48493F800373_ME_4849461200AA_G // WPersistent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48492AD90142_ME_4849461200AA_R // OList
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_49A6D270027E // Tk2List
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '07.09.1998 12:46'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\l3List_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3List_Wrap'
+
+ENDME // ME_4849461200AA Wl3List

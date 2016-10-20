@@ -1,0 +1,53 @@
+// TkwInlinedWord 53ED9C3B01F3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53ED9C3B01F3
+
+MEREF ME_52CFC11603C8_ME_53ED9C3B01F3_over
+ MELINK Original WL 'ME_52CFC11603C8' '4DAF19F600C5.ms.model.script' // ResultTypeInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" true
+ENDMEREF // ME_52CFC11603C8_ME_53ED9C3B01F3_over ResultTypeInfo
+
+MEREF ME_52EA6A2C0111_ME_53ED9C3B01F3_over
+ MELINK Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.ms.model.script' // SetResultTypeInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52EA6A2C0111_ME_53ED9C3B01F3_over SetResultTypeInfo
+
+MEREF ME_4DB6CA4F010D_ME_53ED9C3B01F3_G
+ MELINK Original WL? 'ME_4DB6CA4F010D' // TkwCompiledWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6CA4F010D_ME_53ED9C3B01F3_G TkwCompiledWord
+
+%%InheritedBy ME_4DB6CA4F010D ME_53ED9C3B01F3
+
+ME ME_53ED9C3B01F3
+ MEPROP UID '53ED9C3B01F3'
+ MEPROP Name 'TkwInlinedWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB6CA4F010D_ME_53ED9C3B01F3_G // TkwCompiledWord
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52CFC11603C8_ME_53ED9C3B01F3_over // ResultTypeInfo
+ ME_52EA6A2C0111_ME_53ED9C3B01F3_over // SetResultTypeInfo
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwInlinedWord.pas'
+ UP extprop:rc:SelfName 'InlinedWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwInlinedWord'
+
+ENDME // ME_53ED9C3B01F3 TkwInlinedWord

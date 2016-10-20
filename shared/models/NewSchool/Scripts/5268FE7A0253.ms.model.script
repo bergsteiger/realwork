@@ -1,0 +1,325 @@
+// TddParaList 5268FE7A0253 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5268FE7A0253
+
+ME ME_5268FF20009A
+ MEPROP UID '5268FF20009A'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL? 'ME_518A04EF001B' // TddDocumentAtomList
+ ;
+
+ENDME // ME_5268FF20009A f_List
+
+ME ME_526902510205
+ MEPROP UID '526902510205'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_526901870020' '52CFA9D5031E.ms.model.script' // TddListType
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_526902510205 ListType
+
+ME ME_5269067501C5
+ MEPROP UID '5269067501C5'
+ MEPROP Name 'OrderType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_52690624035A' '52CFA9D5031E.ms.model.script' // TddOrderType
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5269067501C5 OrderType
+
+ME ME_526906BF01F1
+ MEPROP UID '526906BF01F1'
+ MEPROP Name 'OrderStart'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_526906BF01F1 OrderStart
+
+ME ME_526906DB01C1
+ MEPROP UID '526906DB01C1'
+ MEPROP Name 'Multilevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_526906DB01C1 Multilevel
+
+FORWARD ME_526907090237
+
+ME ME_5269071E0278
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5268FE7A0253 // TddParaList
+ ;
+
+ENDME // ME_5269071E0278 aList
+
+ME ME_526907100123
+ MEPROP UID '526907100123'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526907090237 // AddList
+ ;
+ MELIST Parameters
+   Seq: ( ME_5269071E0278 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_526907100123 DoIt
+
+ME ME_526907090237
+ MEPROP UID '526907090237'
+ MEPROP Name 'AddList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_526907100123 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_526907090237 AddList
+
+FORWARD ME_52690727025D
+
+ME ME_5269073201F2
+ MEPROP UID '5269073201F2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52690727025D // AddPara
+ ;
+
+ENDME // ME_5269073201F2 DoIt
+
+ME ME_52690727025D
+ MEPROP UID '52690727025D'
+ MEPROP Name 'AddPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5269073201F2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52690727025D AddPara
+
+FORWARD ME_5269074203DE
+
+ME ME_52690752021A
+ MEPROP UID '52690752021A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5269074203DE // CloseLevel
+ ;
+
+ENDME // ME_52690752021A DoIt
+
+ME ME_5269074203DE
+ MEPROP UID '5269074203DE'
+ MEPROP Name 'CloseLevel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52690752021A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5269074203DE CloseLevel
+
+ME ME_5269FD170252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_5269FD170252 
+
+ME ME_5269FE4E017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_5269FE4E017B 
+
+ME ME_5269FE6E02C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_5269FE6E02C9 
+
+ME ME_5269FED1022F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5268FE7A0253 // TddParaList
+ ;
+ MELINK Target WL 'ME_4ADEE4F301E2' '47878E0E0191.ms.model.script' // l3PCharLen
+ ;
+
+ENDME // ME_5269FED1022F 
+
+MEREF ME_518A504F00F5_ME_5268FE7A0253_impl
+ MELINK Original WL 'ME_518A504F00F5' '4FACE0E4032F.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_518A504F00F5_ME_5268FE7A0253_impl Write2Generator
+
+MEREF ME_479731C50290_ME_5268FE7A0253_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5268FE7A0253_over Cleanup
+
+MEREF ME_51E91BA80051_ME_5268FE7A0253_over
+ MELINK Original WL 'ME_51E91BA80051' '4FACE0E4032F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E91BA80051_ME_5268FE7A0253_over Create
+
+MEREF ME_5268DBC503E2_ME_5268FE7A0253_over
+ MELINK Original WL 'ME_5268DBC503E2' '4FACE0E4032F.ms.model.script' // GetLastPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5268DBC503E2_ME_5268FE7A0253_over GetLastPara
+
+MEREF ME_4FACE0E4032F_ME_5268FE7A0253_G
+ MELINK Original WL? 'ME_4FACE0E4032F' // TddDocumentAtom
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FACE0E4032F_ME_5268FE7A0253_G TddDocumentAtom
+
+%%InheritedBy ME_4FACE0E4032F ME_5268FE7A0253
+
+ME ME_5268FE7A0253
+ MEPROP UID '5268FE7A0253'
+ MEPROP Name 'TddParaList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FACE0E4032F_ME_5268FE7A0253_G // TddDocumentAtom
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5268FF20009A // f_List
+ HWL ME_526902510205 // ListType
+ HWL ME_5269067501C5 // OrderType
+ HWL ME_526906BF01F1 // OrderStart
+ HWL ME_526906DB01C1 // Multilevel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_526907090237 // AddList
+ HWL ME_52690727025D // AddPara
+ HWL ME_5269074203DE // CloseLevel
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_518A504F00F5_ME_5268FE7A0253_impl // Write2Generator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5268FE7A0253_over // Cleanup
+ ME_51E91BA80051_ME_5268FE7A0253_over // Create
+ ME_5268DBC503E2_ME_5268FE7A0253_over // GetLastPara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5269FD170252 // TddTextParagraph
+ ME_5269FE4E017B // l3Free
+ ME_5269FE6E02C9 // IntToStr
+ ME_5269FED1022F // l3PCharLen
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddParaList.pas'
+ UP extprop:rc:SelfName 'ddParaList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddParaList'
+
+ENDME // ME_5268FE7A0253 TddParaList

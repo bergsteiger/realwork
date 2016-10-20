@@ -1,0 +1,116 @@
+// TatDumpTreeOperation 503D03510064 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503D03510064
+
+ME ME_503D03D4023B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503D03510064 // TatDumpTreeOperation
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_503D03D4023B 
+
+ME ME_503D03D800CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503D03510064 // TatDumpTreeOperation
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_503D03D800CA 
+
+ME ME_503D03E4015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503D03510064 // TatDumpTreeOperation
+ ;
+ MELINK Target WL? 'ME_48078D230277' // TatNodeHelper
+ ;
+
+ENDME // ME_503D03E4015D 
+
+ME ME_503D041B00C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503D03510064 // TatDumpTreeOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_503D041B00C9 
+
+ME ME_5040DC3501E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_503D03510064 // TatDumpTreeOperation
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_5040DC3501E6 
+
+MEREF ME_48089F460352_ME_503D03510064_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_503D03510064_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_503D03510064_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_503D03510064_over InitParamList
+
+MEREF ME_48076E9D013E_ME_503D03510064_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_503D03510064_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_503D03510064
+
+ME ME_503D03510064
+ MEPROP UID '503D03510064'
+ MEPROP Name 'TatDumpTreeOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_503D03510064_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_503D03510064_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_503D03510064_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_503D03D4023B // NodeIterator
+ ME_503D03D800CA // NodeBase
+ ME_503D03E4015D // TatNodeHelper
+ ME_503D041B00C9 // atLogger
+ ME_5040DC3501E6 // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDumpTreeOperation.pas'
+ UP extprop:rc:SelfName 'atDumpTreeOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atDumpTreeOperation'
+
+ENDME // ME_503D03510064 TatDumpTreeOperation

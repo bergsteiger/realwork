@@ -1,0 +1,190 @@
+// TevCustomPDFWriter 53FED6EF027B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FED6EF027B
+
+ME ME_53FEDA5100DA
+ MEPROP UID '53FEDA5100DA'
+ MEPROP Name 'f_Document'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FED6EF027B // TevCustomPDFWriter
+ ;
+ MELINK Target WL? 'ME_47ECA82403AC' // Tk2DocumentBuffer
+ ;
+
+ENDME // ME_53FEDA5100DA f_Document
+
+FORWARD ME_53FEE4FE01CB
+
+ME ME_53FEE5170005
+ MEPROP UID '53FEE5170005'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FEE4FE01CB // ExportPDF
+ ;
+
+ENDME // ME_53FEE5170005 DoIt
+
+ME ME_53FEE4FE01CB
+ MEPROP UID '53FEE4FE01CB'
+ MEPROP Name 'ExportPDF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FED6EF027B // TevCustomPDFWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FEE5170005 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FEE4FE01CB ExportPDF
+
+FORWARD ME_53FEE8EB02B9
+
+ME ME_53FEE90502C1
+ MEPROP UID '53FEE90502C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FEE8EB02B9 // GetDocument
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53FEE90502C1 DoIt
+
+ME ME_53FEE8EB02B9
+ MEPROP UID '53FEE8EB02B9'
+ MEPROP Name 'GetDocument'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FED6EF027B // TevCustomPDFWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FEE90502C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FEE8EB02B9 GetDocument
+
+ME ME_53FEE4DD0353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FED6EF027B // TevCustomPDFWriter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53FEE4DD0353 
+
+MEREF ME_4836D4650177_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_53FED6EF027B_over StartChild
+
+MEREF ME_4836D477022A_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D477022A' '47ECAA270135.ms.model.script' // StartTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D477022A_ME_53FED6EF027B_over StartTag
+
+MEREF ME_4836D49800CA_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D49800CA' '47ECAA270135.ms.model.script' // OpenStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D49800CA_ME_53FED6EF027B_over OpenStream
+
+MEREF ME_4836D4B003DC_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D4B003DC' '47ECAA270135.ms.model.script' // CloseStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4B003DC_ME_53FED6EF027B_over CloseStream
+
+MEREF ME_4836D4C20059_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_53FED6EF027B_over CloseStructure
+
+MEREF ME_4836D52400D9_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_53FED6EF027B_over AddAtomEx
+
+MEREF ME_5000565C019C_ME_53FED6EF027B_over
+ MELINK Original WL 'ME_5000565C019C' '47913F4E02E0.ms.model.script' // ClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5000565C019C_ME_53FED6EF027B_over ClearFields
+
+MEREF ME_4836BFC9011E_ME_53FED6EF027B_G
+ MELINK Original WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836BFC9011E_ME_53FED6EF027B_G Tk2CustomFileGenerator
+
+%%InheritedBy ME_4836BFC9011E ME_53FED6EF027B
+
+ME ME_53FED6EF027B
+ MEPROP UID '53FED6EF027B'
+ MEPROP Name 'TevCustomPDFWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Писатель PDF-файлов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4836BFC9011E_ME_53FED6EF027B_G // Tk2CustomFileGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53FEDA5100DA // f_Document
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53FEE4FE01CB // ExportPDF
+ HWL ME_53FEE8EB02B9 // GetDocument
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4836D4650177_ME_53FED6EF027B_over // StartChild
+ ME_4836D477022A_ME_53FED6EF027B_over // StartTag
+ ME_4836D49800CA_ME_53FED6EF027B_over // OpenStream
+ ME_4836D4B003DC_ME_53FED6EF027B_over // CloseStream
+ ME_4836D4C20059_ME_53FED6EF027B_over // CloseStructure
+ ME_4836D52400D9_ME_53FED6EF027B_over // AddAtomEx
+ ME_5000565C019C_ME_53FED6EF027B_over // ClearFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53FEE4DD0353 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomPDFWriter.pas'
+ UP extprop:rc:SelfName 'PDFWriter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomPDFWriter'
+
+ENDME // ME_53FED6EF027B TevCustomPDFWriter

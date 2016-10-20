@@ -30,8 +30,16 @@ BOOLEAN elem_func IsDeletedElement
    true
   (
    ( Self .IsSomeView )
+   AND ( Self .Viewed Self ?== )   
+   AND ( Self .MDAClass class_Unknown ?== )
+  // - удалённая ссылка на атрибут, операцию или зависимость 
+  ) 
+   true
+  (
+   ( Self .IsSomeView )
    AND ( Self .Viewed Self ?!= )   
    AND ( Self .Viewed call.me )
+  // - View от удалённого элемента
   ) 
    true
   ( 

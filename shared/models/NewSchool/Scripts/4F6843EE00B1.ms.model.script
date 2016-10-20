@@ -1,0 +1,483 @@
+// TddBorder 4F6843EE00B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F6843EE00B1
+
+FORWARD ME_4F6843EE00B1
+
+FORWARD ME_525E350A0005
+
+ME ME_525E35290340
+ MEPROP UID '525E35290340'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E350A0005 // TddBorderPartArray
+ ;
+ MELINK Target WL? 'ME_525E2AE802B2' // TddBorderPart
+ ;
+
+ENDME // ME_525E35290340 
+
+MEREF ME_5111FE6903A1_ME_525E350A0005_G
+ MELINK Original WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5111FE6903A1_ME_525E350A0005_G TddBorderParts
+
+%%InheritedBy ME_5111FE6903A1 ME_525E350A0005
+
+ME ME_525E350A0005
+ MEPROP UID '525E350A0005'
+ MEPROP Name 'TddBorderPartArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELIST Inherits
+   Seq: ( ME_5111FE6903A1_ME_525E350A0005_G // TddBorderParts
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525E35290340 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_525E350A0005 TddBorderPartArray
+
+ME ME_525E3567029C
+ MEPROP UID '525E3567029C'
+ MEPROP Name 'f_BorderParts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target HWL ME_525E350A0005 // TddBorderPartArray
+ ;
+
+ENDME // ME_525E3567029C f_BorderParts
+
+ME ME_525E35D800D2
+ MEPROP UID '525E35D800D2'
+ MEPROP Name 'BorderOwner'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_518A1EC20043' '52CFA9D5031E.ms.model.script' // TddBorderOwner
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525E35D800D2 BorderOwner
+
+FORWARD ME_525E3AC602FD
+
+ME ME_525E3B1E032F
+ MEPROP UID '525E3B1E032F'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E3AC602FD // FrameColor
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E3B1E032F anIndex
+
+ME ME_525E3AC602FD
+ MEPROP UID '525E3AC602FD'
+ MEPROP Name 'FrameColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525E3B1E032F // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3AC602FD FrameColor
+
+FORWARD ME_525E3B770074
+
+ME ME_525E3BAC02C8
+ MEPROP UID '525E3BAC02C8'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E3B770074 // FrameSpace
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E3BAC02C8 anIndex
+
+ME ME_525E3B770074
+ MEPROP UID '525E3B770074'
+ MEPROP Name 'FrameSpace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525E3BAC02C8 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3B770074 FrameSpace
+
+FORWARD ME_525E3BE60384
+
+ME ME_525E3BED0186
+ MEPROP UID '525E3BED0186'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E3BE60384 // FrameWidth
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E3BED0186 anIndex
+
+ME ME_525E3BE60384
+ MEPROP UID '525E3BE60384'
+ MEPROP Name 'FrameWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525E3BED0186 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3BE60384 FrameWidth
+
+FORWARD ME_525E3C2200C4
+
+ME ME_525E3C3002EF
+ MEPROP UID '525E3C3002EF'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E3C2200C4 // Frames
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E3C3002EF anIndex
+
+ME ME_525E3C2200C4
+ MEPROP UID '525E3C2200C4'
+ MEPROP Name 'Frames'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL? 'ME_525E2AE802B2' // TddBorderPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525E3C3002EF // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3C2200C4 Frames
+
+ME ME_525E3C830125
+ MEPROP UID '525E3C830125'
+ MEPROP Name 'IsFramed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3C830125 IsFramed
+
+FORWARD ME_525E3CE90105
+
+ME ME_525E3CED0330
+ MEPROP UID '525E3CED0330'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525E3CE90105 // FrameType
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E3CED0330 anIndex
+
+ME ME_525E3CE90105
+ MEPROP UID '525E3CE90105'
+ MEPROP Name 'FrameType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_525E2DF80180' '518A1E9F0274.ms.model.script' // TddBorderType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_525E3CED0330 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_525E3CE90105 FrameType
+
+FORWARD ME_525E37C80295
+
+ME ME_525E37E30112
+ MEPROP UID '525E37E30112'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E37C80295 // HasAllFramePart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_525E37E30112 DoIt
+
+ME ME_525E37C80295
+ MEPROP UID '525E37C80295'
+ MEPROP Name 'HasAllFramePart'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E37E30112 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E37C80295 HasAllFramePart
+
+ME ME_525E44290227
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_525E44290227 
+
+ME ME_525E4447017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_525E4447017D 
+
+ME ME_525E44970184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6843EE00B1 // TddBorder
+ ;
+ MELINK Target WL 'ME_484D2BAB02BB' '484A470100DD.ms.model.script' // Frame
+ ;
+
+ENDME // ME_525E44970184 
+
+MEREF ME_525E369F0158_ME_4F6843EE00B1_impl
+ MELINK Original WL 'ME_525E369F0158' '4F6843FC0241.ms.model.script' // MergeWith
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E369F0158_ME_4F6843EE00B1_impl MergeWith
+
+MEREF ME_525E37430345_ME_4F6843EE00B1_impl
+ MELINK Original WL 'ME_525E37430345' '4F6843FC0241.ms.model.script' // InheriteFrom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E37430345_ME_4F6843EE00B1_impl InheriteFrom
+
+MEREF ME_525E377B007E_ME_4F6843EE00B1_impl
+ MELINK Original WL 'ME_525E377B007E' '4F6843FC0241.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E377B007E_ME_4F6843EE00B1_impl Write2Generator
+
+MEREF ME_525E478A0232_ME_4F6843EE00B1_impl
+ MELINK Original WL 'ME_525E478A0232' '4F6843FC0241.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E478A0232_ME_4F6843EE00B1_impl Reset
+
+MEREF ME_525E47E10065_ME_4F6843EE00B1_impl
+ MELINK Original WL 'ME_525E47E10065' '4F6843FC0241.ms.model.script' // Diff
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E47E10065_ME_4F6843EE00B1_impl Diff
+
+MEREF ME_47914F960008_ME_4F6843EE00B1_over
+ MELINK Original WL 'ME_47914F960008' '47879856035F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47914F960008_ME_4F6843EE00B1_over Create
+
+MEREF ME_479731C50290_ME_4F6843EE00B1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F6843EE00B1_over Cleanup
+
+MEREF ME_518A13330058_ME_4F6843EE00B1_over
+ MELINK Original WL 'ME_518A13330058' '4F6843FC0241.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_518A13330058_ME_4F6843EE00B1_over Clear
+
+MEREF ME_525E47BE030D_ME_4F6843EE00B1_over
+ MELINK Original WL 'ME_525E47BE030D' '4F6843FC0241.ms.model.script' // JoinWith
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_525E47BE030D_ME_4F6843EE00B1_over JoinWith
+
+MEREF ME_5301DFE6002C_ME_4F6843EE00B1_over
+ MELINK Original WL 'ME_5301DFE6002C' '4F6843FC0241.ms.model.script' // AssignFrom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5301DFE6002C_ME_4F6843EE00B1_over AssignFrom
+
+MEREF ME_4F6843FC0241_ME_4F6843EE00B1_G
+ MELINK Original WL? 'ME_4F6843FC0241' // TddPropertyObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6843FC0241_ME_4F6843EE00B1_G TddPropertyObject
+
+%%InheritedBy ME_4F6843FC0241 ME_4F6843EE00B1
+
+ME ME_4F6843EE00B1
+ MEPROP UID '4F6843EE00B1'
+ MEPROP Name 'TddBorder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F6843FC0241_ME_4F6843EE00B1_G // TddPropertyObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525E3567029C // f_BorderParts
+ HWL ME_525E35D800D2 // BorderOwner
+ HWL ME_525E3AC602FD // FrameColor
+ HWL ME_525E3B770074 // FrameSpace
+ HWL ME_525E3BE60384 // FrameWidth
+ HWL ME_525E3C2200C4 // Frames
+ HWL ME_525E3C830125 // IsFramed
+ HWL ME_525E3CE90105 // FrameType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_525E37C80295 // HasAllFramePart
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_525E369F0158_ME_4F6843EE00B1_impl // MergeWith
+ ME_525E37430345_ME_4F6843EE00B1_impl // InheriteFrom
+ ME_525E377B007E_ME_4F6843EE00B1_impl // Write2Generator
+ ME_525E478A0232_ME_4F6843EE00B1_impl // Reset
+ ME_525E47E10065_ME_4F6843EE00B1_impl // Diff
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47914F960008_ME_4F6843EE00B1_over // Create
+ ME_479731C50290_ME_4F6843EE00B1_over // Cleanup
+ ME_518A13330058_ME_4F6843EE00B1_over // Clear
+ ME_525E47BE030D_ME_4F6843EE00B1_over // JoinWith
+ ME_5301DFE6002C_ME_4F6843EE00B1_over // AssignFrom
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_525E350A0005 // TddBorderPartArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_525E44290227 // Tk2TagID
+ ME_525E4447017D // l3Free
+ ME_525E44970184 // Frame
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddBorder.pas'
+ UP extprop:rc:SelfName 'ddBorder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddBorder'
+
+ENDME // ME_4F6843EE00B1 TddBorder

@@ -9,7 +9,7 @@ ME ME_57D90A0C01EF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C977AE0264 // msmMEListLikeViewController
  ;
- MELINK Target WL 'ME_57D909F3037B' '57CEB008027D.ms.model.script' // TmsmImages
+ MELINK Target WL? 'ME_57D909F3037B' // TmsmImages
  ;
 
 ENDME // ME_57D90A0C01EF 
@@ -19,7 +19,7 @@ ME ME_57EB9684007B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C977AE0264 // msmMEListLikeViewController
  ;
- MELINK Target WL 'ME_57EB966601BF' '57AE0E4B00C5.ms.model.script' // TmsmMEImages
+ MELINK Target WL? 'ME_57EB966601BF' // TmsmMEImages
  ;
 
 ENDME // ME_57EB9684007B 
@@ -34,17 +34,23 @@ ME ME_57FE48D3035F
 
 ENDME // ME_57FE48D3035F 
 
-ME ME_57B47A2102DE_ME_57C977AE0264
+MEREF ME_57B47A2102DE_ME_57C977AE0264_over
  MELINK Original WL 'ME_57B47A2102DE' '57B6BF8A0210.ms.model.script' // DoGetItemFont
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57B47A2102DE_ME_57C977AE0264 DoGetItemFont
+ENDMEREF // ME_57B47A2102DE_ME_57C977AE0264_over DoGetItemFont
 
-ME ME_57D9022D0322_ME_57C977AE0264
+MEREF ME_57D9022D0322_ME_57C977AE0264_over
  MELINK Original WL 'ME_57D9022D0322' '57B6BF8A0210.ms.model.script' // DoGetItemImage
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57D9022D0322_ME_57C977AE0264 DoGetItemImage
+ENDMEREF // ME_57D9022D0322_ME_57C977AE0264_over DoGetItemImage
+
+MEREF ME_57C9822F0273_ME_57C977AE0264_R
+ MELINK Original WL 'ME_57C9822F0273' '57CD261B0318.ms.model.script' // MmsmListLikeViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C9822F0273_ME_57C977AE0264_R MmsmListLikeViewController
 
 %%ImplementedBy ME_57C9822F0273 ME_57C977AE0264
 
@@ -60,12 +66,12 @@ ME ME_57C977AE0264
  MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57C9822F0273' '57CD261B0318.ms.model.script' // MmsmListLikeViewController
+   Seq: ( ME_57C9822F0273_ME_57C977AE0264_R // MmsmListLikeViewController
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_57B47A2102DE_ME_57C977AE0264 // DoGetItemFont
- ME_57D9022D0322_ME_57C977AE0264 // DoGetItemImage
+   Seq: ( ME_57B47A2102DE_ME_57C977AE0264_over // DoGetItemFont
+ ME_57D9022D0322_ME_57C977AE0264_over // DoGetItemImage
  )
  ; // Overridden
  MELIST Dependencies

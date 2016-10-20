@@ -1,0 +1,308 @@
+// pop_QueryCard_Attribute_IsLogicOperationEnabled 50EFDD9B0123 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50EFDD9B0123
+
+FORWARD ME_50F011CD0374
+
+ME ME_50F011E50124
+ MEPROP UID '50F011E50124'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F011CD0374 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "IsResult" false
+
+ENDME // ME_50F011E50124 Name
+
+ME ME_50F011F002ED
+ MEPROP UID '50F011F002ED'
+ MEPROP Name 'IsEnabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F011CD0374 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "IsResult" false
+
+ENDME // ME_50F011F002ED IsEnabled
+
+ME ME_50F02B3C025A
+ MEPROP UID '50F02B3C025A'
+ MEPROP Name 'Op'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50F011CD0374 // DoModelImpl
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP "IsResult" false
+
+ENDME // ME_50F02B3C025A Op
+
+FORWARD ME_50F01237000C
+
+FORWARD ME_1E86D84EDB95
+
+ME ME_B57806BFB487
+ MEPROP Name 'anItem'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CD6644026F' '47CD5C7602CD.ms.model.script' // IevReq
+ ;
+
+ENDME // ME_B57806BFB487 anItem
+
+ME ME_CEBF1AA3EE3F
+ MEPROP UID 'CEBF1AA3EE3F'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_1E86D84EDB95 // DoIt
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_B57806BFB487 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_CEBF1AA3EE3F DoIt
+
+ME ME_1E86D84EDB95
+ MEPROP UID '1E86D84EDB95'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подитеративная функция для вызова DoReq из CallIterator' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F01237000C // CallIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_CEBF1AA3EE3F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_1E86D84EDB95 DoIt
+
+ME ME_50F012430175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_call::Dependency ;
+ MELINK Parent HWL ME_50F01237000C // CallIterator
+ ;
+ MELINK Target WL 'ME_4E81A119033D' '47CD5C7602CD.ms.model.script' // DoReq
+ ;
+ UP "iterator func name" 'DoIt'
+ UP "iterator needs params" true
+ UP "needs after iterator UC" false
+
+ENDME // ME_50F012430175 
+
+ME ME_06D7D43D81B7
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50F01237000C // CallIterator
+ ;
+ MELINK Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.ms.model.script' // IevReqIterator
+ ;
+
+ENDME // ME_06D7D43D81B7 
+
+ME ME_50F01237000C
+ MEPROP UID '50F01237000C'
+ MEPROP Name 'CallIterator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F011CD0374 // DoModelImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_1E86D84EDB95 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_50F012430175 // DoReq
+ ME_06D7D43D81B7 // IevReqIterator
+ )
+ ; // Dependencies
+
+ENDME // ME_50F01237000C CallIterator
+
+ME ME_50F011D8003A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50F011D8003A aCtx
+
+ME ME_50F011D80057
+ MEPROP Name 'aCard'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_48E22669037D' // TevQueryCardEditor
+ ;
+
+ENDME // ME_50F011D80057 aCard
+
+ME ME_50F011D600DF
+ MEPROP UID '50F011D600DF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F011CD0374 // DoModelImpl
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F011D8003A // aCtx
+ ME_50F011D80057 // aCard
+ )
+ ; // Parameters
+
+ENDME // ME_50F011D600DF DoIt
+
+ME ME_50F011CD0374
+ MEPROP UID '50F011CD0374'
+ MEPROP Name 'DoModelImpl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50F011E50124 // Name
+ HWL ME_50F011F002ED // IsEnabled
+ HWL ME_50F02B3C025A // Op
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50F01237000C // CallIterator
+ HWL ME_50F011D600DF // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_50F011CD0374 DoModelImpl
+
+ME ME_50F0114501B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
+ ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+
+ENDME // ME_50F0114501B6 
+
+ME ME_50F011480147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_50F011480147 
+
+ME ME_50F0114A0121
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_50F0114A0121 
+
+ME ME_50F0114C0035
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50EFDD9B0123 // pop_QueryCard_Attribute_IsLogicOperationEnabled
+ ;
+ MELINK Target WL? 'ME_4E81A1D3027D' // TevReqIterator
+ ;
+
+ENDME // ME_50F0114C0035 
+
+MEREF ME_4E808E8B01BB_ME_50EFDD9B0123_impl
+ MELINK Original WL 'ME_4E808E8B01BB' '4E808D48037D.ms.model.script' // DoCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E808E8B01BB_ME_50EFDD9B0123_impl DoCard
+
+MEREF ME_4E808D48037D_ME_50EFDD9B0123_G
+ MELINK Original WL? 'ME_4E808D48037D' // TkwQueryCardFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E808D48037D_ME_50EFDD9B0123_G TkwQueryCardFromStackWord
+
+%%InheritedBy ME_4E808D48037D ME_50EFDD9B0123
+
+ME ME_50EFDD9B0123
+ MEPROP UID '50EFDD9B0123'
+ MEPROP Name 'pop_QueryCard_Attribute_IsLogicOperationEnabled'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6994E701CB' // QueryCardProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E808D48037D_ME_50EFDD9B0123_G // TkwQueryCardFromStackWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_50F011CD0374 // DoModelImpl
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4E808E8B01BB_ME_50EFDD9B0123_impl // DoCard
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50F0114501B6 // IevEditorControlField
+ ME_50F011480147 // l3IsNil
+ ME_50F0114A0121 // l3CStr
+ ME_50F0114C0035 // TevReqIterator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeIsLogicOperationEnabled.pas'
+ UP extprop:pas:TypeName 'TkwPopQueryCardAttributeIsLogicOperationEnabled'
+ UP extprop:rc:SelfName 'PopQueryCardAttributeIsLogicOperationEnabled'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopQueryCardAttributeIsLogicOperationEnabled'
+
+ENDME // ME_50EFDD9B0123 pop_QueryCard_Attribute_IsLogicOperationEnabled

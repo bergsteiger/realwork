@@ -1,0 +1,50 @@
+// TCsServer 5395BFCE0389 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395BFCE0389
+
+ME ME_5395BFDE00E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5395BFCE0389 // TCsServer
+ ;
+ MELINK Target WL? 'ME_5395BF930007' // TCsQueryExecutor
+ ;
+
+ENDME // ME_5395BFDE00E3 
+
+MEREF ME_52FBB30A01C6_ME_5395BFCE0389_G
+ MELINK Original WL? 'ME_52FBB30A01C6' // TCsObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FBB30A01C6_ME_5395BFCE0389_G TCsObject
+
+%%InheritedBy ME_52FBB30A01C6 ME_5395BFCE0389
+
+ME ME_5395BFCE0389
+ MEPROP UID '5395BFCE0389'
+ MEPROP Name 'TCsServer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FBB30A01C6_ME_5395BFCE0389_G // TCsObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5395BFDE00E3 // TCsQueryExecutor
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsServer.pas'
+ UP extprop:rc:SelfName 'CsServer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsServer'
+
+ENDME // ME_5395BFCE0389 TCsServer

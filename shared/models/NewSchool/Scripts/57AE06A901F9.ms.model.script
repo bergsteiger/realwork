@@ -1,0 +1,71 @@
+// TmsmMainFormController 57AE06A901F9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57AE06A901F9
+
+ME ME_57AE06CD0109
+ MEPROP UID '57AE06CD0109'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AE06A901F9 // TmsmMainFormController
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57AE06CD0109 ConcreteModel
+
+ME ME_57CD3289005E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57AE06A901F9 // TmsmMainFormController
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57CD3289005E 
+
+MEREF ME_57AE0566006E_ME_57AE06A901F9_G
+ MELINK Original WL? 'ME_57AE0566006E' // msmConcreteModelViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AE0566006E_ME_57AE06A901F9_G msmConcreteModelViewController
+
+%%InheritedBy ME_57AE0566006E ME_57AE06A901F9
+
+ME ME_57AE06A901F9
+ MEPROP UID '57AE06A901F9'
+ MEPROP Name 'TmsmMainFormController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( ME_57AE0566006E_ME_57AE06A901F9_G // msmConcreteModelViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57AE06CD0109 // ConcreteModel
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_57CD3289005E // CaptionChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMainFormController.pas'
+ UP extprop:rc:SelfName 'msmMainFormController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmMainFormController'
+
+ENDME // ME_57AE06A901F9 TmsmMainFormController

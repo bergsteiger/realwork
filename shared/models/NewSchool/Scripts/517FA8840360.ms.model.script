@@ -1,0 +1,41 @@
+// DisableMergedCellFilter 517FA8840360 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517FA8840360
+
+ME ME_517FA8E20327
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517FA8840360 // DisableMergedCellFilter
+ ;
+ MELINK Target WL? 'ME_57D9125001E9' // arFiltersUtils
+ ;
+
+ENDME // ME_517FA8E20327 
+
+ME ME_517FA8840360
+ MEPROP UID '517FA8840360'
+ MEPROP Name 'DisableMergedCellFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5166AF3800B5' // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_517FA8E20327 // arFiltersUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
+ UP extprop:pas:TypeName 'TkwDisableMergedCellFilter'
+ UP extprop:rc:SelfName 'DisableMergedCellFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDisableMergedCellFilter'
+
+ENDME // ME_517FA8840360 DisableMergedCellFilter

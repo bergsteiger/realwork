@@ -1,0 +1,122 @@
+// TnevDocumentContainerPrimPrim 53270D0E02E4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53270D0E02E4
+
+ME ME_532848DC034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53270D0E02E4 // TnevDocumentContainerPrimPrim
+ ;
+ MELINK Target WL 'ME_532848A00261' '48492FC0029D.ms.model.script' // DocumentContainer
+ ;
+
+ENDME // ME_532848DC034C 
+
+ME ME_532848E3034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53270D0E02E4 // TnevDocumentContainerPrimPrim
+ ;
+ MELINK Target WL 'ME_4ADEE4C90303' '47CFE7F00221.ms.model.script' // l3IEQ
+ ;
+
+ENDME // ME_532848E3034B 
+
+ME ME_532849440225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53270D0E02E4 // TnevDocumentContainerPrimPrim
+ ;
+ MELINK Target WL? 'ME_49A6ABFB02BA' // Tk2NullTagImpl
+ ;
+
+ENDME // ME_532849440225 
+
+ME ME_5329C2B80259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53270D0E02E4 // TnevDocumentContainerPrimPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_5329C2B80259 
+
+MEREF ME_4C6D1C29031F_ME_53270D0E02E4_over
+ MELINK Original WL 'ME_4C6D1C29031F' '53317D14019D.ms.model.script' // DoMarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6D1C29031F_ME_53270D0E02E4_over DoMarkModified
+
+MEREF ME_533121AF0203_ME_53270D0E02E4_over
+ MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533121AF0203_ME_53270D0E02E4_over GetTagType
+
+MEREF ME_53343980014A_ME_53270D0E02E4_over
+ MELINK Original WL 'ME_53343980014A' '53317D14019D.ms.model.script' // TagOwner
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" true
+ENDMEREF // ME_53343980014A_ME_53270D0E02E4_over TagOwner
+
+MEREF ME_532031160122_ME_53270D0E02E4_G
+ MELINK Original WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532031160122_ME_53270D0E02E4_G Tl3Variant
+
+MEREF ME_47913BA402ED_ME_53270D0E02E4_R
+ MELINK Original WL 'ME_47913BA402ED' '4807744200AA.ms.model.script' // IUnknown$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913BA402ED_ME_53270D0E02E4_R IUnknown$Def
+
+%%ImplementedBy ME_47913BA402ED ME_53270D0E02E4
+
+%%InheritedBy ME_532031160122 ME_53270D0E02E4
+
+ME ME_53270D0E02E4
+ MEPROP UID '53270D0E02E4'
+ MEPROP Name 'TnevDocumentContainerPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_481DB8210016' // Document
+ ;
+ MELIST Inherits
+   Seq: ( ME_532031160122_ME_53270D0E02E4_G // Tl3Variant
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47913BA402ED_ME_53270D0E02E4_R // IUnknown$Def
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4C6D1C29031F_ME_53270D0E02E4_over // DoMarkModified
+ ME_533121AF0203_ME_53270D0E02E4_over // GetTagType
+ ME_53343980014A_ME_53270D0E02E4_over // TagOwner
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532848DC034C // DocumentContainer
+ ME_532848E3034B // l3IEQ
+ ME_532849440225 // Tk2NullTagImpl
+ ME_5329C2B80259 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentContainerPrimPrim.pas'
+ UP extprop:rc:SelfName 'DocumentContainerPrimPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevDocumentContainerPrimPrim'
+
+ENDME // ME_53270D0E02E4 TnevDocumentContainerPrimPrim

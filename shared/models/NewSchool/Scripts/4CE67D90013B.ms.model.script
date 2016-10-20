@@ -1,0 +1,93 @@
+// NSRCtoNSRCTest 4CE67D90013B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE67D90013B
+
+ME ME_4CE67DDC011B
+ MEPROP UID '4CE67DDC011B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE67D90013B // NSRCtoNSRCTest
+ ;
+
+ENDME // ME_4CE67DDC011B DoIt
+
+FORWARD ME_4CE67DED0192
+
+ME ME_4CE67E010035
+ MEPROP UID '4CE67E010035'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CE67DED0192 // IsPlus
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CE67E010035 DoIt
+
+ME ME_4CE67DED0192
+ MEPROP UID '4CE67DED0192'
+ MEPROP Name 'IsPlus'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'NSRC+?' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CE67D90013B // NSRCtoNSRCTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CE67E010035 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CE67DED0192 IsPlus
+
+MEREF ME_4B4F68EE006B_ME_4CE67D90013B_G
+ MELINK Original WL? 'ME_4B4F68EE006B' // TNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F68EE006B_ME_4CE67D90013B_G TNSRCWriterTest
+
+%%InheritedBy ME_4B4F68EE006B ME_4CE67D90013B
+
+ME ME_4CE67D90013B
+ MEPROP UID '4CE67D90013B'
+ MEPROP Name 'NSRCtoNSRCTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест преобразования NSRC в NSRC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B4F68EE006B_ME_4CE67D90013B_G // TNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CE67DDC011B // DoIt
+ HWL ME_4CE67DED0192 // IsPlus
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.11.2010 16:39'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\NSRCtoNSRCTest.pas'
+ UP extprop:pas:TypeName 'TNSRCtoNSRCTest'
+ UP extprop:rc:SelfName 'NSRCtoNSRCTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CE67D90013B NSRCtoNSRCTest

@@ -8,11 +8,17 @@ FORWARD ME_5305AFD5014D
 
 FORWARD ME_5305AFFB01F5
 
-ME ME_53E1CB0C03C9_ME_5305AFFB01F5
+MEREF ME_53E1CB0C03C9_ME_5305AFFB01F5_over
  MELINK Original WL 'ME_53E1CB0C03C9' '52F8C2AE0042.ms.model.script' // GetTaskResultClass : TcsClassResultClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_53E1CB0C03C9_ME_5305AFFB01F5 GetTaskResultClass : TcsClassResultClass
+ENDMEREF // ME_53E1CB0C03C9_ME_5305AFFB01F5_over GetTaskResultClass : TcsClassResultClass
+
+MEREF ME_530356B20280_ME_5305AFFB01F5_G
+ MELINK Original WL 'ME_530356B20280' '530356A1014F.ms.model.script' // TcsImportTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530356B20280_ME_5305AFFB01F5_G TcsImportTaskItem
 
 %%InheritedBy ME_530356B20280 ME_5305AFFB01F5
 
@@ -27,11 +33,11 @@ ME ME_5305AFFB01F5
  MELINK Parent HWL ME_5305AFD5014D // alcuImport
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_530356B20280' '530356A1014F.ms.model.script' // TcsImportTaskItem
+   Seq: ( ME_530356B20280_ME_5305AFFB01F5_G // TcsImportTaskItem
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_53E1CB0C03C9_ME_5305AFFB01F5 // GetTaskResultClass : TcsClassResultClass
+   Seq: ( ME_53E1CB0C03C9_ME_5305AFFB01F5_over // GetTaskResultClass : TcsClassResultClass
  )
  ; // Overridden
  UP "finished" false
@@ -45,7 +51,7 @@ ME ME_53E1D0F10033
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5305AFD5014D // alcuImport
  ;
- MELINK Target WL 'ME_53E1D0D00252' '52FA3DD30094.ms.model.script' // TalcuImportTaskResult
+ MELINK Target WL? 'ME_53E1D0D00252' // TalcuImportTaskResult
  ;
 
 ENDME // ME_53E1D0F10033 

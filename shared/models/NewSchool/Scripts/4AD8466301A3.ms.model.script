@@ -1,0 +1,54 @@
+// TnsDocumentContextHistory 4AD8466301A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD8466301A3
+
+ME ME_4AD8468503CD
+ MEPROP UID '4AD8468503CD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD8466301A3 // TnsDocumentContextHistory
+ ;
+ MELINK Target WL 'ME_496B53D10104' '54F9F6FB0143.ms.model.script' // InsContextSearchHistory
+ ;
+
+ENDME // ME_4AD8468503CD Make
+
+MEREF ME_4AD8457200F3_ME_4AD8466301A3_G
+ MELINK Original WL? 'ME_4AD8457200F3' // TnsDocumentContextHistoryPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD8457200F3_ME_4AD8466301A3_G TnsDocumentContextHistoryPrim
+
+%%InheritedBy ME_4AD8457200F3 ME_4AD8466301A3
+
+ME ME_4AD8466301A3
+ MEPROP UID '4AD8466301A3'
+ MEPROP Name 'TnsDocumentContextHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9EC5B0269' // ContextHistory
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AD8457200F3_ME_4AD8466301A3_G // TnsDocumentContextHistoryPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AD8468503CD // Make
+ )
+ ; // Operations
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistory.pas'
+ UP extprop:rc:SelfName 'DocumentContextHistory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDocumentContextHistory'
+
+ENDME // ME_4AD8466301A3 TnsDocumentContextHistory

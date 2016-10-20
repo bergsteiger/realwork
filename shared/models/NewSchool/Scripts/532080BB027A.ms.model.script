@@ -1,0 +1,46 @@
+// Tk2NonAtomicTag 532080BB027A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532080BB027A
+
+MEREF ME_532AE8F2009A_ME_532080BB027A_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_532080BB027A_over GetIsOrd
+
+MEREF ME_5319C00B0313_ME_532080BB027A_G
+ MELINK Original WL? 'ME_5319C00B0313' // Tk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5319C00B0313_ME_532080BB027A_G Tk2Tag
+
+%%InheritedBy ME_5319C00B0313 ME_532080BB027A
+
+ME ME_532080BB027A
+ MEPROP UID '532080BB027A'
+ MEPROP Name 'Tk2NonAtomicTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый неатомарный тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5319C00B0313_ME_532080BB027A_G // Tk2Tag
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_532AE8F2009A_ME_532080BB027A_over // GetIsOrd
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2NonAtomicTag.pas'
+ UP extprop:rc:SelfName 'NonAtomicTag'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2NonAtomicTag'
+
+ENDME // ME_532080BB027A Tk2NonAtomicTag

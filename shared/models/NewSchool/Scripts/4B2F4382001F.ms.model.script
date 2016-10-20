@@ -1,0 +1,69 @@
+// Tl3CardinalList 4B2F4382001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2F4382001F
+
+ME ME_4B2F43EC01E5
+ MEPROP UID '4B2F43EC01E5'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F4382001F // Tl3CardinalList
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B2F43EC01E5 ItemType
+
+MEREF ME_47A1B04702C2_ME_4B2F4382001F_G
+ MELINK Original WL? 'ME_47A1B04702C2' // l3AtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A1B04702C2_ME_4B2F4382001F_G l3AtomicList
+
+MEREF ME_4A54DD4E036F_ME_4B2F4382001F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4B2F4382001F_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47A1B04702C2 ME_4B2F4382001F
+%%InheritedBy ME_4A54DD4E036F ME_4B2F4382001F
+
+ME ME_4B2F4382001F
+ MEPROP UID '4B2F4382001F'
+ MEPROP Name 'Tl3CardinalList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список, содержащий Cardinal' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47A1B04702C2_ME_4B2F4382001F_G // l3AtomicList
+ ME_4A54DD4E036F_ME_4B2F4382001F_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F43EC01E5 // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '21.12.2009 12:45'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CardinalList.pas'
+ UP extprop:rc:SelfName 'CardinalList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3CardinalList'
+
+ENDME // ME_4B2F4382001F Tl3CardinalList

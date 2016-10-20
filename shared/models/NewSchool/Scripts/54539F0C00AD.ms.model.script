@@ -1,0 +1,93 @@
+// TncsMessageClassList 54539F0C00AD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54539F0C00AD
+
+ME ME_54539F2201C3
+ MEPROP UID '54539F2201C3'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54539F0C00AD // TncsMessageClassList
+ ;
+ MELINK Target WL 'ME_5453989A0161' '5453986402AC.ms.model.script' // TncsMessageClass
+ ;
+
+ENDME // ME_54539F2201C3 ItemType
+
+MEREF ME_47B07CF403D0_ME_54539F0C00AD_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_54539F0C00AD_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_54539F0C00AD_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_54539F0C00AD_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_54539F0C00AD_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_54539F0C00AD_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_54539F0C00AD_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54539F0C00AD_G Tl3ProtoDataContainer
+
+MEREF ME_47B5782902DA_ME_54539F0C00AD_R
+ MELINK Original WL? 'ME_47B5782902DA' // l3PtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5782902DA_ME_54539F0C00AD_R l3PtrList
+
+%%ImplementedBy ME_47B5782902DA ME_54539F0C00AD
+
+%%InheritedBy ME_4A54DD4E036F ME_54539F0C00AD
+
+ME ME_54539F0C00AD
+ MEPROP UID '54539F0C00AD'
+ MEPROP Name 'TncsMessageClassList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_54539F0C00AD_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B5782902DA_ME_54539F0C00AD_R // l3PtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54539F2201C3 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_54539F0C00AD_impl // IsSameItems
+ ME_47B2C42A0163_ME_54539F0C00AD_impl // AssignItem
+ ME_47B99D4503A2_ME_54539F0C00AD_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessageClassList.pas'
+ UP extprop:rc:SelfName 'ncsMessageClassList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsMessageClassList'
+
+ENDME // ME_54539F0C00AD TncsMessageClassList

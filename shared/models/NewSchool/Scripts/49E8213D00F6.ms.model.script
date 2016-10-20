@@ -1,0 +1,83 @@
+// TnsGroupTreeStruct 49E8213D00F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49E8213D00F6
+
+ME ME_49E83D460323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E8213D00F6 // TnsGroupTreeStruct
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_49E83D460323 
+
+ME ME_49E83DCB00D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E8213D00F6 // TnsGroupTreeStruct
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_49E83DCB00D8 
+
+MEREF ME_48FF64F60078_ME_49E8213D00F6_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_49E8213D00F6_impl ReAqurieUnfilteredRoot
+
+MEREF ME_48FF56D003E6_ME_49E8213D00F6_over
+ MELINK Original WL 'ME_48FF56D003E6' '46835BD201D6.ms.model.script' // SettingsID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF56D003E6_ME_49E8213D00F6_over SettingsID
+
+MEREF ME_468361010204_ME_49E8213D00F6_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_49E8213D00F6_G TnsDataResetTreeStruct
+
+%%InheritedBy ME_468361010204 ME_49E8213D00F6
+
+ME ME_49E8213D00F6
+ MEPROP UID '49E8213D00F6'
+ MEPROP Name 'TnsGroupTreeStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901E79300F5' // Users
+ ;
+ MELIST Inherits
+   Seq: ( ME_468361010204_ME_49E8213D00F6_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_49E8213D00F6_impl // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48FF56D003E6_ME_49E8213D00F6_over // SettingsID
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49E83D460323 // DataAdapter
+ ME_49E83DCB00D8 // nsConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStruct.pas'
+ UP extprop:rc:SelfName 'GroupTreeStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsGroupTreeStruct'
+
+ENDME // ME_49E8213D00F6 TnsGroupTreeStruct

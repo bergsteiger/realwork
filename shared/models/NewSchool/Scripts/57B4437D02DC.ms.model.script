@@ -1,0 +1,82 @@
+// TmsmPageControl 57B4437D02DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B4437D02DC
+
+FORWARD ME_57B4437D02DC
+
+MEREF ME_499ABF9802AC_ME_57DAA798006A_G
+ MELINK Original WL 'ME_499ABF9802AC' '499ABF6E01B5.ms.model.script' // TElTabSheet
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499ABF9802AC_ME_57DAA798006A_G TElTabSheet
+
+%%InheritedBy ME_499ABF9802AC ME_57DAA798006A
+
+ME ME_57DAA798006A
+ MEPROP UID '57DAA798006A'
+ MEPROP Name 'TmsmTabSheet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B4437D02DC // TmsmPageControl
+ ;
+ MELIST Inherits
+   Seq: ( ME_499ABF9802AC_ME_57DAA798006A_G // TElTabSheet
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'msmTabSheet'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57DAA798006A TmsmTabSheet
+
+MEREF ME_47D1602000C6_ME_57B4437D02DC_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57B4437D02DC_over Create
+
+MEREF ME_4E36C0C3014B_ME_57B4437D02DC_G
+ MELINK Original WL 'ME_4E36C0C3014B' '499ABF6E01B5.ms.model.script' // TElCustomPageControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E36C0C3014B_ME_57B4437D02DC_G TElCustomPageControl
+
+%%InheritedBy ME_4E36C0C3014B ME_57B4437D02DC
+
+ME ME_57B4437D02DC
+ MEPROP UID '57B4437D02DC'
+ MEPROP Name 'TmsmPageControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E36C0C3014B_ME_57B4437D02DC_G // TElCustomPageControl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B4437D02DC_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57DAA798006A // TmsmTabSheet
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmPageControl.pas'
+ UP extprop:rc:SelfName 'msmPageControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmPageControl'
+
+ENDME // ME_57B4437D02DC TmsmPageControl

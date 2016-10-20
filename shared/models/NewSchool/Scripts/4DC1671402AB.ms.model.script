@@ -59,7 +59,7 @@ ME ME_4ED75A3100D0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
  ;
- MELINK Target WL 'ME_4ED7576E02F7' '4ED7573300EA.ms.model.script' // TnsDocumentWarningGenerator
+ MELINK Target WL? 'ME_4ED7576E02F7' // TnsDocumentWarningGenerator
  ;
 
 ENDME // ME_4ED75A3100D0 
@@ -89,16 +89,22 @@ ME ME_4EDCFD6E006F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
  ;
- MELINK Target WL 'ME_4EDCFD4D037C' '4DC1708D032D.ms.model.script' // TnsListWarningGenerator
+ MELINK Target WL? 'ME_4EDCFD4D037C' // TnsListWarningGenerator
  ;
 
 ENDME // ME_4EDCFD6E006F 
 
-ME ME_493E4F7E039B_ME_4DC1671402AB
+MEREF ME_493E4F7E039B_ME_4DC1671402AB_impl
  MELINK Original WL 'ME_493E4F7E039B' '491B305A0096.ms.model.script' // Generate
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_493E4F7E039B_ME_4DC1671402AB Generate
+ENDMEREF // ME_493E4F7E039B_ME_4DC1671402AB_impl Generate
+
+MEREF ME_4DC14229028D_ME_4DC1671402AB_R
+ MELINK Original WL 'ME_4DC14229028D' '491B305A0096.ms.model.script' // WarningGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC14229028D_ME_4DC1671402AB_R WarningGenerator
 
 %%ImplementedBy ME_4DC14229028D ME_4DC1671402AB
 
@@ -114,11 +120,11 @@ ME ME_4DC1671402AB
  MELINK Parent WL? 'ME_4DC1708D032D' // PrimListControllersRealization
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4DC14229028D' '491B305A0096.ms.model.script' // WarningGenerator
+   Seq: ( ME_4DC14229028D_ME_4DC1671402AB_R // WarningGenerator
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_493E4F7E039B_ME_4DC1671402AB // Generate
+   Seq: ( ME_493E4F7E039B_ME_4DC1671402AB_impl // Generate
  )
  ; // Implemented
  MELIST Dependencies

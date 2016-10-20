@@ -1,0 +1,117 @@
+// TkwComponentFromStackWord 4F2148300318 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F2148300318
+
+FORWARD ME_4F21485E0184
+
+ME ME_4F2148780352
+ MEPROP Name 'aComponent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4F2148780352 aComponent
+
+ME ME_4F21487803A9
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F21487803A9 aCtx
+
+ME ME_4F21486A00E3
+ MEPROP UID '4F21486A00E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F21485E0184 // DoComponent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2148780352 // aComponent
+ ME_4F21487803A9 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4F21486A00E3 DoIt
+
+ME ME_4F21485E0184
+ MEPROP UID '4F21485E0184'
+ MEPROP Name 'DoComponent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F2148300318 // TkwComponentFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F21486A00E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F21485E0184 DoComponent
+
+MEREF ME_4F212BD5010E_ME_4F2148300318_impl
+ MELINK Original WL 'ME_4F212BD5010E' '4F212BA80137.ms.model.script' // DoObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F212BD5010E_ME_4F2148300318_impl DoObject
+
+MEREF ME_4F212BA80137_ME_4F2148300318_G
+ MELINK Original WL? 'ME_4F212BA80137' // TkwObjectFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F212BA80137_ME_4F2148300318_G TkwObjectFromStackWord
+
+MEREF ME_4DB95922039B_ME_4F2148300318_R
+ MELINK Original WL? 'ME_4DB95922039B' // SystemWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB95922039B_ME_4F2148300318_R SystemWord
+
+%%ImplementedBy ME_4DB95922039B ME_4F2148300318
+
+%%InheritedBy ME_4F212BA80137 ME_4F2148300318
+
+ME ME_4F2148300318
+ MEPROP UID '4F2148300318'
+ MEPROP Name 'TkwComponentFromStackWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54DB92D203C9' // VCL bindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F212BA80137_ME_4F2148300318_G // TkwObjectFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DB95922039B_ME_4F2148300318_R // SystemWord
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F21485E0184 // DoComponent
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F212BD5010E_ME_4F2148300318_impl // DoObject
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwComponentFromStackWord.pas'
+ UP extprop:rc:SelfName 'ComponentFromStackWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwComponentFromStackWord'
+
+ENDME // ME_4F2148300318 TkwComponentFromStackWord

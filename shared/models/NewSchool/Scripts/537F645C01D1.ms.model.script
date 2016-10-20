@@ -1,0 +1,244 @@
+// TCsReplyProceduresPrim 537F645C01D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537F645C01D1
+
+ME ME_537F64680304
+ MEPROP UID '537F64680304'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELINK Target WL? 'ME_537F63D60108' // TCsProcWithIdList
+ ;
+
+ENDME // ME_537F64680304 f_List
+
+ME ME_53959A4900AA
+ MEPROP UID '53959A4900AA'
+ MEPROP Name 'f_Synchronizer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELINK Target WL 'ME_4807861D0118' '47877EB202FB.ms.model.script' // TMultiReadExclusiveWriteSynchronizer
+ ;
+
+ENDME // ME_53959A4900AA f_Synchronizer
+
+FORWARD ME_53959A720000
+
+ME ME_53959A7B028D
+ MEPROP UID '53959A7B028D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53959A720000 // Create
+ ;
+
+ENDME // ME_53959A7B028D DoIt
+
+ME ME_53959A720000
+ MEPROP UID '53959A720000'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53959A7B028D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53959A720000 Create
+
+FORWARD ME_53959ABC03D4
+
+ME ME_53959AD20374
+ MEPROP Name 'aQueryId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_53959AD20374 aQueryId
+
+ME ME_53959ACF011C
+ MEPROP UID '53959ACF011C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53959ABC03D4 // ListItemBy
+ ;
+ MELINK Target WL? 'ME_537F6306025B' // TCsProcWithId
+ ;
+ MELIST Parameters
+   Seq: ( ME_53959AD20374 // aQueryId
+ )
+ ; // Parameters
+
+ENDME // ME_53959ACF011C DoIt
+
+ME ME_53959ABC03D4
+ MEPROP UID '53959ABC03D4'
+ MEPROP Name 'ListItemBy'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53959ACF011C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53959ABC03D4 ListItemBy
+
+FORWARD ME_53959B1400E0
+
+ME ME_53959B3000BB
+ MEPROP Name 'aQueryId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_53959B3000BB aQueryId
+
+ME ME_53959B2C0049
+ MEPROP UID '53959B2C0049'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53959B1400E0 // ProcBy
+ ;
+ MELINK Target WL 'ME_537F63170355' '537F6306025B.ms.model.script' // TCsReplyProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_53959B3000BB // aQueryId
+ )
+ ; // Parameters
+
+ENDME // ME_53959B2C0049 DoIt
+
+ME ME_53959B1400E0
+ MEPROP UID '53959B1400E0'
+ MEPROP Name 'ProcBy'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53959B2C0049 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53959B1400E0 ProcBy
+
+ME ME_53959AA3034F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53959AA3034F 
+
+ME ME_53959B4D0242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_53959B4D0242 
+
+ME ME_53959B740196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_53959B740196 
+
+MEREF ME_479731C50290_ME_537F645C01D1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_537F645C01D1_over Cleanup
+
+MEREF ME_52FBB30A01C6_ME_537F645C01D1_G
+ MELINK Original WL? 'ME_52FBB30A01C6' // TCsObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FBB30A01C6_ME_537F645C01D1_G TCsObject
+
+%%InheritedBy ME_52FBB30A01C6 ME_537F645C01D1
+
+ME ME_537F645C01D1
+ MEPROP UID '537F645C01D1'
+ MEPROP Name 'TCsReplyProceduresPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FBB30A01C6_ME_537F645C01D1_G // TCsObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F64680304 // f_List
+ HWL ME_53959A4900AA // f_Synchronizer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53959A720000 // Create
+ HWL ME_53959ABC03D4 // ListItemBy
+ HWL ME_53959B1400E0 // ProcBy
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_537F645C01D1_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53959AA3034F // FreeAndNil
+ ME_53959B4D0242 // TTypeInfo
+ ME_53959B740196 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProceduresPrim.pas'
+ UP extprop:rc:SelfName 'CsReplyProceduresPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsReplyProceduresPrim'
+
+ENDME // ME_537F645C01D1 TCsReplyProceduresPrim

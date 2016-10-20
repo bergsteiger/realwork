@@ -1,0 +1,84 @@
+// Tl3ItemsStorage 4908A9FF0357 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4908A9FF0357
+
+MEREF ME_47B5B5F1038E_ME_4908A9FF0357_impl
+ MELINK Original WL 'ME_47B5B5F1038E' '47B3245E0148.ms.model.script' // DoCompareItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B5B5F1038E_ME_4908A9FF0357_impl DoCompareItems
+
+MEREF ME_47B5B88203A7_ME_4908A9FF0357_impl
+ MELINK Original WL 'ME_47B5B88203A7' '47B3245E0148.ms.model.script' // Swap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B5B88203A7_ME_4908A9FF0357_impl Swap
+
+MEREF ME_492ABDE901A7_ME_4908A9FF0357_G
+ MELINK Original WL? 'ME_492ABDE901A7' // l3LockedChange
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ABDE901A7_ME_4908A9FF0357_G l3LockedChange
+
+MEREF ME_4DD3BB3C03BC_ME_4908A9FF0357_G
+ MELINK Original WL? 'ME_4DD3BB3C03BC' // Tl3ProtoPersistentDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DD3BB3C03BC_ME_4908A9FF0357_G Tl3ProtoPersistentDataContainer
+
+MEREF ME_47B3245E0148_ME_4908A9FF0357_R
+ MELINK Original WL? 'ME_47B3245E0148' // l3Sortable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B3245E0148_ME_4908A9FF0357_R l3Sortable
+
+MEREF ME_48FCA1F20259_ME_4908A9FF0357_R
+ MELINK Original WL? 'ME_48FCA1F20259' // l3ChangingChangedNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48FCA1F20259_ME_4908A9FF0357_R l3ChangingChangedNotifier
+
+%%ImplementedBy ME_47B3245E0148 ME_4908A9FF0357
+%%ImplementedBy ME_48FCA1F20259 ME_4908A9FF0357
+
+%%InheritedBy ME_492ABDE901A7 ME_4908A9FF0357
+%%InheritedBy ME_4DD3BB3C03BC ME_4908A9FF0357
+
+ME ME_4908A9FF0357
+ MEPROP UID '4908A9FF0357'
+ MEPROP Name 'Tl3ItemsStorage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E246C90144' // l3Trees
+ ;
+ MELIST Inherits
+   Seq: ( ME_492ABDE901A7_ME_4908A9FF0357_G // l3LockedChange
+ ME_4DD3BB3C03BC_ME_4908A9FF0357_G // Tl3ProtoPersistentDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B3245E0148_ME_4908A9FF0357_R // l3Sortable
+ ME_48FCA1F20259_ME_4908A9FF0357_R // l3ChangingChangedNotifier
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47B5B5F1038E_ME_4908A9FF0357_impl // DoCompareItems
+ ME_47B5B88203A7_ME_4908A9FF0357_impl // Swap
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3ItemsStorage.pas'
+ UP extprop:rc:SelfName 'ItemsStorage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ItemsStorage'
+
+ENDME // ME_4908A9FF0357 Tl3ItemsStorage

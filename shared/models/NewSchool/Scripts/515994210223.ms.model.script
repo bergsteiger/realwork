@@ -1,0 +1,72 @@
+// TStringStackTestViaMixIn 515994210223 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_515994210223
+
+ME ME_5159944702FD
+ MEPROP UID '5159944702FD'
+ MEPROP Name 'StackType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_515994210223 // TStringStackTestViaMixIn
+ ;
+ MELINK Target WL? 'ME_51545E400179' // TStringStack
+ ;
+
+ENDME // ME_5159944702FD StackType
+
+MEREF ME_515993A0015B_ME_515994210223_impl
+ MELINK Original WL 'ME_515993A0015B' '515992DE031D.ms.model.script' // GetEtalonData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_515993A0015B_ME_515994210223_impl GetEtalonData
+
+MEREF ME_4B2A0DDE028B_ME_515994210223_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_515994210223_G TTestCase
+
+MEREF ME_515992DE031D_ME_515994210223_G
+ MELINK Original WL? 'ME_515992DE031D' // StackTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_515992DE031D_ME_515994210223_G StackTest
+
+%%InheritedBy ME_4B2A0DDE028B ME_515994210223
+%%InheritedBy ME_515992DE031D ME_515994210223
+
+ME ME_515994210223
+ MEPROP UID '515994210223'
+ MEPROP Name 'TStringStackTestViaMixIn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5155CA0E009F' // ContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A0DDE028B_ME_515994210223_G // TTestCase
+ ME_515992DE031D_ME_515994210223_G // StackTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5159944702FD // StackType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_515993A0015B_ME_515994210223_impl // GetEtalonData
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\SandBox\StringStackTestViaMixIn.pas'
+ UP extprop:rc:SelfName 'StringStackTestViaMixIn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StringStackTestViaMixIn'
+
+ENDME // ME_515994210223 TStringStackTestViaMixIn

@@ -1,0 +1,69 @@
+// TnsBaseSearchClassList 5625FA0902EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5625FA0902EE
+
+ME ME_562630B80150
+ MEPROP UID '562630B80150'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5625FA0902EE // TnsBaseSearchClassList
+ ;
+ MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
+ ;
+
+ENDME // ME_562630B80150 ItemType
+
+MEREF ME_4A54DD4E036F_ME_5625FA0902EE_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5625FA0902EE_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D830369_ME_5625FA0902EE_R
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_5625FA0902EE_R l3InterfaceRefList
+
+%%ImplementedBy ME_47B57D830369 ME_5625FA0902EE
+
+%%InheritedBy ME_4A54DD4E036F ME_5625FA0902EE
+
+ME ME_5625FA0902EE
+ MEPROP UID '5625FA0902EE'
+ MEPROP Name 'TnsBaseSearchClassList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC225E70273' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_5625FA0902EE_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D830369_ME_5625FA0902EE_R // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_562630B80150 // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchClassList.pas'
+ UP extprop:rc:SelfName 'BaseSearchClassList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBaseSearchClassList'
+
+ENDME // ME_5625FA0902EE TnsBaseSearchClassList

@@ -1,0 +1,45 @@
+// TK465700807 51CC0A110114 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51CC0A110114
+
+MEREF ME_51CBE62E006B_ME_51CC0A110114_over
+ MELINK Original WL 'ME_51CBE62E006B' '51948F2601E9.ms.model.script' // GetOutputFormat
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51CBE62E006B_ME_51CC0A110114_over GetOutputFormat
+
+MEREF ME_51948F2601E9_ME_51CC0A110114_G
+ MELINK Original WL? 'ME_51948F2601E9' // TietBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51948F2601E9_ME_51CC0A110114_G TietBaseTest
+
+%%InheritedBy ME_51948F2601E9 ME_51CC0A110114
+
+ME ME_51CC0A110114
+ MEPROP UID '51CC0A110114'
+ MEPROP Name 'TK465700807'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51948EC4015D' // ImportExport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51948F2601E9_ME_51CC0A110114_G // TietBaseTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_51CBE62E006B_ME_51CC0A110114_over // GetOutputFormat
+ )
+ ; // Overridden
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\K465700807.pas'
+ UP extprop:rc:SelfName 'K465700807'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'K465700807'
+
+ENDME // ME_51CC0A110114 TK465700807

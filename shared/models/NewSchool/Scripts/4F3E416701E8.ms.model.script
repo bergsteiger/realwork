@@ -1,0 +1,124 @@
+// TkwStringFactory 4F3E416701E8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F3E416701E8
+
+FORWARD ME_4F3E41C603BC
+
+ME ME_4F3E420603C4
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F3E420603C4 aValue
+
+ME ME_4F3E41D10329
+ MEPROP UID '4F3E41D10329'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3E41C603BC // MakeKW
+ ;
+ MELINK Target WL? 'ME_4DB6CD4203D4' // TkwString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F3E420603C4 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F3E41D10329 DoIt
+
+ME ME_4F3E433A000C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3E41C603BC // MakeKW
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4F3E433A000C 
+
+ME ME_4F3E5BCA016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3E41C603BC // MakeKW
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F3E5BCA016C 
+
+ME ME_4F3E41C603BC
+ MEPROP UID '4F3E41C603BC'
+ MEPROP Name 'MakeKW'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3E416701E8 // TkwStringFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F3E41D10329 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F3E433A000C // FreeAndNil
+ ME_4F3E5BCA016C // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_4F3E41C603BC MakeKW
+
+MEREF ME_47A042E100E2_ME_4F3E416701E8_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F3E416701E8_over InitFields
+
+MEREF ME_4F3E476202B8_ME_4F3E416701E8_G
+ MELINK Original WL? 'ME_4F3E476202B8' // TkwStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F3E476202B8_ME_4F3E416701E8_G TkwStringList
+
+%%InheritedBy ME_4F3E476202B8 ME_4F3E416701E8
+
+ME ME_4F3E416701E8
+ MEPROP UID '4F3E416701E8'
+ MEPROP Name 'TkwStringFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F3E476202B8_ME_4F3E416701E8_G // TkwStringList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F3E41C603BC // MakeKW
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4F3E416701E8_over // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStringFactory.pas'
+ UP extprop:rc:SelfName 'StringFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwStringFactory'
+
+ENDME // ME_4F3E416701E8 TkwStringFactory

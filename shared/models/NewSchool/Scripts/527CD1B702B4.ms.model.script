@@ -1,0 +1,108 @@
+// TnsTryingToOpenMissingDocumentFromLinkEvent 527CD1B702B4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_527CD1B702B4
+
+ME ME_527CDCD1027E
+ MEPROP Name 'aTopic'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB65202CD' '4570511E038A.ms.model.script' // Topic
+ ;
+
+ENDME // ME_527CDCD1027E aTopic
+
+ME ME_527CD1EB017C
+ MEPROP UID '527CD1EB017C'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527CD1B702B4 // TnsTryingToOpenMissingDocumentFromLinkEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_527CDCD1027E // aTopic
+ )
+ ; // Parameters
+
+ENDME // ME_527CD1EB017C Log
+
+ME ME_57ECF21702EA
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57ECF21702EA aDocID
+
+ME ME_57ECF20E0141
+ MEPROP UID '57ECF20E0141'
+ MEPROP Name 'Log'
+ MEPROP OriginalName 'Log$2'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_527CD1B702B4 // TnsTryingToOpenMissingDocumentFromLinkEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_57ECF21702EA // aDocID
+ )
+ ; // Parameters
+
+ENDME // ME_57ECF20E0141 Log$2
+
+ME ME_527CDCB7001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_527CD1B702B4 // TnsTryingToOpenMissingDocumentFromLinkEvent
+ ;
+ MELINK Target WL 'ME_45EEB65202CD' '4570511E038A.ms.model.script' // Topic
+ ;
+
+ENDME // ME_527CDCB7001D 
+
+MEREF ME_4B0A6109010C_ME_527CD1B702B4_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_527CD1B702B4_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_527CD1B702B4
+
+ME ME_527CD1B702B4
+ MEPROP UID '527CD1B702B4'
+ MEPROP Name 'TnsTryingToOpenMissingDocumentFromLinkEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A815BFF0168' // Navigation
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_527CD1B702B4_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_527CD1EB017C // Log
+ HWL ME_57ECF20E0141 // Log$2
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_527CDCB7001D // Topic
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsTryingToOpenMissingDocumentFromLinkEvent.pas'
+ UP extprop:rc:SelfName 'TryingToOpenMissingDocumentFromLinkEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsTryingToOpenMissingDocumentFromLinkEvent'
+
+ENDME // ME_527CD1B702B4 TnsTryingToOpenMissingDocumentFromLinkEvent

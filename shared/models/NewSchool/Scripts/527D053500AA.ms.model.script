@@ -1,0 +1,46 @@
+// Tk2ParentedTypedSmallListTag 527D053500AA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4A5F1EC002E5_ME_527D053500AA_G
+ MELINK Original WL? 'ME_4A5F1EC002E5' // Tk2TypedSmallListTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5F1EC002E5_ME_527D053500AA_G Tk2TypedSmallListTag
+
+MEREF ME_47AC58810008_ME_527D053500AA_R
+ MELINK Original WL? 'ME_47AC58810008' // k2ParentedTagObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC58810008_ME_527D053500AA_R k2ParentedTagObject
+
+%%ImplementedBy ME_47AC58810008 ME_527D053500AA
+
+%%InheritedBy ME_4A5F1EC002E5 ME_527D053500AA
+
+ME ME_527D053500AA
+ MEPROP UID '527D053500AA'
+ MEPROP Name 'Tk2ParentedTypedSmallListTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список тегов со ссылкой на родителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A5F1EC002E5_ME_527D053500AA_G // Tk2TypedSmallListTag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47AC58810008_ME_527D053500AA_R // k2ParentedTagObject
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ParentedTypedSmallListTag.pas'
+ UP extprop:rc:SelfName 'ParentedTypedSmallListTag'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2ParentedTypedSmallListTag'
+
+ENDME // ME_527D053500AA Tk2ParentedTypedSmallListTag

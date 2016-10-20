@@ -1,0 +1,267 @@
+// TTestNameList 4D1AEAC80371 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D1AEAC80371
+
+FORWARD ME_4D1AEAC80371
+
+FORWARD ME_524513D603C3
+
+ME ME_524513E800BD
+ MEPROP UID '524513E800BD'
+ MEPROP Name 'lo_Clear'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ENDME // ME_524513E800BD lo_Clear
+
+ME ME_5245140B021A
+ MEPROP UID '5245140B021A'
+ MEPROP Name 'lo_AND'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ENDME // ME_5245140B021A lo_AND
+
+ME ME_5245151502E3
+ MEPROP UID '5245151502E3'
+ MEPROP Name 'lo_OR'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ENDME // ME_5245151502E3 lo_OR
+
+ME ME_5245152003C8
+ MEPROP UID '5245152003C8'
+ MEPROP Name 'lo_NOT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ENDME // ME_5245152003C8 lo_NOT
+
+ME ME_524513D603C3
+ MEPROP UID '524513D603C3'
+ MEPROP Name 'TLoadOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_524513E800BD // lo_Clear
+ HWL ME_5245140B021A // lo_AND
+ HWL ME_5245151502E3 // lo_OR
+ HWL ME_5245152003C8 // lo_NOT
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_524513D603C3 TLoadOperation
+
+FORWARD ME_4D2EE63E0318
+
+ME ME_4D2EE65201AD
+ MEPROP UID '4D2EE65201AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D2EE63E0318 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D2EE65201AD DoIt
+
+ME ME_4D2EE63E0318
+ MEPROP UID '4D2EE63E0318'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D2EE65201AD // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4D2EE63E0318 Exists
+
+FORWARD ME_5245135701C4
+
+ME ME_524513CE03E6
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_524513CE03E6 aFileName
+
+ME ME_524513CF001D
+ MEPROP Name 'aOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_524513D603C3 // TLoadOperation
+ ;
+
+ENDME // ME_524513CF001D aOperation
+
+ME ME_524513A3000F
+ MEPROP UID '524513A3000F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5245135701C4 // LoadFromFileEX
+ ;
+ MELIST Parameters
+   Seq: ( ME_524513CE03E6 // aFileName
+ ME_524513CF001D // aOperation
+ )
+ ; // Parameters
+
+ENDME // ME_524513A3000F DoIt
+
+ME ME_5245135701C4
+ MEPROP UID '5245135701C4'
+ MEPROP Name 'LoadFromFileEX'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_524513A3000F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_5245135701C4 LoadFromFileEX
+
+FORWARD ME_525CFBC20231
+
+ME ME_525CFBD1011A
+ MEPROP UID '525CFBD1011A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525CFBC20231 // ClearList
+ ;
+
+ENDME // ME_525CFBD1011A DoIt
+
+ME ME_525CFBC20231
+ MEPROP UID '525CFBC20231'
+ MEPROP Name 'ClearList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525CFBD1011A // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_525CFBC20231 ClearList
+
+ME ME_4FF431F703A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D1AEAC80371 // TTestNameList
+ ;
+ MELINK Target WL? 'ME_4FF431A00215' // TTestNameString
+ ;
+
+ENDME // ME_4FF431F703A1 
+
+MEREF ME_47B1E5230151_ME_4D1AEAC80371_over
+ MELINK Original WL 'ME_47B1E5230151' '47B1DFC40250.ms.model.script' // StringItemClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B1E5230151_ME_4D1AEAC80371_over StringItemClass
+
+MEREF ME_4773DCE302FF_ME_4D1AEAC80371_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_4D1AEAC80371_G Tl3StringList
+
+%%InheritedBy ME_4773DCE302FF ME_4D1AEAC80371
+
+ME ME_4D1AEAC80371
+ MEPROP UID '4D1AEAC80371'
+ MEPROP Name 'TTestNameList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список тестов для  запуска.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DCE302FF_ME_4D1AEAC80371_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D2EE63E0318 // Exists
+ HWL ME_5245135701C4 // LoadFromFileEX
+ HWL ME_525CFBC20231 // ClearList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47B1E5230151_ME_4D1AEAC80371_over // StringItemClass
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_524513D603C3 // TLoadOperation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4FF431F703A1 // TTestNameString
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\TestNameList.pas'
+ UP extprop:rc:SelfName 'TestNameList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TestNameList'
+
+ENDME // ME_4D1AEAC80371 TTestNameList

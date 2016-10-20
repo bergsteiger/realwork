@@ -1,0 +1,246 @@
+// TmsmParentedViewController 57ADB523009E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57ADB523009E
+
+ME ME_57ADB591038F
+ MEPROP UID '57ADB591038F'
+ MEPROP Name 'f_Parent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57ADB523009E // TmsmParentedViewController
+ ;
+ MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+
+ENDME // ME_57ADB591038F f_Parent
+
+ME ME_57B4909B0293
+ MEPROP UID '57B4909B0293'
+ MEPROP Name 'ViewContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ADB523009E // TmsmParentedViewController
+ ;
+ MELINK Target WL 'ME_57B49009009A' '57AAE8D403E5.ms.model.script' // TmsmViewContext
+ ;
+ UP "pm" true
+
+ENDME // ME_57B4909B0293 ViewContext
+
+FORWARD ME_57ADB54D017E
+
+ME ME_57ADB55300E5
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+
+ENDME // ME_57ADB55300E5 aView
+
+ME ME_57ADBF4C0287
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
+ ;
+
+ENDME // ME_57ADBF4C0287 aModel
+
+ME ME_57ADB5530117
+ MEPROP Name 'aParent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+
+ENDME // ME_57ADB5530117 aParent
+
+ME ME_57ADB5520162
+ MEPROP UID '57ADB5520162'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57ADB54D017E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57ADB55300E5 // aView
+ ME_57ADBF4C0287 // aModel
+ ME_57ADB5530117 // aParent
+ )
+ ; // Parameters
+
+ENDME // ME_57ADB5520162 DoIt
+
+ME ME_57ADB54D017E
+ MEPROP UID '57ADB54D017E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57ADB523009E // TmsmParentedViewController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57ADB5520162 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57ADB54D017E Create
+
+MEREF ME_57ADB54D017E_ME_57ADB5680067_G
+ MELINK Original HWL ME_57ADB54D017E // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADB54D017E_ME_57ADB5680067_G Create
+
+MEREF ME_57AB05790383_ME_57ADB5680067_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57ADB5680067_R ImsmViewController
+
+%%ImplementedBy ME_57AB05790383 ME_57ADB5680067
+
+%%InheritedBy ME_57ADB54D017E ME_57ADB5680067
+
+ME ME_57ADB5680067
+ MEPROP UID '57ADB5680067'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57ADB523009E // TmsmParentedViewController
+ ;
+ MELIST Inherits
+   Seq: ( ME_57ADB54D017E_ME_57ADB5680067_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57AB05790383_ME_57ADB5680067_R // ImsmViewController
+ )
+ ; // Implements
+
+ENDME // ME_57ADB5680067 Make
+
+FORWARD ME_57B490B60385
+
+ME ME_57B490D70072
+ MEPROP Name 'theContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_57B49009009A' '57AAE8D403E5.ms.model.script' // TmsmViewContext
+ ;
+
+ENDME // ME_57B490D70072 theContext
+
+ME ME_57B490CB0130
+ MEPROP UID '57B490CB0130'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B490B60385 // InitViewContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B490D70072 // theContext
+ )
+ ; // Parameters
+
+ENDME // ME_57B490CB0130 DoIt
+
+ME ME_57B490B60385
+ MEPROP UID '57B490B60385'
+ MEPROP Name 'InitViewContext'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57ADB523009E // TmsmParentedViewController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B490CB0130 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B490B60385 InitViewContext
+
+MEREF ME_479731C50290_ME_57ADB523009E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57ADB523009E_over Cleanup
+
+MEREF ME_57B1ABC80368_ME_57ADB523009E_over
+ MELINK Original WL 'ME_57B1ABC80368' '57B1F28B030D.ms.model.script' // DoActivate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B1ABC80368_ME_57ADB523009E_over DoActivate
+
+MEREF ME_57CEC64E0063_ME_57ADB523009E_over
+ MELINK Original WL 'ME_57CEC64E0063' '57B1F28B030D.ms.model.script' // DoActivated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57CEC64E0063_ME_57ADB523009E_over DoActivated
+
+MEREF ME_57AB0A810292_ME_57ADB523009E_G
+ MELINK Original WL? 'ME_57AB0A810292' // TmsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB0A810292_ME_57ADB523009E_G TmsmViewController
+
+%%InheritedBy ME_57AB0A810292 ME_57ADB523009E
+
+ME ME_57ADB523009E
+ MEPROP UID '57ADB523009E'
+ MEPROP Name 'TmsmParentedViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
+ ;
+ MELIST Inherits
+   Seq: ( ME_57AB0A810292_ME_57ADB523009E_G // TmsmViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57ADB591038F // f_Parent
+ HWL ME_57B4909B0293 // ViewContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57ADB54D017E // Create
+ HWL ME_57ADB5680067 // Make
+ HWL ME_57B490B60385 // InitViewContext
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57ADB523009E_over // Cleanup
+ ME_57B1ABC80368_ME_57ADB523009E_over // DoActivate
+ ME_57CEC64E0063_ME_57ADB523009E_over // DoActivated
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmParentedViewController.pas'
+ UP extprop:rc:SelfName 'msmParentedViewController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmParentedViewController'
+
+ENDME // ME_57ADB523009E TmsmParentedViewController

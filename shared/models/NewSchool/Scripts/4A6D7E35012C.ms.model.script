@@ -1,0 +1,41 @@
+// TnsChatWindowList 4A6D7E35012C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_4A6D72AD01D4_ME_4A6D7E35012C_G
+ MELINK Original WL? 'ME_4A6D72AD01D4' // TnsBaseChatWindowList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6D72AD01D4_ME_4A6D7E35012C_G TnsBaseChatWindowList
+
+MEREF ME_4A6EAB540196_ME_4A6D7E35012C_G
+ MELINK Original WL? 'ME_4A6EAB540196' // AbstactChatWindowList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6EAB540196_ME_4A6D7E35012C_G AbstactChatWindowList
+
+%%InheritedBy ME_4A6D72AD01D4 ME_4A6D7E35012C
+%%InheritedBy ME_4A6EAB540196 ME_4A6D7E35012C
+
+ME ME_4A6D7E35012C
+ MEPROP UID '4A6D7E35012C'
+ MEPROP Name 'TnsChatWindowList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A6D72AD01D4_ME_4A6D7E35012C_G // TnsBaseChatWindowList
+ ME_4A6EAB540196_ME_4A6D7E35012C_G // AbstactChatWindowList
+ )
+ ; // Inherits
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\nsChatWindowList.pas'
+ UP extprop:rc:SelfName 'ChatWindowList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsChatWindowList'
+
+ENDME // ME_4A6D7E35012C TnsChatWindowList

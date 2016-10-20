@@ -1,0 +1,82 @@
+// TnevBreakParaAnchor 4A3BB09A0147 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3BB09A0147
+
+ME ME_53D0AF910359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A3BB09A0147 // TnevBreakParaAnchor
+ ;
+ MELINK Target WL? 'ME_48567BA50307' // TevPageBreak
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0AF910359 
+
+ME ME_53D0AFBB0041
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A3BB09A0147 // TnevBreakParaAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53D0AFBB0041 
+
+MEREF ME_4A3BAB21005A_ME_4A3BB09A0147_G
+ MELINK Original WL? 'ME_4A3BAB21005A' // TnevSolidParaAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3BAB21005A_ME_4A3BB09A0147_G TnevSolidParaAnchor
+
+MEREF ME_4B1D1CE30270_ME_4A3BB09A0147_R
+ MELINK Original WL? 'ME_4B1D1CE30270' // nevBreakParaAnchorModify
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1D1CE30270_ME_4A3BB09A0147_R nevBreakParaAnchorModify
+
+%%InjectedBy ME_48567BA50307 ME_4A3BB09A0147
+
+%%ImplementedBy ME_4B1D1CE30270 ME_4A3BB09A0147
+
+%%InheritedBy ME_4A3BAB21005A ME_4A3BB09A0147
+
+ME ME_4A3BB09A0147
+ MEPROP UID '4A3BB09A0147'
+ MEPROP Name 'TnevBreakParaAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Якорь параграфа-разрыва' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3BAB21005A_ME_4A3BB09A0147_G // TnevSolidParaAnchor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B1D1CE30270_ME_4A3BB09A0147_R // nevBreakParaAnchorModify
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_53D0AF910359 // TevPageBreak
+ ME_53D0AFBB0041 // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '24.11.2006 12:34'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBreakParaAnchor.pas'
+ UP extprop:rc:SelfName 'BreakParaAnchor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevBreakParaAnchor'
+
+ENDME // ME_4A3BB09A0147 TnevBreakParaAnchor

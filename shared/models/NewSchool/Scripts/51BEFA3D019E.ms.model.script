@@ -1,0 +1,86 @@
+// TnsSaveDocumentToFoldersEvent 51BEFA3D019E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51BEFA3D019E
+
+FORWARD ME_51BEFAC50138
+
+ME ME_51BEFAE20090
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_51BEFAE20090 aDoc
+
+ME ME_51BEFADE00AE
+ MEPROP UID '51BEFADE00AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BEFAC50138 // Log
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BEFAE20090 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_51BEFADE00AE DoIt
+
+ME ME_51BEFAC50138
+ MEPROP UID '51BEFAC50138'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BEFA3D019E // TnsSaveDocumentToFoldersEvent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BEFADE00AE // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_51BEFAC50138 Log
+
+MEREF ME_4B0A6109010C_ME_51BEFA3D019E_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_51BEFA3D019E_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_51BEFA3D019E
+
+ME ME_51BEFA3D019E
+ MEPROP UID '51BEFA3D019E'
+ MEPROP Name 'TnsSaveDocumentToFoldersEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_497DCBF8017B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_51BEFA3D019E_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51BEFAC50138 // Log
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveDocumentToFoldersEvent.pas'
+ UP extprop:rc:SelfName 'SaveDocumentToFoldersEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsSaveDocumentToFoldersEvent'
+
+ENDME // ME_51BEFA3D019E TnsSaveDocumentToFoldersEvent

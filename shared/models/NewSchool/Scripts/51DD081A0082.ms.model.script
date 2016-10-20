@@ -1,0 +1,110 @@
+// TdestWord6Number 51DD081A0082 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DD081A0082
+
+ME ME_51DD1C3802E9
+ MEPROP UID '51DD1C3802E9'
+ MEPROP Name 'ItemText'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD081A0082 // TdestWord6Number
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_51DD1C3802E9 ItemText
+
+ME ME_54E3089F0346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DD081A0082 // TdestWord6Number
+ ;
+ MELINK Target WL? 'ME_51D278280093' // TdestNorm
+ ;
+
+ENDME // ME_54E3089F0346 
+
+MEREF ME_5461BEC2017D_ME_51DD081A0082_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_51DD081A0082_impl Close
+
+MEREF ME_54E1F08400F9_ME_51DD081A0082_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_51DD081A0082_impl WriteText$1
+
+MEREF ME_51D27A48038E_ME_51DD081A0082_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_51DD081A0082_over Clear
+
+MEREF ME_51D27C0402E9_ME_51DD081A0082_over
+ MELINK Original WL 'ME_51D27C0402E9' '5190A37F0134.ms.model.script' // AddAnsiChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27C0402E9_ME_51DD081A0082_over AddAnsiChar
+
+MEREF ME_51D276C40106_ME_51DD081A0082_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_51DD081A0082_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_51DD081A0082
+
+ME ME_51DD081A0082
+ MEPROP UID '51DD081A0082'
+ MEPROP Name 'TdestWord6Number'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст нумерации в стиле Word 6/95' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51D276C40106_ME_51DD081A0082_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DD1C3802E9 // ItemText
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_51DD081A0082_impl // Close
+ ME_54E1F08400F9_ME_51DD081A0082_impl // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_51D27A48038E_ME_51DD081A0082_over // Clear
+ ME_51D27C0402E9_ME_51DD081A0082_over // AddAnsiChar
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54E3089F0346 // TdestNorm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destWord6Number.pas'
+ UP extprop:rc:SelfName 'destWord6Number'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'destWord6Number'
+
+ENDME // ME_51DD081A0082 TdestWord6Number

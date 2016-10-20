@@ -7,138 +7,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4B893514021E
 %%Inner ME_4B893514021E
 
-FORWARD ME_4B893514021E
-
-FORWARD ME_48E233B00094
-
-ME ME_48E2343202C4
- MEPROP UID '48E2343202C4'
- MEPROP Name 'f_Owner'
- MEPROP Class class_Attribute
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48E233B00094 // Tl3Tool
- ;
- MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
- ;
-
-ENDME // ME_48E2343202C4 f_Owner
-
-ME ME_48E23443017A
- MEPROP Name 'anOwner'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_467D37E40254' '4677FBA70343.ms.model.script' // Il3ToolOwner
- ;
-
-ENDME // ME_48E23443017A anOwner
-
-ME ME_48E2343E007B
- MEPROP UID '48E2343E007B'
- MEPROP Name 'Create'
- MEPROP Class class_Operation
- MELINK Stereotype st_ctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48E233B00094 // Tl3Tool
- ;
- MELIST Parameters
-   Seq: ( ME_48E23443017A // anOwner
- )
- ; // Parameters
-
-ENDME // ME_48E2343E007B Create
-
-ME ME_46A5D4220369_ME_48E233B00094
- MELINK Original WL 'ME_46A5D4220369' '4677FBA70343.ms.model.script' // OwnerDead
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5D4220369_ME_48E233B00094 OwnerDead
-
-ME ME_479731C50290_ME_48E233B00094
- MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_48E233B00094 Cleanup
-
-ME ME_47A6FEE600FC_ME_48E233B00094
- MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
- ;
- MEPROP OpKind opkind_Overridden
- UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_48E233B00094 IsCacheable
-
-%%ImplementedBy ME_46A5D3FD00B3 ME_48E233B00094
-
-%%InheritedBy ME_4DD26D570378 ME_48E233B00094
-
-ME ME_48E233B00094
- MEPROP UID '48E233B00094'
- MEPROP Name 'Tl3Tool'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4B893514021E // Pretty Things
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DD26D570378' '47913B47006E.ms.model.script' // Tl3ProtoObjectWithCOMQI
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_46A5D3FD00B3' '4677FBA70343.ms.model.script' // Il3Tool
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_48E2343202C4 // f_Owner
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_48E2343E007B // Create
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_46A5D4220369_ME_48E233B00094 // OwnerDead
- )
- ; // Implemented
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_48E233B00094 // Cleanup
- ME_47A6FEE600FC_ME_48E233B00094 // IsCacheable
- )
- ; // Overridden
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '28.01.2005 18:05'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Tool.pas'
- UP extprop:rc:SelfName 'Tool'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'l3Tool'
-
-ENDME // ME_48E233B00094 Tl3Tool
-
-ME ME_4C74EE240075
- MEPROP UID '4C74EE240075'
- MEPROP Name 'Tl3GZipStream'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4B893514021E // Pretty Things
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GZipStream.pas'
- UP extprop:rc:SelfName 'GZipStream'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'l3GZipStream'
-
-ENDME // ME_4C74EE240075 Tl3GZipStream
-
 ME ME_4B893514021E
  MEPROP UID '4B893514021E'
  MEPROP Name 'Pretty Things'
@@ -151,9 +19,9 @@ ME ME_4B893514021E
  MELINK Parent WL? 'ME_4790D09A0378' // L3
  ;
  MELIST Children
-   Seq: ( HWL ME_48E233B00094 // Tl3Tool
+   Seq: ( WL? 'ME_48E233B00094' // Tl3Tool
  WL? 'ME_4B8BC148037A' // l3KeyWrd
- HWL ME_4C74EE240075 // Tl3GZipStream
+ WL? 'ME_4C74EE240075' // Tl3GZipStream
  WL? 'ME_5721B7D401CF' // l3ListUtils
  )
  ; // Children

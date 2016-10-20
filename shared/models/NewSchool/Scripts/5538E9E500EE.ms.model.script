@@ -1,0 +1,93 @@
+// TdaFieldDescriptionList 5538E9E500EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5538E9E500EE
+
+ME ME_5538FEBC0075
+ MEPROP UID '5538FEBC0075'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E9E500EE // TdaFieldDescriptionList
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5538FEBC0075 FindDataType
+
+ME ME_5539041800C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5538E9E500EE // TdaFieldDescriptionList
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5539041800C2 
+
+MEREF ME_47B9BAFD01F4_ME_5538E9E500EE_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_5538E9E500EE_over CompareItemWithData
+
+MEREF ME_5538E9AE0163_ME_5538E9E500EE_G
+ MELINK Original WL? 'ME_5538E9AE0163' // TdaFieldDescriptionListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5538E9AE0163_ME_5538E9E500EE_G TdaFieldDescriptionListPrim
+
+MEREF ME_47B47E230134_ME_5538E9E500EE_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_5538E9E500EE_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_5538E9E500EE
+
+%%InheritedBy ME_5538E9AE0163 ME_5538E9E500EE
+
+ME ME_5538E9E500EE
+ MEPROP UID '5538E9E500EE'
+ MEPROP Name 'TdaFieldDescriptionList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_552D07D0005E' // DataScheme
+ ;
+ MELIST Inherits
+   Seq: ( ME_5538E9AE0163_ME_5538E9E500EE_G // TdaFieldDescriptionListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_5538E9E500EE_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5538FEBC0075 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_5538E9E500EE_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5539041800C2 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daFieldDescriptionList.pas'
+ UP extprop:rc:SelfName 'daFieldDescriptionList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daFieldDescriptionList'
+
+ENDME // ME_5538E9E500EE TdaFieldDescriptionList

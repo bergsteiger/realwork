@@ -1,0 +1,142 @@
+// TvcmModule 4AB33E14004E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AB33E14004E
+
+FORWARD ME_4AB33E14004E
+
+MEREF ME_4AB33E14004E_ME_4AB33E2C03D7_G
+ MELINK Original HWL ME_4AB33E14004E // TvcmModule
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AB33E14004E_ME_4AB33E2C03D7_G TvcmModule
+
+%%InheritedBy ME_4AB33E14004E ME_4AB33E2C03D7
+
+ME ME_4AB33E2C03D7
+ MEPROP UID '4AB33E2C03D7'
+ MEPROP Name 'RvcmModule'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB33E14004E // TvcmModule
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AB33E14004E_ME_4AB33E2C03D7_G // TvcmModule
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AB33E2C03D7 RvcmModule
+
+FORWARD ME_577A5A440158
+
+ME ME_577A5A630236
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_577A5A8E02A8' '47F25BC801DB.ms.model.script' // TvcmClassList
+ ;
+
+ENDME // ME_577A5A630236 aList
+
+ME ME_577A5A5E0023
+ MEPROP UID '577A5A5E0023'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_577A5A440158 // GetEntityForms
+ ;
+ MELIST Parameters
+   Seq: ( ME_577A5A630236 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_577A5A5E0023 DoIt
+
+ME ME_577A5A440158
+ MEPROP UID '577A5A440158'
+ MEPROP Name 'GetEntityForms'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB33E14004E // TvcmModule
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_577A5A5E0023 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_577A5A440158 GetEntityForms
+
+ME ME_57A0BF970389
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AB33E14004E // TvcmModule
+ ;
+ MELINK Target WL? 'ME_57A0BF7D02BD' // TvcmModuleContractImplementation
+ ;
+
+ENDME // ME_57A0BF970389 
+
+MEREF ME_47913F970159_ME_4AB33E14004E_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4AB33E14004E_G l3Unknown
+
+MEREF ME_479878FA0103_ME_4AB33E14004E_G
+ MELINK Original WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_479878FA0103_ME_4AB33E14004E_G TComponent
+
+%%InheritedBy ME_47913F970159 ME_4AB33E14004E
+%%InheritedBy ME_479878FA0103 ME_4AB33E14004E
+
+ME ME_4AB33E14004E
+ MEPROP UID '4AB33E14004E'
+ MEPROP Name 'TvcmModule'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_47913F970159_ME_4AB33E14004E_G // l3Unknown
+ ME_479878FA0103_ME_4AB33E14004E_G // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_577A5A440158 // GetEntityForms
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AB33E2C03D7 // RvcmModule
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57A0BF970389 // TvcmModuleContractImplementation
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmModule.pas'
+ UP extprop:rc:SelfName 'Module'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmModule'
+
+ENDME // ME_4AB33E14004E TvcmModule

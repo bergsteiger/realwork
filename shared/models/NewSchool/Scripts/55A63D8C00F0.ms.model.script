@@ -20,11 +20,17 @@ ME ME_559E75F100CC
 
 ENDME // ME_559E75F100CC l3Items_NoSort
 
-ME ME_47B99D4503A2_ME_55A63D8C00F0
+MEREF ME_47B99D4503A2_ME_55A63D8C00F0_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_55A63D8C00F0 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_55A63D8C00F0_impl CompareExistingItems
+
+MEREF ME_55B0E6F2013C_ME_55A63D8C00F0_G
+ MELINK Original WL? 'ME_55B0E6F2013C' // tfwDictionaryListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B0E6F2013C_ME_55A63D8C00F0_G tfwDictionaryListPrim
 
 %%InheritedBy ME_55B0E6F2013C ME_55A63D8C00F0
 
@@ -40,11 +46,11 @@ ME ME_55A63D8C00F0
  MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_55B0E6F2013C' // tfwDictionaryListPrim
+   Seq: ( ME_55B0E6F2013C_ME_55A63D8C00F0_G // tfwDictionaryListPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B99D4503A2_ME_55A63D8C00F0 // CompareExistingItems
+   Seq: ( ME_47B99D4503A2_ME_55A63D8C00F0_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Children

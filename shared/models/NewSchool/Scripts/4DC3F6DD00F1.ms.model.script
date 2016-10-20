@@ -1,0 +1,106 @@
+// TF1AutoScripter 4DC3F6DD00F1 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3F6DD00F1
+
+ME ME_4DC40364034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4DC40364034B 
+
+ME ME_4DDA4D160197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4DDA4D160197 
+
+ME ME_52FCA98F01BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_52FCA98F01BC 
+
+MEREF ME_4C937013031D_ME_4DC3F6DD00F1_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4DC3F6DD00F1_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_4DC3F6DD00F1_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_4DC3F6DD00F1_over GetModelElementGUID
+
+MEREF ME_4DB03121022B_ME_4DC3F6DD00F1_over
+ MELINK Original WL 'ME_4DB03121022B' '4DAEEA2B029A.ms.model.script' // ResolveScriptFilePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB03121022B_ME_4DC3F6DD00F1_over ResolveScriptFilePath
+
+MEREF ME_4DC395670274_ME_4DC3F6DD00F1_over
+ MELINK Original WL 'ME_4DC395670274' '4B2A0DCE03A9.ms.model.script' // IsScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC395670274_ME_4DC3F6DD00F1_over IsScript
+
+MEREF ME_4DB03B1B0055_ME_4DC3F6DD00F1_G
+ MELINK Original WL? 'ME_4DB03B1B0055' // InsiderOwnScripter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB03B1B0055_ME_4DC3F6DD00F1_G InsiderOwnScripter
+
+%%InheritedBy ME_4DB03B1B0055 ME_4DC3F6DD00F1
+
+ME ME_4DC3F6DD00F1
+ MEPROP UID '4DC3F6DD00F1'
+ MEPROP Name 'TF1AutoScripter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скрипт с поддержкой авторегистрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DB01C7F03C7' // Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB03B1B0055_ME_4DC3F6DD00F1_G // InsiderOwnScripter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4DC3F6DD00F1_over // GetFolder
+ ME_4DAED6F60146_ME_4DC3F6DD00F1_over // GetModelElementGUID
+ ME_4DB03121022B_ME_4DC3F6DD00F1_over // ResolveScriptFilePath
+ ME_4DC395670274_ME_4DC3F6DD00F1_over // IsScript
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DC40364034B // ExtractFilePath
+ ME_4DDA4D160197 // ExtractFilePath
+ ME_52FCA98F01BC // StrUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1AutoScripter.pas'
+ UP extprop:rc:SelfName 'F1AutoScripter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'F1AutoScripter'
+
+ENDME // ME_4DC3F6DD00F1 TF1AutoScripter

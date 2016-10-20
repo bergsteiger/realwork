@@ -1,0 +1,54 @@
+// TbsWorkJournal 4A825E1200F4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A825E1200F4
+
+ME ME_4A82922D028D
+ MEPROP UID '4A82922D028D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A825E1200F4 // TbsWorkJournal
+ ;
+ MELINK Target WL 'ME_4A825D920164' '4A825D5D0235.ms.model.script' // IbsWorkJournal
+ ;
+
+ENDME // ME_4A82922D028D Make
+
+MEREF ME_4A825E02010E_ME_4A825E1200F4_G
+ MELINK Original WL? 'ME_4A825E02010E' // TbsWorkJournalPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A825E02010E_ME_4A825E1200F4_G TbsWorkJournalPrim
+
+%%InheritedBy ME_4A825E02010E ME_4A825E1200F4
+
+ME ME_4A825E1200F4
+ MEPROP UID '4A825E1200F4'
+ MEPROP Name 'TbsWorkJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A825D760190' // WorkJournalImpl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A825E02010E_ME_4A825E1200F4_G // TbsWorkJournalPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A82922D028D // Make
+ )
+ ; // Operations
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournal.pas'
+ UP extprop:rc:SelfName 'bsWorkJournal'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsWorkJournal'
+
+ENDME // ME_4A825E1200F4 TbsWorkJournal

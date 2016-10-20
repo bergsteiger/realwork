@@ -1,0 +1,212 @@
+// TncsDataAccessServices 54FE99C90168 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54FE99C90168
+
+ME ME_54FEA25D03B2
+ MEPROP UID '54FEA25D03B2'
+ MEPROP Name 'f_InitCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54FE99C90168 // TncsDataAccessServices
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54FEA25D03B2 f_InitCounter
+
+FORWARD ME_54FE9A000180
+
+ME ME_54FE9A14022C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_54FEAD4402AB' // ThtDataProviderFactory
+ ;
+
+ENDME // ME_54FE9A14022C 
+
+ME ME_54FE9A270134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_54F85B590251' // TdaDataProviderSuperFactory
+ ;
+
+ENDME // ME_54FE9A270134 
+
+ME ME_5507E74603BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_5507E6CB0165' // TncsClientParamsStorage
+ ;
+
+ENDME // ME_5507E74603BC 
+
+ME ME_552D0A100360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_552D0A100360 
+
+ME ME_55D6E5E9028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_55D6E2FB025D' // TpgDataProviderFactory
+ ;
+
+ENDME // ME_55D6E5E9028C 
+
+ME ME_56A8841E0120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE9A000180 // InitClient
+ ;
+ MELINK Target WL? 'ME_56A86C020121' // TcaDataProviderFactory
+ ;
+
+ENDME // ME_56A8841E0120 
+
+ME ME_54FE9A000180
+ MEPROP UID '54FE9A000180'
+ MEPROP Name 'InitClient'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настраивает и регестрирует фабрики для TdaDataProviderSuperFactory'#13#10'Должен быть вызван до обращения к методам TdaDataProviderSuperFactory' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54FE99C90168 // TncsDataAccessServices
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54FE9A14022C // ThtDataProviderFactory
+ ME_54FE9A270134 // TdaDataProviderSuperFactory
+ ME_5507E74603BC // TncsClientParamsStorage
+ ME_552D0A100360 // TdaScheme
+ ME_55D6E5E9028C // TpgDataProviderFactory
+ ME_56A8841E0120 // TcaDataProviderFactory
+ )
+ ; // Dependencies
+
+ENDME // ME_54FE9A000180 InitClient
+
+FORWARD ME_5502A9100004
+
+ME ME_5502A9200190
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5502A9100004 // InitServer
+ ;
+ MELINK Target WL? 'ME_54F85B590251' // TdaDataProviderSuperFactory
+ ;
+
+ENDME // ME_5502A9200190 
+
+ME ME_5507E7300391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5502A9100004 // InitServer
+ ;
+ MELINK Target WL? 'ME_5507E70200AF' // TncsServerParamsStorage
+ ;
+
+ENDME // ME_5507E7300391 
+
+ME ME_552D0A15027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5502A9100004 // InitServer
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_552D0A15027E 
+
+ME ME_5502A9100004
+ MEPROP UID '5502A9100004'
+ MEPROP Name 'InitServer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54FE99C90168 // TncsDataAccessServices
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5502A9200190 // TdaDataProviderSuperFactory
+ ME_5507E7300391 // TncsServerParamsStorage
+ ME_552D0A15027E // TdaScheme
+ )
+ ; // Dependencies
+
+ENDME // ME_5502A9100004 InitServer
+
+ME ME_54FEA4AA0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54FE99C90168 // TncsDataAccessServices
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54FEA4AA0282 
+
+MEREF ME_49E7754802A9_ME_54FE99C90168_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54FE99C90168_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_54FE99C90168
+
+ME ME_54FE99C90168
+ MEPROP UID '54FE99C90168'
+ MEPROP Name 'TncsDataAccessServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_52FA49B901D3' // ArchiClientServer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_54FE99C90168_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54FEA25D03B2 // f_InitCounter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54FE9A000180 // InitClient
+ HWL ME_5502A9100004 // InitServer
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54FEA4AA0282 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsDataAccessServices.pas'
+ UP extprop:rc:SelfName 'ncsDataAccessServices'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsDataAccessServices'
+
+ENDME // ME_54FE99C90168 TncsDataAccessServices

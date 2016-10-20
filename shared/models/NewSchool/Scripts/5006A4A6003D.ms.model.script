@@ -1,0 +1,70 @@
+// TvcmUserTypesCollectionItemPrim 5006A4A6003D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5006A4A6003D
+
+ME ME_5006A52C0211
+ MEPROP UID '5006A52C0211'
+ MEPROP Name 'CanHaveToolbars'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5006A52C0211 CanHaveToolbars
+
+MEREF ME_47A042E100E2_ME_5006A4A6003D_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5006A4A6003D_over InitFields
+
+MEREF ME_4FFC3347011F_ME_5006A4A6003D_G
+ MELINK Original WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC3347011F_ME_5006A4A6003D_G TvcmBaseCollectionItem
+
+%%InheritedBy ME_4FFC3347011F ME_5006A4A6003D
+
+ME ME_5006A4A6003D
+ MEPROP UID '5006A4A6003D'
+ MEPROP Name 'TvcmUserTypesCollectionItemPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5006A46B015B' // UserTypes
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FFC3347011F_ME_5006A4A6003D_G // TvcmBaseCollectionItem
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5006A52C0211 // CanHaveToolbars
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_5006A4A6003D_over // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas'
+ UP extprop:rc:SelfName 'UserTypesCollectionItemPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmUserTypesCollectionItemPrim'
+
+ENDME // ME_5006A4A6003D TvcmUserTypesCollectionItemPrim

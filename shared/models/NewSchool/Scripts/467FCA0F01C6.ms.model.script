@@ -1,0 +1,164 @@
+// TnsTagString 467FCA0F01C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_467FCA0F01C6
+%%Inner ME_467FCA0F01C6
+
+FORWARD ME_467FCA0F01C6
+
+ME ME_53072FB0010E
+ MEPROP UID '53072FB0010E'
+ MEPROP Name 'k2TagIsString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_467FCA0F01C6 // TnsTagString
+ ;
+ UP extprop:rc:SelfName 'TagIsString'
+
+ENDME // ME_53072FB0010E k2TagIsString
+
+ME ME_535A413401FB
+ MEPROP UID '535A413401FB'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_467FCA0F01C6 // TnsTagString
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_535A413401FB k2Tag_No_f_TagType
+
+ME ME_4C6ACC680134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCA0F01C6 // TnsTagString
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_4C6ACC680134 
+
+ME ME_53072F9E0372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCA0F01C6 // TnsTagString
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+
+ENDME // ME_53072F9E0372 
+
+ME ME_53074A4D012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCA0F01C6 // TnsTagString
+ ;
+ MELINK Target WL? 'ME_53073D3D00BE' // Tk2String
+ ;
+
+ENDME // ME_53074A4D012A 
+
+MEREF ME_49A545580241_ME_467FCA0F01C6_impl
+ MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'k2TagIsAtomic'
+ENDMEREF // ME_49A545580241_ME_467FCA0F01C6_impl SetAtomPrim
+
+MEREF ME_47A042E100E2_ME_467FCA0F01C6_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_467FCA0F01C6_over InitFields
+
+MEREF ME_47BC3FC40111_ME_467FCA0F01C6_over
+ MELINK Original WL 'ME_47BC3FC40111' '53317D14019D.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47BC3FC40111_ME_467FCA0F01C6_over Clone
+
+MEREF ME_532AE8F2009A_ME_467FCA0F01C6_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_467FCA0F01C6_over GetIsOrd
+
+MEREF ME_533121AF0203_ME_467FCA0F01C6_over
+ MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533121AF0203_ME_467FCA0F01C6_over GetTagType
+
+MEREF ME_47AC5591007B_ME_467FCA0F01C6_G
+ MELINK Original WL? 'ME_47AC5591007B' // k2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC5591007B_ME_467FCA0F01C6_G k2Tag
+
+MEREF ME_4C6A67830106_ME_467FCA0F01C6_G
+ MELINK Original WL 'ME_4C6A67830106' '4C6A67560211.ms.model.script' // TnsNewString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A67830106_ME_467FCA0F01C6_G TnsNewString
+
+%%InheritedBy ME_47AC5591007B ME_467FCA0F01C6
+%%InheritedBy ME_4C6A67830106 ME_467FCA0F01C6
+
+ME ME_467FCA0F01C6
+ MEPROP UID '467FCA0F01C6'
+ MEPROP Name 'TnsTagString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка, представляющая строковый атрибут тега' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( ME_47AC5591007B_ME_467FCA0F01C6_G // k2Tag
+ ME_4C6A67830106_ME_467FCA0F01C6_G // TnsNewString
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_49A545580241_ME_467FCA0F01C6_impl // SetAtomPrim
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_467FCA0F01C6_over // InitFields
+ ME_47BC3FC40111_ME_467FCA0F01C6_over // Clone
+ ME_532AE8F2009A_ME_467FCA0F01C6_over // GetIsOrd
+ ME_533121AF0203_ME_467FCA0F01C6_over // GetTagType
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53072FB0010E // k2TagIsString
+ HWL ME_535A413401FB // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C6ACC680134 // Tl3_String
+ ME_53072F9E0372 // String
+ ME_53074A4D012A // Tk2String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2005/06/23 16:38:20'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagString.pas'
+ UP extprop:rc:SelfName 'TagString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsTagString'
+
+ENDME // ME_467FCA0F01C6 TnsTagString

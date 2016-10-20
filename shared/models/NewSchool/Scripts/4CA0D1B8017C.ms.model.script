@@ -1,0 +1,126 @@
+// TGarORBInitializerImpl 4CA0D1B8017C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0D1B8017C
+
+FORWARD ME_4CA0D2C203BE
+
+ME ME_4CA0DFAF0110
+ MEPROP UID '4CA0DFAF0110'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D2C203BE // Init
+ ;
+
+ENDME // ME_4CA0DFAF0110 DoIt
+
+ME ME_4CA0D2C203BE
+ MEPROP UID '4CA0D2C203BE'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0D1B8017C // TGarORBInitializerImpl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA0DFAF0110 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4CA0D2C203BE Init
+
+ME ME_4CA0D4F001B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0D1B8017C // TGarORBInitializerImpl
+ ;
+ MELINK Target WL? 'ME_4CA0D4C90266' // TGarClientSecurity
+ ;
+
+ENDME // ME_4CA0D4F001B1 
+
+ME ME_4CA0D8C9011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0D1B8017C // TGarORBInitializerImpl
+ ;
+ MELINK Target WL 'ME_4CA0D8BA0012' '4CA0D8A80194.ms.model.script' // TPIManager
+ ;
+
+ENDME // ME_4CA0D8C9011D 
+
+ME ME_4CA354A800C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0D1B8017C // TGarORBInitializerImpl
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4CA354A800C5 
+
+MEREF ME_4CA0D24C02B9_ME_4CA0D1B8017C_impl
+ MELINK Original WL 'ME_4CA0D24C02B9' '4CA0D16702D5.ms.model.script' // pre__init
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D24C02B9_ME_4CA0D1B8017C_impl pre__init
+
+MEREF ME_4CA0D27000D5_ME_4CA0D1B8017C_impl
+ MELINK Original WL 'ME_4CA0D27000D5' '4CA0D16702D5.ms.model.script' // post__init
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CA0D27000D5_ME_4CA0D1B8017C_impl post__init
+
+MEREF ME_4CA0D1770172_ME_4CA0D1B8017C_G
+ MELINK Original WL 'ME_4CA0D1770172' '4CA0D16702D5.ms.model.script' // TORBInitializer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CA0D1770172_ME_4CA0D1B8017C_G TORBInitializer
+
+%%InheritedBy ME_4CA0D1770172 ME_4CA0D1B8017C
+
+ME ME_4CA0D1B8017C
+ MEPROP UID '4CA0D1B8017C'
+ MEPROP Name 'TGarORBInitializerImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CA0D18B0351' // IniAndFini
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CA0D1770172_ME_4CA0D1B8017C_G // TORBInitializer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA0D2C203BE // Init
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CA0D24C02B9_ME_4CA0D1B8017C_impl // pre__init
+ ME_4CA0D27000D5_ME_4CA0D1B8017C_impl // post__init
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CA0D4F001B1 // TGarClientSecurity
+ ME_4CA0D8C9011D // TPIManager
+ ME_4CA354A800C5 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\GarORB\GarORBInitializerImpl.pas'
+ UP extprop:rc:SelfName 'GarORBInitializerImpl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'GarORBInitializerImpl'
+
+ENDME // ME_4CA0D1B8017C TGarORBInitializerImpl

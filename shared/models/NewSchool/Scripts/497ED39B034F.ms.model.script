@@ -149,12 +149,18 @@ ME ME_497ED3E60038
 
 ENDME // ME_497ED3E60038 dsForbidAutoregistration
 
+MEREF ME_47881B22005A_ME_51C3165101B7_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_51C3165101B7_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_51C3165101B7
 
 ME ME_51C3165101B7
  MEPROP UID '51C3165101B7'
  MEPROP Name 'cbEmailChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -162,7 +168,7 @@ ME ME_51C3165101B7
  MELINK Parent HWL ME_497ED39B034F // PrimForbidAutoregistration
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( ME_47881B22005A_ME_51C3165101B7_G // TNotifyEvent
  )
  ; // Inherits
 
@@ -220,17 +226,23 @@ ME ME_51C32D030288
 
 ENDME // ME_51C32D030288 
 
-ME ME_497469C90140_ME_497ED39B034F
+MEREF ME_497469C90140_ME_497ED39B034F_over
  MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_497469C90140_ME_497ED39B034F NotifyDataSourceChanged
+ENDMEREF // ME_497469C90140_ME_497ED39B034F_over NotifyDataSourceChanged
 
-ME ME_4A8E8F2E0195_ME_497ED39B034F
+MEREF ME_4A8E8F2E0195_ME_497ED39B034F_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_497ED39B034F_over InitControls
+
+MEREF ME_49525B34022A_ME_497ED39B034F_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_497ED39B034F_G TvcmEntityForm
 
 %%InheritedBy ME_49525B34022A ME_497ED39B034F
 
@@ -247,7 +259,7 @@ ME ME_497ED39B034F
  MELINK Parent WL? 'ME_49480CD20303' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_497ED39B034F_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes
@@ -262,8 +274,8 @@ ME ME_497ED39B034F
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_497469C90140_ME_497ED39B034F // NotifyDataSourceChanged
- ME_4A8E8F2E0195_ME_497ED39B034F // InitControls
+   Seq: ( ME_497469C90140_ME_497ED39B034F_over // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_497ED39B034F_over // InitControls
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,45 @@
+// TncsGetFilePart 547583330291 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_544E079E0253_ME_547583330291_G
+ MELINK Original WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_547583330291_G TncsMessage
+
+MEREF ME_54757F9E023E_ME_547583330291_R
+ MELINK Original WL 'ME_54757F9E023E' '484A470100DD.ms.model.script' // csGetFilePart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54757F9E023E_ME_547583330291_R csGetFilePart
+
+%%ImplementedBy ME_54757F9E023E ME_547583330291
+
+%%InheritedBy ME_544E079E0253 ME_547583330291
+
+ME ME_547583330291
+ MEPROP UID '547583330291'
+ MEPROP Name 'TncsGetFilePart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( ME_544E079E0253_ME_547583330291_G // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_54757F9E023E_ME_547583330291_R // csGetFilePart
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetFilePart.pas'
+ UP extprop:rc:SelfName 'ncsGetFilePart'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsGetFilePart'
+
+ENDME // ME_547583330291 TncsGetFilePart

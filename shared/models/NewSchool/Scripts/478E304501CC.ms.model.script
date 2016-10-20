@@ -8,11 +8,23 @@ FORWARD ME_478E304501CC
 
 FORWARD ME_478E31250074
 
-ME ME_473D93290004_ME_478E31250074
+MEREF ME_473D93290004_ME_478E31250074_impl
  MELINK Original WL 'ME_473D93290004' '467823B7002C.ms.model.script' // FillStrings
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_473D93290004_ME_478E31250074 FillStrings
+ENDMEREF // ME_473D93290004_ME_478E31250074_impl FillStrings
+
+MEREF ME_478E1E3A0182_ME_478E31250074_G
+ MELINK Original WL 'ME_478E1E3A0182' '478E1D94023E.ms.model.script' // Tl3SimpleTypedIntegerValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E1E3A0182_ME_478E31250074_G Tl3SimpleTypedIntegerValueMap
+
+MEREF ME_473D93190033_ME_478E31250074_R
+ MELINK Original WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D93190033_ME_478E31250074_R IafwStringsSource
 
 %%ImplementedBy ME_473D93190033 ME_478E31250074
 
@@ -29,15 +41,15 @@ ME ME_478E31250074
  MELINK Parent HWL ME_478E304501CC // afwTypedIntegerValueMap
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_478E1E3A0182' '478E1D94023E.ms.model.script' // Tl3SimpleTypedIntegerValueMap
+   Seq: ( ME_478E1E3A0182_ME_478E31250074_G // Tl3SimpleTypedIntegerValueMap
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+   Seq: ( ME_473D93190033_ME_478E31250074_R // IafwStringsSource
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_473D93290004_ME_478E31250074 // FillStrings
+   Seq: ( ME_473D93290004_ME_478E31250074_impl // FillStrings
  )
  ; // Implemented
  UP extprop:rc:SelfName 'afwSimpleTypedIntegerValueMap'

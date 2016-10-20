@@ -77,7 +77,7 @@ ENDME // ME_4CC95B07002B DoIt
 ME ME_4CC95AAD0069
  MEPROP UID '4CC95AAD0069'
  MEPROP Name 'BackColor1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Начало градиента' ;
@@ -110,7 +110,7 @@ ENDME // ME_4CC95B3400B8 DoIt
 ME ME_4CC95B14022B
  MEPROP UID '4CC95B14022B'
  MEPROP Name 'BackColor2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Конец градиента' ;
@@ -145,17 +145,35 @@ ME ME_4CC95BBF036E
 
 ENDME // ME_4CC95BBF036E 
 
-ME ME_4A8E8F2E0195_ME_4CC804B60371
+MEREF ME_4A8E8F2E0195_ME_4CC804B60371_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4CC804B60371 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4CC804B60371_over InitControls
 
-ME ME_4CC847800383_ME_4CC804B60371
+MEREF ME_4CC847800383_ME_4CC804B60371_over
  MELINK Original WL 'ME_4CC847800383' '4CC81FB7008B.ms.model.script' // TuneRegion
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4CC847800383_ME_4CC804B60371 TuneRegion
+ENDMEREF // ME_4CC847800383_ME_4CC804B60371_over TuneRegion
+
+MEREF ME_4CC809BC0082_ME_4CC804B60371_G
+ MELINK Original WL? 'ME_4CC809BC0082' // RegionableForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC809BC0082_ME_4CC804B60371_G RegionableForm
+
+MEREF ME_4A82BCFA02EF_ME_4CC804B60371_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4CC804B60371_R MvcmEntityForm
+
+MEREF ME_4CC95A2201B5_ME_4CC804B60371_R
+ MELINK Original WL? 'ME_4CC95A2201B5' // SkinnedForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC95A2201B5_ME_4CC804B60371_R SkinnedForm
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4CC804B60371
 %%ImplementedBy ME_4CC95A2201B5 ME_4CC804B60371
@@ -174,12 +192,12 @@ ME ME_4CC804B60371
  MELINK Parent WL? 'ME_4CC7FF0E03BA' // BaseSearch
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CC809BC0082' // RegionableForm
+   Seq: ( ME_4CC809BC0082_ME_4CC804B60371_G // RegionableForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- WL? 'ME_4CC95A2201B5' // SkinnedForm
+   Seq: ( ME_4A82BCFA02EF_ME_4CC804B60371_R // MvcmEntityForm
+ ME_4CC95A2201B5_ME_4CC804B60371_R // SkinnedForm
  )
  ; // Implements
  MELIST Operations
@@ -188,8 +206,8 @@ ME ME_4CC804B60371
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4CC804B60371 // InitControls
- ME_4CC847800383_ME_4CC804B60371 // TuneRegion
+   Seq: ( ME_4A8E8F2E0195_ME_4CC804B60371_over // InitControls
+ ME_4CC847800383_ME_4CC804B60371_over // TuneRegion
  )
  ; // Overridden
  MELIST Constants

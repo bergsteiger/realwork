@@ -1,0 +1,79 @@
+// Tl3IEBitmapContainerStack 4DD3D054004A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD3D054004A
+
+FORWARD ME_4DD3D0BB03BD
+
+ME ME_4DD3D0CA006D
+ MEPROP UID '4DD3D0CA006D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD3D0BB03BD // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DD3D0CA006D DoIt
+
+ME ME_4DD3D0BB03BD
+ MEPROP UID '4DD3D0BB03BD'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD3D054004A // Tl3IEBitmapContainerStack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD3D0CA006D // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DD3D0BB03BD Exists
+
+MEREF ME_4773DBBD000D_ME_4DD3D054004A_G
+ MELINK Original WL? 'ME_4773DBBD000D' // Tl3ObjectList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DBBD000D_ME_4DD3D054004A_G Tl3ObjectList
+
+%%InheritedBy ME_4773DBBD000D ME_4DD3D054004A
+
+ME ME_4DD3D054004A
+ MEPROP UID '4DD3D054004A'
+ MEPROP Name 'Tl3IEBitmapContainerStack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DBBD000D_ME_4DD3D054004A_G // Tl3ObjectList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DD3D0BB03BD // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '18.05.2011 17:57'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas'
+ UP extprop:rc:SelfName 'IEBitmapContainerStack'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3IEBitmapContainerStack'
+
+ENDME // ME_4DD3D054004A Tl3IEBitmapContainerStack

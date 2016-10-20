@@ -39,7 +39,7 @@ ENDME // ME_57AD94A60371 DoIt
 ME ME_57AD949C0005
  MEPROP UID '57AD949C0005'
  MEPROP Name 'AddController'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -53,12 +53,18 @@ ME ME_57AD949C0005
 
 ENDME // ME_57AD949C0005 AddController
 
+MEREF ME_57AD949C0005_ME_57D29826015D_G
+ MELINK Original HWL ME_57AD949C0005 // AddController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD949C0005_ME_57D29826015D_G AddController
+
 %%InheritedBy ME_57AD949C0005 ME_57D29826015D
 
 ME ME_57D29826015D
  MEPROP UID '57D29826015D'
  MEPROP Name 'Bind'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -66,23 +72,29 @@ ME ME_57D29826015D
  MELINK Parent HWL ME_57AD9468006E // ImsmUseCase
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AD949C0005 // AddController
+   Seq: ( ME_57AD949C0005_ME_57D29826015D_G // AddController
  )
  ; // Inherits
 
 ENDME // ME_57D29826015D Bind
 
-ME ME_57B1AB98014B_ME_57AD9468006E
+MEREF ME_57B1AB98014B_ME_57AD9468006E_impl
  MELINK Original WL 'ME_57B1AB98014B' '57AAE8D403E5.ms.model.script' // Activate
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B1AB98014B_ME_57AD9468006E Activate
+ENDMEREF // ME_57B1AB98014B_ME_57AD9468006E_impl Activate
 
-ME ME_57B6A3EF0191_ME_57AD9468006E
+MEREF ME_57B6A3EF0191_ME_57AD9468006E_impl
  MELINK Original WL 'ME_57B6A3EF0191' '57AAE8D403E5.ms.model.script' // Activated
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B6A3EF0191_ME_57AD9468006E Activated
+ENDMEREF // ME_57B6A3EF0191_ME_57AD9468006E_impl Activated
+
+MEREF ME_57DAB28A0390_ME_57AD9468006E_R
+ MELINK Original WL 'ME_57DAB28A0390' '57AAE8D403E5.ms.model.script' // MmsmActivateable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DAB28A0390_ME_57AD9468006E_R MmsmActivateable
 
 %%ImplementedBy ME_57DAB28A0390 ME_57AD9468006E
 
@@ -98,7 +110,7 @@ ME ME_57AD9468006E
  MELINK Parent HWL ME_57CEAF3602AB // msmUseCases
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57DAB28A0390' '57AAE8D403E5.ms.model.script' // MmsmActivateable
+   Seq: ( ME_57DAB28A0390_ME_57AD9468006E_R // MmsmActivateable
  )
  ; // Implements
  MELIST Operations
@@ -107,8 +119,8 @@ ME ME_57AD9468006E
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_57B1AB98014B_ME_57AD9468006E // Activate
- ME_57B6A3EF0191_ME_57AD9468006E // Activated
+   Seq: ( ME_57B1AB98014B_ME_57AD9468006E_impl // Activate
+ ME_57B6A3EF0191_ME_57AD9468006E_impl // Activated
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

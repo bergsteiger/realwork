@@ -1,0 +1,53 @@
+// Editor_Text_SaveAs 537D968501B2 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537D968501B2
+
+ME ME_537D96A6012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537D968501B2 // Editor_Text_SaveAs
+ ;
+ MELINK Target WL 'ME_537D965101BA' '4E4B5F29031C.ms.model.script' // acSaveTextAs
+ ;
+
+ENDME // ME_537D96A6012F 
+
+ME ME_537DB3FB02B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537D968501B2 // Editor_Text_SaveAs
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_537DB3FB02B4 
+
+ME ME_537D968501B2
+ MEPROP UID '537D968501B2'
+ MEPROP Name 'Editor_Text_SaveAs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание: сохраняет файл из редактора (без использования выливки) с именем скрипта и заданным в пареметре расширением.'#13#10'Формат:'#13#10'{code}'#13#10'anExt Editor:Text:SaveAs'#13#10'{code}'#13#10'где anExt - расширение из списка поддерживаемых: ''.evd'', .txt'', .rtf'', .doc''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_537D96A6012F // acSaveTextAs
+ ME_537DB3FB02B4 // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorTextSaveAs.pas'
+ UP extprop:pas:TypeName 'TkwEditorTextSaveAs'
+ UP extprop:rc:SelfName 'EditorTextSaveAs'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorTextSaveAs'
+
+ENDME // ME_537D968501B2 Editor_Text_SaveAs

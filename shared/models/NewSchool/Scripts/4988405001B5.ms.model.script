@@ -1,0 +1,165 @@
+// TevSubWaiter 4988405001B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4988405001B5
+
+FORWARD ME_5715DB6E02FC
+
+ME ME_5715DBB90302
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+
+ENDME // ME_5715DBB90302 aContainer
+
+ME ME_5715DBB90312
+ MEPROP Name 'aSel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_5715DBB90312 aSel
+
+ME ME_5715DBB90331
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5715DBB90331 aSubID
+
+ME ME_5715DBB90350
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5715DBB90350 aType
+
+ME ME_5715DB8D0211
+ MEPROP UID '5715DB8D0211'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5715DB6E02FC // TrySelectSub
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5715DBB90302 // aContainer
+ ME_5715DBB90312 // aSel
+ ME_5715DBB90331 // aSubID
+ ME_5715DBB90350 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_5715DB8D0211 DoIt
+
+ME ME_5715DB6E02FC
+ MEPROP UID '5715DB6E02FC'
+ MEPROP Name 'TrySelectSub'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4988405001B5 // TevSubWaiter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5715DB8D0211 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5715DB6E02FC TrySelectSub
+
+ME ME_4BFFA1120243
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+
+ENDME // ME_4BFFA1120243 aContainer
+
+ME ME_4BFFA1120283
+ MEPROP Name 'aSel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4BFFA1120283 aSel
+
+ME ME_4BFFA11202C2
+ MEPROP Name 'aParaID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BFFA11202C2 aParaID
+
+ME ME_4BFFA0FF01D2
+ MEPROP UID '4BFFA0FF01D2'
+ MEPROP Name 'TrySelectPara'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4988405001B5 // TevSubWaiter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BFFA1120243 // aContainer
+ ME_4BFFA1120283 // aSel
+ ME_4BFFA11202C2 // aParaID
+ )
+ ; // Parameters
+
+ENDME // ME_4BFFA0FF01D2 TrySelectPara
+
+MEREF ME_48E233B00094_ME_4988405001B5_G
+ MELINK Original WL? 'ME_48E233B00094' // Tl3Tool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E233B00094_ME_4988405001B5_G Tl3Tool
+
+%%InheritedBy ME_48E233B00094 ME_4988405001B5
+
+ME ME_4988405001B5
+ MEPROP UID '4988405001B5'
+ MEPROP Name 'TevSubWaiter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F086170200' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_48E233B00094_ME_4988405001B5_G // Tl3Tool
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5715DB6E02FC // TrySelectSub
+ HWL ME_4BFFA0FF01D2 // TrySelectPara
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubWaiter.pas'
+ UP extprop:rc:SelfName 'SubWaiter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSubWaiter'
+
+ENDME // ME_4988405001B5 TevSubWaiter

@@ -1,0 +1,56 @@
+// TevCommentParaCursorPair 53D245DF0285 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D245DF0285
+
+ME ME_53D245FF03E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D245DF0285 // TevCommentParaCursorPair
+ ;
+ MELINK Target WL? 'ME_4857C9F90189' // TevCommentPara
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_53D245FF03E3 
+
+MEREF ME_4A2D2D8002FF_ME_53D245DF0285_G
+ MELINK Original WL? 'ME_4A2D2D8002FF' // TevDocumentPartCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2D2D8002FF_ME_53D245DF0285_G TevDocumentPartCursorPair
+
+%%InjectedBy ME_4857C9F90189 ME_53D245DF0285
+
+%%InheritedBy ME_4A2D2D8002FF ME_53D245DF0285
+
+ME ME_53D245DF0285
+ MEPROP UID '53D245DF0285'
+ MEPROP Name 'TevCommentParaCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A2D2D8002FF_ME_53D245DF0285_G // TevDocumentPartCursorPair
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D245FF03E3 // TevCommentPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaCursorPair.pas'
+ UP extprop:rc:SelfName 'CommentParaCursorPair'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCommentParaCursorPair'
+
+ENDME // ME_53D245DF0285 TevCommentParaCursorPair

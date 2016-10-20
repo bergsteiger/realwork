@@ -1,0 +1,145 @@
+// TarCustomSaveDocumentHelper 57E27091018D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E27091018D
+
+ME ME_57E270C5018A
+ MEPROP UID '57E270C5018A'
+ MEPROP Name 'Generator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+ UP "pm" true
+
+ENDME // ME_57E270C5018A Generator
+
+ME ME_57E271C40134
+ MEPROP UID '57E271C40134'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_57E271C40134 Filer
+
+ME ME_57E277130276
+ MEPROP UID '57E277130276'
+ MEPROP Name 'f_Generator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_57E277130276 f_Generator
+
+ME ME_57E270CF032F
+ MEPROP UID '57E270CF032F'
+ MEPROP Name 'SaveDoc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57E270CF032F SaveDoc
+
+ME ME_57E270DD0210
+ MEPROP UID '57E270DD0210'
+ MEPROP Name 'HandleException'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+
+ENDME // ME_57E270DD0210 HandleException
+
+ME ME_57E2730F0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E27091018D // TarCustomSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57E2730F0099 
+
+MEREF ME_479731C50290_ME_57E27091018D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57E27091018D_over Cleanup
+
+MEREF ME_49E7754802A9_ME_57E27091018D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57E27091018D_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57E27091018D
+
+ME ME_57E27091018D
+ MEPROP UID '57E27091018D'
+ MEPROP Name 'TarCustomSaveDocumentHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57E2336703B0' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57E27091018D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E270C5018A // Generator
+ HWL ME_57E271C40134 // Filer
+ HWL ME_57E277130276 // f_Generator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E270CF032F // SaveDoc
+ HWL ME_57E270DD0210 // HandleException
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57E27091018D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E2730F0099 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arCustomSaveDocumentHelper.pas'
+ UP extprop:rc:SelfName 'arCustomSaveDocumentHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arCustomSaveDocumentHelper'
+
+ENDME // ME_57E27091018D TarCustomSaveDocumentHelper

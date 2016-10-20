@@ -1,0 +1,79 @@
+// TtfwValueTypesList 55BF43BA0204 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55BF43BA0204
+
+ME ME_55C1E2E90356
+ MEPROP UID '55C1E2E90356'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55BF43BA0204 // TtfwValueTypesList
+ ;
+ MELINK Target WL 'ME_55BF154E022D' '55BF153300A4.ms.model.script' // TtfwTypeInfo
+ ;
+
+ENDME // ME_55C1E2E90356 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_55BF43BA0204_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_55BF43BA0204_over CompareItemWithData
+
+MEREF ME_55BF376C001D_ME_55BF43BA0204_G
+ MELINK Original WL? 'ME_55BF376C001D' // TtfwValueTypesListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55BF376C001D_ME_55BF43BA0204_G TtfwValueTypesListPrim
+
+MEREF ME_47B47E230134_ME_55BF43BA0204_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_55BF43BA0204_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_55BF43BA0204
+
+%%InheritedBy ME_55BF376C001D ME_55BF43BA0204
+
+ME ME_55BF43BA0204
+ MEPROP UID '55BF43BA0204'
+ MEPROP Name 'TtfwValueTypesList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55BF29CB003B' // TypeInfoCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_55BF376C001D_ME_55BF43BA0204_G // TtfwValueTypesListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_55BF43BA0204_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C1E2E90356 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_55BF43BA0204_over // CompareItemWithData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesList.pas'
+ UP extprop:rc:SelfName 'ValueTypesList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwValueTypesList'
+
+ENDME // ME_55BF43BA0204 TtfwValueTypesList

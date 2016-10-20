@@ -1,0 +1,226 @@
+// TtfwJoinIterator 55E02B5D0129 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55E02B5D0129
+
+ME ME_55E02BD5036F
+ MEPROP UID '55E02BD5036F'
+ MEPROP Name 'f_Left'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55E02B5D0129 // TtfwJoinIterator
+ ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+
+ENDME // ME_55E02BD5036F f_Left
+
+ME ME_55E02BE10394
+ MEPROP UID '55E02BE10394'
+ MEPROP Name 'f_Right'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55E02B5D0129 // TtfwJoinIterator
+ ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+
+ENDME // ME_55E02BE10394 f_Right
+
+FORWARD ME_55E02B8D02E1
+
+ME ME_55E02BB603D8
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+
+ENDME // ME_55E02BB603D8 aLeft
+
+ME ME_55E02BB7002C
+ MEPROP Name 'aRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+
+ENDME // ME_55E02BB7002C aRight
+
+ME ME_55E02B9400E7
+ MEPROP UID '55E02B9400E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E02B8D02E1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E02BB603D8 // aLeft
+ ME_55E02BB7002C // aRight
+ )
+ ; // Parameters
+
+ENDME // ME_55E02B9400E7 DoIt
+
+ME ME_55E02B8D02E1
+ MEPROP UID '55E02B8D02E1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E02B5D0129 // TtfwJoinIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55E02B9400E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55E02B8D02E1 Create
+
+MEREF ME_55E02B8D02E1_ME_55E02BC80035_G
+ MELINK Original HWL ME_55E02B8D02E1 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E02B8D02E1_ME_55E02BC80035_G Create
+
+MEREF ME_4DCC12FC0125_ME_55E02BC80035_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55E02BC80035_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55E02BC80035
+
+%%InheritedBy ME_55E02B8D02E1 ME_55E02BC80035
+
+ME ME_55E02BC80035
+ MEPROP UID '55E02BC80035'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E02B5D0129 // TtfwJoinIterator
+ ;
+ MELIST Inherits
+   Seq: ( ME_55E02B8D02E1_ME_55E02BC80035_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DCC12FC0125_ME_55E02BC80035_R // ItfwValueList
+ )
+ ; // Implements
+
+ENDME // ME_55E02BC80035 Make
+
+MEREF ME_52E23B7A00EC_ME_55E02B5D0129_impl
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23B7A00EC_ME_55E02B5D0129_impl ForEach
+
+MEREF ME_52E23BB102FA_ME_55E02B5D0129_impl
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23BB102FA_ME_55E02B5D0129_impl ForEachBack
+
+MEREF ME_55CDF40C03D4_ME_55E02B5D0129_impl
+ MELINK Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.ms.model.script' // SetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55CDF40C03D4_ME_55E02B5D0129_impl SetItem
+
+MEREF ME_55E849210175_ME_55E02B5D0129_impl
+ MELINK Original WL 'ME_55E849210175' '4DAF19F600C5.ms.model.script' // ItemsCountInSlice
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55E849210175_ME_55E02B5D0129_impl ItemsCountInSlice
+
+MEREF ME_57C811A30375_ME_55E02B5D0129_over
+ MELINK Original WL 'ME_57C811A30375' '57C81527030E.ms.model.script' // GetCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57C811A30375_ME_55E02B5D0129_over GetCount
+
+MEREF ME_57C8146602DB_ME_55E02B5D0129_over
+ MELINK Original WL 'ME_57C8146602DB' '57C81527030E.ms.model.script' // GetItem
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57C8146602DB_ME_55E02B5D0129_over GetItem
+
+MEREF ME_52E29ED5016B_ME_55E02B5D0129_G
+ MELINK Original WL? 'ME_52E29ED5016B' // TtfwIteratableParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E29ED5016B_ME_55E02B5D0129_G TtfwIteratableParent
+
+MEREF ME_4DCC12FC0125_ME_55E02B5D0129_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55E02B5D0129_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55E02B5D0129
+
+%%InheritedBy ME_52E29ED5016B ME_55E02B5D0129
+
+ME ME_55E02B5D0129
+ MEPROP UID '55E02B5D0129'
+ MEPROP Name 'TtfwJoinIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F50310E03D7' // ArrayProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_52E29ED5016B_ME_55E02B5D0129_G // TtfwIteratableParent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DCC12FC0125_ME_55E02B5D0129_R // ItfwValueList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55E02BD5036F // f_Left
+ HWL ME_55E02BE10394 // f_Right
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55E02B8D02E1 // Create
+ HWL ME_55E02BC80035 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52E23B7A00EC_ME_55E02B5D0129_impl // ForEach
+ ME_52E23BB102FA_ME_55E02B5D0129_impl // ForEachBack
+ ME_55CDF40C03D4_ME_55E02B5D0129_impl // SetItem
+ ME_55E849210175_ME_55E02B5D0129_impl // ItemsCountInSlice
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57C811A30375_ME_55E02B5D0129_over // GetCount
+ ME_57C8146602DB_ME_55E02B5D0129_over // GetItem
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwJoinIterator.pas'
+ UP extprop:rc:SelfName 'JoinIterator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwJoinIterator'
+
+ENDME // ME_55E02B5D0129 TtfwJoinIterator

@@ -1,0 +1,157 @@
+// Tm3NewStoragePrim 54491A3702F4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54491A3702F4
+
+ME ME_54491A6800D8
+ MEPROP UID '54491A6800D8'
+ MEPROP Name 'Header'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54491A3702F4 // Tm3NewStoragePrim
+ ;
+ MELINK Target WL? 'ME_5411C42800B8' // Tm3StoreHeader
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_54491A6800D8 Header
+
+FORWARD ME_54491AFD02C4
+
+ME ME_54491B300197
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_54491B300197 anAccess
+
+ME ME_54491B3001C9
+ MEPROP Name 'aHeader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_5411C42800B8' // Tm3StoreHeader
+ ;
+
+ENDME // ME_54491B3001C9 aHeader
+
+ME ME_54491B040271
+ MEPROP UID '54491B040271'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54491AFD02C4 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54491B300197 // anAccess
+ ME_54491B3001C9 // aHeader
+ )
+ ; // Parameters
+
+ENDME // ME_54491B040271 DoIt
+
+ME ME_54491B8C028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54491AFD02C4 // Create
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54491B8C028C 
+
+ME ME_54491AFD02C4
+ MEPROP UID '54491AFD02C4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54491A3702F4 // Tm3NewStoragePrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54491B040271 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54491B8C028C // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_54491AFD02C4 Create
+
+MEREF ME_5422C90A02CA_ME_54491A3702F4_impl
+ MELINK Original WL 'ME_5422C90A02CA' '542176490191.ms.model.script' // Manager
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5422C90A02CA_ME_54491A3702F4_impl Manager
+
+MEREF ME_479731C50290_ME_54491A3702F4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54491A3702F4_over Cleanup
+
+MEREF ME_5412FB880320_ME_54491A3702F4_over
+ MELINK Original WL 'ME_5412FB880320' '4FA276650046.ms.model.script' // DoGetName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5412FB880320_ME_54491A3702F4_over DoGetName
+
+MEREF ME_542176490191_ME_54491A3702F4_G
+ MELINK Original WL? 'ME_542176490191' // Tm3CommonStorage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542176490191_ME_54491A3702F4_G Tm3CommonStorage
+
+%%InheritedBy ME_542176490191 ME_54491A3702F4
+
+ME ME_54491A3702F4
+ MEPROP UID '54491A3702F4'
+ MEPROP Name 'Tm3NewStoragePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_542176490191_ME_54491A3702F4_G // Tm3CommonStorage
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54491A6800D8 // Header
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54491AFD02C4 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5422C90A02CA_ME_54491A3702F4_impl // Manager
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54491A3702F4_over // Cleanup
+ ME_5412FB880320_ME_54491A3702F4_over // DoGetName
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3NewStoragePrim.pas'
+ UP extprop:rc:SelfName 'm3NewStoragePrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3NewStoragePrim'
+
+ENDME // ME_54491A3702F4 Tm3NewStoragePrim

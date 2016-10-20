@@ -1,0 +1,106 @@
+// TtfwDictionaryPtrListIterator 55AE649000FB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55AE649000FB
+
+ME ME_55E9A7C502D8
+ MEPROP UID '55E9A7C502D8'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ;
+ MELINK Target WL? 'ME_559F5E060345' // TtfwDictionaryPtrList
+ ;
+
+ENDME // ME_55E9A7C502D8 ListType
+
+MEREF ME_55AE5C1603DE_ME_55AE65BC01FD_G
+ MELINK Original WL 'ME_55AE5C1603DE' '55AE5B950148.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55AE5C1603DE_ME_55AE65BC01FD_G Create
+
+MEREF ME_4DCC12FC0125_ME_55AE65BC01FD_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55AE65BC01FD_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55AE65BC01FD
+
+%%InheritedBy ME_55AE5C1603DE ME_55AE65BC01FD
+
+ME ME_55AE65BC01FD
+ MEPROP UID '55AE65BC01FD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE649000FB // TtfwDictionaryPtrListIterator
+ ;
+ MELIST Inherits
+   Seq: ( ME_55AE5C1603DE_ME_55AE65BC01FD_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DCC12FC0125_ME_55AE65BC01FD_R // ItfwValueList
+ )
+ ; // Implements
+
+ENDME // ME_55AE65BC01FD Make
+
+MEREF ME_55AE5B950148_ME_55AE649000FB_G
+ MELINK Original WL? 'ME_55AE5B950148' // TtfwDictionaryDataIteratorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55AE5B950148_ME_55AE649000FB_G TtfwDictionaryDataIteratorPrim
+
+MEREF ME_55E9A6C303B7_ME_55AE649000FB_G
+ MELINK Original WL? 'ME_55E9A6C303B7' // tfwDictionaryListIteratorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E9A6C303B7_ME_55AE649000FB_G tfwDictionaryListIteratorPrim
+
+%%InheritedBy ME_55AE5B950148 ME_55AE649000FB
+%%InheritedBy ME_55E9A6C303B7 ME_55AE649000FB
+
+ME ME_55AE649000FB
+ MEPROP UID '55AE649000FB'
+ MEPROP Name 'TtfwDictionaryPtrListIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_55AE5B950148_ME_55AE649000FB_G // TtfwDictionaryDataIteratorPrim
+ ME_55E9A6C303B7_ME_55AE649000FB_G // tfwDictionaryListIteratorPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55E9A7C502D8 // ListType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55AE65BC01FD // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPtrListIterator.pas'
+ UP extprop:rc:SelfName 'DictionaryPtrListIterator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDictionaryPtrListIterator'
+
+ENDME // ME_55AE649000FB TtfwDictionaryPtrListIterator

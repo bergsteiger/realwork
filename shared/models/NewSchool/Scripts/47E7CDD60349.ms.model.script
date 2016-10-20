@@ -1,0 +1,65 @@
+// TevSearcherList 47E7CDD60349 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E7CDD60349
+
+ME ME_47E7CDFD0040
+ MEPROP UID '47E7CDFD0040'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E7CDD60349 // TevSearcherList
+ ;
+ MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
+ ;
+
+ENDME // ME_47E7CDFD0040 ItemType
+
+MEREF ME_47B57D830369_ME_47E7CDD60349_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47E7CDD60349_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47E7CDD60349_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47E7CDD60349_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47E7CDD60349
+%%InheritedBy ME_4A54DD4E036F ME_47E7CDD60349
+
+ME ME_47E7CDD60349
+ MEPROP UID '47E7CDD60349'
+ MEPROP Name 'TevSearcherList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47E7CDD60349_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47E7CDD60349_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E7CDFD0040 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '24.03.2008 18:51'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evSearcherList.pas'
+ UP extprop:rc:SelfName 'SearcherList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSearcherList'
+
+ENDME // ME_47E7CDD60349 TevSearcherList

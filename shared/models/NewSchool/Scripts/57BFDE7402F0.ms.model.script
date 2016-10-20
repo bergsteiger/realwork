@@ -1,0 +1,93 @@
+// TnsDownloaderThreadList 57BFDE7402F0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BFDE7402F0
+
+ME ME_57BFDF7102A8
+ MEPROP UID '57BFDF7102A8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BFDE7402F0 // TnsDownloaderThreadList
+ ;
+ MELINK Target WL? 'ME_57BFDE5C014C' // TnsDownloaderThread
+ ;
+
+ENDME // ME_57BFDF7102A8 ItemType
+
+MEREF ME_47B07CF403D0_ME_57BFDE7402F0_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_57BFDE7402F0_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_57BFDE7402F0_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_57BFDE7402F0_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_57BFDE7402F0_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_57BFDE7402F0_impl CompareExistingItems
+
+MEREF ME_47B5782902DA_ME_57BFDE7402F0_G
+ MELINK Original WL? 'ME_47B5782902DA' // l3PtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5782902DA_ME_57BFDE7402F0_G l3PtrList
+
+MEREF ME_4A54DD4E036F_ME_57BFDE7402F0_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_57BFDE7402F0_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B5782902DA ME_57BFDE7402F0
+%%InheritedBy ME_4A54DD4E036F ME_57BFDE7402F0
+
+ME ME_57BFDE7402F0
+ MEPROP UID '57BFDE7402F0'
+ MEPROP Name 'TnsDownloaderThreadList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57BC0538037B' // Downloader
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B5782902DA_ME_57BFDE7402F0_G // l3PtrList
+ ME_4A54DD4E036F_ME_57BFDE7402F0_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57BFDF7102A8 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_57BFDE7402F0_impl // IsSameItems
+ ME_47B2C42A0163_ME_57BFDE7402F0_impl // AssignItem
+ ME_47B99D4503A2_ME_57BFDE7402F0_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nsDownloaderThreadList.pas'
+ UP extprop:rc:SelfName 'DownloaderThreadList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDownloaderThreadList'
+
+ENDME // ME_57BFDE7402F0 TnsDownloaderThreadList

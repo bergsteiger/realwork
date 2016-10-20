@@ -49,7 +49,7 @@ ME ME_4DA336710354
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_4DA3327C0398' '4D9F2DB20054.ms.model.script' // toK
+ MELINK Target WL? 'ME_4DA3327C0398' // toK
  ;
 
 ENDME // ME_4DA336710354 
@@ -59,7 +59,7 @@ ME ME_4DA336770355
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_4DA33288030A' '4D9F2DB20054.ms.model.script' // ItsLAW
+ MELINK Target WL? 'ME_4DA33288030A' // ItsLAW
  ;
 
 ENDME // ME_4DA336770355 
@@ -89,7 +89,7 @@ ME ME_4DB6A93D02AE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_4DB6A92C025D' '4D9F2DB20054.ms.model.script' // toK64
+ MELINK Target WL? 'ME_4DB6A92C025D' // toK64
  ;
 
 ENDME // ME_4DB6A93D02AE 
@@ -109,7 +109,7 @@ ME ME_4E9EE2710357
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_4E9EE25001F7' '4D9F2DB20054.ms.model.script' // toKT
+ MELINK Target WL? 'ME_4E9EE25001F7' // toKT
  ;
 
 ENDME // ME_4E9EE2710357 
@@ -129,7 +129,7 @@ ME ME_500430AA024E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_500430940153' '4D9F2DB20054.ms.model.script' // BaseUC
+ MELINK Target WL? 'ME_500430940153' // BaseUC
  ;
 
 ENDME // ME_500430AA024E 
@@ -139,7 +139,7 @@ ME ME_5522999F0328
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_5522999603C4' '4D9F2DB20054.ms.model.script' // toK2
+ MELINK Target WL? 'ME_5522999603C4' // toK2
  ;
 
 ENDME // ME_5522999F0328 
@@ -149,17 +149,29 @@ ME ME_552299B701F6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D9F2DDA024D // NemesisTest
  ;
- MELINK Target WL 'ME_552299AD006B' '4D9F2DB20054.ms.model.script' // toK3
+ MELINK Target WL? 'ME_552299AD006B' // toK3
  ;
 
 ENDME // ME_552299B701F6 
 
-ME ME_4F79BCC902C5_ME_4D9F2DDA024D
+MEREF ME_4F79BCC902C5_ME_4D9F2DDA024D_impl
  MELINK Original WL 'ME_4F79BCC902C5' '52F21A610247.ms.model.script' // CalcBatchMode
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" true
-ENDME // ME_4F79BCC902C5_ME_4D9F2DDA024D CalcBatchMode
+ENDMEREF // ME_4F79BCC902C5_ME_4D9F2DDA024D_impl CalcBatchMode
+
+MEREF ME_4A9527D40146_ME_4D9F2DDA024D_G
+ MELINK Original WL? 'ME_4A9527D40146' // Nemesis
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A9527D40146_ME_4D9F2DDA024D_G Nemesis
+
+MEREF ME_4F79CD9F015F_ME_4D9F2DDA024D_R
+ MELINK Original WL? 'ME_4F79CD9F015F' // VCMAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F79CD9F015F_ME_4D9F2DDA024D_R VCMAppTester
 
 %%ImplementedBy ME_4F79CD9F015F ME_4D9F2DDA024D
 
@@ -177,15 +189,15 @@ ME ME_4D9F2DDA024D
  MELINK Parent WL? 'ME_4D9F2DB20054' // Nemesis
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A9527D40146' // Nemesis
+   Seq: ( ME_4A9527D40146_ME_4D9F2DDA024D_G // Nemesis
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4F79CD9F015F' // VCMAppTester
+   Seq: ( ME_4F79CD9F015F_ME_4D9F2DDA024D_R // VCMAppTester
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4F79BCC902C5_ME_4D9F2DDA024D // CalcBatchMode
+   Seq: ( ME_4F79BCC902C5_ME_4D9F2DDA024D_impl // CalcBatchMode
  )
  ; // Implemented
  MELIST Dependencies

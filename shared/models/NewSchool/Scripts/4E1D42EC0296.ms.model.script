@@ -1,0 +1,74 @@
+// TkwArchiNewDocumentPrim 4E1D42EC0296 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E1D42EC0296
+
+ME ME_56ECAE9E02CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1D42EC0296 // TkwArchiNewDocumentPrim
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_56ECAE9E02CA 
+
+MEREF ME_52BD79600196_ME_4E1D42EC0296_impl
+ MELINK Original WL 'ME_52BD79600196' '52BD79050326.ms.model.script' // DoWithFileName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52BD79600196_ME_4E1D42EC0296_impl DoWithFileName
+
+MEREF ME_4DB0614603C8_ME_4E1D42EC0296_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E1D42EC0296_over GetWordNameForRegister
+
+MEREF ME_52BD79050326_ME_4E1D42EC0296_G
+ MELINK Original WL? 'ME_52BD79050326' // TkwCreateNewFile
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BD79050326_ME_4E1D42EC0296_G TkwCreateNewFile
+
+%%InheritedBy ME_52BD79050326 ME_4E1D42EC0296
+
+ME ME_4E1D42EC0296
+ MEPROP UID '4E1D42EC0296'
+ MEPROP Name 'TkwArchiNewDocumentPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Создать_из'#13#10'*Описание:* Создание документа из файла. Имя файла совпадает с названием теста, но используется расширение evd.'#13#10'*Пример:*'#13#10'{code}'#13#10'имя_файла  Создать_из'#13#10'{code}'#13#10'*Результат:*'#13#10' Создает документ из файла имя_файла. При этом анализируется расширение файла. Путь исправляется на путь к тестовым доукментам.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10'  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( ME_52BD79050326_ME_4E1D42EC0296_G // TkwCreateNewFile
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52BD79600196_ME_4E1D42EC0296_impl // DoWithFileName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E1D42EC0296_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56ECAE9E02CA // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'Создать_из'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewDocumentPrim.pas'
+ UP extprop:rc:SelfName 'ArchiNewDocumentPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiNewDocumentPrim'
+
+ENDME // ME_4E1D42EC0296 TkwArchiNewDocumentPrim

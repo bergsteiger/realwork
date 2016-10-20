@@ -1,0 +1,141 @@
+// TatStringFileReader 502A45570012 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502A45570012
+
+ME ME_502A461601BE
+ MEPROP UID '502A461601BE'
+ MEPROP Name 'f_StringsUsage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502A45570012 // TatStringFileReader
+ ;
+ MELINK Target WL? 'ME_502563E400D8' // TatBits
+ ;
+
+ENDME // ME_502A461601BE f_StringsUsage
+
+ME ME_502A4623036E
+ MEPROP UID '502A4623036E'
+ MEPROP Name 'f_Strings'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502A45570012 // TatStringFileReader
+ ;
+ MELINK Target WL? 'ME_50294ABA02B0' // TatStringsFromFile
+ ;
+
+ENDME // ME_502A4623036E f_Strings
+
+ME ME_502A459A0320
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502A459A0320 aFileName
+
+ME ME_502A457D0301
+ MEPROP UID '502A457D0301'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502A45570012 // TatStringFileReader
+ ;
+ MELIST Parameters
+   Seq: ( ME_502A459A0320 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_502A457D0301 Create
+
+ME ME_502A46C00057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A45570012 // TatStringFileReader
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_502A46C00057 
+
+MEREF ME_502A459F005A_ME_502A45570012_impl
+ MELINK Original WL 'ME_502A459F005A' '5037CED40333.ms.model.script' // AcquireNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_502A459F005A_ME_502A45570012_impl AcquireNext
+
+MEREF ME_502AACD103A6_ME_502A45570012_impl
+ MELINK Original WL 'ME_502AACD103A6' '5037CED40333.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_502AACD103A6_ME_502A45570012_impl Reset
+
+MEREF ME_48077504027E_ME_502A45570012_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_502A45570012_over Destroy
+
+MEREF ME_5037CED40333_ME_502A45570012_G
+ MELINK Original WL? 'ME_5037CED40333' // TatStringProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5037CED40333_ME_502A45570012_G TatStringProvider
+
+%%InheritedBy ME_5037CED40333 ME_502A45570012
+
+ME ME_502A45570012
+ MEPROP UID '502A45570012'
+ MEPROP Name 'TatStringFileReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5037CED40333_ME_502A45570012_G // TatStringProvider
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502A461601BE // f_StringsUsage
+ HWL ME_502A4623036E // f_Strings
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_502A457D0301 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_502A459F005A_ME_502A45570012_impl // AcquireNext
+ ME_502AACD103A6_ME_502A45570012_impl // Reset
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_502A45570012_over // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_502A46C00057 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringFileReader.pas'
+ UP extprop:rc:SelfName 'atStringFileReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atStringFileReader'
+
+ENDME // ME_502A45570012 TatStringFileReader

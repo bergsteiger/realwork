@@ -24,19 +24,31 @@ ME ME_4B1929D8016C
 
 ENDME // ME_4B1929D8016C 
 
-ME ME_9FEBA868EC20_ME_493965B600E9
+MEREF ME_9FEBA868EC20_ME_493965B600E9_impl
  MELINK Original WL 'ME_9FEBA868EC20' '491D7C9603B2.ms.model.script' // dsDrugListRef
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" true
  UP "pm" true
-ENDME // ME_9FEBA868EC20_ME_493965B600E9 dsDrugListRef
+ENDMEREF // ME_9FEBA868EC20_ME_493965B600E9_impl dsDrugListRef
 
-ME ME_4B16B8CF0307_ME_493965B600E9
+MEREF ME_4B16B8CF0307_ME_493965B600E9_over
  MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4B16B8CF0307_ME_493965B600E9 AssignData
+ENDMEREF // ME_4B16B8CF0307_ME_493965B600E9_over AssignData
+
+MEREF ME_47F085A9004C_ME_493965B600E9_G
+ MELINK Original WL? 'ME_47F085A9004C' // dBaseDocumentWithAttributes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F085A9004C_ME_493965B600E9_G dBaseDocumentWithAttributes
+
+MEREF ME_4939260B019C_ME_493965B600E9_R
+ MELINK Original WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4939260B019C_ME_493965B600E9_R IdMedicFirmDocument
 
 %%ImplementedBy ME_4939260B019C ME_493965B600E9
 
@@ -54,19 +66,19 @@ ME ME_493965B600E9
  MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47F085A9004C' // dBaseDocumentWithAttributes
+   Seq: ( ME_47F085A9004C_ME_493965B600E9_G // dBaseDocumentWithAttributes
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+   Seq: ( ME_4939260B019C_ME_493965B600E9_R // IdMedicFirmDocument
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_9FEBA868EC20_ME_493965B600E9 // dsDrugListRef
+   Seq: ( ME_9FEBA868EC20_ME_493965B600E9_impl // dsDrugListRef
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4B16B8CF0307_ME_493965B600E9 // AssignData
+   Seq: ( ME_4B16B8CF0307_ME_493965B600E9_over // AssignData
  )
  ; // Overridden
  MELIST Dependencies

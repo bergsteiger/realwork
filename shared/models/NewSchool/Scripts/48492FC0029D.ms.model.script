@@ -22,226 +22,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_48492FC0029D
 
-FORWARD ME_4858153B023B
-
-ME ME_530757710177
- MEPROP UID '530757710177'
- MEPROP Name 'k2TagNoAssign'
- MEPROP Class class_Class
- MELINK Stereotype st_Define ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- ;
- UP extprop:rc:SelfName 'TagNoAssign'
-
-ENDME // ME_530757710177 k2TagNoAssign
-
-ME ME_53578D39007B
- MEPROP UID '53578D39007B'
- MEPROP Name 'k2Tag_No_f_TagType'
- MEPROP Class class_Class
- MELINK Stereotype st_Define ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- ;
- UP extprop:rc:SelfName 'Tag_No_f_TagType'
-
-ENDME // ME_53578D39007B k2Tag_No_f_TagType
-
-FORWARD ME_53075BB9030D
-
-ME ME_53075BCA012A
- MEPROP Name 'aType'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
- ;
-
-ENDME // ME_53075BCA012A aType
-
-ME ME_53075BC003BF
- MEPROP UID '53075BC003BF'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53075BB9030D // Create
- ;
- MELIST Parameters
-   Seq: ( ME_53075BCA012A // aType
- )
- ; // Parameters
-
-ENDME // ME_53075BC003BF DoIt
-
-ME ME_53075BB9030D
- MEPROP UID '53075BB9030D'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- ;
- MELIST Operations
-   Seq: ( HWL ME_53075BC003BF // DoIt
- )
- ; // Operations
-
-ENDME // ME_53075BB9030D Create
-
-FORWARD ME_4858116B0355
-
-ME ME_535791D003AB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- ;
- MELINK Target HWL ME_4858116B0355 // BitmapPara
- ;
-
-ENDME // ME_535791D003AB 
-
-ME ME_49A545580241_ME_4858153B023B
- MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifndef" 'k2TagIsAtomic'
-ENDME // ME_49A545580241_ME_4858153B023B SetAtomPrim
-
-ME ME_532AE8F2009A_ME_4858153B023B
- MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_532AE8F2009A_ME_4858153B023B GetIsOrd
-
-ME ME_533121AF0203_ME_4858153B023B
- MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_533121AF0203_ME_4858153B023B GetTagType
-
-%%InheritedBy ME_47AC5591007B ME_4858153B023B
-%%InheritedBy ME_48E6486F0123 ME_4858153B023B
-
-ME ME_4858153B023B
- MEPROP UID '4858153B023B'
- MEPROP Name 'TevBitmapParaBitmapContainer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL? 'ME_47AC5591007B' // k2Tag
- WL 'ME_48E6486F0123' '473C3BEE0334.ms.model.script' // Tl3IEBitmapContainer
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_53075BB9030D // Create
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_49A545580241_ME_4858153B023B // SetAtomPrim
- )
- ; // Implemented
- MELIST Overridden
-   Seq: ( ME_532AE8F2009A_ME_4858153B023B // GetIsOrd
- ME_533121AF0203_ME_4858153B023B // GetTagType
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_530757710177 // k2TagNoAssign
- HWL ME_53578D39007B // k2Tag_No_f_TagType
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_535791D003AB // BitmapPara
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '25.02.2000 10:40'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaBitmapContainer.pas'
- UP extprop:rc:SelfName 'BitmapParaBitmapContainer'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evBitmapParaBitmapContainer'
-
-ENDME // ME_4858153B023B TevBitmapParaBitmapContainer
-
-FORWARD ME_485683750360
-
-FORWARD ME_48577704034C
-
-ME ME_4857776D00FC
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48577704034C // WevTextPara
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4857776D00FC 
-
-ME ME_485779670323
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48577704034C // WevTextPara
- ;
- MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
- ;
-
-ENDME // ME_485779670323 
-
-%%ImplementedBy ME_485683750360 ME_48577704034C
-
-%%InheritedBy ME_484FD34600BA ME_48577704034C
-
-ME ME_48577704034C
- MEPROP UID '48577704034C'
- MEPROP Name 'WevTextPara'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_485683750360 // TextPara
- )
- ; // Implements
- MELIST Dependencies
-   Seq: ( ME_4857776D00FC // Tk2TagID
- ME_485779670323 // k2Base
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '02.11.2004 16:53'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextPara_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evTextPara_Wrap'
-
-ENDME // ME_48577704034C WevTextPara
-
 FORWARD ME_484CD009023D
 
 FORWARD ME_48567D1900F6
@@ -490,6 +270,18 @@ ME ME_49D0CF200049
 
 ENDME // ME_49D0CF200049 
 
+MEREF ME_485669C9009D_ME_48567D1900F6_G
+ MELINK Original WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485669C9009D_ME_48567D1900F6_G LeafPara
+
+MEREF ME_4E67A57800D4_ME_48567D1900F6_R
+ MELINK Original WL 'ME_4E67A57800D4' '4E57B8C2010F.ms.model.script' // Параграфы и стили должны иметь собственный интерлиньяж
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67A57800D4_ME_48567D1900F6_R Параграфы и стили должны иметь собственный интерлиньяж
+
 %%ImplementedBy ME_4E67A57800D4 ME_48567D1900F6
 
 %%InheritedBy ME_485669C9009D ME_48567D1900F6
@@ -506,11 +298,11 @@ ME ME_48567D1900F6
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+   Seq: ( ME_485669C9009D_ME_48567D1900F6_G // LeafPara
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E67A57800D4' '4E57B8C2010F.ms.model.script' // Параграфы и стили должны иметь собственный интерлиньяж
+   Seq: ( ME_4E67A57800D4_ME_48567D1900F6_R // Параграфы и стили должны иметь собственный интерлиньяж
  )
  ; // Implements
  MELIST Attributes
@@ -549,6 +341,8 @@ ME ME_48567D1900F6
  UP extprop:pas:UnitName 'StyledLeafPara_Const'
 
 ENDME // ME_48567D1900F6 StyledLeafPara
+
+FORWARD ME_485683750360
 
 ME ME_48577D7400E7
  MEPROP UID '48577D7400E7'
@@ -853,6 +647,24 @@ ME ME_4857908E0000
 
 ENDME // ME_4857908E0000 
 
+MEREF ME_48567D1900F6_ME_485683750360_G
+ MELINK Original HWL ME_48567D1900F6 // StyledLeafPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48567D1900F6_ME_485683750360_G StyledLeafPara
+
+MEREF ME_4E57B8D703B8_ME_485683750360_R
+ MELINK Original WL 'ME_4E57B8D703B8' '4E57B8C2010F.ms.model.script' // Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E57B8D703B8_ME_485683750360_R Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+
+MEREF ME_4E5D0DC6002B_ME_485683750360_R
+ MELINK Original WL 'ME_4E5D0DC6002B' '4E57B8C2010F.ms.model.script' // Размер шрифта при печати
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5D0DC6002B_ME_485683750360_R Размер шрифта при печати
+
 FORWARD ME_4E96B57D02DC
 
 %%ImplementedBy ME_4E57B8D703B8 ME_485683750360
@@ -872,12 +684,12 @@ ME ME_485683750360
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48567D1900F6 // StyledLeafPara
+   Seq: ( ME_48567D1900F6_ME_485683750360_G // StyledLeafPara
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E57B8D703B8' '4E57B8C2010F.ms.model.script' // Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
- WL 'ME_4E5D0DC6002B' '4E57B8C2010F.ms.model.script' // Размер шрифта при печати
+   Seq: ( ME_4E57B8D703B8_ME_485683750360_R // Шрифт для печати преформатированного текста должен быть по-умолчанию равен 11
+ ME_4E5D0DC6002B_ME_485683750360_R // Размер шрифта при печати
  )
  ; // Implements
  MELIST Attributes
@@ -905,8 +717,8 @@ ME ME_485683750360
  )
  ; // Dependencies
  MELIST Implementors
-   Seq: ( HWL ME_48577704034C // WevTextPara
- WL 'ME_48577C150116' '53D258F1004F.ms.model.script' // TevTextPara
+   Seq: ( WL? 'ME_48577704034C' // WevTextPara
+ WL? 'ME_48577C150116' // TevTextPara
  HWL ME_4E96B57D02DC // TextPara
  )
  ; // Implementors
@@ -923,6 +735,12 @@ ME ME_485683750360
 
 ENDME // ME_485683750360 TextPara
 
+MEREF ME_485683750360_ME_4857920901AF_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4857920901AF_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4857920901AF
 
 ME ME_4857920901AF
@@ -937,7 +755,7 @@ ME ME_4857920901AF
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4857920901AF_G // TextPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -1406,6 +1224,12 @@ ME ME_485805D0029D
 
 ENDME // ME_485805D0029D FirstLineIndent
 
+MEREF ME_485683750360_ME_4857923F0186_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4857923F0186_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4857923F0186
 
 ME ME_4857923F0186
@@ -1420,7 +1244,7 @@ ME ME_4857923F0186
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4857923F0186_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -1452,8 +1276,8 @@ ME ME_4857923F0186
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857FECB0092' '4CD01B2F0046.ms.model.script' // WevControlPara
- WL 'ME_4858000901EF' '53D258F1004F.ms.model.script' // TevControlPara
+   Seq: ( WL? 'ME_4857FECB0092' // WevControlPara
+ WL? 'ME_4858000901EF' // TevControlPara
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -1505,7 +1329,11 @@ ME ME_4857964E013C
 
 ENDME // ME_4857964E013C Text
 
-FORWARD ME_485792EE01CB
+MEREF ME_485683750360_ME_4857926501CB_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4857926501CB_G TextPara
 
 %%InheritedBy ME_485683750360 ME_4857926501CB
 
@@ -1521,7 +1349,7 @@ ME ME_4857926501CB
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4857926501CB_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -1530,8 +1358,8 @@ ME ME_4857926501CB
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( HWL ME_485792EE01CB // WevFormula
- WL 'ME_4857934201E3' '53D258F1004F.ms.model.script' // TevFormula
+   Seq: ( WL? 'ME_485792EE01CB' // WevFormula
+ WL? 'ME_4857934201E3' // TevFormula
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -1703,6 +1531,18 @@ ME ME_48579FF801B5
 
 ENDME // ME_48579FF801B5 
 
+MEREF ME_484FC278000E_ME_48579E4A003C_G
+ MELINK Original WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FC278000E_ME_48579E4A003C_G Para
+
+MEREF ME_4E67A57800D4_ME_48579E4A003C_R
+ MELINK Original WL 'ME_4E67A57800D4' '4E57B8C2010F.ms.model.script' // Параграфы и стили должны иметь собственный интерлиньяж
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67A57800D4_ME_48579E4A003C_R Параграфы и стили должны иметь собственный интерлиньяж
+
 %%ImplementedBy ME_4E67A57800D4 ME_48579E4A003C
 
 %%InheritedBy ME_484FC278000E ME_48579E4A003C
@@ -1719,11 +1559,11 @@ ME ME_48579E4A003C
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+   Seq: ( ME_484FC278000E_ME_48579E4A003C_G // Para
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E67A57800D4' '4E57B8C2010F.ms.model.script' // Параграфы и стили должны иметь собственный интерлиньяж
+   Seq: ( ME_4E67A57800D4_ME_48579E4A003C_R // Параграфы и стили должны иметь собственный интерлиньяж
  )
  ; // Implements
  MELIST Attributes
@@ -1742,7 +1582,7 @@ ME ME_48579E4A003C
  )
  ; // Dependencies
  MELIST Implementors
-   Seq: ( WL 'ME_48579EA1011D' '53D258F1004F.ms.model.script' // TevParaList
+   Seq: ( WL? 'ME_48579EA1011D' // TevParaList
  )
  ; // Implementors
  MESTRINGLIST DiagramsNames
@@ -1806,6 +1646,12 @@ ME ME_4857A3CD0107
 
 ENDME // ME_4857A3CD0107 
 
+MEREF ME_48579E4A003C_ME_4857A3B803CD_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857A3B803CD_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4857A3B803CD
 
 ME ME_4857A3B803CD
@@ -1819,7 +1665,7 @@ ME ME_4857A3B803CD
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857A3B803CD_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -1843,6 +1689,12 @@ ME ME_4857A3B803CD
 
 ENDME // ME_4857A3B803CD HFParent
 
+MEREF ME_4857A3B803CD_ME_4857A41A02E9_G
+ MELINK Original HWL ME_4857A3B803CD // HFParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A3B803CD_ME_4857A41A02E9_G HFParent
+
 %%InheritedBy ME_4857A3B803CD ME_4857A41A02E9
 
 ME ME_4857A41A02E9
@@ -1857,7 +1709,7 @@ ME ME_4857A41A02E9
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A3B803CD // HFParent
+   Seq: ( ME_4857A3B803CD_ME_4857A41A02E9_G // HFParent
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -1868,6 +1720,12 @@ ME ME_4857A41A02E9
  UP extprop:pas:UnitName 'Header_Const'
 
 ENDME // ME_4857A41A02E9 Header
+
+MEREF ME_4857A3B803CD_ME_4857A436033D_G
+ MELINK Original HWL ME_4857A3B803CD // HFParent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A3B803CD_ME_4857A436033D_G HFParent
 
 %%InheritedBy ME_4857A3B803CD ME_4857A436033D
 
@@ -1883,7 +1741,7 @@ ME ME_4857A436033D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A3B803CD // HFParent
+   Seq: ( ME_4857A3B803CD_ME_4857A436033D_G // HFParent
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -1954,6 +1812,12 @@ ME ME_4857A57C006B
 
 ENDME // ME_4857A57C006B Footers
 
+MEREF ME_48579E4A003C_ME_4857A4E70176_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857A4E70176_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4857A4E70176
 
 ME ME_4857A4E70176
@@ -1968,7 +1832,7 @@ ME ME_4857A4E70176
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857A4E70176_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -2056,6 +1920,18 @@ ME ME_4A2E4BCA01B9
 
 ENDME // ME_4A2E4BCA01B9 ShortName
 
+MEREF ME_48579E4A003C_ME_4A2E44B70095_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4A2E44B70095_G ParaList
+
+MEREF ME_484AB8CD0227_ME_4A2E44B70095_R
+ MELINK Original WL 'ME_484AB8CD0227' '484A470100DD.ms.model.script' // ObjectWithHandle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484AB8CD0227_ME_4A2E44B70095_R ObjectWithHandle
+
 FORWARD ME_4857A87D0337
 
 %%ImplementedBy ME_484AB8CD0227 ME_4A2E44B70095
@@ -2074,11 +1950,11 @@ ME ME_4A2E44B70095
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4A2E44B70095_G // ParaList
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_484AB8CD0227' '484A470100DD.ms.model.script' // ObjectWithHandle
+   Seq: ( ME_484AB8CD0227_ME_4A2E44B70095_R // ObjectWithHandle
  )
  ; // Implements
  MELIST Attributes
@@ -2136,6 +2012,12 @@ ME ME_49EF249C03A7
 
 ENDME // ME_49EF249C03A7 Name
 
+MEREF ME_4849298102AC_ME_49EF2461008E_G
+ MELINK Original WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4849298102AC_ME_49EF2461008E_G Tag
+
 %%InheritedBy ME_4849298102AC ME_49EF2461008E
 
 ME ME_49EF2461008E
@@ -2150,7 +2032,7 @@ ME ME_49EF2461008E
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+   Seq: ( ME_4849298102AC_ME_49EF2461008E_G // Tag
  )
  ; // Inherits
  MELIST Attributes
@@ -2526,6 +2408,36 @@ ME ME_496B44150032
 
 ENDME // ME_496B44150032 
 
+MEREF ME_48579E4A003C_ME_4857A87D0337_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857A87D0337_G ParaList
+
+MEREF ME_484F95C1026A_ME_4857A87D0337_R
+ MELINK Original WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484F95C1026A_ME_4857A87D0337_R Sub
+
+MEREF ME_4A2E44B70095_ME_4857A87D0337_R
+ MELINK Original HWL ME_4A2E44B70095 // ContentsElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2E44B70095_ME_4857A87D0337_R ContentsElement
+
+MEREF ME_4F2694680164_ME_4857A87D0337_R
+ MELINK Original WL 'ME_4F2694680164' '4E57B8C2010F.ms.model.script' // У блоков и документов должен быть тег CompareContentsLevel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2694680164_ME_4857A87D0337_R У блоков и документов должен быть тег CompareContentsLevel
+
+MEREF ME_4FBE1CBF01A8_ME_4857A87D0337_R
+ MELINK Original WL 'ME_4FBE1CBF01A8' '4E57B8C2010F.ms.model.script' // У блоков и документов должен быть тег ViewKind
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FBE1CBF01A8_ME_4857A87D0337_R У блоков и документов должен быть тег ViewKind
+
 %%ImplementedBy ME_484F95C1026A ME_4857A87D0337
 %%ImplementedBy ME_4A2E44B70095 ME_4857A87D0337
 %%ImplementedBy ME_4F2694680164 ME_4857A87D0337
@@ -2545,14 +2457,14 @@ ME ME_4857A87D0337
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857A87D0337_G // ParaList
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
- HWL ME_4A2E44B70095 // ContentsElement
- WL 'ME_4F2694680164' '4E57B8C2010F.ms.model.script' // У блоков и документов должен быть тег CompareContentsLevel
- WL 'ME_4FBE1CBF01A8' '4E57B8C2010F.ms.model.script' // У блоков и документов должен быть тег ViewKind
+   Seq: ( ME_484F95C1026A_ME_4857A87D0337_R // Sub
+ ME_4A2E44B70095_ME_4857A87D0337_R // ContentsElement
+ ME_4F2694680164_ME_4857A87D0337_R // У блоков и документов должен быть тег CompareContentsLevel
+ ME_4FBE1CBF01A8_ME_4857A87D0337_R // У блоков и документов должен быть тег ViewKind
  )
  ; // Implements
  MELIST Attributes
@@ -2583,7 +2495,7 @@ ME ME_4857A87D0337
  )
  ; // Dependencies
  MELIST Implementors
-   Seq: ( WL 'ME_4857AA550220' '53D258F1004F.ms.model.script' // TevBlock
+   Seq: ( WL? 'ME_4857AA550220' // TevBlock
  )
  ; // Implementors
  MESTRINGLIST DiagramsNames
@@ -2632,6 +2544,12 @@ ME ME_4DFF5C0C02F5
 
 ENDME // ME_4DFF5C0C02F5 Type
 
+MEREF ME_484D418A0359_ME_4DFF5BC403E2_G
+ MELINK Original WL 'ME_484D418A0359' '484A470100DD.ms.model.script' // DictItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D418A0359_ME_4DFF5BC403E2_G DictItem
+
 %%InheritedBy ME_484D418A0359 ME_4DFF5BC403E2
 
 ME ME_4DFF5BC403E2
@@ -2646,7 +2564,7 @@ ME ME_4DFF5BC403E2
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_484D418A0359' '484A470100DD.ms.model.script' // DictItem
+   Seq: ( ME_484D418A0359_ME_4DFF5BC403E2_G // DictItem
  )
  ; // Inherits
  MELIST Attributes
@@ -2666,6 +2584,12 @@ ME ME_4DFF5BC403E2
 
 ENDME // ME_4DFF5BC403E2 Version
 
+MEREF ME_4857A87D0337_ME_4857C92E022B_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_4857C92E022B_G Block
+
 %%InheritedBy ME_4857A87D0337 ME_4857C92E022B
 
 ME ME_4857C92E022B
@@ -2680,7 +2604,7 @@ ME ME_4857C92E022B
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_4857C92E022B_G // Block
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -2710,6 +2634,24 @@ ME ME_525E81D80155
 
 ENDME // ME_525E81D80155 Modified
 
+MEREF ME_4849298102AC_ME_525E80DA00A9_G
+ MELINK Original WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4849298102AC_ME_525E80DA00A9_G Tag
+
+MEREF ME_484AB8CD0227_ME_525E80DA00A9_R
+ MELINK Original WL 'ME_484AB8CD0227' '484A470100DD.ms.model.script' // ObjectWithHandle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484AB8CD0227_ME_525E80DA00A9_R ObjectWithHandle
+
+MEREF ME_525E86530375_ME_525E80DA00A9_R
+ MELINK Original WL 'ME_525E86530375' '4E57B8C2010F.ms.model.script' // У документа должно быть свойство EditableParts
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_525E86530375_ME_525E80DA00A9_R У документа должно быть свойство EditableParts
+
 %%ImplementedBy ME_484AB8CD0227 ME_525E80DA00A9
 %%ImplementedBy ME_525E86530375 ME_525E80DA00A9
 
@@ -2727,12 +2669,12 @@ ME ME_525E80DA00A9
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+   Seq: ( ME_4849298102AC_ME_525E80DA00A9_G // Tag
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_484AB8CD0227' '484A470100DD.ms.model.script' // ObjectWithHandle
- WL 'ME_525E86530375' '4E57B8C2010F.ms.model.script' // У документа должно быть свойство EditableParts
+   Seq: ( ME_484AB8CD0227_ME_525E80DA00A9_R // ObjectWithHandle
+ ME_525E86530375_ME_525E80DA00A9_R // У документа должно быть свойство EditableParts
  )
  ; // Implements
  MELIST Attributes
@@ -3740,7 +3682,35 @@ ME ME_496B4227002F
 
 ENDME // ME_496B4227002F 
 
-FORWARD ME_4857B5D901D7
+MEREF ME_4857A87D0337_ME_4857B5260267_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_4857B5260267_G Block
+
+MEREF ME_4E5CCE190335_ME_4857B5260267_R
+ MELINK Original WL 'ME_4E5CCE190335' '4E57B8C2010F.ms.model.script' // Шапка документа должна иметь тег HasAnno
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5CCE190335_ME_4857B5260267_R Шапка документа должна иметь тег HasAnno
+
+MEREF ME_4E6A1ADB0057_ME_4857B5260267_R
+ MELINK Original WL 'ME_4E6A1ADB0057' '4E57B8C2010F.ms.model.script' // Документ должен иметь собственный Header
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6A1ADB0057_ME_4857B5260267_R Документ должен иметь собственный Header
+
+MEREF ME_4E9C0BEA03A2_ME_4857B5260267_R
+ MELINK Original WL 'ME_4E9C0BEA03A2' '4E57B8C2010F.ms.model.script' // У документа должен быть тег MaxSubID
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9C0BEA03A2_ME_4857B5260267_R У документа должен быть тег MaxSubID
+
+MEREF ME_4F8D4BDB0353_ME_4857B5260267_R
+ MELINK Original WL 'ME_4F8D4BDB0353' '4E57B8C2010F.ms.model.script' // У документа должен быть тег для хранения образа документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F8D4BDB0353_ME_4857B5260267_R У документа должен быть тег для хранения образа документа
 
 %%ImplementedBy ME_4E5CCE190335 ME_4857B5260267
 %%ImplementedBy ME_4E6A1ADB0057 ME_4857B5260267
@@ -3761,14 +3731,14 @@ ME ME_4857B5260267
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_4857B5260267_G // Block
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E5CCE190335' '4E57B8C2010F.ms.model.script' // Шапка документа должна иметь тег HasAnno
- WL 'ME_4E6A1ADB0057' '4E57B8C2010F.ms.model.script' // Документ должен иметь собственный Header
- WL 'ME_4E9C0BEA03A2' '4E57B8C2010F.ms.model.script' // У документа должен быть тег MaxSubID
- WL 'ME_4F8D4BDB0353' '4E57B8C2010F.ms.model.script' // У документа должен быть тег для хранения образа документа
+   Seq: ( ME_4E5CCE190335_ME_4857B5260267_R // Шапка документа должна иметь тег HasAnno
+ ME_4E6A1ADB0057_ME_4857B5260267_R // Документ должен иметь собственный Header
+ ME_4E9C0BEA03A2_ME_4857B5260267_R // У документа должен быть тег MaxSubID
+ ME_4F8D4BDB0353_ME_4857B5260267_R // У документа должен быть тег для хранения образа документа
  )
  ; // Implements
  MELIST Attributes
@@ -3833,8 +3803,8 @@ ME ME_4857B5260267
  )
  ; // Dependencies
  MELIST Implementors
-   Seq: ( HWL ME_4857B5D901D7 // WevDocument
- WL 'ME_4857B637007C' '53D258F1004F.ms.model.script' // TevDocument
+   Seq: ( WL? 'ME_4857B5D901D7' // WevDocument
+ WL? 'ME_4857B637007C' // TevDocument
  )
  ; // Implementors
  MESTRINGLIST DiagramsNames
@@ -3921,6 +3891,12 @@ ME ME_4A8D0D27018C
 
 ENDME // ME_4A8D0D27018C Style
 
+MEREF ME_485683750360_ME_4A8D0C37022C_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4A8D0C37022C_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4A8D0C37022C
 
 ME ME_4A8D0C37022C
@@ -3935,7 +3911,7 @@ ME ME_4A8D0C37022C
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4A8D0C37022C_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -3977,6 +3953,12 @@ ME ME_4857E95003B4
 
 ENDME // ME_4857E95003B4 CardType
 
+MEREF ME_4857B5260267_ME_4857E8A90137_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_4857E8A90137_G Document
+
 %%InheritedBy ME_4857B5260267 ME_4857E8A90137
 
 ME ME_4857E8A90137
@@ -3991,7 +3973,7 @@ ME ME_4857E8A90137
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_4857E8A90137_G // Document
  )
  ; // Inherits
  MELIST Attributes
@@ -3999,7 +3981,7 @@ ME ME_4857E8A90137
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857E8F003A2' '53D258F1004F.ms.model.script' // TevQueryCard
+   Seq: ( WL? 'ME_4857E8F003A2' // TevQueryCard
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4029,6 +4011,12 @@ ME ME_4A5DDCC10002
 
 ENDME // ME_4A5DDCC10002 Style
 
+MEREF ME_485683750360_ME_4A5DDC550321_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4A5DDC550321_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4A5DDC550321
 
 ME ME_4A5DDC550321
@@ -4043,7 +4031,7 @@ ME ME_4A5DDC550321
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4A5DDC550321_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -4283,6 +4271,12 @@ ME ME_52B13EBF024F
 
 ENDME // ME_52B13EBF024F 
 
+MEREF ME_48579E4A003C_ME_4857CD8D0093_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857CD8D0093_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4857CD8D0093
 
 ME ME_4857CD8D0093
@@ -4297,7 +4291,7 @@ ME ME_4857CD8D0093
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857CD8D0093_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -4317,7 +4311,7 @@ ME ME_4857CD8D0093
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857CDBF0197' '53D258F1004F.ms.model.script' // TevTableCell
+   Seq: ( WL? 'ME_4857CDBF0197' // TevTableCell
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4382,6 +4376,12 @@ ME ME_4A5DD4D702E7
 
 ENDME // ME_4A5DD4D702E7 Frame
 
+MEREF ME_4857CD8D0093_ME_4857D15D029B_G
+ MELINK Original HWL ME_4857CD8D0093 // TableCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857CD8D0093_ME_4857D15D029B_G TableCell
+
 %%InheritedBy ME_4857CD8D0093 ME_4857D15D029B
 
 ME ME_4857D15D029B
@@ -4396,7 +4396,7 @@ ME ME_4857D15D029B
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857CD8D0093 // TableCell
+   Seq: ( ME_4857CD8D0093_ME_4857D15D029B_G // TableCell
  )
  ; // Inherits
  MELIST Attributes
@@ -4406,7 +4406,7 @@ ME ME_4857D15D029B
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857D1860221' '53D258F1004F.ms.model.script' // TevSBSCell
+   Seq: ( WL? 'ME_4857D1860221' // TevSBSCell
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4456,6 +4456,12 @@ ME ME_4857D387001F
 
 ENDME // ME_4857D387001F 
 
+MEREF ME_48579E4A003C_ME_4857D2F8006D_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857D2F8006D_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4857D2F8006D
 
 ME ME_4857D2F8006D
@@ -4470,7 +4476,7 @@ ME ME_4857D2F8006D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857D2F8006D_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -4479,7 +4485,7 @@ ME ME_4857D2F8006D
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857D32B011E' '53D258F1004F.ms.model.script' // TevTableRow
+   Seq: ( WL? 'ME_4857D32B011E' // TevTableRow
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4527,6 +4533,12 @@ ME ME_4857DF07030D
 
 ENDME // ME_4857DF07030D 
 
+MEREF ME_4857D2F8006D_ME_4857D3C103AB_G
+ MELINK Original HWL ME_4857D2F8006D // TableRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857D2F8006D_ME_4857D3C103AB_G TableRow
+
 %%InheritedBy ME_4857D2F8006D ME_4857D3C103AB
 
 ME ME_4857D3C103AB
@@ -4541,7 +4553,7 @@ ME ME_4857D3C103AB
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857D2F8006D // TableRow
+   Seq: ( ME_4857D2F8006D_ME_4857D3C103AB_G // TableRow
  )
  ; // Inherits
  MELIST Attributes
@@ -4550,7 +4562,7 @@ ME ME_4857D3C103AB
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857D3F1028D' '53D258F1004F.ms.model.script' // TevSBSRow
+   Seq: ( WL? 'ME_4857D3F1028D' // TevSBSRow
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4691,6 +4703,12 @@ ME ME_4857E07E0122
 
 ENDME // ME_4857E07E0122 
 
+MEREF ME_48579E4A003C_ME_4857D48E00F4_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4857D48E00F4_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4857D48E00F4
 
 ME ME_4857D48E00F4
@@ -4705,7 +4723,7 @@ ME ME_4857D48E00F4
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4857D48E00F4_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -4719,7 +4737,7 @@ ME ME_4857D48E00F4
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857E163036B' '53D258F1004F.ms.model.script' // TevTable
+   Seq: ( WL? 'ME_4857E163036B' // TevTable
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -4767,6 +4785,12 @@ ME ME_4A7A9BF701E8
 
 ENDME // ME_4A7A9BF701E8 Frame
 
+MEREF ME_4857CD8D0093_ME_4857E9EE024A_G
+ MELINK Original HWL ME_4857CD8D0093 // TableCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857CD8D0093_ME_4857E9EE024A_G TableCell
+
 %%InheritedBy ME_4857CD8D0093 ME_4857E9EE024A
 
 ME ME_4857E9EE024A
@@ -4781,7 +4805,7 @@ ME ME_4857E9EE024A
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857CD8D0093 // TableCell
+   Seq: ( ME_4857CD8D0093_ME_4857E9EE024A_G // TableCell
  )
  ; // Inherits
  MELIST Attributes
@@ -4790,7 +4814,7 @@ ME ME_4857E9EE024A
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857EA320141' '53D258F1004F.ms.model.script' // TevReqCell
+   Seq: ( WL? 'ME_4857EA320141' // TevReqCell
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -5082,7 +5106,11 @@ ME ME_4D6639F5027D
 
 ENDME // ME_4D6639F5027D Frame
 
-FORWARD ME_4857EB02013C
+MEREF ME_4857D2F8006D_ME_4857EA97011D_G
+ MELINK Original HWL ME_4857D2F8006D // TableRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857D2F8006D_ME_4857EA97011D_G TableRow
 
 %%InheritedBy ME_4857D2F8006D ME_4857EA97011D
 
@@ -5098,7 +5126,7 @@ ME ME_4857EA97011D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857D2F8006D // TableRow
+   Seq: ( ME_4857D2F8006D_ME_4857EA97011D_G // TableRow
  )
  ; // Inherits
  MELIST Attributes
@@ -5120,8 +5148,8 @@ ME ME_4857EA97011D
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857EAD30281' '53D258F1004F.ms.model.script' // TevReqRow
- HWL ME_4857EB02013C // WevReqRow
+   Seq: ( WL? 'ME_4857EAD30281' // TevReqRow
+ WL? 'ME_4857EB02013C' // WevReqRow
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -5296,6 +5324,12 @@ ME ME_48580952024C
 
 ENDME // ME_48580952024C 
 
+MEREF ME_4857A87D0337_ME_485806FC032D_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_485806FC032D_G Block
+
 %%InheritedBy ME_4857A87D0337 ME_485806FC032D
 
 ME ME_485806FC032D
@@ -5310,7 +5344,7 @@ ME ME_485806FC032D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_485806FC032D_G // Block
  )
  ; // Inherits
  MELIST Attributes
@@ -5329,7 +5363,7 @@ ME ME_485806FC032D
  )
  ; // Dependencies
  MELIST Implementors
-   Seq: ( WL 'ME_485807480091' '53D258F1004F.ms.model.script' // TevControlsBlock
+   Seq: ( WL? 'ME_485807480091' // TevControlsBlock
  )
  ; // Implementors
  MESTRINGLIST DiagramsNames
@@ -5346,6 +5380,8 @@ ME ME_485806FC032D
  UP extprop:pas:UnitName 'ControlsBlock_Const'
 
 ENDME // ME_485806FC032D ControlsBlock
+
+FORWARD ME_4858116B0355
 
 ME ME_485814B30353
  MEPROP UID '485814B30353'
@@ -5514,14 +5550,18 @@ ME ME_485815770074
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4858116B0355 // BitmapPara
  ;
- MELINK Target HWL ME_4858153B023B // TevBitmapParaBitmapContainer
+ MELINK Target WL? 'ME_4858153B023B' // TevBitmapParaBitmapContainer
  ;
  UP extprop:evd:NeedsOwnType true
  UP extprop:evd:NewTypeName 'BitmapPara_Object'
 
 ENDME // ME_485815770074 Object
 
-FORWARD ME_485792C1014E
+MEREF ME_48567D1900F6_ME_4858116B0355_G
+ MELINK Original HWL ME_48567D1900F6 // StyledLeafPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48567D1900F6_ME_4858116B0355_G StyledLeafPara
 
 FORWARD ME_485812E00101
 
@@ -5539,7 +5579,7 @@ ME ME_4858116B0355
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48567D1900F6 // StyledLeafPara
+   Seq: ( ME_48567D1900F6_ME_4858116B0355_G // StyledLeafPara
  )
  ; // Inherits
  MELIST Attributes
@@ -5557,9 +5597,9 @@ ME ME_4858116B0355
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( HWL ME_485792C1014E // WevBitmapPara
+   Seq: ( WL? 'ME_485792C1014E' // WevBitmapPara
  HWL ME_485812E00101 // TIevBitmapPara
- WL 'ME_4858137901EF' '53D258F1004F.ms.model.script' // TevBitmapPara
+ WL? 'ME_4858137901EF' // TevBitmapPara
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -5590,6 +5630,12 @@ ME ME_4858183503DE
 
 ENDME // ME_4858183503DE Handle
 
+MEREF ME_4857A87D0337_ME_4858180901E3_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_4858180901E3_G Block
+
 %%InheritedBy ME_4857A87D0337 ME_4858180901E3
 
 ME ME_4858180901E3
@@ -5604,7 +5650,7 @@ ME ME_4858180901E3
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_4858180901E3_G // Block
  )
  ; // Inherits
  MELIST Attributes
@@ -5636,6 +5682,12 @@ ME ME_485818240070
 
 ENDME // ME_485818240070 
 
+MEREF ME_4857B5260267_ME_485817EE01FF_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_485817EE01FF_G Document
+
 %%InheritedBy ME_4857B5260267 ME_485817EE01FF
 
 ME ME_485817EE01FF
@@ -5650,7 +5702,7 @@ ME ME_485817EE01FF
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_485817EE01FF_G // Document
  )
  ; // Inherits
  MELIST Attributes
@@ -5732,6 +5784,12 @@ ME ME_485818F5029B
 
 ENDME // ME_485818F5029B Data
 
+MEREF ME_485669C9009D_ME_485818CA035D_G
+ MELINK Original WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485669C9009D_ME_485818CA035D_G LeafPara
+
 %%InheritedBy ME_485669C9009D ME_485818CA035D
 
 ME ME_485818CA035D
@@ -5746,7 +5804,7 @@ ME ME_485818CA035D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+   Seq: ( ME_485669C9009D_ME_485818CA035D_G // LeafPara
  )
  ; // Inherits
  MELIST Attributes
@@ -5765,6 +5823,12 @@ ME ME_485818CA035D
 
 ENDME // ME_485818CA035D ExtDataPara
 
+MEREF ME_485683750360_ME_48581B5C0375_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_48581B5C0375_G TextPara
+
 %%InheritedBy ME_485683750360 ME_48581B5C0375
 
 ME ME_48581B5C0375
@@ -5779,7 +5843,7 @@ ME ME_48581B5C0375
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_48581B5C0375_G // TextPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -5790,6 +5854,12 @@ ME ME_48581B5C0375
  UP extprop:pas:UnitName 'AttrValue_Const'
 
 ENDME // ME_48581B5C0375 AttrValue
+
+MEREF ME_485683750360_ME_48581B7E014C_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_48581B7E014C_G TextPara
 
 %%InheritedBy ME_485683750360 ME_48581B7E014C
 
@@ -5805,7 +5875,7 @@ ME ME_48581B7E014C
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_48581B7E014C_G // TextPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -5849,6 +5919,12 @@ ME ME_48581BD50266
 
 ENDME // ME_48581BD50266 
 
+MEREF ME_4857A87D0337_ME_48581B9F007B_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_48581B9F007B_G Block
+
 %%InheritedBy ME_4857A87D0337 ME_48581B9F007B
 
 ME ME_48581B9F007B
@@ -5863,7 +5939,7 @@ ME ME_48581B9F007B
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_48581B9F007B_G // Block
  )
  ; // Inherits
  MELIST Attributes
@@ -5880,6 +5956,12 @@ ME ME_48581B9F007B
 
 ENDME // ME_48581B9F007B Attr
 
+MEREF ME_485683750360_ME_48581BEE0318_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_48581BEE0318_G TextPara
+
 %%InheritedBy ME_485683750360 ME_48581BEE0318
 
 ME ME_48581BEE0318
@@ -5894,7 +5976,7 @@ ME ME_48581BEE0318
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_48581BEE0318_G // TextPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -5905,6 +5987,12 @@ ME ME_48581BEE0318
  UP extprop:pas:UnitName 'TagName_Const'
 
 ENDME // ME_48581BEE0318 TagName
+
+MEREF ME_485683750360_ME_48581C030393_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_48581C030393_G TextPara
 
 %%InheritedBy ME_485683750360 ME_48581C030393
 
@@ -5920,7 +6008,7 @@ ME ME_48581C030393
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_48581C030393_G // TextPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -5931,6 +6019,12 @@ ME ME_48581C030393
  UP extprop:pas:UnitName 'TagBody_Const'
 
 ENDME // ME_48581C030393 TagBody
+
+MEREF ME_4858116B0355_ME_4E25CA3C008A_G
+ MELINK Original HWL ME_4858116B0355 // BitmapPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4858116B0355_ME_4E25CA3C008A_G BitmapPara
 
 %%InheritedBy ME_4858116B0355 ME_4E25CA3C008A
 
@@ -5946,7 +6040,7 @@ ME ME_4E25CA3C008A
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4858116B0355 // BitmapPara
+   Seq: ( ME_4858116B0355_ME_4E25CA3C008A_G // BitmapPara
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -5990,6 +6084,12 @@ ME ME_49A4040D0395
 
 ENDME // ME_49A4040D0395 Width
 
+MEREF ME_4856576801CA_ME_49A3FCA5005C_R
+ MELINK Original WL 'ME_4856576801CA' '484A470100DD.ms.model.script' // PageProperties
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4856576801CA_ME_49A3FCA5005C_R PageProperties
+
 %%ImplementedBy ME_4856576801CA ME_49A3FCA5005C
 
 ME ME_49A3FCA5005C
@@ -6004,7 +6104,7 @@ ME ME_49A3FCA5005C
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4856576801CA' '484A470100DD.ms.model.script' // PageProperties
+   Seq: ( ME_4856576801CA_ME_49A3FCA5005C_R // PageProperties
  )
  ; // Implements
  MELIST Attributes
@@ -6109,6 +6209,12 @@ ME ME_4857C75F03BD
 
 ENDME // ME_4857C75F03BD 
 
+MEREF ME_4857B5260267_ME_4857C5D803A1_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_4857C5D803A1_G Document
+
 %%InheritedBy ME_4857B5260267 ME_4857C5D803A1
 
 ME ME_4857C5D803A1
@@ -6123,7 +6229,7 @@ ME ME_4857C5D803A1
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_4857C5D803A1_G // Document
  )
  ; // Inherits
  MELIST Attributes
@@ -6254,7 +6360,11 @@ ME ME_4857CB0D0097
 
 ENDME // ME_4857CB0D0097 Flags
 
-FORWARD ME_4CED2FED0255
+MEREF ME_4857A87D0337_ME_4857C9C20131_G
+ MELINK Original HWL ME_4857A87D0337 // Block
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857A87D0337_ME_4857C9C20131_G Block
 
 %%InheritedBy ME_4857A87D0337 ME_4857C9C20131
 
@@ -6270,7 +6380,7 @@ ME ME_4857C9C20131
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857A87D0337 // Block
+   Seq: ( ME_4857A87D0337_ME_4857C9C20131_G // Block
  )
  ; // Inherits
  MELIST Attributes
@@ -6283,8 +6393,8 @@ ME ME_4857C9C20131
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857C9F90189' '53D258F1004F.ms.model.script' // TevCommentPara
- HWL ME_4CED2FED0255 // WevCommentPara
+   Seq: ( WL? 'ME_4857C9F90189' // TevCommentPara
+ WL? 'ME_4CED2FED0255' // WevCommentPara
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -6316,6 +6426,12 @@ ME ME_4857E2C00005
 
 ENDME // ME_4857E2C00005 
 
+MEREF ME_4857D48E00F4_ME_4857E2A70175_G
+ MELINK Original HWL ME_4857D48E00F4 // Table
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857D48E00F4_ME_4857E2A70175_G Table
+
 %%InheritedBy ME_4857D48E00F4 ME_4857E2A70175
 
 ME ME_4857E2A70175
@@ -6330,7 +6446,7 @@ ME ME_4857E2A70175
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857D48E00F4 // Table
+   Seq: ( ME_4857D48E00F4_ME_4857E2A70175_G // Table
  )
  ; // Inherits
  MELIST Attributes
@@ -6338,7 +6454,7 @@ ME ME_4857E2A70175
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4857E36301AD' '53D258F1004F.ms.model.script' // TevSBS
+   Seq: ( WL? 'ME_4857E36301AD' // TevSBS
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -6419,6 +6535,12 @@ ME ME_4857C87B02F7
 
 ENDME // ME_4857C87B02F7 
 
+MEREF ME_4857C5D803A1_ME_4857C63802A0_G
+ MELINK Original HWL ME_4857C5D803A1 // SimpleDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857C5D803A1_ME_4857C63802A0_G SimpleDocument
+
 %%InheritedBy ME_4857C5D803A1 ME_4857C63802A0
 
 ME ME_4857C63802A0
@@ -6433,7 +6555,7 @@ ME ME_4857C63802A0
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857C5D803A1 // SimpleDocument
+   Seq: ( ME_4857C5D803A1_ME_4857C63802A0_G // SimpleDocument
  )
  ; // Inherits
  MELIST Attributes
@@ -6477,6 +6599,12 @@ ME ME_4D2C428D02AF
 
 ENDME // ME_4D2C428D02AF Rubber
 
+MEREF ME_48579E4A003C_ME_4CEBC4B702DD_G
+ MELINK Original HWL ME_48579E4A003C // ParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48579E4A003C_ME_4CEBC4B702DD_G ParaList
+
 %%InheritedBy ME_48579E4A003C ME_4CEBC4B702DD
 
 ME ME_4CEBC4B702DD
@@ -6491,7 +6619,7 @@ ME ME_4CEBC4B702DD
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48579E4A003C // ParaList
+   Seq: ( ME_48579E4A003C_ME_4CEBC4B702DD_G // ParaList
  )
  ; // Inherits
  MELIST Attributes
@@ -6542,7 +6670,11 @@ ME ME_4D63B8E50144
 
 ENDME // ME_4D63B8E50144 
 
-FORWARD ME_4D63FD5001D5
+MEREF ME_4857D48E00F4_ME_4D63B8AF035D_G
+ MELINK Original HWL ME_4857D48E00F4 // Table
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857D48E00F4_ME_4D63B8AF035D_G Table
 
 %%InheritedBy ME_4857D48E00F4 ME_4D63B8AF035D
 
@@ -6558,7 +6690,7 @@ ME ME_4D63B8AF035D
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857D48E00F4 // Table
+   Seq: ( ME_4857D48E00F4_ME_4D63B8AF035D_G // Table
  )
  ; // Inherits
  MELIST Attributes
@@ -6567,8 +6699,8 @@ ME ME_4D63B8AF035D
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4D63C1860228' '53D258F1004F.ms.model.script' // TevReqGroup
- HWL ME_4D63FD5001D5 // WevReqGroup
+   Seq: ( WL? 'ME_4D63C1860228' // TevReqGroup
+ WL? 'ME_4D63FD5001D5' // WevReqGroup
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -6579,6 +6711,12 @@ ME ME_4D63B8AF035D
  UP extprop:pas:UnitName 'ReqGroup_Const'
 
 ENDME // ME_4D63B8AF035D ReqGroup
+
+MEREF ME_4857B5260267_ME_4D6E6B66010A_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_4D6E6B66010A_G Document
 
 %%InheritedBy ME_4857B5260267 ME_4D6E6B66010A
 
@@ -6593,11 +6731,11 @@ ME ME_4D6E6B66010A
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_4D6E6B66010A_G // Document
  )
  ; // Inherits
  MELIST Implementors
-   Seq: ( WL 'ME_4D6E6BA90279' '53D258F1004F.ms.model.script' // TevAutoreferatDocument
+   Seq: ( WL? 'ME_4D6E6BA90279' // TevAutoreferatDocument
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -6645,6 +6783,12 @@ ME ME_4857CC260213
 
 ENDME // ME_4857CC260213 
 
+MEREF ME_4857B5260267_ME_4857CB7D0340_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_4857CB7D0340_G Document
+
 %%InheritedBy ME_4857B5260267 ME_4857CB7D0340
 
 ME ME_4857CB7D0340
@@ -6659,7 +6803,7 @@ ME ME_4857CB7D0340
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_4857CB7D0340_G // Document
  )
  ; // Inherits
  MELIST Attributes
@@ -6677,6 +6821,12 @@ ME ME_4857CB7D0340
 
 ENDME // ME_4857CB7D0340 DictEntry
 
+MEREF ME_485806FC032D_ME_4E13366702E2_G
+ MELINK Original HWL ME_485806FC032D // ControlsBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485806FC032D_ME_4E13366702E2_G ControlsBlock
+
 %%InheritedBy ME_485806FC032D ME_4E13366702E2
 
 ME ME_4E13366702E2
@@ -6691,7 +6841,7 @@ ME ME_4E13366702E2
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485806FC032D // ControlsBlock
+   Seq: ( ME_485806FC032D_ME_4E13366702E2_G // ControlsBlock
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -7070,6 +7220,12 @@ ME ME_48616D700335
 
 ENDME // ME_48616D700335 Name
 
+MEREF ME_48616CE000AF_ME_48616D5401D4_G
+ MELINK Original HWL ME_48616CE000AF // TxtHeader1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48616CE000AF_ME_48616D5401D4_G TxtHeader1
+
 %%InheritedBy ME_48616CE000AF ME_48616D5401D4
 
 ME ME_48616D5401D4
@@ -7084,7 +7240,7 @@ ME ME_48616D5401D4
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48616CE000AF // TxtHeader1
+   Seq: ( ME_48616CE000AF_ME_48616D5401D4_G // TxtHeader1
  )
  ; // Inherits
  MELIST Attributes
@@ -7186,6 +7342,12 @@ ME ME_48616DB20279
 
 ENDME // ME_48616DB20279 Name
 
+MEREF ME_48616D5401D4_ME_48616D9500A5_G
+ MELINK Original HWL ME_48616D5401D4 // TxtHeader2
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48616D5401D4_ME_48616D9500A5_G TxtHeader2
+
 %%InheritedBy ME_48616D5401D4 ME_48616D9500A5
 
 ME ME_48616D9500A5
@@ -7200,7 +7362,7 @@ ME ME_48616D9500A5
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48616D5401D4 // TxtHeader2
+   Seq: ( ME_48616D5401D4_ME_48616D9500A5_G // TxtHeader2
  )
  ; // Inherits
  MELIST Attributes
@@ -7287,6 +7449,12 @@ ME ME_4868BA87019A
 
 ENDME // ME_4868BA87019A Name
 
+MEREF ME_48616D9500A5_ME_4868BA510251_G
+ MELINK Original HWL ME_48616D9500A5 // TxtHeader3
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48616D9500A5_ME_4868BA510251_G TxtHeader3
+
 %%InheritedBy ME_48616D9500A5 ME_4868BA510251
 
 ME ME_4868BA510251
@@ -7301,7 +7469,7 @@ ME ME_4868BA510251
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48616D9500A5 // TxtHeader3
+   Seq: ( ME_48616D9500A5_ME_4868BA510251_G // TxtHeader3
  )
  ; // Inherits
  MELIST Attributes
@@ -7701,6 +7869,18 @@ ME ME_4EBD115D0239
 
 ENDME // ME_4EBD115D0239 ShortName$DailyTests
 
+MEREF ME_4899C0F40148_ME_4899C081028C_G
+ MELINK Original HWL ME_4899C0F40148 // NormalNote
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4899C0F40148_ME_4899C081028C_G NormalNote
+
+MEREF ME_4E60DFD100C3_ME_4899C081028C_R
+ MELINK Original WL 'ME_4E60DFD100C3' '4E57B8C2010F.ms.model.script' // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E60DFD100C3_ME_4899C081028C_R Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+
 %%ImplementedBy ME_4E60DFD100C3 ME_4899C081028C
 
 %%InheritedBy ME_4899C0F40148 ME_4899C081028C
@@ -7717,11 +7897,11 @@ ME ME_4899C081028C
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4899C0F40148 // NormalNote
+   Seq: ( ME_4899C0F40148_ME_4899C081028C_G // NormalNote
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E60DFD100C3' '4E57B8C2010F.ms.model.script' // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+   Seq: ( ME_4E60DFD100C3_ME_4899C081028C_R // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
  )
  ; // Implements
  MELIST Attributes
@@ -7849,6 +8029,18 @@ ME ME_4EA556280259
 
 ENDME // ME_4EA556280259 ShortName$Archi
 
+MEREF ME_4899C081028C_ME_4899C2800064_G
+ MELINK Original HWL ME_4899C081028C // TxtComment
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4899C081028C_ME_4899C2800064_G TxtComment
+
+MEREF ME_4E60DFD100C3_ME_4899C2800064_R
+ MELINK Original WL 'ME_4E60DFD100C3' '4E57B8C2010F.ms.model.script' // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E60DFD100C3_ME_4899C2800064_R Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+
 %%ImplementedBy ME_4E60DFD100C3 ME_4899C2800064
 
 %%InheritedBy ME_4899C081028C ME_4899C2800064
@@ -7865,11 +8057,11 @@ ME ME_4899C2800064
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4899C081028C // TxtComment
+   Seq: ( ME_4899C081028C_ME_4899C2800064_G // TxtComment
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E60DFD100C3' '4E57B8C2010F.ms.model.script' // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
+   Seq: ( ME_4E60DFD100C3_ME_4899C2800064_R // Для юридиических и версионных комментариев шапка должна быть склеена в одну строчку с текстом
  )
  ; // Implements
  MELIST Attributes
@@ -8138,6 +8330,24 @@ ME ME_4C973DCC0061
 
 ENDME // ME_4C973DCC0061 FirstIndent
 
+MEREF ME_4FA0DBB00337_ME_4C8E0D260348_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0D260348_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0D260348_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0D260348_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0D260348_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0D260348_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0D260348
 %%ImplementedBy ME_4FD086670011 ME_4C8E0D260348
 
@@ -8155,12 +8365,12 @@ ME ME_4C8E0D260348
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0D260348_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0D260348_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0D260348_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8220,6 +8430,24 @@ ME ME_4C939E7900E3
 
 ENDME // ME_4C939E7900E3 ShortName
 
+MEREF ME_4FA0DBB00337_ME_4C8E0D580170_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0D580170_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0D580170_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0D580170_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0D580170_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0D580170_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0D580170
 %%ImplementedBy ME_4FD086670011 ME_4C8E0D580170
 
@@ -8237,12 +8465,12 @@ ME ME_4C8E0D580170
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0D580170_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0D580170_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0D580170_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8301,6 +8529,24 @@ ME ME_4C939EB2033A
 
 ENDME // ME_4C939EB2033A ShortName
 
+MEREF ME_4FA0DBB00337_ME_4C8E0D7C015D_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0D7C015D_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0D7C015D_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0D7C015D_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0D7C015D_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0D7C015D_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0D7C015D
 %%ImplementedBy ME_4FD086670011 ME_4C8E0D7C015D
 
@@ -8318,12 +8564,12 @@ ME ME_4C8E0D7C015D
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0D7C015D_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0D7C015D_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0D7C015D_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8382,6 +8628,24 @@ ME ME_4C939E5C00AE
 
 ENDME // ME_4C939E5C00AE ShortName
 
+MEREF ME_4FA0DBB00337_ME_4C8E0DB1004D_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0DB1004D_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0DB1004D_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0DB1004D_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0DB1004D_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0DB1004D_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0DB1004D
 %%ImplementedBy ME_4FD086670011 ME_4C8E0DB1004D
 
@@ -8399,12 +8663,12 @@ ME ME_4C8E0DB1004D
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0DB1004D_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0DB1004D_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0DB1004D_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8477,6 +8741,24 @@ ME ME_4E6DB5A8006C
 
 ENDME // ME_4E6DB5A8006C HeaderHasOwnSpace
 
+MEREF ME_4FA0DBB00337_ME_4C8E0DD80124_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0DD80124_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0DD80124_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0DD80124_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0DD80124_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0DD80124_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0DD80124
 %%ImplementedBy ME_4FD086670011 ME_4C8E0DD80124
 
@@ -8494,12 +8776,12 @@ ME ME_4C8E0DD80124
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0DD80124_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0DD80124_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0DD80124_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8559,6 +8841,24 @@ ME ME_4C939EC8021C
 
 ENDME // ME_4C939EC8021C ShortName
 
+MEREF ME_4FA0DBB00337_ME_4C8E0DFC03E7_G
+ MELINK Original WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA0DBB00337_ME_4C8E0DFC03E7_G Attention
+
+MEREF ME_4E7B25360221_ME_4C8E0DFC03E7_R
+ MELINK Original WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B25360221_ME_4C8E0DFC03E7_R Специальные стили текста для ДЭП
+
+MEREF ME_4FD086670011_ME_4C8E0DFC03E7_R
+ MELINK Original WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD086670011_ME_4C8E0DFC03E7_R Стили для ДПЭ должны наследоваться от стиля Внимание
+
 %%ImplementedBy ME_4E7B25360221 ME_4C8E0DFC03E7
 %%ImplementedBy ME_4FD086670011 ME_4C8E0DFC03E7
 
@@ -8576,12 +8876,12 @@ ME ME_4C8E0DFC03E7
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FA0DBB00337' '484A470100DD.ms.model.script' // Attention
+   Seq: ( ME_4FA0DBB00337_ME_4C8E0DFC03E7_G // Attention
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E7B25360221' '4E57B8C2010F.ms.model.script' // Специальные стили текста для ДЭП
- WL 'ME_4FD086670011' '4E57B8C2010F.ms.model.script' // Стили для ДПЭ должны наследоваться от стиля Внимание
+   Seq: ( ME_4E7B25360221_ME_4C8E0DFC03E7_R // Специальные стили текста для ДЭП
+ ME_4FD086670011_ME_4C8E0DFC03E7_R // Стили для ДПЭ должны наследоваться от стиля Внимание
  )
  ; // Implements
  MELIST Attributes
@@ -8691,6 +8991,18 @@ ME ME_50BDE0470057
 
 ENDME // ME_50BDE0470057 VisibleToUser
 
+MEREF ME_48616CE000AF_ME_4E1C5F2700BE_G
+ MELINK Original HWL ME_48616CE000AF // TxtHeader1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48616CE000AF_ME_4E1C5F2700BE_G TxtHeader1
+
+MEREF ME_4E6780B60109_ME_4E1C5F2700BE_R
+ MELINK Original WL 'ME_4E6780B60109' '4E57B8C2010F.ms.model.script' // Требования к заголовку баллона об изменениях в документе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6780B60109_ME_4E1C5F2700BE_R Требования к заголовку баллона об изменениях в документе
+
 %%ImplementedBy ME_4E6780B60109 ME_4E1C5F2700BE
 
 %%InheritedBy ME_48616CE000AF ME_4E1C5F2700BE
@@ -8707,11 +9019,11 @@ ME ME_4E1C5F2700BE
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48616CE000AF // TxtHeader1
+   Seq: ( ME_48616CE000AF_ME_4E1C5F2700BE_G // TxtHeader1
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E6780B60109' '4E57B8C2010F.ms.model.script' // Требования к заголовку баллона об изменениях в документе
+   Seq: ( ME_4E6780B60109_ME_4E1C5F2700BE_R // Требования к заголовку баллона об изменениях в документе
  )
  ; // Implements
  MELIST Attributes
@@ -8830,6 +9142,18 @@ ME ME_50BDE0530265
 
 ENDME // ME_50BDE0530265 VisibleToUser
 
+MEREF ME_48616CE000AF_ME_4E677FA10009_G
+ MELINK Original HWL ME_48616CE000AF // TxtHeader1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48616CE000AF_ME_4E677FA10009_G TxtHeader1
+
+MEREF ME_4E6780E40227_ME_4E677FA10009_R
+ MELINK Original WL 'ME_4E6780E40227' '4E57B8C2010F.ms.model.script' // Требования к подвалу баллона об изменениях в документе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6780E40227_ME_4E677FA10009_R Требования к подвалу баллона об изменениях в документе
+
 %%ImplementedBy ME_4E6780E40227 ME_4E677FA10009
 
 %%InheritedBy ME_48616CE000AF ME_4E677FA10009
@@ -8846,11 +9170,11 @@ ME ME_4E677FA10009
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48616CE000AF // TxtHeader1
+   Seq: ( ME_48616CE000AF_ME_4E677FA10009_G // TxtHeader1
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E6780E40227' '4E57B8C2010F.ms.model.script' // Требования к подвалу баллона об изменениях в документе
+   Seq: ( ME_4E6780E40227_ME_4E677FA10009_R // Требования к подвалу баллона об изменениях в документе
  )
  ; // Implements
  MELIST Attributes
@@ -8967,6 +9291,18 @@ ME ME_50BDE00B005F
 
 ENDME // ME_50BDE00B005F VisibleToUser
 
+MEREF ME_4E6781010190_ME_4E67804803E4_R
+ MELINK Original WL 'ME_4E6781010190' '4E57B8C2010F.ms.model.script' // Требования к тексту баллона об изменениях в документе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6781010190_ME_4E67804803E4_R Требования к тексту баллона об изменениях в документе
+
+MEREF ME_4E67A6B202BB_ME_4E67804803E4_R
+ MELINK Original WL 'ME_4E67A6B202BB' '4E57B8C2010F.ms.model.script' // Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67A6B202BB_ME_4E67804803E4_R Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+
 %%ImplementedBy ME_4E6781010190 ME_4E67804803E4
 %%ImplementedBy ME_4E67A6B202BB ME_4E67804803E4
 
@@ -8982,8 +9318,8 @@ ME ME_4E67804803E4
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E6781010190' '4E57B8C2010F.ms.model.script' // Требования к тексту баллона об изменениях в документе
- WL 'ME_4E67A6B202BB' '4E57B8C2010F.ms.model.script' // Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
+   Seq: ( ME_4E6781010190_ME_4E67804803E4_R // Требования к тексту баллона об изменениях в документе
+ ME_4E67A6B202BB_ME_4E67804803E4_R // Текст баллона с информацией об изменениях должен иметь интерлиньяж 1.0
  )
  ; // Implements
  MELIST Attributes
@@ -9024,6 +9360,12 @@ ME ME_4E03627702CE
 
 ENDME // ME_4E03627702CE BackColor
 
+MEREF ME_4E675968018B_ME_4E03626E025A_R
+ MELINK Original WL 'ME_4E675968018B' '4E57B8C2010F.ms.model.script' // Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E675968018B_ME_4E03626E025A_R Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+
 %%ImplementedBy ME_4E675968018B ME_4E03626E025A
 
 ME ME_4E03626E025A
@@ -9037,7 +9379,7 @@ ME ME_4E03626E025A
  MELINK Parent HWL ME_4D872BBC03C0 // ChangesInfo
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E675968018B' '4E57B8C2010F.ms.model.script' // Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
+   Seq: ( ME_4E675968018B_ME_4E03626E025A_R // Для баллонов с информацией об изменениях текст фона должен быть RGB 237 239 243
  )
  ; // Implements
  MELIST Attributes
@@ -9088,6 +9430,12 @@ ME ME_4E1C5BEF0366
 
 ENDME // ME_4E1C5BEF0366 Finish
 
+MEREF ME_485649E10305_ME_4E1C5B6A0321_G
+ MELINK Original WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485649E10305_ME_4E1C5B6A0321_G HyperLink
+
 %%InheritedBy ME_485649E10305 ME_4E1C5B6A0321
 
 ME ME_4E1C5B6A0321
@@ -9101,7 +9449,7 @@ ME ME_4E1C5B6A0321
  MELINK Parent HWL ME_4E1C5A9101F1 // Hyperlinks
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+   Seq: ( ME_485649E10305_ME_4E1C5B6A0321_G // HyperLink
  )
  ; // Inherits
  MELIST Attributes
@@ -9192,6 +9540,12 @@ ME ME_4E25BE47020E
 
 ENDME // ME_4E25BE47020E Height
 
+MEREF ME_4E25CA3C008A_ME_4E2479B400A1_G
+ MELINK Original HWL ME_4E25CA3C008A // ImageListBitmap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E25CA3C008A_ME_4E2479B400A1_G ImageListBitmap
+
 %%InheritedBy ME_4E25CA3C008A ME_4E2479B400A1
 
 ME ME_4E2479B400A1
@@ -9205,7 +9559,7 @@ ME ME_4E2479B400A1
  MELINK Parent HWL ME_4E2475C30000 // Collapser
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E25CA3C008A // ImageListBitmap
+   Seq: ( ME_4E25CA3C008A_ME_4E2479B400A1_G // ImageListBitmap
  )
  ; // Inherits
  MELIST Attributes
@@ -9247,6 +9601,12 @@ ME ME_4E2475EB005E
 
 ENDME // ME_4E2475EB005E Finish
 
+MEREF ME_48564C5800DD_ME_4E2475C30000_G
+ MELINK Original WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48564C5800DD_ME_4E2475C30000_G ObjectSegment
+
 %%InheritedBy ME_48564C5800DD ME_4E2475C30000
 
 ME ME_4E2475C30000
@@ -9260,7 +9620,7 @@ ME ME_4E2475C30000
  MELINK Parent HWL ME_4E2475470229 // Objects
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+   Seq: ( ME_48564C5800DD_ME_4E2475C30000_G // ObjectSegment
  )
  ; // Inherits
  MELIST Attributes
@@ -9391,6 +9751,12 @@ ME ME_4E1C5FAB0018
 
 ENDME // ME_4E1C5FAB0018 Style
 
+MEREF ME_485683750360_ME_4E15E850023D_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4E15E850023D_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4E15E850023D
 
 ME ME_4E15E850023D
@@ -9404,7 +9770,7 @@ ME ME_4E15E850023D
  MELINK Parent HWL ME_4E1603AB005D // Header
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4E15E850023D_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -9426,6 +9792,12 @@ ME ME_4E15E850023D
 
 ENDME // ME_4E15E850023D HeaderC
 
+MEREF ME_4E67717E03BE_ME_4E1603AB005D_R
+ MELINK Original WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67717E03BE_ME_4E1603AB005D_R Требования на оформление баллона
+
 %%ImplementedBy ME_4E67717E03BE ME_4E1603AB005D
 
 ME ME_4E1603AB005D
@@ -9439,7 +9811,7 @@ ME ME_4E1603AB005D
  MELINK Parent HWL ME_4D872BBC03C0 // ChangesInfo
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+   Seq: ( ME_4E67717E03BE_ME_4E1603AB005D_R // Требования на оформление баллона
  )
  ; // Implements
  MELIST Children
@@ -9538,10 +9910,16 @@ ME ME_4E1DD110027C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E1C842402F0 // Hyperlink
  ;
- MEPROP Value '''script:оп::Документ_Справка_к_документу'''
- UP extprop:pas:Value '''script:оп::Документ_Справка_к_документу'''
+ MEPROP Value '''script:op::enDocument_opGetRelatedDocFrmAct'''
+ UP extprop:pas:Value '''script:op::enDocument_opGetRelatedDocFrmAct'''
 
 ENDME // ME_4E1DD110027C URL
+
+MEREF ME_485649E10305_ME_4E1C842402F0_G
+ MELINK Original WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485649E10305_ME_4E1C842402F0_G HyperLink
 
 %%InheritedBy ME_485649E10305 ME_4E1C842402F0
 
@@ -9556,7 +9934,7 @@ ME ME_4E1C842402F0
  MELINK Parent HWL ME_4E1C840D02F1 // Hyperlinks
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+   Seq: ( ME_485649E10305_ME_4E1C842402F0_G // HyperLink
  )
  ; // Inherits
  MELIST Attributes
@@ -9672,6 +10050,12 @@ ME ME_4E67801E02BC
 
 ENDME // ME_4E67801E02BC Style
 
+MEREF ME_485683750360_ME_4E15E86101A8_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4E15E86101A8_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4E15E86101A8
 
 ME ME_4E15E86101A8
@@ -9685,7 +10069,7 @@ ME ME_4E15E86101A8
  MELINK Parent HWL ME_4E1606400085 // Footer
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4E15E86101A8_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -9706,6 +10090,12 @@ ME ME_4E15E86101A8
 
 ENDME // ME_4E15E86101A8 FooterC
 
+MEREF ME_4E67717E03BE_ME_4E1606400085_R
+ MELINK Original WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67717E03BE_ME_4E1606400085_R Требования на оформление баллона
+
 %%ImplementedBy ME_4E67717E03BE ME_4E1606400085
 
 ME ME_4E1606400085
@@ -9719,7 +10109,7 @@ ME ME_4E1606400085
  MELINK Parent HWL ME_4D872BBC03C0 // ChangesInfo
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+   Seq: ( ME_4E67717E03BE_ME_4E1606400085_R // Требования на оформление баллона
  )
  ; // Implements
  MELIST Children
@@ -9877,6 +10267,12 @@ ME ME_5135ADD8012B
 
 ENDME // ME_5135ADD8012B VisibleToUser
 
+MEREF ME_4E67804803E4_ME_4D872BBC03C0_G
+ MELINK Original HWL ME_4E67804803E4 // TextForChangesInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67804803E4_ME_4D872BBC03C0_G TextForChangesInfo
+
 %%InheritedBy ME_4E67804803E4 ME_4D872BBC03C0
 
 ME ME_4D872BBC03C0
@@ -9891,7 +10287,7 @@ ME ME_4D872BBC03C0
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E67804803E4 // TextForChangesInfo
+   Seq: ( ME_4E67804803E4_ME_4D872BBC03C0_G // TextForChangesInfo
  )
  ; // Inherits
  MELIST Attributes
@@ -10018,6 +10414,18 @@ ME ME_50BDDFEC0097
 
 ENDME // ME_50BDDFEC0097 VisibleToUser
 
+MEREF ME_4E67804803E4_ME_4E6782620283_G
+ MELINK Original HWL ME_4E67804803E4 // TextForChangesInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67804803E4_ME_4E6782620283_G TextForChangesInfo
+
+MEREF ME_4E6783AA00A8_ME_4E6782620283_R
+ MELINK Original WL 'ME_4E6783AA00A8' '4E57B8C2010F.ms.model.script' // Требования к подзаголовку баллона об изменениях документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6783AA00A8_ME_4E6782620283_R Требования к подзаголовку баллона об изменениях документа
+
 %%ImplementedBy ME_4E6783AA00A8 ME_4E6782620283
 
 %%InheritedBy ME_4E67804803E4 ME_4E6782620283
@@ -10034,11 +10442,11 @@ ME ME_4E6782620283
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E67804803E4 // TextForChangesInfo
+   Seq: ( ME_4E67804803E4_ME_4E6782620283_G // TextForChangesInfo
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E6783AA00A8' '4E57B8C2010F.ms.model.script' // Требования к подзаголовку баллона об изменениях документа
+   Seq: ( ME_4E6783AA00A8_ME_4E6782620283_R // Требования к подзаголовку баллона об изменениях документа
  )
  ; // Implements
  MELIST Attributes
@@ -10157,6 +10565,12 @@ ME ME_50BDDFD7025F
 
 ENDME // ME_50BDDFD7025F VisibleToUser
 
+MEREF ME_4E67899301A9_ME_4E6789E50370_R
+ MELINK Original WL 'ME_4E67899301A9' '4E57B8C2010F.ms.model.script' // Требования к стилю заголовка группы контролов в КЗ
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67899301A9_ME_4E6789E50370_R Требования к стилю заголовка группы контролов в КЗ
+
 %%ImplementedBy ME_4E67899301A9 ME_4E6789E50370
 
 ME ME_4E6789E50370
@@ -10171,7 +10585,7 @@ ME ME_4E6789E50370
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E67899301A9' '4E57B8C2010F.ms.model.script' // Требования к стилю заголовка группы контролов в КЗ
+   Seq: ( ME_4E67899301A9_ME_4E6789E50370_R // Требования к стилю заголовка группы контролов в КЗ
  )
  ; // Implements
  MELIST Attributes
@@ -10304,6 +10718,12 @@ ME ME_50BDDFCB0208
 
 ENDME // ME_50BDDFCB0208 VisibleToUser
 
+MEREF ME_4E6789AF00CE_ME_4E678A1D02A4_R
+ MELINK Original WL 'ME_4E6789AF00CE' '4E57B8C2010F.ms.model.script' // Требования к стилю распахивающейся части диалогов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6789AF00CE_ME_4E678A1D02A4_R Требования к стилю распахивающейся части диалогов
+
 %%ImplementedBy ME_4E6789AF00CE ME_4E678A1D02A4
 
 ME ME_4E678A1D02A4
@@ -10318,7 +10738,7 @@ ME ME_4E678A1D02A4
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E6789AF00CE' '4E57B8C2010F.ms.model.script' // Требования к стилю распахивающейся части диалогов
+   Seq: ( ME_4E6789AF00CE_ME_4E678A1D02A4_R // Требования к стилю распахивающейся части диалогов
  )
  ; // Implements
  MELIST Attributes
@@ -10384,6 +10804,12 @@ ME ME_4E6F6780014D
 
 ENDME // ME_4E6F6780014D ViewKind
 
+MEREF ME_4E6F73DB01E0_ME_4E6F673C0218_R
+ MELINK Original WL 'ME_4E6F73DB01E0' '4E57B8C2010F.ms.model.script' // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6F73DB01E0_ME_4E6F673C0218_R Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+
 %%ImplementedBy ME_4E6F73DB01E0 ME_4E6F673C0218
 
 ME ME_4E6F673C0218
@@ -10397,7 +10823,7 @@ ME ME_4E6F673C0218
  MELINK Parent HWL ME_4E6DB33800BA // Hyperlink
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E6F73DB01E0' '4E57B8C2010F.ms.model.script' // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+   Seq: ( ME_4E6F73DB01E0_ME_4E6F673C0218_R // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
  )
  ; // Implements
  MELIST Attributes
@@ -10420,10 +10846,22 @@ ME ME_4E6DB37501FD
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E6DB33800BA // Hyperlink
  ;
- MEPROP Value '''script:оп::Документ_Графическая_копия_официальной_публикации'''
- UP extprop:pas:Value '''script:оп::Документ_Графическая_копия_официальной_публикации'''
+ MEPROP Value '''script:op::enDocument_opGetGraphicImage'''
+ UP extprop:pas:Value '''script:op::enDocument_opGetGraphicImage'''
 
 ENDME // ME_4E6DB37501FD URL
+
+MEREF ME_485649E10305_ME_4E6DB33800BA_G
+ MELINK Original WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485649E10305_ME_4E6DB33800BA_G HyperLink
+
+MEREF ME_4E6F73DB01E0_ME_4E6DB33800BA_R
+ MELINK Original WL 'ME_4E6F73DB01E0' '4E57B8C2010F.ms.model.script' // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6F73DB01E0_ME_4E6DB33800BA_R Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
 
 %%ImplementedBy ME_4E6F73DB01E0 ME_4E6DB33800BA
 
@@ -10440,11 +10878,11 @@ ME ME_4E6DB33800BA
  MELINK Parent HWL ME_4E6DB31301D1 // Hyperlinks
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+   Seq: ( ME_485649E10305_ME_4E6DB33800BA_G // HyperLink
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E6F73DB01E0' '4E57B8C2010F.ms.model.script' // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
+   Seq: ( ME_4E6F73DB01E0_ME_4E6DB33800BA_R // Ссылка на официальную публикацию должна иметь Hint "Официальная копия графической публикации (Интернет-ссылка)"
  )
  ; // Implements
  MELIST Attributes
@@ -10558,6 +10996,12 @@ ME ME_4E6E2F8E0053
 
 ENDME // ME_4E6E2F8E0053 Style
 
+MEREF ME_485683750360_ME_4E6DB2C300B9_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4E6DB2C300B9_G TextPara
+
 %%InheritedBy ME_485683750360 ME_4E6DB2C300B9
 
 ME ME_4E6DB2C300B9
@@ -10571,7 +11015,7 @@ ME ME_4E6DB2C300B9
  MELINK Parent HWL ME_4E6DB2B4003B // Header
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4E6DB2C300B9_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -10732,6 +11176,12 @@ ME ME_4E7B28480170
 
 ENDME // ME_4E7B28480170 Frame
 
+MEREF ME_4E7B27C60178_ME_4E7B27E9007E_R
+ MELINK Original WL 'ME_4E7B27C60178' '4E57B8C2010F.ms.model.script' // Стиль с подчеркиванием
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B27C60178_ME_4E7B27E9007E_R Стиль с подчеркиванием
+
 %%ImplementedBy ME_4E7B27C60178 ME_4E7B27E9007E
 
 ME ME_4E7B27E9007E
@@ -10746,7 +11196,7 @@ ME ME_4E7B27E9007E
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E7B27C60178' '4E57B8C2010F.ms.model.script' // Стиль с подчеркиванием
+   Seq: ( ME_4E7B27C60178_ME_4E7B27E9007E_R // Стиль с подчеркиванием
  )
  ; // Implements
  MELIST Attributes
@@ -11388,6 +11838,12 @@ ME ME_503C8D9B02EB
 
 ENDME // ME_503C8D9B02EB SpaceAfter
 
+MEREF ME_503C72FB02A9_ME_503C8D0202C0_G
+ MELINK Original HWL ME_503C72FB02A9 // HeaderAACLeftWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503C72FB02A9_ME_503C8D0202C0_G HeaderAACLeftWindow
+
 %%InheritedBy ME_503C72FB02A9 ME_503C8D0202C0
 
 ME ME_503C8D0202C0
@@ -11402,7 +11858,7 @@ ME ME_503C8D0202C0
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_503C72FB02A9 // HeaderAACLeftWindow
+   Seq: ( ME_503C72FB02A9_ME_503C8D0202C0_G // HeaderAACLeftWindow
  )
  ; // Inherits
  MELIST Attributes
@@ -12243,6 +12699,12 @@ ME ME_5514F3860380
 
 ENDME // ME_5514F3860380 Finish
 
+MEREF ME_485649E10305_ME_5514F34801D2_G
+ MELINK Original WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485649E10305_ME_5514F34801D2_G HyperLink
+
 %%InheritedBy ME_485649E10305 ME_5514F34801D2
 
 ME ME_5514F34801D2
@@ -12256,7 +12718,7 @@ ME ME_5514F34801D2
  MELINK Parent HWL ME_5514F1F50331 // Hyperlinks
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+   Seq: ( ME_485649E10305_ME_5514F34801D2_G // HyperLink
  )
  ; // Inherits
  MELIST Attributes
@@ -12399,6 +12861,12 @@ ME ME_551B9B6F011C
 
 ENDME // ME_551B9B6F011C FirstLineIndent
 
+MEREF ME_485683750360_ME_5514F1380248_G
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_5514F1380248_G TextPara
+
 %%InheritedBy ME_485683750360 ME_5514F1380248
 
 ME ME_5514F1380248
@@ -12412,7 +12880,7 @@ ME ME_5514F1380248
  MELINK Parent HWL ME_5514F0BA0105 // Header
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_5514F1380248_G // TextPara
  )
  ; // Inherits
  MELIST Attributes
@@ -12544,6 +13012,12 @@ ME ME_5534B61F00AA
 
 ENDME // ME_5534B61F00AA VisibleToUser
 
+MEREF ME_5513C4CD01F2_ME_5513C4FD0239_R
+ MELINK Original WL 'ME_5513C4CD01F2' '4E57B8C2010F.ms.model.script' // Должен быть стиль 'Сворачивающиеся блоки'
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5513C4CD01F2_ME_5513C4FD0239_R Должен быть стиль 'Сворачивающиеся блоки'
+
 %%ImplementedBy ME_5513C4CD01F2 ME_5513C4FD0239
 
 ME ME_5513C4FD0239
@@ -12557,7 +13031,7 @@ ME ME_5513C4FD0239
  MELINK Parent HWL ME_4860FD880077 // TextStyle
  ;
  MELIST Implements
-   Seq: ( WL 'ME_5513C4CD01F2' '4E57B8C2010F.ms.model.script' // Должен быть стиль 'Сворачивающиеся блоки'
+   Seq: ( ME_5513C4CD01F2_ME_5513C4FD0239_R // Должен быть стиль 'Сворачивающиеся блоки'
  )
  ; // Implements
  MELIST Attributes
@@ -12582,6 +13056,30 @@ ME ME_5513C4FD0239
 
 ENDME // ME_5513C4FD0239 ExpandedText
 
+MEREF ME_484D2CBA0213_ME_4860FD880077_R
+ MELINK Original WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D2CBA0213_ME_4860FD880077_R TextStyle
+
+MEREF ME_4E5D03C10190_ME_4860FD880077_R
+ MELINK Original WL 'ME_4E5D03C10190' '4E57B8C2010F.ms.model.script' // Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5D03C10190_ME_4860FD880077_R Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+
+MEREF ME_4E60E0AA027D_ME_4860FD880077_R
+ MELINK Original WL 'ME_4E60E0AA027D' '4E57B8C2010F.ms.model.script' // Стиль должен иметь возможность отображать шапку на одной строке с текстом
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E60E0AA027D_ME_4860FD880077_R Стиль должен иметь возможность отображать шапку на одной строке с текстом
+
+MEREF ME_4E7B2AD603D3_ME_4860FD880077_R
+ MELINK Original WL 'ME_4E7B2AD603D3' '4E57B8C2010F.ms.model.script' // Стандартные стили абзацев
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7B2AD603D3_ME_4860FD880077_R Стандартные стили абзацев
+
 %%ImplementedBy ME_484D2CBA0213 ME_4860FD880077
 %%ImplementedBy ME_4E5D03C10190 ME_4860FD880077
 %%ImplementedBy ME_4E60E0AA027D ME_4860FD880077
@@ -12598,10 +13096,10 @@ ME ME_4860FD880077
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Implements
-   Seq: ( WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
- WL 'ME_4E5D03C10190' '4E57B8C2010F.ms.model.script' // Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
- WL 'ME_4E60E0AA027D' '4E57B8C2010F.ms.model.script' // Стиль должен иметь возможность отображать шапку на одной строке с текстом
- WL 'ME_4E7B2AD603D3' '4E57B8C2010F.ms.model.script' // Стандартные стили абзацев
+   Seq: ( ME_484D2CBA0213_ME_4860FD880077_R // TextStyle
+ ME_4E5D03C10190_ME_4860FD880077_R // Стиль параграфа должен иметь возможность указания, что надо рисовать баллон в тексте документа
+ ME_4E60E0AA027D_ME_4860FD880077_R // Стиль должен иметь возможность отображать шапку на одной строке с текстом
+ ME_4E7B2AD603D3_ME_4860FD880077_R // Стандартные стили абзацев
  )
  ; // Implements
  MELIST Children
@@ -12655,6 +13153,12 @@ ME ME_4860FD880077
 
 ENDME // ME_4860FD880077 TextStyle
 
+MEREF ME_485806FC032D_ME_4ED4DDA10234_G
+ MELINK Original HWL ME_485806FC032D // ControlsBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485806FC032D_ME_4ED4DDA10234_G ControlsBlock
+
 %%InheritedBy ME_485806FC032D ME_4ED4DDA10234
 
 ME ME_4ED4DDA10234
@@ -12668,7 +13172,7 @@ ME ME_4ED4DDA10234
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_485806FC032D // ControlsBlock
+   Seq: ( ME_485806FC032D_ME_4ED4DDA10234_G // ControlsBlock
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -12699,6 +13203,12 @@ ME ME_52331F670368
 
 ENDME // ME_52331F670368 AccGroups
 
+MEREF ME_4857B5260267_ME_52331F510099_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_52331F510099_G Document
+
 %%InheritedBy ME_4857B5260267 ME_52331F510099
 
 ME ME_52331F510099
@@ -12713,7 +13223,7 @@ ME ME_52331F510099
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_52331F510099_G // Document
  )
  ; // Inherits
  MELIST Attributes
@@ -12729,6 +13239,12 @@ ME ME_52331F510099
 
 ENDME // ME_52331F510099 DocumentQuery
 
+MEREF ME_4857B5260267_ME_4857CC5C024A_G
+ MELINK Original HWL ME_4857B5260267 // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B5260267_ME_4857CC5C024A_G Document
+
 %%InheritedBy ME_4857B5260267 ME_4857CC5C024A
 
 ME ME_4857CC5C024A
@@ -12743,7 +13259,7 @@ ME ME_4857CC5C024A
  MELINK Parent HWL ME_484CD009023D // evNative
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4857B5260267 // Document
+   Seq: ( ME_4857B5260267_ME_4857CC5C024A_G // Document
  )
  ; // Inherits
  UP "Defines CompareTagWithInt" false
@@ -12822,6 +13338,18 @@ ME ME_BC1B78C60A26
 
 ENDME // ME_BC1B78C60A26 
 
+MEREF ME_484A4725001D_ME_484CD009023D_G
+ MELINK Original WL 'ME_484A4725001D' '484A470100DD.ms.model.script' // evdNative
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484A4725001D_ME_484CD009023D_G evdNative
+
+MEREF ME_4E67A4B600FB_ME_484CD009023D_R
+ MELINK Original WL 'ME_4E67A4B600FB' '4E57B8C2010F.ms.model.script' // Стандартная схема документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67A4B600FB_ME_484CD009023D_R Стандартная схема документа
+
 %%ImplementedBy ME_4E67A4B600FB ME_484CD009023D
 
 %%InheritedBy ME_484A4725001D ME_484CD009023D
@@ -12838,11 +13366,11 @@ ME ME_484CD009023D
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_484A4725001D' '484A470100DD.ms.model.script' // evdNative
+   Seq: ( ME_484A4725001D_ME_484CD009023D_G // evdNative
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E67A4B600FB' '4E57B8C2010F.ms.model.script' // Стандартная схема документа
+   Seq: ( ME_4E67A4B600FB_ME_484CD009023D_R // Стандартная схема документа
  )
  ; // Implements
  MELIST Children
@@ -12921,265 +13449,11 @@ ME ME_484CD009023D
 
 ENDME // ME_484CD009023D evNative
 
-ME ME_48DD1DF402CE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
+MEREF ME_4858116B0355_ME_485812E00101_R
+ MELINK Original HWL ME_4858116B0355 // BitmapPara
  ;
- MELINK Target WL? 'ME_4739B8DE0134' // ExprDraw
- ;
-
-ENDME // ME_48DD1DF402CE 
-
-ME ME_48DD1E070006
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL? 'ME_4739A8C90148' // ExprMake
- ;
-
-ENDME // ME_48DD1E070006 
-
-ME ME_48DD1E3F0318
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_48DD1E3F0318 
-
-ME ME_48DD21AA0397
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL 'ME_48DD21170351' '48DD20E400C2.ms.model.script' // Tl3SizeableGraphicContainerPrim
- ;
-
-ENDME // ME_48DD21AA0397 
-
-ME ME_48DD237D0074
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL? 'ME_4773D64E036C' // l3Base
- ;
-
-ENDME // ME_48DD237D0074 
-
-ME ME_48DD2394020F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL 'ME_487CCDDF01FE' '467C0CAA02AB.ms.model.script' // Il3Renderer
- ;
-
-ENDME // ME_48DD2394020F 
-
-ME ME_4F5626B3037D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792EE01CB // WevFormula
- ;
- MELINK Target WL 'ME_4F56262B01E8' '47877EB202FB.ms.model.script' // EAssertionFailed
- ;
-
-ENDME // ME_4F5626B3037D 
-
-%%ImplementedBy ME_4857926501CB ME_485792EE01CB
-
-%%InheritedBy ME_484FD34600BA ME_485792EE01CB
-
-ME ME_485792EE01CB
- MEPROP UID '485792EE01CB'
- MEPROP Name 'WevFormula'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4857926501CB // Formula
- )
- ; // Implements
- MELIST Dependencies
-   Seq: ( ME_48DD1DF402CE // ExprDraw
- ME_48DD1E070006 // ExprMake
- ME_48DD1E3F0318 // Tk2TagID
- ME_48DD21AA0397 // Tl3SizeableGraphicContainerPrim
- ME_48DD237D0074 // l3Base
- ME_48DD2394020F // Il3Renderer
- ME_4F5626B3037D // EAssertionFailed
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '15.12.2002 17:34'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evFormula_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evFormula_Wrap'
-
-ENDME // ME_485792EE01CB WevFormula
-
-ME ME_4857B611030D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857B5D901D7 // WevDocument
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4857B611030D 
-
-ME ME_4857B7440010
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857B5D901D7 // WevDocument
- ;
- MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
- ;
-
-ENDME // ME_4857B7440010 
-
-ME ME_49AE643D014A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857B5D901D7 // WevDocument
- ;
- MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
- ;
-
-ENDME // ME_49AE643D014A 
-
-ME ME_4857A995029E_ME_4857B5D901D7
- MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4857A995029E_ME_4857B5D901D7 GetAtomData
-
-%%ImplementedBy ME_4857B5260267 ME_4857B5D901D7
-
-%%InheritedBy ME_484FD34600BA ME_4857B5D901D7
-
-ME ME_4857B5D901D7
- MEPROP UID '4857B5D901D7'
- MEPROP Name 'WevDocument'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4857B5260267 // Document
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_4857A995029E_ME_4857B5D901D7 // GetAtomData
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4857B611030D // Tk2TagID
- ME_4857B7440010 // Sub Layers
- ME_49AE643D014A // Para
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '16.04.1998 10:29'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocument_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evDocument_Wrap'
-
-ENDME // ME_4857B5D901D7 WevDocument
-
-ME ME_4857EB380059
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EB02013C // WevReqRow
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4857EB380059 
-
-ME ME_4857ECAE01E9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EB02013C // WevReqRow
- ;
- MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
- ;
-
-ENDME // ME_4857ECAE01E9 
-
-ME ME_4857A995029E_ME_4857EB02013C
- MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4857A995029E_ME_4857EB02013C GetAtomData
-
-%%ImplementedBy ME_4857EA97011D ME_4857EB02013C
-
-%%InheritedBy ME_484FD34600BA ME_4857EB02013C
-
-ME ME_4857EB02013C
- MEPROP UID '4857EB02013C'
- MEPROP Name 'WevReqRow'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4857EA97011D // ReqRow
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_4857A995029E_ME_4857EB02013C // GetAtomData
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4857EB380059 // Tk2TagID
- ME_4857ECAE01E9 // InevPara
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqRow_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evReqRow_Wrap'
-
-ENDME // ME_4857EB02013C WevReqRow
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4858116B0355_ME_485812E00101_R BitmapPara
 
 %%ImplementedBy ME_4858116B0355 ME_485812E00101
 
@@ -13194,13 +13468,19 @@ ME ME_485812E00101
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Implements
-   Seq: ( HWL ME_4858116B0355 // BitmapPara
+   Seq: ( ME_4858116B0355_ME_485812E00101_R // BitmapPara
  )
  ; // Implements
 
 ENDME // ME_485812E00101 TIevBitmapPara
 
 FORWARD ME_4868BE17039B
+
+MEREF ME_4860FD880077_ME_4868BEEB0276_R
+ MELINK Original HWL ME_4860FD880077 // TextStyle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4860FD880077_ME_4868BEEB0276_R TextStyle
 
 %%ImplementedBy ME_4860FD880077 ME_4868BEEB0276
 
@@ -13215,7 +13495,7 @@ ME ME_4868BEEB0276
  MELINK Parent HWL ME_4868BE17039B // Everest
  ;
  MELIST Implements
-   Seq: ( HWL ME_4860FD880077 // TextStyle
+   Seq: ( ME_4860FD880077_ME_4868BEEB0276_R // TextStyle
  )
  ; // Implements
  UP "Defines CompareTagWithInt" false
@@ -13226,6 +13506,12 @@ ME ME_4868BEEB0276
  UP extprop:pas:ElementPrefix 'evr_'
 
 ENDME // ME_4868BEEB0276 TextStyle
+
+MEREF ME_484CD009023D_ME_4868BE17039B_G
+ MELINK Original HWL ME_484CD009023D // evNative
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CD009023D_ME_4868BE17039B_G evNative
 
 %%InheritedBy ME_484CD009023D ME_4868BE17039B
 
@@ -13240,7 +13526,7 @@ ME ME_4868BE17039B
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Inherits
-   Seq: ( HWL ME_484CD009023D // evNative
+   Seq: ( ME_484CD009023D_ME_4868BE17039B_G // evNative
  )
  ; // Inherits
  MELIST Children
@@ -13259,6 +13545,12 @@ ME ME_4868BE17039B
 
 ENDME // ME_4868BE17039B Everest
 
+MEREF ME_4868BE17039B_ME_4860F3AC01F4_G
+ MELINK Original HWL ME_4868BE17039B // Everest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868BE17039B_ME_4860F3AC01F4_G Everest
+
 %%InheritedBy ME_4868BE17039B ME_4860F3AC01F4
 
 ME ME_4860F3AC01F4
@@ -13272,7 +13564,7 @@ ME ME_4860F3AC01F4
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868BE17039B // Everest
+   Seq: ( ME_4868BE17039B_ME_4860F3AC01F4_G // Everest
  )
  ; // Inherits
  UP "elements prefix" 'my'
@@ -13304,6 +13596,12 @@ ME ME_4858EE27017C
 
 ENDME // ME_4858EE27017C Object
 
+MEREF ME_4849298102AC_ME_4858EE130209_G
+ MELINK Original WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4849298102AC_ME_4858EE130209_G Tag
+
 %%InheritedBy ME_4849298102AC ME_4858EE130209
 
 ME ME_4858EE130209
@@ -13317,7 +13615,7 @@ ME ME_4858EE130209
  MELINK Parent HWL ME_4858ED4C002C // evArchi
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4849298102AC' '4849284D0067.ms.model.script' // Tag
+   Seq: ( ME_4849298102AC_ME_4858EE130209_G // Tag
  )
  ; // Inherits
  MELIST Attributes
@@ -13325,7 +13623,7 @@ ME ME_4858EE130209
  )
  ; // Attributes
  MELIST Implementors
-   Seq: ( WL 'ME_4858EE3A00A3' '53D258F1004F.ms.model.script' // TevList
+   Seq: ( WL? 'ME_4858EE3A00A3' // TevList
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -13340,6 +13638,12 @@ ME ME_4858EE130209
 
 ENDME // ME_4858EE130209 List
 
+MEREF ME_4868BEEB0276_ME_4868C27D02F6_R
+ MELINK Original HWL ME_4868BEEB0276 // TextStyle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868BEEB0276_ME_4868C27D02F6_R TextStyle
+
 %%ImplementedBy ME_4868BEEB0276 ME_4868C27D02F6
 
 ME ME_4868C27D02F6
@@ -13353,7 +13657,7 @@ ME ME_4868C27D02F6
  MELINK Parent HWL ME_4858ED4C002C // evArchi
  ;
  MELIST Implements
-   Seq: ( HWL ME_4868BEEB0276 // TextStyle
+   Seq: ( ME_4868BEEB0276_ME_4868C27D02F6_R // TextStyle
  )
  ; // Implements
  UP "Defines CompareTagWithInt" false
@@ -13381,6 +13685,12 @@ ME ME_4E96B5C302F1
 
 ENDME // ME_4E96B5C302F1 PrintFontSize
 
+MEREF ME_485683750360_ME_4E96B57D02DC_R
+ MELINK Original HWL ME_485683750360 // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_4E96B57D02DC_R TextPara
+
 %%ImplementedBy ME_485683750360 ME_4E96B57D02DC
 
 ME ME_4E96B57D02DC
@@ -13394,7 +13704,7 @@ ME ME_4E96B57D02DC
  MELINK Parent HWL ME_4858ED4C002C // evArchi
  ;
  MELIST Implements
-   Seq: ( HWL ME_485683750360 // TextPara
+   Seq: ( ME_485683750360_ME_4E96B57D02DC_R // TextPara
  )
  ; // Implements
  MELIST Attributes
@@ -13410,6 +13720,12 @@ ME ME_4E96B57D02DC
 
 ENDME // ME_4E96B57D02DC TextPara
 
+MEREF ME_4868BE17039B_ME_4858ED4C002C_G
+ MELINK Original HWL ME_4868BE17039B // Everest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868BE17039B_ME_4858ED4C002C_G Everest
+
 %%InheritedBy ME_4868BE17039B ME_4858ED4C002C
 
 ME ME_4858ED4C002C
@@ -13424,7 +13740,7 @@ ME ME_4858ED4C002C
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868BE17039B // Everest
+   Seq: ( ME_4868BE17039B_ME_4858ED4C002C_G // Everest
  )
  ; // Inherits
  MELIST Children
@@ -13641,6 +13957,12 @@ ME ME_4868D2DB01B8
 
 ENDME // ME_4868D2DB01B8 Name
 
+MEREF ME_4868D22D0228_ME_4868D2C1005F_G
+ MELINK Original HWL ME_4868D22D0228 // MainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868D22D0228_ME_4868D2C1005F_G MainMenu
+
 %%InheritedBy ME_4868D22D0228 ME_4868D2C1005F
 
 ME ME_4868D2C1005F
@@ -13655,7 +13977,7 @@ ME ME_4868D2C1005F
  MELINK Parent HWL ME_4868D10D0286 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868D22D0228 // MainMenu
+   Seq: ( ME_4868D22D0228_ME_4868D2C1005F_G // MainMenu
  )
  ; // Inherits
  MELIST Attributes
@@ -13706,6 +14028,12 @@ ME ME_4868D35E01D2
 
 ENDME // ME_4868D35E01D2 Name
 
+MEREF ME_4868D22D0228_ME_4868D31F03D3_G
+ MELINK Original HWL ME_4868D22D0228 // MainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868D22D0228_ME_4868D31F03D3_G MainMenu
+
 %%InheritedBy ME_4868D22D0228 ME_4868D31F03D3
 
 ME ME_4868D31F03D3
@@ -13720,7 +14048,7 @@ ME ME_4868D31F03D3
  MELINK Parent HWL ME_4868D10D0286 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868D22D0228 // MainMenu
+   Seq: ( ME_4868D22D0228_ME_4868D31F03D3_G // MainMenu
  )
  ; // Inherits
  MELIST Attributes
@@ -13815,6 +14143,12 @@ ME ME_4868D3D500C4
 
 ENDME // ME_4868D3D500C4 Name
 
+MEREF ME_4868D22D0228_ME_4868D3B1019B_G
+ MELINK Original HWL ME_4868D22D0228 // MainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868D22D0228_ME_4868D3B1019B_G MainMenu
+
 %%InheritedBy ME_4868D22D0228 ME_4868D3B1019B
 
 ME ME_4868D3B1019B
@@ -13829,7 +14163,7 @@ ME ME_4868D3B1019B
  MELINK Parent HWL ME_4868D10D0286 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868D22D0228 // MainMenu
+   Seq: ( ME_4868D22D0228_ME_4868D3B1019B_G // MainMenu
  )
  ; // Inherits
  MELIST Attributes
@@ -13916,6 +14250,12 @@ ME ME_4868D45B00DA
 
 ENDME // ME_4868D45B00DA Name
 
+MEREF ME_4868D3B1019B_ME_4868D43803C0_G
+ MELINK Original HWL ME_4868D3B1019B // MainMenuHeader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868D3B1019B_ME_4868D43803C0_G MainMenuHeader
+
 %%InheritedBy ME_4868D3B1019B ME_4868D43803C0
 
 ME ME_4868D43803C0
@@ -13930,7 +14270,7 @@ ME ME_4868D43803C0
  MELINK Parent HWL ME_4868D10D0286 // TextStyle
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868D3B1019B // MainMenuHeader
+   Seq: ( ME_4868D3B1019B_ME_4868D43803C0_G // MainMenuHeader
  )
  ; // Inherits
  MELIST Attributes
@@ -13961,6 +14301,12 @@ ME ME_4868DA18000E
 
 ENDME // ME_4868DA18000E 
 
+MEREF ME_4868BEEB0276_ME_4868D10D0286_R
+ MELINK Original HWL ME_4868BEEB0276 // TextStyle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868BEEB0276_ME_4868D10D0286_R TextStyle
+
 %%ImplementedBy ME_4868BEEB0276 ME_4868D10D0286
 
 ME ME_4868D10D0286
@@ -13974,7 +14320,7 @@ ME ME_4868D10D0286
  MELINK Parent HWL ME_4868D02D0352 // Design
  ;
  MELIST Implements
-   Seq: ( HWL ME_4868BEEB0276 // TextStyle
+   Seq: ( ME_4868BEEB0276_ME_4868D10D0286_R // TextStyle
  )
  ; // Implements
  MELIST Children
@@ -14014,6 +14360,12 @@ ME ME_30F33E09B380
 
 ENDME // ME_30F33E09B380 
 
+MEREF ME_4868BE17039B_ME_4868D02D0352_G
+ MELINK Original HWL ME_4868BE17039B // Everest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4868BE17039B_ME_4868D02D0352_G Everest
+
 %%InheritedBy ME_4868BE17039B ME_4868D02D0352
 
 ME ME_4868D02D0352
@@ -14028,7 +14380,7 @@ ME ME_4868D02D0352
  MELINK Parent HWL ME_48492FC0029D // Standard
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4868BE17039B // Everest
+   Seq: ( ME_4868BE17039B_ME_4868D02D0352_G // Everest
  )
  ; // Inherits
  MELIST Children
@@ -14052,794 +14404,6 @@ ME ME_4868D02D0352
 
 ENDME // ME_4868D02D0352 Design
 
-FORWARD ME_4CED304B0270
-
-FORWARD ME_4CED30D901C7
-
-ME ME_4CED30F8020E
- MEPROP Name 'aTag'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_4CED30F8020E aTag
-
-ME ME_4CED30EC029E
- MEPROP UID '4CED30EC029E'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CED30D901C7 // ForceStore
- ;
- MELIST Parameters
-   Seq: ( ME_4CED30F8020E // aTag
- )
- ; // Parameters
-
-ENDME // ME_4CED30EC029E DoIt
-
-ME ME_4CED30D901C7
- MEPROP UID '4CED30D901C7'
- MEPROP Name 'ForceStore'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CED304B0270 // TevCommentStorer
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CED30EC029E // DoIt
- )
- ; // Operations
- UP "is static" true
-
-ENDME // ME_4CED30D901C7 ForceStore
-
-ME ME_4CED304B0270
- MEPROP UID '4CED304B0270'
- MEPROP Name 'TevCommentStorer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Объект умеющий сохранять комментарии' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CED30D901C7 // ForceStore
- )
- ; // Operations
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '24.11.2010 18:34'
- UP extprop:rc:SelfName 'CommentStorer'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CED304B0270 TevCommentStorer
-
-%%InheritedBy ME_4CED304B0270 ME_4CED308601B6
-
-ME ME_4CED308601B6
- MEPROP UID '4CED308601B6'
- MEPROP Name 'RevCommentStorer'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4CED304B0270 // TevCommentStorer
- )
- ; // Inherits
- UP "isClassRef" true
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CED308601B6 RevCommentStorer
-
-%%InheritedBy ME_4CEE60C90052 ME_4CEE61DE01C6
-
-ME ME_4CEE61DE01C6
- MEPROP UID '4CEE61DE01C6'
- MEPROP Name 'TevCommentModifier'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4CEE60C90052' '484A470100DD.ms.model.script' // TevdParaModifier
- )
- ; // Inherits
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '25.11.2010 16:17'
- UP extprop:rc:SelfName 'CommentModifier'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CEE61DE01C6 TevCommentModifier
-
-%%InheritedBy ME_4CEE61DE01C6 ME_4CEE621101B2
-
-ME ME_4CEE621101B2
- MEPROP UID '4CEE621101B2'
- MEPROP Name 'RevCommentModifier'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4CEE61DE01C6 // TevCommentModifier
- )
- ; // Inherits
- UP "isClassRef" true
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CEE621101B2 RevCommentModifier
-
-ME ME_4CED30A00102
- MEPROP UID '4CED30A00102'
- MEPROP Name 'g_CommentStorer'
- MEPROP Class class_Attribute
- MELINK Stereotype st_static::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELINK Target HWL ME_4CED308601B6 // RevCommentStorer
- ;
- UP extprop:pas:Value 'nil'
-
-ENDME // ME_4CED30A00102 g_CommentStorer
-
-ME ME_4CEE6226037A
- MEPROP UID '4CEE6226037A'
- MEPROP Name 'g_CommentModifier'
- MEPROP Class class_Attribute
- MELINK Stereotype st_static::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4CED2FED0255 // WevCommentPara
- ;
- MELINK Target HWL ME_4CEE621101B2 // RevCommentModifier
- ;
- UP extprop:pas:Value 'nil'
-
-ENDME // ME_4CEE6226037A g_CommentModifier
-
-ME ME_4CED2E7E010A_ME_4CED2FED0255
- MELINK Original WL 'ME_4CED2E7E010A' '47AC6F0B025E.ms.model.script' // ForceStore
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4CED2E7E010A_ME_4CED2FED0255 ForceStore
-
-ME ME_4CEE5D3002FC_ME_4CED2FED0255
- MELINK Original WL 'ME_4CEE5D3002FC' '47AC6F0B025E.ms.model.script' // MarkModified
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4CEE5D3002FC_ME_4CED2FED0255 MarkModified
-
-%%ImplementedBy ME_4857C9C20131 ME_4CED2FED0255
-
-%%InheritedBy ME_484FD34600BA ME_4CED2FED0255
-
-ME ME_4CED2FED0255
- MEPROP UID '4CED2FED0255'
- MEPROP Name 'WevCommentPara'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Обёртка для CommentPara' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4857C9C20131 // CommentPara
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_4CED30A00102 // g_CommentStorer
- HWL ME_4CEE6226037A // g_CommentModifier
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_4CED2E7E010A_ME_4CED2FED0255 // ForceStore
- ME_4CEE5D3002FC_ME_4CED2FED0255 // MarkModified
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_4CED304B0270 // TevCommentStorer
- HWL ME_4CED308601B6 // RevCommentStorer
- HWL ME_4CEE61DE01C6 // TevCommentModifier
- HWL ME_4CEE621101B2 // RevCommentModifier
- )
- ; // Children
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '24.11.2010 18:32'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evCommentPara_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evCommentPara_Wrap'
-
-ENDME // ME_4CED2FED0255 WevCommentPara
-
-ME ME_4D63FD960019
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4D63FD5001D5 // WevReqGroup
- ;
- MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
- ;
-
-ENDME // ME_4D63FD960019 
-
-ME ME_4D63FDF801A7
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4D63FD5001D5 // WevReqGroup
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4D63FDF801A7 
-
-ME ME_48DD0CE60313_ME_4D63FD5001D5
- MELINK Original WL 'ME_48DD0CE60313' '47AC6F0B025E.ms.model.script' // PreGetAtomData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48DD0CE60313_ME_4D63FD5001D5 PreGetAtomData
-
-%%ImplementedBy ME_4D63B8AF035D ME_4D63FD5001D5
-
-%%InheritedBy ME_484FD34600BA ME_4D63FD5001D5
-
-ME ME_4D63FD5001D5
- MEPROP UID '4D63FD5001D5'
- MEPROP Name 'WevReqGroup'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4D63B8AF035D // ReqGroup
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_48DD0CE60313_ME_4D63FD5001D5 // PreGetAtomData
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4D63FD960019 // Colors
- ME_4D63FDF801A7 // Tk2TagID
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '22.02.2011 21:17'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroup_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evReqGroup_Wrap'
-
-ENDME // ME_4D63FD5001D5 WevReqGroup
-
-FORWARD ME_4F4B991C00A3
-
-FORWARD ME_4F4B9CB401AF
-
-ME ME_4F4B9D07000F
- MEPROP Name 'aTag'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_4F4B9D07000F aTag
-
-ME ME_4F4B9D070057
- MEPROP Name 'aProp'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4A522D130096' '47AC6F0B025E.ms.model.script' // Tk2Prop
- ;
-
-ENDME // ME_4F4B9D070057 aProp
-
-ME ME_4F4B9D07009E
- MEPROP Name 'Data'
- MEPROP Class class_Parameter
- MELINK Stereotype st_out ;
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_4F4B9D07009E Data
-
-ME ME_4F4B9CC700E5
- MEPROP UID '4F4B9CC700E5'
- MEPROP Name 'function DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F4B9CB401AF // GetPicture
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_4F4B9D07000F // aTag
- ME_4F4B9D070057 // aProp
- ME_4F4B9D07009E // Data
- )
- ; // Parameters
-
-ENDME // ME_4F4B9CC700E5 function DoIt
-
-ME ME_4F4B9CB401AF
- MEPROP UID '4F4B9CB401AF'
- MEPROP Name 'GetPicture'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
- ;
- MELIST Operations
-   Seq: ( HWL ME_4F4B9CC700E5 // function DoIt
- )
- ; // Operations
- UP "is static" true
-
-ENDME // ME_4F4B9CB401AF GetPicture
-
-ME ME_4F4B991C00A3
- MEPROP UID '4F4B991C00A3'
- MEPROP Name 'TevBitmapParaPictureGetter'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELIST Operations
-   Seq: ( HWL ME_4F4B9CB401AF // GetPicture
- )
- ; // Operations
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP extprop:rc:SelfName 'BitmapParaPictureGetter'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F4B991C00A3 TevBitmapParaPictureGetter
-
-%%InheritedBy ME_4F4B991C00A3 ME_4F4B9C7B036A
-
-ME ME_4F4B9C7B036A
- MEPROP UID '4F4B9C7B036A'
- MEPROP Name 'RevBitmapParaPictureGetter'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
- )
- ; // Inherits
- UP "isClassRef" true
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F4B9C7B036A RevBitmapParaPictureGetter
-
-ME ME_4F4B9C920165
- MEPROP UID '4F4B9C920165'
- MEPROP Name 'g_BitmapParaPictureGetter'
- MEPROP Class class_Attribute
- MELINK Stereotype st_static::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target HWL ME_4F4B9C7B036A // RevBitmapParaPictureGetter
- ;
- UP extprop:pas:Value 'nil'
-
-ENDME // ME_4F4B9C920165 g_BitmapParaPictureGetter
-
-ME ME_48DD1EA802E7
- MEPROP Name 'AE'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_48DD1EA802E7 AE
-
-ME ME_48DD1EA8031A
- MEPROP Name 'aProp'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47AC6F6A00FA' '47AC6F0B025E.ms.model.script' // Tk2CustomProperty
- ;
-
-ENDME // ME_48DD1EA8031A aProp
-
-ME ME_48DD201C011F
- MEPROP Name 'theData'
- MEPROP Class class_Parameter
- MELINK Stereotype st_out ;
- MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_48DD201C011F theData
-
-ME ME_48DD1AB50143
- MEPROP UID '48DD1AB50143'
- MEPROP Name 'DoGetAtomData'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_48DD1EA802E7 // AE
- ME_48DD1EA8031A // aProp
- ME_48DD201C011F // theData
- )
- ; // Parameters
-
-ENDME // ME_48DD1AB50143 DoGetAtomData
-
-ME ME_48E652C4031C
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_48E652C4031C 
-
-ME ME_48E652D60306
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL? 'ME_47877EB202FB' // SysUtils
- ;
-
-ENDME // ME_48E652D60306 
-
-ME ME_48E652EA01F7
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- ;
-
-ENDME // ME_48E652EA01F7 
-
-ME ME_48E6531A0295
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
- ;
-
-ENDME // ME_48E6531A0295 
-
-ME ME_48E653830284
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
- ;
-
-ENDME // ME_48E653830284 
-
-ME ME_48E653A50048
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL? 'ME_4773D64E036C' // l3Base
- ;
-
-ENDME // ME_48E653A50048 
-
-ME ME_48E653EA010E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
- ;
-
-ENDME // ME_48E653EA010E 
-
-ME ME_48E65598026A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL? 'ME_47A080670100' // l3Stream
- ;
-
-ENDME // ME_48E65598026A 
-
-ME ME_5799C1E103B4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_53B546BC00BF' '53B5469D0049.ms.model.script' // Tk2RawData
- ;
-
-ENDME // ME_5799C1E103B4 
-
-ME ME_5799C9AC01C5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_485792C1014E // WevBitmapPara
- ;
- MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
- ;
-
-ENDME // ME_5799C9AC01C5 
-
-ME ME_4857A995029E_ME_485792C1014E
- MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4857A995029E_ME_485792C1014E GetAtomData
-
-ME ME_48DD0CE60313_ME_485792C1014E
- MELINK Original WL 'ME_48DD0CE60313' '47AC6F0B025E.ms.model.script' // PreGetAtomData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48DD0CE60313_ME_485792C1014E PreGetAtomData
-
-%%ImplementedBy ME_4858116B0355 ME_485792C1014E
-
-%%InheritedBy ME_484FD34600BA ME_485792C1014E
-
-ME ME_485792C1014E
- MEPROP UID '485792C1014E'
- MEPROP Name 'WevBitmapPara'
- MEPROP Class class_Class
- MELINK Stereotype st_Wrapper ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Wrapper для параграфов с картинками.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_484FD34600BA' '484A470100DD.ms.model.script' // WevPara
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_4858116B0355 // BitmapPara
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_4F4B9C920165 // g_BitmapParaPictureGetter
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_48DD1AB50143 // DoGetAtomData
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_4857A995029E_ME_485792C1014E // GetAtomData
- ME_48DD0CE60313_ME_485792C1014E // PreGetAtomData
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_4F4B991C00A3 // TevBitmapParaPictureGetter
- HWL ME_4F4B9C7B036A // RevBitmapParaPictureGetter
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_48E652C4031C // Tk2TagID
- ME_48E652D60306 // SysUtils
- ME_48E652EA01F7 // TevBitmapParaBitmapContainer
- ME_48E6531A0295 // IStream
- ME_48E653830284 // TStream$Stub
- ME_48E653A50048 // l3Base
- ME_48E653EA010E // Il3Bitmap
- ME_48E65598026A // l3Stream
- ME_5799C1E103B4 // Tk2RawData
- ME_5799C9AC01C5 // Long
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '25.02.2000 10:40'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapPara_Wrap.pas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evBitmapPara_Wrap'
-
-ENDME // ME_485792C1014E WevBitmapPara
-
-FORWARD ME_53D8DFA400E2
-
-ME ME_53D8E05F01B6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_53CE6449012F' '478CF8070260.ms.model.script' // OldGUIDS
- ;
-
-ENDME // ME_53D8E05F01B6 
-
-ME ME_53D8E0850396
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_47F5DAEB0007' '49A58A1A03C4.ms.model.script' // Tk2ToolPrim
- ;
-
-ENDME // ME_53D8E0850396 
-
-ME ME_53D8E0AC01C5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
- ;
-
-ENDME // ME_53D8E0AC01C5 
-
-ME ME_53D8E0DC017E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_47C696D10122' '47C5207602D1.ms.model.script' // InevRangeFactory
- ;
-
-ENDME // ME_53D8E0DC017E 
-
-ME ME_53D8E0FA00F7
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
- ;
-
-ENDME // ME_53D8E0FA00F7 
-
-ME ME_53D8E12802DC
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
- ;
-
-ENDME // ME_53D8E12802DC 
-
-ME ME_53D8E1600274
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_53D8E1600274 
-
-ME ME_53D8E1EB02B3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
- ;
- MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
- ;
-
-ENDME // ME_53D8E1EB02B3 
-
-ME ME_53D8E1970262_ME_53D8DFA400E2
- MELINK Original WL 'ME_53D8E1970262' '49A58A1A03C4.ms.model.script' // PreCOMQueryTool
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_53D8E1970262_ME_53D8DFA400E2 PreCOMQueryTool
-
-%%InheritedBy ME_4D63C2420229 ME_53D8DFA400E2
-
-ME ME_53D8DFA400E2
- MEPROP UID '53D8DFA400E2'
- MEPROP Name 'TevParaInterfaceFactoryPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48492FC0029D // Standard
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4D63C2420229' '49A58A1A03C4.ms.model.script' // Tk2InterfaceFactory
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_53D8E1970262_ME_53D8DFA400E2 // PreCOMQueryTool
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_53D8E05F01B6 // OldGUIDS
- ME_53D8E0850396 // Tk2ToolPrim
- ME_53D8E0AC01C5 // InevPoint
- ME_53D8E0DC017E // InevRangeFactory
- ME_53D8E0FA00F7 // InevStorable
- ME_53D8E12802DC // DataObject
- ME_53D8E1600274 // FreeAndNil
- ME_53D8E1EB02B3 // l3InterfacesMisc
- )
- ; // Dependencies
- MELIST Injected
-   Seq: ( WL 'ME_53D8DFF80119' '4A2D30DB039E.ms.model.script' // TevRange
- WL 'ME_53D8E012022F' '47E3DF460095.ms.model.script' // TevCursor
- )
- ; // Injected
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaInterfaceFactoryPrim.pas'
- UP extprop:rc:SelfName 'ParaInterfaceFactoryPrim'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evParaInterfaceFactoryPrim'
-
-ENDME // ME_53D8DFA400E2 TevParaInterfaceFactoryPrim
-
 ME ME_48492FC0029D
  MEPROP UID '48492FC0029D'
  MEPROP Name 'Standard'
@@ -14852,21 +14416,21 @@ ME ME_48492FC0029D
  MELINK Parent WL? 'ME_4797632D0273' // Everest
  ;
  MELIST Children
-   Seq: ( HWL ME_4858153B023B // TevBitmapParaBitmapContainer
- HWL ME_48577704034C // WevTextPara
+   Seq: ( WL? 'ME_4858153B023B' // TevBitmapParaBitmapContainer
+ WL? 'ME_48577704034C' // WevTextPara
  HWL ME_484CD009023D // evNative
- HWL ME_485792EE01CB // WevFormula
- HWL ME_4857B5D901D7 // WevDocument
- HWL ME_4857EB02013C // WevReqRow
+ WL? 'ME_485792EE01CB' // WevFormula
+ WL? 'ME_4857B5D901D7' // WevDocument
+ WL? 'ME_4857EB02013C' // WevReqRow
  HWL ME_485812E00101 // TIevBitmapPara
  HWL ME_4868BE17039B // Everest
  HWL ME_4860F3AC01F4 // My
  HWL ME_4858ED4C002C // evArchi
  HWL ME_4868D02D0352 // Design
- HWL ME_4CED2FED0255 // WevCommentPara
- HWL ME_4D63FD5001D5 // WevReqGroup
- HWL ME_485792C1014E // WevBitmapPara
- HWL ME_53D8DFA400E2 // TevParaInterfaceFactoryPrim
+ WL? 'ME_4CED2FED0255' // WevCommentPara
+ WL? 'ME_4D63FD5001D5' // WevReqGroup
+ WL? 'ME_485792C1014E' // WevBitmapPara
+ WL? 'ME_53D8DFA400E2' // TevParaInterfaceFactoryPrim
  WL? 'ME_060E2B49C828' // evNative_AttrValues
  WL? 'ME_3DBAA1891003' // Design_AttrValues
  )

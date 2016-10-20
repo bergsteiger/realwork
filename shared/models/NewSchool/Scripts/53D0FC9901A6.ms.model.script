@@ -24,11 +24,17 @@ ME ME_53D23D3A035B
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_53D0FCB60027 // TevTableRowHotSpotTester
  ;
- MELINK Target WL 'ME_4857D32B011E' '53D258F1004F.ms.model.script' // TevTableRow
+ MELINK Target WL? 'ME_4857D32B011E' // TevTableRow
  ;
  UP "injects as" 'interface'
 
 ENDME // ME_53D23D3A035B 
+
+MEREF ME_4A27B7300174_ME_53D0FCB60027_G
+ MELINK Original WL? 'ME_4A27B7300174' // TevParaListHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27B7300174_ME_53D0FCB60027_G TevParaListHotSpotTester
 
 %%InjectedBy ME_4857D32B011E ME_53D0FCB60027
 
@@ -45,7 +51,7 @@ ME ME_53D0FCB60027
  MELINK Parent HWL ME_53D0FC9901A6 // evTableRowHotSpot
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A27B7300174' '4A267EE3017B.ms.model.script' // TevParaListHotSpotTester
+   Seq: ( ME_4A27B7300174_ME_53D0FCB60027_G // TevParaListHotSpotTester
  )
  ; // Inherits
  MELIST Dependencies

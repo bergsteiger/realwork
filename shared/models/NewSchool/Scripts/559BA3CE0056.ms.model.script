@@ -41,7 +41,7 @@ ME ME_559BA40A0131
  MELINK Stereotype st_implements::Dependency ;
  MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
  ;
- MELINK Target WL 'ME_559BA19C0076' '553893E60323.ms.model.script' // TvcmHistoryService
+ MELINK Target WL? 'ME_559BA19C0076' // TvcmHistoryService
  ;
 
 ENDME // ME_559BA40A0131 
@@ -51,7 +51,7 @@ ME ME_559BA45E03E4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
  ;
- MELINK Target WL 'ME_553213D902E0' '553213B80041.ms.model.script' // Tl3TabbedContainersDispatcher
+ MELINK Target WL? 'ME_553213D902E0' // Tl3TabbedContainersDispatcher
  ;
 
 ENDME // ME_559BA45E03E4 
@@ -96,6 +96,12 @@ ME ME_55DAC27401A9
 
 ENDME // ME_55DAC27401A9 
 
+MEREF ME_49E7754802A9_ME_559BA3E6014C_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_559BA3E6014C_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_559BA3E6014C
 
 ME ME_559BA3E6014C
@@ -109,7 +115,7 @@ ME ME_559BA3E6014C
  MELINK Parent HWL ME_559BA3CE0056 // vcmTabsHistoryService
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_559BA3E6014C_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes

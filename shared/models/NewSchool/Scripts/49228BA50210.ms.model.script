@@ -1,0 +1,349 @@
+// TbsConsultation 49228BA50210 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49228BA50210
+
+ME ME_498FFBFE016A
+ MEPROP UID '498FFBFE016A'
+ MEPROP Name 'f_IsRefusedOldFormat'
+ MEPROP Class class_Attribute
+ %SUMMARY 'отклоненная консультация старого формата' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_491BF08F035F' '4678193C009C.ms.model.script' // Tl3Bool
+ ;
+
+ENDME // ME_498FFBFE016A f_IsRefusedOldFormat
+
+ME ME_498FFC2C008B
+ MEPROP UID '498FFC2C008B'
+ MEPROP Name 'f_IsStatusChached'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_498FFC2C008B f_IsStatusChached
+
+ME ME_498FFC560125
+ MEPROP UID '498FFC560125'
+ MEPROP Name 'CachedStatuses'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'кешированный статус, на время открытия консультации' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_491C3F2F000F' '47EA07FA02CE.ms.model.script' // TbsConsultationStatuses
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_498FFC560125 CachedStatuses
+
+ME ME_498FFC850180
+ MEPROP UID '498FFC850180'
+ MEPROP Name 'Consultation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_457008050157' '457007DB002E.ms.model.script' // Consultation
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_498FFC850180 Consultation
+
+ME ME_498FFCAA03B9
+ MEPROP UID '498FFCAA03B9'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_498FFCAA03B9 f_Text
+
+ME ME_498FFAD102E5
+ MEPROP Name 'aConsultation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_457008050157' '457007DB002E.ms.model.script' // Consultation
+ ;
+
+ENDME // ME_498FFAD102E5 aConsultation
+
+ME ME_498FFACA0046
+ MEPROP UID '498FFACA0046'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELIST Parameters
+   Seq: ( ME_498FFAD102E5 // aConsultation
+ )
+ ; // Parameters
+
+ENDME // ME_498FFACA0046 Create
+
+ME ME_498FFAE70105
+ MEPROP Name 'aConsultation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_457008050157' '457007DB002E.ms.model.script' // Consultation
+ ;
+
+ENDME // ME_498FFAE70105 aConsultation
+
+ME ME_498FFAE200B0
+ MEPROP UID '498FFAE200B0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELIST Parameters
+   Seq: ( ME_498FFAE70105 // aConsultation
+ )
+ ; // Parameters
+
+ENDME // ME_498FFAE200B0 Make
+
+ME ME_498FFF0D035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_498FFF0D035F 
+
+ME ME_498FFF31016E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+
+ENDME // ME_498FFF31016E 
+
+ME ME_498FFF9E00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL? 'ME_47F9CF5500D1' // bsConvert
+ ;
+
+ENDME // ME_498FFF9E00D5 
+
+ME ME_499002640360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_499002640360 
+
+ME ME_49900519003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49228BA50210 // TbsConsultation
+ ;
+ MELINK Target WL? 'ME_47F21FE90379' // bsUtils
+ ;
+
+ENDME // ME_49900519003A 
+
+MEREF ME_491C42400193_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C42400193' '4ABCF04F00DF.ms.model.script' // RefreshText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_491C42400193_ME_49228BA50210_impl RefreshText
+
+MEREF ME_491C424C019F_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C424C019F' '4ABCF04F00DF.ms.model.script' // Status
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C424C019F_ME_49228BA50210_impl Status
+
+MEREF ME_491C427502ED_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C427502ED' '4ABCF04F00DF.ms.model.script' // IsStatusChached
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C427502ED_ME_49228BA50210_impl IsStatusChached
+
+MEREF ME_491C42A60032_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C42A60032' '4ABCF04F00DF.ms.model.script' // Data
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C42A60032_ME_49228BA50210_impl Data
+
+MEREF ME_491C42C30267_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C42C30267' '4ABCF04F00DF.ms.model.script' // WasDeleted
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C42C30267_ME_49228BA50210_impl WasDeleted
+
+MEREF ME_491C42EC02BC_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C42EC02BC' '4ABCF04F00DF.ms.model.script' // Id
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C42EC02BC_ME_49228BA50210_impl Id
+
+MEREF ME_491C430C0132_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C430C0132' '4ABCF04F00DF.ms.model.script' // WasCreated
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C430C0132_ME_49228BA50210_impl WasCreated
+
+MEREF ME_491C431F01F8_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C431F01F8' '4ABCF04F00DF.ms.model.script' // WasModified
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C431F01F8_ME_49228BA50210_impl WasModified
+
+MEREF ME_491C43420213_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C43420213' '4ABCF04F00DF.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C43420213_ME_49228BA50210_impl Caption
+
+MEREF ME_491C437500BB_ME_49228BA50210_impl
+ MELINK Original WL 'ME_491C437500BB' '4ABCF04F00DF.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_491C437500BB_ME_49228BA50210_impl Text
+
+MEREF ME_479731C50290_ME_49228BA50210_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49228BA50210_over Cleanup
+
+MEREF ME_47BC391D0259_ME_49228BA50210_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_49228BA50210_G Tl3SimpleObject
+
+MEREF ME_491C422A0003_ME_49228BA50210_R
+ MELINK Original WL 'ME_491C422A0003' '4ABCF04F00DF.ms.model.script' // IbsConsultation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491C422A0003_ME_49228BA50210_R IbsConsultation
+
+%%ImplementedBy ME_491C422A0003 ME_49228BA50210
+
+%%InheritedBy ME_47BC391D0259 ME_49228BA50210
+
+ME ME_49228BA50210
+ MEPROP UID '49228BA50210'
+ MEPROP Name 'TbsConsultation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедента "Консультация"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4ABCF1450282' // ConsultationDomain
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_49228BA50210_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_491C422A0003_ME_49228BA50210_R // IbsConsultation
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_498FFBFE016A // f_IsRefusedOldFormat
+ HWL ME_498FFC2C008B // f_IsStatusChached
+ HWL ME_498FFC560125 // CachedStatuses
+ HWL ME_498FFC850180 // Consultation
+ HWL ME_498FFCAA03B9 // f_Text
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_498FFACA0046 // Create
+ HWL ME_498FFAE200B0 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_491C42400193_ME_49228BA50210_impl // RefreshText
+ ME_491C424C019F_ME_49228BA50210_impl // Status
+ ME_491C427502ED_ME_49228BA50210_impl // IsStatusChached
+ ME_491C42A60032_ME_49228BA50210_impl // Data
+ ME_491C42C30267_ME_49228BA50210_impl // WasDeleted
+ ME_491C42EC02BC_ME_49228BA50210_impl // Id
+ ME_491C430C0132_ME_49228BA50210_impl // WasCreated
+ ME_491C431F01F8_ME_49228BA50210_impl // WasModified
+ ME_491C43420213_ME_49228BA50210_impl // Caption
+ ME_491C437500BB_ME_49228BA50210_impl // Text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49228BA50210_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_498FFF0D035F // String
+ ME_498FFF31016E // DateTime
+ ME_498FFF9E00D5 // bsConvert
+ ME_499002640360 // StringRoutines
+ ME_49900519003A // bsUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А'
+ UP "no hands" true
+ UP "started" '06.04.2006 17.27'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultation.pas'
+ UP extprop:rc:SelfName 'bsConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsConsultation'
+
+ENDME // ME_49228BA50210 TbsConsultation

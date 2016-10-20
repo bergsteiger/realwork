@@ -1,0 +1,177 @@
+// TIterateableService 5519611903CF Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5519611903CF
+
+FORWARD ME_5519611903CF
+
+FORWARD ME_27F5F6C291D9
+
+FORWARD ME_551961AE0005
+
+FORWARD ME_A44911B9A95D
+
+ME ME_FAFE12FA42D6
+ MEPROP UID 'FAFE12FA42D6'
+ MEPROP Name 'anOwner'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_A44911B9A95D // IterateF
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_FAFE12FA42D6 anOwner
+
+ME ME_19E1315B1849
+ MEPROP UID '19E1315B1849'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_A44911B9A95D // IterateF
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_19E1315B1849 
+
+ME ME_A44911B9A95D
+ MEPROP UID 'A44911B9A95D'
+ MEPROP Name 'IterateF'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_27F5F6C291D9 // MIterateableService
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_FAFE12FA42D6 // anOwner
+ HWL ME_19E1315B1849 // 
+ )
+ ; // Attributes
+ UP "needs index" 'undefined'
+ UP "needs result" 'undefined'
+ UPLINK Speller HWL ME_551961AE0005 // Iterate
+ ;
+
+ENDME // ME_A44911B9A95D IterateF
+
+ME ME_27F5F6C291D9
+ MEPROP UID '27F5F6C291D9'
+ MEPROP Name 'MIterateableService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TIterateableService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5519611903CF // TIterateableService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_A44911B9A95D // IterateF
+ )
+ ; // Operations
+
+ENDME // ME_27F5F6C291D9 MIterateableService
+
+ME ME_551982C90396
+ MEPROP UID '551982C90396'
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551961AE0005 // Iterate
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_551982C90396 anOwner
+
+ME ME_551961D80264
+ MEPROP UID '551961D80264'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551961AE0005 // Iterate
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_551961D80264 
+
+ME ME_551961AE0005
+ MEPROP UID '551961AE0005'
+ MEPROP Name 'Iterate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_serviceiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5519611903CF // TIterateableService
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551982C90396 // anOwner
+ HWL ME_551961D80264 // 
+ )
+ ; // Attributes
+ UP "needs index" 'undefined'
+ UP "needs result" 'undefined'
+
+ENDME // ME_551961AE0005 Iterate
+
+MEREF ME_49E7754802A9_ME_5519611903CF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5519611903CF_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5519611903CF
+
+ME ME_5519611903CF
+ MEPROP UID '5519611903CF'
+ MEPROP Name 'TIterateableService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_55196110004E' // Services
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5519611903CF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_551961AE0005 // Iterate
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_27F5F6C291D9 // MIterateableService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\SandBox\IterateableService.pas'
+ UP extprop:rc:SelfName 'IterateableService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IterateableService'
+
+ENDME // ME_5519611903CF TIterateableService

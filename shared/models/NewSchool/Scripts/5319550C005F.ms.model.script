@@ -1,0 +1,63 @@
+// K517772970_TalcuAnoncedExportDefault 5319550C005F TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5319550C005F
+
+ME ME_5319A9040387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5319550C005F // K517772970_TalcuAnoncedExportDefault
+ ;
+ MELINK Target WL? 'ME_5305ABFD00F1' // TalcuAnoncedExport
+ ;
+
+ENDME // ME_5319A9040387 
+
+MEREF ME_53170E4100CF_ME_5319550C005F_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_5319550C005F_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_5319550C005F_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_5319550C005F_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_5319550C005F
+
+ME ME_5319550C005F
+ MEPROP UID '5319550C005F'
+ MEPROP Name 'K517772970_TalcuAnoncedExportDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( ME_53170DE90011_ME_5319550C005F_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_5319550C005F_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5319A9040387 // TalcuAnoncedExport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TalcuAnoncedExportDefault.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAnoncedExportDefault'
+ UP extprop:rc:SelfName 'K517772970_TalcuAnoncedExportDefault'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5319550C005F K517772970_TalcuAnoncedExportDefault

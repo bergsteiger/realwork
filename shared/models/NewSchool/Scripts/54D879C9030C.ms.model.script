@@ -56,7 +56,7 @@ ENDME // ME_54D87A1C0199 DoIt
 ME ME_54D879F001C4
  MEPROP UID '54D879F001C4'
  MEPROP Name 'MakeDocumentPreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -88,7 +88,7 @@ ENDME // ME_54D87A300174 DoIt
 ME ME_54D87A03022C
  MEPROP UID '54D87A03022C'
  MEPROP Name 'MakeInfoPreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -120,7 +120,7 @@ ENDME // ME_54D89156012D DoIt
 ME ME_54D8913B03A6
  MEPROP UID '54D8913B03A6'
  MEPROP Name 'GetDocumentForInfo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -139,7 +139,7 @@ ME ME_54D87AA001FE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
  ;
- MELINK Target WL 'ME_47F22D5701A7' '491DCA2C00A9.ms.model.script' // TnsDocumentPreview
+ MELINK Target WL? 'ME_47F22D5701A7' // TnsDocumentPreview
  ;
 
 ENDME // ME_54D87AA001FE 
@@ -169,22 +169,28 @@ ME ME_54D98F7F00FB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54D879C9030C // PrintableFlashWithInfo
  ;
- MELINK Target WL 'ME_47DF8F0402F7' '474144E20301.ms.model.script' // TafwComplexDocumentPreview
+ MELINK Target WL? 'ME_47DF8F0402F7' // TafwComplexDocumentPreview
  ;
 
 ENDME // ME_54D98F7F00FB 
 
-ME ME_5301CBFE023E_ME_54D879C9030C
+MEREF ME_5301CBFE023E_ME_54D879C9030C_over
  MELINK Original WL 'ME_5301CBFE023E' '4CDACCDF0368.ms.model.script' // MakePreview
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5301CBFE023E_ME_54D879C9030C MakePreview
+ENDMEREF // ME_5301CBFE023E_ME_54D879C9030C_over MakePreview
 
-ME ME_5592655F00B2_ME_54D879C9030C
+MEREF ME_5592655F00B2_ME_54D879C9030C_over
  MELINK Original WL 'ME_5592655F00B2' '4CDACCDF0368.ms.model.script' // ClearPreview
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5592655F00B2_ME_54D879C9030C ClearPreview
+ENDMEREF // ME_5592655F00B2_ME_54D879C9030C_over ClearPreview
+
+MEREF ME_4CDABB1C0025_ME_54D879C9030C_G
+ MELINK Original WL? 'ME_4CDABB1C0025' // PrintableFlash
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDABB1C0025_ME_54D879C9030C_G PrintableFlash
 
 %%InheritedBy ME_4CDABB1C0025 ME_54D879C9030C
 
@@ -200,7 +206,7 @@ ME ME_54D879C9030C
  MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CDABB1C0025' // PrintableFlash
+   Seq: ( ME_4CDABB1C0025_ME_54D879C9030C_G // PrintableFlash
  )
  ; // Inherits
  MELIST Attributes
@@ -215,8 +221,8 @@ ME ME_54D879C9030C
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_5301CBFE023E_ME_54D879C9030C // MakePreview
- ME_5592655F00B2_ME_54D879C9030C // ClearPreview
+   Seq: ( ME_5301CBFE023E_ME_54D879C9030C_over // MakePreview
+ ME_5592655F00B2_ME_54D879C9030C_over // ClearPreview
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,183 @@
+// Tl3CustomSortIntegerList 4DEFAA880377 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DEFAA880377
+
+FORWARD ME_4DEFAA880377
+
+ME ME_4DEFACCB030F
+ MEPROP UID '4DEFACCB030F'
+ MEPROP Name 'l3Items_CompareItemsRec_NeedsRList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFAA880377 // Tl3CustomSortIntegerList
+ ;
+ UP extprop:rc:SelfName 'Items_CompareItemsRec_NeedsRList'
+
+ENDME // ME_4DEFACCB030F l3Items_CompareItemsRec_NeedsRList
+
+ME ME_4DEFAADC0192
+ MEPROP UID '4DEFAADC0192'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFAA880377 // Tl3CustomSortIntegerList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFAADC0192 ItemType
+
+FORWARD ME_4DEFACE1002D
+
+ME ME_4DEFAD0800B5
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFAD0800B5 A
+
+ME ME_4DEFAD0800E3
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFAD0800E3 B
+
+ME ME_4DEFACFB00C8
+ MEPROP UID '4DEFACFB00C8'
+ MEPROP Name 'Doit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFACE1002D // CompareItems
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFAD0800B5 // A
+ ME_4DEFAD0800E3 // B
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFACFB00C8 Doit
+
+ME ME_4DEFACE1002D
+ MEPROP UID '4DEFACE1002D'
+ MEPROP Name 'CompareItems'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функция сравнения элементов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFAA880377 // Tl3CustomSortIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFACFB00C8 // Doit
+ )
+ ; // Operations
+
+ENDME // ME_4DEFACE1002D CompareItems
+
+ME ME_4DEFAD4C02BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DEFAA880377 // Tl3CustomSortIntegerList
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_4DEFAD4C02BB 
+
+MEREF ME_47B99D4503A2_ME_4DEFAA880377_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4DEFAA880377_impl CompareExistingItems
+
+MEREF ME_47A042E100E2_ME_4DEFAA880377_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4DEFAA880377_over InitFields
+
+MEREF ME_4A54DD4E036F_ME_4DEFAA880377_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4DEFAA880377_G Tl3ProtoDataContainer
+
+MEREF ME_4B71611400B3_ME_4DEFAA880377_G
+ MELINK Original WL? 'ME_4B71611400B3' // l3AtomicListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B71611400B3_ME_4DEFAA880377_G l3AtomicListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4DEFAA880377
+%%InheritedBy ME_4B71611400B3 ME_4DEFAA880377
+
+ME ME_4DEFAA880377
+ MEPROP UID '4DEFAA880377'
+ MEPROP Name 'Tl3CustomSortIntegerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=269058147' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_4DEFAA880377_G // Tl3ProtoDataContainer
+ ME_4B71611400B3_ME_4DEFAA880377_G // l3AtomicListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFAADC0192 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DEFACE1002D // CompareItems
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_4DEFAA880377_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4DEFAA880377_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DEFACCB030F // l3Items_CompareItemsRec_NeedsRList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DEFAD4C02BB // Indexes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.06.2011 21:00'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomSortIntegerList.pas'
+ UP extprop:rc:SelfName 'SortIntegerList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3CustomSortIntegerList'
+
+ENDME // ME_4DEFAA880377 Tl3CustomSortIntegerList

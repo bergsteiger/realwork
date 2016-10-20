@@ -1,0 +1,245 @@
+// TevMultiSelectionBlock 48E3B83B0187 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E3B83B0187
+
+ME ME_48ECE458015C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_48ECE458015C aView
+
+ME ME_48ECE458019A
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48ECE458019A G
+
+ME ME_48ECE45801D4
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_48ECE45801D4 aFlags
+
+ME ME_48ECE4420180
+ MEPROP UID '48ECE4420180'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Operation
+ %SUMMARY 'сохраняет выделение в G' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELIST Parameters
+   Seq: ( ME_48ECE458015C // aView
+ ME_48ECE458019A // G
+ ME_48ECE45801D4 // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48ECE4420180 DoStore
+
+ME ME_48ECE39D03D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL? 'ME_47CC4CCC02FA' // Tl3InterfacedString
+ ;
+
+ENDME // ME_48ECE39D03D7 
+
+ME ME_48ECE417039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_469F6CD10123' '49A6646B0044.ms.model.script' // Tk2StorePropertyFlag
+ ;
+
+ENDME // ME_48ECE417039F 
+
+ME ME_48ECE49A02CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48ECE49A02CC 
+
+ME ME_48ECE50401F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_48ECE50401F5 
+
+ME ME_48F4EB2F025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_48F4EB2F025B 
+
+ME ME_4A361EFC0227
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_4A2E44B70095' '48492FC0029D.ms.model.script' // ContentsElement
+ ;
+
+ENDME // ME_4A361EFC0227 
+
+ME ME_4A361F0003D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4A361F0003D1 
+
+ME ME_4A3624EB02BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4A3624EB02BC 
+
+ME ME_4A38D5D00381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E3B83B0187 // TevMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A38D5D00381 
+
+MEREF ME_47C68BFD011C_ME_48E3B83B0187_impl
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDMEREF // ME_47C68BFD011C_ME_48E3B83B0187_impl Store
+
+MEREF ME_47C68C6701AF_ME_48E3B83B0187_impl
+ MELINK Original WL 'ME_47C68C6701AF' '48F4E61C0060.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDMEREF // ME_47C68C6701AF_ME_48E3B83B0187_impl Store
+
+MEREF ME_48ECD89F02EA_ME_48E3B83B0187_impl
+ MELINK Original WL 'ME_48ECD89F02EA' '48ECD38B0204.ms.model.script' // GetData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48ECD89F02EA_ME_48E3B83B0187_impl GetData
+
+MEREF ME_48ECD8FE0184_ME_48E3B83B0187_impl
+ MELINK Original WL 'ME_48ECD8FE0184' '48ECD38B0204.ms.model.script' // GetAsStorable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48ECD8FE0184_ME_48E3B83B0187_impl GetAsStorable
+
+MEREF ME_48ECDF6602FD_ME_48E3B83B0187_G
+ MELINK Original WL? 'ME_48ECDF6602FD' // TevMultiSelectionText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48ECDF6602FD_ME_48E3B83B0187_G TevMultiSelectionText
+
+MEREF ME_47C68C4500D2_ME_48E3B83B0187_R
+ MELINK Original WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C68C4500D2_ME_48E3B83B0187_R DataObject
+
+MEREF ME_47C68C9E00F9_ME_48E3B83B0187_R
+ MELINK Original WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C68C9E00F9_ME_48E3B83B0187_R InevDataObjectPrim2
+
+%%ImplementedBy ME_47C68C4500D2 ME_48E3B83B0187
+%%ImplementedBy ME_47C68C9E00F9 ME_48E3B83B0187
+
+%%InheritedBy ME_48ECDF6602FD ME_48E3B83B0187
+
+ME ME_48E3B83B0187
+ MEPROP UID '48E3B83B0187'
+ MEPROP Name 'TevMultiSelectionBlock'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_48ECDF6602FD_ME_48E3B83B0187_G // TevMultiSelectionText
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C68C4500D2_ME_48E3B83B0187_R // DataObject
+ ME_47C68C9E00F9_ME_48E3B83B0187_R // InevDataObjectPrim2
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48ECE4420180 // DoStore
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_48E3B83B0187_impl // Store
+ ME_47C68C6701AF_ME_48E3B83B0187_impl // Store
+ ME_48ECD89F02EA_ME_48E3B83B0187_impl // GetData
+ ME_48ECD8FE0184_ME_48E3B83B0187_impl // GetAsStorable
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48ECE39D03D7 // Tl3InterfacedString
+ ME_48ECE417039F // Tk2StorePropertyFlag
+ ME_48ECE49A02CC // l3Base
+ ME_48ECE50401F5 // nevFacade
+ ME_48F4EB2F025B // StoreFlag
+ ME_4A361EFC0227 // ContentsElement
+ ME_4A361F0003D1 // Block
+ ME_4A3624EB02BC // Document
+ ME_4A38D5D00381 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.01.2004 15:42 '
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiSelectionBlock.pas'
+ UP extprop:rc:SelfName 'MultiSelectionBlock'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evMultiSelectionBlock'
+
+ENDME // ME_48E3B83B0187 TevMultiSelectionBlock

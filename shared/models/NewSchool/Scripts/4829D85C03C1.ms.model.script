@@ -96,6 +96,12 @@ ME ME_487358E3015A
 
 ENDME // ME_487358E3015A TevEditorProvideOperationType
 
+MEREF ME_487358E3015A_ME_48735C0C032B_G
+ MELINK Original HWL ME_487358E3015A // TevEditorProvideOperationType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_487358E3015A_ME_48735C0C032B_G TevEditorProvideOperationType
+
 %%InheritedBy ME_487358E3015A ME_48735C0C032B
 
 ME ME_48735C0C032B
@@ -109,7 +115,7 @@ ME ME_48735C0C032B
  MELINK Parent HWL ME_4829D85C03C1 // TevEditorWithOperations
  ;
  MELIST Inherits
-   Seq: ( HWL ME_487358E3015A // TevEditorProvideOperationType
+   Seq: ( ME_487358E3015A_ME_48735C0C032B_G // TevEditorProvideOperationType
  )
  ; // Inherits
 
@@ -184,7 +190,7 @@ ENDME // ME_54C0FF2C03D1 DoIt
 ME ME_54C0FF240304
  MEPROP UID '54C0FF240304'
  MEPROP Name 'TextGetTarget'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -230,7 +236,7 @@ ENDME // ME_54C0FFF902F0 DoIt
 ME ME_54C0FFEF0266
  MEPROP UID '54C0FFEF0266'
  MEPROP Name 'IsReadOnlyTarget'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -262,7 +268,7 @@ ENDME // ME_54C10531005E DoIt
 ME ME_54C1051E0360
  MEPROP UID '54C1051E0360'
  MEPROP Name 'CanCut'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -367,17 +373,35 @@ ME ME_4B309684022A
 
 ENDME // ME_4B309684022A IsCommandPublished
 
-ME ME_4769552100DD_ME_4829D85C03C1
+MEREF ME_4769552100DD_ME_4829D85C03C1_impl
  MELINK Original WL 'ME_4769552100DD' '467BAB7F021E.ms.model.script' // ProvideOps
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4769552100DD_ME_4829D85C03C1 ProvideOps
+ENDMEREF // ME_4769552100DD_ME_4829D85C03C1_impl ProvideOps
 
-ME ME_476BFD420341_ME_4829D85C03C1
+MEREF ME_476BFD420341_ME_4829D85C03C1_impl
  MELINK Original WL 'ME_476BFD420341' '467C0CAA02AB.ms.model.script' // IsCommandPublished
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_476BFD420341_ME_4829D85C03C1 IsCommandPublished
+ENDMEREF // ME_476BFD420341_ME_4829D85C03C1_impl IsCommandPublished
+
+MEREF ME_4829D89703D2_ME_4829D85C03C1_G
+ MELINK Original WL? 'ME_4829D89703D2' // TevCustomEditor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4829D89703D2_ME_4829D85C03C1_G TevCustomEditor
+
+MEREF ME_467BABAA00D5_ME_4829D85C03C1_R
+ MELINK Original WL 'ME_467BABAA00D5' '467BAB7F021E.ms.model.script' // IvcmOperationsProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467BABAA00D5_ME_4829D85C03C1_R IvcmOperationsProvider
+
+MEREF ME_476BFD340267_ME_4829D85C03C1_R
+ MELINK Original WL 'ME_476BFD340267' '467C0CAA02AB.ms.model.script' // Il3CommandPublisherInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476BFD340267_ME_4829D85C03C1_R Il3CommandPublisherInfo
 
 %%ImplementedBy ME_467BABAA00D5 ME_4829D85C03C1
 %%ImplementedBy ME_476BFD340267 ME_4829D85C03C1
@@ -396,12 +420,12 @@ ME ME_4829D85C03C1
  MELINK Parent WL? 'ME_4829D7D50156' // Editors
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4829D89703D2' // TevCustomEditor
+   Seq: ( ME_4829D89703D2_ME_4829D85C03C1_G // TevCustomEditor
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_467BABAA00D5' '467BAB7F021E.ms.model.script' // IvcmOperationsProvider
- WL 'ME_476BFD340267' '467C0CAA02AB.ms.model.script' // Il3CommandPublisherInfo
+   Seq: ( ME_467BABAA00D5_ME_4829D85C03C1_R // IvcmOperationsProvider
+ ME_476BFD340267_ME_4829D85C03C1_R // Il3CommandPublisherInfo
  )
  ; // Implements
  MELIST Attributes
@@ -420,8 +444,8 @@ ME ME_4829D85C03C1
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4769552100DD_ME_4829D85C03C1 // ProvideOps
- ME_476BFD420341_ME_4829D85C03C1 // IsCommandPublished
+   Seq: ( ME_4769552100DD_ME_4829D85C03C1_impl // ProvideOps
+ ME_476BFD420341_ME_4829D85C03C1_impl // IsCommandPublished
  )
  ; // Implemented
  MELIST Children

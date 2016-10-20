@@ -4,7 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4CC7E19400DE
 
-ME ME_4C3F3421036A_ME_4CC7E19400DE
+MEREF ME_4C3F3421036A_ME_4CC7E19400DE_over
  MELINK Original WL 'ME_4C3F3421036A' '4A9807DB01A5.ms.model.script' // OpenQuery
  ;
  MEPROP OpKind opkind_Overridden
@@ -17,9 +17,9 @@ ME ME_4C3F3421036A_ME_4CC7E19400DE
  UP "is FormActivate" true
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4C3F3421036A_ME_4CC7E19400DE OpenQuery
+ENDMEREF // ME_4C3F3421036A_ME_4CC7E19400DE_over OpenQuery
 
-ME ME_4C3F342E02AF_ME_4CC7E19400DE
+MEREF ME_4C3F342E02AF_ME_4CC7E19400DE_over
  MELINK Original WL 'ME_4C3F342E02AF' '4A9807DB01A5.ms.model.script' // ExecuteQuery
  ;
  MEPROP OpKind opkind_Overridden
@@ -32,7 +32,13 @@ ME ME_4C3F342E02AF_ME_4CC7E19400DE
  UP "is FormActivate" true
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4C3F342E02AF_ME_4CC7E19400DE ExecuteQuery
+ENDMEREF // ME_4C3F342E02AF_ME_4CC7E19400DE_over ExecuteQuery
+
+MEREF ME_4BD6D6EA0075_ME_4CC7E19400DE_G
+ MELINK Original WL? 'ME_4BD6D6EA0075' // PrimWorkJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD6D6EA0075_ME_4CC7E19400DE_G PrimWorkJournal
 
 %%InheritedBy ME_4BD6D6EA0075 ME_4CC7E19400DE
 
@@ -48,12 +54,12 @@ ME ME_4CC7E19400DE
  MELINK Parent WL? 'ME_4A811BCC031F' // WorkJournal
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4BD6D6EA0075' // PrimWorkJournal
+   Seq: ( ME_4BD6D6EA0075_ME_4CC7E19400DE_G // PrimWorkJournal
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4C3F3421036A_ME_4CC7E19400DE // OpenQuery
- ME_4C3F342E02AF_ME_4CC7E19400DE // ExecuteQuery
+   Seq: ( ME_4C3F3421036A_ME_4CC7E19400DE_over // OpenQuery
+ ME_4C3F342E02AF_ME_4CC7E19400DE_over // ExecuteQuery
  )
  ; // Overridden
  UP "NeedsHackRef" true

@@ -26,7 +26,7 @@ ENDME // ME_4F72F9E6011E DoIt
 ME ME_4F72F9CD022D
  MEPROP UID '4F72F9CD022D'
  MEPROP Name 'GetPanel'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -56,7 +56,7 @@ ENDME // ME_4F746D00025C DoIt
 ME ME_4F746CEA001D
  MEPROP UID '4F746CEA001D'
  MEPROP Name 'CheckResult'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -88,7 +88,7 @@ ENDME // ME_4F7967DC0061 DoIt
 ME ME_4F7967A8006B
  MEPROP UID '4F7967A8006B'
  MEPROP Name 'IsWaitingPrint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -131,7 +131,7 @@ ENDME // ME_4F7973590188 DoIt
 ME ME_4F7972A6004D
  MEPROP UID '4F7972A6004D'
  MEPROP Name 'SetPrintDataSaver'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -146,6 +146,12 @@ ME ME_4F7972A6004D
 
 ENDME // ME_4F7972A6004D SetPrintDataSaver
 
+MEREF ME_49E7754802A9_ME_4F72F0A30036_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4F72F0A30036_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_4F72F0A30036
 
 ME ME_4F72F0A30036
@@ -159,7 +165,7 @@ ME ME_4F72F0A30036
  MELINK Parent HWL ME_4F72F4E202FB // evCustomPrintDataSaver
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_4F72F0A30036_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations

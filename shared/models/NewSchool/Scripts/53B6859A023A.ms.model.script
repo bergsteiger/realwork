@@ -1,0 +1,133 @@
+// TddGetTaskRequestPrim 53B6859A023A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B6859A023A
+
+FORWARD ME_53B684BC010C
+
+ME ME_53B684DA0141
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53B684DA0141 aTaskID
+
+ME ME_53B684D50060
+ MEPROP UID '53B684D50060'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B684BC010C // SetTaskID
+ ;
+ MELIST Parameters
+   Seq: ( ME_53B684DA0141 // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_53B684D50060 DoIt
+
+ME ME_53B692F6010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B684BC010C // SetTaskID
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_53B692F6010F 
+
+ME ME_53B6932601BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B684BC010C // SetTaskID
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_53B6932601BD 
+
+ME ME_53B6935403A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B684BC010C // SetTaskID
+ ;
+ MELINK Target WL? 'ME_48D391C60190' // DateUtils
+ ;
+
+ENDME // ME_53B6935403A5 
+
+ME ME_53B684BC010C
+ MEPROP UID '53B684BC010C'
+ MEPROP Name 'SetTaskID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B6859A023A // TddGetTaskRequestPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B684D50060 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53B692F6010F // SysUtils
+ ME_53B6932601BD // StrUtils
+ ME_53B6935403A5 // DateUtils
+ )
+ ; // Dependencies
+
+ENDME // ME_53B684BC010C SetTaskID
+
+MEREF ME_531708E3023A_ME_53B6859A023A_G
+ MELINK Original WL? 'ME_531708E3023A' // TaskRequest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_531708E3023A_ME_53B6859A023A_G TaskRequest
+
+MEREF ME_53B6818301CC_ME_53B6859A023A_R
+ MELINK Original WL 'ME_53B6818301CC' '484A470100DD.ms.model.script' // GetTaskRequest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6818301CC_ME_53B6859A023A_R GetTaskRequest
+
+%%ImplementedBy ME_53B6818301CC ME_53B6859A023A
+
+%%InheritedBy ME_531708E3023A ME_53B6859A023A
+
+ME ME_53B6859A023A
+ MEPROP UID '53B6859A023A'
+ MEPROP Name 'TddGetTaskRequestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_531708E3023A_ME_53B6859A023A_G // TaskRequest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B6818301CC_ME_53B6859A023A_R // GetTaskRequest
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53B684BC010C // SetTaskID
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddGetTaskRequestPrim.pas'
+ UP extprop:rc:SelfName 'ddGetTaskRequestPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddGetTaskRequestPrim'
+
+ENDME // ME_53B6859A023A TddGetTaskRequestPrim

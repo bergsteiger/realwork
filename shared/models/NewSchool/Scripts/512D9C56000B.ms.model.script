@@ -1,0 +1,53 @@
+// Open 512D9C56000B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512D9C56000B
+
+ME ME_512DBBF902B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C56000B // Open
+ ;
+ MELINK Target WL 'ME_512DBBB003CE' '512DBB5502E6.ms.model.script' // OpenDocument
+ ;
+
+ENDME // ME_512DBBF902B1 
+
+ME ME_512DC8E103CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512D9C56000B // Open
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_512DC8E103CA 
+
+ME ME_512D9C56000B
+ MEPROP UID '512D9C56000B'
+ MEPROP Name 'Open'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  Open'#13#10'*Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.'#13#10' *Пример:*'#13#10' {code}'#13#10'Open'#13#10' {code}'#13#10' *Результат:* Будет открыт новый документ с именем файла и расширением .evd' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DBBF902B1 // OpenDocument
+ ME_512DC8E103CA // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpen.pas'
+ UP extprop:pas:TypeName 'TkwOpen'
+ UP extprop:rc:SelfName 'Open'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwOpen'
+
+ENDME // ME_512D9C56000B Open

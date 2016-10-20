@@ -1,0 +1,53 @@
+// TarTextOfDocumentWithContentsTree 4E007CE303AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E007CE303AC
+
+ME ME_4E007D6001F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007CE303AC // TarTextOfDocumentWithContentsTree
+ ;
+ MELINK Target WL? 'ME_4E004D900171' // TarDocumentContainerWithContentsTree
+ ;
+
+ENDME // ME_4E007D6001F0 
+
+MEREF ME_4E0072E100DB_ME_4E007CE303AC_G
+ MELINK Original WL? 'ME_4E0072E100DB' // TarTextOfDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E0072E100DB_ME_4E007CE303AC_G TarTextOfDocument
+
+%%InheritedBy ME_4E0072E100DB ME_4E007CE303AC
+
+ME ME_4E007CE303AC
+ MEPROP UID '4E007CE303AC'
+ MEPROP Name 'TarTextOfDocumentWithContentsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E0072500208' // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E0072E100DB_ME_4E007CE303AC_G // TarTextOfDocument
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E007D6001F0 // TarDocumentContainerWithContentsTree
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocumentWithContentsTree.pas'
+ UP extprop:rc:SelfName 'arTextOfDocumentWithContentsTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arTextOfDocumentWithContentsTree'
+
+ENDME // ME_4E007CE303AC TarTextOfDocumentWithContentsTree

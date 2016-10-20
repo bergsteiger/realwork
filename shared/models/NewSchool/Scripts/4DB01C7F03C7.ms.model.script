@@ -5,147 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4DB01C7F03C7
 %%Inner ME_4DB01C7F03C7
 
-FORWARD ME_4DB01C7F03C7
-
-FORWARD ME_4DB03B1B0055
-
-ME ME_4DC3D2E00153_ME_4DB03B1B0055
- MELINK Original WL 'ME_4DC3D2E00153' '4DC3D21E006E.ms.model.script' // Run
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4DC3D2E00153_ME_4DB03B1B0055 Run
-
-ME ME_4DC3DE630030_ME_4DB03B1B0055
- MELINK Original WL 'ME_4DC3DE630030' '4DC3D21E006E.ms.model.script' // Prepare
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4DC3DE630030_ME_4DB03B1B0055 Prepare
-
-%%InheritedBy ME_4DC3D2590217 ME_4DB03B1B0055
-
-ME ME_4DB03B1B0055
- MEPROP UID '4DB03B1B0055'
- MEPROP Name 'InsiderOwnScripter'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4DB01C7F03C7 // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DC3D2590217' '4DC3D21E006E.ms.model.script' // TCustomInsiderScripter
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4DC3D2E00153_ME_4DB03B1B0055 // Run
- ME_4DC3DE630030_ME_4DB03B1B0055 // Prepare
- )
- ; // Implemented
- UP "need UC" true
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InsiderOwnScripter.pas'
- UP extprop:pas:TypeName 'TInsiderOwnScripter'
- UP extprop:rc:SelfName 'InsiderOwnScripter'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4DB03B1B0055 InsiderOwnScripter
-
-FORWARD ME_4DC3F6DD00F1
-
-ME ME_4DC40364034B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
- ;
- MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
- ;
-
-ENDME // ME_4DC40364034B 
-
-ME ME_4DDA4D160197
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
- ;
- MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
- ;
-
-ENDME // ME_4DDA4D160197 
-
-ME ME_52FCA98F01BC
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DC3F6DD00F1 // TF1AutoScripter
- ;
- MELINK Target WL? 'ME_483C378301CB' // StrUtils
- ;
-
-ENDME // ME_52FCA98F01BC 
-
-ME ME_4C937013031D_ME_4DC3F6DD00F1
- MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4C937013031D_ME_4DC3F6DD00F1 GetFolder
-
-ME ME_4DAED6F60146_ME_4DC3F6DD00F1
- MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4DAED6F60146_ME_4DC3F6DD00F1 GetModelElementGUID
-
-ME ME_4DB03121022B_ME_4DC3F6DD00F1
- MELINK Original WL 'ME_4DB03121022B' '4DAEEA2B029A.ms.model.script' // ResolveScriptFilePath
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4DB03121022B_ME_4DC3F6DD00F1 ResolveScriptFilePath
-
-ME ME_4DC395670274_ME_4DC3F6DD00F1
- MELINK Original WL 'ME_4DC395670274' '4B2A0DCE03A9.ms.model.script' // IsScript
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4DC395670274_ME_4DC3F6DD00F1 IsScript
-
-%%InheritedBy ME_4DB03B1B0055 ME_4DC3F6DD00F1
-
-ME ME_4DC3F6DD00F1
- MEPROP UID '4DC3F6DD00F1'
- MEPROP Name 'TF1AutoScripter'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Скрипт с поддержкой авторегистрации' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4DB01C7F03C7 // Core
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4DB03B1B0055 // InsiderOwnScripter
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4C937013031D_ME_4DC3F6DD00F1 // GetFolder
- ME_4DAED6F60146_ME_4DC3F6DD00F1 // GetModelElementGUID
- ME_4DB03121022B_ME_4DC3F6DD00F1 // ResolveScriptFilePath
- ME_4DC395670274_ME_4DC3F6DD00F1 // IsScript
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4DC40364034B // ExtractFilePath
- ME_4DDA4D160197 // ExtractFilePath
- ME_52FCA98F01BC // StrUtils
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1AutoScripter.pas'
- UP extprop:rc:SelfName 'F1AutoScripter'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'F1AutoScripter'
-
-ENDME // ME_4DC3F6DD00F1 TF1AutoScripter
-
 ME ME_4DB01C7F03C7
  MEPROP UID '4DB01C7F03C7'
  MEPROP Name 'Core'
@@ -157,8 +16,8 @@ ME ME_4DB01C7F03C7
  MELINK Parent WL? 'ME_4E20331F01E4' // F1 Shell Tests Core
  ;
  MELIST Children
-   Seq: ( HWL ME_4DB03B1B0055 // InsiderOwnScripter
- HWL ME_4DC3F6DD00F1 // TF1AutoScripter
+   Seq: ( WL? 'ME_4DB03B1B0055' // InsiderOwnScripter
+ WL? 'ME_4DC3F6DD00F1' // TF1AutoScripter
  )
  ; // Children
  MELIST Depends

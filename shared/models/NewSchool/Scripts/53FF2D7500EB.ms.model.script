@@ -1,0 +1,97 @@
+// Tm3BaseArcStream 53FF2D7500EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53FF2D7500EB
+
+FORWARD ME_53FF2D7500EB
+
+ME ME_53FF2DA80270
+ MEPROP UID '53FF2DA80270'
+ MEPROP Name 'Tm3BaseArcStreamHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF2D7500EB // Tm3BaseArcStream
+ ;
+ UP "need UC" true
+ UP "packed" true
+
+ENDME // ME_53FF2DA80270 Tm3BaseArcStreamHeader
+
+ME ME_53FF590600E8
+ MEPROP UID '53FF590600E8'
+ MEPROP Name 'HeaderType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF2D7500EB // Tm3BaseArcStream
+ ;
+ MELINK Target HWL ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+ ;
+
+ENDME // ME_53FF590600E8 HeaderType
+
+MEREF ME_53FDFAF900ED_ME_53FF2D7500EB_impl
+ MELINK Original WL 'ME_53FDFAF900ED' '53FDFADD027F.ms.model.script' // HeaderID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53FDFAF900ED_ME_53FF2D7500EB_impl HeaderID
+
+MEREF ME_53FF37DC003A_ME_53FF2D7500EB_impl
+ MELINK Original WL 'ME_53FF37DC003A' '53FDCEC40006.ms.model.script' // DefaultHeaderValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53FF37DC003A_ME_53FF2D7500EB_impl DefaultHeaderValue
+
+MEREF ME_53FDCEC40006_ME_53FF2D7500EB_G
+ MELINK Original WL? 'ME_53FDCEC40006' // m3CustomHeaderStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FDCEC40006_ME_53FF2D7500EB_G m3CustomHeaderStream
+
+%%InheritedBy ME_53FDCEC40006 ME_53FF2D7500EB
+
+ME ME_53FF2D7500EB
+ MEPROP UID '53FF2D7500EB'
+ MEPROP Name 'Tm3BaseArcStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54870DB502F5' // ArchiveStreams
+ ;
+ MELIST Inherits
+   Seq: ( ME_53FDCEC40006_ME_53FF2D7500EB_G // m3CustomHeaderStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53FF590600E8 // HeaderType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_53FDFAF900ED_ME_53FF2D7500EB_impl // HeaderID
+ ME_53FF37DC003A_ME_53FF2D7500EB_impl // DefaultHeaderValue
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_53FF2DA80270 // Tm3BaseArcStreamHeader
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BaseArcStream.pas'
+ UP extprop:rc:SelfName 'm3BaseArcStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3BaseArcStream'
+
+ENDME // ME_53FF2D7500EB Tm3BaseArcStream

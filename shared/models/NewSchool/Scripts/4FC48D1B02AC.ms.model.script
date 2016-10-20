@@ -1,0 +1,283 @@
+// TevCellsIterator 4FC48D1B02AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FC48D1B02AC
+
+ME ME_4FC48E2D004B
+ MEPROP UID '4FC48E2D004B'
+ MEPROP Name 'f_NeedNeighbours'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC48E2D004B f_NeedNeighbours
+
+ME ME_4FC48E3903AA
+ MEPROP UID '4FC48E3903AA'
+ MEPROP Name 'f_StartCell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC48E3903AA f_StartCell
+
+ME ME_4FC48E4400BC
+ MEPROP UID '4FC48E4400BC'
+ MEPROP Name 'f_First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC48E4400BC f_First
+
+FORWARD ME_4FC48DC101EB
+
+ME ME_5342B756002C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5342B756002C aView
+
+ME ME_5342B756006F
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_5342B756006F aRow
+
+ME ME_5342B75600A1
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B75600A1 aTagWrap
+
+ME ME_5342B75600F0
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_5342B75600F0 aProcessor
+
+ME ME_5342B7560144
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5342B7560144 aLocation
+
+ME ME_4FC48DD301D6
+ MEPROP UID '4FC48DD301D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC48DC101EB // Make
+ ;
+ MELINK Target WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B756002C // aView
+ ME_5342B756006F // aRow
+ ME_5342B75600A1 // aTagWrap
+ ME_5342B75600F0 // aProcessor
+ ME_5342B7560144 // aLocation
+ )
+ ; // Parameters
+
+ENDME // ME_4FC48DD301D6 DoIt
+
+ME ME_4FC48DC101EB
+ MEPROP UID '4FC48DC101EB'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC48DD301D6 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4FC48DC101EB Make
+
+ME ME_4FC498B702F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4FC498B702F8 
+
+ME ME_4FC4990A03E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4FC4990A03E3 
+
+ME ME_4FC499390060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC48D1B02AC // TevCellsIterator
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4FC499390060 
+
+MEREF ME_4BBC922302CA_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC922302CA' '48E3836D00C8.ms.model.script' // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBC922302CA_ME_4FC48D1B02AC_impl Last
+
+MEREF ME_4BBC92390009_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC92390009' '48E3836D00C8.ms.model.script' // Prev
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBC92390009_ME_4FC48D1B02AC_impl Prev
+
+MEREF ME_4BBC9430038B_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC9430038B' '48E3836D00C8.ms.model.script' // BackIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4BBC9430038B_ME_4FC48D1B02AC_impl BackIterator
+
+MEREF ME_4BBC944C0195_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC944C0195' '48E3836D00C8.ms.model.script' // First
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBC944C0195_ME_4FC48D1B02AC_impl First
+
+MEREF ME_4BBC94640082_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC94640082' '48E3836D00C8.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBC94640082_ME_4FC48D1B02AC_impl Next
+
+MEREF ME_4BBC947B0399_ME_4FC48D1B02AC_impl
+ MELINK Original WL 'ME_4BBC947B0399' '48E3836D00C8.ms.model.script' // CellsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BBC947B0399_ME_4FC48D1B02AC_impl CellsCount
+
+MEREF ME_4FC47ECC03C9_ME_4FC48D1B02AC_G
+ MELINK Original WL 'ME_4FC47ECC03C9' '4F6C2D7901D1.ms.model.script' // TevRowChild
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FC47ECC03C9_ME_4FC48D1B02AC_G TevRowChild
+
+MEREF ME_4BBC920100CB_ME_4FC48D1B02AC_R
+ MELINK Original WL 'ME_4BBC920100CB' '48E3836D00C8.ms.model.script' // IedBackCellsIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBC920100CB_ME_4FC48D1B02AC_R IedBackCellsIterator
+
+MEREF ME_4BBC93F50176_ME_4FC48D1B02AC_R
+ MELINK Original WL 'ME_4BBC93F50176' '48E3836D00C8.ms.model.script' // IedCellsIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBC93F50176_ME_4FC48D1B02AC_R IedCellsIterator
+
+%%ImplementedBy ME_4BBC920100CB ME_4FC48D1B02AC
+%%ImplementedBy ME_4BBC93F50176 ME_4FC48D1B02AC
+
+%%InheritedBy ME_4FC47ECC03C9 ME_4FC48D1B02AC
+
+ME ME_4FC48D1B02AC
+ MEPROP UID '4FC48D1B02AC'
+ MEPROP Name 'TevCellsIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F1F38601A3' // ParaUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FC47ECC03C9_ME_4FC48D1B02AC_G // TevRowChild
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBC920100CB_ME_4FC48D1B02AC_R // IedBackCellsIterator
+ ME_4BBC93F50176_ME_4FC48D1B02AC_R // IedCellsIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FC48E2D004B // f_NeedNeighbours
+ HWL ME_4FC48E3903AA // f_StartCell
+ HWL ME_4FC48E4400BC // f_First
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC48DC101EB // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC922302CA_ME_4FC48D1B02AC_impl // Last
+ ME_4BBC92390009_ME_4FC48D1B02AC_impl // Prev
+ ME_4BBC9430038B_ME_4FC48D1B02AC_impl // BackIterator
+ ME_4BBC944C0195_ME_4FC48D1B02AC_impl // First
+ ME_4BBC94640082_ME_4FC48D1B02AC_impl // Next
+ ME_4BBC947B0399_ME_4FC48D1B02AC_impl // CellsCount
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FC498B702F8 // l3Free
+ ME_4FC4990A03E3 // Supports
+ ME_4FC499390060 // nevFacade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'evNeedEditableCursors'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCellsIterator.pas'
+ UP extprop:rc:SelfName 'CellsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCellsIterator'
+
+ENDME // ME_4FC48D1B02AC TevCellsIterator

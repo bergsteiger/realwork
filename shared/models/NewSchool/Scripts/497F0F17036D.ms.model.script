@@ -46,11 +46,17 @@ ME ME_497F11FC030D
 
 ENDME // ME_497F11FC030D 
 
-ME ME_496B781903E3_ME_497F0F17036D
+MEREF ME_496B781903E3_ME_497F0F17036D_impl
  MELINK Original WL 'ME_496B781903E3' '490838E10313.ms.model.script' // TabActivate
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B781903E3_ME_497F0F17036D TabActivate
+ENDMEREF // ME_496B781903E3_ME_497F0F17036D_impl TabActivate
+
+MEREF ME_496B78080016_ME_497F0F17036D_R
+ MELINK Original WL 'ME_496B78080016' '490838E10313.ms.model.script' // InscPageControlNotification
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496B78080016_ME_497F0F17036D_R InscPageControlNotification
 
 %%ImplementedBy ME_496B78080016 ME_497F0F17036D
 
@@ -67,7 +73,7 @@ ME ME_497F0F17036D
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_496B78080016' '490838E10313.ms.model.script' // InscPageControlNotification
+   Seq: ( ME_496B78080016_ME_497F0F17036D_R // InscPageControlNotification
  )
  ; // Implements
  MELIST Operations
@@ -75,7 +81,7 @@ ME ME_497F0F17036D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_496B781903E3_ME_497F0F17036D // TabActivate
+   Seq: ( ME_496B781903E3_ME_497F0F17036D_impl // TabActivate
  )
  ; // Implemented
  MELIST Dependencies

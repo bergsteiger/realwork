@@ -1,0 +1,166 @@
+// TsmChangeableTree 4E73239003D0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E73239003D0
+
+ME ME_4E7323D9023E
+ MEPROP UID '4E7323D9023E'
+ MEPROP Name 'f_SectionType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E73239003D0 // TsmChangeableTree
+ ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_4E7323D9023E f_SectionType
+
+FORWARD ME_4E73249703A9
+
+ME ME_4E732871010D
+ MEPROP Name 'aSectionType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_4E732871010D aSectionType
+
+ME ME_4E7324AB0253
+ MEPROP UID '4E7324AB0253'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E73249703A9 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E732871010D // aSectionType
+ )
+ ; // Parameters
+
+ENDME // ME_4E7324AB0253 DoIt
+
+ME ME_4E73249703A9
+ MEPROP UID '4E73249703A9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E73239003D0 // TsmChangeableTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7324AB0253 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E73249703A9 Create
+
+MEREF ME_4E73249703A9_ME_4E7324A00304_G
+ MELINK Original HWL ME_4E73249703A9 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E73249703A9_ME_4E7324A00304_G Create
+
+MEREF ME_46825CC00249_ME_4E7324A00304_R
+ MELINK Original WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46825CC00249_ME_4E7324A00304_R Il3SimpleTree
+
+%%ImplementedBy ME_46825CC00249 ME_4E7324A00304
+
+%%InheritedBy ME_4E73249703A9 ME_4E7324A00304
+
+ME ME_4E7324A00304
+ MEPROP UID '4E7324A00304'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E73239003D0 // TsmChangeableTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E73249703A9_ME_4E7324A00304_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46825CC00249_ME_4E7324A00304_R // Il3SimpleTree
+ )
+ ; // Implements
+
+ENDME // ME_4E7324A00304 Make
+
+MEREF ME_4909EF6E0361_ME_4E73239003D0_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_4E73239003D0_over MakeRoot
+
+MEREF ME_490B0E9A02A2_ME_4E73239003D0_G
+ MELINK Original WL? 'ME_490B0E9A02A2' // TsmTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490B0E9A02A2_ME_4E73239003D0_G TsmTree
+
+MEREF ME_4E70D70C0055_ME_4E73239003D0_R
+ MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E70D70C0055_ME_4E73239003D0_R Основное меню должно уметь зависеть от должности пользователя
+
+%%ImplementedBy ME_4E70D70C0055 ME_4E73239003D0
+
+%%InheritedBy ME_490B0E9A02A2 ME_4E73239003D0
+
+ME ME_4E73239003D0
+ MEPROP UID '4E73239003D0'
+ MEPROP Name 'TsmChangeableTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB4EE00FE' // MainMenuTrees
+ ;
+ MELIST Inherits
+   Seq: ( ME_490B0E9A02A2_ME_4E73239003D0_G // TsmTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E70D70C0055_ME_4E73239003D0_R // Основное меню должно уметь зависеть от должности пользователя
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E7323D9023E // f_SectionType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E73249703A9 // Create
+ HWL ME_4E7324A00304 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4909EF6E0361_ME_4E73239003D0_over // MakeRoot
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '16.09.2011 14:23'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smChangeableTree.pas'
+ UP extprop:rc:SelfName 'smChangeableTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'smChangeableTree'
+
+ENDME // ME_4E73239003D0 TsmChangeableTree

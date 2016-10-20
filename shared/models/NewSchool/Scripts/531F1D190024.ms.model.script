@@ -1,0 +1,135 @@
+// Tk2ChildrenPath 531F1D190024 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531F1D190024
+
+ME ME_531F1D3F0337
+ MEPROP UID '531F1D3F0337'
+ MEPROP Name 'Path'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_531F1D190024 // Tk2ChildrenPath
+ ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_531F1D3F0337 Path
+
+ME ME_531F22B10354
+ MEPROP UID '531F22B10354'
+ MEPROP Name 'TagType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_531F1D190024 // Tk2ChildrenPath
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_531F22B10354 TagType
+
+FORWARD ME_531F1FA70253
+
+ME ME_531F1FD20281
+ MEPROP Name 'aTagType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_531F1FD20281 aTagType
+
+ME ME_531F1FD202D7
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+
+ENDME // ME_531F1FD202D7 aPath
+
+ME ME_531F1FB60000
+ MEPROP UID '531F1FB60000'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531F1FA70253 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_531F1FD20281 // aTagType
+ ME_531F1FD202D7 // aPath
+ )
+ ; // Parameters
+
+ENDME // ME_531F1FB60000 DoIt
+
+ME ME_531F1FA70253
+ MEPROP UID '531F1FA70253'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531F1D190024 // Tk2ChildrenPath
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_531F1FB60000 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_531F1FA70253 Create
+
+MEREF ME_49E7754802A9_ME_531F1D190024_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_531F1D190024_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_531F1D190024
+
+ME ME_531F1D190024
+ MEPROP UID '531F1D190024'
+ MEPROP Name 'Tk2ChildrenPath'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_531F1D190024_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_531F1D3F0337 // Path
+ HWL ME_531F22B10354 // TagType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_531F1FA70253 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ChildrenPath.pas'
+ UP extprop:rc:SelfName 'ChildrenPath'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2ChildrenPath'
+
+ENDME // ME_531F1D190024 Tk2ChildrenPath

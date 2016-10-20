@@ -1,0 +1,62 @@
+// TvcmAction 47E761BB02FE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E761BB02FE
+
+ME ME_47E766E10053
+ MEPROP UID '47E766E10053'
+ MEPROP Name 'DoUpdate'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E761BB02FE // TvcmAction
+ ;
+
+ENDME // ME_47E766E10053 DoUpdate
+
+MEREF ME_47913F970159_ME_47E761BB02FE_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_47E761BB02FE_G l3Unknown
+
+MEREF ME_47E7626B0083_ME_47E761BB02FE_G
+ MELINK Original WL 'ME_47E7626B0083' '47E76250004C.ms.model.script' // TCustomAction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E7626B0083_ME_47E761BB02FE_G TCustomAction
+
+%%InheritedBy ME_47913F970159 ME_47E761BB02FE
+%%InheritedBy ME_47E7626B0083 ME_47E761BB02FE
+
+ME ME_47E761BB02FE
+ MEPROP UID '47E761BB02FE'
+ MEPROP Name 'TvcmAction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая операция библиотеки vcm для привязки к меню.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E7617C0275' // Actions
+ ;
+ MELIST Inherits
+   Seq: ( ME_47913F970159_ME_47E761BB02FE_G // l3Unknown
+ ME_47E7626B0083_ME_47E761BB02FE_G // TCustomAction
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47E766E10053 // DoUpdate
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '25.02.2003 19:52'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmAction.pas'
+ UP extprop:rc:SelfName 'Action'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmAction'
+
+ENDME // ME_47E761BB02FE TvcmAction

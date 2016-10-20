@@ -1,0 +1,93 @@
+// TatOperationParameter 48089A46022D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48089A46022D
+
+ME ME_48089A77026D
+ MEPROP UID '48089A77026D'
+ MEPROP Name 'IsRequired'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48089A46022D // TatOperationParameter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48089A77026D IsRequired
+
+ME ME_5396ED0B026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48089A46022D // TatOperationParameter
+ ;
+ MELINK Target WL? 'ME_5396EA3E0230' // TatOperationEnv
+ ;
+
+ENDME // ME_5396ED0B026D 
+
+ME ME_539706DA034E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48089A46022D // TatOperationParameter
+ ;
+ MELINK Target WL? 'ME_48088D6800F9' // Variants
+ ;
+
+ENDME // ME_539706DA034E 
+
+MEREF ME_48086F180372_ME_48089A46022D_over
+ MELINK Original WL 'ME_48086F180372' '48086D7103BE.ms.model.script' // Value
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_48086F180372_ME_48089A46022D_over Value
+
+MEREF ME_480890870368_ME_48089A46022D_G
+ MELINK Original WL? 'ME_480890870368' // TatNamedParameter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480890870368_ME_48089A46022D_G TatNamedParameter
+
+%%InheritedBy ME_480890870368 ME_48089A46022D
+
+ME ME_48089A46022D
+ MEPROP UID '48089A46022D'
+ MEPROP Name 'TatOperationParameter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( ME_480890870368_ME_48089A46022D_G // TatNamedParameter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48089A77026D // IsRequired
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48086F180372_ME_48089A46022D_over // Value
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5396ED0B026D // TatOperationEnv
+ ME_539706DA034E // Variants
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParameter.pas'
+ UP extprop:rc:SelfName 'atOperationParameter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atOperationParameter'
+
+ENDME // ME_48089A46022D TatOperationParameter

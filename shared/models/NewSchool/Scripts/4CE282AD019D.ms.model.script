@@ -1,0 +1,69 @@
+// TScrollByArrow 4CE282AD019D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE282AD019D
+
+MEREF ME_4BE419AF0217_ME_4CE282AD019D_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4CE282AD019D_impl DoVisit
+
+MEREF ME_4C9899150030_ME_4CE282AD019D_G
+ MELINK Original WL? 'ME_4C9899150030' // TPrimScrollTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9899150030_ME_4CE282AD019D_G TPrimScrollTest
+
+MEREF ME_4C500D6101D8_ME_4CE282AD019D_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4CE282AD019D_R CursorMover
+
+MEREF ME_4CE2958803D0_ME_4CE282AD019D_R
+ MELINK Original WL? 'ME_4CE2958803D0' // ScrollSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE2958803D0_ME_4CE282AD019D_R ScrollSupport
+
+%%ImplementedBy ME_4C500D6101D8 ME_4CE282AD019D
+%%ImplementedBy ME_4CE2958803D0 ME_4CE282AD019D
+
+%%InheritedBy ME_4C9899150030 ME_4CE282AD019D
+
+ME ME_4CE282AD019D
+ MEPROP UID '4CE282AD019D'
+ MEPROP Name 'TScrollByArrow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕрокрутка документа стрелкой на клавиатуре.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C9899150030_ME_4CE282AD019D_G // TPrimScrollTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C500D6101D8_ME_4CE282AD019D_R // CursorMover
+ ME_4CE2958803D0_ME_4CE282AD019D_R // ScrollSupport
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4CE282AD019D_impl // DoVisit
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrow.pas'
+ UP extprop:rc:SelfName 'ScrollByArrow'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByArrow'
+
+ENDME // ME_4CE282AD019D TScrollByArrow

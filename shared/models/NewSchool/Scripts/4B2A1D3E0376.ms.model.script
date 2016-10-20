@@ -1,0 +1,74 @@
+// TTestMMX 4B2A1D3E0376 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2A1D3E0376
+
+FORWARD ME_4B2A1D6D001D
+
+ME ME_4B2A2CA702AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A1D6D001D // DoMMX
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4B2A2CA702AF 
+
+ME ME_4B2A1D6D001D
+ MEPROP UID '4B2A1D6D001D'
+ MEPROP Name 'DoMMX'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A1D3E0376 // TTestMMX
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B2A2CA702AF // l3Base
+ )
+ ; // Dependencies
+
+ENDME // ME_4B2A1D6D001D DoMMX
+
+MEREF ME_4B2A11BC0255_ME_4B2A1D3E0376_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4B2A1D3E0376_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4B2A1D3E0376
+
+ME ME_4B2A1D3E0376
+ MEPROP UID '4B2A1D3E0376'
+ MEPROP Name 'TTestMMX'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A15A00031' // Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4B2A1D3E0376_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B2A1D6D001D // DoMMX
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '17.12.2009 15:00'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TestMMX.pas'
+ UP extprop:rc:SelfName 'TestMMX'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TestMMX'
+
+ENDME // ME_4B2A1D3E0376 TTestMMX

@@ -1,0 +1,132 @@
+// TtfwKeywordsIterator 55ED4BC100BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55ED4BC100BB
+
+MEREF ME_52E29FCF00BC_ME_55ED4BEE00BC_G
+ MELINK Original WL 'ME_52E29FCF00BC' '55ED4AE00282.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E29FCF00BC_ME_55ED4BEE00BC_G Create
+
+MEREF ME_4DCC12FC0125_ME_55ED4BEE00BC_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55ED4BEE00BC_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55ED4BEE00BC
+
+%%InheritedBy ME_52E29FCF00BC ME_55ED4BEE00BC
+
+ME ME_55ED4BEE00BC
+ MEPROP UID '55ED4BEE00BC'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55ED4BC100BB // TtfwKeywordsIterator
+ ;
+ MELIST Inherits
+   Seq: ( ME_52E29FCF00BC_ME_55ED4BEE00BC_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DCC12FC0125_ME_55ED4BEE00BC_R // ItfwValueList
+ )
+ ; // Implements
+
+ENDME // ME_55ED4BEE00BC Make
+
+MEREF ME_52E23B7A00EC_ME_55ED4BC100BB_impl
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23B7A00EC_ME_55ED4BC100BB_impl ForEach
+
+MEREF ME_52E23BB102FA_ME_55ED4BC100BB_impl
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52E23BB102FA_ME_55ED4BC100BB_impl ForEachBack
+
+MEREF ME_55CDF40C03D4_ME_55ED4BC100BB_impl
+ MELINK Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.ms.model.script' // SetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55CDF40C03D4_ME_55ED4BC100BB_impl SetItem
+
+MEREF ME_55E849210175_ME_55ED4BC100BB_impl
+ MELINK Original WL 'ME_55E849210175' '4DAF19F600C5.ms.model.script' // ItemsCountInSlice
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55E849210175_ME_55ED4BC100BB_impl ItemsCountInSlice
+
+MEREF ME_57C8146602DB_ME_55ED4BC100BB_over
+ MELINK Original WL 'ME_57C8146602DB' '57C81527030E.ms.model.script' // GetItem
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57C8146602DB_ME_55ED4BC100BB_over GetItem
+
+MEREF ME_55ED4AE00282_ME_55ED4BC100BB_G
+ MELINK Original WL? 'ME_55ED4AE00282' // TtfwMembersIteratorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55ED4AE00282_ME_55ED4BC100BB_G TtfwMembersIteratorPrim
+
+MEREF ME_4DCC12FC0125_ME_55ED4BC100BB_R
+ MELINK Original WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC12FC0125_ME_55ED4BC100BB_R ItfwValueList
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55ED4BC100BB
+
+%%InheritedBy ME_55ED4AE00282 ME_55ED4BC100BB
+
+ME ME_55ED4BC100BB
+ MEPROP UID '55ED4BC100BB'
+ MEPROP Name 'TtfwKeywordsIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F50310E03D7' // ArrayProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_55ED4AE00282_ME_55ED4BC100BB_G // TtfwMembersIteratorPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4DCC12FC0125_ME_55ED4BC100BB_R // ItfwValueList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55ED4BEE00BC // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52E23B7A00EC_ME_55ED4BC100BB_impl // ForEach
+ ME_52E23BB102FA_ME_55ED4BC100BB_impl // ForEachBack
+ ME_55CDF40C03D4_ME_55ED4BC100BB_impl // SetItem
+ ME_55E849210175_ME_55ED4BC100BB_impl // ItemsCountInSlice
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57C8146602DB_ME_55ED4BC100BB_over // GetItem
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
+ UP extprop:rc:SelfName 'KeywordsIterator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwKeywordsIterator'
+
+ENDME // ME_55ED4BC100BB TtfwKeywordsIterator

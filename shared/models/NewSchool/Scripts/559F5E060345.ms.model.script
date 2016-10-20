@@ -1,0 +1,101 @@
+// TtfwDictionaryPtrList 559F5E060345 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_559F5E060345
+%%Inner ME_559F5E060345
+
+FORWARD ME_559F5E060345
+
+ME ME_55A549B40137
+ MEPROP UID '55A549B40137'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_55A549B40137 l3Items_NoSort
+
+ME ME_55A549C8025C
+ MEPROP UID '55A549C8025C'
+ MEPROP Name 'l3Items_NoChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ UP extprop:rc:SelfName 'Items_NoChanging'
+
+ENDME // ME_55A549C8025C l3Items_NoChanging
+
+ME ME_559F5E93019F
+ MEPROP UID '559F5E93019F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559F5E060345 // TtfwDictionaryPtrList
+ ;
+ MELINK Target WL? 'ME_55A4FCDC01B8' // TtfwDictionaryExPrim
+ ;
+
+ENDME // ME_559F5E93019F ItemType
+
+MEREF ME_47B57B7800A7_ME_559F5E060345_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_559F5E060345_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_559F5E060345_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_559F5E060345_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B7800A7 ME_559F5E060345
+%%InheritedBy ME_4A54DD4E036F ME_559F5E060345
+
+ME ME_559F5E060345
+ MEPROP UID '559F5E060345'
+ MEPROP Name 'TtfwDictionaryPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57B7800A7_ME_559F5E060345_G // l3ObjectPtrList
+ ME_4A54DD4E036F_ME_559F5E060345_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559F5E93019F // ItemType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_55A549B40137 // l3Items_NoSort
+ HWL ME_55A549C8025C // l3Items_NoChanging
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPtrList.pas'
+ UP extprop:rc:SelfName 'DictionaryPtrList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDictionaryPtrList'
+
+ENDME // ME_559F5E060345 TtfwDictionaryPtrList

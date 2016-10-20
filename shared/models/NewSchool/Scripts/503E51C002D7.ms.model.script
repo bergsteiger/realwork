@@ -1,0 +1,65 @@
+// TatNonATQueryLogicOperationConverter 503E51C002D7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503E51C002D7
+
+ME ME_503E51EA02D2
+ MEPROP UID '503E51EA02D2'
+ MEPROP Name 'SecondType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503E51C002D7 // TatNonATQueryLogicOperationConverter
+ ;
+ MELINK Target WL 'ME_45EEE50F0320' '45EEAA8E034E.ms.model.script' // QueryLogicOperation
+ ;
+
+ENDME // ME_503E51EA02D2 SecondType
+
+MEREF ME_503E3A040395_ME_503E51C002D7_impl
+ MELINK Original WL 'ME_503E3A040395' '503E2BCA01E8.ms.model.script' // InitConvertMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_503E3A040395_ME_503E51C002D7_impl InitConvertMap
+
+MEREF ME_504F25E90064_ME_503E51C002D7_G
+ MELINK Original WL? 'ME_504F25E90064' // atStringConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_504F25E90064_ME_503E51C002D7_G atStringConverter
+
+%%InheritedBy ME_504F25E90064 ME_503E51C002D7
+
+ME ME_503E51C002D7
+ MEPROP UID '503E51C002D7'
+ MEPROP Name 'TatNonATQueryLogicOperationConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_504F25E90064_ME_503E51C002D7_G // atStringConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_503E51EA02D2 // SecondType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_503E3A040395_ME_503E51C002D7_impl // InitConvertMap
+ )
+ ; // Implemented
+ UP "singleton" true
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atNonATQueryLogicOperationConverter.pas'
+ UP extprop:rc:SelfName 'atNonATQueryLogicOperationConverter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atNonATQueryLogicOperationConverter'
+
+ENDME // ME_503E51C002D7 TatNonATQueryLogicOperationConverter

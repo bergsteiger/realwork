@@ -1,0 +1,54 @@
+// TbsChatDispatcher 4A683EC401BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A683EC401BB
+
+ME ME_4A683F3A039D
+ MEPROP UID '4A683F3A039D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A683EC401BB // TbsChatDispatcher
+ ;
+ MELINK Target WL 'ME_4A66DEE901C9' '4A66DD3C01E8.ms.model.script' // IbsChatDispatcher
+ ;
+
+ENDME // ME_4A683F3A039D Make
+
+MEREF ME_4A682A110387_ME_4A683EC401BB_G
+ MELINK Original WL? 'ME_4A682A110387' // TbsChatDispatcherPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A682A110387_ME_4A683EC401BB_G TbsChatDispatcherPrim
+
+%%InheritedBy ME_4A682A110387 ME_4A683EC401BB
+
+ME ME_4A683EC401BB
+ MEPROP UID '4A683EC401BB'
+ MEPROP Name 'TbsChatDispatcher'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A682A110387_ME_4A683EC401BB_G // TbsChatDispatcherPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A683F3A039D // Make
+ )
+ ; // Operations
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcher.pas'
+ UP extprop:rc:SelfName 'bsChatDispatcher'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsChatDispatcher'
+
+ENDME // ME_4A683EC401BB TbsChatDispatcher

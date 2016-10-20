@@ -1,0 +1,93 @@
+// Tk2DictionaryIDIndex 5304CAB003D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5304CAB003D1
+
+ME ME_5304CB26017F
+ MEPROP UID '5304CB26017F'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5304CB26017F FindDataType
+
+ME ME_5304D40E038D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5304CAB003D1 // Tk2DictionaryIDIndex
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5304D40E038D 
+
+MEREF ME_47B9BAFD01F4_ME_5304CAB003D1_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_5304CAB003D1_over CompareItemWithData
+
+MEREF ME_5304CA0F01F5_ME_5304CAB003D1_G
+ MELINK Original WL? 'ME_5304CA0F01F5' // Tk2DictionaryIDIndexPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5304CA0F01F5_ME_5304CAB003D1_G Tk2DictionaryIDIndexPrim
+
+MEREF ME_47B47E230134_ME_5304CAB003D1_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_5304CAB003D1_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_5304CAB003D1
+
+%%InheritedBy ME_5304CA0F01F5 ME_5304CAB003D1
+
+ME ME_5304CAB003D1
+ MEPROP UID '5304CAB003D1'
+ MEPROP Name 'Tk2DictionaryIDIndex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5304CA0F01F5_ME_5304CAB003D1_G // Tk2DictionaryIDIndexPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_5304CAB003D1_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5304CB26017F // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_5304CAB003D1_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5304D40E038D // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictionaryIDIndex.pas'
+ UP extprop:rc:SelfName 'DictionaryIDIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2DictionaryIDIndex'
+
+ENDME // ME_5304CAB003D1 Tk2DictionaryIDIndex

@@ -1,0 +1,113 @@
+// TnsGroupTreeStructWithDrop 49F16EE7010F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F16EE7010F
+
+ME ME_49F5B739033E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EE7010F // TnsGroupTreeStructWithDrop
+ ;
+ MELINK Target WL 'ME_49F17AE6005F' '47ECAAF901F8.ms.model.script' // IbsUserTreeData
+ ;
+
+ENDME // ME_49F5B739033E 
+
+ME ME_49F5BA9800A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EE7010F // TnsGroupTreeStructWithDrop
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49F5BA9800A7 
+
+ME ME_49F5BAB60373
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EE7010F // TnsGroupTreeStructWithDrop
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_49F5BAB60373 
+
+ME ME_49F5BADD00A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EE7010F // TnsGroupTreeStructWithDrop
+ ;
+ MELINK Target WL 'ME_4651A5AE00FA' '45EEAA96039C.ms.model.script' // UidList
+ ;
+
+ENDME // ME_49F5BADD00A6 
+
+ME ME_49F5BD0001EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F16EE7010F // TnsGroupTreeStructWithDrop
+ ;
+ MELINK Target WL? 'ME_49E5BB5F02B7' // nsUserNodes
+ ;
+
+ENDME // ME_49F5BD0001EC 
+
+MEREF ME_48FEE78E01B2_ME_49F16EE7010F_over
+ MELINK Original WL 'ME_48FEE78E01B2' '46835B4001A4.ms.model.script' // DoCanAcceptData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE78E01B2_ME_49F16EE7010F_over DoCanAcceptData
+
+MEREF ME_48FEE9D303B6_ME_49F16EE7010F_over
+ MELINK Original WL 'ME_48FEE9D303B6' '46835B4001A4.ms.model.script' // DoDropData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FEE9D303B6_ME_49F16EE7010F_over DoDropData
+
+MEREF ME_49E8213D00F6_ME_49F16EE7010F_G
+ MELINK Original WL? 'ME_49E8213D00F6' // TnsGroupTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E8213D00F6_ME_49F16EE7010F_G TnsGroupTreeStruct
+
+%%InheritedBy ME_49E8213D00F6 ME_49F16EE7010F
+
+ME ME_49F16EE7010F
+ MEPROP UID '49F16EE7010F'
+ MEPROP Name 'TnsGroupTreeStructWithDrop'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901E79300F5' // Users
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E8213D00F6_ME_49F16EE7010F_G // TnsGroupTreeStruct
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48FEE78E01B2_ME_49F16EE7010F_over // DoCanAcceptData
+ ME_48FEE9D303B6_ME_49F16EE7010F_over // DoDropData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49F5B739033E // IbsUserTreeData
+ ME_49F5BA9800A7 // SysUtils
+ ME_49F5BAB60373 // DataAdapter
+ ME_49F5BADD00A6 // UidList
+ ME_49F5BD0001EC // nsUserNodes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStructWithDrop.pas'
+ UP extprop:rc:SelfName 'GroupTreeStructWithDrop'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsGroupTreeStructWithDrop'
+
+ENDME // ME_49F16EE7010F TnsGroupTreeStructWithDrop

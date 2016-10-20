@@ -1,0 +1,90 @@
+// TevEpsilonLongIntList 49C217110141 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49C217110141
+
+ME ME_49C218DC01C1
+ MEPROP UID '49C218DC01C1'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49C217110141 // TevEpsilonLongIntList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49C218DC01C1 ItemType
+
+ME ME_49C22E20035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49C217110141 // TevEpsilonLongIntList
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_49C22E20035A 
+
+MEREF ME_47B99D4503A2_ME_49C217110141_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_49C217110141_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_49C217110141_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_49C217110141_G Tl3ProtoDataContainer
+
+MEREF ME_4B71611400B3_ME_49C217110141_G
+ MELINK Original WL? 'ME_4B71611400B3' // l3AtomicListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B71611400B3_ME_49C217110141_G l3AtomicListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_49C217110141
+%%InheritedBy ME_4B71611400B3 ME_49C217110141
+
+ME ME_49C217110141
+ MEPROP UID '49C217110141'
+ MEPROP Name 'TevEpsilonLongIntList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_49C217110141_G // Tl3ProtoDataContainer
+ ME_4B71611400B3_ME_49C217110141_G // l3AtomicListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49C218DC01C1 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_49C217110141_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49C22E20035A // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
+ UP extprop:rc:SelfName 'EpsilonLongIntList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evEpsilonLongIntList'
+
+ENDME // ME_49C217110141 TevEpsilonLongIntList

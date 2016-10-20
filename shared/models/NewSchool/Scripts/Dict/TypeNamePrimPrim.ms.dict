@@ -1,0 +1,58 @@
+UNIT TypeNamePrimPrim.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ msmMetaModel.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ FirstAttribute.ms.dict
+;
+
+USES
+ tinyMetaModel.ms.dict
+;
+
+STRING elem_func TypeNamePrimPrim
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    ''
+   ( Self IsString )
+    Self
+   ( Self .IsOpenArray )
+    ( [ 'array of ' Self .FirstAttribute .Target call.me ] strings:Cat )
+   DEFAULT  
+    (
+     STRING VAR l_ExtName
+     Self .GetUP 'extprop:pas:TypeName' >>> l_ExtName
+     RULES
+      ( l_ExtName .IsNotNil )
+       l_ExtName
+      ( Self .IsMixIn )
+      // - на самом деле ещё IsMixIn определяется ниже, это возможно надо учитывать
+       ( [ '_' Self .Name '_' ] strings:Cat )
+      DEFAULT
+       ( Self .Name )
+     ; // RULES
+    )
+  ; // RULES  
+ )
+ >>> Result
+; // TypeNamePrimPrim

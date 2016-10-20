@@ -1,0 +1,46 @@
+// K228688660 4C5FEA950080 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C5FEA950080
+
+MEREF ME_4BEBFE020080_ME_4C5FEA950080_over
+ MELINK Original WL 'ME_4BEBFE020080' '4BE047320379.ms.model.script' // ScrollByPage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BEBFE020080_ME_4C5FEA950080_over ScrollByPage
+
+MEREF ME_4BEBF13B0076_ME_4C5FEA950080_G
+ MELINK Original WL? 'ME_4BEBF13B0076' // TScrollTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BEBF13B0076_ME_4C5FEA950080_G TScrollTest
+
+%%InheritedBy ME_4BEBF13B0076 ME_4C5FEA950080
+
+ME ME_4C5FEA950080
+ MEPROP UID '4C5FEA950080'
+ MEPROP Name 'K228688660'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$228688660]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BEBF13B0076_ME_4C5FEA950080_G // TScrollTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BEBFE020080_ME_4C5FEA950080_over // ScrollByPage
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K228688660.pas'
+ UP extprop:pas:TypeName 'TK228688660'
+ UP extprop:rc:SelfName 'K228688660'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C5FEA950080 K228688660

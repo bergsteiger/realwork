@@ -1,0 +1,127 @@
+// TtfwValueList 4DCC11A10187 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DCC11A10187
+
+FORWARD ME_4DCC11A10187
+
+ME ME_4DCC124401A5
+ MEPROP UID '4DCC124401A5'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC11A10187 // TtfwValueList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4DCC124401A5 l3Items_NoSort
+
+ME ME_4DCC11E10193
+ MEPROP UID '4DCC11E10193'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCC11A10187 // TtfwValueList
+ ;
+ MELINK Target WL 'ME_55C0A4F9013F' '4DAF19F600C5.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_4DCC11E10193 ItemType
+
+MEREF ME_47B07CF403D0_ME_4DCC11A10187_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4DCC11A10187_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4DCC11A10187_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4DCC11A10187_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4DCC11A10187_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4DCC11A10187_impl CompareExistingItems
+
+MEREF ME_47A6FEE600FC_ME_4DCC11A10187_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4DCC11A10187_over IsCacheable
+
+MEREF ME_4A54DD4E036F_ME_4DCC11A10187_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4DCC11A10187_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_4DCC11A10187_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_4DCC11A10187_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4DCC11A10187
+%%InheritedBy ME_4B223ADC02BF ME_4DCC11A10187
+
+ME ME_4DCC11A10187
+ MEPROP UID '4DCC11A10187'
+ MEPROP Name 'TtfwValueList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список адаптированный для хранения переменных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F0A4A302FF' // Array
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_4DCC11A10187_G // Tl3ProtoDataContainer
+ ME_4B223ADC02BF_ME_4DCC11A10187_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DCC11E10193 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4DCC11A10187_impl // IsSameItems
+ ME_47B2C42A0163_ME_4DCC11A10187_impl // AssignItem
+ ME_47B99D4503A2_ME_4DCC11A10187_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4DCC11A10187_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DCC124401A5 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.05.2011 20:58'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ UP extprop:rc:SelfName 'Array'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwValueList'
+
+ENDME // ME_4DCC11A10187 TtfwValueList

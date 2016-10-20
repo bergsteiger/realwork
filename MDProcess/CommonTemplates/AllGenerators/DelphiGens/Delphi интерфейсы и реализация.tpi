@@ -1928,10 +1928,12 @@ f _NeedFinalize
 
 	%f_clear_list(INCLUDED_FILES)\
 	%f_clear_list(FORWARDED_ELEMENTS)\
+	%f_clear_list(REFERENCED_ELEMENTS)\
 
 	%S%f_pas_script_GenerateDescriptionRecur()\
 
 	%f_clear_list(FORWARDED_ELEMENTS)\
+	%f_clear_list(REFERENCED_ELEMENTS)\
 	%f_clear_list(INCLUDED_FILES)
 //#UC END# *5632454C0277for470F151302FD*
 
@@ -1950,7 +1952,15 @@ f _NeedFinalize
 	}\
 	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization|%S#f_IsVCMForm()=true|%SS=ViewAreaControllerImp|%SS=UseCaseControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory|%SS=VCMApplication|%SS=VCMTestApplication|%S#f_IsUtilityPack()=true|%S#f_IsMixIn()=true}{\
 	[{%SS=GuiControl&%PC!=Class}{\
+	[{%t_simple_class(%S)=true}{\
 	false\
+	}\
+	[{%PC!=Class}{\
+	false\
+	}\
+	true\
+	]\
+	]\
 // - наверное классы не надо в отдельные файлы выливать
 	}\
 	true\
@@ -2014,6 +2024,14 @@ f _NeedFinalize
 	]\
 
 	[{"%SN"!=""}\
+	[{"%S#f_tpi_script_NamePrim()"!=""}\
+	[{"%S#f_tpi_script_NamePrim()"!="%f_N(%S)"}\
+	 MEPROP FullName '%S#f_tpi_script_NamePrim()'
+	]\
+	]\
+	]\
+
+	[{"%SN"!=""}\
 	[{%f_N(%S)!=%SN}\
 	 MEPROP OriginalName '%f_str_replace(%SN,','')'
 	]\
@@ -2027,8 +2045,16 @@ f _NeedFinalize
 	 MEPROP IsSubRoot true
 	]\
 
+	[{"%SC"!=""}\
 	[\
-	 MEPROP Class class_%SC
+	 MEPROP Class class_\
+	[{%S#f_pas_script_IsOperation()=true}{\
+	%SC\
+	}\
+	Operation\
+	]\
+	\n\
+	]\
 	]\
 
 	[{"%SS"!=""}\
@@ -2086,12 +2112,14 @@ f _NeedFinalize
 
 	[\
 	 MELIST Inherits
-	   Seq: (< %G#f_pas_script_Reference()> )
+//	   Seq: (< %G#f_pas_script_Reference()> )
+	   Seq: (<{}{}{%G} %f_OverrideLink(%G,%S,"G")> )
 	 ; // Inherits
 	]\
 	[\
 	 MELIST Implements
-	   Seq: (< %R#f_pas_script_Reference()> )
+//	   Seq: (< %R#f_pas_script_Reference()> )
+	   Seq: (<{}{}{%R} %f_OverrideLink(%R,%S,"R")> )
 	 ; // Implements
 	]\
 	[\
@@ -2118,12 +2146,12 @@ f _NeedFinalize
 	[{%S#f_pas_script_CanImplementMethods()=true}\
 	[\
 	 MELIST Implemented
-	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S)> )
+	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S,"impl")> )
 	 ; // Implemented
 	]\
 	[\
 	 MELIST Overridden
-	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S)> )
+	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S,"over")> )
 	 ; // Overridden
 	]\
 	]\
@@ -3070,14 +3098,24 @@ f _IsConstants
 	[{%S#f_pas_script_CanImplementMethods()=true}\
 	<{}{}{%o}\
 	%S%f_pas_script_GenerateForwardPrim()\
-	%f_OutOverride(%o,%S,"opkind_Implemented")\
+	%f_OutOverride(%o,%S,"opkind_Implemented","impl")\
 	>\
 
 	<{}{}{%O}\
 	%S%f_pas_script_GenerateForwardPrim()\
-	%f_OutOverride(%O,%S,"opkind_Overridden")\
+	%f_OutOverride(%O,%S,"opkind_Overridden","over")\
 	>\
 	]\
+
+	<{}{}{%G}\
+//	%S%f_pas_script_GenerateForwardPrim()\
+	%f_OutOverride(%G,%S,"opkind_ReferencedType","G")\
+	>\
+
+	<{}{}{%R}\
+//	%S%f_pas_script_GenerateForwardPrim()\
+	%f_OutOverride(%R,%S,"opkind_ReferencedType","R")\
+	>\
 
 	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
 	<{}{%f_IsSameProject(%S,%L)=true}{%LSg}%L#f_pas_script_GenerateIncludeOrForward()>\
@@ -3087,16 +3125,18 @@ f _IsConstants
 
 f _OverrideName
 	[{"%S#f_pas_script_Name()"!=""&"%1#f_pas_script_Name()"!=""}\
-	%S#f_pas_script_Name()_%1#f_pas_script_Name()\
+	%S#f_pas_script_Name()_%1#f_pas_script_Name()_%2N\
 	]
 
 f _OverrideLink
-	[%f_OverrideName(%S,%1) // %SN\n]
+	[%f_OverrideName(%S,%1,%2) // %SN\n]
 
 f _OutOverride
-	[{"%f_OverrideName(%S,%1)"!=""}\
+	[{"%f_OverrideName(%S,%1,%3)"!=""}\
+	[{%f_exists_in_list(REFERENCED_ELEMENTS,"%f_OverrideName(%S,%1,%3)")!=true}\
+	%f_add_to_list(REFERENCED_ELEMENTS,"%f_OverrideName(%S,%1,%3)")\
 	\n\
-	ME %f_OverrideName(%S,%1)
+	MEREF %f_OverrideName(%S,%1,%3)
 	[\
 	 MELINK Original %S#f_pas_script_Reference() ;
 	]\
@@ -3105,8 +3145,11 @@ f _OutOverride
 	 MEPROP OpKind %2N
 	]\
 
+	[{"%2N"!="opkind_ReferencedType"}\
 	%S#f_pas_script_GenerateUserProperties()\
-	ENDME // %f_OverrideName(%S,%1) %SN\n\
+	]\
+	ENDMEREF // %f_OverrideName(%S,%1,%3) %SN\n\
+	]\
 	]
 //#UC END# *563378C200C8for470F151302FD*
 
@@ -3247,10 +3290,12 @@ f _pas_script_FileNameForLinkSafe
 
 	%f_clear_list(INCLUDED_FILES)\
 	%f_clear_list(FORWARDED_ELEMENTS)\
+	%f_clear_list(REFERENCED_ELEMENTS)\
 
 	%S%f_pas_script_GenerateInclude()\
 
 	%f_clear_list(FORWARDED_ELEMENTS)\
+	%f_clear_list(REFERENCED_ELEMENTS)\
 	%f_clear_list(INCLUDED_FILES)\
 	
 	%S#f_pas_script_Name() .Generate

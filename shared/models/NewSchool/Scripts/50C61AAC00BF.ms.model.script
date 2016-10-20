@@ -1,0 +1,387 @@
+// TvtMultilineHint 50C61AAC00BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50C61AAC00BF
+
+ME ME_50C61D2C029B
+ MEPROP UID '50C61D2C029B'
+ MEPROP Name 'LastHint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_50C61D2C029B LastHint
+
+ME ME_50C61D4C02FA
+ MEPROP UID '50C61D4C02FA'
+ MEPROP Name 'f_Canvas'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_48C68AA40296' // Tl3WinControlCanvas
+ ;
+
+ENDME // ME_50C61D4C02FA f_Canvas
+
+ME ME_50C61E01021E
+ MEPROP UID '50C61E01021E'
+ MEPROP Name 'f_FL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_50C61D8502E4' // Tl3FormattedLines
+ ;
+
+ENDME // ME_50C61E01021E f_FL
+
+ME ME_50C61ECB00FF
+ MEPROP UID '50C61ECB00FF'
+ MEPROP Name 'f_NCMousePoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_50C61ECB00FF f_NCMousePoint
+
+FORWARD ME_50C61C8E015D
+
+ME ME_50C644FC021D
+ MEPROP Name 'Rect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_noconst ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_50C644FC021D Rect
+
+ME ME_50C61CA8032A
+ MEPROP Name 'AHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_50C61CA8032A AHint
+
+ME ME_50C61C9D0019
+ MEPROP UID '50C61C9D0019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C61C8E015D // ActivateHintEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C644FC021D // Rect
+ ME_50C61CA8032A // AHint
+ )
+ ; // Parameters
+
+ENDME // ME_50C61C9D0019 DoIt
+
+ME ME_50C61C8E015D
+ MEPROP UID '50C61C8E015D'
+ MEPROP Name 'ActivateHintEx'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50C61C9D0019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50C61C8E015D ActivateHintEx
+
+FORWARD ME_50C61F0B0392
+
+ME ME_50C61F33035D
+ MEPROP Name 'aWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50C61B670302' '47E11FC3021E.ms.model.script' // THintWindow
+ ;
+
+ENDME // ME_50C61F33035D aWindow
+
+ME ME_50C61F330374
+ MEPROP Name 'Rect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_50C61F330374 Rect
+
+ME ME_50C61F33038A
+ MEPROP Name 'AHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_50C61F33038A AHint
+
+ME ME_50C61F2C019F
+ MEPROP UID '50C61F2C019F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C61F0B0392 // vtActivateHint
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C61F33035D // aWindow
+ ME_50C61F330374 // Rect
+ ME_50C61F33038A // AHint
+ )
+ ; // Parameters
+
+ENDME // ME_50C61F2C019F DoIt
+
+ME ME_50C61F0B0392
+ MEPROP UID '50C61F0B0392'
+ MEPROP Name 'vtActivateHint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50C61F2C019F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+ UP extprop:rc:SelfName 'ActivateHint'
+
+ENDME // ME_50C61F0B0392 vtActivateHint
+
+ME ME_50C61F7E02BE
+ MEPROP UID '50C61F7E02BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+
+ENDME // ME_50C61F7E02BE DoIt
+
+ME ME_50C6248D0368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_50C6241B0355' // TvtHintManager
+ ;
+
+ENDME // ME_50C6248D0368 
+
+ME ME_50C6416D020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_50C6416D020C 
+
+ME ME_50C641C80214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_50C641C80214 
+
+ME ME_50C642000215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_50C642000215 
+
+ME ME_50C642D801F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_50C642D801F4 
+
+ME ME_50C643600372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_4799F84900DD' // l3ScreenIC
+ ;
+
+ENDME // ME_50C643600372 
+
+ME ME_50C6455A001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_50C6455A001A 
+
+ME ME_50C645B70280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL? 'ME_4FAE801F00D4' // Tl3CustomControlCanvas
+ ;
+
+ENDME // ME_50C645B70280 
+
+ME ME_50C6461D0259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50C61AAC00BF // TvtMultilineHint
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_50C6461D0259 
+
+MEREF ME_47D1602000C6_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_50C61AAC00BF_over Create
+
+MEREF ME_48077504027E_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_50C61AAC00BF_over Destroy
+
+MEREF ME_48C7925A02E5_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48C7925A02E5_ME_50C61AAC00BF_over CreateParams
+
+MEREF ME_5028A60300AD_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_5028A60300AD' '47E11FC3021E.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5028A60300AD_ME_50C61AAC00BF_over Paint
+
+MEREF ME_50C61BA40123_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_50C61BA40123' '47E11FC3021E.ms.model.script' // ActivateHint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_50C61BA40123_ME_50C61AAC00BF_over ActivateHint
+
+MEREF ME_50C61BD700BF_ME_50C61AAC00BF_over
+ MELINK Original WL 'ME_50C61BD700BF' '47E11FC3021E.ms.model.script' // IsHintMsg
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_50C61BD700BF_ME_50C61AAC00BF_over IsHintMsg
+
+MEREF ME_50C61B670302_ME_50C61AAC00BF_G
+ MELINK Original WL 'ME_50C61B670302' '47E11FC3021E.ms.model.script' // THintWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50C61B670302_ME_50C61AAC00BF_G THintWindow
+
+%%InheritedBy ME_50C61B670302 ME_50C61AAC00BF
+
+ME ME_50C61AAC00BF
+ MEPROP UID '50C61AAC00BF'
+ MEPROP Name 'TvtMultilineHint'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50C61A7F0303' // Hints
+ ;
+ MELIST Inherits
+   Seq: ( ME_50C61B670302_ME_50C61AAC00BF_G // THintWindow
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50C61D2C029B // LastHint
+ HWL ME_50C61D4C02FA // f_Canvas
+ HWL ME_50C61E01021E // f_FL
+ HWL ME_50C61ECB00FF // f_NCMousePoint
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50C61C8E015D // ActivateHintEx
+ HWL ME_50C61F0B0392 // vtActivateHint
+ HWL ME_50C61F7E02BE // DoIt
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_50C61AAC00BF_over // Create
+ ME_48077504027E_ME_50C61AAC00BF_over // Destroy
+ ME_48C7925A02E5_ME_50C61AAC00BF_over // CreateParams
+ ME_5028A60300AD_ME_50C61AAC00BF_over // Paint
+ ME_50C61BA40123_ME_50C61AAC00BF_over // ActivateHint
+ ME_50C61BD700BF_ME_50C61AAC00BF_over // IsHintMsg
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_50C6248D0368 // TvtHintManager
+ ME_50C6416D020C // Il3InfoCanvas
+ ME_50C641C80214 // Forms
+ ME_50C642000215 // l3String
+ ME_50C642D801F4 // Ext Chars
+ ME_50C643600372 // l3ScreenIC
+ ME_50C6455A001A // l3Base
+ ME_50C645B70280 // Tl3CustomControlCanvas
+ ME_50C6461D0259 // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtMultilineHint.pas'
+ UP extprop:rc:SelfName 'MultilineHint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtMultilineHint'
+
+ENDME // ME_50C61AAC00BF TvtMultilineHint

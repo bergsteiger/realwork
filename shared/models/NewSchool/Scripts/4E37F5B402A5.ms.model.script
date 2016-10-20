@@ -1,0 +1,150 @@
+// TkwEditorFromStackTableColumnResize 4E37F5B402A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E37F5B402A5
+
+ME ME_4E37F62F0018
+ MEPROP UID '4E37F62F0018'
+ MEPROP Name 'f_TablePara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4E37F62F0018 f_TablePara
+
+ME ME_50BCCD4E0084
+ MEPROP UID '50BCCD4E0084'
+ MEPROP Name 'f_Engine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_50BCCD4E0084 f_Engine
+
+ME ME_4E37F68300F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E37F68300F8 
+
+ME ME_4E37F6A1037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E37F5B402A5 // TkwEditorFromStackTableColumnResize
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4E37F6A1037F 
+
+MEREF ME_50B8BCDF0093_ME_4E37F5B402A5_impl
+ MELINK Original WL 'ME_50B8BCDF0093' '50B88DF40154.ms.model.script' // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50B8BCDF0093_ME_4E37F5B402A5_impl DoCursor
+
+MEREF ME_479731C50290_ME_4E37F5B402A5_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4E37F5B402A5_over Cleanup
+
+MEREF ME_4BF4E6A00093_ME_4E37F5B402A5_over
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BF4E6A00093_ME_4E37F5B402A5_over GetInnerPara
+
+MEREF ME_4E32CA35008A_ME_4E37F5B402A5_over
+ MELINK Original WL 'ME_4E32CA35008A' '4E32C9540390.ms.model.script' // GetColumnAndRow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E32CA35008A_ME_4E37F5B402A5_over GetColumnAndRow
+
+MEREF ME_4E32CA5E0115_ME_4E37F5B402A5_over
+ MELINK Original WL 'ME_4E32CA5E0115' '4E32C9540390.ms.model.script' // GetDelta
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E32CA5E0115_ME_4E37F5B402A5_over GetDelta
+
+MEREF ME_50B88DF40154_ME_4E37F5B402A5_G
+ MELINK Original WL? 'ME_50B88DF40154' // TkwEditorFromStackCursorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50B88DF40154_ME_4E37F5B402A5_G TkwEditorFromStackCursorWord
+
+MEREF ME_4E32C9540390_ME_4E37F5B402A5_R
+ MELINK Original WL? 'ME_4E32C9540390' // ColumnResizeByMouse
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E32C9540390_ME_4E37F5B402A5_R ColumnResizeByMouse
+
+%%ImplementedBy ME_4E32C9540390 ME_4E37F5B402A5
+
+%%InheritedBy ME_50B88DF40154 ME_4E37F5B402A5
+
+ME ME_4E37F5B402A5
+ MEPROP UID '4E37F5B402A5'
+ MEPROP Name 'TkwEditorFromStackTableColumnResize'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вспомогательное слово для изменение размера колонок таблиц' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_50B88DF40154_ME_4E37F5B402A5_G // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E32C9540390_ME_4E37F5B402A5_R // ColumnResizeByMouse
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E37F62F0018 // f_TablePara
+ HWL ME_50BCCD4E0084 // f_Engine
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4E37F5B402A5_impl // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4E37F5B402A5_over // Cleanup
+ ME_4BF4E6A00093_ME_4E37F5B402A5_over // GetInnerPara
+ ME_4E32CA35008A_ME_4E37F5B402A5_over // GetColumnAndRow
+ ME_4E32CA5E0115_ME_4E37F5B402A5_over // GetDelta
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E37F68300F8 // Table
+ ME_4E37F6A1037F // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas'
+ UP extprop:rc:SelfName 'EditorFromStackTableColumnResize'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwEditorFromStackTableColumnResize'
+
+ENDME // ME_4E37F5B402A5 TkwEditorFromStackTableColumnResize

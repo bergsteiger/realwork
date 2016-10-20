@@ -1,0 +1,137 @@
+// TtfwEnumRegistrator 53C7E84E012D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C7E84E012D
+
+FORWARD ME_53C7E877024C
+
+ME ME_53C7E8F70070
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_53C7E8F70070 aTypeInfo
+
+ME ME_53C7E8EC0126
+ MEPROP UID '53C7E8EC0126'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7E877024C // RegisterEnum
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C7E8F70070 // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_53C7E8EC0126 DoIt
+
+ME ME_53C7E877024C
+ MEPROP UID '53C7E877024C'
+ MEPROP Name 'RegisterEnum'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C7E8EC0126 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_53C7E877024C RegisterEnum
+
+ME ME_53C7E86A0060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELINK Target WL? 'ME_55C0D99E0109' // TtfwEnumConstantRegistrator
+ ;
+
+ENDME // ME_53C7E86A0060 
+
+ME ME_53C7ED6E0278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELINK Target WL? 'ME_53C7ED5A01A0' // TtfwRegisteredEnums
+ ;
+
+ENDME // ME_53C7ED6E0278 
+
+ME ME_5527F8910184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELINK Target WL? 'ME_508528D10384' // TtfwClassRef
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_5527F8910184 
+
+ME ME_553128F00129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELINK Target WL? 'ME_553128CE018D' // TtfwIntegerToEnumName
+ ;
+
+ENDME // ME_553128F00129 
+
+ME ME_5571AFFA026F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C7E84E012D // TtfwEnumRegistrator
+ ;
+ MELINK Target WL? 'ME_5571AC8301BE' // TtfwTypeModifier
+ ;
+
+ENDME // ME_5571AFFA026F 
+
+%%InjectedBy ME_508528D10384 ME_53C7E84E012D
+
+ME ME_53C7E84E012D
+ MEPROP UID '53C7E84E012D'
+ MEPROP Name 'TtfwEnumRegistrator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_53C7C3100231' // ConstantsRegistration
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C7E877024C // RegisterEnum
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53C7E86A0060 // TtfwEnumConstantRegistrator
+ ME_53C7ED6E0278 // TtfwRegisteredEnums
+ ME_5527F8910184 // TtfwClassRef
+ ME_553128F00129 // TtfwIntegerToEnumName
+ ME_5571AFFA026F // TtfwTypeModifier
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas'
+ UP extprop:rc:SelfName 'EnumRegistrator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwEnumRegistrator'
+
+ENDME // ME_53C7E84E012D TtfwEnumRegistrator

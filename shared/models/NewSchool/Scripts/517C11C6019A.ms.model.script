@@ -1,0 +1,91 @@
+// RoundedControlsTest 517C11C6019A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_517C11C6019A
+
+ME ME_517C40E900DA
+ MEPROP UID '517C40E900DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+
+ENDME // ME_517C40E900DA DoIt
+
+ME ME_517C11D7018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL? 'ME_517C0F9C03C3' // TRoundedButton
+ ;
+
+ENDME // ME_517C11D7018C 
+
+ME ME_517C11DE0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL? 'ME_517C102F03B5' // TRoundedEdit
+ ;
+
+ENDME // ME_517C11DE0150 
+
+ME ME_517C41500140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517C11C6019A // RoundedControlsTest
+ ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_517C41500140 
+
+MEREF ME_4B2A0DDE028B_ME_517C11C6019A_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_517C11C6019A_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_517C11C6019A
+
+ME ME_517C11C6019A
+ MEPROP UID '517C11C6019A'
+ MEPROP Name 'RoundedControlsTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_517C11AD010E' // Rounded
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A0DDE028B_ME_517C11C6019A_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_517C40E900DA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_517C11D7018C // TRoundedButton
+ ME_517C11DE0150 // TRoundedEdit
+ ME_517C41500140 // TForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\SandBox\RoundedControlsTest.pas'
+ UP extprop:pas:TypeName 'TRoundedControlsTest'
+ UP extprop:rc:SelfName 'RoundedControlsTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_517C11C6019A RoundedControlsTest

@@ -1,0 +1,62 @@
+// TevArchiCollapser 5530B9E90041 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5530B9E90041
+
+ME ME_5530CDD302A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5530B9E90041 // TevArchiCollapser
+ ;
+ MELINK Target WL 'ME_5530BEFD0336' '47F1F3BC0330.ms.model.script' // evExpandOrCollapse
+ ;
+
+ENDME // ME_5530CDD302A9 
+
+MEREF ME_4A269489009C_ME_5530B9E90041_over
+ MELINK Original WL 'ME_4A269489009C' '4A268E590029.ms.model.script' // TryDoHyperlink
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A269489009C_ME_5530B9E90041_over TryDoHyperlink
+
+MEREF ME_4A268E590029_ME_5530B9E90041_G
+ MELINK Original WL? 'ME_4A268E590029' // TevSegmentHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A268E590029_ME_5530B9E90041_G TevSegmentHotSpot
+
+%%InheritedBy ME_4A268E590029 ME_5530B9E90041
+
+ME ME_5530B9E90041
+ MEPROP UID '5530B9E90041'
+ MEPROP Name 'TevArchiCollapser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A268E590029_ME_5530B9E90041_G // TevSegmentHotSpot
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A269489009C_ME_5530B9E90041_over // TryDoHyperlink
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5530CDD302A9 // evExpandOrCollapse
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evArchiCollapser.pas'
+ UP extprop:rc:SelfName 'ArchiCollapser'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evArchiCollapser'
+
+ENDME // ME_5530B9E90041 TevArchiCollapser

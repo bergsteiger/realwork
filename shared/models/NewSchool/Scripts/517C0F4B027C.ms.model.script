@@ -4,11 +4,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_517C0F4B027C
 
-ME ME_4CC847800383_ME_517C0F4B027C
+MEREF ME_4CC847800383_ME_517C0F4B027C_over
  MELINK Original WL 'ME_4CC847800383' '4CC81FB7008B.ms.model.script' // TuneRegion
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4CC847800383_ME_517C0F4B027C TuneRegion
+ENDMEREF // ME_4CC847800383_ME_517C0F4B027C_over TuneRegion
+
+MEREF ME_4CC81FB7008B_ME_517C0F4B027C_G
+ MELINK Original WL? 'ME_4CC81FB7008B' // RegionableControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC81FB7008B_ME_517C0F4B027C_G RegionableControl
 
 %%InheritedBy ME_4CC81FB7008B ME_517C0F4B027C
 
@@ -24,11 +30,11 @@ ME ME_517C0F4B027C
  MELINK Parent WL? 'ME_517C0F37039A' // Rounded
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CC81FB7008B' // RegionableControl
+   Seq: ( ME_4CC81FB7008B_ME_517C0F4B027C_G // RegionableControl
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
+   Seq: ( ME_4CC847800383_ME_517C0F4B027C_over // TuneRegion
  )
  ; // Overridden
  UP intf.pas:Path 'common\components\SandBox\RoundedControl.imp.pas'

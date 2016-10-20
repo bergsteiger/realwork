@@ -1,0 +1,72 @@
+// pop_editor_SelectColumn 4F548EC7007E ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F548EC7007E
+
+ME ME_4F548FC602E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F548EC7007E // pop_editor_SelectColumn
+ ;
+ MELINK Target WL? 'ME_48453B7601F9' // evCursorTools
+ ;
+
+ENDME // ME_4F548FC602E1 
+
+MEREF ME_4F4CB81200CA_ME_4F548EC7007E_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4F548EC7007E_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_4F548EC7007E_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4F548EC7007E_G TkwEditorFromStackWord
+
+MEREF ME_4F549BD300D3_ME_4F548EC7007E_G
+ MELINK Original WL? 'ME_4F549BD300D3' // kwEditorGetTableFromCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F549BD300D3_ME_4F548EC7007E_G kwEditorGetTableFromCursor
+
+%%InheritedBy ME_4F4CB625027A ME_4F548EC7007E
+%%InheritedBy ME_4F549BD300D3 ME_4F548EC7007E
+
+ME ME_4F548EC7007E
+ MEPROP UID '4F548EC7007E'
+ MEPROP Name 'pop_editor_SelectColumn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* aColID anEditorControl pop:editor:SelectCells'#13#10'*Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aColID - Integer'#13#10'*Пример:*'#13#10'{code} '#13#10'2 focused:control:push pop:editor:SelectCells'#13#10'{code} '#13#10'*Результат:* Выделяет вторую колонку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4F548EC7007E_G // TkwEditorFromStackWord
+ ME_4F549BD300D3_ME_4F548EC7007E_G // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F548EC7007E_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F548FC602E1 // evCursorTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectColumn'
+ UP extprop:rc:SelfName 'PopEditorSelectColumn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectColumn'
+
+ENDME // ME_4F548EC7007E pop_editor_SelectColumn

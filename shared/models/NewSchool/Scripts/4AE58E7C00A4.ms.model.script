@@ -1,0 +1,227 @@
+// TnsSelectedAttributesIterators 4AE58E7C00A4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE58E7C00A4
+
+ME ME_4AE58ECD0070
+ MEPROP UID '4AE58ECD0070'
+ MEPROP Name 'f_OrIterator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58ECD0070 f_OrIterator
+
+ME ME_4AE58EE202AF
+ MEPROP UID '4AE58EE202AF'
+ MEPROP Name 'f_AndIterator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58EE202AF f_AndIterator
+
+ME ME_4AE58EEC00AC
+ MEPROP UID '4AE58EEC00AC'
+ MEPROP Name 'f_NotIterator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
+ ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58EEC00AC f_NotIterator
+
+ME ME_4AE58F1C03A9
+ MEPROP Name 'anOrIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F1C03A9 anOrIterator
+
+ME ME_4AE58F1C03D8
+ MEPROP Name 'anAndIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F1C03D8 anAndIterator
+
+ME ME_4AE58F1D000F
+ MEPROP Name 'aNotIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F1D000F aNotIterator
+
+ME ME_4AE58EF903D2
+ MEPROP UID '4AE58EF903D2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE58F1C03A9 // anOrIterator
+ ME_4AE58F1C03D8 // anAndIterator
+ ME_4AE58F1D000F // aNotIterator
+ )
+ ; // Parameters
+
+ENDME // ME_4AE58EF903D2 Create
+
+ME ME_4AE58F27030B
+ MEPROP Name 'anOrIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F27030B anOrIterator
+
+ME ME_4AE58F27032A
+ MEPROP Name 'anAndIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F27032A anAndIterator
+
+ME ME_4AE58F270359
+ MEPROP Name 'aNotIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8A6033C' '457450470167.ms.model.script' // NodeIterator
+ ;
+
+ENDME // ME_4AE58F270359 aNotIterator
+
+ME ME_4AE58F21020C
+ MEPROP UID '4AE58F21020C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE58F27030B // anOrIterator
+ ME_4AE58F27032A // anAndIterator
+ ME_4AE58F270359 // aNotIterator
+ )
+ ; // Parameters
+
+ENDME // ME_4AE58F21020C Make
+
+MEREF ME_4AE589E702F9_ME_4AE58E7C00A4_impl
+ MELINK Original WL 'ME_4AE589E702F9' '491DAF4202EE.ms.model.script' // OrIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4AE589E702F9_ME_4AE58E7C00A4_impl OrIterator
+
+MEREF ME_4AE58A0603A2_ME_4AE58E7C00A4_impl
+ MELINK Original WL 'ME_4AE58A0603A2' '491DAF4202EE.ms.model.script' // AndIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4AE58A0603A2_ME_4AE58E7C00A4_impl AndIterator
+
+MEREF ME_4AE58A1203BE_ME_4AE58E7C00A4_impl
+ MELINK Original WL 'ME_4AE58A1203BE' '491DAF4202EE.ms.model.script' // NotIterator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4AE58A1203BE_ME_4AE58E7C00A4_impl NotIterator
+
+MEREF ME_479731C50290_ME_4AE58E7C00A4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4AE58E7C00A4_over Cleanup
+
+MEREF ME_47BC391D0259_ME_4AE58E7C00A4_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4AE58E7C00A4_G Tl3SimpleObject
+
+MEREF ME_4AE589BA0016_ME_4AE58E7C00A4_R
+ MELINK Original WL 'ME_4AE589BA0016' '491DAF4202EE.ms.model.script' // InsSelectedAttributesIterators
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE589BA0016_ME_4AE58E7C00A4_R InsSelectedAttributesIterators
+
+%%ImplementedBy ME_4AE589BA0016 ME_4AE58E7C00A4
+
+%%InheritedBy ME_47BC391D0259 ME_4AE58E7C00A4
+
+ME ME_4AE58E7C00A4
+ MEPROP UID '4AE58E7C00A4'
+ MEPROP Name 'TnsSelectedAttributesIterators'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AA005310028' // Search
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_4AE58E7C00A4_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4AE589BA0016_ME_4AE58E7C00A4_R // InsSelectedAttributesIterators
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AE58ECD0070 // f_OrIterator
+ HWL ME_4AE58EE202AF // f_AndIterator
+ HWL ME_4AE58EEC00AC // f_NotIterator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AE58EF903D2 // Create
+ HWL ME_4AE58F21020C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AE589E702F9_ME_4AE58E7C00A4_impl // OrIterator
+ ME_4AE58A0603A2_ME_4AE58E7C00A4_impl // AndIterator
+ ME_4AE58A1203BE_ME_4AE58E7C00A4_impl // NotIterator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AE58E7C00A4_over // Cleanup
+ )
+ ; // Overridden
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas'
+ UP extprop:rc:SelfName 'SelectedAttributesIterators'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsSelectedAttributesIterators'
+
+ENDME // ME_4AE58E7C00A4 TnsSelectedAttributesIterators

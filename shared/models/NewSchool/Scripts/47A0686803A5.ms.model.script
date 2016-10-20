@@ -30,7 +30,7 @@ ENDME // ME_555C889A014B DoIt
 ME ME_555C888301B0
  MEPROP UID '555C888301B0'
  MEPROP Name 'DoOpen'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -62,7 +62,7 @@ ENDME // ME_0F66AE1F0DD6 DoIt
 ME ME_555C88B703E7
  MEPROP UID '555C88B703E7'
  MEPROP Name 'DoClose'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -75,6 +75,12 @@ ME ME_555C88B703E7
  ; // Operations
 
 ENDME // ME_555C88B703E7 DoClose
+
+MEREF ME_4754200F029E_ME_47A0679D00E4_G
+ MELINK Original WL? 'ME_4754200F029E' // Tl3ProgressComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4754200F029E_ME_47A0679D00E4_G Tl3ProgressComponent
 
 %%InheritedBy ME_4754200F029E ME_47A0679D00E4
 
@@ -90,7 +96,7 @@ ME ME_47A0679D00E4
  MELINK Parent HWL ME_47A0686803A5 // l3Filer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4754200F029E' '47913B47006E.ms.model.script' // Tl3ProgressComponent
+   Seq: ( ME_4754200F029E_ME_47A0679D00E4_G // Tl3ProgressComponent
  )
  ; // Inherits
  MELIST Operations
@@ -109,6 +115,12 @@ ME ME_47A0679D00E4
 
 ENDME // ME_47A0679D00E4 Tl3CustomFiler
 
+MEREF ME_47A0679D00E4_ME_4B4F61AD01AA_G
+ MELINK Original HWL ME_47A0679D00E4 // Tl3CustomFiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A0679D00E4_ME_4B4F61AD01AA_G Tl3CustomFiler
+
 %%InheritedBy ME_47A0679D00E4 ME_4B4F61AD01AA
 
 ME ME_4B4F61AD01AA
@@ -122,7 +134,7 @@ ME ME_4B4F61AD01AA
  MELINK Parent HWL ME_47A0686803A5 // l3Filer
  ;
  MELIST Inherits
-   Seq: ( HWL ME_47A0679D00E4 // Tl3CustomFiler
+   Seq: ( ME_47A0679D00E4_ME_4B4F61AD01AA_G // Tl3CustomFiler
  )
  ; // Inherits
  UP "finished" false
@@ -145,6 +157,12 @@ ME ME_4FAD03D001D2
 
 ENDME // ME_4FAD03D001D2 Tl3NextTokenFlag
 
+MEREF ME_4B4F61AD01AA_ME_53A05AFD02CC_G
+ MELINK Original HWL ME_4B4F61AD01AA // Tl3CustomDosFiler
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F61AD01AA_ME_53A05AFD02CC_G Tl3CustomDosFiler
+
 %%InheritedBy ME_4B4F61AD01AA ME_53A05AFD02CC
 
 ME ME_53A05AFD02CC
@@ -158,7 +176,7 @@ ME ME_53A05AFD02CC
  MELINK Parent HWL ME_47A0686803A5 // l3Filer
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4B4F61AD01AA // Tl3CustomDosFiler
+   Seq: ( ME_4B4F61AD01AA_ME_53A05AFD02CC_G // Tl3CustomDosFiler
  )
  ; // Inherits
  UP extprop:rc:SelfName 'DOSFiler'

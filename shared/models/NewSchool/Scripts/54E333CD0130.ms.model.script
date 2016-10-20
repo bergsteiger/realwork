@@ -1,0 +1,510 @@
+// TncsSynchroTransporter 54E333CD0130 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54E333CD0130
+
+ME ME_54E33448033C
+ MEPROP UID '54E33448033C'
+ MEPROP Name 'IntSessionID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_54E33448033C IntSessionID
+
+ME ME_54E3346203DE
+ MEPROP UID '54E3346203DE'
+ MEPROP Name 'f_ClientID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
+ ;
+
+ENDME // ME_54E3346203DE f_ClientID
+
+ME ME_54E3347301B2
+ MEPROP UID '54E3347301B2'
+ MEPROP Name 'f_Connected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54E3347301B2 f_Connected
+
+ME ME_54E334830061
+ MEPROP UID '54E334830061'
+ MEPROP Name 'IOHandler'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_538DDC890328' // TcsIdIOHandlerAbstractAdapter
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_54E334830061 IOHandler
+
+ME ME_57F379E1021B
+ MEPROP UID '57F379E1021B'
+ MEPROP Name 'f_Helpers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_47ACA26600BF' // Tl3InterfacePtrList
+ ;
+
+ENDME // ME_57F379E1021B f_Helpers
+
+FORWARD ME_54E334CD02E9
+
+ME ME_54E334E6039D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54E334E6039D aValue
+
+ME ME_54E334DA0249
+ MEPROP UID '54E334DA0249'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E334CD02E9 // SetConnected
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E334E6039D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_54E334DA0249 DoIt
+
+ME ME_54E334CD02E9
+ MEPROP UID '54E334CD02E9'
+ MEPROP Name 'SetConnected'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E334DA0249 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E334CD02E9 SetConnected
+
+ME ME_54E334F5028C
+ MEPROP UID '54E334F5028C'
+ MEPROP Name 'StartProcessing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+
+ENDME // ME_54E334F5028C StartProcessing
+
+ME ME_54E3350B01CD
+ MEPROP UID '54E3350B01CD'
+ MEPROP Name 'StopProcessing'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+
+ENDME // ME_54E3350B01CD StopProcessing
+
+FORWARD ME_54E3353000D8
+
+ME ME_3C2D040A2956
+ MEPROP UID '3C2D040A2956'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода HandShake' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E3353000D8 // HandShake
+ ;
+
+ENDME // ME_3C2D040A2956 DoIt
+
+ME ME_54E3353000D8
+ MEPROP UID '54E3353000D8'
+ MEPROP Name 'HandShake'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_3C2D040A2956 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E3353000D8 HandShake
+
+FORWARD ME_54E335560020
+
+ME ME_6DE12A456230
+ MEPROP UID '6DE12A456230'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода TransportStarted' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E335560020 // TransportStarted
+ ;
+
+ENDME // ME_6DE12A456230 DoIt
+
+ME ME_54E335560020
+ MEPROP UID '54E335560020'
+ MEPROP Name 'TransportStarted'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_6DE12A456230 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E335560020 TransportStarted
+
+FORWARD ME_54E45D5E01D9
+
+ME ME_54E45D780172
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54E45D780172 aMessage
+
+ME ME_54E45D6B00CC
+ MEPROP UID '54E45D6B00CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E45D5E01D9 // ProcessMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E45D780172 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_54E45D6B00CC DoIt
+
+ME ME_54E45D5E01D9
+ MEPROP UID '54E45D5E01D9'
+ MEPROP Name 'ProcessMessage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E45D6B00CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E45D5E01D9 ProcessMessage
+
+ME ME_54E45D4D0010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54E45D4D0010 
+
+ME ME_54E45D500385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_538DE3F001DC' // Tl3TempMemoryStream
+ ;
+
+ENDME // ME_54E45D500385 
+
+ME ME_54E45D9A015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_548AC7FB0046' // ncsProfile
+ ;
+
+ENDME // ME_54E45D9A015E 
+
+ME ME_54E45DB9021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54E45DB9021F 
+
+ME ME_54E45DD30091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_54539F4702B1' // TncsMessageFactory
+ ;
+
+ENDME // ME_54E45DD30091 
+
+ME ME_54E45DD6032B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_5461CFB8002C' '5461F0A303D6.ms.model.script' // TncsMessageKind
+ ;
+
+ENDME // ME_54E45DD6032B 
+
+ME ME_54E45DEA009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_54E45DEA009C 
+
+ME ME_54E4637B0261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL? 'ME_54607384020A' // TncsMessageExecutorFactory
+ ;
+
+ENDME // ME_54E4637B0261 
+
+ME ME_54EC261601C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E333CD0130 // TncsSynchroTransporter
+ ;
+ MELINK Target WL 'ME_54EC25F3023A' '48D391C60190.ms.model.script' // MillisecondsBetween
+ ;
+
+ENDME // ME_54EC261601C5 
+
+MEREF ME_5464B4E900DA_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_5464B4E900DA' '5460A4DB018A.ms.model.script' // Send
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5464B4E900DA_ME_54E333CD0130_impl Send
+
+MEREF ME_5464B52F02D5_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_5464B52F02D5' '5460A4DB018A.ms.model.script' // WaitForReply
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5464B52F02D5_ME_54E333CD0130_impl WaitForReply
+
+MEREF ME_5465AB2B00CA_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_5465AB2B00CA' '5460A4DB018A.ms.model.script' // Connected
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5465AB2B00CA_ME_54E333CD0130_impl Connected
+
+MEREF ME_546608F101DE_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_546608F101DE' '5460A4DB018A.ms.model.script' // ClientID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_546608F101DE_ME_54E333CD0130_impl ClientID
+
+MEREF ME_5486B96A0025_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_5486B96A0025' '5460A4DB018A.ms.model.script' // Processing
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5486B96A0025_ME_54E333CD0130_impl Processing
+
+MEREF ME_548FEF4F002E_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_548FEF4F002E' '5460A4DB018A.ms.model.script' // SessionID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_548FEF4F002E_ME_54E333CD0130_impl SessionID
+
+MEREF ME_57F3749202B7_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_57F3749202B7' '5460A4DB018A.ms.model.script' // RegisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57F3749202B7_ME_54E333CD0130_impl RegisterHelper
+
+MEREF ME_57F374AC00AA_ME_54E333CD0130_impl
+ MELINK Original WL 'ME_57F374AC00AA' '5460A4DB018A.ms.model.script' // UnregisterHelper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57F374AC00AA_ME_54E333CD0130_impl UnregisterHelper
+
+MEREF ME_47913CBF0265_ME_54E333CD0130_over
+ MELINK Original WL 'ME_47913CBF0265' '4807744200AA.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "calling conventions" 'stdcall'
+ENDMEREF // ME_47913CBF0265_ME_54E333CD0130_over QueryInterface
+
+MEREF ME_479731C50290_ME_54E333CD0130_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54E333CD0130_over Cleanup
+
+MEREF ME_47A042E100E2_ME_54E333CD0130_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_54E333CD0130_over InitFields
+
+MEREF ME_49E7754802A9_ME_54E333CD0130_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_54E333CD0130_G Tl3ProtoObject
+
+MEREF ME_5464B4730055_ME_54E333CD0130_R
+ MELINK Original WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5464B4730055_ME_54E333CD0130_R IncsTransporter
+
+%%ImplementedBy ME_5464B4730055 ME_54E333CD0130
+
+%%InheritedBy ME_49E7754802A9 ME_54E333CD0130
+
+ME ME_54E333CD0130
+ MEPROP UID '54E333CD0130'
+ MEPROP Name 'TncsSynchroTransporter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_54E333CD0130_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5464B4730055_ME_54E333CD0130_R // IncsTransporter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54E33448033C // IntSessionID
+ HWL ME_54E3346203DE // f_ClientID
+ HWL ME_54E3347301B2 // f_Connected
+ HWL ME_54E334830061 // IOHandler
+ HWL ME_57F379E1021B // f_Helpers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54E334CD02E9 // SetConnected
+ HWL ME_54E334F5028C // StartProcessing
+ HWL ME_54E3350B01CD // StopProcessing
+ HWL ME_54E3353000D8 // HandShake
+ HWL ME_54E335560020 // TransportStarted
+ HWL ME_54E45D5E01D9 // ProcessMessage
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5464B4E900DA_ME_54E333CD0130_impl // Send
+ ME_5464B52F02D5_ME_54E333CD0130_impl // WaitForReply
+ ME_5465AB2B00CA_ME_54E333CD0130_impl // Connected
+ ME_546608F101DE_ME_54E333CD0130_impl // ClientID
+ ME_5486B96A0025_ME_54E333CD0130_impl // Processing
+ ME_548FEF4F002E_ME_54E333CD0130_impl // SessionID
+ ME_57F3749202B7_ME_54E333CD0130_impl // RegisterHelper
+ ME_57F374AC00AA_ME_54E333CD0130_impl // UnregisterHelper
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47913CBF0265_ME_54E333CD0130_over // QueryInterface
+ ME_479731C50290_ME_54E333CD0130_over // Cleanup
+ ME_47A042E100E2_ME_54E333CD0130_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54E45D4D0010 // TStream
+ ME_54E45D500385 // Tl3TempMemoryStream
+ ME_54E45D9A015E // ncsProfile
+ ME_54E45DB9021F // FreeAndNil
+ ME_54E45DD30091 // TncsMessageFactory
+ ME_54E45DD6032B // TncsMessageKind
+ ME_54E45DEA009C // l3System
+ ME_54E4637B0261 // TncsMessageExecutorFactory
+ ME_54EC261601C5 // MillisecondsBetween
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsSynchroTransporter.pas'
+ UP extprop:rc:SelfName 'ncsSynchroTransporter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsSynchroTransporter'
+
+ENDME // ME_54E333CD0130 TncsSynchroTransporter

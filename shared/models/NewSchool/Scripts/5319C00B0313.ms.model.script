@@ -1,0 +1,46 @@
+// Tk2Tag 5319C00B0313 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5319C00B0313
+
+MEREF ME_532AE8F2009A_ME_5319C00B0313_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_5319C00B0313_over GetIsOrd
+
+MEREF ME_56FE756F00C4_ME_5319C00B0313_G
+ MELINK Original WL 'ME_56FE756F00C4' '53317D14019D.ms.model.script' // Tl3TagImpl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56FE756F00C4_ME_5319C00B0313_G Tl3TagImpl
+
+%%InheritedBy ME_56FE756F00C4 ME_5319C00B0313
+
+ME ME_5319C00B0313
+ MEPROP UID '5319C00B0313'
+ MEPROP Name 'Tk2Tag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый тег' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_56FE756F00C4_ME_5319C00B0313_G // Tl3TagImpl
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_532AE8F2009A_ME_5319C00B0313_over // GetIsOrd
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2Tag.pas'
+ UP extprop:rc:SelfName 'Tag'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2Tag'
+
+ENDME // ME_5319C00B0313 Tk2Tag

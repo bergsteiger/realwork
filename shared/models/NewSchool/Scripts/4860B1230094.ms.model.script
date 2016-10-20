@@ -1,0 +1,280 @@
+// TevdStyleContainer 4860B1230094 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4860B1230094
+%%Inner ME_4860B1230094
+
+FORWARD ME_4860B1230094
+
+MEREF ME_532031160122_ME_49A66028026E_G
+ MELINK Original WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532031160122_ME_49A66028026E_G Tl3Variant
+
+%%InheritedBy ME_532031160122 ME_49A66028026E
+
+ME ME_49A66028026E
+ MEPROP UID '49A66028026E'
+ MEPROP Name '_ItemType_'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Это вообще-то хак, но без этого не находится тип элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_532031160122_ME_49A66028026E_G // Tl3Variant
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49A66028026E _ItemType_
+
+FORWARD ME_484D32B90376
+
+ME ME_484D32E2015A
+ MEPROP UID '484D32E2015A'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_484D32B90376 // TevStandardStylesArray
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_484D32E2015A 
+
+MEREF ME_4E54C76802DB_ME_484D32B90376_G
+ MELINK Original WL 'ME_4E54C76802DB' '476BE0350329.ms.model.script' // StandardCachedStyle
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E54C76802DB_ME_484D32B90376_G StandardCachedStyle
+
+%%InheritedBy ME_4E54C76802DB ME_484D32B90376
+
+ME ME_484D32B90376
+ MEPROP UID '484D32B90376'
+ MEPROP Name 'TevStandardStylesArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E54C76802DB_ME_484D32B90376_G // StandardCachedStyle
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_484D32E2015A // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_484D32B90376 TevStandardStylesArray
+
+ME ME_4860B67E0123
+ MEPROP UID '4860B67E0123'
+ MEPROP Name 'f_AutoNum'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4860B67E0123 f_AutoNum
+
+ME ME_53565DE300CD
+ MEPROP UID '53565DE300CD'
+ MEPROP Name 'f_Styles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target HWL ME_484D32B90376 // TevStandardStylesArray
+ ;
+
+ENDME // ME_53565DE300CD f_Styles
+
+ME ME_53566A3D0126
+ MEPROP UID '53566A3D0126'
+ MEPROP Name 'StringType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53566A3D0126 StringType
+
+ME ME_4860B7CB033A
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4860B7CB033A aType
+
+ME ME_4860B7AA025D
+ MEPROP UID '4860B7AA025D'
+ MEPROP Name 'CheckValueTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Проверяет таблицу значений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4860B7CB033A // aType
+ )
+ ; // Parameters
+
+ENDME // ME_4860B7AA025D CheckValueTable
+
+ME ME_4860B17B038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4860B17B038B 
+
+ME ME_4860B867039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4860B867039F 
+
+ME ME_4860B87B0096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+
+ENDME // ME_4860B87B0096 
+
+ME ME_5304E67702A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4860B1230094 // TevdStyleContainer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5304E67702A4 
+
+MEREF ME_479731C50290_ME_4860B1230094_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4860B1230094_over Cleanup
+
+MEREF ME_47B49EC50034_ME_4860B1230094_over
+ MELINK Original WL 'ME_47B49EC50034' '47B45152003F.ms.model.script' // DirectInsert
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B49EC50034_ME_4860B1230094_over DirectInsert
+
+MEREF ME_4B8BBA220048_ME_4860B1230094_over
+ MELINK Original WL 'ME_4B8BBA220048' '4B8BB87A0089.ms.model.script' // DRByID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_4B8BBA220048_ME_4860B1230094_over DRByID
+
+MEREF ME_4B8BBAA800AB_ME_4860B1230094_over
+ MELINK Original WL 'ME_4B8BBAA800AB' '4B8BB87A0089.ms.model.script' // ControlFindByID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B8BBAA800AB_ME_4860B1230094_over ControlFindByID
+
+MEREF ME_535664EC03B3_ME_4860B1230094_G
+ MELINK Original WL? 'ME_535664EC03B3' // Tk2DictionaryEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_535664EC03B3_ME_4860B1230094_G Tk2DictionaryEx
+
+%%InheritedBy ME_535664EC03B3 ME_4860B1230094
+
+ME ME_4860B1230094
+ MEPROP UID '4860B1230094'
+ MEPROP Name 'TevdStyleContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'описание базового контейнера стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4860B0120014' // Core Objects
+ ;
+ MELIST Inherits
+   Seq: ( ME_535664EC03B3_ME_4860B1230094_G // Tk2DictionaryEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4860B67E0123 // f_AutoNum
+ HWL ME_53565DE300CD // f_Styles
+ HWL ME_53566A3D0126 // StringType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4860B7AA025D // CheckValueTable
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4860B1230094_over // Cleanup
+ ME_47B49EC50034_ME_4860B1230094_over // DirectInsert
+ ME_4B8BBA220048_ME_4860B1230094_over // DRByID
+ ME_4B8BBAA800AB_ME_4860B1230094_over // ControlFindByID
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49A66028026E // _ItemType_
+ HWL ME_484D32B90376 // TevStandardStylesArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4860B17B038B // Standard
+ ME_4860B867039F // SysUtils
+ ME_4860B87B0096 // Tl3Duplicates
+ ME_5304E67702A4 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "started" '21.04.1997 16:39'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdStyleContainer.pas'
+ UP extprop:rc:SelfName 'dStyleContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdStyleContainer'
+
+ENDME // ME_4860B1230094 TevdStyleContainer

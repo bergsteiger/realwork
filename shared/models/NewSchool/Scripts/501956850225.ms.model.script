@@ -1,0 +1,210 @@
+// HardKey 501956850225 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_501956850225
+%%Inner ME_501956850225
+%%Inner ME_501956850225
+
+FORWARD ME_501956850225
+
+FORWARD ME_50195C750318
+
+ME ME_50195C8702F3
+ MEPROP UID '50195C8702F3'
+ MEPROP Name 'aKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+
+ENDME // ME_50195C8702F3 aKey
+
+ME ME_50195C9401BC
+ MEPROP UID '50195C9401BC'
+ MEPROP Name 'aHold'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50195C9401BC aHold
+
+ME ME_50195C750318
+ MEPROP UID '50195C750318'
+ MEPROP Name 'TInputKeyRecord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50195C8702F3 // aKey
+ HWL ME_50195C9401BC // aHold
+ )
+ ; // Attributes
+
+ENDME // ME_50195C750318 TInputKeyRecord
+
+FORWARD ME_50195CA90222
+
+ME ME_501969110132
+ MEPROP UID '501969110132'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_50195CA90222 // TInputKeyRecordArray
+ ;
+ MELINK Target HWL ME_50195C750318 // TInputKeyRecord
+ ;
+
+ENDME // ME_501969110132 
+
+ME ME_50195CA90222
+ MEPROP UID '50195CA90222'
+ MEPROP Name 'TInputKeyRecordArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Array ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_501969110132 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_50195CA90222 TInputKeyRecordArray
+
+FORWARD ME_50195D48017A
+
+ME ME_50196939001B
+ MEPROP UID '50196939001B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_50195D48017A // TInputArray
+ ;
+ MELINK Target WL 'ME_4F7197540233' '48A41FF10094.ms.model.script' // TInput
+ ;
+
+ENDME // ME_50196939001B 
+
+ME ME_50195D48017A
+ MEPROP UID '50195D48017A'
+ MEPROP Name 'TInputArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50196939001B // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_50195D48017A TInputArray
+
+ME ME_50195C3B00E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_5019588700F7' '47E7ABAE0110.ms.model.script' // TMenuKeyCap
+ ;
+
+ENDME // ME_50195C3B00E5 
+
+ME ME_50195C3F03E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_501958A100CF' '47E7ABAE0110.ms.model.script' // MenuKeyCaps
+ ;
+
+ENDME // ME_50195C3F03E0 
+
+ME ME_50195DDC039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL 'ME_50195DC90360' '47877EB202FB.ms.model.script' // AnsiStrLIComp
+ ;
+
+ENDME // ME_50195DDC039F 
+
+ME ME_50195F43020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL? 'ME_4C2D9FF00326' // Consts
+ ;
+
+ENDME // ME_50195F43020D 
+
+ME ME_5507EA3D015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_501956850225 // HardKey
+ ;
+ MELINK Target WL? 'ME_5506D3B202FA' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA3D015C 
+
+ME ME_501956850225
+ MEPROP UID '501956850225'
+ MEPROP Name 'HardKey'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5019517A022F' // KeyBoardInput
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50195C750318 // TInputKeyRecord
+ HWL ME_50195CA90222 // TInputKeyRecordArray
+ HWL ME_50195D48017A // TInputArray
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_50195C3B00E5 // TMenuKeyCap
+ ME_50195C3F03E0 // MenuKeyCaps
+ ME_50195DDC039F // AnsiStrLIComp
+ ME_50195F43020D // Consts
+ ME_5507EA3D015C // Tl3MessagesService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVCL'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwHardKey.pas'
+ UP extprop:pas:TypeName 'TkwHardKey'
+ UP extprop:rc:SelfName 'HardKey'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwHardKey'
+
+ENDME // ME_501956850225 HardKey

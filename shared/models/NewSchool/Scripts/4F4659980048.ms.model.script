@@ -1,0 +1,105 @@
+// TtfwDictionaryPrim 4F4659980048 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4659980048
+
+ME ME_4F4659EC0192
+ MEPROP UID '4F4659EC0192'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4F4659EC0192 FindDataType
+
+ME ME_4F465F900266
+ MEPROP UID '4F465F900266'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+
+ENDME // ME_4F465F900266 ItemType
+
+ME ME_4F465F5E02CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F465F5E02CD 
+
+MEREF ME_47B9BAFD01F4_ME_4F4659980048_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4F4659980048_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4F4659980048_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4F4659980048_G l3Searcher
+
+MEREF ME_4F463DDB0108_ME_4F4659980048_G
+ MELINK Original WL? 'ME_4F463DDB0108' // TtfwDictionaryPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F463DDB0108_ME_4F4659980048_G TtfwDictionaryPrimPrim
+
+%%InheritedBy ME_47B47E230134 ME_4F4659980048
+%%InheritedBy ME_4F463DDB0108 ME_4F4659980048
+
+ME ME_4F4659980048
+ MEPROP UID '4F4659980048'
+ MEPROP Name 'TtfwDictionaryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F463D910318' // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_4F4659980048_G // l3Searcher
+ ME_4F463DDB0108_ME_4F4659980048_G // TtfwDictionaryPrimPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F4659EC0192 // FindDataType
+ HWL ME_4F465F900266 // ItemType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4F4659980048_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F465F5E02CD // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+ UP extprop:rc:SelfName 'DictionaryPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDictionaryPrim'
+
+ENDME // ME_4F4659980048 TtfwDictionaryPrim

@@ -58,7 +58,7 @@ ENDME // ME_54F839C80227 DoIt
 ME ME_54F839B602DC
  MEPROP UID '54F839B602DC'
  MEPROP Name 'LoadFromQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -123,7 +123,7 @@ ENDME // ME_54F839E201BF DoIt
 ME ME_54F839D803D3
  MEPROP UID '54F839D803D3'
  MEPROP Name 'SaveToQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -168,7 +168,7 @@ ENDME // ME_54F85E6901D5 DoIt
 ME ME_54F85E5A00B4
  MEPROP UID '54F85E5A00B4'
  MEPROP Name 'IsQuerySaved'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -275,7 +275,7 @@ ENDME // ME_54F836CD0153 DoIt
 ME ME_54F836C10315
  MEPROP UID '54F836C10315'
  MEPROP Name 'LoadFromQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -340,7 +340,7 @@ ENDME // ME_54F8399B0070 DoIt
 ME ME_54F8399003BA
  MEPROP UID '54F8399003BA'
  MEPROP Name 'SaveToQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -385,7 +385,7 @@ ENDME // ME_54F85E7E019E DoIt
 ME ME_54F85E7203A1
  MEPROP UID '54F85E7203A1'
  MEPROP Name 'IsQuerySaved'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -399,11 +399,17 @@ ME ME_54F85E7203A1
 
 ENDME // ME_54F85E7203A1 IsQuerySaved
 
-ME ME_479731C50290_ME_54F8360D0043
+MEREF ME_479731C50290_ME_54F8360D0043_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_54F8360D0043 Cleanup
+ENDMEREF // ME_479731C50290_ME_54F8360D0043_over Cleanup
+
+MEREF ME_4A54DD4E036F_ME_54F8360D0043_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54F8360D0043_G Tl3ProtoDataContainer
 
 %%InheritedBy ME_4A54DD4E036F ME_54F8360D0043
 
@@ -418,7 +424,7 @@ ME ME_54F8360D0043
  MELINK Parent HWL ME_54F835DA0012 // tasSaveLoadProxy
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( ME_4A54DD4E036F_ME_54F8360D0043_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Attributes
@@ -432,7 +438,7 @@ ME ME_54F8360D0043
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_54F8360D0043 // Cleanup
+   Seq: ( ME_479731C50290_ME_54F8360D0043_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

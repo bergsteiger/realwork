@@ -1,0 +1,53 @@
+// SaveWithOtherExtention 512DD336009D ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DD336009D
+
+ME ME_512DD3AC03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD336009D // SaveWithOtherExtention
+ ;
+ MELINK Target WL 'ME_512DD27F0187' '512DBB5502E6.ms.model.script' // SaveDocumentAs
+ ;
+
+ENDME // ME_512DD3AC03C9 
+
+ME ME_512DD95C0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD336009D // SaveWithOtherExtention
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_512DD95C0349 
+
+ME ME_512DD336009D
+ MEPROP UID '512DD336009D'
+ MEPROP Name 'SaveWithOtherExtention'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:*  расширение SaveWithOtherExtention'#13#10'*Описание:*  Сохраняет текущий открытый файл в редакторе под тем же именем, но с другим расширеним, заданынм через параметр "расширение" '#13#10' *Пример:*'#13#10' {code}'#13#10'''.nsr'' SaveWithOtherExtention'#13#10' {code}'#13#10'*Результат:* Открытый файл в редакторе будет сохранен с расширением nsr (с преобразованием в формат NSRC, если нужно).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_512D9BBE0307' // EverestLiteKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_512DD3AC03C9 // SaveDocumentAs
+ ME_512DD95C0349 // ChangeFileExt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwSaveWithOtherExtention.pas'
+ UP extprop:pas:TypeName 'TkwSaveWithOtherExtention'
+ UP extprop:rc:SelfName 'SaveWithOtherExtention'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSaveWithOtherExtention'
+
+ENDME // ME_512DD336009D SaveWithOtherExtention

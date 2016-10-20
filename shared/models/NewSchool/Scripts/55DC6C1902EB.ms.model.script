@@ -1,0 +1,136 @@
+// TsegTarget 55DC6C1902EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DC6C1902EB
+
+ME ME_55DC7AD30146
+ MEPROP UID '55DC7AD30146'
+ MEPROP Name 'DocID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55DC6C1902EB // TsegTarget
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55DC7AD30146 DocID
+
+ME ME_55DC7AE5027E
+ MEPROP UID '55DC7AE5027E'
+ MEPROP Name 'SubID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55DC6C1902EB // TsegTarget
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55DC7AE5027E SubID
+
+FORWARD ME_55DC94FC0021
+
+ME ME_55DC951E0195
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55DC951E0195 aDocID
+
+ME ME_55DC951E01B3
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55DC951E01B3 aSubID
+
+ME ME_55DC950100C5
+ MEPROP UID '55DC950100C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DC94FC0021 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55DC951E0195 // aDocID
+ ME_55DC951E01B3 // aSubID
+ )
+ ; // Parameters
+
+ENDME // ME_55DC950100C5 DoIt
+
+ME ME_55DC94FC0021
+ MEPROP UID '55DC94FC0021'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55DC6C1902EB // TsegTarget
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55DC950100C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55DC94FC0021 Create
+
+MEREF ME_49E7754802A9_ME_55DC6C1902EB_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55DC6C1902EB_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55DC6C1902EB
+
+ME ME_55DC6C1902EB
+ MEPROP UID '55DC6C1902EB'
+ MEPROP Name 'TsegTarget'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55DC6B0D020D' // NSRCReaderCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55DC6C1902EB_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55DC7AD30146 // DocID
+ HWL ME_55DC7AE5027E // SubID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55DC94FC0021 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\segTarget.pas'
+ UP extprop:rc:SelfName 'segTarget'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'segTarget'
+
+ENDME // ME_55DC6C1902EB TsegTarget

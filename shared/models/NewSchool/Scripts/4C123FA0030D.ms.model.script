@@ -1,0 +1,53 @@
+// K216530981 4C123FA0030D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C123FA0030D
+
+MEREF ME_4C937013031D_ME_4C123FA0030D_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C123FA0030D_over GetFolder
+
+MEREF ME_4CC81D4101AC_ME_4C123FA0030D_over
+ MELINK Original WL 'ME_4CC81D4101AC' '4CC815A00031.ms.model.script' // GetSelectParam
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC81D4101AC_ME_4C123FA0030D_over GetSelectParam
+
+MEREF ME_4C123E8103B3_ME_4C123FA0030D_G
+ MELINK Original WL? 'ME_4C123E8103B3' // TMergeCellsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C123E8103B3_ME_4C123FA0030D_G TMergeCellsTest
+
+%%InheritedBy ME_4C123E8103B3 ME_4C123FA0030D
+
+ME ME_4C123FA0030D
+ MEPROP UID '4C123FA0030D'
+ MEPROP Name 'K216530981'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$216530981]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C123E8103B3_ME_4C123FA0030D_G // TMergeCellsTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C123FA0030D_over // GetFolder
+ ME_4CC81D4101AC_ME_4C123FA0030D_over // GetSelectParam
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K216530981.pas'
+ UP extprop:pas:TypeName 'TK216530981'
+ UP extprop:rc:SelfName 'K216530981'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C123FA0030D K216530981

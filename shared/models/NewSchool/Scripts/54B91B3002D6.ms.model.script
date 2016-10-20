@@ -1,0 +1,72 @@
+// Tl3BoxMemoryManager 54B91B3002D6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B91B3002D6
+
+FORWARD ME_54B91B4101BF
+
+ME ME_54B91B490274
+ MEPROP UID '54B91B490274'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B91B4101BF // Create
+ ;
+
+ENDME // ME_54B91B490274 DoIt
+
+ME ME_54B91B4101BF
+ MEPROP UID '54B91B4101BF'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B91B3002D6 // Tl3BoxMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B91B490274 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B91B4101BF Create
+
+MEREF ME_54B69FAC0256_ME_54B91B3002D6_G
+ MELINK Original WL? 'ME_54B69FAC0256' // Tl3BoxMemoryManagerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B69FAC0256_ME_54B91B3002D6_G Tl3BoxMemoryManagerPrim
+
+%%InheritedBy ME_54B69FAC0256 ME_54B91B3002D6
+
+ME ME_54B91B3002D6
+ MEPROP UID '54B91B3002D6'
+ MEPROP Name 'Tl3BoxMemoryManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( ME_54B69FAC0256_ME_54B91B3002D6_G // Tl3BoxMemoryManagerPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54B91B4101BF // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BoxMemoryManager.pas'
+ UP extprop:rc:SelfName 'BoxMemoryManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3BoxMemoryManager'
+
+ENDME // ME_54B91B3002D6 Tl3BoxMemoryManager

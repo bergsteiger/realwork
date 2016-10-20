@@ -1,0 +1,105 @@
+// TnsEntitiesTreeDataObject 48F73BBD02B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F73BBD02B3
+
+ME ME_52EBD77300B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target WL? 'ME_468270DC0341' // TnsNodeDataObject
+ ;
+
+ENDME // ME_52EBD77300B9 
+
+ME ME_52EBD77F0234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_52EBD77F0234 
+
+ME ME_52EBD7820113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F73BBD02B3 // TnsEntitiesTreeDataObject
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_52EBD7820113 
+
+MEREF ME_48F3495D0398_ME_48F73BBD02B3_over
+ MELINK Original WL 'ME_48F3495D0398' '4680F5AA0274.ms.model.script' // DoGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F3495D0398_ME_48F73BBD02B3_over DoGetData
+
+MEREF ME_48F349AE00F1_ME_48F73BBD02B3_over
+ MELINK Original WL 'ME_48F349AE00F1' '4680F5AA0274.ms.model.script' // DoGetDataHere
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F349AE00F1_ME_48F73BBD02B3_over DoGetDataHere
+
+MEREF ME_48F359680368_ME_48F73BBD02B3_over
+ MELINK Original WL 'ME_48F359680368' '4680F5AA0274.ms.model.script' // DoQueryGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F359680368_ME_48F73BBD02B3_over DoQueryGetData
+
+MEREF ME_48F8D47302FD_ME_48F73BBD02B3_over
+ MELINK Original WL 'ME_48F8D47302FD' '48F895480266.ms.model.script' // ExtDataClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F8D47302FD_ME_48F73BBD02B3_over ExtDataClass
+
+MEREF ME_48F7014003A5_ME_48F73BBD02B3_G
+ MELINK Original WL? 'ME_48F7014003A5' // TevNodeData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F7014003A5_ME_48F73BBD02B3_G TevNodeData
+
+%%InheritedBy ME_48F7014003A5 ME_48F73BBD02B3
+
+ME ME_48F73BBD02B3
+ MEPROP UID '48F73BBD02B3'
+ MEPROP Name 'TnsEntitiesTreeDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52DE57B200A5' // Tree$WithDnD
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F7014003A5_ME_48F73BBD02B3_G // TevNodeData
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48F3495D0398_ME_48F73BBD02B3_over // DoGetData
+ ME_48F349AE00F1_ME_48F73BBD02B3_over // DoGetDataHere
+ ME_48F359680368_ME_48F73BBD02B3_over // DoQueryGetData
+ ME_48F8D47302FD_ME_48F73BBD02B3_over // ExtDataClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EBD77300B9 // TnsNodeDataObject
+ ME_52EBD77F0234 // Windows
+ ME_52EBD7820113 // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Components\nsEntitiesTreeDataObject.pas'
+ UP extprop:rc:SelfName 'EntitiesTreeDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsEntitiesTreeDataObject'
+
+ENDME // ME_48F73BBD02B3 TnsEntitiesTreeDataObject

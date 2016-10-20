@@ -1,0 +1,50 @@
+// TnevVScroller 4DAEAF680256 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAEAF680256
+
+ME ME_4DAEB0B20110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEAF680256 // TnevVScroller
+ ;
+ MELINK Target WL? 'ME_4DAEB03E0034' // TnevVScrollerSpy
+ ;
+
+ENDME // ME_4DAEB0B20110 
+
+MEREF ME_4DAEAF42022E_ME_4DAEAF680256_G
+ MELINK Original WL? 'ME_4DAEAF42022E' // TnevScroller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEAF42022E_ME_4DAEAF680256_G TnevScroller
+
+%%InheritedBy ME_4DAEAF42022E ME_4DAEAF680256
+
+ME ME_4DAEAF680256
+ MEPROP UID '4DAEAF680256'
+ MEPROP Name 'TnevVScroller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DAEAF42022E_ME_4DAEAF680256_G // TnevScroller
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DAEB0B20110 // TnevVScrollerSpy
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevVScroller.pas'
+ UP extprop:rc:SelfName 'VScroller'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevVScroller'
+
+ENDME // ME_4DAEAF680256 TnevVScroller

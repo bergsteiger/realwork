@@ -116,19 +116,9 @@ STRING elem_func TargetStereotype
  Self 'TargetStereotype' .ElemString >>> Result
 ; // TargetStereotype
 
-ModelElement elem_func Target
- Self 'Target' .ElemWord >>> Result
-; // Target
-
 ModelElement elem_func ValueType
  Self 'ValueType' .ElemWord >>> Result
 ; // ValueType
-
-ANY elem_func GetUP
-  Literal IN aName
-  
- Self aName |N '' .ElemMember >>> Result 
-; // GetUP
 
 BOOLEAN elem_func UPisTrue
   Literal IN aName
@@ -184,29 +174,9 @@ STRING elem_func LinkViewType
  Self 'LinkViewType' .ElemString >>> Result
 ; // LinkViewType
 
-INTEGER elem_func Abstraction
- Self 'Abstraction' /*at_unknown*/ at_final .ElemMember >>> Result
-; // Abstraction
-
 STRING elem_func GUID
  Self 'GUID' '' .ElemMember >>> Result
 ; // GUID
-
-STRING elem_func UID
- Self 'UID' '' .ElemMember >>> Result
-; // UID
-
-INTEGER elem_func OpKind
- Self 'OpKind' opkind_Normal .ElemMember >>> Result
-; // OpKind
-
-ModelElement elem_func Parent
- Self 'Parent' .ElemWord >>> Result
-; // Parent
-
-ModelElement elem_func Original
- Self 'Original' .ElemWord >>> Result
-; // Original
 
 ModelElement elem_func Viewed
  RULES
@@ -271,6 +241,10 @@ USES
  MEPrefix.ms.dict
 ;
 
+USES
+ cCachePrefix.ms.dict
+;
+
 BOOLEAN elem_func IsUP
  RULES
   ( 'uc:' Self .WordName StartsStr )
@@ -279,7 +253,7 @@ BOOLEAN elem_func IsUP
    true
   ( 'CompiledProcedure:' Self .WordName StartsStr )
    false
-  ( 'cache:' Self .WordName StartsStr )
+  ( cCachePrefix Self .WordName StartsStr )
    false
   ( MEPrefix Self .WordName StartsStr )
    false
@@ -445,7 +419,9 @@ STRING elem_func MDAClassString
   ^ IN aLambda
  aCacheWhere 
  aKey ValueToKey aWord .WordName Cat 
- nil DoCache ( aLambda DO )
+ nil 
+ // - вообще это надо вычислять из типа слова
+ DoCache ( aLambda DO )
 ; // CacheWordEx
 
 MACRO :Cached:

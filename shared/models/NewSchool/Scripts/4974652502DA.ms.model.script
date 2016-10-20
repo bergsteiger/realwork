@@ -38,17 +38,29 @@ ME ME_49746AE0018B
 
 ENDME // ME_49746AE0018B 
 
-ME ME_49590D4802EE_ME_4974652502DA
+MEREF ME_49590D4802EE_ME_4974652502DA_impl
  MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_49590D4802EE_ME_4974652502DA Process
+ENDMEREF // ME_49590D4802EE_ME_4974652502DA_impl Process
 
-ME ME_497469C90140_ME_4974652502DA
+MEREF ME_497469C90140_ME_4974652502DA_over
  MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_497469C90140_ME_4974652502DA NotifyDataSourceChanged
+ENDMEREF // ME_497469C90140_ME_4974652502DA_over NotifyDataSourceChanged
+
+MEREF ME_49525B34022A_ME_4974652502DA_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4974652502DA_G TvcmEntityForm
+
+MEREF ME_492425D101B0_ME_4974652502DA_R
+ MELINK Original WL 'ME_492425D101B0' '491DAF4202EE.ms.model.script' // IbsCurrentChangedListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492425D101B0_ME_4974652502DA_R IbsCurrentChangedListener
 
 %%ImplementedBy ME_492425D101B0 ME_4974652502DA
 
@@ -67,11 +79,11 @@ ME ME_4974652502DA
  MELINK Parent WL? 'ME_4A85282C0252' // LiteSearch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_4974652502DA_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492425D101B0' '491DAF4202EE.ms.model.script' // IbsCurrentChangedListener
+   Seq: ( ME_492425D101B0_ME_4974652502DA_R // IbsCurrentChangedListener
  )
  ; // Implements
  MELIST Operations
@@ -79,11 +91,11 @@ ME ME_4974652502DA
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_49590D4802EE_ME_4974652502DA // Process
+   Seq: ( ME_49590D4802EE_ME_4974652502DA_impl // Process
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_497469C90140_ME_4974652502DA // NotifyDataSourceChanged
+   Seq: ( ME_497469C90140_ME_4974652502DA_over // NotifyDataSourceChanged
  )
  ; // Overridden
  MELIST Dependencies

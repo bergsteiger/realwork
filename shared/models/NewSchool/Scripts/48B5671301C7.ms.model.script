@@ -1,0 +1,110 @@
+// TatStringHelper 48B5671301C7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48B5671301C7
+
+ME ME_48B5677501D7
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_48B5677501D7 aString
+
+ME ME_48B567460292
+ MEPROP UID '48B567460292'
+ MEPROP Name 'AStr2DStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48B5671301C7 // TatStringHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_48B5677501D7 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_48B567460292 AStr2DStr
+
+ME ME_48B56807011B
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_48B56807011B aString
+
+ME ME_48B5679F0206
+ MEPROP UID '48B5679F0206'
+ MEPROP Name 'DStr2AStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48B5671301C7 // TatStringHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_48B56807011B // aString
+ )
+ ; // Parameters
+
+ENDME // ME_48B5679F0206 DStr2AStr
+
+ME ME_48B5673A0292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48B5671301C7 // TatStringHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_48B5673A0292 
+
+ME ME_48B568770206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48B5671301C7 // TatStringHelper
+ ;
+ MELINK Target WL? 'ME_483C0AEA0186' // atGblAdapterWorker
+ ;
+
+ENDME // ME_48B568770206 
+
+ME ME_48B5671301C7
+ MEPROP UID '48B5671301C7'
+ MEPROP Name 'TatStringHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48B567460292 // AStr2DStr
+ HWL ME_48B5679F0206 // DStr2AStr
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48B5673A0292 // String
+ ME_48B568770206 // atGblAdapterWorker
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atStringHelper.pas'
+ UP extprop:rc:SelfName 'atStringHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atStringHelper'
+
+ENDME // ME_48B5671301C7 TatStringHelper

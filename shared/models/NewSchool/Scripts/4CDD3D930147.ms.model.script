@@ -1,0 +1,233 @@
+// TevdHyperlinkInfo 4CDD3D930147 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDD3D930147
+
+ME ME_4CDD3DD20139
+ MEPROP UID '4CDD3DD20139'
+ MEPROP Name 'f_Address'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDD3D930147 // TevdHyperlinkInfo
+ ;
+ MELINK Target WL 'ME_48F4941A0249' '48F4E61C0060.ms.model.script' // Address
+ ;
+
+ENDME // ME_4CDD3DD20139 f_Address
+
+ME ME_4CDD3DEE00F0
+ MEPROP UID '4CDD3DEE00F0'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CDD3D930147 // TevdHyperlinkInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD3DEE00F0 f_Text
+
+ME ME_4CDD6BE8023A
+ MEPROP UID '4CDD6BE8023A'
+ MEPROP Name 'f_AppInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CDD3D930147 // TevdHyperlinkInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD6BE8023A f_AppInfo
+
+FORWARD ME_4CDD3E250364
+
+ME ME_4CDD3E5100BA
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD3E5100BA aText
+
+ME ME_4CDD3E5100DB
+ MEPROP Name 'anAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4941A0249' '48F4E61C0060.ms.model.script' // Address
+ ;
+
+ENDME // ME_4CDD3E5100DB anAddress
+
+ME ME_4CDD6C0C026D
+ MEPROP Name 'anAppInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD6C0C026D anAppInfo
+
+ME ME_4CDD3E38004C
+ MEPROP UID '4CDD3E38004C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD3E250364 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CDD3E5100BA // aText
+ ME_4CDD3E5100DB // anAddress
+ ME_4CDD6C0C026D // anAppInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4CDD3E38004C DoIt
+
+ME ME_4CDD3E250364
+ MEPROP UID '4CDD3E250364'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD3D930147 // TevdHyperlinkInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD3E38004C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDD3E250364 Create
+
+MEREF ME_4CDD3E250364_ME_4CDD3E5C0052_G
+ MELINK Original HWL ME_4CDD3E250364 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD3E250364_ME_4CDD3E5C0052_G Create
+
+MEREF ME_4CDD38560217_ME_4CDD3E5C0052_R
+ MELINK Original WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD38560217_ME_4CDD3E5C0052_R HyperlinkInfo
+
+%%ImplementedBy ME_4CDD38560217 ME_4CDD3E5C0052
+
+%%InheritedBy ME_4CDD3E250364 ME_4CDD3E5C0052
+
+ME ME_4CDD3E5C0052
+ MEPROP UID '4CDD3E5C0052'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD3D930147 // TevdHyperlinkInfo
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CDD3E250364_ME_4CDD3E5C0052_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CDD38560217_ME_4CDD3E5C0052_R // HyperlinkInfo
+ )
+ ; // Implements
+
+ENDME // ME_4CDD3E5C0052 Make
+
+MEREF ME_4CDD38870303_ME_4CDD3D930147_impl
+ MELINK Original WL 'ME_4CDD38870303' '48F4E61C0060.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4CDD38870303_ME_4CDD3D930147_impl Text
+
+MEREF ME_4CDD3950013B_ME_4CDD3D930147_impl
+ MELINK Original WL 'ME_4CDD3950013B' '48F4E61C0060.ms.model.script' // Address
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4CDD3950013B_ME_4CDD3D930147_impl Address
+
+MEREF ME_4CDD6BCA034C_ME_4CDD3D930147_impl
+ MELINK Original WL 'ME_4CDD6BCA034C' '48F4E61C0060.ms.model.script' // AppInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4CDD6BCA034C_ME_4CDD3D930147_impl AppInfo
+
+MEREF ME_49E7754802A9_ME_4CDD3D930147_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4CDD3D930147_G Tl3ProtoObject
+
+MEREF ME_4CDD38560217_ME_4CDD3D930147_R
+ MELINK Original WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD38560217_ME_4CDD3D930147_R HyperlinkInfo
+
+%%ImplementedBy ME_4CDD38560217 ME_4CDD3D930147
+
+%%InheritedBy ME_49E7754802A9 ME_4CDD3D930147
+
+ME ME_4CDD3D930147
+ MEPROP UID '4CDD3D930147'
+ MEPROP Name 'TevdHyperlinkInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4860B0120014' // Core Objects
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4CDD3D930147_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CDD38560217_ME_4CDD3D930147_R // HyperlinkInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CDD3DD20139 // f_Address
+ HWL ME_4CDD3DEE00F0 // f_Text
+ HWL ME_4CDD6BE8023A // f_AppInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDD3E250364 // Create
+ HWL ME_4CDD3E5C0052 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CDD38870303_ME_4CDD3D930147_impl // Text
+ ME_4CDD3950013B_ME_4CDD3D930147_impl // Address
+ ME_4CDD6BCA034C_ME_4CDD3D930147_impl // AppInfo
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '12.11.2010 16:14'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdHyperlinkInfo.pas'
+ UP extprop:rc:SelfName 'dHyperlinkInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdHyperlinkInfo'
+
+ENDME // ME_4CDD3D930147 TevdHyperlinkInfo

@@ -1,0 +1,562 @@
+// TcaUserManager 56C428E4014A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56C428E4014A
+
+ME ME_56C4291402C3
+ MEPROP UID '56C4291402C3'
+ MEPROP Name 'f_HTManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+
+ENDME // ME_56C4291402C3 f_HTManager
+
+ME ME_56C4292001D7
+ MEPROP UID '56C4292001D7'
+ MEPROP Name 'f_PGManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+
+ENDME // ME_56C4292001D7 f_PGManager
+
+ME ME_575026F800CC
+ MEPROP UID '575026F800CC'
+ MEPROP Name 'f_PriorityCalculator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL 'ME_574FFFCF0148' '5432518A0316.ms.model.script' // IdaPriorityCalculator
+ ;
+
+ENDME // ME_575026F800CC f_PriorityCalculator
+
+FORWARD ME_56C429340002
+
+ME ME_56C42955026F
+ MEPROP Name 'aHTManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+
+ENDME // ME_56C42955026F aHTManager
+
+ME ME_56C42955027F
+ MEPROP Name 'aPGManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+
+ENDME // ME_56C42955027F aPGManager
+
+ME ME_56C4293D019A
+ MEPROP UID '56C4293D019A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56C429340002 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56C42955026F // aHTManager
+ ME_56C42955027F // aPGManager
+ )
+ ; // Parameters
+
+ENDME // ME_56C4293D019A DoIt
+
+ME ME_56C429340002
+ MEPROP UID '56C429340002'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56C4293D019A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56C429340002 Create
+
+MEREF ME_56C429340002_ME_56C4295D03C9_G
+ MELINK Original HWL ME_56C429340002 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56C429340002_ME_56C4295D03C9_G Create
+
+MEREF ME_5628D14000F6_ME_56C4295D03C9_R
+ MELINK Original WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5628D14000F6_ME_56C4295D03C9_R IdaUserManager
+
+%%ImplementedBy ME_5628D14000F6 ME_56C4295D03C9
+
+%%InheritedBy ME_56C429340002 ME_56C4295D03C9
+
+ME ME_56C4295D03C9
+ MEPROP UID '56C4295D03C9'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_56C429340002_ME_56C4295D03C9_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5628D14000F6_ME_56C4295D03C9_R // IdaUserManager
+ )
+ ; // Implements
+
+ENDME // ME_56C4295D03C9 Make
+
+ME ME_5721C05603CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL 'ME_5721BC780362' '5721B7D401CF.ms.model.script' // l3IsIdenticalLists$StringDataList
+ ;
+
+ENDME // ME_5721C05603CC 
+
+ME ME_575129EA013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL? 'ME_5751293D00A9' // TcaPriorityCalculator
+ ;
+
+ENDME // ME_575129EA013B 
+
+ME ME_57566BD000CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL? 'ME_57566B200124' // TcaArchiUser
+ ;
+
+ENDME // ME_57566BD000CF 
+
+ME ME_5762927E030F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56C428E4014A // TcaUserManager
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5762927E030F 
+
+MEREF ME_5628D14D0151_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5628D14D0151' '5432518A0316.ms.model.script' // CheckPassword
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5628D14D0151_ME_56C428E4014A_impl CheckPassword
+
+MEREF ME_56EA993D0218_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_56EA993D0218' '5432518A0316.ms.model.script' // IsUserAdmin
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56EA993D0218_ME_56C428E4014A_impl IsUserAdmin
+
+MEREF ME_5715DEF20209_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5715DEF20209' '5432518A0316.ms.model.script' // AllUsers
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5715DEF20209_ME_56C428E4014A_impl AllUsers
+
+MEREF ME_5715DF0D03C2_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5715DF0D03C2' '5432518A0316.ms.model.script' // AllGroups
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5715DF0D03C2_ME_56C428E4014A_impl AllGroups
+
+MEREF ME_5718B5CF0399_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5718B5CF0399' '5432518A0316.ms.model.script' // GetUserName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5718B5CF0399_ME_56C428E4014A_impl GetUserName
+
+MEREF ME_571DCFB50217_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_571DCFB50217' '5432518A0316.ms.model.script' // GetUserPriorities
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_571DCFB50217_ME_56C428E4014A_impl GetUserPriorities
+
+MEREF ME_5721F5E60367_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5721F5E60367' '5432518A0316.ms.model.script' // ReSortUserList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5721F5E60367_ME_56C428E4014A_impl ReSortUserList
+
+MEREF ME_5729C59E00D5_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5729C59E00D5' '5432518A0316.ms.model.script' // ArchiUsersCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5729C59E00D5_ME_56C428E4014A_impl ArchiUsersCount
+
+MEREF ME_5729DD530330_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5729DD530330' '5432518A0316.ms.model.script' // IterateArchiUsersF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDMEREF // ME_5729DD530330_ME_56C428E4014A_impl IterateArchiUsersF
+
+MEREF ME_57358B940211_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57358B940211' '5432518A0316.ms.model.script' // UserByID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57358B940211_ME_56C428E4014A_impl UserByID
+
+MEREF ME_57358BCB0360_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57358BCB0360' '5432518A0316.ms.model.script' // UserByLogin
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57358BCB0360_ME_56C428E4014A_impl UserByLogin
+
+MEREF ME_5735AE4D0017_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5735AE4D0017' '5432518A0316.ms.model.script' // UpdateUserInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5735AE4D0017_ME_56C428E4014A_impl UpdateUserInfo
+
+MEREF ME_5735AE7F0071_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5735AE7F0071' '5432518A0316.ms.model.script' // MakeFullArchiUsersList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5735AE7F0071_ME_56C428E4014A_impl MakeFullArchiUsersList
+
+MEREF ME_5735AECA0121_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5735AECA0121' '5432518A0316.ms.model.script' // GetUserDisplayName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5735AECA0121_ME_56C428E4014A_impl GetUserDisplayName
+
+MEREF ME_5739732402E4_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5739732402E4' '5432518A0316.ms.model.script' // IsUserExists
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5739732402E4_ME_56C428E4014A_impl IsUserExists
+
+MEREF ME_5739832A00A2_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5739832A00A2' '5432518A0316.ms.model.script' // RegisterUserStatusChangedSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5739832A00A2_ME_56C428E4014A_impl RegisterUserStatusChangedSubscriber
+
+MEREF ME_5739834700B2_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5739834700B2' '5432518A0316.ms.model.script' // UnRegisterUserStatusChangedSubscriber
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5739834700B2_ME_56C428E4014A_impl UnRegisterUserStatusChangedSubscriber
+
+MEREF ME_5739835200CF_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5739835200CF' '5432518A0316.ms.model.script' // NotifyUserActiveChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5739835200CF_ME_56C428E4014A_impl NotifyUserActiveChanged
+
+MEREF ME_573AC17202BF_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_573AC17202BF' '5432518A0316.ms.model.script' // CSCheckPassword
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_573AC17202BF_ME_56C428E4014A_impl CSCheckPassword
+
+MEREF ME_573AEE9902DF_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_573AEE9902DF' '5432518A0316.ms.model.script' // GetUserInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_573AEE9902DF_ME_56C428E4014A_impl GetUserInfo
+
+MEREF ME_575020410175_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_575020410175' '5432518A0316.ms.model.script' // PriorityCalculator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_575020410175_ME_56C428E4014A_impl PriorityCalculator
+
+MEREF ME_5757D9BB0116_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5757D9BB0116' '5432518A0316.ms.model.script' // IterateUserGroupsF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" true
+ UP "needs result" false
+ENDMEREF // ME_5757D9BB0116_ME_56C428E4014A_impl IterateUserGroupsF
+
+MEREF ME_575A8B790353_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_575A8B790353' '5432518A0316.ms.model.script' // IsMemberOfGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_575A8B790353_ME_56C428E4014A_impl IsMemberOfGroup
+
+MEREF ME_57625B5002DD_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57625B5002DD' '5432518A0316.ms.model.script' // GetUserGroups
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57625B5002DD_ME_56C428E4014A_impl GetUserGroups
+
+MEREF ME_576289510024_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_576289510024' '5432518A0316.ms.model.script' // GetUserGroupsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_576289510024_ME_56C428E4014A_impl GetUserGroupsList
+
+MEREF ME_57628A9403C6_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57628A9403C6' '5432518A0316.ms.model.script' // GetUserGroupsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57628A9403C6_ME_56C428E4014A_impl GetUserGroupsList
+
+MEREF ME_5767ABE002DC_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5767ABE002DC' '5432518A0316.ms.model.script' // SetUserGroupsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5767ABE002DC_ME_56C428E4014A_impl SetUserGroupsList
+
+MEREF ME_576B95A600B9_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_576B95A600B9' '5432518A0316.ms.model.script' // AddUserGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_576B95A600B9_ME_56C428E4014A_impl AddUserGroup
+
+MEREF ME_576B960500C5_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_576B960500C5' '5432518A0316.ms.model.script' // EditUserGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_576B960500C5_ME_56C428E4014A_impl EditUserGroup
+
+MEREF ME_576BAC4402D8_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_576BAC4402D8' '5432518A0316.ms.model.script' // DelUserGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_576BAC4402D8_ME_56C428E4014A_impl DelUserGroup
+
+MEREF ME_577F6AD90170_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_577F6AD90170' '5432518A0316.ms.model.script' // RemoveUserFromAllGroups
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_577F6AD90170_ME_56C428E4014A_impl RemoveUserFromAllGroups
+
+MEREF ME_577F80C503AF_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_577F80C503AF' '5432518A0316.ms.model.script' // SetUserGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_577F80C503AF_ME_56C428E4014A_impl SetUserGroup
+
+MEREF ME_5783537E00A1_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5783537E00A1' '5432518A0316.ms.model.script' // AdminChangePassWord
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5783537E00A1_ME_56C428E4014A_impl AdminChangePassWord
+
+MEREF ME_578392E7026A_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_578392E7026A' '5432518A0316.ms.model.script' // GetHostUserListOnGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_578392E7026A_ME_56C428E4014A_impl GetHostUserListOnGroup
+
+MEREF ME_5783933A010B_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5783933A010B' '5432518A0316.ms.model.script' // SetHostUserListOnGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5783933A010B_ME_56C428E4014A_impl SetHostUserListOnGroup
+
+MEREF ME_5784BBF10299_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5784BBF10299' '5432518A0316.ms.model.script' // AddUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5784BBF10299_ME_56C428E4014A_impl AddUser
+
+MEREF ME_5784BC420208_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5784BC420208' '5432518A0316.ms.model.script' // AddUserID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5784BC420208_ME_56C428E4014A_impl AddUserID
+
+MEREF ME_5784BD1501E8_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5784BD1501E8' '5432518A0316.ms.model.script' // EditUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5784BD1501E8_ME_56C428E4014A_impl EditUser
+
+MEREF ME_5784BE1E02F7_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_5784BE1E02F7' '5432518A0316.ms.model.script' // DelUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5784BE1E02F7_ME_56C428E4014A_impl DelUser
+
+MEREF ME_57A87EF901F3_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57A87EF901F3' '5432518A0316.ms.model.script' // GetUserListOnGroup
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57A87EF901F3_ME_56C428E4014A_impl GetUserListOnGroup
+
+MEREF ME_57A9DF2103CE_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57A9DF2103CE' '5432518A0316.ms.model.script' // GetFiltredUserList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57A9DF2103CE_ME_56C428E4014A_impl GetFiltredUserList
+
+MEREF ME_57AC28890131_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57AC28890131' '5432518A0316.ms.model.script' // GetDocGroupData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57AC28890131_ME_56C428E4014A_impl GetDocGroupData
+
+MEREF ME_57AC289F0257_ME_56C428E4014A_impl
+ MELINK Original WL 'ME_57AC289F0257' '5432518A0316.ms.model.script' // PutDocGroupData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57AC289F0257_ME_56C428E4014A_impl PutDocGroupData
+
+MEREF ME_479731C50290_ME_56C428E4014A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_56C428E4014A_over Cleanup
+
+MEREF ME_49E7754802A9_ME_56C428E4014A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_56C428E4014A_G Tl3ProtoObject
+
+MEREF ME_5628D14000F6_ME_56C428E4014A_R
+ MELINK Original WL 'ME_5628D14000F6' '5432518A0316.ms.model.script' // IdaUserManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5628D14000F6_ME_56C428E4014A_R IdaUserManager
+
+%%ImplementedBy ME_5628D14000F6 ME_56C428E4014A
+
+%%InheritedBy ME_49E7754802A9 ME_56C428E4014A
+
+ME ME_56C428E4014A
+ MEPROP UID '56C428E4014A'
+ MEPROP Name 'TcaUserManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A86AF40350' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_56C428E4014A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5628D14000F6_ME_56C428E4014A_R // IdaUserManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_56C4291402C3 // f_HTManager
+ HWL ME_56C4292001D7 // f_PGManager
+ HWL ME_575026F800CC // f_PriorityCalculator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56C429340002 // Create
+ HWL ME_56C4295D03C9 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5628D14D0151_ME_56C428E4014A_impl // CheckPassword
+ ME_56EA993D0218_ME_56C428E4014A_impl // IsUserAdmin
+ ME_5715DEF20209_ME_56C428E4014A_impl // AllUsers
+ ME_5715DF0D03C2_ME_56C428E4014A_impl // AllGroups
+ ME_5718B5CF0399_ME_56C428E4014A_impl // GetUserName
+ ME_571DCFB50217_ME_56C428E4014A_impl // GetUserPriorities
+ ME_5721F5E60367_ME_56C428E4014A_impl // ReSortUserList
+ ME_5729C59E00D5_ME_56C428E4014A_impl // ArchiUsersCount
+ ME_5729DD530330_ME_56C428E4014A_impl // IterateArchiUsersF
+ ME_57358B940211_ME_56C428E4014A_impl // UserByID
+ ME_57358BCB0360_ME_56C428E4014A_impl // UserByLogin
+ ME_5735AE4D0017_ME_56C428E4014A_impl // UpdateUserInfo
+ ME_5735AE7F0071_ME_56C428E4014A_impl // MakeFullArchiUsersList
+ ME_5735AECA0121_ME_56C428E4014A_impl // GetUserDisplayName
+ ME_5739732402E4_ME_56C428E4014A_impl // IsUserExists
+ ME_5739832A00A2_ME_56C428E4014A_impl // RegisterUserStatusChangedSubscriber
+ ME_5739834700B2_ME_56C428E4014A_impl // UnRegisterUserStatusChangedSubscriber
+ ME_5739835200CF_ME_56C428E4014A_impl // NotifyUserActiveChanged
+ ME_573AC17202BF_ME_56C428E4014A_impl // CSCheckPassword
+ ME_573AEE9902DF_ME_56C428E4014A_impl // GetUserInfo
+ ME_575020410175_ME_56C428E4014A_impl // PriorityCalculator
+ ME_5757D9BB0116_ME_56C428E4014A_impl // IterateUserGroupsF
+ ME_575A8B790353_ME_56C428E4014A_impl // IsMemberOfGroup
+ ME_57625B5002DD_ME_56C428E4014A_impl // GetUserGroups
+ ME_576289510024_ME_56C428E4014A_impl // GetUserGroupsList
+ ME_57628A9403C6_ME_56C428E4014A_impl // GetUserGroupsList
+ ME_5767ABE002DC_ME_56C428E4014A_impl // SetUserGroupsList
+ ME_576B95A600B9_ME_56C428E4014A_impl // AddUserGroup
+ ME_576B960500C5_ME_56C428E4014A_impl // EditUserGroup
+ ME_576BAC4402D8_ME_56C428E4014A_impl // DelUserGroup
+ ME_577F6AD90170_ME_56C428E4014A_impl // RemoveUserFromAllGroups
+ ME_577F80C503AF_ME_56C428E4014A_impl // SetUserGroup
+ ME_5783537E00A1_ME_56C428E4014A_impl // AdminChangePassWord
+ ME_578392E7026A_ME_56C428E4014A_impl // GetHostUserListOnGroup
+ ME_5783933A010B_ME_56C428E4014A_impl // SetHostUserListOnGroup
+ ME_5784BBF10299_ME_56C428E4014A_impl // AddUser
+ ME_5784BC420208_ME_56C428E4014A_impl // AddUserID
+ ME_5784BD1501E8_ME_56C428E4014A_impl // EditUser
+ ME_5784BE1E02F7_ME_56C428E4014A_impl // DelUser
+ ME_57A87EF901F3_ME_56C428E4014A_impl // GetUserListOnGroup
+ ME_57A9DF2103CE_ME_56C428E4014A_impl // GetFiltredUserList
+ ME_57AC28890131_ME_56C428E4014A_impl // GetDocGroupData
+ ME_57AC289F0257_ME_56C428E4014A_impl // PutDocGroupData
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56C428E4014A_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5721C05603CC // l3IsIdenticalLists$StringDataList
+ ME_575129EA013B // TcaPriorityCalculator
+ ME_57566BD000CF // TcaArchiUser
+ ME_5762927E030F // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caUserManager.pas'
+ UP extprop:rc:SelfName 'caUserManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'caUserManager'
+
+ENDME // ME_56C428E4014A TcaUserManager

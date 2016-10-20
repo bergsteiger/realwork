@@ -47,17 +47,23 @@ ME ME_500003150010
 
 ENDME // ME_500003150010 
 
-ME ME_4FFFDF740099_ME_4FFFDE6C016C
+MEREF ME_4FFFDF740099_ME_4FFFDE6C016C_impl
  MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4FFFDF740099_ME_4FFFDE6C016C Execute
+ENDMEREF // ME_4FFFDF740099_ME_4FFFDE6C016C_impl Execute
 
-ME ME_48077504027E_ME_4FFFDE6C016C
+MEREF ME_48077504027E_ME_4FFFDE6C016C_over
  MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48077504027E_ME_4FFFDE6C016C Destroy
+ENDMEREF // ME_48077504027E_ME_4FFFDE6C016C_over Destroy
+
+MEREF ME_4FFFDF4601F9_ME_4FFFDE6C016C_G
+ MELINK Original WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFFDF4601F9_ME_4FFFDE6C016C_G TThread
 
 %%InheritedBy ME_4FFFDF4601F9 ME_4FFFDE6C016C
 
@@ -72,7 +78,7 @@ ME ME_4FFFDE6C016C
  MELINK Parent HWL ME_50BF047001FA // seThreadSupport
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+   Seq: ( ME_4FFFDF4601F9_ME_4FFFDE6C016C_G // TThread
  )
  ; // Inherits
  MELIST Attributes
@@ -81,11 +87,11 @@ ME ME_4FFFDE6C016C
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4FFFDF740099_ME_4FFFDE6C016C // Execute
+   Seq: ( ME_4FFFDF740099_ME_4FFFDE6C016C_impl // Execute
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_48077504027E_ME_4FFFDE6C016C // Destroy
+   Seq: ( ME_48077504027E_ME_4FFFDE6C016C_over // Destroy
  )
  ; // Overridden
  MELIST Dependencies
@@ -133,7 +139,7 @@ ENDME // ME_50BF1C800223 DoIt
 ME ME_50BF1C6D0267
  MEPROP UID '50BF1C6D0267'
  MEPROP Name 'WaitForAllThreads'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -186,7 +192,7 @@ ENDME // ME_50BF1ED30035 DoIt
 ME ME_50BF1E9C001F
  MEPROP UID '50BF1E9C001F'
  MEPROP Name 'AddAndResumeThread'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -199,6 +205,18 @@ ME ME_50BF1E9C001F
  ; // Operations
 
 ENDME // ME_50BF1E9C001F AddAndResumeThread
+
+MEREF ME_47B57B7800A7_ME_50BF049002DB_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_50BF049002DB_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_50BF049002DB_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_50BF049002DB_G Tl3ProtoDataContainer
 
 %%InheritedBy ME_47B57B7800A7 ME_50BF049002DB
 %%InheritedBy ME_4A54DD4E036F ME_50BF049002DB
@@ -214,8 +232,8 @@ ME ME_50BF049002DB
  MELINK Parent HWL ME_50BF047001FA // seThreadSupport
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B57B7800A7' // l3ObjectPtrList
- WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( ME_47B57B7800A7_ME_50BF049002DB_G // l3ObjectPtrList
+ ME_4A54DD4E036F_ME_50BF049002DB_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Attributes

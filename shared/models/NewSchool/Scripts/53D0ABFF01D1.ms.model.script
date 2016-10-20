@@ -80,11 +80,17 @@ ME ME_53D0B5890219
 
 ENDME // ME_53D0B5890219 
 
-ME ME_479731C50290_ME_53D0ACC8010F
+MEREF ME_479731C50290_ME_53D0ACC8010F_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53D0ACC8010F Cleanup
+ENDMEREF // ME_479731C50290_ME_53D0ACC8010F_over Cleanup
+
+MEREF ME_49E7754802A9_ME_53D0ACC8010F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53D0ACC8010F_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_53D0ACC8010F
 
@@ -99,7 +105,7 @@ ME ME_53D0ACC8010F
  MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_53D0ACC8010F_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -112,7 +118,7 @@ ME ME_53D0ACC8010F
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53D0ACC8010F // Cleanup
+   Seq: ( ME_479731C50290_ME_53D0ACC8010F_over // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
@@ -141,19 +147,31 @@ ME ME_53D0ACDE017D
 
 ENDME // ME_53D0ACDE017D ItemType
 
-ME ME_47B2C42A0163_ME_53D0AC2C0288
+MEREF ME_47B2C42A0163_ME_53D0AC2C0288_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_53D0AC2C0288 AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_53D0AC2C0288_impl AssignItem
 
-ME ME_47B99D4503A2_ME_53D0AC2C0288
+MEREF ME_47B99D4503A2_ME_53D0AC2C0288_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_53D0AC2C0288 CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_53D0AC2C0288_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_53D0AC2C0288_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_53D0AC2C0288_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_53D0AC2C0288_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53D0AC2C0288_G Tl3ProtoDataContainer
 
 %%InheritedBy ME_47B99E920196 ME_53D0AC2C0288
 %%InheritedBy ME_4A54DD4E036F ME_53D0AC2C0288
@@ -169,8 +187,8 @@ ME ME_53D0AC2C0288
  MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
- WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( ME_47B99E920196_ME_53D0AC2C0288_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_53D0AC2C0288_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Attributes
@@ -178,14 +196,20 @@ ME ME_53D0AC2C0288
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_53D0AC2C0288 // AssignItem
- ME_47B99D4503A2_ME_53D0AC2C0288 // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_53D0AC2C0288_impl // AssignItem
+ ME_47B99D4503A2_ME_53D0AC2C0288_impl // CompareExistingItems
  )
  ; // Implemented
  UP extprop:rc:SelfName 'alcuTaskExecutingList'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_53D0AC2C0288 TalcuTaskExecutingList
+
+MEREF ME_53D0ACC8010F_ME_53D0B85603AE_G
+ MELINK Original HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D0ACC8010F_ME_53D0B85603AE_G TalcuTaskExecutionCounter
 
 %%InheritedBy ME_53D0ACC8010F ME_53D0B85603AE
 
@@ -200,7 +224,7 @@ ME ME_53D0B85603AE
  MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
+   Seq: ( ME_53D0ACC8010F_ME_53D0B85603AE_G // TalcuTaskExecutionCounter
  )
  ; // Inherits
  UP "isPointer" true

@@ -45,7 +45,7 @@ ENDME // ME_53B24E920155 DoIt
 ME ME_53B24E7A0280
  MEPROP UID '53B24E7A0280'
  MEPROP Name 'NeedProcessKeyData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -98,7 +98,7 @@ ENDME // ME_53B24F330197 DoIt
 ME ME_53B24F1D034F
  MEPROP UID '53B24F1D034F'
  MEPROP Name 'DoProcessKeyData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -142,11 +142,17 @@ ME ME_53B24ED701B3
 
 ENDME // ME_53B24ED701B3 
 
-ME ME_53B1197D0372_ME_53B24D240088
+MEREF ME_53B1197D0372_ME_53B24D240088_impl
  MELINK Original WL 'ME_53B1197D0372' '467C0CAA02AB.ms.model.script' // ProcessKeyData
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B1197D0372_ME_53B24D240088 ProcessKeyData
+ENDMEREF // ME_53B1197D0372_ME_53B24D240088_impl ProcessKeyData
+
+MEREF ME_53B11944038A_ME_53B24D240088_R
+ MELINK Original WL 'ME_53B11944038A' '467C0CAA02AB.ms.model.script' // Il3KeyDataListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B11944038A_ME_53B24D240088_R Il3KeyDataListener
 
 %%ImplementedBy ME_53B11944038A ME_53B24D240088
 
@@ -162,7 +168,7 @@ ME ME_53B24D240088
  MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
  ;
  MELIST Implements
-   Seq: ( WL 'ME_53B11944038A' '467C0CAA02AB.ms.model.script' // Il3KeyDataListener
+   Seq: ( ME_53B11944038A_ME_53B24D240088_R // Il3KeyDataListener
  )
  ; // Implements
  MELIST Operations
@@ -171,7 +177,7 @@ ME ME_53B24D240088
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53B1197D0372_ME_53B24D240088 // ProcessKeyData
+   Seq: ( ME_53B1197D0372_ME_53B24D240088_impl // ProcessKeyData
  )
  ; // Implemented
  MELIST Dependencies

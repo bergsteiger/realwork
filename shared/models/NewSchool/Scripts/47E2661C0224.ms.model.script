@@ -1,0 +1,68 @@
+// TafwDocumentPreviewList 47E2661C0224 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E2661C0224
+
+ME ME_47E2668703C7
+ MEPROP UID '47E2668703C7'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E2661C0224 // TafwDocumentPreviewList
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47E2668703C7 ItemType
+
+MEREF ME_47B57D830369_ME_47E2661C0224_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47E2661C0224_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47E2661C0224_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47E2661C0224_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47E2661C0224
+%%InheritedBy ME_4A54DD4E036F ME_47E2661C0224
+
+ME ME_47E2661C0224
+ MEPROP UID '47E2661C0224'
+ MEPROP Name 'TafwDocumentPreviewList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47764CED0308' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47E2661C0224_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47E2661C0224_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E2668703C7 // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '20.03.2008 16:27'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwDocumentPreviewList.pas'
+ UP extprop:rc:SelfName 'afwDocumentPreviewList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwDocumentPreviewList'
+
+ENDME // ME_47E2661C0224 TafwDocumentPreviewList

@@ -1,0 +1,133 @@
+// TatScenarioPlayer 4808A6A50028 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4808A6A50028
+
+ME ME_4808A6C902DF
+ MEPROP UID '4808A6C902DF'
+ MEPROP Name 'f_Scenario'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A6A50028 // TatScenarioPlayer
+ ;
+ MELINK Target WL? 'ME_4808A3EC021F' // TatScenario
+ ;
+
+ENDME // ME_4808A6C902DF f_Scenario
+
+ME ME_4808A6EE0051
+ MEPROP UID '4808A6EE0051'
+ MEPROP Name 'F_ExecutionContext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808A6A50028 // TatScenarioPlayer
+ ;
+ MELINK Target WL? 'ME_480869EE029E' // TatExecutionContext
+ ;
+
+ENDME // ME_4808A6EE0051 F_ExecutionContext
+
+ME ME_4808A73603D3
+ MEPROP Name 'scenario'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4808A3EC021F' // TatScenario
+ ;
+
+ENDME // ME_4808A73603D3 scenario
+
+ME ME_4808A73202A6
+ MEPROP UID '4808A73202A6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A6A50028 // TatScenarioPlayer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808A73603D3 // scenario
+ )
+ ; // Parameters
+
+ENDME // ME_4808A73202A6 Create
+
+ME ME_4808A7470307
+ MEPROP UID '4808A7470307'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A6A50028 // TatScenarioPlayer
+ ;
+
+ENDME // ME_4808A7470307 Execute
+
+ME ME_4808A79A02C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808A6A50028 // TatScenarioPlayer
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4808A79A02C3 
+
+MEREF ME_48077504027E_ME_4808A6A50028_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4808A6A50028_over Destroy
+
+MEREF ME_4807745602C8_ME_4808A6A50028_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_4808A6A50028_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_4808A6A50028
+
+ME ME_4808A6A50028
+ MEPROP UID '4808A6A50028'
+ MEPROP Name 'TatScenarioPlayer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807745602C8_ME_4808A6A50028_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4808A6C902DF // f_Scenario
+ HWL ME_4808A6EE0051 // F_ExecutionContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808A73202A6 // Create
+ HWL ME_4808A7470307 // Execute
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4808A6A50028_over // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4808A79A02C3 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atScenarioPlayer.pas'
+ UP extprop:rc:SelfName 'atScenarioPlayer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atScenarioPlayer'
+
+ENDME // ME_4808A6A50028 TatScenarioPlayer

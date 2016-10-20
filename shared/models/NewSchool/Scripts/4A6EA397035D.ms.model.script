@@ -46,6 +46,18 @@ ME ME_A13E6A22E717
 
 ENDME // ME_A13E6A22E717 Ini_FormFactory_ChatHistory$Def
 
+MEREF ME_4A6EA45C01C4_ME_4A6EA397035D_G
+ MELINK Original WL? 'ME_4A6EA45C01C4' // BaseHistoryWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6EA45C01C4_ME_4A6EA397035D_G BaseHistoryWindow
+
+MEREF ME_32CFE852D886_ME_4A6EA397035D_R
+ MELINK Original HWL ME_32CFE852D886 // ChatHistory$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_32CFE852D886_ME_4A6EA397035D_R ChatHistory$Def
+
 %%ImplementedBy ME_32CFE852D886 ME_4A6EA397035D
 
 %%InheritedBy ME_4A6EA45C01C4 ME_4A6EA397035D
@@ -63,11 +75,11 @@ ME ME_4A6EA397035D
  MELINK Parent WL? 'ME_4A6971B802A6' // BaseChat
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A6EA45C01C4' // BaseHistoryWindow
+   Seq: ( ME_4A6EA45C01C4_ME_4A6EA397035D_G // BaseHistoryWindow
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_32CFE852D886 // ChatHistory$Def
+   Seq: ( ME_32CFE852D886_ME_4A6EA397035D_R // ChatHistory$Def
  )
  ; // Implements
  MELIST Operations

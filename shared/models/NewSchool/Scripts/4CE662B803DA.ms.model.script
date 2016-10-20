@@ -1,0 +1,129 @@
+// TnsDictionDocumentContainer 4CE662B803DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE662B803DA
+
+ME ME_4CE663D10309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4CE663D10309 
+
+ME ME_4CE668E0000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4CE668E0000F 
+
+ME ME_4CE669DA0170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CE669DA0170 
+
+ME ME_4CE670F802AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4C6A750F024E' // TnsF1DocumentTagNode
+ ;
+
+ENDME // ME_4CE670F802AC 
+
+ME ME_5065AB4B02F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857CB7D0340' '48492FC0029D.ms.model.script' // DictEntry
+ ;
+
+ENDME // ME_5065AB4B02F5 
+
+ME ME_524A936B0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_524A936B0153 
+
+MEREF ME_47F27DA80172_ME_4CE662B803DA_over
+ MELINK Original WL 'ME_47F27DA80172' '47F0870E0034.ms.model.script' // GetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27DA80172_ME_4CE662B803DA_over GetDocument
+
+MEREF ME_4680E83D00C8_ME_4CE662B803DA_G
+ MELINK Original WL? 'ME_4680E83D00C8' // TeeDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680E83D00C8_ME_4CE662B803DA_G TeeDocumentContainer
+
+MEREF ME_4C6A955F00D6_ME_4CE662B803DA_G
+ MELINK Original WL? 'ME_4C6A955F00D6' // nsDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A955F00D6_ME_4CE662B803DA_G nsDocumentContainer
+
+%%InheritedBy ME_4680E83D00C8 ME_4CE662B803DA
+%%InheritedBy ME_4C6A955F00D6 ME_4CE662B803DA
+
+ME ME_4CE662B803DA
+ MEPROP UID '4CE662B803DA'
+ MEPROP Name 'TnsDictionDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа толкового словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D358BD90052' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_4680E83D00C8_ME_4CE662B803DA_G // TeeDocumentContainer
+ ME_4C6A955F00D6_ME_4CE662B803DA_G // nsDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F27DA80172_ME_4CE662B803DA_over // GetDocument
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE663D10309 // Document
+ ME_4CE668E0000F // Block
+ ME_4CE669DA0170 // Tk2TagID
+ ME_4CE670F802AC // TnsF1DocumentTagNode
+ ME_5065AB4B02F5 // DictEntry
+ ME_524A936B0153 // CanNotFindData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '19.11.2010 14:43'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing\nsDictionDocumentContainer.pas'
+ UP extprop:rc:SelfName 'DictionDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDictionDocumentContainer'
+
+ENDME // ME_4CE662B803DA TnsDictionDocumentContainer

@@ -1,0 +1,222 @@
+// TsmMainMenuTree2016 570B9CF90392 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_570B9CF90392
+
+ME ME_570B9E5D0320
+ MEPROP UID '570B9E5D0320'
+ MEPROP Name 'f_Section'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELINK Target WL 'ME_56FE518A027D' '4DD24BD40021.ms.model.script' // MainMenuSection
+ ;
+
+ENDME // ME_570B9E5D0320 f_Section
+
+FORWARD ME_570B9E6A035D
+
+ME ME_570B9E7C013F
+ MEPROP Name 'aSection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56FE518A027D' '4DD24BD40021.ms.model.script' // MainMenuSection
+ ;
+
+ENDME // ME_570B9E7C013F aSection
+
+ME ME_570B9E790241
+ MEPROP UID '570B9E790241'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B9E6A035D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_570B9E7C013F // aSection
+ )
+ ; // Parameters
+
+ENDME // ME_570B9E790241 DoIt
+
+ME ME_570B9E6A035D
+ MEPROP UID '570B9E6A035D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_570B9E790241 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_570B9E6A035D Create
+
+MEREF ME_570B9E6A035D_ME_570B9E7F0230_G
+ MELINK Original HWL ME_570B9E6A035D // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_570B9E6A035D_ME_570B9E7F0230_G Create
+
+MEREF ME_46825CC00249_ME_570B9E7F0230_R
+ MELINK Original WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46825CC00249_ME_570B9E7F0230_R Il3SimpleTree
+
+%%ImplementedBy ME_46825CC00249 ME_570B9E7F0230
+
+%%InheritedBy ME_570B9E6A035D ME_570B9E7F0230
+
+ME ME_570B9E7F0230
+ MEPROP UID '570B9E7F0230'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELIST Inherits
+   Seq: ( ME_570B9E6A035D_ME_570B9E7F0230_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46825CC00249_ME_570B9E7F0230_R // Il3SimpleTree
+ )
+ ; // Implements
+
+ENDME // ME_570B9E7F0230 Make
+
+ME ME_570B9EFA0118
+ MEPROP UID '570B9EFA0118'
+ MEPROP Name 'AddItems'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+
+ENDME // ME_570B9EFA0118 AddItems
+
+ME ME_570B9D1C021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELINK Target WL? 'ME_4E730AE6014C' // TnsMainMenu2011Node
+ ;
+
+ENDME // ME_570B9D1C021F 
+
+ME ME_570BAE010175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELINK Target WL? 'ME_490AF9B0039B' // TnsNewCachableNode
+ ;
+
+ENDME // ME_570BAE010175 
+
+ME ME_570BAE04021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B9CF90392 // TsmMainMenuTree2016
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_570BAE04021F 
+
+MEREF ME_479731C50290_ME_570B9CF90392_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_570B9CF90392_over Cleanup
+
+MEREF ME_47A042E100E2_ME_570B9CF90392_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_570B9CF90392_over InitFields
+
+MEREF ME_4908AAED02BD_ME_570B9CF90392_over
+ MELINK Original WL 'ME_4908AAED02BD' '4908A9240071.ms.model.script' // BeforeReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAED02BD_ME_570B9CF90392_over BeforeReset
+
+MEREF ME_4909EF6E0361_ME_570B9CF90392_over
+ MELINK Original WL 'ME_4909EF6E0361' '4909EF3B02B1.ms.model.script' // MakeRoot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4909EF6E0361_ME_570B9CF90392_over MakeRoot
+
+MEREF ME_4909EF3B02B1_ME_570B9CF90392_G
+ MELINK Original WL? 'ME_4909EF3B02B1' // TnsBaseMainMenuTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4909EF3B02B1_ME_570B9CF90392_G TnsBaseMainMenuTree
+
+%%InheritedBy ME_4909EF3B02B1 ME_570B9CF90392
+
+ME ME_570B9CF90392
+ MEPROP UID '570B9CF90392'
+ MEPROP Name 'TsmMainMenuTree2016'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB4EE00FE' // MainMenuTrees
+ ;
+ MELIST Inherits
+   Seq: ( ME_4909EF3B02B1_ME_570B9CF90392_G // TnsBaseMainMenuTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_570B9E5D0320 // f_Section
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_570B9E6A035D // Create
+ HWL ME_570B9E7F0230 // Make
+ HWL ME_570B9EFA0118 // AddItems
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_570B9CF90392_over // Cleanup
+ ME_47A042E100E2_ME_570B9CF90392_over // InitFields
+ ME_4908AAED02BD_ME_570B9CF90392_over // BeforeReset
+ ME_4909EF6E0361_ME_570B9CF90392_over // MakeRoot
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_570B9D1C021F // TnsMainMenu2011Node
+ ME_570BAE010175 // TnsNewCachableNode
+ ME_570BAE04021F // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smMainMenuTree2016.pas'
+ UP extprop:rc:SelfName 'smMainMenuTree2016'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'smMainMenuTree2016'
+
+ENDME // ME_570B9CF90392 TsmMainMenuTree2016

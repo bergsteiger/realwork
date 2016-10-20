@@ -1,0 +1,55 @@
+// TatPositionTypeConverter 53971CFA00EF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53971CFA00EF
+
+ME ME_53971D2A0393
+ MEPROP UID '53971D2A0393'
+ MEPROP Name 'EnumType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53971CFA00EF // TatPositionTypeConverter
+ ;
+ MELINK Target WL 'ME_45EEB6520323' '4570511E038A.ms.model.script' // PositionType
+ ;
+
+ENDME // ME_53971D2A0393 EnumType
+
+MEREF ME_50005E6B0318_ME_53971CFA00EF_G
+ MELINK Original WL? 'ME_50005E6B0318' // atEnumConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50005E6B0318_ME_53971CFA00EF_G atEnumConverter
+
+%%InheritedBy ME_50005E6B0318 ME_53971CFA00EF
+
+ME ME_53971CFA00EF
+ MEPROP UID '53971CFA00EF'
+ MEPROP Name 'TatPositionTypeConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_50005E6B0318_ME_53971CFA00EF_G // atEnumConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53971D2A0393 // EnumType
+ )
+ ; // Attributes
+ UP "singleton" true
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atPositionTypeConverter.pas'
+ UP extprop:rc:SelfName 'atPositionTypeConverter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atPositionTypeConverter'
+
+ENDME // ME_53971CFA00EF TatPositionTypeConverter

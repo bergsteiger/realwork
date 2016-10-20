@@ -1,0 +1,67 @@
+// DEFAULT 4DBAF3D60039 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAF3D60039
+
+MEREF ME_4DAEEDE10285_ME_4DBAF3D60039_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DBAF3D60039_impl DoDoIt
+
+MEREF ME_4DB0614603C8_ME_4DBAF3D60039_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DBAF3D60039_over GetWordNameForRegister
+
+MEREF ME_4DBAF4630154_ME_4DBAF3D60039_over
+ MELINK Original WL 'ME_4DBAF4630154' '4DAF19F600C5.ms.model.script' // IsDefaultBranch
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DBAF4630154_ME_4DBAF3D60039_over IsDefaultBranch
+
+MEREF ME_53EDC0E701BC_ME_4DBAF3D60039_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_4DBAF3D60039_G TtfwRegisterableWord
+
+%%InheritedBy ME_53EDC0E701BC ME_4DBAF3D60039
+
+ME ME_4DBAF3D60039
+ MEPROP UID '4DBAF3D60039'
+ MEPROP Name 'DEFAULT'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внутреннее слово для определения ветки по умолчанию в скомпилированном Case. Не предназначено для прямого вызова.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5284E8850019' // CodeBranchingWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_53EDC0E701BC_ME_4DBAF3D60039_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DBAF3D60039_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DBAF3D60039_over // GetWordNameForRegister
+ ME_4DBAF4630154_ME_4DBAF3D60039_over // IsDefaultBranch
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '29.04.2011 21:23'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas'
+ UP extprop:pas:TypeName 'TkwDEFAULT'
+ UP extprop:rc:SelfName 'DEFAULT'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDEFAULT'
+
+ENDME // ME_4DBAF3D60039 DEFAULT

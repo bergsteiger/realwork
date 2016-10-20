@@ -1,0 +1,89 @@
+// TarCustomMultiClearAttributesHelper 57EA22400306 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA22400306
+
+ME ME_57EA229201FE
+ MEPROP UID '57EA229201FE'
+ MEPROP Name 'ClearAttributes'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57EA22400306 // TarCustomMultiClearAttributesHelper
+ ;
+
+ENDME // ME_57EA229201FE ClearAttributes
+
+ME ME_57EA22B10150
+ MEPROP UID '57EA22B10150'
+ MEPROP Name 'HasRejectedDocs'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57EA22400306 // TarCustomMultiClearAttributesHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57EA22B10150 HasRejectedDocs
+
+ME ME_57EA22C60016
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_515413200198' '515412C70072.ms.model.script' // Tl3StringDataList
+ ;
+
+ENDME // ME_57EA22C60016 aList
+
+ME ME_57EA22C201D1
+ MEPROP UID '57EA22C201D1'
+ MEPROP Name 'FillRejectedList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57EA22400306 // TarCustomMultiClearAttributesHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA22C60016 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_57EA22C201D1 FillRejectedList
+
+MEREF ME_49E7754802A9_ME_57EA22400306_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57EA22400306_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57EA22400306
+
+ME ME_57EA22400306
+ MEPROP UID '57EA22400306'
+ MEPROP Name 'TarCustomMultiClearAttributesHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57E2336703B0' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57EA22400306_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57EA229201FE // ClearAttributes
+ HWL ME_57EA22B10150 // HasRejectedDocs
+ HWL ME_57EA22C201D1 // FillRejectedList
+ )
+ ; // Operations
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arCustomMultiClearAttributesHelper.pas'
+ UP extprop:rc:SelfName 'arCustomMultiClearAttributesHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arCustomMultiClearAttributesHelper'
+
+ENDME // ME_57EA22400306 TarCustomMultiClearAttributesHelper

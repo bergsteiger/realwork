@@ -1,0 +1,45 @@
+// TtfwStandardDictionary 55B0EF37007C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B0EF37007C
+
+MEREF ME_55A7ECD8020D_ME_55B0EF37007C_over
+ MELINK Original WL 'ME_55A7ECD8020D' '4DAEECD90016.ms.model.script' // IsAxiom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55A7ECD8020D_ME_55B0EF37007C_over IsAxiom
+
+MEREF ME_559E8B2E0385_ME_55B0EF37007C_G
+ MELINK Original WL? 'ME_559E8B2E0385' // TtfwDictionaryEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559E8B2E0385_ME_55B0EF37007C_G TtfwDictionaryEx
+
+%%InheritedBy ME_559E8B2E0385 ME_55B0EF37007C
+
+ME ME_55B0EF37007C
+ MEPROP UID '55B0EF37007C'
+ MEPROP Name 'TtfwStandardDictionary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_559E8B2E0385_ME_55B0EF37007C_G // TtfwDictionaryEx
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55A7ECD8020D_ME_55B0EF37007C_over // IsAxiom
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionary.pas'
+ UP extprop:rc:SelfName 'StandardDictionary'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwStandardDictionary'
+
+ENDME // ME_55B0EF37007C TtfwStandardDictionary

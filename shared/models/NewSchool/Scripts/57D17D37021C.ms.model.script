@@ -1,0 +1,54 @@
+// TmsmListOperation 57D17D37021C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D17D37021C
+
+ME ME_57D17D6E0269
+ MEPROP UID '57D17D6E0269'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D17D37021C // TmsmListOperation
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+
+ENDME // ME_57D17D6E0269 ConcreteModel
+
+MEREF ME_57CEB54C02B6_ME_57D17D37021C_G
+ MELINK Original WL? 'ME_57CEB54C02B6' // msmConcreteModelOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEB54C02B6_ME_57D17D37021C_G msmConcreteModelOperation
+
+%%InheritedBy ME_57CEB54C02B6 ME_57D17D37021C
+
+ME ME_57D17D37021C
+ MEPROP UID '57D17D37021C'
+ MEPROP Name 'TmsmListOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( ME_57CEB54C02B6_ME_57D17D37021C_G // msmConcreteModelOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D17D6E0269 // ConcreteModel
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOperation.pas'
+ UP extprop:rc:SelfName 'msmListOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmListOperation'
+
+ENDME // ME_57D17D37021C TmsmListOperation

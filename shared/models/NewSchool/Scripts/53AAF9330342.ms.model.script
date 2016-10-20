@@ -1,0 +1,85 @@
+// Tk2TypedHugeLeafTag 53AAF9330342 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53AAF9330342
+
+FORWARD ME_53AAF9330342
+
+ME ME_53AAF96000F4
+ MEPROP UID '53AAF96000F4'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AAF9330342 // Tk2TypedHugeLeafTag
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_53AAF96000F4 k2Tag_No_f_TagType
+
+ME ME_53AAF98D0290
+ MEPROP UID '53AAF98D0290'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53AAF9330342 // Tk2TypedHugeLeafTag
+ ;
+ MELINK Target WL 'ME_47AC5BBC025C' '47AC5ABE00B6.ms.model.script' // Tl3PtrHash
+ ;
+
+ENDME // ME_53AAF98D0290 HashType
+
+MEREF ME_47AC562D0134_ME_53AAF9330342_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_53AAF9330342_G k2HashTag
+
+MEREF ME_532081A90261_ME_53AAF9330342_G
+ MELINK Original WL? 'ME_532081A90261' // Tk2LeafTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532081A90261_ME_53AAF9330342_G Tk2LeafTag
+
+%%InheritedBy ME_47AC562D0134 ME_53AAF9330342
+%%InheritedBy ME_532081A90261 ME_53AAF9330342
+
+ME ME_53AAF9330342
+ MEPROP UID '53AAF9330342'
+ MEPROP Name 'Tk2TypedHugeLeafTag'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47AC562D0134_ME_53AAF9330342_G // k2HashTag
+ ME_532081A90261_ME_53AAF9330342_G // Tk2LeafTag
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53AAF98D0290 // HashType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_53AAF96000F4 // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypedHugeLeafTag.pas'
+ UP extprop:rc:SelfName 'TypedHugeLeafTag'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2TypedHugeLeafTag'
+
+ENDME // ME_53AAF9330342 Tk2TypedHugeLeafTag

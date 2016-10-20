@@ -39,28 +39,40 @@ ME ME_4D35796C03E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_491D7D660107 // TdsMedicFirmDocument
  ;
- MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ MELINK Target WL? 'ME_4C6A9AD101B4' // TnsF1DocumentContainer
  ;
 
 ENDME // ME_4D35796C03E2 
 
-ME ME_491D7D2A02E0_ME_491D7D660107
+MEREF ME_491D7D2A02E0_ME_491D7D660107_impl
  MELINK Original WL 'ME_491D7D2A02E0' '4AC241AC01FC.ms.model.script' // OpenDrugList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_491D7D2A02E0_ME_491D7D660107 OpenDrugList
+ENDMEREF // ME_491D7D2A02E0_ME_491D7D660107_impl OpenDrugList
 
-ME ME_491C264C02C2_ME_491D7D660107
+MEREF ME_491C264C02C2_ME_491D7D660107_over
  MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_491C264C02C2_ME_491D7D660107 GetTimeMachineOff
+ENDMEREF // ME_491C264C02C2_ME_491D7D660107_over GetTimeMachineOff
 
-ME ME_4C6AB38800F3_ME_491D7D660107
+MEREF ME_4C6AB38800F3_ME_491D7D660107_over
  MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C6AB38800F3_ME_491D7D660107 MakeContainer
+ENDMEREF // ME_4C6AB38800F3_ME_491D7D660107_over MakeContainer
+
+MEREF ME_47EA20430108_ME_491D7D660107_G
+ MELINK Original WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA20430108_ME_491D7D660107_G dsBaseDocumentPrim
+
+MEREF ME_491D7D1B026C_ME_491D7D660107_R
+ MELINK Original WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' // IdsMedicFirmDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491D7D1B026C_ME_491D7D660107_R IdsMedicFirmDocument
 
 %%ImplementedBy ME_491D7D1B026C ME_491D7D660107
 
@@ -79,11 +91,11 @@ ME ME_491D7D660107
  MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+   Seq: ( ME_47EA20430108_ME_491D7D660107_G // dsBaseDocumentPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' // IdsMedicFirmDocument
+   Seq: ( ME_491D7D1B026C_ME_491D7D660107_R // IdsMedicFirmDocument
  )
  ; // Implements
  MELIST Attributes
@@ -92,12 +104,12 @@ ME ME_491D7D660107
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_491D7D2A02E0_ME_491D7D660107 // OpenDrugList
+   Seq: ( ME_491D7D2A02E0_ME_491D7D660107_impl // OpenDrugList
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_491C264C02C2_ME_491D7D660107 // GetTimeMachineOff
- ME_4C6AB38800F3_ME_491D7D660107 // MakeContainer
+   Seq: ( ME_491C264C02C2_ME_491D7D660107_over // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D7D660107_over // MakeContainer
  )
  ; // Overridden
  MELIST Dependencies

@@ -7,96 +7,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4D384F3B0095
 %%Inner ME_4D384F3B0095
 
-FORWARD ME_4D384F3B0095
-
-FORWARD ME_4B1658140144
-
-ME ME_4B16585D00DF
- MEPROP Name 'aNext'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_4B16585D00DF aNext
-
-ME ME_4B16585D010E
- MEPROP Name 'aList'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
- ;
-
-ENDME // ME_4B16585D010E aList
-
-ME ME_4B16585D012D
- MEPROP Name 'aDoc'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
- ;
-
-ENDME // ME_4B16585D012D aDoc
-
-ME ME_4B16583901B5
- MEPROP UID '4B16583901B5'
- MEPROP Name 'Log'
- MEPROP Class class_Operation
- MELINK Stereotype st_static::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B1658140144 // TnsDocumentFromListNavigationEvent
- ;
- MELIST Parameters
-   Seq: ( ME_4B16585D00DF // aNext
- ME_4B16585D010E // aList
- ME_4B16585D012D // aDoc
- )
- ; // Parameters
-
-ENDME // ME_4B16583901B5 Log
-
-ME ME_4B16582C01E9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4B1658140144 // TnsDocumentFromListNavigationEvent
- ;
- MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
- ;
-
-ENDME // ME_4B16582C01E9 
-
-%%InheritedBy ME_4B0A6109010C ME_4B1658140144
-
-ME ME_4B1658140144
- MEPROP UID '4B1658140144'
- MEPROP Name 'TnsDocumentFromListNavigationEvent'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4D384F3B0095 // CommonForDocumentAndFlash
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4B16583901B5 // Log
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4B16582C01E9 // LogEvent
- )
- ; // Dependencies
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsDocumentFromListNavigationEvent.pas'
- UP extprop:rc:SelfName 'DocumentFromListNavigationEvent'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nsDocumentFromListNavigationEvent'
-
-ENDME // ME_4B1658140144 TnsDocumentFromListNavigationEvent
-
 ME ME_4D384F3B0095
  MEPROP UID '4D384F3B0095'
  MEPROP Name 'CommonForDocumentAndFlash'
@@ -111,7 +21,7 @@ ME ME_4D384F3B0095
    Seq: ( WL? 'ME_498721A60125' // StatusBarDocumentItems
  WL? 'ME_4986C5B30130' // CommonForTextAndFlash
  WL? 'ME_4CDE81A402A9' // CommonForTextAndFlashOperations
- HWL ME_4B1658140144 // TnsDocumentFromListNavigationEvent
+ WL? 'ME_4B1658140144' // TnsDocumentFromListNavigationEvent
  )
  ; // Children
  MELIST Depends

@@ -38,6 +38,10 @@ ME ME_484FA70A0269
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484FA67302D7 // GUI
  ;
+ MELIST Implements
+   Seq: (  // Заглушка
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4E7C2A4B0369 // Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
  )
@@ -560,6 +564,12 @@ ME ME_4E6DC5C80293
 
 ENDME // ME_4E6DC5C80293 Медали в системе
 
+MEREF ME_484FA70A0269_ME_4D5A1A0703BB_G
+ MELINK Original HWL ME_484FA70A0269 // Интерфейс системы
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA70A0269_ME_4D5A1A0703BB_G Интерфейс системы
+
 %%InheritedBy ME_484FA70A0269 ME_4D5A1A0703BB
 
 ME ME_4D5A1A0703BB
@@ -574,7 +584,7 @@ ME ME_4D5A1A0703BB
  MELINK Parent HWL ME_484FA67302D7 // GUI
  ;
  MELIST Inherits
-   Seq: ( HWL ME_484FA70A0269 // Интерфейс системы
+   Seq: ( ME_484FA70A0269_ME_4D5A1A0703BB_G // Интерфейс системы
  )
  ; // Inherits
  MELIST Children
@@ -928,6 +938,12 @@ ME ME_502D49AE0123
 
 ENDME // ME_502D49AE0123 При хождении по ссылкам в левой части ААК-содержания должны открываться соответствующие блоки в правой части
 
+MEREF ME_48490152021B_ME_4FBB5FF302D2_G
+ MELINK Original WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48490152021B_ME_4FBB5FF302D2_G Просмотр документа
+
 %%InheritedBy ME_48490152021B ME_4FBB5FF302D2
 
 ME ME_4FBB5FF302D2
@@ -941,7 +957,7 @@ ME ME_4FBB5FF302D2
  MELINK Parent HWL ME_4FBB5FE2026D // Интерфейс 2012
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+   Seq: ( ME_48490152021B_ME_4FBB5FF302D2_G // Просмотр документа
  )
  ; // Inherits
  MELIST Children
@@ -990,6 +1006,12 @@ ME ME_4FBB600001C9
 
 ENDME // ME_4FBB600001C9 Информеры в списке
 
+MEREF ME_4D5A1A0703BB_ME_4FBB5FE2026D_G
+ MELINK Original HWL ME_4D5A1A0703BB // Интерфейс 2011
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D5A1A0703BB_ME_4FBB5FE2026D_G Интерфейс 2011
+
 %%InheritedBy ME_4D5A1A0703BB ME_4FBB5FE2026D
 
 ME ME_4FBB5FE2026D
@@ -1003,7 +1025,7 @@ ME ME_4FBB5FE2026D
  MELINK Parent HWL ME_484FA67302D7 // GUI
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4D5A1A0703BB // Интерфейс 2011
+   Seq: ( ME_4D5A1A0703BB_ME_4FBB5FE2026D_G // Интерфейс 2011
  )
  ; // Inherits
  MELIST Children

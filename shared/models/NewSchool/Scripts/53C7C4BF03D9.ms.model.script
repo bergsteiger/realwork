@@ -1,0 +1,190 @@
+// TtfwIntegerConstantRegistrator 53C7C4BF03D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C7C4BF03D9
+
+ME ME_53C7C657008F
+ MEPROP UID '53C7C657008F'
+ MEPROP Name 'f_Value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C7C4BF03D9 // TtfwIntegerConstantRegistrator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53C7C657008F f_Value
+
+FORWARD ME_53C7C5F402F1
+
+ME ME_53C7C616004E
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53C7C616004E aName
+
+ME ME_53C7C6160073
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53C7C6160073 aValue
+
+ME ME_53C7C608029E
+ MEPROP UID '53C7C608029E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7C5F402F1 // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C7C616004E // aName
+ ME_53C7C6160073 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_53C7C608029E DoIt
+
+ME ME_53C7CC80039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C7C5F402F1 // Register
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53C7CC80039C 
+
+ME ME_53C7C5F402F1
+ MEPROP UID '53C7C5F402F1'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7C4BF03D9 // TtfwIntegerConstantRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C7C608029E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53C7CC80039C // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_53C7C5F402F1 Register
+
+FORWARD ME_55C0D9FB0106
+
+ME ME_55C0DA06028A
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C0DA06028A aValue
+
+ME ME_55C0DA020263
+ MEPROP UID '55C0DA020263'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C0D9FB0106 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C0DA06028A // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55C0DA020263 DoIt
+
+ME ME_55C0D9FB0106
+ MEPROP UID '55C0D9FB0106'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7C4BF03D9 // TtfwIntegerConstantRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55C0DA020263 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55C0D9FB0106 Create
+
+MEREF ME_4DC2E05B03DD_ME_53C7C4BF03D9_over
+ MELINK Original WL 'ME_4DC2E05B03DD' '54D229E702B6.ms.model.script' // ReallyNeedRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_4DC2E05B03DD_ME_53C7C4BF03D9_over ReallyNeedRegister
+
+MEREF ME_4EE1DC8903BB_ME_53C7C4BF03D9_over
+ MELINK Original WL 'ME_4EE1DC8903BB' '4EE1DBBB013C.ms.model.script' // GetInteger
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4EE1DC8903BB_ME_53C7C4BF03D9_over GetInteger
+
+MEREF ME_4EE1DBBB013C_ME_53C7C4BF03D9_G
+ MELINK Original WL? 'ME_4EE1DBBB013C' // TtfwInteger
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EE1DBBB013C_ME_53C7C4BF03D9_G TtfwInteger
+
+%%InheritedBy ME_4EE1DBBB013C ME_53C7C4BF03D9
+
+ME ME_53C7C4BF03D9
+ MEPROP UID '53C7C4BF03D9'
+ MEPROP Name 'TtfwIntegerConstantRegistrator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4EE1DBBB013C_ME_53C7C4BF03D9_G // TtfwInteger
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53C7C657008F // f_Value
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53C7C5F402F1 // Register
+ HWL ME_55C0D9FB0106 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DC2E05B03DD_ME_53C7C4BF03D9_over // ReallyNeedRegister
+ ME_4EE1DC8903BB_ME_53C7C4BF03D9_over // GetInteger
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIntegerConstantRegistrator.pas'
+ UP extprop:rc:SelfName 'IntegerConstantRegistrator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwIntegerConstantRegistrator'
+
+ENDME // ME_53C7C4BF03D9 TtfwIntegerConstantRegistrator

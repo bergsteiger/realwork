@@ -38,7 +38,7 @@ ENDME // ME_52A9AF5E00FF DoIt
 ME ME_52A9AF500143
  MEPROP UID '52A9AF500143'
  MEPROP Name 'DoCloseUp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -103,7 +103,7 @@ ENDME // ME_554CA1B7001B DoIt
 ME ME_554CA18500FB
  MEPROP UID '554CA18500FB'
  MEPROP Name 'ProcessCommand'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -135,7 +135,7 @@ ENDME // ME_7F65AA4508D1 DoIt
 ME ME_554CBBA3004E
  MEPROP UID '554CBBA3004E'
  MEPROP Name 'UpdateButtonPosition'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -168,7 +168,7 @@ ENDME // ME_058065FC3623 DoIt
 ME ME_554CBC32006E
  MEPROP UID '554CBC32006E'
  MEPROP Name 'DropDown'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -211,7 +211,7 @@ ENDME // ME_554CBC4F01B5 DoIt
 ME ME_554CBC4500ED
  MEPROP UID '554CBC4500ED'
  MEPROP Name 'CloseUp'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -224,6 +224,18 @@ ME ME_554CBC4500ED
  ; // Operations
 
 ENDME // ME_554CBC4500ED CloseUp
+
+MEREF ME_52A9ADCB0092_ME_52A9AD5F0269_G
+ MELINK Original WL 'ME_52A9ADCB0092' '52A9ADB60286.ms.model.script' // TCustomMaskEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A9ADCB0092_ME_52A9AD5F0269_G TCustomMaskEdit
+
+MEREF ME_47913F970159_ME_52A9AD5F0269_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_52A9AD5F0269_R l3Unknown
 
 %%ImplementedBy ME_47913F970159 ME_52A9AD5F0269
 
@@ -240,11 +252,11 @@ ME ME_52A9AD5F0269
  MELINK Parent HWL ME_51B5C8CB00A0 // vtCombo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A9ADCB0092' '52A9ADB60286.ms.model.script' // TCustomMaskEdit
+   Seq: ( ME_52A9ADCB0092_ME_52A9AD5F0269_G // TCustomMaskEdit
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_47913F970159' // l3Unknown
+   Seq: ( ME_47913F970159_ME_52A9AD5F0269_R // l3Unknown
  )
  ; // Implements
  MELIST Operations
@@ -283,7 +295,7 @@ ENDME // ME_554CA908032A DoIt
 ME ME_554CA8F903AE
  MEPROP UID '554CA8F903AE'
  MEPROP Name 'GetDropDownContainer'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -296,6 +308,12 @@ ME ME_554CA8F903AE
  ; // Operations
 
 ENDME // ME_554CA8F903AE GetDropDownContainer
+
+MEREF ME_52A9AD5F0269_ME_52A9AD500267_G
+ MELINK Original HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52A9AD5F0269_ME_52A9AD500267_G TvtSimpleCustomCombo
 
 %%InheritedBy ME_52A9AD5F0269 ME_52A9AD500267
 
@@ -310,7 +328,7 @@ ME ME_52A9AD500267
  MELINK Parent HWL ME_51B5C8CB00A0 // vtCombo
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+   Seq: ( ME_52A9AD5F0269_ME_52A9AD500267_G // TvtSimpleCustomCombo
  )
  ; // Inherits
  MELIST Operations

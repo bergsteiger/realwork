@@ -1,0 +1,131 @@
+// TnevFormatPoolBase 48173AD801FF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48173AD801FF
+
+ME ME_48173CEF0142
+ MEPROP UID '48173CEF0142'
+ MEPROP Name 'f_Container'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48173AD801FF // TnevFormatPoolBase
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_48173CEF0142 f_Container
+
+ME ME_4810DE6F0396
+ MEPROP UID '4810DE6F0396'
+ MEPROP Name 'Obj'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48173AD801FF // TnevFormatPoolBase
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4810DE6F0396 Obj
+
+ME ME_48173E5D0124
+ MEPROP UID '48173E5D0124'
+ MEPROP Name 'Container'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48173AD801FF // TnevFormatPoolBase
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48173E5D0124 Container
+
+ME ME_48184F3D0115
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_48184F3D0115 aDocument
+
+ME ME_48173B5102C8
+ MEPROP UID '48173B5102C8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48173AD801FF // TnevFormatPoolBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48184F3D0115 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_48173B5102C8 Create
+
+MEREF ME_479731C50290_ME_48173AD801FF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48173AD801FF_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_48173AD801FF_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_48173AD801FF_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_48173AD801FF
+
+ME ME_48173AD801FF
+ MEPROP UID '48173AD801FF'
+ MEPROP Name 'TnevFormatPoolBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_48173AD801FF_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48173CEF0142 // f_Container
+ HWL ME_4810DE6F0396 // Obj
+ HWL ME_48173E5D0124 // Container
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48173B5102C8 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48173AD801FF_over // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '29.04.2008 19:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormatPoolBase.pas'
+ UP extprop:rc:SelfName 'FormatPoolBase'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevFormatPoolBase'
+
+ENDME // ME_48173AD801FF TnevFormatPoolBase

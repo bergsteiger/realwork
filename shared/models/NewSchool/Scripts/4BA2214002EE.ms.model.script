@@ -1,0 +1,102 @@
+// Tl3ConstStrings 4BA2214002EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BA2214002EE
+
+ME ME_4BA221B103C1
+ MEPROP UID '4BA221B103C1'
+ MEPROP Name 'g_l3ConstStringsSealed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA2214002EE // Tl3ConstStrings
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4BA221B103C1 g_l3ConstStringsSealed
+
+FORWARD ME_4BA227540063
+
+ME ME_4BA22761018F
+ MEPROP UID '4BA22761018F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA227540063 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BA22761018F DoIt
+
+ME ME_4BA227540063
+ MEPROP UID '4BA227540063'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA2214002EE // Tl3ConstStrings
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BA22761018F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4BA227540063 Exists
+
+MEREF ME_4BB9C58B039B_ME_4BA2214002EE_G
+ MELINK Original WL? 'ME_4BB9C58B039B' // Tl3ConstStrings1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BB9C58B039B_ME_4BA2214002EE_G Tl3ConstStrings1
+
+%%InheritedBy ME_4BB9C58B039B ME_4BA2214002EE
+
+ME ME_4BA2214002EE
+ MEPROP UID '4BA2214002EE'
+ MEPROP Name 'Tl3ConstStrings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9BDEEE01BC' // Поддержка локализованных сообщений
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BB9C58B039B_ME_4BA2214002EE_G // Tl3ConstStrings1
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BA221B103C1 // g_l3ConstStringsSealed
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BA227540063 // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '18.03.2010 15:49'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ UP extprop:rc:SelfName 'ConstStrings'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ConstStrings'
+
+ENDME // ME_4BA2214002EE Tl3ConstStrings

@@ -1,0 +1,307 @@
+// TnsOpenDialog 4DDD468D0131 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DDD468D0131
+
+FORWARD ME_4DDD468D0131
+
+FORWARD ME_4DE4F71702C2
+
+ME ME_4DE4F9E60057
+ MEPROP UID '4DE4F9E60057'
+ MEPROP Name 'OpenDialogInnerNumbers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DE4F71702C2 // OpenDialog
+ ;
+ MEPROP Value '''Внутренний номер в базе'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Внутренний номер в базе'''
+
+ENDME // ME_4DE4F9E60057 OpenDialogInnerNumbers
+
+ME ME_4DE4F71702C2
+ MEPROP UID '4DE4F71702C2'
+ MEPROP Name 'OpenDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DE4F9E60057 // OpenDialogInnerNumbers
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4DE4F71702C2 OpenDialog
+
+MEREF ME_47E124E90272_ME_4DE6894F002B_G
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_4DE6894F002B_G TWinControl
+
+%%InheritedBy ME_47E124E90272 ME_4DE6894F002B
+
+ME ME_4DE6894F002B
+ MEPROP UID '4DE6894F002B'
+ MEPROP Name 'THackWinControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELIST Inherits
+   Seq: ( ME_47E124E90272_ME_4DE6894F002B_G // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'HackWinControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DE6894F002B THackWinControl
+
+ME ME_4DE67223009E
+ MEPROP UID '4DE67223009E'
+ MEPROP Name 'InnerNumbersEnabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4DE67223009E InnerNumbersEnabled
+
+ME ME_4DE675B0034F
+ MEPROP UID '4DE675B0034F'
+ MEPROP Name 'InnerNumbersChecked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DE675B0034F InnerNumbersChecked
+
+ME ME_4DE675F4015E
+ MEPROP UID '4DE675F4015E'
+ MEPROP Name 'f_ExtraPanel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_4A7961A701CF' // TvtPanel
+ ;
+
+ENDME // ME_4DE675F4015E f_ExtraPanel
+
+ME ME_4DE6769A00E4
+ MEPROP UID '4DE6769A00E4'
+ MEPROP Name 'f_InnerNumbersCheckBox'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_5179419B01DA' // TvtCheckBox
+ ;
+
+ENDME // ME_4DE6769A00E4 f_InnerNumbersCheckBox
+
+ME ME_4DE685DD0340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_4A7961A701CF' // TvtPanel
+ ;
+
+ENDME // ME_4DE685DD0340 
+
+ME ME_4DE6861D031D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_4AC5E484002C' // TeeCheckBox
+ ;
+
+ENDME // ME_4DE6861D031D 
+
+ME ME_4DE68C3801A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4DE68C3801A4 
+
+ME ME_4DE68CBA0176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4DE68CBA0176 
+
+ME ME_4DE68E290304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4DE68E290304 
+
+ME ME_4DE68ECB0346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4DE68ECB0346 
+
+ME ME_4DE68F2E018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_4DE68F2E018C 
+
+ME ME_4DE692A00232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDD468D0131 // TnsOpenDialog
+ ;
+ MELINK Target WL? 'ME_4DD1237B00AE' // CommDlg
+ ;
+
+ENDME // ME_4DE692A00232 
+
+MEREF ME_47D1602000C6_ME_4DDD468D0131_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_4DDD468D0131_over Create
+
+MEREF ME_48077504027E_ME_4DDD468D0131_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4DDD468D0131_over Destroy
+
+MEREF ME_4DCC1FEE0352_ME_4DDD468D0131_over
+ MELINK Original WL 'ME_4DCC1FEE0352' '4AB0EE02004E.ms.model.script' // DoShow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC1FEE0352_ME_4DDD468D0131_over DoShow
+
+MEREF ME_4DCC20C10116_ME_4DDD468D0131_over
+ MELINK Original WL 'ME_4DCC20C10116' '4AB0EE02004E.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC20C10116_ME_4DDD468D0131_over Execute
+
+MEREF ME_4AF32FBD00F5_ME_4DDD468D0131_G
+ MELINK Original WL? 'ME_4AF32FBD00F5' // TnsSaveDialog
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AF32FBD00F5_ME_4DDD468D0131_G TnsSaveDialog
+
+%%InheritedBy ME_4AF32FBD00F5 ME_4DDD468D0131
+
+ME ME_4DDD468D0131
+ MEPROP UID '4DDD468D0131'
+ MEPROP Name 'TnsOpenDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DDA34AA023B' // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AF32FBD00F5_ME_4DDD468D0131_G // TnsSaveDialog
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DE67223009E // InnerNumbersEnabled
+ HWL ME_4DE675B0034F // InnerNumbersChecked
+ HWL ME_4DE675F4015E // f_ExtraPanel
+ HWL ME_4DE6769A00E4 // f_InnerNumbersCheckBox
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4DDD468D0131_over // Create
+ ME_48077504027E_ME_4DDD468D0131_over // Destroy
+ ME_4DCC1FEE0352_ME_4DDD468D0131_over // DoShow
+ ME_4DCC20C10116_ME_4DDD468D0131_over // Execute
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DE6894F002B // THackWinControl
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4DE4F71702C2 // OpenDialog
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4DE685DD0340 // TvtPanel
+ ME_4DE6861D031D // TeeCheckBox
+ ME_4DE68C3801A4 // SysUtils
+ ME_4DE68CBA0176 // l3Base
+ ME_4DE68E290304 // Windows
+ ME_4DE68ECB0346 // Forms
+ ME_4DE68F2E018C // vcmBase
+ ME_4DE692A00232 // CommDlg
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsOpenDialog.pas'
+ UP extprop:rc:SelfName 'OpenDialog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsOpenDialog'
+
+ENDME // ME_4DDD468D0131 TnsOpenDialog

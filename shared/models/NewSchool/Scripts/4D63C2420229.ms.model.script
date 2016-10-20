@@ -1,0 +1,574 @@
+// Tk2InterfaceFactory 4D63C2420229 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D63C2420229
+
+FORWARD ME_4D63C2420229
+
+MEREF ME_4D63C2420229_ME_531F029E00DD_G
+ MELINK Original HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D63C2420229_ME_531F029E00DD_G Tk2InterfaceFactory
+
+%%InheritedBy ME_4D63C2420229 ME_531F029E00DD
+
+ME ME_531F029E00DD
+ MEPROP UID '531F029E00DD'
+ MEPROP Name 'Rk2InterfaceFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D63C2420229_ME_531F029E00DD_G // Tk2InterfaceFactory
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_531F029E00DD Rk2InterfaceFactory
+
+ME ME_531F026302AE
+ MEPROP UID '531F026302AE'
+ MEPROP Name 'Interfaces'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELINK Target WL 'ME_531EF73702F9' '531EF71800F9.ms.model.script' // Tk2InterfaceCache
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_531F026302AE Interfaces
+
+FORWARD ME_4D63D26D033F
+
+ME ME_4D63D29902FC
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4D63D29902FC aTag
+
+ME ME_4D63D299031F
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_4D63D299031F ID
+
+ME ME_4D63D299033B
+ MEPROP Name 'I'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL? 'ME_47F5DAEB0007' // Tk2ToolPrim
+ ;
+
+ENDME // ME_4D63D299033B I
+
+ME ME_4D63D285008E
+ MEPROP UID '4D63D285008E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63D26D033F // QueryTool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D63D29902FC // aTag
+ ME_4D63D299031F // ID
+ ME_4D63D299033B // I
+ )
+ ; // Parameters
+
+ENDME // ME_4D63D285008E DoIt
+
+ME ME_4D63D26D033F
+ MEPROP UID '4D63D26D033F'
+ MEPROP Name 'QueryTool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D63D285008E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D63D26D033F QueryTool
+
+FORWARD ME_531F02030218
+
+ME ME_531F021E029E
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_531F021E029E ID
+
+ME ME_531F02190008
+ MEPROP UID '531F02190008'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531F02030218 // LoadTool
+ ;
+ MELINK Target WL? 'ME_47F5DAEB0007' // Tk2ToolPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_531F021E029E // ID
+ )
+ ; // Parameters
+
+ENDME // ME_531F02190008 DoIt
+
+ME ME_531F02030218
+ MEPROP UID '531F02030218'
+ MEPROP Name 'LoadTool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'загрузить инструмент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_531F02190008 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_531F02030218 LoadTool
+
+FORWARD ME_531F022801F6
+
+ME ME_531F0245032D
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_531F0245032D ID
+
+ME ME_531F0245034C
+ MEPROP Name 'I'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47F5DAEB0007' // Tk2ToolPrim
+ ;
+
+ENDME // ME_531F0245034C I
+
+ME ME_531F02400374
+ MEPROP UID '531F02400374'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531F022801F6 // StoreTool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_531F0245032D // ID
+ ME_531F0245034C // I
+ )
+ ; // Parameters
+
+ENDME // ME_531F02400374 DoIt
+
+ME ME_531F022801F6
+ MEPROP UID '531F022801F6'
+ MEPROP Name 'StoreTool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'сохранить инструмент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_531F02400374 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_531F022801F6 StoreTool
+
+FORWARD ME_53CCBDA5026D
+
+ME ME_53CCBE2D0215
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53CCBE2D0215 aTag
+
+ME ME_53CCBE2D0248
+ MEPROP Name 'aIID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_53CCBE2D0248 aIID
+
+ME ME_53CCBE2D0266
+ MEPROP Name 'theTool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_53CCBE2D0266 theTool
+
+ME ME_53CCBE2D0282
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_53CCBE2D0282 aProcessor
+
+ME ME_53CCBDC802F7
+ MEPROP UID '53CCBDC802F7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CCBDA5026D // COMQueryTool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CCBE2D0215 // aTag
+ ME_53CCBE2D0248 // aIID
+ ME_53CCBE2D0266 // theTool
+ ME_53CCBE2D0282 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_53CCBDC802F7 DoIt
+
+ME ME_53CCBDA5026D
+ MEPROP UID '53CCBDA5026D'
+ MEPROP Name 'COMQueryTool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CCBDC802F7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53CCBDA5026D COMQueryTool
+
+FORWARD ME_53D8E1970262
+
+ME ME_53D8E1AC0094
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53D8E1AC0094 aTag
+
+ME ME_53D8E1AC00BA
+ MEPROP Name 'aIID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_53D8E1AC00BA aIID
+
+ME ME_53D8E1AC00D8
+ MEPROP Name 'theTool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_53D8E1AC00D8 theTool
+
+ME ME_53D8E1AC00F8
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_53D8E1AC00F8 aProcessor
+
+ME ME_53D8E1A802F0
+ MEPROP UID '53D8E1A802F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D8E1970262 // PreCOMQueryTool
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53D8E1AC0094 // aTag
+ ME_53D8E1AC00BA // aIID
+ ME_53D8E1AC00D8 // theTool
+ ME_53D8E1AC00F8 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_53D8E1A802F0 DoIt
+
+ME ME_53D8E1970262
+ MEPROP UID '53D8E1970262'
+ MEPROP Name 'PreCOMQueryTool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53D8E1A802F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53D8E1970262 PreCOMQueryTool
+
+ME ME_4767B44A03B5
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4767B44A03B5 aTag
+
+ME ME_4767B44B0009
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4678150B0111' '4677FBA70343.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_4767B44B0009 IID
+
+ME ME_469F997F0103
+ MEPROP Name 'Tool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_469F997F0103 Tool
+
+ME ME_4767B44B0045
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_4767B44B0045 aProcessor
+
+ME ME_469F9954029C
+ MEPROP UID '469F9954029C'
+ MEPROP Name 'QueryToolN'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4767B44A03B5 // aTag
+ ME_4767B44B0009 // IID
+ ME_469F997F0103 // Tool
+ ME_4767B44B0045 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_469F9954029C QueryToolN
+
+ME ME_47678ACA00A1
+ MEPROP Name 'Tag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_47678ACA00A1 Tag
+
+ME ME_47678ACA00CF
+ MEPROP Name 'Action'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469FA03900D4' '4678193C009C.ms.model.script' // Tl3IteratorAction
+ ;
+
+ENDME // ME_47678ACA00CF Action
+
+ME ME_47678ABF00C1
+ MEPROP UID '47678ABF00C1'
+ MEPROP Name 'Iterate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELIST Parameters
+   Seq: ( ME_47678ACA00A1 // Tag
+ ME_47678ACA00CF // Action
+ )
+ ; // Parameters
+
+ENDME // ME_47678ABF00C1 Iterate
+
+ME ME_53230C5A0220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53230C5A0220 
+
+ME ME_53230C650192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELINK Target WL? 'ME_467C185C03E7' // Tk2TagPointer
+ ;
+
+ENDME // ME_53230C650192 
+
+ME ME_56D6E7530368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C2420229 // Tk2InterfaceFactory
+ ;
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
+ ;
+
+ENDME // ME_56D6E7530368 
+
+MEREF ME_4BCC45AA02CE_ME_4D63C2420229_impl
+ MELINK Original WL 'ME_4BCC45AA02CE' '4678137501EA.ms.model.script' // IterateCursors
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" true
+ UP "needs result" false
+ENDMEREF // ME_4BCC45AA02CE_ME_4D63C2420229_impl IterateCursors
+
+MEREF ME_479731C50290_ME_4D63C2420229_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D63C2420229_over Cleanup
+
+MEREF ME_47BC391D0259_ME_4D63C2420229_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_4D63C2420229_G Tl3SimpleObject
+
+MEREF ME_531F0A600173_ME_4D63C2420229_R
+ MELINK Original WL 'ME_531F0A600173' '4678137501EA.ms.model.script' // Mk2InterfaceFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_531F0A600173_ME_4D63C2420229_R Mk2InterfaceFactory
+
+%%ImplementedBy ME_531F0A600173 ME_4D63C2420229
+
+%%InheritedBy ME_47BC391D0259 ME_4D63C2420229
+
+ME ME_4D63C2420229
+ MEPROP UID '4D63C2420229'
+ MEPROP Name 'Tk2InterfaceFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика "старых" интерфейсов. Для поддержки старого кода, без настоящих интерфейсов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_4D63C2420229_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_531F0A600173_ME_4D63C2420229_R // Mk2InterfaceFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_531F026302AE // Interfaces
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D63D26D033F // QueryTool
+ HWL ME_531F02030218 // LoadTool
+ HWL ME_531F022801F6 // StoreTool
+ HWL ME_53CCBDA5026D // COMQueryTool
+ HWL ME_53D8E1970262 // PreCOMQueryTool
+ HWL ME_469F9954029C // QueryToolN
+ HWL ME_47678ABF00C1 // Iterate
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BCC45AA02CE_ME_4D63C2420229_impl // IterateCursors
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D63C2420229_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_531F029E00DD // Rk2InterfaceFactory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53230C5A0220 // Tk2Type
+ ME_53230C650192 // Tk2TagPointer
+ ME_56D6E7530368 // l3L2IA
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2InterfaceFactory.pas'
+ UP extprop:rc:SelfName 'InterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2InterfaceFactory'
+
+ENDME // ME_4D63C2420229 Tk2InterfaceFactory

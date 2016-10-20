@@ -1,0 +1,51 @@
+// Tf1VersionInfoService 55DDD0110086 ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DDD0110086
+
+ME ME_55DDD05B0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55DDD0110086 // Tf1VersionInfoService
+ ;
+ MELINK Target WL? 'ME_55DDCF7C004A' // Tl3VersionInfoService
+ ;
+
+ENDME // ME_55DDD05B0205 
+
+MEREF ME_49E7754802A9_ME_55DDD0110086_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55DDD0110086_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55DDD0110086
+
+ME ME_55DDD0110086
+ MEPROP UID '55DDD0110086'
+ MEPROP Name 'Tf1VersionInfoService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_55DDB8900080' // VersionInfo
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55DDD0110086_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55DDD05B0205 // Tl3VersionInfoService
+ )
+ ; // Dependencies
+ UP "ifdef" 'Nemesis'
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\f1VersionInfoService.pas'
+ UP extprop:rc:SelfName 'f1VersionInfoService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'f1VersionInfoService'
+
+ENDME // ME_55DDD0110086 Tf1VersionInfoService

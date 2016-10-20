@@ -1,0 +1,62 @@
+// EVDtoEVDEmptyRowAndEmptyTableTest 51C8347903A2 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51C8347903A2
+
+ME ME_51C834E0006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51C8347903A2 // EVDtoEVDEmptyRowAndEmptyTableTest
+ ;
+ MELINK Target WL? 'ME_4CF7B733015E' // TevEmptyTableEliminator
+ ;
+
+ENDME // ME_51C834E0006D 
+
+MEREF ME_4C07BCBE01F2_ME_51C8347903A2_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_51C8347903A2_over SetFilters
+
+MEREF ME_4C07BE700180_ME_51C8347903A2_G
+ MELINK Original WL? 'ME_4C07BE700180' // EVDtoEVDEmptyRowTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07BE700180_ME_51C8347903A2_G EVDtoEVDEmptyRowTest
+
+%%InheritedBy ME_4C07BE700180 ME_51C8347903A2
+
+ME ME_51C8347903A2
+ MEPROP UID '51C8347903A2'
+ MEPROP Name 'EVDtoEVDEmptyRowAndEmptyTableTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C07B59F0382' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C07BE700180_ME_51C8347903A2_G // EVDtoEVDEmptyRowTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_51C8347903A2_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51C834E0006D // TevEmptyTableEliminator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoEVDEmptyRowAndEmptyTableTest.pas'
+ UP extprop:pas:TypeName 'TEVDtoEVDEmptyRowAndEmptyTableTest'
+ UP extprop:rc:SelfName 'EVDtoEVDEmptyRowAndEmptyTableTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51C8347903A2 EVDtoEVDEmptyRowAndEmptyTableTest

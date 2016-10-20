@@ -1,0 +1,144 @@
+// L3XMLWriterTest 55AE3EAE00F3 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55AE3EAE00F3
+
+FORWARD ME_55AE3F340080
+
+ME ME_55AE3F490121
+ MEPROP UID '55AE3F490121'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+
+ENDME // ME_55AE3F490121 DoIt
+
+ME ME_55AE44030059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_46A456CF0239' '4677FBA70343.ms.model.script' // Il3XMLWriter
+ ;
+
+ENDME // ME_55AE44030059 
+
+ME ME_55AE452B03D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL? 'ME_55AE44E10097' // Tl3XMLWriter
+ ;
+
+ENDME // ME_55AE452B03D4 
+
+ME ME_55AE7B4C03C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55AE7B4C03C6 
+
+ME ME_55AE7B7002BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_53A05AFD02CC' '47A0686803A5.ms.model.script' // Tl3DOSFiler
+ ;
+
+ENDME // ME_55AE7B7002BF 
+
+ME ME_55AE7F050326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_55AE7F050326 
+
+ME ME_55AE3F340080
+ MEPROP UID '55AE3F340080'
+ MEPROP Name 'BuildXML'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3EAE00F3 // L3XMLWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AE3F490121 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55AE44030059 // Il3XMLWriter
+ ME_55AE452B03D4 // Tl3XMLWriter
+ ME_55AE7B4C03C6 // FreeAndNil
+ ME_55AE7B7002BF // Tl3DOSFiler
+ ME_55AE7F050326 // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_55AE3F340080 BuildXML
+
+ME ME_55AE76C10243
+ MEPROP UID '55AE76C10243'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3EAE00F3 // L3XMLWriterTest
+ ;
+
+ENDME // ME_55AE76C10243 DoIt
+
+MEREF ME_4B2A11BC0255_ME_55AE3EAE00F3_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_55AE3EAE00F3_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_55AE3EAE00F3
+
+ME ME_55AE3EAE00F3
+ MEPROP UID '55AE3EAE00F3'
+ MEPROP Name 'L3XMLWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50363289039D' // XML
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_55AE3EAE00F3_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55AE3F340080 // BuildXML
+ HWL ME_55AE76C10243 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\L3XMLWriterTest.pas'
+ UP extprop:pas:TypeName 'TL3XMLWriterTest'
+ UP extprop:rc:SelfName 'L3XMLWriterTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55AE3EAE00F3 L3XMLWriterTest

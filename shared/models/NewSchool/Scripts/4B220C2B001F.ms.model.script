@@ -1,0 +1,97 @@
+// TdBaseDocument 4B220C2B001F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B220C2B001F
+
+ME ME_4B220C4B0242
+ MEPROP UID '4B220C4B0242'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B220C2B001F // TdBaseDocument
+ ;
+ MELINK Target WL 'ME_47EB3BD9015F' '491B305A0096.ms.model.script' // IdBaseDocument
+ ;
+
+ENDME // ME_4B220C4B0242 IvcmRealData
+
+FORWARD ME_4B19420A01C4
+
+ME ME_4B19420F01D4
+ MEPROP UID '4B19420F01D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B19420A01C4 // Make
+ ;
+ MELINK Target WL 'ME_47EB3BD9015F' '491B305A0096.ms.model.script' // IdBaseDocument
+ ;
+
+ENDME // ME_4B19420F01D4 DoIt
+
+ME ME_4B19420A01C4
+ MEPROP UID '4B19420A01C4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B220C2B001F // TdBaseDocument
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B19420F01D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B19420A01C4 Make
+
+MEREF ME_47EB3E2202E6_ME_4B220C2B001F_G
+ MELINK Original WL? 'ME_47EB3E2202E6' // dBaseDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EB3E2202E6_ME_4B220C2B001F_G dBaseDocument
+
+%%InheritedBy ME_47EB3E2202E6 ME_4B220C2B001F
+
+ME ME_4B220C2B001F
+ MEPROP UID '4B220C2B001F'
+ MEPROP Name 'TdBaseDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные сборки документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_47EB3E2202E6_ME_4B220C2B001F_G // dBaseDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B220C4B0242 // IvcmRealData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B19420A01C4 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.12.2009 12:10'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.pas'
+ UP extprop:rc:SelfName 'dBaseDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dBaseDocument'
+
+ENDME // ME_4B220C2B001F TdBaseDocument

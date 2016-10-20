@@ -1,0 +1,156 @@
+// TQueryListPrim 52FCAC0E0384 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FCAC0E0384
+%%Inner ME_52FCAC0E0384
+
+FORWARD ME_52FCAC0E0384
+
+ME ME_52FCB2F403E2
+ MEPROP UID '52FCB2F403E2'
+ MEPROP Name 'l3Items_IsProto'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_IsProto'
+
+ENDME // ME_52FCB2F403E2 l3Items_IsProto
+
+ME ME_52FCB31C01E0
+ MEPROP UID '52FCB31C01E0'
+ MEPROP Name 'l3Items_HasChanging'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_HasChanging'
+
+ENDME // ME_52FCB31C01E0 l3Items_HasChanging
+
+ME ME_52FCAC2B02FA
+ MEPROP UID '52FCAC2B02FA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FCAC0E0384 // TQueryListPrim
+ ;
+ MELINK Target WL? 'ME_52FCABD0022E' // TSavedQuery
+ ;
+
+ENDME // ME_52FCAC2B02FA ItemType
+
+MEREF ME_47B2C42A0163_ME_52FCAC0E0384_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_52FCAC0E0384_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_52FCAC0E0384_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_52FCAC0E0384_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_52FCAC0E0384_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_52FCAC0E0384_G Tl3ProtoDataContainer
+
+MEREF ME_4A5CBFAB03AF_ME_52FCAC0E0384_G
+ MELINK Original WL? 'ME_4A5CBFAB03AF' // l3Changing
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CBFAB03AF_ME_52FCAC0E0384_G l3Changing
+
+MEREF ME_47B99E920196_ME_52FCAC0E0384_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_52FCAC0E0384_R l3UncomparabeObjectRefList
+
+MEREF ME_48FCA1F20259_ME_52FCAC0E0384_R
+ MELINK Original WL? 'ME_48FCA1F20259' // l3ChangingChangedNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48FCA1F20259_ME_52FCAC0E0384_R l3ChangingChangedNotifier
+
+MEREF ME_492ABDE901A7_ME_52FCAC0E0384_R
+ MELINK Original WL? 'ME_492ABDE901A7' // l3LockedChange
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ABDE901A7_ME_52FCAC0E0384_R l3LockedChange
+
+MEREF ME_4B86890E0307_ME_52FCAC0E0384_R
+ MELINK Original WL? 'ME_4B86890E0307' // l3OpenArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B86890E0307_ME_52FCAC0E0384_R l3OpenArray
+
+%%ImplementedBy ME_47B99E920196 ME_52FCAC0E0384
+%%ImplementedBy ME_48FCA1F20259 ME_52FCAC0E0384
+%%ImplementedBy ME_492ABDE901A7 ME_52FCAC0E0384
+%%ImplementedBy ME_4B86890E0307 ME_52FCAC0E0384
+
+%%InheritedBy ME_4A54DD4E036F ME_52FCAC0E0384
+%%InheritedBy ME_4A5CBFAB03AF ME_52FCAC0E0384
+
+ME ME_52FCAC0E0384
+ MEPROP UID '52FCAC0E0384'
+ MEPROP Name 'TQueryListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FCABBD02EE' // Query
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_52FCAC0E0384_G // Tl3ProtoDataContainer
+ ME_4A5CBFAB03AF_ME_52FCAC0E0384_G // l3Changing
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B99E920196_ME_52FCAC0E0384_R // l3UncomparabeObjectRefList
+ ME_48FCA1F20259_ME_52FCAC0E0384_R // l3ChangingChangedNotifier
+ ME_492ABDE901A7_ME_52FCAC0E0384_R // l3LockedChange
+ ME_4B86890E0307_ME_52FCAC0E0384_R // l3OpenArray
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52FCAC2B02FA // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_52FCAC0E0384_impl // AssignItem
+ ME_47B99D4503A2_ME_52FCAC0E0384_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_52FCB2F403E2 // l3Items_IsProto
+ HWL ME_52FCB31C01E0 // l3Items_HasChanging
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\QueryListPrim.pas'
+ UP extprop:rc:SelfName 'QueryListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'QueryListPrim'
+
+ENDME // ME_52FCAC0E0384 TQueryListPrim

@@ -1,0 +1,62 @@
+// TmsmListOwnerNameToCaptionBinding 57CD32BB0369 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CD32BB0369
+
+ME ME_57CD332601E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57CD32BB0369 // TmsmListOwnerNameToCaptionBinding
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57CD332601E0 
+
+MEREF ME_57B6A49900F4_ME_57CD32BB0369_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B6A49900F4_ME_57CD32BB0369_over LinkDataToView
+
+MEREF ME_57D25BE8030B_ME_57CD32BB0369_G
+ MELINK Original WL? 'ME_57D25BE8030B' // TmsmListToCaptionBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D25BE8030B_ME_57CD32BB0369_G TmsmListToCaptionBinding
+
+%%InheritedBy ME_57D25BE8030B ME_57CD32BB0369
+
+ME ME_57CD32BB0369
+ MEPROP UID '57CD32BB0369'
+ MEPROP Name 'TmsmListOwnerNameToCaptionBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CD2BB003D3' // ConcreteBindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D25BE8030B_ME_57CD32BB0369_G // TmsmListToCaptionBinding
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_57B6A49900F4_ME_57CD32BB0369_over // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CD332601E0 // ListChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOwnerNameToCaptionBinding.pas'
+ UP extprop:rc:SelfName 'msmListOwnerNameToCaptionBinding'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmListOwnerNameToCaptionBinding'
+
+ENDME // ME_57CD32BB0369 TmsmListOwnerNameToCaptionBinding

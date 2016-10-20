@@ -1,0 +1,45 @@
+// TddFormulaSegment 54D9ACC002E1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54D9ACC002E1
+
+MEREF ME_54DC46B50110_ME_54D9ACC002E1_impl
+ MELINK Original WL 'ME_54DC46B50110' '5111FC5402AA.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54DC46B50110_ME_54D9ACC002E1_impl Clone
+
+MEREF ME_54D9B0A2024C_ME_54D9ACC002E1_G
+ MELINK Original WL? 'ME_54D9B0A2024C' // TddObjectSegment
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54D9B0A2024C_ME_54D9ACC002E1_G TddObjectSegment
+
+%%InheritedBy ME_54D9B0A2024C ME_54D9ACC002E1
+
+ME ME_54D9ACC002E1
+ MEPROP UID '54D9ACC002E1'
+ MEPROP Name 'TddFormulaSegment'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_54D9B0A2024C_ME_54D9ACC002E1_G // TddObjectSegment
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_54DC46B50110_ME_54D9ACC002E1_impl // Clone
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddFormulaSegment.pas'
+ UP extprop:rc:SelfName 'ddFormulaSegment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddFormulaSegment'
+
+ENDME // ME_54D9ACC002E1 TddFormulaSegment

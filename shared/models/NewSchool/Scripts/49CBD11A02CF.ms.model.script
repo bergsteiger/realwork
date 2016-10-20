@@ -1,0 +1,191 @@
+// TevDocumentPreview 49CBD11A02CF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49CBD11A02CF
+
+MEREF ME_4CB57D480244_ME_4CB57DAE016D_G
+ MELINK Original WL 'ME_4CB57D480244' '47EA97410130.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB57D480244_ME_4CB57DAE016D_G Create
+
+MEREF ME_467BB4640328_ME_4CB57DAE016D_R
+ MELINK Original WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467BB4640328_ME_4CB57DAE016D_R IafwDocumentPreview
+
+%%ImplementedBy ME_467BB4640328 ME_4CB57DAE016D
+
+%%InheritedBy ME_4CB57D480244 ME_4CB57DAE016D
+
+ME ME_4CB57DAE016D
+ MEPROP UID '4CB57DAE016D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CBD11A02CF // TevDocumentPreview
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CB57D480244_ME_4CB57DAE016D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_467BB4640328_ME_4CB57DAE016D_R // IafwDocumentPreview
+ )
+ ; // Implements
+
+ENDME // ME_4CB57DAE016D Make
+
+MEREF ME_4CB57D6601C4_ME_4CB57DE400D3_G
+ MELINK Original WL 'ME_4CB57D6601C4' '47EA97410130.ms.model.script' // Create$1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CB57D6601C4_ME_4CB57DE400D3_G Create$1
+
+MEREF ME_467BB4640328_ME_4CB57DE400D3_R
+ MELINK Original WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467BB4640328_ME_4CB57DE400D3_R IafwDocumentPreview
+
+%%ImplementedBy ME_467BB4640328 ME_4CB57DE400D3
+
+%%InheritedBy ME_4CB57D6601C4 ME_4CB57DE400D3
+
+ME ME_4CB57DE400D3
+ MEPROP UID '4CB57DE400D3'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$1'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CBD11A02CF // TevDocumentPreview
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CB57D6601C4_ME_4CB57DE400D3_G // Create$1
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_467BB4640328_ME_4CB57DE400D3_R // IafwDocumentPreview
+ )
+ ; // Implements
+
+ENDME // ME_4CB57DE400D3 Make$1
+
+FORWARD ME_4CB58335014E
+
+ME ME_4CB5834500E4
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4CB5834500E4 aText
+
+ME ME_4CB583450103
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_494F75DF001B' '4678209200A6.ms.model.script' // TevPreviewCacheKey
+ ;
+
+ENDME // ME_4CB583450103 aKey
+
+ME ME_4CB583450120
+ MEPROP Name 'aHAF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA99B10005' '467823B7002C.ms.model.script' // IafwHAFPainter
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47EA99B10005' '467823B7002C.ms.model.script' // IafwHAFPainter
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CB583450120 aHAF
+
+ME ME_4CB5834203D1
+ MEPROP UID '4CB5834203D1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB58335014E // Make$2
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB5834500E4 // aText
+ ME_4CB583450103 // aKey
+ ME_4CB583450120 // aHAF
+ )
+ ; // Parameters
+
+ENDME // ME_4CB5834203D1 Make
+
+ME ME_4CB58335014E
+ MEPROP UID '4CB58335014E'
+ MEPROP Name 'Make'
+ MEPROP OriginalName 'Make$2'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CBD11A02CF // TevDocumentPreview
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB5834203D1 // Make
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4CB58335014E Make$2
+
+MEREF ME_47EA97410130_ME_49CBD11A02CF_G
+ MELINK Original WL? 'ME_47EA97410130' // TevDocumentPreviewPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA97410130_ME_49CBD11A02CF_G TevDocumentPreviewPrim
+
+%%InheritedBy ME_47EA97410130 ME_49CBD11A02CF
+
+ME ME_49CBD11A02CF
+ MEPROP UID '49CBD11A02CF'
+ MEPROP Name 'TevDocumentPreview'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕредварительный просмотр печати документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( ME_47EA97410130_ME_49CBD11A02CF_G // TevDocumentPreviewPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CB57DAE016D // Make
+ HWL ME_4CB57DE400D3 // Make$1
+ HWL ME_4CB58335014E // Make$2
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPreview.pas'
+ UP extprop:rc:SelfName 'DocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentPreview'
+
+ENDME // ME_49CBD11A02CF TevDocumentPreview

@@ -1,0 +1,62 @@
+// TScrollTest 4BEBF13B0076 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BEBF13B0076
+
+MEREF ME_4BE419AF0217_ME_4BEBF13B0076_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4BEBF13B0076_impl DoVisit
+
+MEREF ME_4C07AC6F036D_ME_4BEBF13B0076_over
+ MELINK Original WL 'ME_4C07AC6F036D' '4BE425C70228.ms.model.script' // GetNormalFontSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07AC6F036D_ME_4BEBF13B0076_over GetNormalFontSize
+
+MEREF ME_4C9899150030_ME_4BEBF13B0076_G
+ MELINK Original WL? 'ME_4C9899150030' // TPrimScrollTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9899150030_ME_4BEBF13B0076_G TPrimScrollTest
+
+%%InheritedBy ME_4C9899150030 ME_4BEBF13B0076
+
+ME ME_4BEBF13B0076
+ MEPROP UID '4BEBF13B0076'
+ MEPROP Name 'TScrollTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест скроллирования документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C9899150030_ME_4BEBF13B0076_G // TPrimScrollTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4BEBF13B0076_impl // DoVisit
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C07AC6F036D_ME_4BEBF13B0076_over // GetNormalFontSize
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '13.05.2010 16:32'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\ScrollTest.pas'
+ UP extprop:rc:SelfName 'ScrollTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollTest'
+
+ENDME // ME_4BEBF13B0076 TScrollTest

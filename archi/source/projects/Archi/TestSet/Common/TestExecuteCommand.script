@@ -218,6 +218,23 @@ PROCEDURE "Экcпортировать в NSR и сравнить с эталоном"
 	"Сравнить с эталоном NSRC {("Имя документа")}"
 ;
 
+PROCEDURE "Экcпортировать Objtopic в NSR и сравнить с эталоном"			
+	STRING VAR "Имя документа"
+	STRING VAR "Имя Objtopic документа"
+	BOOLEAN VAR "Нет выборки"
+	BOOLEAN VAR anObjName
+	"Сформировать имя документа Objtopic NSR из полного имени скрипта" >>> "Имя Objtopic документа"
+	НЕ "Открыто окно 'Выборка документов'" >>> "Нет выборки"
+	Если ( "Нет выборки" ) то
+	( 		
+		"Добавить документ в выборку" 
+	)
+	2000 SLEEP
+	"Экспортировать выборку Objtopic в формате NSRC {( "Имя Objtopic документа" )} {( true )}"
+	2000 SLEEP
+	"Сравнить с эталоном NSRC {( "Имя Objtopic документа" )}"
+;
+
 PROCEDURE "Экcпортировать в EVD и сравнить с эталоном"			
 	STRING VAR "Имя документа"
 	BOOLEAN VAR "Нет выборки"
@@ -748,6 +765,7 @@ PROCEDURE "Проверочное действие"
 		cnCheckCursorIndexNameEtalon ( "Проверить курсор мыши и сравнить с эталоном" )
 		cnCheckEvdWithPicture ( "Сбросить флаг записи картинок" "Сравнить текст с эталоном" )
 		cnCheckNSRWithAnno ( "Экcпортировать в NSR с аннотацией и сравнить с эталоном" )
+		cnExport2ObjtopicNSRAndCheckWithEtalon ( "Экcпортировать Objtopic в NSR и сравнить с эталоном" )
         END
 	Если ( g_AntiTest ) то ( g_WasException 'Не появилось ожидаемое исключение!' ASSERTS )
 ;

@@ -422,6 +422,12 @@ ME ME_4F9806820363
 
 ENDME // ME_4F9806820363 Получение списка документов ссылающихся на выделенный фрагмент
 
+MEREF ME_4E85A41002B5_ME_48490152021B_G
+ MELINK Original WL 'ME_4E85A41002B5' '4E5CF70B01E2.ms.model.script' // Просмотр документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85A41002B5_ME_48490152021B_G Просмотр документа
+
 %%InheritedBy ME_4E85A41002B5 ME_48490152021B
 
 ME ME_48490152021B
@@ -436,9 +442,13 @@ ME ME_48490152021B
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E85A41002B5' '4E5CF70B01E2.ms.model.script' // Просмотр документа
+   Seq: ( ME_4E85A41002B5_ME_48490152021B_G // Просмотр документа
  )
  ; // Inherits
+ MELIST Implements
+   Seq: (  // Заглушка
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4EB79FBB015C // Множественное выделение фрагментов
  HWL ME_4EBCF31B03CE // Отображение комментариев
@@ -479,6 +489,10 @@ ME ME_4849147903E4
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
+ MELIST Implements
+   Seq: (  // Заглушка
+ )
+ ; // Implements
 
 ENDME // ME_4849147903E4 Построение композитного документа
 
@@ -565,6 +579,10 @@ ME ME_484E5B8902BA
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
+ MELIST Implements
+   Seq: (  // Заглушка
+ )
+ ; // Implements
 
 ENDME // ME_484E5B8902BA Документы на контроле
 
@@ -579,6 +597,10 @@ ME ME_484E5C2E009A
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
+ MELIST Implements
+   Seq: (  // Заглушка
+ )
+ ; // Implements
 
 ENDME // ME_484E5C2E009A Машина времени
 
@@ -711,6 +733,12 @@ ME ME_4F33DE9F0185
 
 ENDME // ME_4F33DE9F0185 Ссылки на справку быть не должно
 
+MEREF ME_4E67717E03BE_ME_4F33DEDB001B_G
+ MELINK Original WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E67717E03BE_ME_4F33DEDB001B_G Требования на оформление баллона
+
 %%InheritedBy ME_4E67717E03BE ME_4F33DEDB001B
 
 ME ME_4F33DEDB001B
@@ -724,7 +752,7 @@ ME ME_4F33DEDB001B
  MELINK Parent HWL ME_4A431CD00395 // Сравнение редакций документов
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E67717E03BE' '4E57B8C2010F.ms.model.script' // Требования на оформление баллона
+   Seq: ( ME_4E67717E03BE_ME_4F33DEDB001B_G // Требования на оформление баллона
  )
  ; // Inherits
  MELIST Children
@@ -762,6 +790,10 @@ ME ME_4A431CD00395
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
+ MELIST Implements
+   Seq: (  // Просмотр изменений в конкретном документе
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4E8990A00159 // Области с перечнем дат в сравнении редакций должны быть раскрыты
  HWL ME_4EA7FCF9025D // После переключения баз СР должно перестраиваться
@@ -941,6 +973,12 @@ ME ME_4F327636006C
 
 ENDME // ME_4F327636006C Не выводить в ОИД блок "информация об изменениях", если в ней нет отличий
 
+MEREF ME_4F33DEDB001B_ME_4F33DE6803BD_G
+ MELINK Original HWL ME_4F33DEDB001B // Требования на оформление баллона с информацией об изменениях документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33DEDB001B_ME_4F33DE6803BD_G Требования на оформление баллона с информацией об изменениях документа
+
 %%InheritedBy ME_4F33DEDB001B ME_4F33DE6803BD
 
 ME ME_4F33DE6803BD
@@ -954,7 +992,7 @@ ME ME_4F33DE6803BD
  MELINK Parent HWL ME_4D6F3BC10246 // Обзор изменений документа
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F33DEDB001B // Требования на оформление баллона с информацией об изменениях документа
+   Seq: ( ME_4F33DEDB001B_ME_4F33DE6803BD_G // Требования на оформление баллона с информацией об изменениях документа
  )
  ; // Inherits
  MESTRINGLIST DiagramsNames
@@ -962,6 +1000,12 @@ ME ME_4F33DE6803BD
  ; // DiagramsNames
 
 ENDME // ME_4F33DE6803BD Требования на оформление баллона с информацией об изменениях документа
+
+MEREF ME_4A431CD00395_ME_4D6F3BC10246_G
+ MELINK Original HWL ME_4A431CD00395 // Сравнение редакций документов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A431CD00395_ME_4D6F3BC10246_G Сравнение редакций документов
 
 %%InheritedBy ME_4A431CD00395 ME_4D6F3BC10246
 
@@ -977,7 +1021,7 @@ ME ME_4D6F3BC10246
  MELINK Parent HWL ME_484900780017 // Работа с документом
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4A431CD00395 // Сравнение редакций документов
+   Seq: ( ME_4A431CD00395_ME_4D6F3BC10246_G // Сравнение редакций документов
  )
  ; // Inherits
  MELIST Children

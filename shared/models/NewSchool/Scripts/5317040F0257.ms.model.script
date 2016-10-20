@@ -1,0 +1,104 @@
+// TcsAACImport 5317040F0257 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5317040F0257
+
+ME ME_53B6C1B60033
+ MEPROP UID '53B6C1B60033'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5317040F0257 // TcsAACImport
+ ;
+
+ENDME // ME_53B6C1B60033 ini
+
+ME ME_53B6C1DC013A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5317040F0257 // TcsAACImport
+ ;
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ ;
+
+ENDME // ME_53B6C1DC013A 
+
+MEREF ME_53B3D8A8011F_ME_5317040F0257_over
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53B3D8A8011F_ME_5317040F0257_over Create
+
+MEREF ME_53E481990243_ME_5317040F0257_over
+ MELINK Original WL 'ME_53E481990243' '52FA49C7022C.ms.model.script' // DoSaveTo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53E481990243_ME_5317040F0257_over DoSaveTo
+
+MEREF ME_53E481DF03D1_ME_5317040F0257_over
+ MELINK Original WL 'ME_53E481DF03D1' '52FA49C7022C.ms.model.script' // DoLoadFrom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53E481DF03D1_ME_5317040F0257_over DoLoadFrom
+
+MEREF ME_530356B20280_ME_5317040F0257_G
+ MELINK Original WL 'ME_530356B20280' '530356A1014F.ms.model.script' // TcsImportTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530356B20280_ME_5317040F0257_G TcsImportTaskItem
+
+MEREF ME_53B6BD7701FF_ME_5317040F0257_R
+ MELINK Original WL 'ME_53B6BD7701FF' '484A470100DD.ms.model.script' // AACImport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6BD7701FF_ME_5317040F0257_R AACImport
+
+%%ImplementedBy ME_53B6BD7701FF ME_5317040F0257
+
+%%InheritedBy ME_530356B20280 ME_5317040F0257
+
+ME ME_5317040F0257
+ MEPROP UID '5317040F0257'
+ MEPROP Name 'TcsAACImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_530356B20280_ME_5317040F0257_G // TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B6BD7701FF_ME_5317040F0257_R // AACImport
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53B6C1B60033 // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_5317040F0257_over // Create
+ ME_53E481990243_ME_5317040F0257_over // DoSaveTo
+ ME_53E481DF03D1_ME_5317040F0257_over // DoLoadFrom
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B6C1DC013A // TddTaskItem
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csAACImport.pas'
+ UP extprop:rc:SelfName 'csAACImport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csAACImport'
+
+ENDME // ME_5317040F0257 TcsAACImport

@@ -1,0 +1,63 @@
+// K219120094 4C1F00340164 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1F00340164
+
+MEREF ME_4C1B13B6016B_ME_4C1F00340164_impl
+ MELINK Original WL 'ME_4C1B13B6016B' '4C1B135F02B0.ms.model.script' // GetScrollLineCount2Down
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C1B13B6016B_ME_4C1F00340164_impl GetScrollLineCount2Down
+
+MEREF ME_4C1B140B002A_ME_4C1F00340164_impl
+ MELINK Original WL 'ME_4C1B140B002A' '4C1B135F02B0.ms.model.script' // GetScrollLineCount2Up
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C1B140B002A_ME_4C1F00340164_impl GetScrollLineCount2Up
+
+MEREF ME_4C1F0A260192_ME_4C1F00340164_over
+ MELINK Original WL 'ME_4C1F0A260192' '4BE047320379.ms.model.script' // CheckTopAnchor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C1F0A260192_ME_4C1F00340164_over CheckTopAnchor
+
+MEREF ME_4C1B135F02B0_ME_4C1F00340164_G
+ MELINK Original WL? 'ME_4C1B135F02B0' // ComplexScrollByLines
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C1B135F02B0_ME_4C1F00340164_G ComplexScrollByLines
+
+%%InheritedBy ME_4C1B135F02B0 ME_4C1F00340164
+
+ME ME_4C1F00340164
+ MEPROP UID '4C1F00340164'
+ MEPROP Name 'K219120094'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$219120094]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4BAC88690141' // 7.5
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C1B135F02B0_ME_4C1F00340164_G // ComplexScrollByLines
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C1B13B6016B_ME_4C1F00340164_impl // GetScrollLineCount2Down
+ ME_4C1B140B002A_ME_4C1F00340164_impl // GetScrollLineCount2Up
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C1F0A260192_ME_4C1F00340164_over // CheckTopAnchor
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K219120094.pas'
+ UP extprop:pas:TypeName 'TK219120094'
+ UP extprop:rc:SelfName 'K219120094'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C1F00340164 K219120094

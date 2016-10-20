@@ -1,0 +1,115 @@
+// TmsmTreeViewController 57AB57E20079 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57AB57E20079
+
+ME ME_57AB5DDD03AA
+ MEPROP UID '57AB5DDD03AA'
+ MEPROP Name 'OwnViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AB57E20079 // TmsmTreeViewController
+ ;
+ MELINK Target WL? 'ME_57B4565F007C' // TmsmTreeView
+ ;
+
+ENDME // ME_57AB5DDD03AA OwnViewClass
+
+ME ME_57AE019402FE
+ MEPROP UID '57AE019402FE'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AB57E20079 // TmsmTreeViewController
+ ;
+ MELINK Target WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+
+ENDME // ME_57AE019402FE ConcreteModel
+
+ME ME_57B45B7F0258
+ MEPROP UID '57B45B7F0258'
+ MEPROP Name 'InitContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AB57E20079 // TmsmTreeViewController
+ ;
+ MELINK Target WL 'ME_57B45B2201A5' '57B45AC9019C.ms.model.script' // TmsmTreeViewInitContext
+ ;
+
+ENDME // ME_57B45B7F0258 InitContext
+
+ME ME_57B456D203BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57AB57E20079 // TmsmTreeViewController
+ ;
+ MELINK Target WL? 'ME_515DA5860015' // TvtOutliner
+ ;
+
+ENDME // ME_57B456D203BE 
+
+MEREF ME_57B179D70299_ME_57AB57E20079_G
+ MELINK Original WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B179D70299_ME_57AB57E20079_G msmConcreteModelOwnViewController
+
+MEREF ME_57C981AF03C7_ME_57AB57E20079_R
+ MELINK Original WL? 'ME_57C981AF03C7' // msmMETreeViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C981AF03C7_ME_57AB57E20079_R msmMETreeViewController
+
+%%ImplementedBy ME_57C981AF03C7 ME_57AB57E20079
+
+%%InheritedBy ME_57B179D70299 ME_57AB57E20079
+
+ME ME_57AB57E20079
+ MEPROP UID '57AB57E20079'
+ MEPROP Name 'TmsmTreeViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( ME_57B179D70299_ME_57AB57E20079_G // msmConcreteModelOwnViewController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57C981AF03C7_ME_57AB57E20079_R // msmMETreeViewController
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57AB5DDD03AA // OwnViewClass
+ HWL ME_57AE019402FE // ConcreteModel
+ HWL ME_57B45B7F0258 // InitContext
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_57B456D203BE // TvtOutliner
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmTreeViewController.pas'
+ UP extprop:rc:SelfName 'msmTreeViewController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmTreeViewController'
+
+ENDME // ME_57AB57E20079 TmsmTreeViewController

@@ -4,74 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57A9BB9101F5
 
-FORWARD ME_57A9BB9101F5
-
-FORWARD ME_57A9BC090082
-
-ME ME_57A9BCA20257
- MEPROP UID '57A9BCA20257'
- MEPROP Name 'Run'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
- ;
- UP "is static" true
-
-ENDME // ME_57A9BCA20257 Run
-
-ME ME_57A9BC7D01F2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
- ;
- MELINK Target WL? 'ME_47E13C6B0341' // Forms
- ;
-
-ENDME // ME_57A9BC7D01F2 
-
-ME ME_57A9C17802F5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
- ;
- MELINK Target WL 'ME_57A9C16601B9' '57A9C7FF039E.ms.model.script' // TmsmMainForm
- ;
-
-ENDME // ME_57A9C17802F5 
-
-ME ME_57A9BC090082
- MEPROP UID '57A9BC090082'
- MEPROP Name 'TmsmRunner'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A9BB9101F5 // msm
- ;
- MELIST Operations
-   Seq: ( HWL ME_57A9BCA20257 // Run
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_57A9BC7D01F2 // Forms
- ME_57A9C17802F5 // TmsmMainForm
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "need UC" true
- UP intf.pas:Path 'common\components\msm\msmRunner.pas'
- UP extprop:rc:SelfName 'msmRunner'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'msmRunner'
-
-ENDME // ME_57A9BC090082 TmsmRunner
-
 ME ME_57A9BB9101F5
  MEPROP UID '57A9BB9101F5'
  MEPROP Name 'msm'
@@ -83,7 +15,7 @@ ME ME_57A9BB9101F5
  MELINK Parent WL? 'ME_57B1B9C5035D' // Shared Delphi MSM
  ;
  MELIST Children
-   Seq: ( HWL ME_57A9BC090082 // TmsmRunner
+   Seq: ( WL? 'ME_57A9BC090082' // TmsmRunner
  )
  ; // Children
  MELIST Depends
@@ -104,6 +36,6 @@ ME ME_57A9BB9101F5
  UP "path suffix" '/msm'
  UP intf.pas:Path 'common\components\msm\msm.dpr'
  UP intf.pas:PathOnly '\common\components\msm'
- UP Version 164
+ UP Version 167
 
 ENDME // ME_57A9BB9101F5 msm

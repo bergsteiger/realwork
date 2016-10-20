@@ -1,0 +1,893 @@
+// TpgFreeIDHelper 56556EF3017C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56556EF3017C
+
+FORWARD ME_5658224F01BD
+
+ME ME_5658225E008C
+ MEPROP UID '5658225E008C'
+ MEPROP Name 'cFreeTblErr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5658224F01BD // cErrorMessages
+ ;
+ MEPROP Value '''Ошибка получения свободного номера'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Ошибка получения свободного номера'''
+
+ENDME // ME_5658225E008C cFreeTblErr
+
+ME ME_5658224F01BD
+ MEPROP UID '5658224F01BD'
+ MEPROP Name 'cErrorMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5658225E008C // cFreeTblErr
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5658224F01BD cErrorMessages
+
+FORWARD ME_5773A26902DD
+
+ME ME_5773A2780046
+ MEPROP UID '5773A2780046'
+ MEPROP Name 'ATTEMPT_AMOUNT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5773A26902DD // cTimeouts
+ ;
+ MEPROP Value 20
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 20
+
+ENDME // ME_5773A2780046 ATTEMPT_AMOUNT
+
+ME ME_5773A28A01EE
+ MEPROP UID '5773A28A01EE'
+ MEPROP Name 'PAUSE_SIZE'
+ MEPROP Class class_Attribute
+ %SUMMARY '0,5 сек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5773A26902DD // cTimeouts
+ ;
+ MEPROP Value 500
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 500
+
+ENDME // ME_5773A28A01EE PAUSE_SIZE
+
+ME ME_5773A26902DD
+ MEPROP UID '5773A26902DD'
+ MEPROP Name 'cTimeouts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5773A2780046 // ATTEMPT_AMOUNT
+ HWL ME_5773A28A01EE // PAUSE_SIZE
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5773A26902DD cTimeouts
+
+ME ME_5656EFBD03B4
+ MEPROP UID '5656EFBD03B4'
+ MEPROP Name 'f_IntervalQuery'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_5549C4060117' '5432518A0316.ms.model.script' // IdaTabledQuery
+ ;
+
+ENDME // ME_5656EFBD03B4 f_IntervalQuery
+
+ME ME_5657FB080139
+ MEPROP UID '5657FB080139'
+ MEPROP Name 'f_FamilyID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_5657FB080139 f_FamilyID
+
+ME ME_565ECB810377
+ MEPROP UID '565ECB810377'
+ MEPROP Name 'ExclusiveUse'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_565ECB810377 ExclusiveUse
+
+ME ME_56616EF7018A
+ MEPROP UID '56616EF7018A'
+ MEPROP Name 'f_GetFreeFunction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_5666D0D8031A' '5432518A0316.ms.model.script' // IdaFunction
+ ;
+
+ENDME // ME_56616EF7018A f_GetFreeFunction
+
+ME ME_56A71AE70287
+ MEPROP UID '56A71AE70287'
+ MEPROP Name 'f_Connection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_56A71AE70287 f_Connection
+
+ME ME_57739ADF019E
+ MEPROP UID '57739ADF019E'
+ MEPROP Name 'f_RegisterAllocFunction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_5666D0D8031A' '5432518A0316.ms.model.script' // IdaFunction
+ ;
+
+ENDME // ME_57739ADF019E f_RegisterAllocFunction
+
+ME ME_577CDBAA02C1
+ MEPROP UID '577CDBAA02C1'
+ MEPROP Name 'f_Factory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_577CDBAA02C1 f_Factory
+
+FORWARD ME_5656EF8D0161
+
+ME ME_577109B100EA
+ MEPROP Name 'aConnection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_55F6875803A8' // TpgConnection
+ ;
+
+ENDME // ME_577109B100EA aConnection
+
+ME ME_577109B10109
+ MEPROP Name 'aQueryFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_577109B10109 aQueryFactory
+
+ME ME_577109B10119
+ MEPROP Name 'aFunctionFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_56613507012C' // TpgFunctionFactory
+ ;
+
+ENDME // ME_577109B10119 aFunctionFactory
+
+ME ME_577109B10138
+ MEPROP Name 'aFamilyID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_577109B10138 aFamilyID
+
+ME ME_5656EF940349
+ MEPROP UID '5656EF940349'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5656EF8D0161 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_577109B100EA // aConnection
+ ME_577109B10109 // aQueryFactory
+ ME_577109B10119 // aFunctionFactory
+ ME_577109B10138 // aFamilyID
+ )
+ ; // Parameters
+
+ENDME // ME_5656EF940349 DoIt
+
+ME ME_5656EF8D0161
+ MEPROP UID '5656EF8D0161'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5656EF940349 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5656EF8D0161 Create
+
+FORWARD ME_565703DA0330
+
+ME ME_565703FE0172
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_565703FE0172 aKey
+
+ME ME_565703ED0016
+ MEPROP UID '565703ED0016'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_565703DA0330 // KeyPrefix
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_565703FE0172 // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_565703ED0016 DoIt
+
+ME ME_565703DA0330
+ MEPROP UID '565703DA0330'
+ MEPROP Name 'KeyPrefix'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_565703ED0016 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_565703DA0330 KeyPrefix
+
+FORWARD ME_5658228C0267
+
+ME ME_5658231903CC
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5658231903CC aKey
+
+ME ME_5658230F02C2
+ MEPROP UID '5658230F02C2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5658228C0267 // RepairInterval
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5658231903CC // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_5658230F02C2 DoIt
+
+ME ME_5658228C0267
+ MEPROP UID '5658228C0267'
+ MEPROP Name 'RepairInterval'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5658230F02C2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5658228C0267 RepairInterval
+
+FORWARD ME_5658229402A8
+
+ME ME_565827ED01EA
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_565827ED01EA aKey
+
+ME ME_565827ED0209
+ MEPROP Name 'theNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_565827ED0209 theNumber
+
+ME ME_5658230203A1
+ MEPROP UID '5658230203A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5658229402A8 // GetFreeFromTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_565827ED01EA // aKey
+ ME_565827ED0209 // theNumber
+ )
+ ; // Parameters
+
+ENDME // ME_5658230203A1 DoIt
+
+ME ME_5658229402A8
+ MEPROP UID '5658229402A8'
+ MEPROP Name 'GetFreeFromTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5658230203A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5658229402A8 GetFreeFromTable
+
+FORWARD ME_565822B40312
+
+ME ME_565827E50263
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_565827E50263 aKey
+
+ME ME_565827E50283
+ MEPROP Name 'theNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_565827E50283 theNumber
+
+ME ME_565822E400A5
+ MEPROP UID '565822E400A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_565822B40312 // GetFreeFromReplica
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_565827E50263 // aKey
+ ME_565827E50283 // theNumber
+ )
+ ; // Parameters
+
+ENDME // ME_565822E400A5 DoIt
+
+ME ME_565822B40312
+ MEPROP UID '565822B40312'
+ MEPROP Name 'GetFreeFromReplica'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_565822E400A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_565822B40312 GetFreeFromReplica
+
+FORWARD ME_56A7208C003C
+
+ME ME_56A7209B019A
+ MEPROP UID '56A7209B019A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56A7208C003C // TableKind
+ ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_56A7209B019A DoIt
+
+ME ME_56A7208C003C
+ MEPROP UID '56A7208C003C'
+ MEPROP Name 'TableKind'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56A7209B019A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56A7208C003C TableKind
+
+FORWARD ME_5770DA7C004B
+
+ME ME_5770DAB30236
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5770DAB30236 aKey
+
+ME ME_5770DAB30245
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5770DAB30245 anID
+
+ME ME_5770DAA50326
+ MEPROP UID '5770DAA50326'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770DA7C004B // ExcludeFree
+ ;
+ MELIST Parameters
+   Seq: ( ME_5770DAB30236 // aKey
+ ME_5770DAB30245 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_5770DAA50326 DoIt
+
+ME ME_5770DA7C004B
+ MEPROP UID '5770DA7C004B'
+ MEPROP Name 'ExcludeFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5770DAA50326 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5770DA7C004B ExcludeFree
+
+FORWARD ME_57739A99016D
+
+ME ME_57739AC10172
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57739AC10172 aKey
+
+ME ME_57739AC10192
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_57739AC10192 anID
+
+ME ME_57739AB90151
+ MEPROP UID '57739AB90151'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57739A99016D // ExcludeFreeInReplica
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57739AC10172 // aKey
+ ME_57739AC10192 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_57739AB90151 DoIt
+
+ME ME_57739A99016D
+ MEPROP UID '57739A99016D'
+ MEPROP Name 'ExcludeFreeInReplica'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57739AB90151 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57739A99016D ExcludeFreeInReplica
+
+FORWARD ME_57739AA9019C
+
+ME ME_57739AC80137
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57739AC80137 aKey
+
+ME ME_57739AC80147
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_57739AC80147 anID
+
+ME ME_57739AC6009F
+ MEPROP UID '57739AC6009F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57739AA9019C // ExcludeFreeInTable
+ ;
+ MELIST Parameters
+   Seq: ( ME_57739AC80137 // aKey
+ ME_57739AC80147 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_57739AC6009F DoIt
+
+ME ME_57739AA9019C
+ MEPROP UID '57739AA9019C'
+ MEPROP Name 'ExcludeFreeInTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57739AC6009F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57739AA9019C ExcludeFreeInTable
+
+ME ME_565589FE018C
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_565589FE018C aKey
+
+ME ME_565589E102C3
+ MEPROP UID '565589E102C3'
+ MEPROP Name 'GetFree'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+ MELIST Parameters
+   Seq: ( ME_565589FE018C // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_565589E102C3 GetFree
+
+ME ME_56558F080070
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_56558F080070 aKey
+
+ME ME_56558EF30265
+ MEPROP UID '56558EF30265'
+ MEPROP Name 'AnyRangesPresent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_56558F080070 // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_56558EF30265 AnyRangesPresent
+
+ME ME_577CC0B30334
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_577CC0B30334 aKey
+
+ME ME_577CC0B30354
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_577CC0B30354 anID
+
+ME ME_577CC0A10277
+ MEPROP UID '577CC0A10277'
+ MEPROP Name 'PutFree'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_577CC0B30334 // aKey
+ ME_577CC0B30354 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_577CC0A10277 PutFree
+
+ME ME_5656EFEC011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_5656EFEC011A 
+
+ME ME_5656EFFC03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_565593D90132' '5654635F0268.ms.model.script' // cFamilies
+ ;
+
+ENDME // ME_5656EFFC03A0 
+
+ME ME_5656F01E032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_5656F01E032C 
+
+ME ME_5657FB2B0068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_51D299D903CE' '47877EB202FB.ms.model.script' // StrToIntDef
+ ;
+
+ENDME // ME_5657FB2B0068 
+
+ME ME_56582DC90364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL 'ME_55F6B3BF01F9' '55DAD4150001.ms.model.script' // EPgError
+ ;
+
+ENDME // ME_56582DC90364 
+
+ME ME_577CD9850133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56556EF3017C // TpgFreeIDHelper
+ ;
+ MELINK Target WL? 'ME_564B212F02DA' // TpgTableModifier
+ ;
+
+ENDME // ME_577CD9850133 
+
+MEREF ME_479731C50290_ME_56556EF3017C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_56556EF3017C_over Cleanup
+
+MEREF ME_49E7754802A9_ME_56556EF3017C_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_56556EF3017C_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_56556EF3017C
+
+ME ME_56556EF3017C
+ MEPROP UID '56556EF3017C'
+ MEPROP Name 'TpgFreeIDHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_56556EF3017C_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5656EFBD03B4 // f_IntervalQuery
+ HWL ME_5657FB080139 // f_FamilyID
+ HWL ME_565ECB810377 // ExclusiveUse
+ HWL ME_56616EF7018A // f_GetFreeFunction
+ HWL ME_56A71AE70287 // f_Connection
+ HWL ME_57739ADF019E // f_RegisterAllocFunction
+ HWL ME_577CDBAA02C1 // f_Factory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5656EF8D0161 // Create
+ HWL ME_565703DA0330 // KeyPrefix
+ HWL ME_5658228C0267 // RepairInterval
+ HWL ME_5658229402A8 // GetFreeFromTable
+ HWL ME_565822B40312 // GetFreeFromReplica
+ HWL ME_56A7208C003C // TableKind
+ HWL ME_5770DA7C004B // ExcludeFree
+ HWL ME_57739A99016D // ExcludeFreeInReplica
+ HWL ME_57739AA9019C // ExcludeFreeInTable
+ HWL ME_565589E102C3 // GetFree
+ HWL ME_56558EF30265 // AnyRangesPresent
+ HWL ME_577CC0A10277 // PutFree
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56556EF3017C_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_5658224F01BD // cErrorMessages
+ HWL ME_5773A26902DD // cTimeouts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5656EFEC011A // TdaScheme
+ ME_5656EFFC03A0 // cFamilies
+ ME_5656F01E032C // TdaTables
+ ME_5657FB2B0068 // StrToIntDef
+ ME_56582DC90364 // EPgError
+ ME_577CD9850133 // TpgTableModifier
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgFreeIDHelper.pas'
+ UP extprop:rc:SelfName 'pgFreeIDHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'pgFreeIDHelper'
+
+ENDME // ME_56556EF3017C TpgFreeIDHelper

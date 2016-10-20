@@ -1,0 +1,107 @@
+// TddExtObjInserter 57987CF90375 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57987CF90375
+
+ME ME_5798E4170159
+ MEPROP UID '5798E4170159'
+ MEPROP Name 'f_LoadedObjects'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57987CF90375 // TddExtObjInserter
+ ;
+ MELINK Target WL? 'ME_5798E3C30126' // TddExtObjectDataList
+ ;
+
+ENDME // ME_5798E4170159 f_LoadedObjects
+
+ME ME_5798CCE400D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57987CF90375 // TddExtObjInserter
+ ;
+ MELINK Target WL? 'ME_5798CC75000A' // TddExtObjectData
+ ;
+
+ENDME // ME_5798CCE400D9 
+
+ME ME_5798E4340104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57987CF90375 // TddExtObjInserter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5798E4340104 
+
+MEREF ME_479731C50290_ME_57987CF90375_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57987CF90375_over Cleanup
+
+MEREF ME_4D53D8BF00D5_ME_57987CF90375_over
+ MELINK Original WL 'ME_4D53D8BF00D5' '49E496880120.ms.model.script' // DoFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D53D8BF00D5_ME_57987CF90375_over DoFlushBuffer
+
+MEREF ME_57987D54034E_ME_57987CF90375_over
+ MELINK Original WL 'ME_57987D54034E' '57987C49023C.ms.model.script' // DocumentIDChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57987D54034E_ME_57987CF90375_over DocumentIDChanged
+
+MEREF ME_57987C49023C_ME_57987CF90375_G
+ MELINK Original WL? 'ME_57987C49023C' // TddExtObjectMachine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57987C49023C_ME_57987CF90375_G TddExtObjectMachine
+
+%%InheritedBy ME_57987C49023C ME_57987CF90375
+
+ME ME_57987CF90375
+ MEPROP UID '57987CF90375'
+ MEPROP Name 'TddExtObjInserter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вставляет в EVD-поток объект из потока хранилища' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_57987C49023C_ME_57987CF90375_G // TddExtObjectMachine
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5798E4170159 // f_LoadedObjects
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57987CF90375_over // Cleanup
+ ME_4D53D8BF00D5_ME_57987CF90375_over // DoFlushBuffer
+ ME_57987D54034E_ME_57987CF90375_over // DocumentIDChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5798CCE400D9 // TddExtObjectData
+ ME_5798E4340104 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjInserter.pas'
+ UP extprop:rc:SelfName 'ddExtObjInserter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExtObjInserter'
+
+ENDME // ME_57987CF90375 TddExtObjInserter

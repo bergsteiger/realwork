@@ -1,0 +1,219 @@
+// Tl3ProcessMessagesManager 5475D1E30232 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5475D1E30232
+
+ME ME_5475D27203DD
+ MEPROP UID '5475D27203DD'
+ MEPROP Name 'f_Handles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5475D1E30232 // Tl3ProcessMessagesManager
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_5475D27203DD f_Handles
+
+FORWARD ME_5475D2910227
+
+ME ME_5475D2BA0079
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_5475D2BA0079 aHandle
+
+ME ME_5475D2A602D5
+ MEPROP UID '5475D2A602D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5475D2910227 // Subscribe
+ ;
+ MELIST Parameters
+   Seq: ( ME_5475D2BA0079 // aHandle
+ )
+ ; // Parameters
+
+ENDME // ME_5475D2A602D5 DoIt
+
+ME ME_5475D2910227
+ MEPROP UID '5475D2910227'
+ MEPROP Name 'Subscribe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5475D1E30232 // Tl3ProcessMessagesManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5475D2A602D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5475D2910227 Subscribe
+
+MEREF ME_5475D2910227_ME_5475D2C003A9_G
+ MELINK Original HWL ME_5475D2910227 // Subscribe
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5475D2910227_ME_5475D2C003A9_G Subscribe
+
+%%InheritedBy ME_5475D2910227 ME_5475D2C003A9
+
+ME ME_5475D2C003A9
+ MEPROP UID '5475D2C003A9'
+ MEPROP Name 'Unsubscribe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5475D1E30232 // Tl3ProcessMessagesManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_5475D2910227_ME_5475D2C003A9_G // Subscribe
+ )
+ ; // Inherits
+
+ENDME // ME_5475D2C003A9 Unsubscribe
+
+FORWARD ME_5475D2D4032E
+
+ME ME_54761C480264
+ MEPROP Name 'wMsgFilterMin'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_54761C480264 wMsgFilterMin
+
+ME ME_54761C48027F
+ MEPROP Name 'wMsgFilterMax'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_54761C48027F wMsgFilterMax
+
+ME ME_54883C0C02C6
+ MEPROP Name 'wRemoveMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_54883C0C02C6 wRemoveMsg
+
+ME ME_54761C35014F
+ MEPROP UID '54761C35014F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5475D2D4032E // ProcessMessages
+ ;
+ MELIST Parameters
+   Seq: ( ME_54761C480264 // wMsgFilterMin
+ ME_54761C48027F // wMsgFilterMax
+ ME_54883C0C02C6 // wRemoveMsg
+ )
+ ; // Parameters
+
+ENDME // ME_54761C35014F DoIt
+
+ME ME_54761C86037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5475D2D4032E // ProcessMessages
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_54761C86037D 
+
+ME ME_5475D2D4032E
+ MEPROP UID '5475D2D4032E'
+ MEPROP Name 'ProcessMessages'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5475D1E30232 // Tl3ProcessMessagesManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54761C35014F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54761C86037D // Forms
+ )
+ ; // Dependencies
+
+ENDME // ME_5475D2D4032E ProcessMessages
+
+MEREF ME_479731C50290_ME_5475D1E30232_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5475D1E30232_over Cleanup
+
+MEREF ME_47BC391D0259_ME_5475D1E30232_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_5475D1E30232_G Tl3SimpleObject
+
+%%InheritedBy ME_47BC391D0259 ME_5475D1E30232
+
+ME ME_5475D1E30232
+ MEPROP UID '5475D1E30232'
+ MEPROP Name 'Tl3ProcessMessagesManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список окон, которым надо обрабатывать сообщения в длинных процессах.'#13#10'Используется в случаях, когда afw.ProcessMessages приводит к проблемам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_5475D1E30232_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5475D27203DD // f_Handles
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5475D2910227 // Subscribe
+ HWL ME_5475D2C003A9 // Unsubscribe
+ HWL ME_5475D2D4032E // ProcessMessages
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5475D1E30232_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProcessMessagesManager.pas'
+ UP extprop:rc:SelfName 'ProcessMessagesManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProcessMessagesManager'
+
+ENDME // ME_5475D1E30232 Tl3ProcessMessagesManager

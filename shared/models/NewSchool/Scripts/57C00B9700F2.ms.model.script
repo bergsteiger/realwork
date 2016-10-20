@@ -1,0 +1,139 @@
+// TalcuDownloadDocStreamExecutor 57C00B9700F2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C00B9700F2
+
+ME ME_57C3FB6E01CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL? 'ME_57C3FAF20200' // TalcuDownloadDocRequest
+ ;
+
+ENDME // ME_57C3FB6E01CC 
+
+ME ME_57C40E9201BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL? 'ME_57BECED40109' // TcsDownloadDocStream
+ ;
+
+ENDME // ME_57C40E9201BD 
+
+ME ME_57C40E96012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL? 'ME_57BFF6EA005F' // TcsDownloadDocStreamReply
+ ;
+
+ENDME // ME_57C40E96012A 
+
+ME ME_57C40EE5012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57C40EE5012C 
+
+ME ME_57C40F1201A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_57C40F1201A1 
+
+ME ME_57C80FD50204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57C80FD50204 
+
+ME ME_57C80FD90308
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57C80FD90308 
+
+ME ME_57C823A70242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_57C823A70242 
+
+MEREF ME_57D2A771002F_ME_57C00B9700F2_impl
+ MELINK Original WL 'ME_57D2A771002F' '57D2A6A70025.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D2A771002F_ME_57C00B9700F2_impl DoExecute
+
+MEREF ME_57D2A6A70025_ME_57C00B9700F2_G
+ MELINK Original WL? 'ME_57D2A6A70025' // TalcuDocTransferRequestExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D2A6A70025_ME_57C00B9700F2_G TalcuDocTransferRequestExecutor
+
+%%InheritedBy ME_57D2A6A70025 ME_57C00B9700F2
+
+ME ME_57C00B9700F2
+ MEPROP UID '57C00B9700F2'
+ MEPROP Name 'TalcuDownloadDocStreamExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C00B6201B3' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D2A6A70025_ME_57C00B9700F2_G // TalcuDocTransferRequestExecutor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57D2A771002F_ME_57C00B9700F2_impl // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57C3FB6E01CC // TalcuDownloadDocRequest
+ ME_57C40E9201BD // TcsDownloadDocStream
+ ME_57C40E96012A // TcsDownloadDocStreamReply
+ ME_57C40EE5012C // FreeAndNil
+ ME_57C40F1201A1 // UserConsts
+ ME_57C80FD50204 // l3System
+ ME_57C80FD90308 // Tl3StopWatch
+ ME_57C823A70242 // Logging Levels
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas'
+ UP extprop:rc:SelfName 'alcuDownloadDocStreamExecutor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuDownloadDocStreamExecutor'
+
+ENDME // ME_57C00B9700F2 TalcuDownloadDocStreamExecutor

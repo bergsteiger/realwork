@@ -1,0 +1,63 @@
+// pop_QueryCard_GetCurrentReqName 4FDB10E9009A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FDB10E9009A
+
+ME ME_4FDB1DE60058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FDB10E9009A // pop_QueryCard_GetCurrentReqName
+ ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+
+ENDME // ME_4FDB1DE60058 
+
+MEREF ME_4E808E8B01BB_ME_4FDB10E9009A_impl
+ MELINK Original WL 'ME_4E808E8B01BB' '4E808D48037D.ms.model.script' // DoCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E808E8B01BB_ME_4FDB10E9009A_impl DoCard
+
+MEREF ME_4E808D48037D_ME_4FDB10E9009A_G
+ MELINK Original WL? 'ME_4E808D48037D' // TkwQueryCardFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E808D48037D_ME_4FDB10E9009A_G TkwQueryCardFromStackWord
+
+%%InheritedBy ME_4E808D48037D ME_4FDB10E9009A
+
+ME ME_4FDB10E9009A
+ MEPROP UID '4FDB10E9009A'
+ MEPROP Name 'pop_QueryCard_GetCurrentReqName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6994E701CB' // QueryCardProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E808D48037D_ME_4FDB10E9009A_G // TkwQueryCardFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E808E8B01BB_ME_4FDB10E9009A_impl // DoCard
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FDB1DE60058 // IevEditorControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopQueryCardGetCurrentReqName.pas'
+ UP extprop:pas:TypeName 'TkwPopQueryCardGetCurrentReqName'
+ UP extprop:rc:SelfName 'PopQueryCardGetCurrentReqName'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopQueryCardGetCurrentReqName'
+
+ENDME // ME_4FDB10E9009A pop_QueryCard_GetCurrentReqName

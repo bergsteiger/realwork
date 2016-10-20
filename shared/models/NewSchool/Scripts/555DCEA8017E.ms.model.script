@@ -1,0 +1,160 @@
+// Tk2EVDWriterService 555DCEA8017E Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_555DCEA8017E
+
+FORWARD ME_555DCEA8017E
+
+FORWARD ME_57767888A990
+
+FORWARD ME_555DCEC1021B
+
+ME ME_26782C1B9519
+ MEPROP UID '26782C1B9519'
+ MEPROP Name 'GetWriter'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57767888A990 // Mk2EVDWriterService
+ ;
+ MELINK Target WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
+ ;
+ UPLINK Speller HWL ME_555DCEC1021B // GetWriter
+ ;
+
+ENDME // ME_26782C1B9519 GetWriter
+
+FORWARD ME_55701AE20388
+
+ME ME_6D37694A9AFF
+ MEPROP Name 'aFileName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_6D37694A9AFF aFileName
+
+ME ME_F7BF6A35E2B1
+ MEPROP UID 'F7BF6A35E2B1'
+ MEPROP Name 'MakeWriter'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57767888A990 // Mk2EVDWriterService
+ ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_6D37694A9AFF // aFileName
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55701AE20388 // MakeWriter
+ ;
+
+ENDME // ME_F7BF6A35E2B1 MakeWriter
+
+ME ME_57767888A990
+ MEPROP UID '57767888A990'
+ MEPROP Name 'Mk2EVDWriterService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tk2EVDWriterService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_26782C1B9519 // GetWriter
+ HWL ME_F7BF6A35E2B1 // MakeWriter
+ )
+ ; // Operations
+
+ENDME // ME_57767888A990 Mk2EVDWriterService
+
+ME ME_555DCEC1021B
+ MEPROP UID '555DCEC1021B'
+ MEPROP Name 'GetWriter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ MELINK Target WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
+ ;
+
+ENDME // ME_555DCEC1021B GetWriter
+
+ME ME_55701AF401C9
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55701AF401C9 aFileName
+
+ME ME_55701AE20388
+ MEPROP UID '55701AE20388'
+ MEPROP Name 'MakeWriter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555DCEA8017E // Tk2EVDWriterService
+ ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_55701AF401C9 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_55701AE20388 MakeWriter
+
+MEREF ME_49E7754802A9_ME_555DCEA8017E_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_555DCEA8017E_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_555DCEA8017E
+
+ME ME_555DCEA8017E
+ MEPROP UID '555DCEA8017E'
+ MEPROP Name 'Tk2EVDWriterService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_482D6E960087' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_555DCEA8017E_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_555DCEC1021B // GetWriter
+ HWL ME_55701AE20388 // MakeWriter
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57767888A990 // Mk2EVDWriterService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2EVDWriterService.pas'
+ UP extprop:rc:SelfName 'EVDWriterService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2EVDWriterService'
+
+ENDME // ME_555DCEA8017E Tk2EVDWriterService

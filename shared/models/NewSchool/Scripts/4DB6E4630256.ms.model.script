@@ -1,0 +1,155 @@
+// TkwCompiledWordContainer 4DB6E4630256 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB6E4630256
+
+ME ME_5284E103030E
+ MEPROP UID '5284E103030E'
+ MEPROP Name 'WordToWork'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB6E4630256 // TkwCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5284E103030E WordToWork
+
+FORWARD ME_4DB6E4AB01B1
+
+ME ME_4DB6E4BB02D3
+ MEPROP Name 'aCompiled'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4DB6E4BB02D3 aCompiled
+
+ME ME_5564508D0282
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5564508D0282 aCtx
+
+ME ME_4DB6E4B201CE
+ MEPROP UID '4DB6E4B201CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB6E4AB01B1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB6E4BB02D3 // aCompiled
+ ME_5564508D0282 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4DB6E4B201CE DoIt
+
+ME ME_4DB6E4AB01B1
+ MEPROP UID '4DB6E4AB01B1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB6E4630256 // TkwCompiledWordContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB6E4B201CE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB6E4AB01B1 Create
+
+ME ME_4DB6E4E200F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB6E4630256 // TkwCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DB6E4E200F0 
+
+ME ME_4DB6E5030234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB6E4630256 // TkwCompiledWordContainer
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4DB6E5030234 
+
+MEREF ME_479731C50290_ME_4DB6E4630256_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DB6E4630256_over Cleanup
+
+MEREF ME_556427250160_ME_4DB6E4630256_G
+ MELINK Original WL? 'ME_556427250160' // TkwSourcePointWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_556427250160_ME_4DB6E4630256_G TkwSourcePointWord
+
+%%InheritedBy ME_556427250160 ME_4DB6E4630256
+
+ME ME_4DB6E4630256
+ MEPROP UID '4DB6E4630256'
+ MEPROP Name 'TkwCompiledWordContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер для зарезервированных слов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54F079B5035C' // CompiledWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_556427250160_ME_4DB6E4630256_G // TkwSourcePointWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5284E103030E // WordToWork
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DB6E4AB01B1 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DB6E4630256_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DB6E4E200F0 // FreeAndNil
+ ME_4DB6E5030234 // l3Set
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.04.2011 19:30'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledWordContainer.pas'
+ UP extprop:rc:SelfName 'CompiledWordContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwCompiledWordContainer'
+
+ENDME // ME_4DB6E4630256 TkwCompiledWordContainer

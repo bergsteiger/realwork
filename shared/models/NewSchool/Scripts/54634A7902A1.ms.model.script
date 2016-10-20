@@ -1,0 +1,45 @@
+// TncsLoginReply 54634A7902A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_547831BD02E5_ME_54634A7902A1_G
+ MELINK Original WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547831BD02E5_ME_54634A7902A1_G TncsReply
+
+MEREF ME_5461EDFB01EB_ME_54634A7902A1_R
+ MELINK Original WL 'ME_5461EDFB01EB' '484A470100DD.ms.model.script' // csLoginReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5461EDFB01EB_ME_54634A7902A1_R csLoginReply
+
+%%ImplementedBy ME_5461EDFB01EB ME_54634A7902A1
+
+%%InheritedBy ME_547831BD02E5 ME_54634A7902A1
+
+ME ME_54634A7902A1
+ MEPROP UID '54634A7902A1'
+ MEPROP Name 'TncsLoginReply'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_547831BD02E5_ME_54634A7902A1_G // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5461EDFB01EB_ME_54634A7902A1_R // csLoginReply
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginReply.pas'
+ UP extprop:rc:SelfName 'ncsLoginReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsLoginReply'
+
+ENDME // ME_54634A7902A1 TncsLoginReply

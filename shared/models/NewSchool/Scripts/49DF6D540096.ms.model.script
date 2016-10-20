@@ -1,0 +1,291 @@
+// TevLeafParaCursor 49DF6D540096 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DF6D540096
+
+ME ME_49DF757C0154
+ MEPROP UID '49DF757C0154'
+ MEPROP Name 'f_Map'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_49DF757C0154 f_Map
+
+FORWARD ME_49DF74B0005C
+
+ME ME_49DF74CF0011
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_49DF74CF0011 aView
+
+ME ME_49DF74C702A1
+ MEPROP UID '49DF74C702A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DF74B0005C // ObjMap
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DF74CF0011 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_49DF74C702A1 DoIt
+
+ME ME_49DF74B0005C
+ MEPROP UID '49DF74B0005C'
+ MEPROP Name 'ObjMap'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49DF74C702A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_49DF74B0005C ObjMap
+
+ME ME_49DF6F3D0044
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_49DF6F3D0044 aView
+
+ME ME_49DF6F3D0073
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_49DF6F3D0073 aMap
+
+ME ME_49DF6F2F0190
+ MEPROP UID '49DF6F2F0190'
+ MEPROP Name 'GetPaintOffsetY'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DF6F3D0044 // aView
+ ME_49DF6F3D0073 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_49DF6F2F0190 GetPaintOffsetY
+
+ME ME_49DF705303E3
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_49DF705303E3 aView
+
+ME ME_49DF70540024
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C59DE803AD' '4678209200A6.ms.model.script' // TnevPoint
+ ;
+
+ENDME // ME_49DF70540024 aPoint
+
+ME ME_49DF70540047
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_49DF70540047 aMap
+
+ME ME_49DF703901BA
+ MEPROP UID '49DF703901BA'
+ MEPROP Name 'DoInitPointByPt'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DF705303E3 // aView
+ ME_49DF70540024 // aPoint
+ ME_49DF70540047 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_49DF703901BA DoInitPointByPt
+
+ME ME_49DF75280072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_49DF75280072 
+
+ME ME_4E72E71E02CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4E72E71E02CA 
+
+ME ME_53D7D1FB020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DF6D540096 // TevLeafParaCursor
+ ;
+ MELINK Target WL? 'ME_48567B6E010E' // TevLeafPara
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D7D1FB020F 
+
+MEREF ME_47FB320102A6_ME_49DF6D540096_impl
+ MELINK Original WL 'ME_47FB320102A6' '47C5207602D1.ms.model.script' // InitPointByPt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47FB320102A6_ME_49DF6D540096_impl InitPointByPt
+
+MEREF ME_4A5CDCAC0230_ME_49DF6D540096_impl
+ MELINK Original WL 'ME_4A5CDCAC0230' '47C5207602D1.ms.model.script' // PaintOffsetY
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5CDCAC0230_ME_49DF6D540096_impl PaintOffsetY
+
+MEREF ME_479731C50290_ME_49DF6D540096_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49DF6D540096_over Cleanup
+
+MEREF ME_49DF741401DF_ME_49DF6D540096_over
+ MELINK Original WL 'ME_49DF741401DF' '49DE2726027E.ms.model.script' // AsLeaf
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_49DF741401DF_ME_49DF6D540096_over AsLeaf
+
+MEREF ME_49E3153B017D_ME_49DF6D540096_over
+ MELINK Original WL 'ME_49E3153B017D' '49DE2726027E.ms.model.script' // IsLeaf
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E3153B017D_ME_49DF6D540096_over IsLeaf
+
+MEREF ME_49E31657038E_ME_49DF6D540096_over
+ MELINK Original WL 'ME_49E31657038E' '49DE2726027E.ms.model.script' // DoMovePrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E31657038E_ME_49DF6D540096_over DoMovePrim
+
+MEREF ME_49DE22650362_ME_49DF6D540096_G
+ MELINK Original WL? 'ME_49DE22650362' // TevParaCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DE22650362_ME_49DF6D540096_G TevParaCursor
+
+MEREF ME_47FB31D1033A_ME_49DF6D540096_R
+ MELINK Original WL 'ME_47FB31D1033A' '47C5207602D1.ms.model.script' // InevLeafPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47FB31D1033A_ME_49DF6D540096_R InevLeafPoint
+
+%%InjectedBy ME_48567B6E010E ME_49DF6D540096
+
+%%ImplementedBy ME_47FB31D1033A ME_49DF6D540096
+
+%%InheritedBy ME_49DE22650362 ME_49DF6D540096
+
+ME ME_49DF6D540096
+ MEPROP UID '49DF6D540096'
+ MEPROP Name 'TevLeafParaCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DE22650362_ME_49DF6D540096_G // TevParaCursor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47FB31D1033A_ME_49DF6D540096_R // InevLeafPoint
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49DF757C0154 // f_Map
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49DF74B0005C // ObjMap
+ HWL ME_49DF6F2F0190 // GetPaintOffsetY
+ HWL ME_49DF703901BA // DoInitPointByPt
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47FB320102A6_ME_49DF6D540096_impl // InitPointByPt
+ ME_4A5CDCAC0230_ME_49DF6D540096_impl // PaintOffsetY
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49DF6D540096_over // Cleanup
+ ME_49DF741401DF_ME_49DF6D540096_over // AsLeaf
+ ME_49E3153B017D_ME_49DF6D540096_over // IsLeaf
+ ME_49E31657038E_ME_49DF6D540096_over // DoMovePrim
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49DF75280072 // Operations
+ ME_4E72E71E02CA // FreeAndNil
+ ME_53D7D1FB020F // TevLeafPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '16.10.2003 17:37'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLeafParaCursor.pas'
+ UP extprop:rc:SelfName 'LeafParaCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evLeafParaCursor'
+
+ENDME // ME_49DF6D540096 TevLeafParaCursor

@@ -50,6 +50,18 @@ ME ME_082F94F73504
 
 ENDME // ME_082F94F73504 LongProcess$Def
 
+MEREF ME_4A93DDAE0396_ME_4A93DDCC03E3_G
+ MELINK Original WL? 'ME_4A93DDAE0396' // PrimLongProcess
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A93DDAE0396_ME_4A93DDCC03E3_G PrimLongProcess
+
+MEREF ME_082F94F73504_ME_4A93DDCC03E3_R
+ MELINK Original HWL ME_082F94F73504 // LongProcess$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_082F94F73504_ME_4A93DDCC03E3_R LongProcess$Def
+
 %%ImplementedBy ME_082F94F73504 ME_4A93DDCC03E3
 
 %%InheritedBy ME_4A93DDAE0396 ME_4A93DDCC03E3
@@ -67,11 +79,11 @@ ME ME_4A93DDCC03E3
  MELINK Parent WL? 'ME_4A8EC78503BB' // PrimCommon
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A93DDAE0396' // PrimLongProcess
+   Seq: ( ME_4A93DDAE0396_ME_4A93DDCC03E3_G // PrimLongProcess
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_082F94F73504 // LongProcess$Def
+   Seq: ( ME_082F94F73504_ME_4A93DDCC03E3_R // LongProcess$Def
  )
  ; // Implements
  MELIST Children

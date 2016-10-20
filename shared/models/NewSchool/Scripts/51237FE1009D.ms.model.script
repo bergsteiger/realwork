@@ -6,106 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_51237FE1009D
 %%Inner ME_51237FE1009D
 
-FORWARD ME_51237FE1009D
-
-FORWARD ME_5123804E003E
-
-ME ME_4B7AB0B6016E_ME_5123804E003E
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7AB0B6016E_ME_5123804E003E CommandLineKey
-
-ME ME_4B7C0B43005B_ME_5123804E003E
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B43005B_ME_5123804E003E TimesPage
-
-ME ME_4B7C0B670215_ME_5123804E003E
- MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B670215_ME_5123804E003E ResultsPage
-
-%%InheritedBy ME_4B7AAC7A031D ME_5123804E003E
-
-ME ME_5123804E003E
- MEPROP UID '5123804E003E'
- MEPROP Name 'toKPrime'
- MEPROP Class class_Class
- MELINK Stereotype st_TestResults ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51237FE1009D // Prime
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4B7AB0B6016E_ME_5123804E003E // CommandLineKey
- ME_4B7C0B43005B_ME_5123804E003E // TimesPage
- ME_4B7C0B670215_ME_5123804E003E // ResultsPage
- )
- ; // Implemented
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKPrime.pas'
- UP extprop:pas:TypeName 'TtoKPrime'
- UP extprop:rc:SelfName 'toKPrime'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_5123804E003E toKPrime
-
-FORWARD ME_512388060314
-
-ME ME_4B7AB0B6016E_ME_512388060314
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7AB0B6016E_ME_512388060314 CommandLineKey
-
-ME ME_4B7C0B43005B_ME_512388060314
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B43005B_ME_512388060314 TimesPage
-
-ME ME_4B7C0B670215_ME_512388060314
- MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B670215_ME_512388060314 ResultsPage
-
-%%InheritedBy ME_4B7AAC7A031D ME_512388060314
-
-ME ME_512388060314
- MEPROP UID '512388060314'
- MEPROP Name 'toKTPrime'
- MEPROP Class class_Class
- MELINK Stereotype st_TestResults ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51237FE1009D // Prime
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4B7AB0B6016E_ME_512388060314 // CommandLineKey
- ME_4B7C0B43005B_ME_512388060314 // TimesPage
- ME_4B7C0B670215_ME_512388060314 // ResultsPage
- )
- ; // Implemented
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKTPrime.pas'
- UP extprop:pas:TypeName 'TtoKTPrime'
- UP extprop:rc:SelfName 'toKTPrime'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_512388060314 toKTPrime
-
 ME ME_51237FE1009D
  MEPROP UID '51237FE1009D'
  MEPROP Name 'Prime'
@@ -118,8 +18,8 @@ ME ME_51237FE1009D
  ;
  MELIST Children
    Seq: ( WL? 'ME_5123800A0080' // PrimeTest
- HWL ME_5123804E003E // toKPrime
- HWL ME_512388060314 // toKTPrime
+ WL? 'ME_5123804E003E' // toKPrime
+ WL? 'ME_512388060314' // toKTPrime
  )
  ; // Children
  MELIST Depends

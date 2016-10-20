@@ -1,0 +1,89 @@
+// TncsServerTransporterList 545CBE61008B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_545CBE61008B
+
+FORWARD ME_545CBE61008B
+
+ME ME_545CC4210322
+ MEPROP UID '545CC4210322'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBE61008B // TncsServerTransporterList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_545CC4210322 l3Items_NoSort
+
+ME ME_545CBE9103D8
+ MEPROP UID '545CBE9103D8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545CBE61008B // TncsServerTransporterList
+ ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_545CBE9103D8 ItemType
+
+MEREF ME_4A54DD4E036F_ME_545CBE61008B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_545CBE61008B_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D830369_ME_545CBE61008B_R
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_545CBE61008B_R l3InterfaceRefList
+
+%%ImplementedBy ME_47B57D830369 ME_545CBE61008B
+
+%%InheritedBy ME_4A54DD4E036F ME_545CBE61008B
+
+ME ME_545CBE61008B
+ MEPROP UID '545CBE61008B'
+ MEPROP Name 'TncsServerTransporterList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_545CBE61008B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D830369_ME_545CBE61008B_R // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_545CBE9103D8 // ItemType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_545CC4210322 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterList.pas'
+ UP extprop:rc:SelfName 'ncsServerTransporterList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsServerTransporterList'
+
+ENDME // ME_545CBE61008B TncsServerTransporterList

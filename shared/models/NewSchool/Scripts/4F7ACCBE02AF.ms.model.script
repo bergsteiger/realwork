@@ -1,0 +1,131 @@
+// Tl3MouseWheelHelper 4F7ACCBE02AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7ACCBE02AF
+
+ME ME_4F7ACD2301D6
+ MEPROP UID '4F7ACD2301D6'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7ACCBE02AF // Tl3MouseWheelHelper
+ ;
+
+ENDME // ME_4F7ACD2301D6 init
+
+ME ME_4F7AE2A202FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7ACCBE02AF // Tl3MouseWheelHelper
+ ;
+ MELINK Target WL 'ME_4F79BC3000BD' '4F636139008F.ms.model.script' // AddMouseWheelListener
+ ;
+
+ENDME // ME_4F7AE2A202FA 
+
+ME ME_4F7AE360032B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7ACCBE02AF // Tl3MouseWheelHelper
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F7AE360032B 
+
+ME ME_4F7AE38D01E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7ACCBE02AF // Tl3MouseWheelHelper
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4F7AE38D01E5 
+
+MEREF ME_4F79D08A02C7_ME_4F7ACCBE02AF_impl
+ MELINK Original WL 'ME_4F79D08A02C7' '4677FBA70343.ms.model.script' // MouseWheelListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F79D08A02C7_ME_4F7ACCBE02AF_impl MouseWheelListenerNotify
+
+MEREF ME_479731C50290_ME_4F7ACCBE02AF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F7ACCBE02AF_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4F7ACCBE02AF_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F7ACCBE02AF_over InitFields
+
+MEREF ME_49E7754802A9_ME_4F7ACCBE02AF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4F7ACCBE02AF_G Tl3ProtoObject
+
+MEREF ME_4F79CE030257_ME_4F7ACCBE02AF_R
+ MELINK Original WL 'ME_4F79CE030257' '4677FBA70343.ms.model.script' // Il3MouseWheelListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F79CE030257_ME_4F7ACCBE02AF_R Il3MouseWheelListener
+
+%%ImplementedBy ME_4F79CE030257 ME_4F7ACCBE02AF
+
+%%InheritedBy ME_49E7754802A9 ME_4F7ACCBE02AF
+
+ME ME_4F7ACCBE02AF
+ MEPROP UID '4F7ACCBE02AF'
+ MEPROP Name 'Tl3MouseWheelHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F635E1901E5' // l3Listeners
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4F7ACCBE02AF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F79CE030257_ME_4F7ACCBE02AF_R // Il3MouseWheelListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F7ACD2301D6 // init
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F79D08A02C7_ME_4F7ACCBE02AF_impl // MouseWheelListenerNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F7ACCBE02AF_over // Cleanup
+ ME_47A042E100E2_ME_4F7ACCBE02AF_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F7AE2A202FA // AddMouseWheelListener
+ ME_4F7AE360032B // Msg Codes
+ ME_4F7AE38D01E5 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MouseWheelHelper.pas'
+ UP extprop:rc:SelfName 'MouseWheelHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3MouseWheelHelper'
+
+ENDME // ME_4F7ACCBE02AF Tl3MouseWheelHelper

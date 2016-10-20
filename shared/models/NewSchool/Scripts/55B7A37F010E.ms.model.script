@@ -1,0 +1,72 @@
+// TtfwAxiomaticsResNameGetterList 55B7A37F010E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B7A37F010E
+
+ME ME_55B7A38E028C
+ MEPROP UID '55B7A38E028C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
+ ;
+ MELINK Target WL 'ME_55B7B2D2039D' '55B7A33101AF.ms.model.script' // RtfwAxiomaticsResNameGetter
+ ;
+
+ENDME // ME_55B7A38E028C ItemType
+
+MEREF ME_47B99D4503A2_ME_55B7A37F010E_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_55B7A37F010E_impl CompareExistingItems
+
+MEREF ME_47B992F60244_ME_55B7A37F010E_G
+ MELINK Original WL? 'ME_47B992F60244' // l3UnrefcountedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B992F60244_ME_55B7A37F010E_G l3UnrefcountedList
+
+MEREF ME_4A54DD4E036F_ME_55B7A37F010E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55B7A37F010E_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B992F60244 ME_55B7A37F010E
+%%InheritedBy ME_4A54DD4E036F ME_55B7A37F010E
+
+ME ME_55B7A37F010E
+ MEPROP UID '55B7A37F010E'
+ MEPROP Name 'TtfwAxiomaticsResNameGetterList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B7A3160128' // ScriptedAxiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B992F60244_ME_55B7A37F010E_G // l3UnrefcountedList
+ ME_4A54DD4E036F_ME_55B7A37F010E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55B7A38E028C // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_55B7A37F010E_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetterList.pas'
+ UP extprop:rc:SelfName 'AxiomaticsResNameGetterList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwAxiomaticsResNameGetterList'
+
+ENDME // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList

@@ -75,7 +75,7 @@ ENDME // ME_53EB180603A6 DoIt
 ME ME_53EB17EF0306
  MEPROP UID '53EB17EF0306'
  MEPROP Name 'NeedMakeHyperlinkToDocument'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -94,7 +94,7 @@ ME ME_4CDD2088026B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_48F4CF9903D6' '469C688102A3.ms.model.script' // TevConstStringData
+ MELINK Target WL? 'ME_48F4CF9903D6' // TevConstStringData
  ;
 
 ENDME // ME_4CDD2088026B 
@@ -124,7 +124,7 @@ ME ME_4CDD4052026D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDD18E80034 // HyperlinkToDocumentProducer
  ;
- MELINK Target WL 'ME_4CDD3D930147' '4860B0120014.ms.model.script' // TevdHyperlinkInfo
+ MELINK Target WL? 'ME_4CDD3D930147' // TevdHyperlinkInfo
  ;
 
 ENDME // ME_4CDD4052026D 
@@ -159,7 +159,7 @@ ME ME_4CDE773B0083
 
 ENDME // ME_4CDE773B0083 
 
-ME ME_4CDD18A20143_ME_4CDD18E80034
+MEREF ME_4CDD18A20143_ME_4CDD18E80034_impl
  MELINK Original WL 'ME_4CDD18A20143' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
  ;
  MEPROP OpKind opkind_Implemented
@@ -172,9 +172,9 @@ ME ME_4CDD18A20143_ME_4CDD18E80034
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4CDD18A20143_ME_4CDD18E80034 MakeHyperlinkToDocument
+ENDMEREF // ME_4CDD18A20143_ME_4CDD18E80034_impl MakeHyperlinkToDocument
 
-ME ME_4CDD5C3901E0_ME_4CDD18E80034
+MEREF ME_4CDD5C3901E0_ME_4CDD18E80034_impl
  MELINK Original WL 'ME_4CDD5C3901E0' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
  ;
  MEPROP OpKind opkind_Implemented
@@ -187,9 +187,9 @@ ME ME_4CDD5C3901E0_ME_4CDD18E80034
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4CDD5C3901E0_ME_4CDD18E80034 MakeHyperlinkToDocument
+ENDMEREF // ME_4CDD5C3901E0_ME_4CDD18E80034_impl MakeHyperlinkToDocument
 
-ME ME_4CDE7C2C0258_ME_4CDD18E80034
+MEREF ME_4CDE7C2C0258_ME_4CDD18E80034_impl
  MELINK Original WL 'ME_4CDE7C2C0258' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
  ;
  MEPROP OpKind opkind_Implemented
@@ -202,7 +202,31 @@ ME ME_4CDE7C2C0258_ME_4CDD18E80034
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4CDE7C2C0258_ME_4CDD18E80034 MakeHyperlinkToDocument
+ENDMEREF // ME_4CDE7C2C0258_ME_4CDD18E80034_impl MakeHyperlinkToDocument
+
+MEREF ME_4A82BCFA02EF_ME_4CDD18E80034_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4CDD18E80034_R MvcmEntityForm
+
+MEREF ME_4CDD188900C5_ME_4CDD18E80034_R
+ MELINK Original WL 'ME_4CDD188900C5' '4CDD18640278.ms.model.script' // File
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD188900C5_ME_4CDD18E80034_R File
+
+MEREF ME_4CDD5C020288_ME_4CDD18E80034_R
+ MELINK Original WL 'ME_4CDD5C020288' '4CDD18640278.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD5C020288_ME_4CDD18E80034_R Text
+
+MEREF ME_4CDE7C1E020F_ME_4CDD18E80034_R
+ MELINK Original WL 'ME_4CDE7C1E020F' '4CDD18640278.ms.model.script' // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDE7C1E020F_ME_4CDD18E80034_R Document
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4CDD18E80034
 %%ImplementedBy ME_4CDD188900C5 ME_4CDD18E80034
@@ -222,10 +246,10 @@ ME ME_4CDD18E80034
  MELINK Parent WL? 'ME_4CDD1854020C' // Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- WL 'ME_4CDD188900C5' '4CDD18640278.ms.model.script' // File
- WL 'ME_4CDD5C020288' '4CDD18640278.ms.model.script' // Text
- WL 'ME_4CDE7C1E020F' '4CDD18640278.ms.model.script' // Document
+   Seq: ( ME_4A82BCFA02EF_ME_4CDD18E80034_R // MvcmEntityForm
+ ME_4CDD188900C5_ME_4CDD18E80034_R // File
+ ME_4CDD5C020288_ME_4CDD18E80034_R // Text
+ ME_4CDE7C1E020F_ME_4CDD18E80034_R // Document
  )
  ; // Implements
  MELIST Attributes
@@ -239,9 +263,9 @@ ME ME_4CDD18E80034
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4CDD18A20143_ME_4CDD18E80034 // MakeHyperlinkToDocument
- ME_4CDD5C3901E0_ME_4CDD18E80034 // MakeHyperlinkToDocument
- ME_4CDE7C2C0258_ME_4CDD18E80034 // MakeHyperlinkToDocument
+   Seq: ( ME_4CDD18A20143_ME_4CDD18E80034_impl // MakeHyperlinkToDocument
+ ME_4CDD5C3901E0_ME_4CDD18E80034_impl // MakeHyperlinkToDocument
+ ME_4CDE7C2C0258_ME_4CDD18E80034_impl // MakeHyperlinkToDocument
  )
  ; // Implemented
  MELIST Dependencies

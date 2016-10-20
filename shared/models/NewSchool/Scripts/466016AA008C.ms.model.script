@@ -1,0 +1,116 @@
+// PrefixTree 466016AA008C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_466016AA008C
+
+ME ME_4660172402EE
+ MEPROP UID '4660172402EE'
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_466016AA008C // PrefixTree
+ ;
+
+ENDME // ME_4660172402EE NodeType_
+
+ME ME_4660174101C5
+ MEPROP UID '4660174101C5'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_466016AA008C // PrefixTree
+ ;
+
+ENDME // ME_4660174101C5 NodeDelegateType_
+
+ME ME_4660176F02AF
+ MEPROP Name 'tree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4660176F02AF tree
+
+ME ME_4660175E035B
+ MEPROP UID '4660175E035B'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_466016AA008C // PrefixTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4660176F02AF // tree
+ )
+ ; // Parameters
+
+ENDME // ME_4660175E035B make
+
+ME ME_46FCE76902BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_466016AA008C // PrefixTree
+ ;
+ MELINK Target WL? 'ME_460A6EF8024B' // ApplicationHelper
+ ;
+
+ENDME // ME_46FCE76902BF 
+
+ME ME_4896EDD30285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_466016AA008C // PrefixTree
+ ;
+
+ENDME // ME_4896EDD30285 
+
+MEREF ME_45F585F802AF_ME_466016AA008C_R
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_466016AA008C_R Tree
+
+%%ImplementedBy ME_45F585F802AF ME_466016AA008C
+
+ME ME_466016AA008C
+ MEPROP UID '466016AA008C'
+ MEPROP Name 'PrefixTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45EEB07D00E9' // DocTree_i
+ ;
+ MELIST Implements
+   Seq: ( ME_45F585F802AF_ME_466016AA008C_R // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4660172402EE // NodeType_
+ HWL ME_4660174101C5 // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4660175E035B // make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_46FCE76902BF // ApplicationHelper
+ ME_4896EDD30285 // PrefixNode_i
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\PrefixTree.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\DocTree_i\PrefixTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PrefixTree.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_466016AA008C PrefixTree

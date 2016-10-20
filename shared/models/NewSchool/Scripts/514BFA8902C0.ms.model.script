@@ -1,0 +1,47 @@
+// pop_editor_BlockResizeEX 514BFA8902C0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_514BFA8902C0
+
+MEREF ME_514BFC55039E_ME_514BFA8902C0_impl
+ MELINK Original WL 'ME_514BFC55039E' '514BFB250118.ms.model.script' // CorrectBlockPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_514BFC55039E_ME_514BFA8902C0_impl CorrectBlockPoint
+
+MEREF ME_514BFB250118_ME_514BFA8902C0_G
+ MELINK Original WL? 'ME_514BFB250118' // TkwBlockResize
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_514BFB250118_ME_514BFA8902C0_G TkwBlockResize
+
+%%InheritedBy ME_514BFB250118 ME_514BFA8902C0
+
+ME ME_514BFA8902C0
+ MEPROP UID '514BFA8902C0'
+ MEPROP Name 'pop_editor_BlockResizeEX'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:'#13#10'aDelta aTop aLevel anEditor  pop:editor:BlockResizeEX'#13#10'* aDelta - смещение блока'#13#10'* aTop - true чтобы двигать верхнюю границу'#13#10'* aLevel - уровень изменяемого блока.'#13#10'* anEditor - редактор, в котором изменяется блок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_514BFB250118_ME_514BFA8902C0_G // TkwBlockResize
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_514BFC55039E_ME_514BFA8902C0_impl // CorrectBlockPoint
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResizeEX.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorBlockResizeEX'
+ UP extprop:rc:SelfName 'PopEditorBlockResizeEX'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorBlockResizeEX'
+
+ENDME // ME_514BFA8902C0 pop_editor_BlockResizeEX

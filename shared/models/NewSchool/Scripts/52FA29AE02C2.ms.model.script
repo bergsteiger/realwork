@@ -1,0 +1,212 @@
+// TalcuServerTaskManagerFactory 52FA29AE02C2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FA29AE02C2
+
+FORWARD ME_52FA29AE02C2
+
+MEREF ME_52FA29AE02C2_ME_52FA2A150346_G
+ MELINK Original HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA29AE02C2_ME_52FA2A150346_G TalcuServerTaskManagerFactory
+
+%%InheritedBy ME_52FA29AE02C2 ME_52FA2A150346
+
+ME ME_52FA2A150346
+ MEPROP UID '52FA2A150346'
+ MEPROP Name 'RalcuServerTaskManagerFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA29AE02C2_ME_52FA2A150346_G // TalcuServerTaskManagerFactory
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52FA2A150346 RalcuServerTaskManagerFactory
+
+ME ME_52FA2A6002E1
+ MEPROP UID '52FA2A6002E1'
+ MEPROP Name 'g_FactoryClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
+ ;
+ MELINK Target HWL ME_52FA2A150346 // RalcuServerTaskManagerFactory
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52FA2A6002E1 g_FactoryClass
+
+FORWARD ME_52FA29DE0384
+
+ME ME_53CF4ADB0112
+ MEPROP Name 'aRootPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53CF4ADB0112 aRootPath
+
+ME ME_53CF4ADB0126
+ MEPROP Name 'aBaseEngineHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_53CF4ADB0126 aBaseEngineHolder
+
+ME ME_52FA29F900AE
+ MEPROP UID '52FA29F900AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA29DE0384 // Make
+ ;
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CF4ADB0112 // aRootPath
+ ME_53CF4ADB0126 // aBaseEngineHolder
+ )
+ ; // Parameters
+
+ENDME // ME_52FA29F900AE DoIt
+
+ME ME_52FA29DE0384
+ MEPROP UID '52FA29DE0384'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52FA29F900AE // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_52FA29DE0384 Make
+
+FORWARD ME_52FA2C99010A
+
+ME ME_D482B79F3EF6
+ MEPROP Name 'aRootPath'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_D482B79F3EF6 aRootPath
+
+ME ME_A88A52F2C6DD
+ MEPROP Name 'aBaseEngineHolder'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_A88A52F2C6DD aBaseEngineHolder
+
+ME ME_C701C9DB1EF7
+ MEPROP UID 'C701C9DB1EF7'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA2C99010A // DoMake
+ ;
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_D482B79F3EF6 // aRootPath
+ ME_A88A52F2C6DD // aBaseEngineHolder
+ )
+ ; // Parameters
+
+ENDME // ME_C701C9DB1EF7 DoIt
+
+MEREF ME_52FA29DE0384_ME_52FA2C99010A_G
+ MELINK Original HWL ME_52FA29DE0384 // Make
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA29DE0384_ME_52FA2C99010A_G Make
+
+%%InheritedBy ME_52FA29DE0384 ME_52FA2C99010A
+
+ME ME_52FA2C99010A
+ MEPROP UID '52FA2C99010A'
+ MEPROP Name 'DoMake'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA29DE0384_ME_52FA2C99010A_G // Make
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_C701C9DB1EF7 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_52FA2C99010A DoMake
+
+ME ME_52FA29AE02C2
+ MEPROP UID '52FA29AE02C2'
+ MEPROP Name 'TalcuServerTaskManagerFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика для TddServerTaskManager' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D656130130' // Server
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52FA2A6002E1 // g_FactoryClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52FA29DE0384 // Make
+ HWL ME_52FA2C99010A // DoMake
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_52FA2A150346 // RalcuServerTaskManagerFactory
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas'
+ UP extprop:rc:SelfName 'alcuServerTaskManagerFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuServerTaskManagerFactory'
+
+ENDME // ME_52FA29AE02C2 TalcuServerTaskManagerFactory

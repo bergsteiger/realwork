@@ -1,0 +1,133 @@
+// TnevStringCache 4E71FC4D02BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E71FC4D02BF
+
+FORWARD ME_4E71FCAE00EE
+
+ME ME_4E71FCB503E2
+ MEPROP UID '4E71FCB503E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E71FCAE00EE // Create
+ ;
+
+ENDME // ME_4E71FCB503E2 DoIt
+
+ME ME_4E71FCAE00EE
+ MEPROP UID '4E71FCAE00EE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E71FC4D02BF // TnevStringCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E71FCB503E2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E71FCAE00EE Create
+
+MEREF ME_4E71FCAE00EE_ME_4E71FCBD0244_G
+ MELINK Original HWL ME_4E71FCAE00EE // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E71FCAE00EE_ME_4E71FCBD0244_G Create
+
+MEREF ME_4E71F7B20222_ME_4E71FCBD0244_R
+ MELINK Original WL 'ME_4E71F7B20222' '4678209200A6.ms.model.script' // InevStringCache
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E71F7B20222_ME_4E71FCBD0244_R InevStringCache
+
+%%ImplementedBy ME_4E71F7B20222 ME_4E71FCBD0244
+
+%%InheritedBy ME_4E71FCAE00EE ME_4E71FCBD0244
+
+ME ME_4E71FCBD0244
+ MEPROP UID '4E71FCBD0244'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E71FC4D02BF // TnevStringCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E71FCAE00EE_ME_4E71FCBD0244_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E71F7B20222_ME_4E71FCBD0244_R // InevStringCache
+ )
+ ; // Implements
+
+ENDME // ME_4E71FCBD0244 Make
+
+MEREF ME_4AE5CA2D0034_ME_4E71FC4D02BF_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4E71FC4D02BF_G Tl3CProtoObject
+
+MEREF ME_4E71FB8302C6_ME_4E71FC4D02BF_G
+ MELINK Original WL? 'ME_4E71FB8302C6' // nevStringCache
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E71FB8302C6_ME_4E71FC4D02BF_G nevStringCache
+
+MEREF ME_4E71F7B20222_ME_4E71FC4D02BF_R
+ MELINK Original WL 'ME_4E71F7B20222' '4678209200A6.ms.model.script' // InevStringCache
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E71F7B20222_ME_4E71FC4D02BF_R InevStringCache
+
+%%ImplementedBy ME_4E71F7B20222 ME_4E71FC4D02BF
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4E71FC4D02BF
+%%InheritedBy ME_4E71FB8302C6 ME_4E71FC4D02BF
+
+ME ME_4E71FC4D02BF
+ MEPROP UID '4E71FC4D02BF'
+ MEPROP Name 'TnevStringCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_529F102E0065' // StringCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_4E71FC4D02BF_G // Tl3CProtoObject
+ ME_4E71FB8302C6_ME_4E71FC4D02BF_G // nevStringCache
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E71F7B20222_ME_4E71FC4D02BF_R // InevStringCache
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E71FCAE00EE // Create
+ HWL ME_4E71FCBD0244 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '15.09.2011 17:23'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevStringCache.pas'
+ UP extprop:rc:SelfName 'StringCache'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevStringCache'
+
+ENDME // ME_4E71FC4D02BF TnevStringCache

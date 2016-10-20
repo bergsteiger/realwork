@@ -1,0 +1,56 @@
+// TkwDocEditorSetModified 4E01E88B029B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E01E88B029B
+
+MEREF ME_4DE7421F03DF_ME_4E01E88B029B_impl
+ MELINK Original WL 'ME_4DE7421F03DF' '4DE643F100CB.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DE7421F03DF_ME_4E01E88B029B_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4E01E88B029B_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E01E88B029B_over GetWordNameForRegister
+
+MEREF ME_4DE643F100CB_ME_4E01E88B029B_G
+ MELINK Original WL? 'ME_4DE643F100CB' // TarEditorControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DE643F100CB_ME_4E01E88B029B_G TarEditorControl
+
+%%InheritedBy ME_4DE643F100CB ME_4E01E88B029B
+
+ME ME_4E01E88B029B
+ MEPROP UID '4E01E88B029B'
+ MEPROP Name 'TkwDocEditorSetModified'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DE643F100CB_ME_4E01E88B029B_G // TarEditorControl
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DE7421F03DF_ME_4E01E88B029B_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E01E88B029B_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'окно_редактора:редактор:SetModified'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDocEditorSetModified.pas'
+ UP extprop:rc:SelfName 'DocEditorSetModified'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDocEditorSetModified'
+
+ENDME // ME_4E01E88B029B TkwDocEditorSetModified

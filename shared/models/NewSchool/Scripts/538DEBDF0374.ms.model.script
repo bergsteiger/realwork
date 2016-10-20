@@ -1,0 +1,38 @@
+// TCsReply 538DEBDF0374 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DEBDF0374
+
+ME ME_538DEC060357
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DEBDF0374 // TCsReply
+ ;
+ MELINK Target WL? 'ME_538DEBEA032D' // TCsReplyTool
+ ;
+
+ENDME // ME_538DEC060357 
+
+ME ME_538DEBDF0374
+ MEPROP UID '538DEBDF0374'
+ MEPROP Name 'TCsReply'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Dependencies
+   Seq: ( ME_538DEC060357 // TCsReplyTool
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsReply.pas'
+ UP extprop:rc:SelfName 'CsReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsReply'
+
+ENDME // ME_538DEBDF0374 TCsReply

@@ -1,0 +1,73 @@
+// TatClearUserJournalOperation 4FCCF88E0303 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FCCF88E0303
+
+ME ME_4FCCF8CB01DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FCCF88E0303 // TatClearUserJournalOperation
+ ;
+ MELINK Target WL? 'ME_4D0A033202D2' // TatUserJournalHelper
+ ;
+
+ENDME // ME_4FCCF8CB01DC 
+
+ME ME_4FCCF8CE02D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FCCF88E0303 // TatClearUserJournalOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4FCCF8CE02D1 
+
+MEREF ME_48089F460352_ME_4FCCF88E0303_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4FCCF88E0303_impl ExecuteSelf
+
+MEREF ME_48076E9D013E_ME_4FCCF88E0303_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4FCCF88E0303_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4FCCF88E0303
+
+ME ME_4FCCF88E0303
+ MEPROP UID '4FCCF88E0303'
+ MEPROP Name 'TatClearUserJournalOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4FCCF88E0303_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4FCCF88E0303_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FCCF8CB01DC // TatUserJournalHelper
+ ME_4FCCF8CE02D1 // atLogger
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atClearUserJournalOperation.pas'
+ UP extprop:rc:SelfName 'atClearUserJournalOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atClearUserJournalOperation'
+
+ENDME // ME_4FCCF88E0303 TatClearUserJournalOperation

@@ -1,0 +1,252 @@
+// TatDelegateListener 48078A03039C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48078A03039C
+%%Inner ME_48078A03039C
+
+FORWARD ME_48078A03039C
+
+FORWARD ME_48078A1F002C
+
+ME ME_48078A38006E
+ MEPROP Name 'sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_48078A38006E sender
+
+ME ME_48078A380087
+ MEPROP Name 'notification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077E810317' '48077E620315.ms.model.script' // IatNotification
+ ;
+
+ENDME // ME_48078A380087 notification
+
+ME ME_48078A2D00A2
+ MEPROP UID '48078A2D00A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078A1F002C // TatDelegateListenerProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078A38006E // sender
+ ME_48078A380087 // notification
+ )
+ ; // Parameters
+
+ENDME // ME_48078A2D00A2 DoIt
+
+ME ME_48078A1F002C
+ MEPROP UID '48078A1F002C'
+ MEPROP Name 'TatDelegateListenerProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48078A2D00A2 // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_48078A1F002C TatDelegateListenerProc
+
+FORWARD ME_48078A4400B1
+
+ME ME_48078A5401DB
+ MEPROP Name 'sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_48078A5401DB sender
+
+ME ME_48078A5401F3
+ MEPROP Name 'notification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077E810317' '48077E620315.ms.model.script' // IatNotification
+ ;
+
+ENDME // ME_48078A5401F3 notification
+
+ME ME_48078A4D025F
+ MEPROP UID '48078A4D025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078A4400B1 // TatDelegateListenerProcOfObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078A5401DB // sender
+ ME_48078A5401F3 // notification
+ )
+ ; // Parameters
+
+ENDME // ME_48078A4D025F DoIt
+
+ME ME_48078A4400B1
+ MEPROP UID '48078A4400B1'
+ MEPROP Name 'TatDelegateListenerProcOfObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48078A4D025F // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_48078A4400B1 TatDelegateListenerProcOfObject
+
+ME ME_48078A97003C
+ MEPROP UID '48078A97003C'
+ MEPROP Name 'f_FireProc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELINK Target HWL ME_48078A1F002C // TatDelegateListenerProc
+ ;
+
+ENDME // ME_48078A97003C f_FireProc
+
+ME ME_48078AA901B3
+ MEPROP UID '48078AA901B3'
+ MEPROP Name 'f_FireProcOfObject'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELINK Target HWL ME_48078A4400B1 // TatDelegateListenerProcOfObject
+ ;
+
+ENDME // ME_48078AA901B3 f_FireProcOfObject
+
+ME ME_48078AD90008
+ MEPROP Name 'fireProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48078A1F002C // TatDelegateListenerProc
+ ;
+
+ENDME // ME_48078AD90008 fireProc
+
+ME ME_48078AD3036C
+ MEPROP UID '48078AD3036C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078AD90008 // fireProc
+ )
+ ; // Parameters
+
+ENDME // ME_48078AD3036C Create
+
+ME ME_48078AE50119
+ MEPROP Name 'fireProcOfObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48078A4400B1 // TatDelegateListenerProcOfObject
+ ;
+
+ENDME // ME_48078AE50119 fireProcOfObject
+
+ME ME_48078AE001CE
+ MEPROP UID '48078AE001CE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48078A03039C // TatDelegateListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_48078AE50119 // fireProcOfObject
+ )
+ ; // Parameters
+
+ENDME // ME_48078AE001CE Create
+
+MEREF ME_480784C30322_ME_48078A03039C_impl
+ MELINK Original WL 'ME_480784C30322' '4807838102C9.ms.model.script' // DoFire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_480784C30322_ME_48078A03039C_impl DoFire
+
+MEREF ME_4807838102C9_ME_48078A03039C_G
+ MELINK Original WL? 'ME_4807838102C9' // TatListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807838102C9_ME_48078A03039C_G TatListener
+
+%%InheritedBy ME_4807838102C9 ME_48078A03039C
+
+ME ME_48078A03039C
+ MEPROP UID '48078A03039C'
+ MEPROP Name 'TatDelegateListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807838102C9_ME_48078A03039C_G // TatListener
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48078A97003C // f_FireProc
+ HWL ME_48078AA901B3 // f_FireProcOfObject
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48078AD3036C // Create
+ HWL ME_48078AE001CE // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_480784C30322_ME_48078A03039C_impl // DoFire
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48078A1F002C // TatDelegateListenerProc
+ HWL ME_48078A4400B1 // TatDelegateListenerProcOfObject
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atDelegateListener.pas'
+ UP extprop:rc:SelfName 'atDelegateListener'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atDelegateListener'
+
+ENDME // ME_48078A03039C TatDelegateListener

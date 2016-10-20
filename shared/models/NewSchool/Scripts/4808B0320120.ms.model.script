@@ -1,0 +1,83 @@
+// TatSleepOperation 4808B0320120 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4808B0320120
+
+ME ME_4808B249026F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808B0320120 // TatSleepOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4808B249026F 
+
+ME ME_4811FDC801FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808B0320120 // TatSleepOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4811FDC801FD 
+
+MEREF ME_48089F460352_ME_4808B0320120_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4808B0320120_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4808B0320120_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4808B0320120_over InitParamList
+
+MEREF ME_48076E9D013E_ME_4808B0320120_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4808B0320120_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4808B0320120
+
+ME ME_4808B0320120
+ MEPROP UID '4808B0320120'
+ MEPROP Name 'TatSleepOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4808B0320120_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4808B0320120_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4808B0320120_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4808B249026F // SysUtils
+ ME_4811FDC801FD // atLogger
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSleepOperation.pas'
+ UP extprop:rc:SelfName 'atSleepOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSleepOperation'
+
+ENDME // ME_4808B0320120 TatSleepOperation

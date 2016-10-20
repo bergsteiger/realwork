@@ -7,6 +7,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4807779F01CA
 
+MEREF ME_4787A405013D_ME_48077B920072_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_48077B920072_G Exception
+
 %%InheritedBy ME_4787A405013D ME_48077B920072
 
 ME ME_48077B920072
@@ -20,11 +26,17 @@ ME ME_48077B920072
  MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+   Seq: ( ME_4787A405013D_ME_48077B920072_G // Exception
  )
  ; // Inherits
 
 ENDME // ME_48077B920072 EParameterNotExists
+
+MEREF ME_480777BC0090_ME_483D5A2F00CE_G
+ MELINK Original WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480777BC0090_ME_483D5A2F00CE_G NamedParameter
 
 %%InheritedBy ME_480777BC0090 ME_483D5A2F00CE
 
@@ -39,7 +51,7 @@ ME ME_483D5A2F00CE
  MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_480777BC0090' '48076E7F0260.ms.model.script' // NamedParameter
+   Seq: ( ME_480777BC0090_ME_483D5A2F00CE_G // NamedParameter
  )
  ; // Inherits
  UP "isClassRef" true
@@ -104,7 +116,7 @@ ME ME_480777D00124
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4807779F01CA // atNamedParametersList
  ;
- MELINK Target WL 'ME_4807752C025A' '48076E7F0260.ms.model.script' // TatStringListWithOwn
+ MELINK Target WL? 'ME_4807752C025A' // TatStringListWithOwn
  ;
 
 ENDME // ME_480777D00124 f_Parameters

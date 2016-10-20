@@ -214,7 +214,7 @@ ENDME // ME_562625650284 DoIt
 ME ME_56262560021F
  MEPROP UID '56262560021F'
  MEPROP Name 'IsSame'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1098,11 +1098,17 @@ ME ME_561641EE03D8
 
 ENDME // ME_561641EE03D8 IsSearchLocked
 
-ME ME_4ACA17770179_ME_49513222021F
+MEREF ME_4ACA17770179_ME_49513222021F_impl
  MELINK Original HWL ME_4ACA17770179 // SupportDisabled
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4ACA17770179_ME_49513222021F SupportDisabled
+ENDMEREF // ME_4ACA17770179_ME_49513222021F_impl SupportDisabled
+
+MEREF ME_4ACA1757039E_ME_49513222021F_R
+ MELINK Original HWL ME_4ACA1757039E // MnsSupportDisabled
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ACA1757039E_ME_49513222021F_R MnsSupportDisabled
 
 %%ImplementedBy ME_4ACA1757039E ME_49513222021F
 
@@ -1118,7 +1124,7 @@ ME ME_49513222021F
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4ACA1757039E // MnsSupportDisabled
+   Seq: ( ME_4ACA1757039E_ME_49513222021F_R // MnsSupportDisabled
  )
  ; // Implements
  MELIST Attributes
@@ -1144,7 +1150,7 @@ ME ME_49513222021F
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4ACA17770179_ME_49513222021F // SupportDisabled
+   Seq: ( ME_4ACA17770179_ME_49513222021F_impl // SupportDisabled
  )
  ; // Implemented
  UP extprop:rc:SelfName 'ContextSearcher'
@@ -1322,6 +1328,12 @@ ME ME_49512DE00227
 
 ENDME // ME_49512DE00227 TnsBaseSearchOpenKind
 
+MEREF ME_4787A405013D_ME_496B500E0283_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_496B500E0283_G Exception
+
 %%InheritedBy ME_4787A405013D ME_496B500E0283
 
 ME ME_496B500E0283
@@ -1335,7 +1347,7 @@ ME ME_496B500E0283
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+   Seq: ( ME_4787A405013D_ME_496B500E0283_G // Exception
  )
  ; // Inherits
 
@@ -1361,7 +1373,7 @@ ENDME // ME_4F22C31A0137 DoIt
 ME ME_4F22C2D00369
  MEPROP UID '4F22C2D00369'
  MEPROP Name 'FormCloseWasRequested'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Окно уже попросили закрыться'#13#10'http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655'#13#10'Скорее всего его нельзя запоминать в историю. Точнее не егго а форму БП, которая на него смотрит' ;
@@ -1564,17 +1576,35 @@ ME ME_496B4CED0306
 
 ENDME // ME_496B4CED0306 AutoActivateWindow
 
-ME ME_4ACA17770179_ME_496B4C2700D5
+MEREF ME_4ACA17770179_ME_496B4C2700D5_impl
  MELINK Original HWL ME_4ACA17770179 // SupportDisabled
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4ACA17770179_ME_496B4C2700D5 SupportDisabled
+ENDMEREF // ME_4ACA17770179_ME_496B4C2700D5_impl SupportDisabled
 
-ME ME_4F22C2D00369_ME_496B4C2700D5
+MEREF ME_4F22C2D00369_ME_496B4C2700D5_impl
  MELINK Original HWL ME_4F22C2D00369 // FormCloseWasRequested
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F22C2D00369_ME_496B4C2700D5 FormCloseWasRequested
+ENDMEREF // ME_4F22C2D00369_ME_496B4C2700D5_impl FormCloseWasRequested
+
+MEREF ME_4ACA1757039E_ME_496B4C2700D5_R
+ MELINK Original HWL ME_4ACA1757039E // MnsSupportDisabled
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ACA1757039E_ME_496B4C2700D5_R MnsSupportDisabled
+
+MEREF ME_4EB7CCF90203_ME_496B4C2700D5_R
+ MELINK Original WL 'ME_4EB7CCF90203' '484FA67302D7.ms.model.script' // При хождении по истории выбор должен восстанавливаться
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB7CCF90203_ME_496B4C2700D5_R При хождении по истории выбор должен восстанавливаться
+
+MEREF ME_4F22C29301C6_ME_496B4C2700D5_R
+ MELINK Original HWL ME_4F22C29301C6 // MnsBaseSearchPresentationState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F22C29301C6_ME_496B4C2700D5_R MnsBaseSearchPresentationState
 
 %%ImplementedBy ME_4ACA1757039E ME_496B4C2700D5
 %%ImplementedBy ME_4EB7CCF90203 ME_496B4C2700D5
@@ -1593,9 +1623,9 @@ ME ME_496B4C2700D5
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4ACA1757039E // MnsSupportDisabled
- WL 'ME_4EB7CCF90203' '484FA67302D7.ms.model.script' // При хождении по истории выбор должен восстанавливаться
- HWL ME_4F22C29301C6 // MnsBaseSearchPresentationState
+   Seq: ( ME_4ACA1757039E_ME_496B4C2700D5_R // MnsSupportDisabled
+ ME_4EB7CCF90203_ME_496B4C2700D5_R // При хождении по истории выбор должен восстанавливаться
+ ME_4F22C29301C6_ME_496B4C2700D5_R // MnsBaseSearchPresentationState
  )
  ; // Implements
  MELIST Attributes
@@ -1614,8 +1644,8 @@ ME ME_496B4C2700D5
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4ACA17770179_ME_496B4C2700D5 // SupportDisabled
- ME_4F22C2D00369_ME_496B4C2700D5 // FormCloseWasRequested
+   Seq: ( ME_4ACA17770179_ME_496B4C2700D5_impl // SupportDisabled
+ ME_4F22C2D00369_ME_496B4C2700D5_impl // FormCloseWasRequested
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1788,24 +1818,30 @@ ME ME_4AA4D7930085
 
 ENDME // ME_4AA4D7930085 SetPromptForDoc
 
-ME ME_47724B790382_ME_4901F75A0378
+MEREF ME_47724B790382_ME_4901F75A0378_impl
  MELINK Original WL 'ME_47724B790382' '4682595B0268.ms.model.script' // SetContext
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47724B790382_ME_4901F75A0378 SetContext
+ENDMEREF // ME_47724B790382_ME_4901F75A0378_impl SetContext
 
-ME ME_47724B87036B_ME_4901F75A0378
+MEREF ME_47724B87036B_ME_4901F75A0378_impl
  MELINK Original WL 'ME_47724B87036B' '4682595B0268.ms.model.script' // Clone
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47724B87036B_ME_4901F75A0378 Clone
+ENDMEREF // ME_47724B87036B_ME_4901F75A0378_impl Clone
 
-ME ME_47724B9402ED_ME_4901F75A0378
+MEREF ME_47724B9402ED_ME_4901F75A0378_impl
  MELINK Original WL 'ME_47724B9402ED' '4682595B0268.ms.model.script' // Context
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_47724B9402ED_ME_4901F75A0378 Context
+ENDMEREF // ME_47724B9402ED_ME_4901F75A0378_impl Context
+
+MEREF ME_47724B6500F6_ME_4901F75A0378_G
+ MELINK Original WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47724B6500F6_ME_4901F75A0378_G Il3TreeFilters
 
 %%InheritedBy ME_47724B6500F6 ME_4901F75A0378
 
@@ -1821,7 +1857,7 @@ ME ME_4901F75A0378
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+   Seq: ( ME_47724B6500F6_ME_4901F75A0378_G // Il3TreeFilters
  )
  ; // Inherits
  MELIST Attributes
@@ -1835,9 +1871,9 @@ ME ME_4901F75A0378
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47724B790382_ME_4901F75A0378 // SetContext
- ME_47724B87036B_ME_4901F75A0378 // Clone
- ME_47724B9402ED_ME_4901F75A0378 // Context
+   Seq: ( ME_47724B790382_ME_4901F75A0378_impl // SetContext
+ ME_47724B87036B_ME_4901F75A0378_impl // Clone
+ ME_47724B9402ED_ME_4901F75A0378_impl // Context
  )
  ; // Implemented
  UP extprop:rc:SelfName 'BaseSearchPromptFilters'
@@ -2068,6 +2104,12 @@ ME ME_49FEAD670382
 
 ENDME // ME_49FEAD670382 FindBack
 
+MEREF ME_4E85E21A018D_ME_49512F660180_R
+ MELINK Original WL 'ME_4E85E21A018D' '484900780017.ms.model.script' // Контекстный поиск в документе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85E21A018D_ME_49512F660180_R Контекстный поиск в документе
+
 %%ImplementedBy ME_4E85E21A018D ME_49512F660180
 
 ME ME_49512F660180
@@ -2082,7 +2124,7 @@ ME ME_49512F660180
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E85E21A018D' '484900780017.ms.model.script' // Контекстный поиск в документе
+   Seq: ( ME_4E85E21A018D_ME_49512F660180_R // Контекстный поиск в документе
  )
  ; // Implements
  MELIST Attributes
@@ -2152,7 +2194,7 @@ ENDME // ME_4F1EA8D40084 DoIt
 ME ME_4F1EA8A202D8
  MEPROP UID '4F1EA8A202D8'
  MEPROP Name 'ValidateBaseSearchForm'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher' ;
@@ -2310,7 +2352,7 @@ ENDME // ME_4F20314B0148 DoIt
 ME ME_4F20313F00E3
  MEPROP UID '4F20313F00E3'
  MEPROP Name 'IsIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2436,6 +2478,12 @@ ME ME_54EC12AB018C
 
 ENDME // ME_54EC12AB018C TnsBaseSearchStateElement
 
+MEREF ME_54EC12AB018C_ME_54EC13510253_G
+ MELINK Original HWL ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54EC12AB018C_ME_54EC13510253_G TnsBaseSearchStateElement
+
 %%InheritedBy ME_54EC12AB018C ME_54EC13510253
 
 ME ME_54EC13510253
@@ -2449,7 +2497,7 @@ ME ME_54EC13510253
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_54EC12AB018C // TnsBaseSearchStateElement
+   Seq: ( ME_54EC12AB018C_ME_54EC13510253_G // TnsBaseSearchStateElement
  )
  ; // Inherits
 
@@ -3038,24 +3086,30 @@ ME ME_4C04A80C018D
 
 ENDME // ME_4C04A80C018D StoreActiveClass
 
-ME ME_4AD5EBB302EA_ME_496B629D0188
+MEREF ME_4AD5EBB302EA_ME_496B629D0188_impl
  MELINK Original HWL ME_4AD5EBB302EA // RemovePresentation
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AD5EBB302EA_ME_496B629D0188 RemovePresentation
+ENDMEREF // ME_4AD5EBB302EA_ME_496B629D0188_impl RemovePresentation
 
-ME ME_4AD5EDC703BE_ME_496B629D0188
+MEREF ME_4AD5EDC703BE_ME_496B629D0188_impl
  MELINK Original HWL ME_4AD5EDC703BE // Presentation
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_4AD5EDC703BE_ME_496B629D0188 Presentation
+ENDMEREF // ME_4AD5EDC703BE_ME_496B629D0188_impl Presentation
 
-ME ME_4F1EA8A202D8_ME_496B629D0188
+MEREF ME_4F1EA8A202D8_ME_496B629D0188_impl
  MELINK Original HWL ME_4F1EA8A202D8 // ValidateBaseSearchForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F1EA8A202D8_ME_496B629D0188 ValidateBaseSearchForm
+ENDMEREF // ME_4F1EA8A202D8_ME_496B629D0188_impl ValidateBaseSearchForm
+
+MEREF ME_4AD5EDAE025A_ME_496B629D0188_R
+ MELINK Original HWL ME_4AD5EDAE025A // MnsPresentationHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD5EDAE025A_ME_496B629D0188_R MnsPresentationHolder
 
 %%ImplementedBy ME_4AD5EDAE025A ME_496B629D0188
 
@@ -3071,7 +3125,7 @@ ME ME_496B629D0188
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4AD5EDAE025A // MnsPresentationHolder
+   Seq: ( ME_4AD5EDAE025A_ME_496B629D0188_R // MnsPresentationHolder
  )
  ; // Implements
  MELIST Attributes
@@ -3097,9 +3151,9 @@ ME ME_496B629D0188
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AD5EBB302EA_ME_496B629D0188 // RemovePresentation
- ME_4AD5EDC703BE_ME_496B629D0188 // Presentation
- ME_4F1EA8A202D8_ME_496B629D0188 // ValidateBaseSearchForm
+   Seq: ( ME_4AD5EBB302EA_ME_496B629D0188_impl // RemovePresentation
+ ME_4AD5EDC703BE_ME_496B629D0188_impl // Presentation
+ ME_4F1EA8A202D8_ME_496B629D0188_impl // ValidateBaseSearchForm
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -3157,12 +3211,18 @@ ME ME_4EB7BEA20379
 
 ENDME // ME_4EB7BEA20379 DoIt
 
+MEREF ME_4EB7BA320128_ME_4EB7BE980010_R
+ MELINK Original WL 'ME_4EB7BA320128' '484FA67302D7.ms.model.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB7BA320128_ME_4EB7BE980010_R Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+
 %%ImplementedBy ME_4EB7BA320128 ME_4EB7BE980010
 
 ME ME_4EB7BE980010
  MEPROP UID '4EB7BE980010'
  MEPROP Name 'DropActiveClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258' ;
@@ -3171,7 +3231,7 @@ ME ME_4EB7BE980010
  MELINK Parent HWL ME_496B5FCE02FD // InsBaseSearcher
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4EB7BA320128' '484FA67302D7.ms.model.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+   Seq: ( ME_4EB7BA320128_ME_4EB7BE980010_R // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
  )
  ; // Implements
  MELIST Operations
@@ -3199,7 +3259,7 @@ ENDME // ME_543392320063 DoIt
 ME ME_543392190118
  MEPROP UID '543392190118'
  MEPROP Name 'MakeState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3242,7 +3302,7 @@ ENDME // ME_5433925602F7 DoIt
 ME ME_5433923F0280
  MEPROP UID '5433923F0280'
  MEPROP Name 'AssignState'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3272,7 +3332,7 @@ ENDME // ME_5437B47F03D1 DoIt
 ME ME_5437B478018C
  MEPROP UID '5437B478018C'
  MEPROP Name 'ForceUpdateClassForHistory'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3327,7 +3387,7 @@ ENDME // ME_54EC1B9501DF DoIt
 ME ME_54EC1B5C00E4
  MEPROP UID '54EC1B5C00E4'
  MEPROP Name 'MakeStateParams'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3357,7 +3417,7 @@ ENDME // ME_55AF4502005D DoIt
 ME ME_55AF44F501B9
  MEPROP UID '55AF44F501B9'
  MEPROP Name 'ContainerIsClosing'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3374,7 +3434,7 @@ ENDME // ME_55AF44F501B9 ContainerIsClosing
 ME ME_5629B2030130
  MEPROP UID '5629B2030130'
  MEPROP Name 'Find'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3387,7 +3447,7 @@ ENDME // ME_5629B2030130 Find
 ME ME_5629B2380023
  MEPROP UID '5629B2380023'
  MEPROP Name 'FindBack'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3400,7 +3460,7 @@ ENDME // ME_5629B2380023 FindBack
 ME ME_5629B24C0274
  MEPROP UID '5629B24C0274'
  MEPROP Name 'ApplyCurrentExample'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3434,24 +3494,30 @@ ME ME_496B5FE00107
 
 ENDME // ME_496B5FE00107 ShowWindowByUser
 
-ME ME_4AD5EBB302EA_ME_496B5FCE02FD
+MEREF ME_4AD5EBB302EA_ME_496B5FCE02FD_impl
  MELINK Original HWL ME_4AD5EBB302EA // RemovePresentation
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AD5EBB302EA_ME_496B5FCE02FD RemovePresentation
+ENDMEREF // ME_4AD5EBB302EA_ME_496B5FCE02FD_impl RemovePresentation
 
-ME ME_4AD5EDC703BE_ME_496B5FCE02FD
+MEREF ME_4AD5EDC703BE_ME_496B5FCE02FD_impl
  MELINK Original HWL ME_4AD5EDC703BE // Presentation
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_4AD5EDC703BE_ME_496B5FCE02FD Presentation
+ENDMEREF // ME_4AD5EDC703BE_ME_496B5FCE02FD_impl Presentation
 
-ME ME_4F1EA8A202D8_ME_496B5FCE02FD
+MEREF ME_4F1EA8A202D8_ME_496B5FCE02FD_impl
  MELINK Original HWL ME_4F1EA8A202D8 // ValidateBaseSearchForm
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F1EA8A202D8_ME_496B5FCE02FD ValidateBaseSearchForm
+ENDMEREF // ME_4F1EA8A202D8_ME_496B5FCE02FD_impl ValidateBaseSearchForm
+
+MEREF ME_4AD5EDAE025A_ME_496B5FCE02FD_R
+ MELINK Original HWL ME_4AD5EDAE025A // MnsPresentationHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD5EDAE025A_ME_496B5FCE02FD_R MnsPresentationHolder
 
 %%ImplementedBy ME_4AD5EDAE025A ME_496B5FCE02FD
 
@@ -3467,7 +3533,7 @@ ME ME_496B5FCE02FD
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_4AD5EDAE025A // MnsPresentationHolder
+   Seq: ( ME_4AD5EDAE025A_ME_496B5FCE02FD_R // MnsPresentationHolder
  )
  ; // Implements
  MELIST Attributes
@@ -3489,9 +3555,9 @@ ME ME_496B5FCE02FD
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4AD5EBB302EA_ME_496B5FCE02FD // RemovePresentation
- ME_4AD5EDC703BE_ME_496B5FCE02FD // Presentation
- ME_4F1EA8A202D8_ME_496B5FCE02FD // ValidateBaseSearchForm
+   Seq: ( ME_4AD5EBB302EA_ME_496B5FCE02FD_impl // RemovePresentation
+ ME_4AD5EDC703BE_ME_496B5FCE02FD_impl // Presentation
+ ME_4F1EA8A202D8_ME_496B5FCE02FD_impl // ValidateBaseSearchForm
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -3701,6 +3767,12 @@ ME ME_562F5C450383
 
 ENDME // ME_562F5C450383 TnsBaseSearcherChangeElement
 
+MEREF ME_562F5C450383_ME_562F5CC60355_G
+ MELINK Original HWL ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_562F5C450383_ME_562F5CC60355_G TnsBaseSearcherChangeElement
+
 %%InheritedBy ME_562F5C450383 ME_562F5CC60355
 
 ME ME_562F5CC60355
@@ -3714,7 +3786,7 @@ ME ME_562F5CC60355
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_562F5C450383 // TnsBaseSearcherChangeElement
+   Seq: ( ME_562F5C450383_ME_562F5CC60355_G // TnsBaseSearcherChangeElement
  )
  ; // Inherits
 
@@ -3804,6 +3876,12 @@ ME ME_5631AC50016C
 
 ENDME // ME_5631AC50016C InsBaseSearcherProvider
 
+MEREF ME_54EC12AB018C_ME_5673E9380067_G
+ MELINK Original HWL ME_54EC12AB018C // TnsBaseSearchStateElement
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54EC12AB018C_ME_5673E9380067_G TnsBaseSearchStateElement
+
 %%InheritedBy ME_54EC12AB018C ME_5673E9380067
 
 ME ME_5673E9380067
@@ -3817,13 +3895,19 @@ ME ME_5673E9380067
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_54EC12AB018C // TnsBaseSearchStateElement
+   Seq: ( ME_54EC12AB018C_ME_5673E9380067_G // TnsBaseSearchStateElement
  )
  ; // Inherits
  UP "spell names" false
  UP extprop:rc:SelfName '_sseAll'
 
 ENDME // ME_5673E9380067 ns_sseAll
+
+MEREF ME_495132300336_ME_56D42F8A0266_G
+ MELINK Original HWL ME_495132300336 // TnsSearchArea
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_495132300336_ME_56D42F8A0266_G TnsSearchArea
 
 %%InheritedBy ME_495132300336 ME_56D42F8A0266
 
@@ -3838,7 +3922,7 @@ ME ME_56D42F8A0266
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_495132300336 // TnsSearchArea
+   Seq: ( ME_495132300336_ME_56D42F8A0266_G // TnsSearchArea
  )
  ; // Inherits
 
@@ -4270,74 +4354,80 @@ ME ME_56EBA1C10179
 
 ENDME // ME_56EBA1C10179 BaseSearchModel
 
-ME ME_496B4C41023E_ME_56D696CD007B
+MEREF ME_496B4C41023E_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4C41023E // WindowRequired
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4C41023E_ME_56D696CD007B WindowRequired
+ENDMEREF // ME_496B4C41023E_ME_56D696CD007B_impl WindowRequired
 
-ME ME_496B4C500246_ME_56D696CD007B
+MEREF ME_496B4C500246_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4C500246 // WindowCloseable
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4C500246_ME_56D696CD007B WindowCloseable
+ENDMEREF // ME_496B4C500246_ME_56D696CD007B_impl WindowCloseable
 
-ME ME_496B4CA000B6_ME_56D696CD007B
+MEREF ME_496B4CA000B6_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4CA000B6 // CanCloseWindow
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CA000B6_ME_56D696CD007B CanCloseWindow
+ENDMEREF // ME_496B4CA000B6_ME_56D696CD007B_impl CanCloseWindow
 
-ME ME_496B4CD9005F_ME_56D696CD007B
+MEREF ME_496B4CD9005F_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4CD9005F // IsQueryCard
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CD9005F_ME_56D696CD007B IsQueryCard
+ENDMEREF // ME_496B4CD9005F_ME_56D696CD007B_impl IsQueryCard
 
-ME ME_496B4CE30132_ME_56D696CD007B
+MEREF ME_496B4CE30132_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4CE30132 // TreatSuccessSearchAsManualOpen
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CE30132_ME_56D696CD007B TreatSuccessSearchAsManualOpen
+ENDMEREF // ME_496B4CE30132_ME_56D696CD007B_impl TreatSuccessSearchAsManualOpen
 
-ME ME_496B4CED0306_ME_56D696CD007B
+MEREF ME_496B4CED0306_ME_56D696CD007B_impl
  MELINK Original HWL ME_496B4CED0306 // AutoActivateWindow
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_496B4CED0306_ME_56D696CD007B AutoActivateWindow
+ENDMEREF // ME_496B4CED0306_ME_56D696CD007B_impl AutoActivateWindow
 
-ME ME_4ACA17770179_ME_56D696CD007B
+MEREF ME_4ACA17770179_ME_56D696CD007B_impl
  MELINK Original HWL ME_4ACA17770179 // SupportDisabled
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4ACA17770179_ME_56D696CD007B SupportDisabled
+ENDMEREF // ME_4ACA17770179_ME_56D696CD007B_impl SupportDisabled
 
-ME ME_4ACA195801CB_ME_56D696CD007B
+MEREF ME_4ACA195801CB_ME_56D696CD007B_impl
  MELINK Original HWL ME_4ACA195801CB // ContainerForBaseSearch
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4ACA195801CB_ME_56D696CD007B ContainerForBaseSearch
+ENDMEREF // ME_4ACA195801CB_ME_56D696CD007B_impl ContainerForBaseSearch
 
-ME ME_4AD6EAA3034A_ME_56D696CD007B
+MEREF ME_4AD6EAA3034A_ME_56D696CD007B_impl
  MELINK Original HWL ME_4AD6EAA3034A // ContextSearcher
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4AD6EAA3034A_ME_56D696CD007B ContextSearcher
+ENDMEREF // ME_4AD6EAA3034A_ME_56D696CD007B_impl ContextSearcher
 
-ME ME_4F1D607E0027_ME_56D696CD007B
+MEREF ME_4F1D607E0027_ME_56D696CD007B_impl
  MELINK Original HWL ME_4F1D607E0027 // NeedSaveActiveClassBeforeSearch
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4F1D607E0027_ME_56D696CD007B NeedSaveActiveClassBeforeSearch
+ENDMEREF // ME_4F1D607E0027_ME_56D696CD007B_impl NeedSaveActiveClassBeforeSearch
 
-ME ME_4F22C2D00369_ME_56D696CD007B
+MEREF ME_4F22C2D00369_ME_56D696CD007B_impl
  MELINK Original HWL ME_4F22C2D00369 // FormCloseWasRequested
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F22C2D00369_ME_56D696CD007B FormCloseWasRequested
+ENDMEREF // ME_4F22C2D00369_ME_56D696CD007B_impl FormCloseWasRequested
+
+MEREF ME_496B4C2700D5_ME_56D696CD007B_G
+ MELINK Original HWL ME_496B4C2700D5 // InsBaseSearchPresentation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496B4C2700D5_ME_56D696CD007B_G InsBaseSearchPresentation
 
 %%InheritedBy ME_496B4C2700D5 ME_56D696CD007B
 
@@ -4353,7 +4443,7 @@ ME ME_56D696CD007B
  MELINK Parent HWL ME_4A9F98B901A5 // BaseSearchInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_496B4C2700D5 // InsBaseSearchPresentation
+   Seq: ( ME_496B4C2700D5_ME_56D696CD007B_G // InsBaseSearchPresentation
  )
  ; // Inherits
  MELIST Attributes
@@ -4361,17 +4451,17 @@ ME ME_56D696CD007B
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_496B4C41023E_ME_56D696CD007B // WindowRequired
- ME_496B4C500246_ME_56D696CD007B // WindowCloseable
- ME_496B4CA000B6_ME_56D696CD007B // CanCloseWindow
- ME_496B4CD9005F_ME_56D696CD007B // IsQueryCard
- ME_496B4CE30132_ME_56D696CD007B // TreatSuccessSearchAsManualOpen
- ME_496B4CED0306_ME_56D696CD007B // AutoActivateWindow
- ME_4ACA17770179_ME_56D696CD007B // SupportDisabled
- ME_4ACA195801CB_ME_56D696CD007B // ContainerForBaseSearch
- ME_4AD6EAA3034A_ME_56D696CD007B // ContextSearcher
- ME_4F1D607E0027_ME_56D696CD007B // NeedSaveActiveClassBeforeSearch
- ME_4F22C2D00369_ME_56D696CD007B // FormCloseWasRequested
+   Seq: ( ME_496B4C41023E_ME_56D696CD007B_impl // WindowRequired
+ ME_496B4C500246_ME_56D696CD007B_impl // WindowCloseable
+ ME_496B4CA000B6_ME_56D696CD007B_impl // CanCloseWindow
+ ME_496B4CD9005F_ME_56D696CD007B_impl // IsQueryCard
+ ME_496B4CE30132_ME_56D696CD007B_impl // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_56D696CD007B_impl // AutoActivateWindow
+ ME_4ACA17770179_ME_56D696CD007B_impl // SupportDisabled
+ ME_4ACA195801CB_ME_56D696CD007B_impl // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_56D696CD007B_impl // ContextSearcher
+ ME_4F1D607E0027_ME_56D696CD007B_impl // NeedSaveActiveClassBeforeSearch
+ ME_4F22C2D00369_ME_56D696CD007B_impl // FormCloseWasRequested
  )
  ; // Implemented
  UP extprop:rc:SelfName 'BaseSearchController'

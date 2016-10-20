@@ -1,0 +1,46 @@
+// Mouse_RightDown 4F967CAE02C4 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F967CAE02C4
+
+MEREF ME_4F967BED0186_ME_4F967CAE02C4_impl
+ MELINK Original WL 'ME_4F967BED0186' '4F967BAD0127.ms.model.script' // GetMouseEventFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F967BED0186_ME_4F967CAE02C4_impl GetMouseEventFlag
+
+MEREF ME_4F967BAD0127_ME_4F967CAE02C4_G
+ MELINK Original WL? 'ME_4F967BAD0127' // TkwMouseUpDownSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F967BAD0127_ME_4F967CAE02C4_G TkwMouseUpDownSupport
+
+%%InheritedBy ME_4F967BAD0127 ME_4F967CAE02C4
+
+ME ME_4F967CAE02C4
+ MEPROP UID '4F967CAE02C4'
+ MEPROP Name 'Mouse_RightDown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F8EC875027E' // MouseInput
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F967BAD0127_ME_4F967CAE02C4_G // TkwMouseUpDownSupport
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F967BED0186_ME_4F967CAE02C4_impl // GetMouseEventFlag
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMouseRightDown.pas'
+ UP extprop:pas:TypeName 'TkwMouseRightDown'
+ UP extprop:rc:SelfName 'MouseRightDown'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMouseRightDown'
+
+ENDME // ME_4F967CAE02C4 Mouse_RightDown

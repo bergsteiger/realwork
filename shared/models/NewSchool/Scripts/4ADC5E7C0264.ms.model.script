@@ -1,0 +1,184 @@
+// TnsWindowNode 4ADC5E7C0264 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADC5E7C0264
+
+ME ME_4ADDE3730390
+ MEPROP UID '4ADDE3730390'
+ MEPROP Name 'fForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE3730390 fForm
+
+ME ME_4ADDE39301CA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE39301CA aForm
+
+ME ME_4ADDE39301E9
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ADDE39301E9 aText
+
+ME ME_4ADDE38A00B3
+ MEPROP UID '4ADDE38A00B3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADDE39301CA // aForm
+ ME_4ADDE39301E9 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4ADDE38A00B3 Create
+
+ME ME_4ADDE3A60232
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE3A60232 aForm
+
+ME ME_4ADDE3A60263
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ADDE3A60263 aText
+
+ME ME_4ADDE3980084
+ MEPROP UID '4ADDE3980084'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADDE3A60232 // aForm
+ ME_4ADDE3A60263 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4ADDE3980084 Make
+
+ME ME_4ADDE9750399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4ADDE9750399 
+
+MEREF ME_4991A633007F_ME_4ADC5E7C0264_impl
+ MELINK Original WL 'ME_4991A633007F' '4ADDE3D70311.ms.model.script' // Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4991A633007F_ME_4ADC5E7C0264_impl Form
+
+MEREF ME_479731C50290_ME_4ADC5E7C0264_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4ADC5E7C0264_over Cleanup
+
+MEREF ME_4ADDDF9B0101_ME_4ADC5E7C0264_G
+ MELINK Original WL 'ME_4ADDDF9B0101' '54C61BFC0342.ms.model.script' // Tl3UsualNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDDF9B0101_ME_4ADC5E7C0264_G Tl3UsualNode
+
+MEREF ME_4991A60F0247_ME_4ADC5E7C0264_R
+ MELINK Original WL 'ME_4991A60F0247' '4ADDE3D70311.ms.model.script' // InsWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4991A60F0247_ME_4ADC5E7C0264_R InsWindow
+
+%%ImplementedBy ME_4991A60F0247 ME_4ADC5E7C0264
+
+%%InheritedBy ME_4ADDDF9B0101 ME_4ADC5E7C0264
+
+ME ME_4ADC5E7C0264
+ MEPROP UID '4ADC5E7C0264'
+ MEPROP Name 'TnsWindowNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нода используемая для построения дерева окон системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6B421102FB' // WindowsListSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_4ADDDF9B0101_ME_4ADC5E7C0264_G // Tl3UsualNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4991A60F0247_ME_4ADC5E7C0264_R // InsWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADDE3730390 // fForm
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADDE38A00B3 // Create
+ HWL ME_4ADDE3980084 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4991A633007F_ME_4ADC5E7C0264_impl // Form
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADC5E7C0264_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADDE9750399 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.10.2009 21:05'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas'
+ UP extprop:rc:SelfName 'WindowNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsWindowNode'
+
+ENDME // ME_4ADC5E7C0264 TnsWindowNode

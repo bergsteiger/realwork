@@ -1,0 +1,315 @@
+// TnsLangToContextMap 490837B901D4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490837B901D4
+
+ME ME_4908380F01F8
+ MEPROP UID '4908380F01F8'
+ MEPROP Name 'f_Langs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL? 'ME_4914266C02BE' // TnsLangList
+ ;
+
+ENDME // ME_4908380F01F8 f_Langs
+
+ME ME_4908381E0166
+ MEPROP UID '4908381E0166'
+ MEPROP Name 'f_Contexts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL? 'ME_49083E6F02D8' // TInscContextFilterStateList
+ ;
+
+ENDME // ME_4908381E0166 f_Contexts
+
+ME ME_4908438E01DE
+ MEPROP UID '4908438E01DE'
+ MEPROP Name 'f_NotifySource'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4908438E01DE f_NotifySource
+
+FORWARD ME_52D3E220005C
+
+ME ME_52E8C499011E
+ MEPROP Name 'aNotifySource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_477251BA00B2' '4682595B0268.ms.model.script' // Il3ContextFilterNotifySource
+ ;
+
+ENDME // ME_52E8C499011E aNotifySource
+
+ME ME_52D3E256020A
+ MEPROP UID '52D3E256020A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D3E220005C // Make
+ ;
+ MELINK Target WL 'ME_52D3BD980262' '491D57C802CD.ms.model.script' // InsLangToContextMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_52E8C499011E // aNotifySource
+ )
+ ; // Parameters
+
+ENDME // ME_52D3E256020A DoIt
+
+ME ME_52D3E23801DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52D3E220005C // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52D3E23801DE 
+
+ME ME_52D3E220005C
+ MEPROP UID '52D3E220005C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D3E256020A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52D3E23801DE // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_52D3E220005C Make
+
+ME ME_490843AD0246
+ MEPROP Name 'aNotifySource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_477251BA00B2' '4682595B0268.ms.model.script' // Il3ContextFilterNotifySource
+ ;
+
+ENDME // ME_490843AD0246 aNotifySource
+
+ME ME_490843AA003A
+ MEPROP UID '490843AA003A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_490843AD0246 // aNotifySource
+ )
+ ; // Parameters
+
+ENDME // ME_490843AA003A Create
+
+ME ME_490844720309
+ MEPROP Name 'aLang'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_490844720309 aLang
+
+ME ME_490844720345
+ MEPROP Name 'aContextState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+
+ENDME // ME_490844720345 aContextState
+
+ME ME_490844660228
+ MEPROP UID '490844660228'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_490844720309 // aLang
+ ME_490844720345 // aContextState
+ )
+ ; // Parameters
+
+ENDME // ME_490844660228 Add
+
+ME ME_490845D10317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_490845D10317 
+
+ME ME_490846FD0154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490837B901D4 // TnsLangToContextMap
+ ;
+ MELINK Target WL? 'ME_4908462903E0' // TnscContextFilterState
+ ;
+
+ENDME // ME_490846FD0154 
+
+MEREF ME_477250FC0040_ME_490837B901D4_impl
+ MELINK Original WL 'ME_477250FC0040' '4682595B0268.ms.model.script' // RequestReapply
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477250FC0040_ME_490837B901D4_impl RequestReapply
+
+MEREF ME_4772510D0043_ME_490837B901D4_impl
+ MELINK Original WL 'ME_4772510D0043' '4682595B0268.ms.model.script' // RequestClearAndTurnOff
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772510D0043_ME_490837B901D4_impl RequestClearAndTurnOff
+
+MEREF ME_4772511D0316_ME_490837B901D4_impl
+ MELINK Original WL 'ME_4772511D0316' '4682595B0268.ms.model.script' // RequestCheckValid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772511D0316_ME_490837B901D4_impl RequestCheckValid
+
+MEREF ME_52D3BE04039D_ME_490837B901D4_impl
+ MELINK Original WL 'ME_52D3BE04039D' '491D57C802CD.ms.model.script' // ByLang
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_52D3BE04039D_ME_490837B901D4_impl ByLang
+
+MEREF ME_52D3D7D60242_ME_490837B901D4_impl
+ MELINK Original WL 'ME_52D3D7D60242' '491D57C802CD.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52D3D7D60242_ME_490837B901D4_impl Subscribe
+
+MEREF ME_52D4E4D40318_ME_490837B901D4_impl
+ MELINK Original WL 'ME_52D4E4D40318' '491D57C802CD.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_52D4E4D40318_ME_490837B901D4_impl Unsubscribe
+
+MEREF ME_479731C50290_ME_490837B901D4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_490837B901D4_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_490837B901D4_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_490837B901D4_G Tl3CProtoObject
+
+MEREF ME_477250E7033C_ME_490837B901D4_R
+ MELINK Original WL 'ME_477250E7033C' '4682595B0268.ms.model.script' // Il3ContextFilterNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_477250E7033C_ME_490837B901D4_R Il3ContextFilterNotifier
+
+MEREF ME_52D3BD980262_ME_490837B901D4_R
+ MELINK Original WL 'ME_52D3BD980262' '491D57C802CD.ms.model.script' // InsLangToContextMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52D3BD980262_ME_490837B901D4_R InsLangToContextMap
+
+%%ImplementedBy ME_477250E7033C ME_490837B901D4
+%%ImplementedBy ME_52D3BD980262 ME_490837B901D4
+
+%%InheritedBy ME_4AE5CA2D0034 ME_490837B901D4
+
+ME ME_490837B901D4
+ MEPROP UID '490837B901D4'
+ MEPROP Name 'TnsLangToContextMap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_490837B901D4_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_477250E7033C_ME_490837B901D4_R // Il3ContextFilterNotifier
+ ME_52D3BD980262_ME_490837B901D4_R // InsLangToContextMap
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4908380F01F8 // f_Langs
+ HWL ME_4908381E0166 // f_Contexts
+ HWL ME_4908438E01DE // f_NotifySource
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52D3E220005C // Make
+ HWL ME_490843AA003A // Create
+ HWL ME_490844660228 // Add
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_477250FC0040_ME_490837B901D4_impl // RequestReapply
+ ME_4772510D0043_ME_490837B901D4_impl // RequestClearAndTurnOff
+ ME_4772511D0316_ME_490837B901D4_impl // RequestCheckValid
+ ME_52D3BE04039D_ME_490837B901D4_impl // ByLang
+ ME_52D3D7D60242_ME_490837B901D4_impl // Subscribe
+ ME_52D4E4D40318_ME_490837B901D4_impl // Unsubscribe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_490837B901D4_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_490845D10317 // SysUtils
+ ME_490846FD0154 // TnscContextFilterState
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas'
+ UP extprop:rc:SelfName 'LangToContextMap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLangToContextMap'
+
+ENDME // ME_490837B901D4 TnsLangToContextMap

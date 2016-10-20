@@ -1,0 +1,52 @@
+// TdestSkip 5461C67A0207 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5461C67A0207
+
+MEREF ME_5461BEC2017D_ME_5461C67A0207_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_5461C67A0207_impl Close
+
+MEREF ME_54E1F08400F9_ME_5461C67A0207_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_5461C67A0207_impl WriteText$1
+
+MEREF ME_51D276C40106_ME_5461C67A0207_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_5461C67A0207_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_5461C67A0207
+
+ME ME_5461C67A0207
+ MEPROP UID '5461C67A0207'
+ MEPROP Name 'TdestSkip'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51D276C40106_ME_5461C67A0207_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_5461C67A0207_impl // Close
+ ME_54E1F08400F9_ME_5461C67A0207_impl // WriteText$1
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destSkip.pas'
+ UP extprop:rc:SelfName 'destSkip'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'destSkip'
+
+ENDME // ME_5461C67A0207 TdestSkip

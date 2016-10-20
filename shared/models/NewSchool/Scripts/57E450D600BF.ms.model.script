@@ -1,0 +1,82 @@
+// TmsmButtonEdit 57E450D600BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57E450D600BF
+
+FORWARD ME_57E450D600BF
+
+MEREF ME_482C468C00F7_ME_57EBB21C0356_G
+ MELINK Original WL? 'ME_482C468C00F7' // TCustomElGraphicButton
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482C468C00F7_ME_57EBB21C0356_G TCustomElGraphicButton
+
+%%InheritedBy ME_482C468C00F7 ME_57EBB21C0356
+
+ME ME_57EBB21C0356
+ MEPROP UID '57EBB21C0356'
+ MEPROP Name 'TmsmButtonEditButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E450D600BF // TmsmButtonEdit
+ ;
+ MELIST Inherits
+   Seq: ( ME_482C468C00F7_ME_57EBB21C0356_G // TCustomElGraphicButton
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'msmButtonEditButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57EBB21C0356 TmsmButtonEditButton
+
+MEREF ME_47D1602000C6_ME_57E450D600BF_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57E450D600BF_over Create
+
+MEREF ME_482AE8CA0176_ME_57E450D600BF_G
+ MELINK Original WL? 'ME_482AE8CA0176' // TctButtonEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482AE8CA0176_ME_57E450D600BF_G TctButtonEdit
+
+%%InheritedBy ME_482AE8CA0176 ME_57E450D600BF
+
+ME ME_57E450D600BF
+ MEPROP UID '57E450D600BF'
+ MEPROP Name 'TmsmButtonEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( ME_482AE8CA0176_ME_57E450D600BF_G // TctButtonEdit
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57E450D600BF_over // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57EBB21C0356 // TmsmButtonEditButton
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmButtonEdit.pas'
+ UP extprop:rc:SelfName 'msmButtonEdit'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmButtonEdit'
+
+ENDME // ME_57E450D600BF TmsmButtonEdit

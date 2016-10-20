@@ -67,7 +67,7 @@ ENDME // ME_53B2B2EC03B4 DoIt
 ME ME_53B2B2C800D6
  MEPROP UID '53B2B2C800D6'
  MEPROP Name 'GetFilters'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -120,11 +120,17 @@ ENDME // ME_53B2B1460348 PermanentFilterExists
 
 FORWARD ME_53B2B2950270
 
-ME ME_53B2B2C800D6_ME_53B2B2950270
+MEREF ME_53B2B2C800D6_ME_53B2B2950270_impl
  MELINK Original HWL ME_53B2B2C800D6 // GetFilters
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2B2C800D6_ME_53B2B2950270 GetFilters
+ENDMEREF // ME_53B2B2C800D6_ME_53B2B2950270_impl GetFilters
+
+MEREF ME_53B2B1460348_ME_53B2B2950270_G
+ MELINK Original HWL ME_53B2B1460348 // PermanentFilterExists
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2B1460348_ME_53B2B2950270_G PermanentFilterExists
 
 %%InheritedBy ME_53B2B1460348 ME_53B2B2950270
 
@@ -139,11 +145,11 @@ ME ME_53B2B2950270
  MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2B1460348 // PermanentFilterExists
+   Seq: ( ME_53B2B1460348_ME_53B2B2950270_G // PermanentFilterExists
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2B2C800D6_ME_53B2B2950270 // GetFilters
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2950270_impl // GetFilters
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwIsLegalPermanentFilterExists'
@@ -154,11 +160,17 @@ ENDME // ME_53B2B2950270 IsLegalPermanentFilterExists
 
 FORWARD ME_53B2B2730077
 
-ME ME_53B2B2C800D6_ME_53B2B2730077
+MEREF ME_53B2B2C800D6_ME_53B2B2730077_impl
  MELINK Original HWL ME_53B2B2C800D6 // GetFilters
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2B2C800D6_ME_53B2B2730077 GetFilters
+ENDMEREF // ME_53B2B2C800D6_ME_53B2B2730077_impl GetFilters
+
+MEREF ME_53B2B1460348_ME_53B2B2730077_G
+ MELINK Original HWL ME_53B2B1460348 // PermanentFilterExists
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2B1460348_ME_53B2B2730077_G PermanentFilterExists
 
 %%InheritedBy ME_53B2B1460348 ME_53B2B2730077
 
@@ -173,11 +185,11 @@ ME ME_53B2B2730077
  MELINK Parent HWL ME_571E1AF302D6 // FiltersProcessingWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2B1460348 // PermanentFilterExists
+   Seq: ( ME_53B2B1460348_ME_53B2B2730077_G // PermanentFilterExists
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2B2C800D6_ME_53B2B2730077 // GetFilters
+   Seq: ( ME_53B2B2C800D6_ME_53B2B2730077_impl // GetFilters
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwIsPharmPermanentFilterExists'

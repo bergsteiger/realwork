@@ -45,11 +45,17 @@ ME ME_4A6EAC0F00A9
 
 ENDME // ME_4A6EAC0F00A9 FindChatWindow
 
-ME ME_47B9BAFD01F4_ME_4A6EAB540196
+MEREF ME_47B9BAFD01F4_ME_4A6EAB540196_impl
  MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B9BAFD01F4_ME_4A6EAB540196 CompareItemWithData
+ENDMEREF // ME_47B9BAFD01F4_ME_4A6EAB540196_impl CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4A6EAB540196_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4A6EAB540196_G l3Searcher
 
 %%InheritedBy ME_47B47E230134 ME_4A6EAB540196
 
@@ -65,7 +71,7 @@ ME ME_4A6EAB540196
  MELINK Parent WL? 'ME_4A66EB280367' // ChatImpl
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B47E230134' // l3Searcher
+   Seq: ( ME_47B47E230134_ME_4A6EAB540196_G // l3Searcher
  )
  ; // Inherits
  MELIST Attributes
@@ -77,7 +83,7 @@ ME ME_4A6EAB540196
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47B9BAFD01F4_ME_4A6EAB540196 // CompareItemWithData
+   Seq: ( ME_47B9BAFD01F4_ME_4A6EAB540196_impl // CompareItemWithData
  )
  ; // Implemented
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas'

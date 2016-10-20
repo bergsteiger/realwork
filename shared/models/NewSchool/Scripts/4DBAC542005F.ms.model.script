@@ -1,0 +1,140 @@
+// TryFinally 4DBAC542005F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBAC542005F
+
+ME ME_4DBAC5B50200
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC542005F // TryFinally
+ ;
+ MELINK Target WL? 'ME_4DBAC56C017C' // TkwCompiledTryFinally
+ ;
+
+ENDME // ME_4DBAC5B50200 
+
+ME ME_4DBADF150395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC542005F // TryFinally
+ ;
+ MELINK Target WL? 'ME_4DBADEE702A8' // TkwCompiledTryExcept
+ ;
+
+ENDME // ME_4DBADF150395 
+
+ME ME_52D7B7D60004
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC542005F // TryFinally
+ ;
+ MELINK Target WL? 'ME_52D7B71F01DC' // END
+ ;
+
+ENDME // ME_52D7B7D60004 
+
+ME ME_52D7DDBF018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC542005F // TryFinally
+ ;
+ MELINK Target WL? 'ME_52D7DDA20227' // FINALLY
+ ;
+
+ENDME // ME_52D7DDBF018F 
+
+ME ME_52D7DDD70163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBAC542005F // TryFinally
+ ;
+ MELINK Target WL? 'ME_52D7DDC80366' // EXCEPT
+ ;
+
+ENDME // ME_52D7DDD70163 
+
+MEREF ME_4DB6C99F026E_ME_4DBAC542005F_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB6C99F026E_ME_4DBAC542005F_impl EndBracket
+
+MEREF ME_4DBAC41301F2_ME_4DBAC542005F_impl
+ MELINK Original WL 'ME_4DBAC41301F2' '4DBAC32F02B5.ms.model.script' // MedianBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DBAC41301F2_ME_4DBAC542005F_impl MedianBracket
+
+MEREF ME_4DBAC44D02CC_ME_4DBAC542005F_impl
+ MELINK Original WL 'ME_4DBAC44D02CC' '4DBAC32F02B5.ms.model.script' // MakeDualCompiled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DBAC44D02CC_ME_4DBAC542005F_impl MakeDualCompiled
+
+MEREF ME_4DBADF3E02CC_ME_4DBAC542005F_impl
+ MELINK Original WL 'ME_4DBADF3E02CC' '4DBAC32F02B5.ms.model.script' // MedianBracket2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DBADF3E02CC_ME_4DBAC542005F_impl MedianBracket2
+
+MEREF ME_4DB0614603C8_ME_4DBAC542005F_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DBAC542005F_over GetWordNameForRegister
+
+MEREF ME_4DBAC32F02B5_ME_4DBAC542005F_G
+ MELINK Original WL? 'ME_4DBAC32F02B5' // TtfwDualWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DBAC32F02B5_ME_4DBAC542005F_G TtfwDualWord
+
+%%InheritedBy ME_4DBAC32F02B5 ME_4DBAC542005F
+
+ME ME_4DBAC542005F
+ MEPROP UID '4DBAC542005F'
+ MEPROP Name 'TryFinally'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Полный аналог try finally Delphi' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DBAC32F02B5_ME_4DBAC542005F_G // TtfwDualWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4DBAC542005F_impl // EndBracket
+ ME_4DBAC41301F2_ME_4DBAC542005F_impl // MedianBracket
+ ME_4DBAC44D02CC_ME_4DBAC542005F_impl // MakeDualCompiled
+ ME_4DBADF3E02CC_ME_4DBAC542005F_impl // MedianBracket2
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DBAC542005F_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DBAC5B50200 // TkwCompiledTryFinally
+ ME_4DBADF150395 // TkwCompiledTryExcept
+ ME_52D7B7D60004 // END
+ ME_52D7DDBF018F // FINALLY
+ ME_52D7DDD70163 // EXCEPT
+ )
+ ; // Dependencies
+ UP "NameForScript" 'TRY'
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '29.04.2011 18:04'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTryFinally.pas'
+ UP extprop:pas:TypeName 'TkwTryFinally'
+ UP extprop:rc:SelfName 'TryFinally'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwTryFinally'
+
+ENDME // ME_4DBAC542005F TryFinally

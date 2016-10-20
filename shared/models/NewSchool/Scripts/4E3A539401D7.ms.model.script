@@ -1,0 +1,274 @@
+// TevColumnBorderMarker 4E3A539401D7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E3A539401D7
+
+FORWARD ME_4E3A539401D7
+
+MEREF ME_4E3A539401D7_ME_4ED4C68E0116_G
+ MELINK Original HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E3A539401D7_ME_4ED4C68E0116_G TevColumnBorderMarker
+
+%%InheritedBy ME_4E3A539401D7 ME_4ED4C68E0116
+
+ME ME_4ED4C68E0116
+ MEPROP UID '4ED4C68E0116'
+ MEPROP Name 'RevColumnMarkerClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E3A539401D7_ME_4ED4C68E0116_G // TevColumnBorderMarker
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4ED4C68E0116 RevColumnMarkerClass
+
+ME ME_4E3A5B4B00DD
+ MEPROP UID '4E3A5B4B00DD'
+ MEPROP Name 'ColumnID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4E3A5B4B00DD ColumnID
+
+FORWARD ME_4E3A54F80016
+
+ME ME_52BD348A00DD
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52BD348A00DD aView
+
+ME ME_52BD3490002F
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_52BD3490002F aPara
+
+ME ME_4E3A55360354
+ MEPROP Name 'aColumnID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3A55360354 aColumnID
+
+ME ME_52BD34960370
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52BD34960370 aHint
+
+ME ME_4E3A550D0059
+ MEPROP UID '4E3A550D0059'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3A54F80016 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD348A00DD // aView
+ ME_52BD3490002F // aPara
+ ME_4E3A55360354 // aColumnID
+ ME_52BD34960370 // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_4E3A550D0059 DoIt
+
+ME ME_4E3A54F80016
+ MEPROP UID '4E3A54F80016'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3A550D0059 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E3A54F80016 Create
+
+ME ME_4E3A5A3B01B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4E3A5A3B01B4 
+
+ME ME_4ECF97160244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_4ECF97160244 
+
+ME ME_52BD347701D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3A539401D7 // TevColumnBorderMarker
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD347701D4 
+
+MEREF ME_4A2625D4012E_ME_4E3A539401D7_impl
+ MELINK Original WL 'ME_4A2625D4012E' '47F088300159.ms.model.script' // ColumnID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4A2625D4012E_ME_4E3A539401D7_impl ColumnID
+
+MEREF ME_4E3A3F0D0388_ME_4E3A539401D7_over
+ MELINK Original WL 'ME_4E3A3F0D0388' '4A38AB2A00E2.ms.model.script' // SetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E3A3F0D0388_ME_4E3A539401D7_over SetClientValue
+
+MEREF ME_4E3A4C4B03A0_ME_4E3A539401D7_over
+ MELINK Original WL 'ME_4E3A4C4B03A0' '4A38AB2A00E2.ms.model.script' // DoGetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E3A4C4B03A0_ME_4E3A539401D7_over DoGetClientValue
+
+MEREF ME_52BC1DD60298_ME_4E3A539401D7_over
+ MELINK Original WL 'ME_52BC1DD60298' '47F5DAEB0007.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BC1DD60298_ME_4E3A539401D7_over Assign
+
+MEREF ME_4A38AB2A00E2_ME_4E3A539401D7_G
+ MELINK Original WL? 'ME_4A38AB2A00E2' // TevMarker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A38AB2A00E2_ME_4E3A539401D7_G TevMarker
+
+MEREF ME_480F4E9301DE_ME_4E3A539401D7_R
+ MELINK Original WL? 'ME_480F4E9301DE' // nevParaListTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480F4E9301DE_ME_4E3A539401D7_R nevParaListTool
+
+MEREF ME_4A2625B60015_ME_4E3A539401D7_R
+ MELINK Original WL 'ME_4A2625B60015' '47F088300159.ms.model.script' // IevColumnBorderMarker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A2625B60015_ME_4E3A539401D7_R IevColumnBorderMarker
+
+MEREF ME_4E3A6520002C_ME_4E3A539401D7_R
+ MELINK Original WL? 'ME_4E3A6520002C' // RoundMarkerValue
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E3A6520002C_ME_4E3A539401D7_R RoundMarkerValue
+
+%%ImplementedBy ME_480F4E9301DE ME_4E3A539401D7
+%%ImplementedBy ME_4A2625B60015 ME_4E3A539401D7
+%%ImplementedBy ME_4E3A6520002C ME_4E3A539401D7
+
+%%InheritedBy ME_4A38AB2A00E2 ME_4E3A539401D7
+
+ME ME_4E3A539401D7
+ MEPROP UID '4E3A539401D7'
+ MEPROP Name 'TevColumnBorderMarker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A38AB2A00E2_ME_4E3A539401D7_G // TevMarker
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_480F4E9301DE_ME_4E3A539401D7_R // nevParaListTool
+ ME_4A2625B60015_ME_4E3A539401D7_R // IevColumnBorderMarker
+ ME_4E3A6520002C_ME_4E3A539401D7_R // RoundMarkerValue
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E3A5B4B00DD // ColumnID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E3A54F80016 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A2625D4012E_ME_4E3A539401D7_impl // ColumnID
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4E3A3F0D0388_ME_4E3A539401D7_over // SetClientValue
+ ME_4E3A4C4B03A0_ME_4E3A539401D7_over // DoGetClientValue
+ ME_52BC1DD60298_ME_4E3A539401D7_over // Assign
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4ED4C68E0116 // RevColumnMarkerClass
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E3A5A3B01B4 // l3MinMax
+ ME_4ECF97160244 // nevFacade
+ ME_52BD347701D4 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evColumnBorderMarker.pas'
+ UP extprop:rc:SelfName 'ColumnBorderMarker'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evColumnBorderMarker'
+
+ENDME // ME_4E3A539401D7 TevColumnBorderMarker

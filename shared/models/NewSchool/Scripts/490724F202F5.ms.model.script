@@ -1,0 +1,100 @@
+// TnsRubricatorCache 490724F202F5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490724F202F5
+
+ME ME_4908807B02FD
+ MEPROP UID '4908807B02FD'
+ MEPROP Name 'RubricatorRoot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490724F202F5 // TnsRubricatorCache
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4908807B02FD RubricatorRoot
+
+ME ME_490880BB0087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490724F202F5 // TnsRubricatorCache
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_490880BB0087 
+
+ME ME_490880E3033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490724F202F5 // TnsRubricatorCache
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_490880E3033F 
+
+ME ME_4908825E0325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_490724F202F5 // TnsRubricatorCache
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_4908825E0325 
+
+MEREF ME_46780E690001_ME_490724F202F5_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_490724F202F5_G Tl3CacheableBase
+
+%%InheritedBy ME_46780E690001 ME_490724F202F5
+
+ME ME_490724F202F5
+ MEPROP UID '490724F202F5'
+ MEPROP Name 'TnsRubricatorCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4907236C0171' // Rubricator
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_490724F202F5_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4908807B02FD // RubricatorRoot
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_490880BB0087 // DataAdapter
+ ME_490880E3033F // CanNotFindData
+ ME_4908825E0325 // StringRoutines
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '2003/06/10 12:57:53'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsRubricatorCache.pas'
+ UP extprop:rc:SelfName 'RubricatorCache'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsRubricatorCache'
+
+ENDME // ME_490724F202F5 TnsRubricatorCache

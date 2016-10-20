@@ -1,0 +1,119 @@
+// TddTable 519B719F0019 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B719F0019
+
+ME ME_54EC65A701CE
+ MEPROP UID '54EC65A701CE'
+ MEPROP Name 'StartRow'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_519B719F0019 // TddTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_54EC65A701CE StartRow
+
+FORWARD ME_54EC750000EB
+
+ME ME_54EC750C01AE
+ MEPROP UID '54EC750C01AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54EC750000EB // ClearRows
+ ;
+
+ENDME // ME_54EC750C01AE DoIt
+
+ME ME_54EC750000EB
+ MEPROP UID '54EC750000EB'
+ MEPROP Name 'ClearRows'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B719F0019 // TddTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54EC750C01AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54EC750000EB ClearRows
+
+MEREF ME_479731C50290_ME_519B719F0019_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_519B719F0019_over Cleanup
+
+MEREF ME_518A48F500CF_ME_519B719F0019_over
+ MELINK Original WL 'ME_518A48F500CF' '4FACE0E4032F.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_518A48F500CF_ME_519B719F0019_over Clear
+
+MEREF ME_51E91BA80051_ME_519B719F0019_over
+ MELINK Original WL 'ME_51E91BA80051' '4FACE0E4032F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E91BA80051_ME_519B719F0019_over Create
+
+MEREF ME_4FACE16602E1_ME_519B719F0019_G
+ MELINK Original WL? 'ME_4FACE16602E1' // TddTablePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FACE16602E1_ME_519B719F0019_G TddTablePrim
+
+%%InheritedBy ME_4FACE16602E1 ME_519B719F0019
+
+ME ME_519B719F0019
+ MEPROP UID '519B719F0019'
+ MEPROP Name 'TddTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FACE16602E1_ME_519B719F0019_G // TddTablePrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54EC65A701CE // StartRow
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54EC750000EB // ClearRows
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_519B719F0019_over // Cleanup
+ ME_518A48F500CF_ME_519B719F0019_over // Clear
+ ME_51E91BA80051_ME_519B719F0019_over // Create
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTable.pas'
+ UP extprop:rc:SelfName 'ddTable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddTable'
+
+ENDME // ME_519B719F0019 TddTable

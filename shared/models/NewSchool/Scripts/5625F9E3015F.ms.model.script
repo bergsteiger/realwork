@@ -1,0 +1,160 @@
+// TnsBaseSearchClasses 5625F9E3015F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5625F9E3015F
+%%Inner ME_5625F9E3015F
+
+FORWARD ME_5625F9E3015F
+
+FORWARD ME_5625FA270228
+
+MEREF ME_5625E74C0183_ME_5625FA270228_impl
+ MELINK Original WL 'ME_5625E74C0183' '4A9F98B901A5.ms.model.script' // Current
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_5625E74C0183_ME_5625FA270228_impl Current
+
+MEREF ME_5625E75802C9_ME_5625FA270228_impl
+ MELINK Original WL 'ME_5625E75802C9' '4A9F98B901A5.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5625E75802C9_ME_5625FA270228_impl Reset
+
+MEREF ME_56273B63001B_ME_5625FA270228_impl
+ MELINK Original WL 'ME_56273B63001B' '4A9F98B901A5.ms.model.script' // MoveNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56273B63001B_ME_5625FA270228_impl MoveNext
+
+MEREF ME_5625E70C0151_ME_5625FA270228_R
+ MELINK Original WL 'ME_5625E70C0151' '4A9F98B901A5.ms.model.script' // InsBaseSearchClassesEnumerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5625E70C0151_ME_5625FA270228_R InsBaseSearchClassesEnumerator
+
+%%ImplementedBy ME_5625E70C0151 ME_5625FA270228
+
+ME ME_5625FA270228
+ MEPROP UID '5625FA270228'
+ MEPROP Name 'TnsBaseSearchClassesEnumerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5625F9E3015F // TnsBaseSearchClasses
+ ;
+ MELIST Implements
+   Seq: ( ME_5625E70C0151_ME_5625FA270228_R // InsBaseSearchClassesEnumerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_5625E74C0183_ME_5625FA270228_impl // Current
+ ME_5625E75802C9_ME_5625FA270228_impl // Reset
+ ME_56273B63001B_ME_5625FA270228_impl // MoveNext
+ )
+ ; // Implemented
+ UP "finished" false
+ UP extprop:rc:SelfName 'BaseSearchClassesEnumerator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5625FA270228 TnsBaseSearchClassesEnumerator
+
+FORWARD ME_5625F9F90025
+
+MEREF ME_5626252201EE_ME_5625F9F90025_impl
+ MELINK Original WL 'ME_5626252201EE' '4A9F98B901A5.ms.model.script' // AdapterNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_5626252201EE_ME_5625F9F90025_impl AdapterNode
+
+MEREF ME_5626254502B1_ME_5625F9F90025_impl
+ MELINK Original WL 'ME_5626254502B1' '4A9F98B901A5.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_5626254502B1_ME_5625F9F90025_impl Name
+
+MEREF ME_56262560021F_ME_5625F9F90025_impl
+ MELINK Original WL 'ME_56262560021F' '4A9F98B901A5.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56262560021F_ME_5625F9F90025_impl IsSame
+
+MEREF ME_496B5F7603B4_ME_5625F9F90025_R
+ MELINK Original WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496B5F7603B4_ME_5625F9F90025_R InsBaseSearchClass
+
+%%ImplementedBy ME_496B5F7603B4 ME_5625F9F90025
+
+ME ME_5625F9F90025
+ MEPROP UID '5625F9F90025'
+ MEPROP Name 'TnsBaseSearchClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5625F9E3015F // TnsBaseSearchClasses
+ ;
+ MELIST Implements
+   Seq: ( ME_496B5F7603B4_ME_5625F9F90025_R // InsBaseSearchClass
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_5626252201EE_ME_5625F9F90025_impl // AdapterNode
+ ME_5626254502B1_ME_5625F9F90025_impl // Name
+ ME_56262560021F_ME_5625F9F90025_impl // IsSame
+ )
+ ; // Implemented
+ UP "finished" false
+ UP extprop:rc:SelfName 'BaseSearchClass'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5625F9F90025 TnsBaseSearchClass
+
+ME ME_5625FBC5011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5625F9E3015F // TnsBaseSearchClasses
+ ;
+ MELINK Target WL? 'ME_5625FA0902EE' // TnsBaseSearchClassList
+ ;
+
+ENDME // ME_5625FBC5011C 
+
+ME ME_5625F9E3015F
+ MEPROP UID '5625F9E3015F'
+ MEPROP Name 'TnsBaseSearchClasses'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC225E70273' // BaseSearch
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5625FA270228 // TnsBaseSearchClassesEnumerator
+ HWL ME_5625F9F90025 // TnsBaseSearchClass
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5625FBC5011C // TnsBaseSearchClassList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsBaseSearchClasses.pas'
+ UP extprop:rc:SelfName 'BaseSearchClasses'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsBaseSearchClasses'
+
+ENDME // ME_5625F9E3015F TnsBaseSearchClasses

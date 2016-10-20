@@ -39,7 +39,7 @@ ME ME_4925603800AF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49255F4302EE // TdsAttributes
  ;
- MELINK Target WL 'ME_4683614C02F2' '4908545802CA.ms.model.script' // TnsDocAttributeTreeStruct
+ MELINK Target WL? 'ME_4683614C02F2' // TnsDocAttributeTreeStruct
  ;
 
 ENDME // ME_4925603800AF 
@@ -54,18 +54,30 @@ ME ME_4925604A0118
 
 ENDME // ME_4925604A0118 
 
-ME ME_47F4C2B9014A_ME_49255F4302EE
+MEREF ME_47F4C2B9014A_ME_49255F4302EE_impl
  MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47F4C2B9014A_ME_49255F4302EE MakeSimpleTree
+ENDMEREF // ME_47F4C2B9014A_ME_49255F4302EE_impl MakeSimpleTree
 
-ME ME_49255D4A0215_ME_49255F4302EE
+MEREF ME_49255D4A0215_ME_49255F4302EE_impl
  MELINK Original WL 'ME_49255D4A0215' '491B305A0096.ms.model.script' // DocInfo
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_49255D4A0215_ME_49255F4302EE DocInfo
+ENDMEREF // ME_49255D4A0215_ME_49255F4302EE_impl DocInfo
+
+MEREF ME_47F0C1410011_ME_49255F4302EE_G
+ MELINK Original WL? 'ME_47F0C1410011' // dsSimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F0C1410011_ME_49255F4302EE_G dsSimpleTree
+
+MEREF ME_49255D040142_ME_49255F4302EE_R
+ MELINK Original WL 'ME_49255D040142' '491B305A0096.ms.model.script' // IdsAttributes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49255D040142_ME_49255F4302EE_R IdsAttributes
 
 %%ImplementedBy ME_49255D040142 ME_49255F4302EE
 
@@ -84,11 +96,11 @@ ME ME_49255F4302EE
  MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47F0C1410011' // dsSimpleTree
+   Seq: ( ME_47F0C1410011_ME_49255F4302EE_G // dsSimpleTree
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_49255D040142' '491B305A0096.ms.model.script' // IdsAttributes
+   Seq: ( ME_49255D040142_ME_49255F4302EE_R // IdsAttributes
  )
  ; // Implements
  MELIST Attributes
@@ -97,8 +109,8 @@ ME ME_49255F4302EE
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47F4C2B9014A_ME_49255F4302EE // MakeSimpleTree
- ME_49255D4A0215_ME_49255F4302EE // DocInfo
+   Seq: ( ME_47F4C2B9014A_ME_49255F4302EE_impl // MakeSimpleTree
+ ME_49255D4A0215_ME_49255F4302EE_impl // DocInfo
  )
  ; // Implemented
  MELIST Dependencies

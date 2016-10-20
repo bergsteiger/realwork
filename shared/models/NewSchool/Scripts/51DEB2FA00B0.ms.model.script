@@ -1,0 +1,62 @@
+// IntegerListTest 51DEB2FA00B0 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEB2FA00B0
+
+ME ME_51E040210339
+ MEPROP UID '51E040210339'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DEB2FA00B0 // IntegerListTest
+ ;
+ MELINK Target WL? 'ME_51DEB249012E' // TIntegerList
+ ;
+
+ENDME // ME_51E040210339 ListType
+
+MEREF ME_4B2A0DDE028B_ME_51DEB2FA00B0_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_51DEB2FA00B0_G TTestCase
+
+MEREF ME_51E03FC80111_ME_51DEB2FA00B0_G
+ MELINK Original WL? 'ME_51E03FC80111' // AtomicListTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E03FC80111_ME_51DEB2FA00B0_G AtomicListTest
+
+%%InheritedBy ME_4B2A0DDE028B ME_51DEB2FA00B0
+%%InheritedBy ME_51E03FC80111 ME_51DEB2FA00B0
+
+ME ME_51DEB2FA00B0
+ MEPROP UID '51DEB2FA00B0'
+ MEPROP Name 'IntegerListTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB2C70024' // FinalContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A0DDE028B_ME_51DEB2FA00B0_G // TTestCase
+ ME_51E03FC80111_ME_51DEB2FA00B0_G // AtomicListTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E040210339 // ListType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\SandBox\IntegerListTest.pas'
+ UP extprop:pas:TypeName 'TIntegerListTest'
+ UP extprop:rc:SelfName 'IntegerListTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51DEB2FA00B0 IntegerListTest

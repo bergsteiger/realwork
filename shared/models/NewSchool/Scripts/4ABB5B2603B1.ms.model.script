@@ -1,0 +1,135 @@
+// Tl3StringPtr 4ABB5B2603B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB5B2603B1
+
+ME ME_4ABB5B890205
+ MEPROP UID '4ABB5B890205'
+ MEPROP Name 'f_Str'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABB5B2603B1 // Tl3StringPtr
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ABB5B890205 f_Str
+
+ME ME_4ABB5CA60048
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ABB5CA60048 aStr
+
+ME ME_4ABB5C98013B
+ MEPROP UID '4ABB5C98013B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABB5B2603B1 // Tl3StringPtr
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ABB5CA60048 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4ABB5C98013B Create
+
+ME ME_4ABB5BA90076
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ABB5B2603B1 // Tl3StringPtr
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4ABB5BA90076 
+
+MEREF ME_479731C50290_ME_4ABB5B2603B1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4ABB5B2603B1_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_4ABB5B2603B1_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4ABB5B2603B1_over IsCacheable
+
+MEREF ME_47A869BB02DE_ME_4ABB5B2603B1_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_4ABB5B2603B1_over GetAsPCharLen
+
+MEREF ME_47A869D10074_ME_4ABB5B2603B1_over
+ MELINK Original WL 'ME_47A869D10074' '53317D14019D.ms.model.script' // DoSetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869D10074_ME_4ABB5B2603B1_over DoSetAsPCharLen
+
+MEREF ME_47A8693601A1_ME_4ABB5B2603B1_G
+ MELINK Original WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A8693601A1_ME_4ABB5B2603B1_G Tl3PrimString
+
+%%InheritedBy ME_47A8693601A1 ME_4ABB5B2603B1
+
+ME ME_4ABB5B2603B1
+ MEPROP UID '4ABB5B2603B1'
+ MEPROP Name 'Tl3StringPtr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка, не владеющая своими данными' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A6D65B9022A' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( ME_47A8693601A1_ME_4ABB5B2603B1_G // Tl3PrimString
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ABB5B890205 // f_Str
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ABB5C98013B // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ABB5B2603B1_over // Cleanup
+ ME_47A6FEE600FC_ME_4ABB5B2603B1_over // IsCacheable
+ ME_47A869BB02DE_ME_4ABB5B2603B1_over // GetAsPCharLen
+ ME_47A869D10074_ME_4ABB5B2603B1_over // DoSetAsPCharLen
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ABB5BA90076 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '24.09.2009 15:43'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StringPtr.pas'
+ UP extprop:rc:SelfName 'StringPtr'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3StringPtr'
+
+ENDME // ME_4ABB5B2603B1 Tl3StringPtr

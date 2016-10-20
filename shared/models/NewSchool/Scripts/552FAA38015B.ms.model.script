@@ -1,0 +1,80 @@
+// TevExpandedTextCollapser 552FAA38015B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552FAA38015B
+
+ME ME_552FB41E01D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552FAA38015B // TevExpandedTextCollapser
+ ;
+ MELINK Target WL 'ME_4821E72001F9' '4678209200A6.ms.model.script' // TnevShapePart
+ ;
+
+ENDME // ME_552FB41E01D9 
+
+ME ME_55F7C76100A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552FAA38015B // TevExpandedTextCollapser
+ ;
+ MELINK Target WL? 'ME_55F7C7400251' // TevExpandedTextActiveHyperlink
+ ;
+
+ENDME // ME_55F7C76100A5 
+
+MEREF ME_4E1D87640086_ME_552FAA38015B_over
+ MELINK Original WL 'ME_4E1D87640086' '4E1D776103C6.ms.model.script' // DoCollapse
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E1D87640086_ME_552FAA38015B_over DoCollapse
+
+MEREF ME_55F7C7110022_ME_552FAA38015B_over
+ MELINK Original WL 'ME_55F7C7110022' '4E1D961D02D6.ms.model.script' // GetDecorActiveHyperlinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55F7C7110022_ME_552FAA38015B_over GetDecorActiveHyperlinkClass
+
+MEREF ME_4E1D776103C6_ME_552FAA38015B_G
+ MELINK Original WL? 'ME_4E1D776103C6' // TevParaCollapser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E1D776103C6_ME_552FAA38015B_G TevParaCollapser
+
+%%InheritedBy ME_4E1D776103C6 ME_552FAA38015B
+
+ME ME_552FAA38015B
+ MEPROP UID '552FAA38015B'
+ MEPROP Name 'TevExpandedTextCollapser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E1D776103C6_ME_552FAA38015B_G // TevParaCollapser
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4E1D87640086_ME_552FAA38015B_over // DoCollapse
+ ME_55F7C7110022_ME_552FAA38015B_over // GetDecorActiveHyperlinkClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_552FB41E01D9 // TnevShapePart
+ ME_55F7C76100A5 // TevExpandedTextActiveHyperlink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evExpandedTextCollapser.pas'
+ UP extprop:rc:SelfName 'ExpandedTextCollapser'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evExpandedTextCollapser'
+
+ENDME // ME_552FAA38015B TevExpandedTextCollapser

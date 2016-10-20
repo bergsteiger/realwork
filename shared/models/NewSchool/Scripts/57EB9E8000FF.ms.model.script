@@ -1,0 +1,70 @@
+// TmsmOperationsActionList 57EB9E8000FF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EB9E8000FF
+
+ME ME_57EB9EBA03B4
+ MEPROP UID '57EB9EBA03B4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB9E8000FF // TmsmOperationsActionList
+ ;
+
+ENDME // ME_57EB9EBA03B4 Create
+
+ME ME_57EB9E97037C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EB9E8000FF // TmsmOperationsActionList
+ ;
+ MELINK Target WL? 'ME_57D909F3037B' // TmsmImages
+ ;
+
+ENDME // ME_57EB9E97037C 
+
+MEREF ME_4EF32DDB0235_ME_57EB9E8000FF_G
+ MELINK Original WL 'ME_4EF32DDB0235' '47E76250004C.ms.model.script' // TActionList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF32DDB0235_ME_57EB9E8000FF_G TActionList
+
+%%InheritedBy ME_4EF32DDB0235 ME_57EB9E8000FF
+
+ME ME_57EB9E8000FF
+ MEPROP UID '57EB9E8000FF'
+ MEPROP Name 'TmsmOperationsActionList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_4EF32DDB0235_ME_57EB9E8000FF_G // TActionList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57EB9EBA03B4 // Create
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57EB9E97037C // TmsmImages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationsActionList.pas'
+ UP extprop:rc:SelfName 'msmOperationsActionList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmOperationsActionList'
+
+ENDME // ME_57EB9E8000FF TmsmOperationsActionList

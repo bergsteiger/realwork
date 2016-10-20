@@ -1,0 +1,228 @@
+// TvcmOperationsDefIteratorForContextMenu 51D14918034E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51D14918034E
+
+ME ME_51D14988013B
+ MEPROP UID '51D14988013B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
+ ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_51D14988013B ItemType
+
+ME ME_51D149AA03A4
+ MEPROP UID '51D149AA03A4'
+ MEPROP Name 'f_Iter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
+ ;
+ MELINK Target WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+
+ENDME // ME_51D149AA03A4 f_Iter
+
+ME ME_51D149F40273
+ MEPROP UID '51D149F40273'
+ MEPROP Name 'f_Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51D149F40273 f_Index
+
+FORWARD ME_51D149B9038D
+
+ME ME_51D149C70193
+ MEPROP Name 'anIter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+
+ENDME // ME_51D149C70193 anIter
+
+ME ME_51D149C10000
+ MEPROP UID '51D149C10000'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D149B9038D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_51D149C70193 // anIter
+ )
+ ; // Parameters
+
+ENDME // ME_51D149C10000 DoIt
+
+ME ME_51D149B9038D
+ MEPROP UID '51D149B9038D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51D149C10000 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51D149B9038D Create
+
+MEREF ME_51D149B9038D_ME_51D149CE0372_G
+ MELINK Original HWL ME_51D149B9038D // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D149B9038D_ME_51D149CE0372_G Create
+
+MEREF ME_4995644E03A9_ME_51D149CE0372_R
+ MELINK Original WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4995644E03A9_ME_51D149CE0372_R IvcmOperationsDefIterator
+
+%%ImplementedBy ME_4995644E03A9 ME_51D149CE0372
+
+%%InheritedBy ME_51D149B9038D ME_51D149CE0372
+
+ME ME_51D149CE0372
+ MEPROP UID '51D149CE0372'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D14918034E // TvcmOperationsDefIteratorForContextMenu
+ ;
+ MELIST Inherits
+   Seq: ( ME_51D149B9038D_ME_51D149CE0372_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4995644E03A9_ME_51D149CE0372_R // IvcmOperationsDefIterator
+ )
+ ; // Implements
+ UP "check nil" true
+
+ENDME // ME_51D149CE0372 Make
+
+MEREF ME_47B07CF403D0_ME_51D14918034E_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_51D14918034E_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_51D14918034E_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_51D14918034E_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_51D14918034E_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_51D14918034E_impl CompareExistingItems
+
+MEREF ME_4995645B02C7_ME_51D14918034E_impl
+ MELINK Original WL 'ME_4995645B02C7' '499EAAE502A8.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4995645B02C7_ME_51D14918034E_impl Next
+
+MEREF ME_47B9AF6E0228_ME_51D14918034E_G
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_51D14918034E_G l3InterfaceRefListPrim
+
+MEREF ME_4A54DD4E036F_ME_51D14918034E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_51D14918034E_G Tl3ProtoDataContainer
+
+MEREF ME_4995644E03A9_ME_51D14918034E_R
+ MELINK Original WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4995644E03A9_ME_51D14918034E_R IvcmOperationsDefIterator
+
+%%ImplementedBy ME_4995644E03A9 ME_51D14918034E
+
+%%InheritedBy ME_47B9AF6E0228 ME_51D14918034E
+%%InheritedBy ME_4A54DD4E036F ME_51D14918034E
+
+ME ME_51D14918034E
+ MEPROP UID '51D14918034E'
+ MEPROP Name 'TvcmOperationsDefIteratorForContextMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9AF6E0228_ME_51D14918034E_G // l3InterfaceRefListPrim
+ ME_4A54DD4E036F_ME_51D14918034E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4995644E03A9_ME_51D14918034E_R // IvcmOperationsDefIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51D14988013B // ItemType
+ HWL ME_51D149AA03A4 // f_Iter
+ HWL ME_51D149F40273 // f_Index
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51D149B9038D // Create
+ HWL ME_51D149CE0372 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_51D14918034E_impl // IsSameItems
+ ME_47B2C42A0163_ME_51D14918034E_impl // AssignItem
+ ME_47B99D4503A2_ME_51D14918034E_impl // CompareExistingItems
+ ME_4995645B02C7_ME_51D14918034E_impl // Next
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmOperationsDefIteratorForContextMenu.pas'
+ UP extprop:rc:SelfName 'OperationsDefIteratorForContextMenu'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmOperationsDefIteratorForContextMenu'
+
+ENDME // ME_51D14918034E TvcmOperationsDefIteratorForContextMenu

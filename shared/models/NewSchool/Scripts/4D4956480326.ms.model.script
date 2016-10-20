@@ -1,0 +1,176 @@
+// TvgObject 4D4956480326 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D4956480326
+
+ME ME_4D52D8B402D0
+ MEPROP UID '4D52D8B402D0'
+ MEPROP Name 'FNotifyList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELINK Target WL? 'ME_4D52D82E0312' // TvgAnyObjectList
+ ;
+
+ENDME // ME_4D52D8B402D0 FNotifyList
+
+ME ME_4D552B73025E
+ MEPROP UID '4D552B73025E'
+ MEPROP Name 'FChildren'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELINK Target WL? 'ME_4D552B230161' // TvgSortableObjectList
+ ;
+
+ENDME // ME_4D552B73025E FChildren
+
+FORWARD ME_4D5EA9B9016E
+
+ME ME_4D5EA9DF0082
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4D5EA95401A8' // TvgCustomObjectList
+ ;
+
+ENDME // ME_4D5EA9DF0082 aList
+
+ME ME_4D5EA9D60139
+ MEPROP UID '4D5EA9D60139'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5EA9B9016E // AddObjectsToList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5EA9DF0082 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4D5EA9D60139 DoIt
+
+ME ME_4D5EA9B9016E
+ MEPROP UID '4D5EA9B9016E'
+ MEPROP Name 'AddObjectsToList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9D60139 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5EA9B9016E AddObjectsToList
+
+FORWARD ME_4D5EA9E700D0
+
+ME ME_4D5EA9FA00F2
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4D5EA95401A8' // TvgCustomObjectList
+ ;
+
+ENDME // ME_4D5EA9FA00F2 aList
+
+ME ME_4D5EA9F80139
+ MEPROP UID '4D5EA9F80139'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5EA9E700D0 // AddControlsToList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5EA9FA00F2 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4D5EA9F80139 DoIt
+
+ME ME_4D5EA9E700D0
+ MEPROP UID '4D5EA9E700D0'
+ MEPROP Name 'AddControlsToList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4956480326 // TvgObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9F80139 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5EA9E700D0 AddControlsToList
+
+MEREF ME_4D5EAD10009D_ME_4D4956480326_impl
+ MELINK Original WL 'ME_4D5EAD10009D' '4D542078016E.ms.model.script' // IsVisual
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_4D5EAD10009D_ME_4D4956480326_impl IsVisual
+
+MEREF ME_4D542078016E_ME_4D4956480326_G
+ MELINK Original WL? 'ME_4D542078016E' // TvgCustomObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D542078016E_ME_4D4956480326_G TvgCustomObject
+
+%%InheritedBy ME_4D542078016E ME_4D4956480326
+
+ME ME_4D4956480326
+ MEPROP UID '4D4956480326'
+ MEPROP Name 'TvgObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D542078016E_ME_4D4956480326_G // TvgCustomObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D52D8B402D0 // FNotifyList
+ HWL ME_4D552B73025E // FChildren
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D5EA9B9016E // AddObjectsToList
+ HWL ME_4D5EA9E700D0 // AddControlsToList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D5EAD10009D_ME_4D4956480326_impl // IsVisual
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP "register in scripts" true
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgObject.pas'
+ UP extprop:rc:SelfName 'Object'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgObject'
+
+ENDME // ME_4D4956480326 TvgObject

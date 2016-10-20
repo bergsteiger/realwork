@@ -1,0 +1,117 @@
+// Tl3ProgressComponent 4754200F029E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4754200F029E
+
+MEREF ME_476F75DE01E9_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F75DE01E9' '4677FBA70343.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F75DE01E9_ME_4754200F029E_impl Start
+
+MEREF ME_476F75F60302_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F75F60302' '4677FBA70343.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F75F60302_ME_4754200F029E_impl Start
+
+MEREF ME_476F7608002D_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F7608002D' '4677FBA70343.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F7608002D_ME_4754200F029E_impl Finish
+
+MEREF ME_476F76160143_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F76160143' '4677FBA70343.ms.model.script' // Progress
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F76160143_ME_4754200F029E_impl Progress
+
+MEREF ME_476F7637011A_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F7637011A' '4677FBA70343.ms.model.script' // Progress
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F7637011A_ME_4754200F029E_impl Progress
+
+MEREF ME_476F76450378_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F76450378' '4677FBA70343.ms.model.script' // ProgressEx
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F76450378_ME_4754200F029E_impl ProgressEx
+
+MEREF ME_476F76550369_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F76550369' '4677FBA70343.ms.model.script' // ChangeIO
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F76550369_ME_4754200F029E_impl ChangeIO
+
+MEREF ME_476F76660313_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F76660313' '4677FBA70343.ms.model.script' // InIO
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F76660313_ME_4754200F029E_impl InIO
+
+MEREF ME_476F767601FC_ME_4754200F029E_impl
+ MELINK Original WL 'ME_476F767601FC' '4677FBA70343.ms.model.script' // InUse
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_476F767601FC_ME_4754200F029E_impl InUse
+
+MEREF ME_47541E17024E_ME_4754200F029E_G
+ MELINK Original WL? 'ME_47541E17024E' // Tl3InterfacedComponent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47541E17024E_ME_4754200F029E_G Tl3InterfacedComponent
+
+MEREF ME_4754205E002C_ME_4754200F029E_R
+ MELINK Original WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4754205E002C_ME_4754200F029E_R Il3Progress
+
+%%ImplementedBy ME_4754205E002C ME_4754200F029E
+
+%%InheritedBy ME_47541E17024E ME_4754200F029E
+
+ME ME_4754200F029E
+ MEPROP UID '4754200F029E'
+ MEPROP Name 'Tl3ProgressComponent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс компонентов, имеющих индикатор прогресса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47541E17024E_ME_4754200F029E_G // Tl3InterfacedComponent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4754205E002C_ME_4754200F029E_R // Il3Progress
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_476F75DE01E9_ME_4754200F029E_impl // Start
+ ME_476F75F60302_ME_4754200F029E_impl // Start
+ ME_476F7608002D_ME_4754200F029E_impl // Finish
+ ME_476F76160143_ME_4754200F029E_impl // Progress
+ ME_476F7637011A_ME_4754200F029E_impl // Progress
+ ME_476F76450378_ME_4754200F029E_impl // ProgressEx
+ ME_476F76550369_ME_4754200F029E_impl // ChangeIO
+ ME_476F76660313_ME_4754200F029E_impl // InIO
+ ME_476F767601FC_ME_4754200F029E_impl // InUse
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В. ©'
+ UP "finished" false
+ UP "started" '18.05.2000 14:36'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3ProgressComponent.pas'
+ UP extprop:rc:SelfName 'ProgressComponent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProgressComponent'
+
+ENDME // ME_4754200F029E Tl3ProgressComponent

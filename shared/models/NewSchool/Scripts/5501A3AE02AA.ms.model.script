@@ -1,0 +1,95 @@
+// Tl3DispatcherHelper 5501A3AE02AA Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5501A3AE02AA
+
+FORWARD ME_5501A3AE02AA
+
+FORWARD ME_1FB1A07FEA18
+
+FORWARD ME_55069D5903C8
+
+ME ME_CA1F3F463873
+ MEPROP UID 'CA1F3F463873'
+ MEPROP Name 'ClearHistory'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ;
+ UPLINK Speller HWL ME_55069D5903C8 // ClearHistory
+ ;
+
+ENDME // ME_CA1F3F463873 ClearHistory
+
+ME ME_1FB1A07FEA18
+ MEPROP UID '1FB1A07FEA18'
+ MEPROP Name 'Ml3DispatcherHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3DispatcherHelper' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_CA1F3F463873 // ClearHistory
+ )
+ ; // Operations
+
+ENDME // ME_1FB1A07FEA18 Ml3DispatcherHelper
+
+ME ME_55069D5903C8
+ MEPROP UID '55069D5903C8'
+ MEPROP Name 'ClearHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5501A3AE02AA // Tl3DispatcherHelper
+ ;
+
+ENDME // ME_55069D5903C8 ClearHistory
+
+MEREF ME_49E7754802A9_ME_5501A3AE02AA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5501A3AE02AA_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5501A3AE02AA
+
+ME ME_5501A3AE02AA
+ MEPROP UID '5501A3AE02AA'
+ MEPROP Name 'Tl3DispatcherHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_550198F60382' // VCMHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5501A3AE02AA_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55069D5903C8 // ClearHistory
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DispatcherHelper.pas'
+ UP extprop:rc:SelfName 'DispatcherHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3DispatcherHelper'
+
+ENDME // ME_5501A3AE02AA Tl3DispatcherHelper

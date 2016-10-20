@@ -1,0 +1,60 @@
+// K585129079_NSRC_ANSI 5491ABF802C6 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5491ABF802C6
+
+ME ME_5491AC2B0279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5491ABF802C6 // K585129079_NSRC_ANSI
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_5491AC2B0279 
+
+MEREF ME_4BEBCEA00177_ME_5491ABF802C6_over
+ MELINK Original WL 'ME_4BEBCEA00177' '4B4F68EE006B.ms.model.script' // NSRCCodePage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BEBCEA00177_ME_5491ABF802C6_over NSRCCodePage
+
+MEREF ME_4B8542C302E3_ME_5491ABF802C6_G
+ MELINK Original WL? 'ME_4B8542C302E3' // TEVDtoBothNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8542C302E3_ME_5491ABF802C6_G TEVDtoBothNSRCWriterTest
+
+%%InheritedBy ME_4B8542C302E3 ME_5491ABF802C6
+
+ME ME_5491ABF802C6
+ MEPROP UID '5491ABF802C6'
+ MEPROP Name 'K585129079_NSRC_ANSI'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:585129079}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_549199FF02ED' // 7.11
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B8542C302E3_ME_5491ABF802C6_G // TEVDtoBothNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BEBCEA00177_ME_5491ABF802C6_over // NSRCCodePage
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5491AC2B0279 // Code Pages
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K585129079_NSRC_ANSI.pas'
+ UP extprop:pas:TypeName 'TK585129079_NSRC_ANSI'
+ UP extprop:rc:SelfName 'K585129079_NSRC_ANSI'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5491ABF802C6 K585129079_NSRC_ANSI

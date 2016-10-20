@@ -106,7 +106,7 @@ ENDME // ME_4E568F490298 DoIt
 ME ME_4E568F3C0274
  MEPROP UID '4E568F3C0274'
  MEPROP Name 'DocumentUseFixedFontForPrintAndExportSetting'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -191,7 +191,7 @@ ME ME_4E72049B0124
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E72038F00C3 // nevFontTool
  ;
- MELINK Target WL 'ME_4E54CF7E0143' '47ECB2870309.ms.model.script' // TevStandardStyles
+ MELINK Target WL? 'ME_4E54CF7E0143' // TevStandardStyles
  ;
 
 ENDME // ME_4E72049B0124 
@@ -211,7 +211,7 @@ ME ME_4E7204DC01C9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E72038F00C3 // nevFontTool
  ;
- MELINK Target WL 'ME_4E68E533026D' '4E56909E0240.ms.model.script' // TevResultFontHolder
+ MELINK Target WL? 'ME_4E68E533026D' // TevResultFontHolder
  ;
 
 ENDME // ME_4E7204DC01C9 
@@ -251,7 +251,7 @@ ME ME_4E7204FA02C7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E72038F00C3 // nevFontTool
  ;
- MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ MELINK Target WL? 'ME_480DB927035A' // TevStyleInterface
  ;
 
 ENDME // ME_4E7204FA02C7 
@@ -301,7 +301,7 @@ ME ME_4E72054B0014
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E72038F00C3 // nevFontTool
  ;
- MELINK Target WL 'ME_4E31743D01F8' '47ECB2870309.ms.model.script' // TevDefaultStylesFontSizes
+ MELINK Target WL? 'ME_4E31743D01F8' // TevDefaultStylesFontSizes
  ;
 
 ENDME // ME_4E72054B0014 
@@ -361,7 +361,7 @@ ME ME_4E7209430074
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E72038F00C3 // nevFontTool
  ;
- MELINK Target WL 'ME_4E56924B029C' '4E60BA4D00A6.ms.model.script' // TevGlyphFont
+ MELINK Target WL? 'ME_4E56924B029C' // TevGlyphFont
  ;
 
 ENDME // ME_4E7209430074 
@@ -376,29 +376,47 @@ ME ME_4F609E4E021E
 
 ENDME // ME_4F609E4E021E 
 
-ME ME_476BFAA60313_ME_4E72038F00C3
+MEREF ME_476BFAA60313_ME_4E72038F00C3_impl
  MELINK Original WL 'ME_476BFAA60313' '4F4B74180276.ms.model.script' // GetObjRealFont
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_476BFAA60313_ME_4E72038F00C3 GetObjRealFont
+ENDMEREF // ME_476BFAA60313_ME_4E72038F00C3_impl GetObjRealFont
 
-ME ME_486CB85C01FD_ME_4E72038F00C3
+MEREF ME_486CB85C01FD_ME_4E72038F00C3_impl
  MELINK Original WL 'ME_486CB85C01FD' '4F4B74180276.ms.model.script' // GetObjIFont
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_486CB85C01FD_ME_4E72038F00C3 GetObjIFont
+ENDMEREF // ME_486CB85C01FD_ME_4E72038F00C3_impl GetObjIFont
 
-ME ME_479731C50290_ME_4E72038F00C3
+MEREF ME_479731C50290_ME_4E72038F00C3_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4E72038F00C3 Cleanup
+ENDMEREF // ME_479731C50290_ME_4E72038F00C3_over Cleanup
 
-ME ME_479F2AFB0397_ME_4E72038F00C3
+MEREF ME_479F2AFB0397_ME_4E72038F00C3_over
  MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479F2AFB0397_ME_4E72038F00C3 Release
+ENDMEREF // ME_479F2AFB0397_ME_4E72038F00C3_over Release
+
+MEREF ME_4A5CB93700CF_ME_4E72038F00C3_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4E72038F00C3_R Ml3Unknown
+
+MEREF ME_4E314D470350_ME_4E72038F00C3_R
+ MELINK Original WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' // Возможность печатать фиксированным шрифтом
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E314D470350_ME_4E72038F00C3_R Возможность печатать фиксированным шрифтом
+
+MEREF ME_4E7202E403E1_ME_4E72038F00C3_R
+ MELINK Original WL 'ME_4E7202E403E1' '4F4B74180276.ms.model.script' // MnevFontTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7202E403E1_ME_4E72038F00C3_R MnevFontTool
 
 %%ImplementedBy ME_4A5CB93700CF ME_4E72038F00C3
 %%ImplementedBy ME_4E314D470350 ME_4E72038F00C3
@@ -416,9 +434,9 @@ ME ME_4E72038F00C3
  MELINK Parent WL? 'ME_4E71FAFC0240' // Garbage
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' // Возможность печатать фиксированным шрифтом
- WL 'ME_4E7202E403E1' '4F4B74180276.ms.model.script' // MnevFontTool
+   Seq: ( ME_4A5CB93700CF_ME_4E72038F00C3_R // Ml3Unknown
+ ME_4E314D470350_ME_4E72038F00C3_R // Возможность печатать фиксированным шрифтом
+ ME_4E7202E403E1_ME_4E72038F00C3_R // MnevFontTool
  )
  ; // Implements
  MELIST Attributes
@@ -436,13 +454,13 @@ ME ME_4E72038F00C3
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_476BFAA60313_ME_4E72038F00C3 // GetObjRealFont
- ME_486CB85C01FD_ME_4E72038F00C3 // GetObjIFont
+   Seq: ( ME_476BFAA60313_ME_4E72038F00C3_impl // GetObjRealFont
+ ME_486CB85C01FD_ME_4E72038F00C3_impl // GetObjIFont
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4E72038F00C3 // Cleanup
- ME_479F2AFB0397_ME_4E72038F00C3 // Release
+   Seq: ( ME_479731C50290_ME_4E72038F00C3_over // Cleanup
+ ME_479F2AFB0397_ME_4E72038F00C3_over // Release
  )
  ; // Overridden
  MELIST Dependencies

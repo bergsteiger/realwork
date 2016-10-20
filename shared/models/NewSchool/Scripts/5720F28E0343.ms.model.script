@@ -1,0 +1,151 @@
+// K622402617 5720F28E0343 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5720F28E0343
+
+FORWARD ME_5720F28E0343
+
+FORWARD ME_5720F31301A0
+
+ME ME_5720F3650097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5720F3650097 
+
+ME ME_572110B30189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_572110B30189 
+
+ME ME_572110D30170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_572110D30170 
+
+ME ME_572110FD010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_572110FD010E 
+
+MEREF ME_49E488070386_ME_5720F31301A0_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_5720F31301A0_over ParaTypeForFiltering
+
+MEREF ME_49E4883E0176_ME_5720F31301A0_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_5720F31301A0_over DoWritePara
+
+MEREF ME_49E487650342_ME_5720F31301A0_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_5720F31301A0_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_5720F31301A0
+
+ME ME_5720F31301A0
+ MEPROP UID '5720F31301A0'
+ MEPROP Name 'TevdTextCodePageChanger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5720F28E0343 // K622402617
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_5720F31301A0_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_5720F31301A0_over // ParaTypeForFiltering
+ ME_49E4883E0176_ME_5720F31301A0_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5720F3650097 // Tk2TagID
+ ME_572110B30189 // l3String
+ ME_572110D30170 // Code Pages
+ ME_572110FD010E // TextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'dTextCodePageChanger'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5720F31301A0 TevdTextCodePageChanger
+
+MEREF ME_4C07BCBE01F2_ME_5720F28E0343_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_5720F28E0343_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_5720F28E0343_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_5720F28E0343_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_5720F28E0343
+
+ME ME_5720F28E0343
+ MEPROP UID '5720F28E0343'
+ MEPROP Name 'K622402617'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:622402617}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5720F26D03C1' // 8.0
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C07B5E300F2_ME_5720F28E0343_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_5720F28E0343_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5720F31301A0 // TevdTextCodePageChanger
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K622402617.pas'
+ UP extprop:pas:TypeName 'TK622402617'
+ UP extprop:rc:SelfName 'K622402617'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5720F28E0343 K622402617

@@ -1,0 +1,58 @@
+// TcsExportTaskPrim 53ABFB2C005A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53ABFB2C005A
+
+MEREF ME_53AC03EE01FD_ME_53ABFB2C005A_over
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_53AC03EE01FD_ME_53ABFB2C005A_over GetTaggedDataType
+
+MEREF ME_52F8C2BF0110_ME_53ABFB2C005A_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53ABFB2C005A_G TddProcessTask
+
+MEREF ME_53AAED68002C_ME_53ABFB2C005A_R
+ MELINK Original WL 'ME_53AAED68002C' '484A470100DD.ms.model.script' // ExportTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AAED68002C_ME_53ABFB2C005A_R ExportTask
+
+%%ImplementedBy ME_53AAED68002C ME_53ABFB2C005A
+
+%%InheritedBy ME_52F8C2BF0110 ME_53ABFB2C005A
+
+ME ME_53ABFB2C005A
+ MEPROP UID '53ABFB2C005A'
+ MEPROP Name 'TcsExportTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8C2BF0110_ME_53ABFB2C005A_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53AAED68002C_ME_53ABFB2C005A_R // ExportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53AC03EE01FD_ME_53ABFB2C005A_over // GetTaggedDataType
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csExportTaskPrim.pas'
+ UP extprop:rc:SelfName 'csExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csExportTaskPrim'
+
+ENDME // ME_53ABFB2C005A TcsExportTaskPrim

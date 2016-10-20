@@ -1,0 +1,89 @@
+// TevSBSCellPainter 49DA43AA01B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DA43AA01B9
+
+ME ME_4DD67B33029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DA43AA01B9 // TevSBSCellPainter
+ ;
+ MELINK Target WL? 'ME_4857D1860221' // TevSBSCell
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67B33029F 
+
+ME ME_53D0D11800CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_49DA43AA01B9 // TevSBSCellPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D0D11800CC 
+
+MEREF ME_4804A83F030B_ME_49DA43AA01B9_over
+ MELINK Original WL 'ME_4804A83F030B' '4804A2C101A5.ms.model.script' // InvisibleFrameColor
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_4804A83F030B_ME_49DA43AA01B9_over InvisibleFrameColor
+
+MEREF ME_4CAF3D530327_ME_49DA43AA01B9_over
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CAF3D530327_ME_49DA43AA01B9_over NeedsHackK235870994
+
+MEREF ME_481D6D3F003F_ME_49DA43AA01B9_G
+ MELINK Original WL? 'ME_481D6D3F003F' // TevTableCellPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_481D6D3F003F_ME_49DA43AA01B9_G TevTableCellPainter
+
+%%InjectedBy ME_4857D1860221 ME_49DA43AA01B9
+
+%%InheritedBy ME_481D6D3F003F ME_49DA43AA01B9
+
+ME ME_49DA43AA01B9
+ MEPROP UID '49DA43AA01B9'
+ MEPROP Name 'TevSBSCellPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интерфейса IevPainter для ячеек подписи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_481D6D3F003F_ME_49DA43AA01B9_G // TevTableCellPainter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4804A83F030B_ME_49DA43AA01B9_over // InvisibleFrameColor
+ ME_4CAF3D530327_ME_49DA43AA01B9_over // NeedsHackK235870994
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD67B33029F // TevSBSCell
+ ME_53D0D11800CC // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '30.01.2006 15:22'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSBSCellPainter.pas'
+ UP extprop:rc:SelfName 'SBSCellPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSBSCellPainter'
+
+ENDME // ME_49DA43AA01B9 TevSBSCellPainter

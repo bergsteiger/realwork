@@ -1,0 +1,70 @@
+// TnevBitmapParaAnchor 4A3BB0550026 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3BB0550026
+
+ME ME_53D0F16E0303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A3BB0550026 // TnevBitmapParaAnchor
+ ;
+ MELINK Target WL? 'ME_4858137901EF' // TevBitmapPara
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0F16E0303 
+
+ME ME_53D0F1890312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A3BB0550026 // TnevBitmapParaAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53D0F1890312 
+
+MEREF ME_4A3BAB21005A_ME_4A3BB0550026_G
+ MELINK Original WL? 'ME_4A3BAB21005A' // TnevSolidParaAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3BAB21005A_ME_4A3BB0550026_G TnevSolidParaAnchor
+
+%%InjectedBy ME_4858137901EF ME_4A3BB0550026
+
+%%InheritedBy ME_4A3BAB21005A ME_4A3BB0550026
+
+ME ME_4A3BB0550026
+ MEPROP UID '4A3BB0550026'
+ MEPROP Name 'TnevBitmapParaAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Якорь параграфа-картики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3BAB21005A_ME_4A3BB0550026_G // TnevSolidParaAnchor
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0F16E0303 // TevBitmapPara
+ ME_53D0F1890312 // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '24.10.2005 09:01'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevBitmapParaAnchor.pas'
+ UP extprop:rc:SelfName 'BitmapParaAnchor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevBitmapParaAnchor'
+
+ENDME // ME_4A3BB0550026 TnevBitmapParaAnchor

@@ -1,0 +1,118 @@
+// TvcmMenuForChromeLikeItemWrap 5477971800CE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5477971800CE
+
+ME ME_5477A62A0139
+ MEPROP UID '5477A62A0139'
+ MEPROP Name 'f_Item'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ MELINK Target WL 'ME_5477697F0366' '545C53AA026E.ms.model.script' // TvcmMenuForChromeLikeItem
+ ;
+
+ENDME // ME_5477A62A0139 f_Item
+
+ME ME_5477ADBA02BC
+ MEPROP UID '5477ADBA02BC'
+ MEPROP Name 'rRectStub'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ MELINK Target WL? 'ME_547869730335' // TRectWrap
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_5477ADBA02BC rRectStub
+
+ME ME_5478712A0083
+ MEPROP UID '5478712A0083'
+ MEPROP Name 'rItemStub'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
+ ;
+ UP "pm" true
+
+ENDME // ME_5478712A0083 rItemStub
+
+ME ME_5477A64D0105
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5477697F0366' '545C53AA026E.ms.model.script' // TvcmMenuForChromeLikeItem
+ ;
+
+ENDME // ME_5477A64D0105 anItem
+
+ME ME_5477A63901A9
+ MEPROP UID '5477A63901A9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5477971800CE // TvcmMenuForChromeLikeItemWrap
+ ;
+ MELIST Parameters
+   Seq: ( ME_5477A64D0105 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_5477A63901A9 Create
+
+MEREF ME_478CF32A03B6_ME_5477971800CE_G
+ MELINK Original WL 'ME_478CF32A03B6' '478CF30500C1.ms.model.script' // TPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478CF32A03B6_ME_5477971800CE_G TPersistent
+
+%%InheritedBy ME_478CF32A03B6 ME_5477971800CE
+
+ME ME_5477971800CE
+ MEPROP UID '5477971800CE'
+ MEPROP Name 'TvcmMenuForChromeLikeItemWrap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5477970600C6' // Wrap
+ ;
+ MELIST Inherits
+   Seq: ( ME_478CF32A03B6_ME_5477971800CE_G // TPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5477A62A0139 // f_Item
+ HWL ME_5477ADBA02BC // rRectStub
+ HWL ME_5478712A0083 // rItemStub
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5477A63901A9 // Create
+ )
+ ; // Operations
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas'
+ UP extprop:rc:SelfName 'MenuForChromeLikeItemWrap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMenuForChromeLikeItemWrap'
+
+ENDME // ME_5477971800CE TvcmMenuForChromeLikeItemWrap

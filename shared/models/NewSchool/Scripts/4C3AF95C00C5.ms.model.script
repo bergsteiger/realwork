@@ -1,0 +1,46 @@
+// K224791621 4C3AF95C00C5 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3AF95C00C5
+
+MEREF ME_4C345B580083_ME_4C3AF95C00C5_over
+ MELINK Original WL 'ME_4C345B580083' '4CE38AD60265.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C345B580083_ME_4C3AF95C00C5_over ApplyTools
+
+MEREF ME_4C3AF74701A6_ME_4C3AF95C00C5_G
+ MELINK Original WL? 'ME_4C3AF74701A6' // TMergeTablesTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C3AF74701A6_ME_4C3AF95C00C5_G TMergeTablesTest
+
+%%InheritedBy ME_4C3AF74701A6 ME_4C3AF95C00C5
+
+ME ME_4C3AF95C00C5
+ MEPROP UID '4C3AF95C00C5'
+ MEPROP Name 'K224791621'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$224791621]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C3AF74701A6_ME_4C3AF95C00C5_G // TMergeTablesTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C345B580083_ME_4C3AF95C00C5_over // ApplyTools
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K224791621.pas'
+ UP extprop:pas:TypeName 'TK224791621'
+ UP extprop:rc:SelfName 'K224791621'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C3AF95C00C5 K224791621

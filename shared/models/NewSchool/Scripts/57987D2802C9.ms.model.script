@@ -1,0 +1,96 @@
+// TddExtObjExtractor 57987D2802C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57987D2802C9
+
+ME ME_579885CD01CA
+ MEPROP UID '579885CD01CA'
+ MEPROP Name 'f_SavedObjects'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57987D2802C9 // TddExtObjExtractor
+ ;
+ MELINK Target WL? 'ME_579885AE00B2' // TddSavedObjectsList
+ ;
+
+ENDME // ME_579885CD01CA f_SavedObjects
+
+ME ME_5798860503BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57987D2802C9 // TddExtObjExtractor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5798860503BF 
+
+MEREF ME_479731C50290_ME_57987D2802C9_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57987D2802C9_over Cleanup
+
+MEREF ME_4836D52400D9_ME_57987D2802C9_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_57987D2802C9_over AddAtomEx
+
+MEREF ME_57987D54034E_ME_57987D2802C9_over
+ MELINK Original WL 'ME_57987D54034E' '57987C49023C.ms.model.script' // DocumentIDChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57987D54034E_ME_57987D2802C9_over DocumentIDChanged
+
+MEREF ME_57987C49023C_ME_57987D2802C9_G
+ MELINK Original WL? 'ME_57987C49023C' // TddExtObjectMachine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57987C49023C_ME_57987D2802C9_G TddExtObjectMachine
+
+%%InheritedBy ME_57987C49023C ME_57987D2802C9
+
+ME ME_57987D2802C9
+ MEPROP UID '57987D2802C9'
+ MEPROP Name 'TddExtObjExtractor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'выковыривает объект из EVD-потока и кладет его в поток хранилища' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_57987C49023C_ME_57987D2802C9_G // TddExtObjectMachine
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_579885CD01CA // f_SavedObjects
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57987D2802C9_over // Cleanup
+ ME_4836D52400D9_ME_57987D2802C9_over // AddAtomEx
+ ME_57987D54034E_ME_57987D2802C9_over // DocumentIDChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5798860503BF // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjExtractor.pas'
+ UP extprop:rc:SelfName 'ddExtObjExtractor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExtObjExtractor'
+
+ENDME // ME_57987D2802C9 TddExtObjExtractor

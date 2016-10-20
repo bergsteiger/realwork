@@ -18,6 +18,11 @@ USES
   IN aDefault
   ^ IN aLambda
   
- aCacheWhere aKey aDefault aLambda msm:DoCache
+ RULES
+  ( aCacheWhere IsNil )
+   ( aLambda DO )
+  DEFAULT 
+   ( aCacheWhere aKey aDefault aLambda msm:DoCache )
+ ; // RULES  
  
 ; // DoCache

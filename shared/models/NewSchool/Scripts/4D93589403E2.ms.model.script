@@ -1,0 +1,87 @@
+// TeeDocumentPartGenerator 4D93589403E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D93589403E2
+
+ME ME_4D935A700350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D93589403E2 // TeeDocumentPartGenerator
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4D935A700350 
+
+ME ME_4D935EFB0380
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D93589403E2 // TeeDocumentPartGenerator
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_4D935EFB0380 
+
+ME ME_4D935F2600F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D93589403E2 // TeeDocumentPartGenerator
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4D935F2600F6 
+
+MEREF ME_4D9359AA01A2_ME_4D93589403E2_over
+ MELINK Original WL 'ME_4D9359AA01A2' '48030DE6002F.ms.model.script' // SetInsertionPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D9359AA01A2_ME_4D93589403E2_over SetInsertionPoint
+
+MEREF ME_48030DE6002F_ME_4D93589403E2_G
+ MELINK Original WL? 'ME_48030DE6002F' // TevDocumentPartGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48030DE6002F_ME_4D93589403E2_G TevDocumentPartGenerator
+
+%%InheritedBy ME_48030DE6002F ME_4D93589403E2
+
+ME ME_4D93589403E2
+ MEPROP UID '4D93589403E2'
+ MEPROP Name 'TeeDocumentPartGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4680E826036D' // eeDocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_48030DE6002F_ME_4D93589403E2_G // TevDocumentPartGenerator
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D9359AA01A2_ME_4D93589403E2_over // SetInsertionPoint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D935A700350 // Operations
+ ME_4D935EFB0380 // evParaTools
+ ME_4D935F2600F6 // CommentPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '30.03.2011 20:21'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentPartGenerator.pas'
+ UP extprop:rc:SelfName 'eeDocumentPartGenerator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeDocumentPartGenerator'
+
+ENDME // ME_4D93589403E2 TeeDocumentPartGenerator

@@ -1,0 +1,53 @@
+// Tl3IEBitmapContainer 48E6486F0123 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48E6486F0123
+
+ME ME_4DD3D0B40355
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48E6486F0123 // Tl3IEBitmapContainer
+ ;
+ MELINK Target WL? 'ME_4DD3D054004A' // Tl3IEBitmapContainerStack
+ ;
+
+ENDME // ME_4DD3D0B40355 
+
+MEREF ME_48DD2129027C_ME_48E6486F0123_G
+ MELINK Original WL 'ME_48DD2129027C' '48DD20E400C2.ms.model.script' // Tl3PrimGraphicContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48DD2129027C_ME_48E6486F0123_G Tl3PrimGraphicContainer
+
+%%InheritedBy ME_48DD2129027C ME_48E6486F0123
+
+ME ME_48E6486F0123
+ MEPROP UID '48E6486F0123'
+ MEPROP Name 'Tl3IEBitmapContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'объект - контейнер для картинки (TBitmap)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_48DD2129027C_ME_48E6486F0123_G // Tl3PrimGraphicContainer
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DD3D0B40355 // Tl3IEBitmapContainerStack
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '26.07.2004 16:07 '
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3IEBitmapContainer.pas'
+ UP extprop:rc:SelfName 'IEBitmapContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3IEBitmapContainer'
+
+ENDME // ME_48E6486F0123 Tl3IEBitmapContainer

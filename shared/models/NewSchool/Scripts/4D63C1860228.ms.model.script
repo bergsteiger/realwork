@@ -1,0 +1,109 @@
+// TevReqGroup 4D63C1860228 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D63C1860228
+
+ME ME_7F13E117B84B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C1860228 // TevReqGroup
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+
+ENDME // ME_7F13E117B84B 
+
+ME ME_2C9E0F6B13D0
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C1860228 // TevReqGroup
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_2C9E0F6B13D0 
+
+ME ME_F533F942FBA4
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D63C1860228 // TevReqGroup
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_F533F942FBA4 
+
+MEREF ME_53CCBDA5026D_ME_4D63C1860228_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_4D63C1860228_over COMQueryTool
+
+MEREF ME_4857E163036B_ME_4D63C1860228_G
+ MELINK Original WL? 'ME_4857E163036B' // TevTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857E163036B_ME_4D63C1860228_G TevTable
+
+MEREF ME_4D63B8AF035D_ME_4D63C1860228_R
+ MELINK Original WL 'ME_4D63B8AF035D' '48492FC0029D.ms.model.script' // ReqGroup
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D63B8AF035D_ME_4D63C1860228_R ReqGroup
+
+%%ImplementedBy ME_4D63B8AF035D ME_4D63C1860228
+
+%%InheritedBy ME_4857E163036B ME_4D63C1860228
+
+ME ME_4D63C1860228
+ MEPROP UID '4D63C1860228'
+ MEPROP Name 'TevReqGroup'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика интерфейсов для группы реквизитов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( ME_4857E163036B_ME_4D63C1860228_G // TevTable
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4D63B8AF035D_ME_4D63C1860228_R // ReqGroup
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53CCBDA5026D_ME_4D63C1860228_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_7F13E117B84B // InevHotSpotTester2
+ ME_2C9E0F6B13D0 // IevPainter
+ ME_F533F942FBA4 // InevDrawingShape
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_53CE5EEC03CB' '4D64068D027B.ms.model.script' // TevReqGroupHotSpotTester
+ WL 'ME_53CE5F4E0122' '4D63C57601A4.ms.model.script' // TevReqGroupPainter
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '22.02.2011 17:01'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroup_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TevReqGroupInterfaceFactory'
+ UP extprop:rc:SelfName 'ReqGroupInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqGroup_InterfaceFactory'
+
+ENDME // ME_4D63C1860228 TevReqGroup

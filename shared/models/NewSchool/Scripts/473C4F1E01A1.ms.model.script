@@ -1,0 +1,275 @@
+// Tl3VirtualCanvas 473C4F1E01A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_473C4F1E01A1
+
+ME ME_56B9C027028A
+ MEPROP UID '56B9C027028A'
+ MEPROP Name 'f_Extent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_473C4F1E01A1 // Tl3VirtualCanvas
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_56B9C027028A f_Extent
+
+FORWARD ME_56B9C037031F
+
+ME ME_56B9C0480203
+ MEPROP Name 'anExtent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A480790259' '4677FBA70343.ms.model.script' // Tl3_Point
+ ;
+
+ENDME // ME_56B9C0480203 anExtent
+
+ME ME_56B9C0450315
+ MEPROP UID '56B9C0450315'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56B9C037031F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56B9C0480203 // anExtent
+ )
+ ; // Parameters
+
+ENDME // ME_56B9C0450315 DoIt
+
+ME ME_56B9C037031F
+ MEPROP UID '56B9C037031F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_473C4F1E01A1 // Tl3VirtualCanvas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56B9C0450315 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56B9C037031F Create
+
+MEREF ME_56B9C037031F_ME_56B9C0610123_G
+ MELINK Original HWL ME_56B9C037031F // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56B9C037031F_ME_56B9C0610123_G Create
+
+MEREF ME_4727449A00A2_ME_56B9C0610123_R
+ MELINK Original WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4727449A00A2_ME_56B9C0610123_R Il3Canvas
+
+%%ImplementedBy ME_4727449A00A2 ME_56B9C0610123
+
+%%InheritedBy ME_56B9C037031F ME_56B9C0610123
+
+ME ME_56B9C0610123
+ MEPROP UID '56B9C0610123'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_473C4F1E01A1 // Tl3VirtualCanvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_56B9C037031F_ME_56B9C0610123_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4727449A00A2_ME_56B9C0610123_R // Il3Canvas
+ )
+ ; // Implements
+
+ENDME // ME_56B9C0610123 Make
+
+ME ME_578F2544016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_473C4F1E01A1 // Tl3VirtualCanvas
+ ;
+ MELINK Target WL 'ME_4A4CBFCF02D5' '4A4CB79A02C6.ms.model.script' // TevDCFlag
+ ;
+
+ENDME // ME_578F2544016A 
+
+MEREF ME_479731C50290_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_473C4F1E01A1_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_473C4F1E01A1_over IsCacheable
+
+MEREF ME_47DFCAAF0249_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_47DFCAAF0249' '4A4CB79A02C6.ms.model.script' // FillRectPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47DFCAAF0249_ME_473C4F1E01A1_over FillRectPrim
+
+MEREF ME_4A4CBCD002EA_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_4A4CBCD002EA' '4A4CB79A02C6.ms.model.script' // DoGetPageSetupWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A4CBCD002EA_ME_473C4F1E01A1_over DoGetPageSetupWidth
+
+MEREF ME_4A4CBCDD0244_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_4A4CBCDD0244' '4A4CB79A02C6.ms.model.script' // DoGetPageSetupHeight
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A4CBCDD0244_ME_473C4F1E01A1_over DoGetPageSetupHeight
+
+MEREF ME_4A4CCCE900E8_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_4A4CCCE900E8' '4A4CB79A02C6.ms.model.script' // GetPrinting
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A4CCCE900E8_ME_473C4F1E01A1_over GetPrinting
+
+MEREF ME_4D1B61130223_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_4D1B61130223' '4A4CB79A02C6.ms.model.script' // DoGetPaperWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D1B61130223_ME_473C4F1E01A1_over DoGetPaperWidth
+
+MEREF ME_56AF1E650037_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56AF1E650037' '4A4CB79A02C6.ms.model.script' // GetIsVirtual
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56AF1E650037_ME_473C4F1E01A1_over GetIsVirtual
+
+MEREF ME_56B0AE550267_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B0AE550267' '4A4CB79A02C6.ms.model.script' // SetCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B0AE550267_ME_473C4F1E01A1_over SetCanvas
+
+MEREF ME_56B356D6039B_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B356D6039B' '4A4CB79A02C6.ms.model.script' // DoFillEmptyRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B356D6039B_ME_473C4F1E01A1_over DoFillEmptyRect
+
+MEREF ME_56B356F20141_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B356F20141' '4A4CB79A02C6.ms.model.script' // DoFillEmptyRect$1
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B356F20141_ME_473C4F1E01A1_over DoFillEmptyRect$1
+
+MEREF ME_56B359C302CB_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B359C302CB' '4A4CB79A02C6.ms.model.script' // GetGlobalClipRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B359C302CB_ME_473C4F1E01A1_over GetGlobalClipRect
+
+MEREF ME_56B491A30323_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B491A30323' '4A4CB79A02C6.ms.model.script' // DoAddRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B491A30323_ME_473C4F1E01A1_over DoAddRect
+
+MEREF ME_56B496300318_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B496300318' '4A4CB79A02C6.ms.model.script' // AddRgn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B496300318_ME_473C4F1E01A1_over AddRgn
+
+MEREF ME_56B499ED0217_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B499ED0217' '4A4CB79A02C6.ms.model.script' // KerningTextExtent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B499ED0217_ME_473C4F1E01A1_over KerningTextExtent
+
+MEREF ME_56B4D83B00EC_ME_473C4F1E01A1_over
+ MELINK Original WL 'ME_56B4D83B00EC' '4A4CB79A02C6.ms.model.script' // DoGetClientRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B4D83B00EC_ME_473C4F1E01A1_over DoGetClientRect
+
+MEREF ME_478E3C97021E_ME_473C4F1E01A1_G
+ MELINK Original WL? 'ME_478E3C97021E' // Tl3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E3C97021E_ME_473C4F1E01A1_G Tl3Canvas
+
+%%InheritedBy ME_478E3C97021E ME_473C4F1E01A1
+
+ME ME_473C4F1E01A1
+ MEPROP UID '473C4F1E01A1'
+ MEPROP Name 'Tl3VirtualCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Виртуальная канва. Для отрисовки "в пустоту".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_478E3C97021E_ME_473C4F1E01A1_G // Tl3Canvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56B9C027028A // f_Extent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56B9C037031F // Create
+ HWL ME_56B9C0610123 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_473C4F1E01A1_over // Cleanup
+ ME_47A6FEE600FC_ME_473C4F1E01A1_over // IsCacheable
+ ME_47DFCAAF0249_ME_473C4F1E01A1_over // FillRectPrim
+ ME_4A4CBCD002EA_ME_473C4F1E01A1_over // DoGetPageSetupWidth
+ ME_4A4CBCDD0244_ME_473C4F1E01A1_over // DoGetPageSetupHeight
+ ME_4A4CCCE900E8_ME_473C4F1E01A1_over // GetPrinting
+ ME_4D1B61130223_ME_473C4F1E01A1_over // DoGetPaperWidth
+ ME_56AF1E650037_ME_473C4F1E01A1_over // GetIsVirtual
+ ME_56B0AE550267_ME_473C4F1E01A1_over // SetCanvas
+ ME_56B356D6039B_ME_473C4F1E01A1_over // DoFillEmptyRect
+ ME_56B356F20141_ME_473C4F1E01A1_over // DoFillEmptyRect$1
+ ME_56B359C302CB_ME_473C4F1E01A1_over // GetGlobalClipRect
+ ME_56B491A30323_ME_473C4F1E01A1_over // DoAddRect
+ ME_56B496300318_ME_473C4F1E01A1_over // AddRgn
+ ME_56B499ED0217_ME_473C4F1E01A1_over // KerningTextExtent
+ ME_56B4D83B00EC_ME_473C4F1E01A1_over // DoGetClientRect
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_578F2544016A // TevDCFlag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "started" '21.11.2005 08:38'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3VirtualCanvas.pas'
+ UP extprop:rc:SelfName 'VirtualCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3VirtualCanvas'
+
+ENDME // ME_473C4F1E01A1 Tl3VirtualCanvas

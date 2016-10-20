@@ -19,12 +19,18 @@ ME ME_4EF354F70276
 
 ENDME // ME_4EF354F70276 DoIt
 
+MEREF ME_4EF35363033C_ME_4EF354C8018B_R
+ MELINK Original WL 'ME_4EF35363033C' '484900780017.ms.model.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF35363033C_ME_4EF354C8018B_R Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
+
 %%ImplementedBy ME_4EF35363033C ME_4EF354C8018B
 
 ME ME_4EF354C8018B
  MEPROP UID '4EF354C8018B'
  MEPROP Name 'CaneHaveDocumentCompareEditionsOperation'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -32,7 +38,7 @@ ME ME_4EF354C8018B
  MELINK Parent HWL ME_4A7B03ED01E3 // WorkWithRedactions
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4EF35363033C' '484900780017.ms.model.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
+   Seq: ( ME_4EF35363033C_ME_4EF354C8018B_R // Если список редакций открыт в модальном состоянии, то контекстной операции "Сравнение редакций" - быть не должно
  )
  ; // Implements
  MELIST Operations
@@ -60,7 +66,7 @@ ENDME // ME_4F2BF04303AF DoIt
 ME ME_4F2BEF740060
  MEPROP UID '4F2BEF740060'
  MEPROP Name 'GetRedactionOnLeftEdition'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -132,7 +138,7 @@ ME ME_57A1D4440317
 
 ENDME // ME_57A1D4440317 
 
-ME ME_4C7BAEB4010E_ME_4A7B03ED01E3
+MEREF ME_4C7BAEB4010E_ME_4A7B03ED01E3_impl
  MELINK Original WL 'ME_4C7BAEB4010E' '4A77058200BA.ms.model.script' // CompareEditions
  ;
  MEPROP OpKind opkind_Implemented
@@ -145,7 +151,13 @@ ME ME_4C7BAEB4010E_ME_4A7B03ED01E3
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C7BAEB4010E_ME_4A7B03ED01E3 CompareEditions
+ENDMEREF // ME_4C7BAEB4010E_ME_4A7B03ED01E3_impl CompareEditions
+
+MEREF ME_4A7705AD01AB_ME_4A7B03ED01E3_R
+ MELINK Original WL 'ME_4A7705AD01AB' '4A77058200BA.ms.model.script' // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A7705AD01AB_ME_4A7B03ED01E3_R Document
 
 %%ImplementedBy ME_4A7705AD01AB ME_4A7B03ED01E3
 
@@ -162,7 +174,7 @@ ME ME_4A7B03ED01E3
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A7705AD01AB' '4A77058200BA.ms.model.script' // Document
+   Seq: ( ME_4A7705AD01AB_ME_4A7B03ED01E3_R // Document
  )
  ; // Implements
  MELIST Operations
@@ -173,7 +185,7 @@ ME ME_4A7B03ED01E3
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4C7BAEB4010E_ME_4A7B03ED01E3 // CompareEditions
+   Seq: ( ME_4C7BAEB4010E_ME_4A7B03ED01E3_impl // CompareEditions
  )
  ; // Implemented
  MELIST Dependencies

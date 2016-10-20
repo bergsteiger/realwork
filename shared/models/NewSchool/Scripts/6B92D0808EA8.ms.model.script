@@ -1,0 +1,61 @@
+// ReleaseArchi2 6B92D0808EA8 TestResults Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_6B92D0808EA8
+
+MEREF ME_4B7AB0B6016E_ME_6B92D0808EA8_impl
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7AB0B6016E_ME_6B92D0808EA8_impl CommandLineKey
+
+MEREF ME_4B7C0B43005B_ME_6B92D0808EA8_impl
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B43005B_ME_6B92D0808EA8_impl TimesPage
+
+MEREF ME_4B7C0B670215_ME_6B92D0808EA8_impl
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B670215_ME_6B92D0808EA8_impl ResultsPage
+
+MEREF ME_4B7AAC7A031D_ME_6B92D0808EA8_G
+ MELINK Original WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B7AAC7A031D_ME_6B92D0808EA8_G TTestResultsPlace
+
+%%InheritedBy ME_4B7AAC7A031D ME_6B92D0808EA8
+
+ME ME_6B92D0808EA8
+ MEPROP UID '6B92D0808EA8'
+ MEPROP Name 'ReleaseArchi2'
+ UP IsSummoned true
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты на Archi2 (релизный вариант)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_06EF1E6353C7' // ReleaseDaily$Test
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B7AAC7A031D_ME_6B92D0808EA8_G // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_6B92D0808EA8_impl // CommandLineKey
+ ME_4B7C0B43005B_ME_6B92D0808EA8_impl // TimesPage
+ ME_4B7C0B670215_ME_6B92D0808EA8_impl // ResultsPage
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\DailyTest\ReleaseArchi2.pas'
+ UP extprop:pas:TypeName 'TReleaseArchi2'
+ UP extprop:rc:SelfName 'ReleaseArchi2'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_6B92D0808EA8 ReleaseArchi2

@@ -1,0 +1,159 @@
+// TtfwStandardDictionaries 55B0E7AD026B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B0E7AD026B
+
+FORWARD ME_55B0FEC503CE
+
+ME ME_55B0FEE20076
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B0FEE20076 aName
+
+ME ME_55B0FED402BF
+ MEPROP UID '55B0FED402BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0FEC503CE // CheckDictionary
+ ;
+ MELINK Target WL? 'ME_55B0EF37007C' // TtfwStandardDictionary
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B0FEE20076 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B0FED402BF DoIt
+
+ME ME_55B1E66B0232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0FEC503CE // CheckDictionary
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55B1E66B0232 
+
+ME ME_55B1E68D0006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B0FEC503CE // CheckDictionary
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55B1E68D0006 
+
+ME ME_55B0FEC503CE
+ MEPROP UID '55B0FEC503CE'
+ MEPROP Name 'CheckDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B0FED402BF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55B1E66B0232 // l3String
+ ME_55B1E68D0006 // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_55B0FEC503CE CheckDictionary
+
+FORWARD ME_55B1E6EC0088
+
+ME ME_55B1E6FC0339
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B1E6FC0339 aName
+
+ME ME_55B1E6FA0344
+ MEPROP UID '55B1E6FA0344'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B1E6EC0088 // FindDictionary
+ ;
+ MELINK Target WL? 'ME_55B0EF37007C' // TtfwStandardDictionary
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B1E6FC0339 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B1E6FA0344 DoIt
+
+ME ME_55B1E6EC0088
+ MEPROP UID '55B1E6EC0088'
+ MEPROP Name 'FindDictionary'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B0E7AD026B // TtfwStandardDictionaries
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55B1E6FA0344 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55B1E6EC0088 FindDictionary
+
+MEREF ME_55B0EFA300D1_ME_55B0E7AD026B_G
+ MELINK Original WL? 'ME_55B0EFA300D1' // TtfwStandardDictionaryList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B0EFA300D1_ME_55B0E7AD026B_G TtfwStandardDictionaryList
+
+%%InheritedBy ME_55B0EFA300D1 ME_55B0E7AD026B
+
+ME ME_55B0E7AD026B
+ MEPROP UID '55B0E7AD026B'
+ MEPROP Name 'TtfwStandardDictionaries'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_55B0EFA300D1_ME_55B0E7AD026B_G // TtfwStandardDictionaryList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B0FEC503CE // CheckDictionary
+ HWL ME_55B1E6EC0088 // FindDictionary
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaries.pas'
+ UP extprop:rc:SelfName 'StandardDictionaries'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwStandardDictionaries'
+
+ENDME // ME_55B0E7AD026B TtfwStandardDictionaries

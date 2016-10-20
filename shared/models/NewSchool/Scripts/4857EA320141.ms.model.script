@@ -1,0 +1,85 @@
+// TevReqCell 4857EA320141 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4857EA320141
+
+ME ME_A1050ECB67A8
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EA320141 // TevReqCell
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+
+ENDME // ME_A1050ECB67A8 
+
+MEREF ME_4D63D26D033F_ME_4857EA320141_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_4857EA320141_over QueryTool
+
+MEREF ME_53CCBDA5026D_ME_4857EA320141_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_4857EA320141_over COMQueryTool
+
+MEREF ME_4857CDBF0197_ME_4857EA320141_G
+ MELINK Original WL? 'ME_4857CDBF0197' // TevTableCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857CDBF0197_ME_4857EA320141_G TevTableCell
+
+MEREF ME_4857E9EE024A_ME_4857EA320141_R
+ MELINK Original WL 'ME_4857E9EE024A' '48492FC0029D.ms.model.script' // ReqCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857E9EE024A_ME_4857EA320141_R ReqCell
+
+%%ImplementedBy ME_4857E9EE024A ME_4857EA320141
+
+%%InheritedBy ME_4857CDBF0197 ME_4857EA320141
+
+ME ME_4857EA320141
+ MEPROP UID '4857EA320141'
+ MEPROP Name 'TevReqCell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( ME_4857CDBF0197_ME_4857EA320141_G // TevTableCell
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4857E9EE024A_ME_4857EA320141_R // ReqCell
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_4857EA320141_over // QueryTool
+ ME_53CCBDA5026D_ME_4857EA320141_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_A1050ECB67A8 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_53D0C08900B3' '53D0BFE802C7.ms.model.script' // TevReqCellCursor
+ WL 'ME_53D0C16103A9' '53D0C11D034F.ms.model.script' // TevReqCellHotSpotTester
+ )
+ ; // Injected
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqCell_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TevReqCellInterfaceFactory'
+ UP extprop:rc:SelfName 'ReqCellInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqCell_InterfaceFactory'
+
+ENDME // ME_4857EA320141 TevReqCell

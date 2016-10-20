@@ -1,0 +1,189 @@
+// Tl3OneByteCString 4F5CBB9600F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5CBB9600F6
+
+ME ME_4F5CBC310251
+ MEPROP UID '4F5CBC310251'
+ MEPROP Name 'f_Ch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F5CBB9600F6 // Tl3OneByteCString
+ ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_4F5CBC310251 f_Ch
+
+FORWARD ME_4F5CBC4003A2
+
+ME ME_4F5CBC55037F
+ MEPROP Name 'aChar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_4F5CBC55037F aChar
+
+ME ME_4F5CBC4D030E
+ MEPROP UID '4F5CBC4D030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5CBC4003A2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F5CBC55037F // aChar
+ )
+ ; // Parameters
+
+ENDME // ME_4F5CBC4D030E DoIt
+
+ME ME_4F5CBC4003A2
+ MEPROP UID '4F5CBC4003A2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5CBB9600F6 // Tl3OneByteCString
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F5CBC4D030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F5CBC4003A2 Create
+
+MEREF ME_4F5CBC4003A2_ME_4F5CBC5E03AB_G
+ MELINK Original HWL ME_4F5CBC4003A2 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F5CBC4003A2_ME_4F5CBC5E03AB_G Create
+
+MEREF ME_46780DA40383_ME_4F5CBC5E03AB_R
+ MELINK Original WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780DA40383_ME_4F5CBC5E03AB_R Il3CString
+
+%%ImplementedBy ME_46780DA40383 ME_4F5CBC5E03AB
+
+%%InheritedBy ME_4F5CBC4003A2 ME_4F5CBC5E03AB
+
+ME ME_4F5CBC5E03AB
+ MEPROP UID '4F5CBC5E03AB'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5CBB9600F6 // Tl3OneByteCString
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F5CBC4003A2_ME_4F5CBC5E03AB_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46780DA40383_ME_4F5CBC5E03AB_R // Il3CString
+ )
+ ; // Implements
+
+ENDME // ME_4F5CBC5E03AB Make
+
+ME ME_4F5CBD750127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5CBB9600F6 // Tl3OneByteCString
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F5CBD750127 
+
+ME ME_4F5CBD9E0376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5CBB9600F6 // Tl3OneByteCString
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_4F5CBD9E0376 
+
+MEREF ME_46780DEF03E5_ME_4F5CBB9600F6_impl
+ MELINK Original WL 'ME_46780DEF03E5' '4677FBA70343.ms.model.script' // AsWStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_46780DEF03E5_ME_4F5CBB9600F6_impl AsWStr
+
+MEREF ME_4AE5CA2D0034_ME_4F5CBB9600F6_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4F5CBB9600F6_G Tl3CProtoObject
+
+MEREF ME_46780DA40383_ME_4F5CBB9600F6_R
+ MELINK Original WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780DA40383_ME_4F5CBB9600F6_R Il3CString
+
+%%ImplementedBy ME_46780DA40383 ME_4F5CBB9600F6
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4F5CBB9600F6
+
+ME ME_4F5CBB9600F6
+ MEPROP UID '4F5CBB9600F6'
+ MEPROP Name 'Tl3OneByteCString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_4F5CBB9600F6_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46780DA40383_ME_4F5CBB9600F6_R // Il3CString
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F5CBC310251 // f_Ch
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F5CBC4003A2 // Create
+ HWL ME_4F5CBC5E03AB // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46780DEF03E5_ME_4F5CBB9600F6_impl // AsWStr
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F5CBD750127 // l3String
+ ME_4F5CBD9E0376 // Code Pages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3OneByteCString.pas'
+ UP extprop:rc:SelfName 'OneByteCString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3OneByteCString'
+
+ENDME // ME_4F5CBB9600F6 Tl3OneByteCString

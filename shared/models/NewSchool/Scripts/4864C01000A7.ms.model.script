@@ -1,0 +1,124 @@
+// TevMemoProcessor 4864C01000A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4864C01000A7
+
+ME ME_4864C37103E7
+ MEPROP UID '4864C37103E7'
+ MEPROP Name 'Memo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4864C01000A7 // TevMemoProcessor
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4864C37103E7 Memo
+
+ME ME_48CE03EB0178
+ MEPROP UID '48CE03EB0178'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4864C01000A7 // TevMemoProcessor
+ ;
+
+ENDME // ME_48CE03EB0178 Create
+
+ME ME_4864C3150277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4864C01000A7 // TevMemoProcessor
+ ;
+ MELINK Target WL? 'ME_4829D81D02E5' // TevCustomMemo
+ ;
+
+ENDME // ME_4864C3150277 
+
+ME ME_4864C51D01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4864C01000A7 // TevMemoProcessor
+ ;
+ MELINK Target WL? 'ME_47F35FBA0208' // TevDefaultContext
+ ;
+
+ENDME // ME_4864C51D01A1 
+
+ME ME_48CDF3D803B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4864C01000A7 // TevMemoProcessor
+ ;
+ MELINK Target WL 'ME_47C5BD7C0329' '47C5207602D1.ms.model.script' // InevControl
+ ;
+
+ENDME // ME_48CDF3D803B0 
+
+MEREF ME_4843D3020153_ME_4864C01000A7_over
+ MELINK Original WL 'ME_4843D3020153' '47F351BC0145.ms.model.script' // GetNeedReplaceQuotes
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4843D3020153_ME_4864C01000A7_over GetNeedReplaceQuotes
+
+MEREF ME_482D8A7101CE_ME_4864C01000A7_G
+ MELINK Original WL? 'ME_482D8A7101CE' // TevCustomEditorWindowProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D8A7101CE_ME_4864C01000A7_G TevCustomEditorWindowProcessor
+
+%%InheritedBy ME_482D8A7101CE ME_4864C01000A7
+
+ME ME_4864C01000A7
+ MEPROP UID '4864C01000A7'
+ MEPROP Name 'TevMemoProcessor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_482D8A7101CE_ME_4864C01000A7_G // TevCustomEditorWindowProcessor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4864C37103E7 // Memo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48CE03EB0178 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4843D3020153_ME_4864C01000A7_over // GetNeedReplaceQuotes
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4864C3150277 // TevCustomMemo
+ ME_4864C51D01A1 // TevDefaultContext
+ ME_48CDF3D803B0 // InevControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '27.06.2008 14:26'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMemoProcessor.pas'
+ UP extprop:rc:SelfName 'MemoProcessor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evMemoProcessor'
+
+ENDME // ME_4864C01000A7 TevMemoProcessor

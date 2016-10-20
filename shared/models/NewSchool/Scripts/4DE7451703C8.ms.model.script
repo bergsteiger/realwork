@@ -30,11 +30,17 @@ ME ME_4DE7456800BE
 
 ENDME // ME_4DE7456800BE CheckCollapsed
 
-ME ME_4C3C927B027E_ME_4DE7451703C8
+MEREF ME_4C3C927B027E_ME_4DE7451703C8_over
  MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
+ENDMEREF // ME_4C3C927B027E_ME_4DE7451703C8_over GetPoint
+
+MEREF ME_4DDF61B503D1_ME_4DE7451703C8_G
+ MELINK Original WL? 'ME_4DDF61B503D1' // MouseClickOnPoint
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDF61B503D1_ME_4DE7451703C8_G MouseClickOnPoint
 
 %%InheritedBy ME_4DDF61B503D1 ME_4DE7451703C8
 
@@ -50,7 +56,7 @@ ME ME_4DE7451703C8
  MELINK Parent WL? 'ME_4C500D470030' // MixIns
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4DDF61B503D1' // MouseClickOnPoint
+   Seq: ( ME_4DDF61B503D1_ME_4DE7451703C8_G // MouseClickOnPoint
  )
  ; // Inherits
  MELIST Operations
@@ -58,7 +64,7 @@ ME ME_4DE7451703C8
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4C3C927B027E_ME_4DE7451703C8 // GetPoint
+   Seq: ( ME_4C3C927B027E_ME_4DE7451703C8_over // GetPoint
  )
  ; // Overridden
  UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas'

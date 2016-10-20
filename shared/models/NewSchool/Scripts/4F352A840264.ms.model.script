@@ -1,0 +1,100 @@
+// TevdScriptHyperlinkEliminator 4F352A840264 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F352A840264
+
+ME ME_4F352CAD02D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F352A840264 // TevdScriptHyperlinkEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F352CAD02D6 
+
+ME ME_4F352CC30184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F352A840264 // TevdScriptHyperlinkEliminator
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F352CC30184 
+
+ME ME_4F353006017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F352A840264 // TevdScriptHyperlinkEliminator
+ ;
+ MELINK Target WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+
+ENDME // ME_4F353006017E 
+
+MEREF ME_49E48829016F_ME_4F352A840264_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_4F352A840264_over NeedWritePara
+
+MEREF ME_4E9FD8340247_ME_4F352A840264_G
+ MELINK Original WL? 'ME_4E9FD8340247' // TevdHyperlinkEliminator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9FD8340247_ME_4F352A840264_G TevdHyperlinkEliminator
+
+MEREF ME_4F352A3B036A_ME_4F352A840264_R
+ MELINK Original WL 'ME_4F352A3B036A' '4E5CF70B01E2.ms.model.script' // В RTF не должны экспортироваться скриптовые ссылки
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F352A3B036A_ME_4F352A840264_R В RTF не должны экспортироваться скриптовые ссылки
+
+%%ImplementedBy ME_4F352A3B036A ME_4F352A840264
+
+%%InheritedBy ME_4E9FD8340247 ME_4F352A840264
+
+ME ME_4F352A840264
+ MEPROP UID '4F352A840264'
+ MEPROP Name 'TevdScriptHyperlinkEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, отрезающий ссылки на скрипты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E9FD8340247_ME_4F352A840264_G // TevdHyperlinkEliminator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F352A3B036A_ME_4F352A840264_R // В RTF не должны экспортироваться скриптовые ссылки
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_49E48829016F_ME_4F352A840264_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F352CAD02D6 // Tk2TagID
+ ME_4F352CC30184 // l3String
+ ME_4F353006017E // Hyperlink Const
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.06.2012 18:33'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas'
+ UP extprop:rc:SelfName 'dScriptHyperlinkEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdScriptHyperlinkEliminator'
+
+ENDME // ME_4F352A840264 TevdScriptHyperlinkEliminator

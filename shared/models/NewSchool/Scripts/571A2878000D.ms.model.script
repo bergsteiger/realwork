@@ -226,7 +226,7 @@ ENDME // ME_53B2E2E90101 DoIt
 ME ME_53B2E1D201CE
  MEPROP UID '53B2E1D201CE'
  MEPROP Name 'DoWithConfigurations'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -294,11 +294,17 @@ ENDME // ME_53B2E10F03C0 ConfigurationsWord
 
 FORWARD ME_53B2DE010174
 
-ME ME_53B2E1D201CE_ME_53B2DE010174
+MEREF ME_53B2E1D201CE_ME_53B2DE010174_impl
  MELINK Original HWL ME_53B2E1D201CE // DoWithConfigurations
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E1D201CE_ME_53B2DE010174 DoWithConfigurations
+ENDMEREF // ME_53B2E1D201CE_ME_53B2DE010174_impl DoWithConfigurations
+
+MEREF ME_53B2E10F03C0_ME_53B2DE010174_G
+ MELINK Original HWL ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E10F03C0_ME_53B2DE010174_G ConfigurationsWord
 
 %%InheritedBy ME_53B2E10F03C0 ME_53B2DE010174
 
@@ -313,11 +319,11 @@ ME ME_53B2DE010174
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E10F03C0 // ConfigurationsWord
+   Seq: ( ME_53B2E10F03C0_ME_53B2DE010174_G // ConfigurationsWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E1D201CE_ME_53B2DE010174 // DoWithConfigurations
+   Seq: ( ME_53B2E1D201CE_ME_53B2DE010174_impl // DoWithConfigurations
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwConfigurationsGetCount'
@@ -367,7 +373,7 @@ ENDME // ME_53B2E38900D6 DoIt
 ME ME_53B2E36A0075
  MEPROP UID '53B2E36A0075'
  MEPROP Name 'DoWithConfiguration'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -391,11 +397,17 @@ ME ME_53B2EC7E00B8
 
 ENDME // ME_53B2EC7E00B8 
 
-ME ME_53B2E1D201CE_ME_53B2E13A03D6
+MEREF ME_53B2E1D201CE_ME_53B2E13A03D6_impl
  MELINK Original HWL ME_53B2E1D201CE // DoWithConfigurations
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E1D201CE_ME_53B2E13A03D6 DoWithConfigurations
+ENDMEREF // ME_53B2E1D201CE_ME_53B2E13A03D6_impl DoWithConfigurations
+
+MEREF ME_53B2E10F03C0_ME_53B2E13A03D6_G
+ MELINK Original HWL ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E10F03C0_ME_53B2E13A03D6_G ConfigurationsWord
 
 %%InheritedBy ME_53B2E10F03C0 ME_53B2E13A03D6
 
@@ -410,7 +422,7 @@ ME ME_53B2E13A03D6
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E10F03C0 // ConfigurationsWord
+   Seq: ( ME_53B2E10F03C0_ME_53B2E13A03D6_G // ConfigurationsWord
  )
  ; // Inherits
  MELIST Operations
@@ -418,7 +430,7 @@ ME ME_53B2E13A03D6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53B2E1D201CE_ME_53B2E13A03D6 // DoWithConfigurations
+   Seq: ( ME_53B2E1D201CE_ME_53B2E13A03D6_impl // DoWithConfigurations
  )
  ; // Implemented
  MELIST Dependencies
@@ -436,11 +448,17 @@ ENDME // ME_53B2E13A03D6 ConfigurationWord
 
 FORWARD ME_53B2DF2B005B
 
-ME ME_53B2E1D201CE_ME_53B2DF2B005B
+MEREF ME_53B2E1D201CE_ME_53B2DF2B005B_impl
  MELINK Original HWL ME_53B2E1D201CE // DoWithConfigurations
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E1D201CE_ME_53B2DF2B005B DoWithConfigurations
+ENDMEREF // ME_53B2E1D201CE_ME_53B2DF2B005B_impl DoWithConfigurations
+
+MEREF ME_53B2E10F03C0_ME_53B2DF2B005B_G
+ MELINK Original HWL ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E10F03C0_ME_53B2DF2B005B_G ConfigurationsWord
 
 %%InheritedBy ME_53B2E10F03C0 ME_53B2DF2B005B
 
@@ -455,11 +473,11 @@ ME ME_53B2DF2B005B
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E10F03C0 // ConfigurationsWord
+   Seq: ( ME_53B2E10F03C0_ME_53B2DF2B005B_G // ConfigurationsWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E1D201CE_ME_53B2DF2B005B // DoWithConfigurations
+   Seq: ( ME_53B2E1D201CE_ME_53B2DF2B005B_impl // DoWithConfigurations
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwConfigurationsGetConfiguration'
@@ -470,11 +488,17 @@ ENDME // ME_53B2DF2B005B configurations_GetConfiguration
 
 FORWARD ME_53B2DF81021D
 
-ME ME_53B2E1D201CE_ME_53B2DF81021D
+MEREF ME_53B2E1D201CE_ME_53B2DF81021D_impl
  MELINK Original HWL ME_53B2E1D201CE // DoWithConfigurations
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E1D201CE_ME_53B2DF81021D DoWithConfigurations
+ENDMEREF // ME_53B2E1D201CE_ME_53B2DF81021D_impl DoWithConfigurations
+
+MEREF ME_53B2E10F03C0_ME_53B2DF81021D_G
+ MELINK Original HWL ME_53B2E10F03C0 // ConfigurationsWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E10F03C0_ME_53B2DF81021D_G ConfigurationsWord
 
 %%InheritedBy ME_53B2E10F03C0 ME_53B2DF81021D
 
@@ -489,11 +513,11 @@ ME ME_53B2DF81021D
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E10F03C0 // ConfigurationsWord
+   Seq: ( ME_53B2E10F03C0_ME_53B2DF81021D_G // ConfigurationsWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E1D201CE_ME_53B2DF81021D // DoWithConfigurations
+   Seq: ( ME_53B2E1D201CE_ME_53B2DF81021D_impl // DoWithConfigurations
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwConfigurationsGetActiveConfiguration'
@@ -504,11 +528,17 @@ ENDME // ME_53B2DF81021D configurations_GetActiveConfiguration
 
 FORWARD ME_53B2E3EF00C4
 
-ME ME_53B2E36A0075_ME_53B2E3EF00C4
+MEREF ME_53B2E36A0075_ME_53B2E3EF00C4_impl
  MELINK Original HWL ME_53B2E36A0075 // DoWithConfiguration
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E36A0075_ME_53B2E3EF00C4 DoWithConfiguration
+ENDMEREF // ME_53B2E36A0075_ME_53B2E3EF00C4_impl DoWithConfiguration
+
+MEREF ME_53B2E13A03D6_ME_53B2E3EF00C4_G
+ MELINK Original HWL ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E13A03D6_ME_53B2E3EF00C4_G ConfigurationWord
 
 %%InheritedBy ME_53B2E13A03D6 ME_53B2E3EF00C4
 
@@ -523,11 +553,11 @@ ME ME_53B2E3EF00C4
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E13A03D6 // ConfigurationWord
+   Seq: ( ME_53B2E13A03D6_ME_53B2E3EF00C4_G // ConfigurationWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E36A0075_ME_53B2E3EF00C4 // DoWithConfiguration
+   Seq: ( ME_53B2E36A0075_ME_53B2E3EF00C4_impl // DoWithConfiguration
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwConfigurationGetID'
@@ -548,11 +578,17 @@ ME ME_53C54A9902BE
 
 ENDME // ME_53C54A9902BE 
 
-ME ME_53B2E36A0075_ME_53B2DF9903E3
+MEREF ME_53B2E36A0075_ME_53B2DF9903E3_impl
  MELINK Original HWL ME_53B2E36A0075 // DoWithConfiguration
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E36A0075_ME_53B2DF9903E3 DoWithConfiguration
+ENDMEREF // ME_53B2E36A0075_ME_53B2DF9903E3_impl DoWithConfiguration
+
+MEREF ME_53B2E13A03D6_ME_53B2DF9903E3_G
+ MELINK Original HWL ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E13A03D6_ME_53B2DF9903E3_G ConfigurationWord
 
 %%InheritedBy ME_53B2E13A03D6 ME_53B2DF9903E3
 
@@ -567,11 +603,11 @@ ME ME_53B2DF9903E3
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E13A03D6 // ConfigurationWord
+   Seq: ( ME_53B2E13A03D6_ME_53B2DF9903E3_G // ConfigurationWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E36A0075_ME_53B2DF9903E3 // DoWithConfiguration
+   Seq: ( ME_53B2E36A0075_ME_53B2DF9903E3_impl // DoWithConfiguration
  )
  ; // Implemented
  MELIST Dependencies
@@ -609,11 +645,17 @@ ME ME_53B2EEB600BD
 
 ENDME // ME_53B2EEB600BD 
 
-ME ME_53B2E36A0075_ME_53B2DF500282
+MEREF ME_53B2E36A0075_ME_53B2DF500282_impl
  MELINK Original HWL ME_53B2E36A0075 // DoWithConfiguration
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E36A0075_ME_53B2DF500282 DoWithConfiguration
+ENDMEREF // ME_53B2E36A0075_ME_53B2DF500282_impl DoWithConfiguration
+
+MEREF ME_53B2E13A03D6_ME_53B2DF500282_G
+ MELINK Original HWL ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E13A03D6_ME_53B2DF500282_G ConfigurationWord
 
 %%InheritedBy ME_53B2E13A03D6 ME_53B2DF500282
 
@@ -628,11 +670,11 @@ ME ME_53B2DF500282
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E13A03D6 // ConfigurationWord
+   Seq: ( ME_53B2E13A03D6_ME_53B2DF500282_G // ConfigurationWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E36A0075_ME_53B2DF500282 // DoWithConfiguration
+   Seq: ( ME_53B2E36A0075_ME_53B2DF500282_impl // DoWithConfiguration
  )
  ; // Implemented
  MELIST Dependencies
@@ -651,11 +693,17 @@ ENDME // ME_53B2DF500282 configuration_GetName
 
 FORWARD ME_53B2DF6C00CA
 
-ME ME_53B2E36A0075_ME_53B2DF6C00CA
+MEREF ME_53B2E36A0075_ME_53B2DF6C00CA_impl
  MELINK Original HWL ME_53B2E36A0075 // DoWithConfiguration
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_53B2E36A0075_ME_53B2DF6C00CA DoWithConfiguration
+ENDMEREF // ME_53B2E36A0075_ME_53B2DF6C00CA_impl DoWithConfiguration
+
+MEREF ME_53B2E13A03D6_ME_53B2DF6C00CA_G
+ MELINK Original HWL ME_53B2E13A03D6 // ConfigurationWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2E13A03D6_ME_53B2DF6C00CA_G ConfigurationWord
 
 %%InheritedBy ME_53B2E13A03D6 ME_53B2DF6C00CA
 
@@ -670,11 +718,11 @@ ME ME_53B2DF6C00CA
  MELINK Parent HWL ME_571A2878000D // PrimConfigurationListWordsPack
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53B2E13A03D6 // ConfigurationWord
+   Seq: ( ME_53B2E13A03D6_ME_53B2DF6C00CA_G // ConfigurationWord
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_53B2E36A0075_ME_53B2DF6C00CA // DoWithConfiguration
+   Seq: ( ME_53B2E36A0075_ME_53B2DF6C00CA_impl // DoWithConfiguration
  )
  ; // Implemented
  UP extprop:pas:TypeName 'TkwConfigurationGetType'
@@ -888,7 +936,7 @@ ME ME_4DD5312E03BE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DD530DD03D8 // TkwExportHelp
  ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_4DD5312E03BE 

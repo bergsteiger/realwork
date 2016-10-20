@@ -1,0 +1,56 @@
+// TvgVisual 4D5EB9330192 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5EB9330192
+
+ME ME_4D5EB94900A6
+ MEPROP UID '4D5EB94900A6'
+ MEPROP Name 'VisualObject'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5EB9330192 // TvgVisual
+ ;
+ MELINK Target WL? 'ME_4D49562A01B7' // TvgVisualObject
+ ;
+ UP "pm" true
+
+ENDME // ME_4D5EB94900A6 VisualObject
+
+MEREF ME_4D52A6B50343_ME_4D5EB9330192_G
+ MELINK Original WL? 'ME_4D52A6B50343' // TvgPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D52A6B50343_ME_4D5EB9330192_G TvgPersistent
+
+%%InheritedBy ME_4D52A6B50343 ME_4D5EB9330192
+
+ME ME_4D5EB9330192
+ MEPROP UID '4D5EB9330192'
+ MEPROP Name 'TvgVisual'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D52A6B50343_ME_4D5EB9330192_G // TvgPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EB94900A6 // VisualObject
+ )
+ ; // Attributes
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgVisual.pas'
+ UP extprop:rc:SelfName 'Visual'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgVisual'
+
+ENDME // ME_4D5EB9330192 TvgVisual

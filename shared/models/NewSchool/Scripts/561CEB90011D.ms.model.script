@@ -1,0 +1,99 @@
+// Tl3ProcessingEnabledService 561CEB90011D Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_561CEB90011D
+
+FORWARD ME_561CEB90011D
+
+FORWARD ME_B1AE2A9747C4
+
+FORWARD ME_561CEBC40218
+
+ME ME_ECCF31CF8A24
+ MEPROP UID 'ECCF31CF8A24'
+ MEPROP Name 'Enabled'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_561CEBC40218 // Enabled
+ ;
+
+ENDME // ME_ECCF31CF8A24 Enabled
+
+ME ME_B1AE2A9747C4
+ MEPROP UID 'B1AE2A9747C4'
+ MEPROP Name 'Ml3ProcessingEnabledService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3ProcessingEnabledService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_561CEB90011D // Tl3ProcessingEnabledService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_ECCF31CF8A24 // Enabled
+ )
+ ; // Operations
+
+ENDME // ME_B1AE2A9747C4 Ml3ProcessingEnabledService
+
+ME ME_561CEBC40218
+ MEPROP UID '561CEBC40218'
+ MEPROP Name 'Enabled'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_561CEB90011D // Tl3ProcessingEnabledService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_561CEBC40218 Enabled
+
+MEREF ME_49E7754802A9_ME_561CEB90011D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_561CEB90011D_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_561CEB90011D
+
+ME ME_561CEB90011D
+ MEPROP UID '561CEB90011D'
+ MEPROP Name 'Tl3ProcessingEnabledService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47EA946A0315' // l3Misc
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_561CEB90011D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_561CEBC40218 // Enabled
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas'
+ UP extprop:rc:SelfName 'ProcessingEnabledService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProcessingEnabledService'
+
+ENDME // ME_561CEB90011D Tl3ProcessingEnabledService

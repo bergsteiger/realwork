@@ -2,6 +2,24 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+MEREF ME_4AA0D66F0159_ME_4AA0D69601AB_G
+ MELINK Original WL? 'ME_4AA0D66F0159' // Inpharm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AA0D66F0159_ME_4AA0D69601AB_G Inpharm
+
+MEREF ME_4856410E0295_ME_4AA0D69601AB_R
+ MELINK Original WL 'ME_4856410E0295' '484F80CF0274.ms.model.script' // Инфарм
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4856410E0295_ME_4AA0D69601AB_R Инфарм
+
+MEREF ME_4F68A075031B_ME_4AA0D69601AB_R
+ MELINK Original WL 'ME_4F68A075031B' '484F80CF0274.ms.model.script' // Работа со списком препаратов
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F68A075031B_ME_4AA0D69601AB_R Работа со списком препаратов
+
 %%ImplementedBy ME_4856410E0295 ME_4AA0D69601AB
 %%ImplementedBy ME_4F68A075031B ME_4AA0D69601AB
 
@@ -20,12 +38,12 @@ ME ME_4AA0D69601AB
  MELINK Parent WL? 'ME_495497AC0169' // Inpharm
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AA0D66F0159' // Inpharm
+   Seq: ( ME_4AA0D66F0159_ME_4AA0D69601AB_G // Inpharm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4856410E0295' '484F80CF0274.ms.model.script' // Инфарм
- WL 'ME_4F68A075031B' '484F80CF0274.ms.model.script' // Работа со списком препаратов
+   Seq: ( ME_4856410E0295_ME_4AA0D69601AB_R // Инфарм
+ ME_4F68A075031B_ME_4AA0D69601AB_R // Работа со списком препаратов
  )
  ; // Implements
  UP "author" 'Лукьянец Р.В.'

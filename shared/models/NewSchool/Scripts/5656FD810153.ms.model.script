@@ -1,0 +1,311 @@
+// TevSCCollectFilter 5656FD810153 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5656FD810153
+
+ME ME_565C380501D1
+ MEPROP UID '565C380501D1'
+ MEPROP Name 'SubList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL? 'ME_56558873036B' // TevSCSubList
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_565C380501D1 SubList
+
+ME ME_565C3855030C
+ MEPROP UID '565C3855030C'
+ MEPROP Name 'f_SubStack'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL? 'ME_56558873036B' // TevSCSubList
+ ;
+
+ENDME // ME_565C3855030C f_SubStack
+
+ME ME_566548C000D5
+ MEPROP UID '566548C000D5'
+ MEPROP Name 'f_Labels'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL? 'ME_56558873036B' // TevSCSubList
+ ;
+
+ENDME // ME_566548C000D5 f_Labels
+
+FORWARD ME_566548D70278
+
+ME ME_5665494D00A3
+ MEPROP Name 'aSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56558580035A' '56555BA603A8.ms.model.script' // IevSCSub
+ ;
+
+ENDME // ME_5665494D00A3 aSub
+
+ME ME_5665494D00BA
+ MEPROP Name 'aAttrType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56555BFF0284' '56555BA603A8.ms.model.script' // TevSCAttrType
+ ;
+
+ENDME // ME_5665494D00BA aAttrType
+
+ME ME_5665494D00E0
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5665494D00E0 aTag
+
+ME ME_566548F30038
+ MEPROP UID '566548F30038'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566548D70278 // AddToSub
+ ;
+ MELIST Parameters
+   Seq: ( ME_5665494D00A3 // aSub
+ ME_5665494D00BA // aAttrType
+ ME_5665494D00E0 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_566548F30038 DoIt
+
+ME ME_566548D70278
+ MEPROP UID '566548D70278'
+ MEPROP Name 'AddToSub'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_566548F30038 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_566548D70278 AddToSub
+
+ME ME_565C47A90238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_565C47A90238 
+
+ME ME_565C483700C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_565C483700C7 
+
+ME ME_565F1AFE024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_47AC759800AF' '47AC75550330.ms.model.script' // ExtTags
+ ;
+
+ENDME // ME_565F1AFE024B 
+
+ME ME_565F1B7200F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL? 'ME_56558EAC00D3' // TevSCSub
+ ;
+
+ENDME // ME_565F1B7200F8 
+
+ME ME_565F1B770089
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL? 'ME_56559282021D' // TevSCSubAttr
+ ;
+
+ENDME // ME_565F1B770089 
+
+ME ME_565F2BC702EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_56558580035A' '56555BA603A8.ms.model.script' // IevSCSub
+ ;
+
+ENDME // ME_565F2BC702EA 
+
+ME ME_5665479C0309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
+ ;
+
+ENDME // ME_5665479C0309 
+
+ME ME_5665487002DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_48495E29035B' '484A470100DD.ms.model.script' // Address
+ ;
+
+ENDME // ME_5665487002DA 
+
+ME ME_5668311103C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_5668311103C8 
+
+MEREF ME_479731C50290_ME_5656FD810153_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5656FD810153_over Cleanup
+
+MEREF ME_4836D4650177_ME_5656FD810153_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_5656FD810153_over StartChild
+
+MEREF ME_4836D4C20059_ME_5656FD810153_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_5656FD810153_over CloseStructure
+
+MEREF ME_4836D52400D9_ME_5656FD810153_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_5656FD810153_over AddAtomEx
+
+MEREF ME_4C56D54B002A_ME_5656FD810153_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_5656FD810153_over NeedStartBuffering
+
+MEREF ME_4D53D8BF00D5_ME_5656FD810153_over
+ MELINK Original WL 'ME_4D53D8BF00D5' '49E496880120.ms.model.script' // DoFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D53D8BF00D5_ME_5656FD810153_over DoFlushBuffer
+
+MEREF ME_538C1F9A00C7_ME_5656FD810153_over
+ MELINK Original WL 'ME_538C1F9A00C7' '47ECAA270135.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_538C1F9A00C7_ME_5656FD810153_over Create
+
+MEREF ME_49E4965202A1_ME_5656FD810153_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_5656FD810153_G TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_5656FD810153
+
+ME ME_5656FD810153
+ MEPROP UID '5656FD810153'
+ MEPROP Name 'TevSCCollectFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_565587A002DB' // SubCompare
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E4965202A1_ME_5656FD810153_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_565C380501D1 // SubList
+ HWL ME_565C3855030C // f_SubStack
+ HWL ME_566548C000D5 // f_Labels
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_566548D70278 // AddToSub
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5656FD810153_over // Cleanup
+ ME_4836D4650177_ME_5656FD810153_over // StartChild
+ ME_4836D4C20059_ME_5656FD810153_over // CloseStructure
+ ME_4836D52400D9_ME_5656FD810153_over // AddAtomEx
+ ME_4C56D54B002A_ME_5656FD810153_over // NeedStartBuffering
+ ME_4D53D8BF00D5_ME_5656FD810153_over // DoFlushBuffer
+ ME_538C1F9A00C7_ME_5656FD810153_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_565C47A90238 // FreeAndNil
+ ME_565C483700C7 // Block
+ ME_565F1AFE024B // ExtTags
+ ME_565F1B7200F8 // TevSCSub
+ ME_565F1B770089 // TevSCSubAttr
+ ME_565F2BC702EA // IevSCSub
+ ME_5665479C0309 // Sub Layers
+ ME_5665487002DA // Address
+ ME_5668311103C8 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSCCollectFilter.pas'
+ UP extprop:rc:SelfName 'SCCollectFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSCCollectFilter'
+
+ENDME // ME_5656FD810153 TevSCCollectFilter

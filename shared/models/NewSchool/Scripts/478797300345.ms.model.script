@@ -1,0 +1,242 @@
+// Tl3ValueMap 478797300345 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_478797300345
+%%Inner ME_478797300345
+
+FORWARD ME_478797300345
+
+MEREF ME_4787B117012D_ME_47879D580111_G
+ MELINK Original WL 'ME_4787B117012D' '4787B0A8007B.ms.model.script' // El3Error
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787B117012D_ME_47879D580111_G El3Error
+
+%%InheritedBy ME_4787B117012D ME_47879D580111
+
+ME ME_47879D580111
+ MEPROP UID '47879D580111'
+ MEPROP Name 'El3ValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELIST Inherits
+   Seq: ( ME_4787B117012D_ME_47879D580111_G // El3Error
+ )
+ ; // Inherits
+ UP "force usage" true
+
+ENDME // ME_47879D580111 El3ValueMap
+
+MEREF ME_47879D580111_ME_47879D6B03AC_G
+ MELINK Original HWL ME_47879D580111 // El3ValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879D580111_ME_47879D6B03AC_G El3ValueMap
+
+%%InheritedBy ME_47879D580111 ME_47879D6B03AC
+
+ME ME_47879D6B03AC
+ MEPROP UID '47879D6B03AC'
+ MEPROP Name 'El3ValueMapValueNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879D580111_ME_47879D6B03AC_G // El3ValueMap
+ )
+ ; // Inherits
+
+ENDME // ME_47879D6B03AC El3ValueMapValueNotFound
+
+ME ME_478CFDCC01A3
+ MEPROP UID '478CFDCC01A3'
+ MEPROP Name 'rMapID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELINK Target WL 'ME_46A5EF660059' '4677FBA70343.ms.model.script' // Tl3ValueMapID
+ ;
+ UP "needs field" false
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_478CFDCC01A3 rMapID
+
+ME ME_478D006C00C1
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A4756D00CC' '4677FBA70343.ms.model.script' // Il3StringsEx
+ ;
+
+ENDME // ME_478D006C00C1 aList
+
+ME ME_478CFFBA017D
+ MEPROP UID '478CFFBA017D'
+ MEPROP Name 'DoGetDisplayNames'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_478D006C00C1 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_478CFFBA017D DoGetDisplayNames
+
+ME ME_478CFFCE02DE
+ MEPROP UID '478CFFCE02DE'
+ MEPROP Name 'GetMapSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_478CFFCE02DE GetMapSize
+
+ME ME_478D017C0046
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5EF660059' '4677FBA70343.ms.model.script' // Tl3ValueMapID
+ ;
+
+ENDME // ME_478D017C0046 aID
+
+ME ME_478D01660020
+ MEPROP UID '478D01660020'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELIST Parameters
+   Seq: ( ME_478D017C0046 // aID
+ )
+ ; // Parameters
+
+ENDME // ME_478D01660020 Create
+
+ME ME_478E17B001BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478797300345 // Tl3ValueMap
+ ;
+ MELINK Target WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ ;
+
+ENDME // ME_478E17B001BA 
+
+MEREF ME_46A5EFE602DE_ME_478797300345_impl
+ MELINK Original WL 'ME_46A5EFE602DE' '4677FBA70343.ms.model.script' // MapID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_46A5EFE602DE_ME_478797300345_impl MapID
+
+MEREF ME_46A5F0130365_ME_478797300345_impl
+ MELINK Original WL 'ME_46A5F0130365' '4677FBA70343.ms.model.script' // GetDisplayNames
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A5F0130365_ME_478797300345_impl GetDisplayNames
+
+MEREF ME_46A5F03800A2_ME_478797300345_impl
+ MELINK Original WL 'ME_46A5F03800A2' '4677FBA70343.ms.model.script' // MapSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A5F03800A2_ME_478797300345_impl MapSize
+
+MEREF ME_47BD8675002D_ME_478797300345_G
+ MELINK Original WL? 'ME_47BD8675002D' // Tl3BaseWithIDList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BD8675002D_ME_478797300345_G Tl3BaseWithIDList
+
+MEREF ME_46A5EFC20052_ME_478797300345_R
+ MELINK Original WL 'ME_46A5EFC20052' '4677FBA70343.ms.model.script' // Il3ValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5EFC20052_ME_478797300345_R Il3ValueMap
+
+%%ImplementedBy ME_46A5EFC20052 ME_478797300345
+
+%%InheritedBy ME_47BD8675002D ME_478797300345
+
+ME ME_478797300345
+ MEPROP UID '478797300345'
+ MEPROP Name 'Tl3ValueMap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовая реализация мап "строка"-что-то.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BD8675002D_ME_478797300345_G // Tl3BaseWithIDList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A5EFC20052_ME_478797300345_R // Il3ValueMap
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_478CFDCC01A3 // rMapID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_478CFFBA017D // DoGetDisplayNames
+ HWL ME_478CFFCE02DE // GetMapSize
+ HWL ME_478D01660020 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5EFE602DE_ME_478797300345_impl // MapID
+ ME_46A5F0130365_ME_478797300345_impl // GetDisplayNames
+ ME_46A5F03800A2_ME_478797300345_impl // MapSize
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47879D580111 // El3ValueMap
+ HWL ME_47879D6B03AC // El3ValueMapValueNotFound
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_478E17B001BA // Tl3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В. / Люлин А.В. ©'
+ UP "no hands" true
+ UP "started" '30.03.2006 10:37'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ValueMap.pas'
+ UP extprop:rc:SelfName 'ValueMap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ValueMap'
+
+ENDME // ME_478797300345 Tl3ValueMap

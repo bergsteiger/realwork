@@ -1,0 +1,231 @@
+// TncsTaskSendExecutorFactory 5481B39101AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5481B39101AF
+
+ME ME_54B79E2D03D7
+ MEPROP UID '54B79E2D03D7'
+ MEPROP Name 'f_Task'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_54B79E2D03D7 f_Task
+
+FORWARD ME_54B79D23037B
+
+ME ME_54B79E0701C3
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_54B79E0701C3 aTask
+
+ME ME_54B79DEA022F
+ MEPROP UID '54B79DEA022F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B79D23037B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B79E0701C3 // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_54B79DEA022F DoIt
+
+ME ME_54B79D23037B
+ MEPROP UID '54B79D23037B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B79DEA022F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B79D23037B Create
+
+MEREF ME_54B79D23037B_ME_54B79D4703CE_G
+ MELINK Original HWL ME_54B79D23037B // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B79D23037B_ME_54B79D4703CE_G Create
+
+MEREF ME_5460829B0384_ME_54B79D4703CE_R
+ MELINK Original WL 'ME_5460829B0384' '5460A4DB018A.ms.model.script' // IncsMessageExecutorFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460829B0384_ME_54B79D4703CE_R IncsMessageExecutorFactory
+
+%%ImplementedBy ME_5460829B0384 ME_54B79D4703CE
+
+%%InheritedBy ME_54B79D23037B ME_54B79D4703CE
+
+ME ME_54B79D4703CE
+ MEPROP UID '54B79D4703CE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELIST Inherits
+   Seq: ( ME_54B79D23037B_ME_54B79D4703CE_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460829B0384_ME_54B79D4703CE_R // IncsMessageExecutorFactory
+ )
+ ; // Implements
+
+ENDME // ME_54B79D4703CE Make
+
+ME ME_54B7A2950110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B7A2950110 
+
+ME ME_54B7A2C40393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL? 'ME_54B66DB30346' // TncsGetPartialTaskDescription
+ ;
+
+ENDME // ME_54B7A2C40393 
+
+ME ME_54B7A2D10301
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL? 'ME_547583330291' // TncsGetFilePart
+ ;
+
+ENDME // ME_54B7A2D10301 
+
+ME ME_54B7B3CB0364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL? 'ME_54B7B37003C6' // TncsGetPartialTaskDescriptionExecutor
+ ;
+
+ENDME // ME_54B7B3CB0364 
+
+ME ME_54B7B406028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481B39101AF // TncsTaskSendExecutorFactory
+ ;
+ MELINK Target WL? 'ME_54B7B3D203C6' // TncsGetFilePartExecutor
+ ;
+
+ENDME // ME_54B7B406028A 
+
+MEREF ME_546082B801F3_ME_5481B39101AF_impl
+ MELINK Original WL 'ME_546082B801F3' '5460A4DB018A.ms.model.script' // MakeExecutor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_546082B801F3_ME_5481B39101AF_impl MakeExecutor
+
+MEREF ME_479731C50290_ME_5481B39101AF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5481B39101AF_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5481B39101AF_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5481B39101AF_G Tl3ProtoObject
+
+MEREF ME_5460829B0384_ME_5481B39101AF_R
+ MELINK Original WL 'ME_5460829B0384' '5460A4DB018A.ms.model.script' // IncsMessageExecutorFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460829B0384_ME_5481B39101AF_R IncsMessageExecutorFactory
+
+%%ImplementedBy ME_5460829B0384 ME_5481B39101AF
+
+%%InheritedBy ME_49E7754802A9 ME_5481B39101AF
+
+ME ME_5481B39101AF
+ MEPROP UID '5481B39101AF'
+ MEPROP Name 'TncsTaskSendExecutorFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54855BDB033D' // TaskSend
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5481B39101AF_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460829B0384_ME_5481B39101AF_R // IncsMessageExecutorFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54B79E2D03D7 // f_Task
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54B79D23037B // Create
+ HWL ME_54B79D4703CE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_546082B801F3_ME_5481B39101AF_impl // MakeExecutor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5481B39101AF_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54B7A2950110 // FreeAndNil
+ ME_54B7A2C40393 // TncsGetPartialTaskDescription
+ ME_54B7A2D10301 // TncsGetFilePart
+ ME_54B7B3CB0364 // TncsGetPartialTaskDescriptionExecutor
+ ME_54B7B406028A // TncsGetFilePartExecutor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskSendExecutorFactory.pas'
+ UP extprop:rc:SelfName 'ncsTaskSendExecutorFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsTaskSendExecutorFactory'
+
+ENDME // ME_5481B39101AF TncsTaskSendExecutorFactory

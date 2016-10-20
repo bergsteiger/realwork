@@ -1,0 +1,141 @@
+// TbsEditGroupName 49EEFBA6010A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EEFBA6010A
+
+ME ME_49EEFC0103B3
+ MEPROP UID '49EEFC0103B3'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EEFBA6010A // TbsEditGroupName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49EEFC0103B3 f_Name
+
+ME ME_49EEFC290306
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49EEFC290306 aName
+
+ME ME_49EEFC1B007D
+ MEPROP UID '49EEFC1B007D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEFBA6010A // TbsEditGroupName
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EEFC290306 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_49EEFC1B007D Create
+
+ME ME_49EEFC3D0121
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49EEFC3D0121 aName
+
+ME ME_49EEFC3002CC
+ MEPROP UID '49EEFC3002CC'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EEFBA6010A // TbsEditGroupName
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EEFC3D0121 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_49EEFC3002CC Make
+
+MEREF ME_49EEFAAB0318_ME_49EEFBA6010A_impl
+ MELINK Original WL 'ME_49EEFAAB0318' '491D961C0122.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49EEFAAB0318_ME_49EEFBA6010A_impl Name
+
+MEREF ME_479731C50290_ME_49EEFBA6010A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49EEFBA6010A_over Cleanup
+
+MEREF ME_49E7754802A9_ME_49EEFBA6010A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_49EEFBA6010A_G Tl3ProtoObject
+
+MEREF ME_49EEFA5701BB_ME_49EEFBA6010A_R
+ MELINK Original WL 'ME_49EEFA5701BB' '491D961C0122.ms.model.script' // IbsEditGroupName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49EEFA5701BB_ME_49EEFBA6010A_R IbsEditGroupName
+
+%%ImplementedBy ME_49EEFA5701BB ME_49EEFBA6010A
+
+%%InheritedBy ME_49E7754802A9 ME_49EEFBA6010A
+
+ME ME_49EEFBA6010A
+ MEPROP UID '49EEFBA6010A'
+ MEPROP Name 'TbsEditGroupName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D9414002B' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_49EEFBA6010A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49EEFA5701BB_ME_49EEFBA6010A_R // IbsEditGroupName
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49EEFC0103B3 // f_Name
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49EEFC1B007D // Create
+ HWL ME_49EEFC3002CC // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49EEFAAB0318_ME_49EEFBA6010A_impl // Name
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49EEFBA6010A_over // Cleanup
+ )
+ ; // Overridden
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\bsEditGroupName.pas'
+ UP extprop:rc:SelfName 'bsEditGroupName'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsEditGroupName'
+
+ENDME // ME_49EEFBA6010A TbsEditGroupName

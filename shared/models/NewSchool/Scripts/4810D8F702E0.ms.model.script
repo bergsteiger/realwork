@@ -1,0 +1,370 @@
+// TnevFormatPool 4810D8F702E0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4810D8F702E0
+%%Inner ME_4810D8F702E0
+
+FORWARD ME_4810D8F702E0
+
+FORWARD ME_4815D4350242
+
+ME ME_4815D45300AC
+ MEPROP UID '4815D45300AC'
+ MEPROP Name 'rLimitWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4815D4350242 // TnevRootFormatInfoKey
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4815D45300AC rLimitWidth
+
+ME ME_48218499038F
+ MEPROP UID '48218499038F'
+ MEPROP Name 'rView'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4815D4350242 // TnevRootFormatInfoKey
+ ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_48218499038F rView
+
+ME ME_4820775502D4
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_4820775502D4 aView
+
+ME ME_4815D47402E8
+ MEPROP UID '4815D47402E8'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4815D4350242 // TnevRootFormatInfoKey
+ ;
+ MELIST Parameters
+   Seq: ( ME_4820775502D4 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4815D47402E8 C
+
+ME ME_4815D4350242
+ MEPROP UID '4815D4350242'
+ MEPROP Name 'TnevRootFormatInfoKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4815D45300AC // rLimitWidth
+ HWL ME_48218499038F // rView
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4815D47402E8 // C
+ )
+ ; // Operations
+
+ENDME // ME_4815D4350242 TnevRootFormatInfoKey
+
+FORWARD ME_4815D31A015C
+
+ME ME_4821E0350123
+ MEPROP UID '4821E0350123'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4815D31A015C // TnevRootFormatInfoList
+ ;
+ MELINK Target HWL ME_4815D4350242 // TnevRootFormatInfoKey
+ ;
+
+ENDME // ME_4821E0350123 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_4815D31A015C_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4815D31A015C_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4815D31A015C_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4815D31A015C_G l3Searcher
+
+MEREF ME_4815D14F006B_ME_4815D31A015C_G
+ MELINK Original WL? 'ME_4815D14F006B' // TnevRootFormatInfoListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4815D14F006B_ME_4815D31A015C_G TnevRootFormatInfoListPrim
+
+%%InheritedBy ME_47B47E230134 ME_4815D31A015C
+%%InheritedBy ME_4815D14F006B ME_4815D31A015C
+
+ME ME_4815D31A015C
+ MEPROP UID '4815D31A015C'
+ MEPROP Name 'TnevRootFormatInfoList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_4815D31A015C_G // l3Searcher
+ ME_4815D14F006B_ME_4815D31A015C_G // TnevRootFormatInfoListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4821E0350123 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4815D31A015C_over // CompareItemWithData
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '28.04.2008 17:38'
+ UP extprop:rc:SelfName 'RootFormatInfoList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4815D31A015C TnevRootFormatInfoList
+
+ME ME_4815D1A10176
+ MEPROP UID '4815D1A10176'
+ MEPROP Name 'f_Roots'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELINK Target HWL ME_4815D31A015C // TnevRootFormatInfoList
+ ;
+
+ENDME // ME_4815D1A10176 f_Roots
+
+FORWARD ME_4E15BC75016A
+
+ME ME_4E15BC91004B
+ MEPROP UID '4E15BC91004B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E15BC75016A // AfterSectionBreakAdded
+ ;
+
+ENDME // ME_4E15BC91004B DoIt
+
+ME ME_4E15BC75016A
+ MEPROP UID '4E15BC75016A'
+ MEPROP Name 'AfterSectionBreakAdded'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E15BC91004B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E15BC75016A AfterSectionBreakAdded
+
+ME ME_4817202301B6
+ MEPROP UID '4817202301B6'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+
+ENDME // ME_4817202301B6 Clear
+
+ME ME_4815BCB800AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELINK Target WL? 'ME_4815B8D801D8' // TnevRootFormatInfo
+ ;
+
+ENDME // ME_4815BCB800AF 
+
+ME ME_4815D0670393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4815D0670393 
+
+ME ME_4F4B5F53015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4810D8F702E0 // TnevFormatPool
+ ;
+ MELINK Target WL? 'ME_4F4B5F380298' // TnevPrintingRootFormatInfo
+ ;
+
+ENDME // ME_4F4B5F53015F 
+
+MEREF ME_4815B5C600D9_ME_4810D8F702E0_impl
+ MELINK Original WL 'ME_4815B5C600D9' '47C5207602D1.ms.model.script' // FormatInfoForView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4815B5C600D9_ME_4810D8F702E0_impl FormatInfoForView
+
+MEREF ME_4816E2B2004E_ME_4810D8F702E0_impl
+ MELINK Original WL 'ME_4816E2B2004E' '47C5207602D1.ms.model.script' // InvalidateShape
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4816E2B2004E_ME_4810D8F702E0_impl InvalidateShape
+
+MEREF ME_481710BB0076_ME_4810D8F702E0_impl
+ MELINK Original WL 'ME_481710BB0076' '48171088022D.ms.model.script' // ChildAdded
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_481710BB0076_ME_4810D8F702E0_impl ChildAdded
+
+MEREF ME_481710C100FB_ME_4810D8F702E0_impl
+ MELINK Original WL 'ME_481710C100FB' '48171088022D.ms.model.script' // ChildDeleted
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_481710C100FB_ME_4810D8F702E0_impl ChildDeleted
+
+MEREF ME_4CB5EFC802AE_ME_4810D8F702E0_impl
+ MELINK Original WL 'ME_4CB5EFC802AE' '47C5207602D1.ms.model.script' // ClearFormatInfoForView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CB5EFC802AE_ME_4810D8F702E0_impl ClearFormatInfoForView
+
+MEREF ME_479731C50290_ME_4810D8F702E0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4810D8F702E0_over Cleanup
+
+MEREF ME_48171088022D_ME_4810D8F702E0_G
+ MELINK Original WL? 'ME_48171088022D' // nevChildSpy
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48171088022D_ME_4810D8F702E0_G nevChildSpy
+
+MEREF ME_48173AD801FF_ME_4810D8F702E0_G
+ MELINK Original WL? 'ME_48173AD801FF' // TnevFormatPoolBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48173AD801FF_ME_4810D8F702E0_G TnevFormatPoolBase
+
+MEREF ME_4810D82F00AB_ME_4810D8F702E0_R
+ MELINK Original WL 'ME_4810D82F00AB' '47C5207602D1.ms.model.script' // InevFormatPool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4810D82F00AB_ME_4810D8F702E0_R InevFormatPool
+
+MEREF ME_4816E2320025_ME_4810D8F702E0_R
+ MELINK Original WL 'ME_4816E2320025' '47C5207602D1.ms.model.script' // ShapeView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4816E2320025_ME_4810D8F702E0_R ShapeView
+
+%%ImplementedBy ME_4810D82F00AB ME_4810D8F702E0
+%%ImplementedBy ME_4816E2320025 ME_4810D8F702E0
+
+%%InheritedBy ME_48171088022D ME_4810D8F702E0
+%%InheritedBy ME_48173AD801FF ME_4810D8F702E0
+
+ME ME_4810D8F702E0
+ MEPROP UID '4810D8F702E0'
+ MEPROP Name 'TnevFormatPool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( ME_48171088022D_ME_4810D8F702E0_G // nevChildSpy
+ ME_48173AD801FF_ME_4810D8F702E0_G // TnevFormatPoolBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4810D82F00AB_ME_4810D8F702E0_R // InevFormatPool
+ ME_4816E2320025_ME_4810D8F702E0_R // ShapeView
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4815D1A10176 // f_Roots
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E15BC75016A // AfterSectionBreakAdded
+ HWL ME_4817202301B6 // Clear
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4815B5C600D9_ME_4810D8F702E0_impl // FormatInfoForView
+ ME_4816E2B2004E_ME_4810D8F702E0_impl // InvalidateShape
+ ME_481710BB0076_ME_4810D8F702E0_impl // ChildAdded
+ ME_481710C100FB_ME_4810D8F702E0_impl // ChildDeleted
+ ME_4CB5EFC802AE_ME_4810D8F702E0_impl // ClearFormatInfoForView
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4810D8F702E0_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4815D4350242 // TnevRootFormatInfoKey
+ HWL ME_4815D31A015C // TnevRootFormatInfoList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4815BCB800AF // TnevRootFormatInfo
+ ME_4815D0670393 // SysUtils
+ ME_4F4B5F53015F // TnevPrintingRootFormatInfo
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '24.04.2008 23:04'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormatPool.pas'
+ UP extprop:rc:SelfName 'FormatPool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevFormatPool'
+
+ENDME // ME_4810D8F702E0 TnevFormatPool

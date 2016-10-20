@@ -1,0 +1,120 @@
+// Wk2DictRec 484D10530133 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484D10530133
+
+ME ME_49A6C00303D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL? 'ME_47AC5ED302A1' // Tk2DictRec
+ ;
+
+ENDME // ME_49A6C00303D9 
+
+ME ME_49A6C03A0177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_49A6C03A0177 
+
+ME ME_49A6C06F03AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+
+ENDME // ME_49A6C06F03AC 
+
+ME ME_49A6C0CF004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+
+ENDME // ME_49A6C0CF004E 
+
+ME ME_5304E70D0111
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL? 'ME_4860AF86034F' // Tk2Dictionary
+ ;
+
+ENDME // ME_5304E70D0111 
+
+ME ME_530635C80047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D10530133 // Wk2DictRec
+ ;
+ MELINK Target WL 'ME_4CB46C85024E' '47AC6F0B025E.ms.model.script' // k2NullTag
+ ;
+
+ENDME // ME_530635C80047 
+
+MEREF ME_484CCEBC00DC_ME_484D10530133_over
+ MELINK Original WL 'ME_484CCEBC00DC' '47AC6F0B025E.ms.model.script' // StrToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCEBC00DC_ME_484D10530133_over StrToTag
+
+MEREF ME_48493F800373_ME_484D10530133_G
+ MELINK Original WL? 'ME_48493F800373' // WPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48493F800373_ME_484D10530133_G WPersistent
+
+%%InheritedBy ME_48493F800373 ME_484D10530133
+
+ME ME_484D10530133
+ MEPROP UID '484D10530133'
+ MEPROP Name 'Wk2DictRec'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обёртка для словарных записей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_48493F800373_ME_484D10530133_G // WPersistent
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_484CCEBC00DC_ME_484D10530133_over // StrToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49A6C00303D9 // Tk2DictRec
+ ME_49A6C03A0177 // Tk2TagID
+ ME_49A6C06F03AC // Tl3PrimString
+ ME_49A6C0CF004E // Tl3CustomString
+ ME_5304E70D0111 // Tk2Dictionary
+ ME_530635C80047 // k2NullTag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '07.09.1998 12:46'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictRec_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2DictRec_Wrap'
+
+ENDME // ME_484D10530133 Wk2DictRec

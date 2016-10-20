@@ -4,79 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57B1B48C00F8
 
-FORWARD ME_57B1B48C00F8
-
-FORWARD ME_57ADBFD200CA
-
-%%ImplementedBy ME_57ADBE5B024A ME_57ADC0130133
-
-ME ME_57ADC0130133
- MEPROP UID '57ADC0130133'
- MEPROP Name 'Make'
- MEPROP Class class_Class
- MELINK Stereotype st_Factory ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57ADBFD200CA // TmsmModel
- ;
- MELIST Implements
-   Seq: ( WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
- )
- ; // Implements
-
-ENDME // ME_57ADC0130133 Make
-
-ME ME_479731C50290_ME_57ADBFD200CA
- MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57ADBFD200CA Cleanup
-
-%%ImplementedBy ME_57ADBE5B024A ME_57ADBFD200CA
-%%ImplementedBy ME_57B6A905031E ME_57ADBFD200CA
-
-%%InheritedBy ME_49E7754802A9 ME_57ADBFD200CA
-%%InheritedBy ME_57B6B275018D ME_57ADBFD200CA
-
-ME ME_57ADBFD200CA
- MEPROP UID '57ADBFD200CA'
- MEPROP Name 'TmsmModel'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57B1B48C00F8 // Models
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- WL? 'ME_57B6B275018D' // msmEventsPublisher
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
- WL? 'ME_57B6A905031E' // msmEventFire
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_57ADC0130133 // Make
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57ADBFD200CA // Cleanup
- )
- ; // Overridden
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\gui\Garant\msm\msmModel.pas'
- UP extprop:rc:SelfName 'msmModel'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'msmModel'
-
-ENDME // ME_57ADBFD200CA TmsmModel
-
 ME ME_57B1B48C00F8
  MEPROP UID '57B1B48C00F8'
  MEPROP Name 'Models'
@@ -88,7 +15,7 @@ ME ME_57B1B48C00F8
  MELINK Parent WL? 'ME_57B1DAE6030C' // msm$MVC
  ;
  MELIST Children
-   Seq: ( HWL ME_57ADBFD200CA // TmsmModel
+   Seq: ( WL? 'ME_57ADBFD200CA' // TmsmModel
  )
  ; // Children
  MELIST Depends

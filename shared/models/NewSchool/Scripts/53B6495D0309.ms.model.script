@@ -64,7 +64,7 @@ ENDME // ME_53B64A0E00FF DoIt
 ME ME_53B649F600A3
  MEPROP UID '53B649F600A3'
  MEPROP Name 'DoGetFormSetImageIndex'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -94,7 +94,7 @@ ENDME // ME_53B6802401E4 DoIt
 ME ME_53B6800D01AC
  MEPROP UID '53B6800D01AC'
  MEPROP Name 'UpdateChromeLikeTab'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -126,7 +126,7 @@ ENDME // ME_53B68045003E DoIt
 ME ME_53B6803301BD
  MEPROP UID '53B6803301BD'
  MEPROP Name 'NeedUpdateChromeLikeTab'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -171,7 +171,7 @@ ENDME // ME_53BCF22B03AC DoIt
 ME ME_53BCF20B013C
  MEPROP UID '53BCF20B013C'
  MEPROP Name 'NeedUpdateChromeLikeTabCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -214,7 +214,7 @@ ENDME // ME_53BCF2750144 DoIt
 ME ME_53BCF25E00F4
  MEPROP UID '53BCF25E00F4'
  MEPROP Name 'UpdateChromeLikeTabCaption'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -278,37 +278,49 @@ ME ME_53BCF4850296
 
 ENDME // ME_53BCF4850296 
 
-ME ME_53B649240001_ME_53B6495D0309
+MEREF ME_53B649240001_ME_53B6495D0309_impl
  MELINK Original WL 'ME_53B649240001' '4683F37902CF.ms.model.script' // FormSetImageIndex
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_53B649240001_ME_53B6495D0309 FormSetImageIndex
+ENDMEREF // ME_53B649240001_ME_53B6495D0309_impl FormSetImageIndex
 
-ME ME_54460951001B_ME_53B6495D0309
+MEREF ME_54460951001B_ME_53B6495D0309_impl
  MELINK Original WL 'ME_54460951001B' '4683F37902CF.ms.model.script' // CanDefineFormSetIcon
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_54460951001B_ME_53B6495D0309 CanDefineFormSetIcon
+ENDMEREF // ME_54460951001B_ME_53B6495D0309_impl CanDefineFormSetIcon
 
-ME ME_479731C50290_ME_53B6495D0309
+MEREF ME_479731C50290_ME_53B6495D0309_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53B6495D0309 Cleanup
+ENDMEREF // ME_479731C50290_ME_53B6495D0309_over Cleanup
 
-ME ME_49803F5503AA_ME_53B6495D0309
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_53B6495D0309_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_53B6495D0309 DoInit
+ENDMEREF // ME_49803F5503AA_ME_53B6495D0309_over DoInit
 
-ME ME_4AD44CA20001_ME_53B6495D0309
- MELINK Original WL 'ME_4AD44CA20001' '4AADF9450143.ms.model.script' // InsertForm
+MEREF ME_4AD44CA20001_ME_53B6495D0309_over
+ MELINK Original WL 'ME_4AD44CA20001' '49525C240170.ms.model.script' // InsertForm
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4AD44CA20001_ME_53B6495D0309 InsertForm
+ENDMEREF // ME_4AD44CA20001_ME_53B6495D0309_over InsertForm
+
+MEREF ME_4A97E71A0270_ME_53B6495D0309_R
+ MELINK Original WL 'ME_4A97E71A0270' '4AADF9450143.ms.model.script' // MvcmContainerForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A97E71A0270_ME_53B6495D0309_R MvcmContainerForm
+
+MEREF ME_53B648E000D9_ME_53B6495D0309_R
+ MELINK Original WL 'ME_53B648E000D9' '4683F37902CF.ms.model.script' // IvcmFormSetIconProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B648E000D9_ME_53B6495D0309_R IvcmFormSetIconProvider
 
 %%ImplementedBy ME_4A97E71A0270 ME_53B6495D0309
 %%ImplementedBy ME_53B648E000D9 ME_53B6495D0309
@@ -325,8 +337,8 @@ ME ME_53B6495D0309
  MELINK Parent WL? 'ME_533D53FF00C2' // Visual$ChromeLike
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A97E71A0270' '4AADF9450143.ms.model.script' // MvcmContainerForm
- WL 'ME_53B648E000D9' '4683F37902CF.ms.model.script' // IvcmFormSetIconProvider
+   Seq: ( ME_4A97E71A0270_ME_53B6495D0309_R // MvcmContainerForm
+ ME_53B648E000D9_ME_53B6495D0309_R // IvcmFormSetIconProvider
  )
  ; // Implements
  MELIST Attributes
@@ -344,14 +356,14 @@ ME ME_53B6495D0309
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_53B649240001_ME_53B6495D0309 // FormSetImageIndex
- ME_54460951001B_ME_53B6495D0309 // CanDefineFormSetIcon
+   Seq: ( ME_53B649240001_ME_53B6495D0309_impl // FormSetImageIndex
+ ME_54460951001B_ME_53B6495D0309_impl // CanDefineFormSetIcon
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53B6495D0309 // Cleanup
- ME_49803F5503AA_ME_53B6495D0309 // DoInit
- ME_4AD44CA20001_ME_53B6495D0309 // InsertForm
+   Seq: ( ME_479731C50290_ME_53B6495D0309_over // Cleanup
+ ME_49803F5503AA_ME_53B6495D0309_over // DoInit
+ ME_4AD44CA20001_ME_53B6495D0309_over // InsertForm
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,68 @@
+// TnsLangList 4914266C02BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4914266C02BE
+
+ME ME_4914274301EB
+ MEPROP UID '4914274301EB'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4914266C02BE // TnsLangList
+ ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_4914274301EB ItemType
+
+MEREF ME_47BC3A07027F_ME_4914266C02BE_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_4914266C02BE_G Tl3SimpleDataContainer
+
+MEREF ME_49142D7000F3_ME_4914266C02BE_G
+ MELINK Original WL? 'ME_49142D7000F3' // l3EnumList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49142D7000F3_ME_4914266C02BE_G l3EnumList
+
+%%InheritedBy ME_47BC3A07027F ME_4914266C02BE
+%%InheritedBy ME_49142D7000F3 ME_4914266C02BE
+
+ME ME_4914266C02BE
+ MEPROP UID '4914266C02BE'
+ MEPROP Name 'TnsLangList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC3A07027F_ME_4914266C02BE_G // Tl3SimpleDataContainer
+ ME_49142D7000F3_ME_4914266C02BE_G // l3EnumList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4914274301EB // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '07.11.2008 15:16'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLangList.pas'
+ UP extprop:rc:SelfName 'LangList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLangList'
+
+ENDME // ME_4914266C02BE TnsLangList

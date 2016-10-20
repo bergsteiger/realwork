@@ -4,53 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_5395D0F601A6
 
-FORWARD ME_5395D0F601A6
-
-FORWARD ME_5395D124034E
-
-ME ME_5395D1AB0313
- MEPROP UID '5395D1AB0313'
- MEPROP Name 'DoIt'
- MEPROP Class class_Class
- MELINK Stereotype st_Test ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5395D124034E // TarchiExportActionTest
- ;
-
-ENDME // ME_5395D1AB0313 DoIt
-
-%%InheritedBy ME_4B2A11BC0255 ME_5395D124034E
-
-ME ME_5395D124034E
- MEPROP UID '5395D124034E'
- MEPROP Name 'TarchiExportActionTest'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5395D0F601A6 // Tasked Actions
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_5395D1AB0313 // DoIt
- )
- ; // Operations
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas'
- UP extprop:rc:SelfName 'archiExportActionTest'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'archiExportActionTest'
-
-ENDME // ME_5395D124034E TarchiExportActionTest
-
 ME ME_5395D0F601A6
  MEPROP UID '5395D0F601A6'
  MEPROP Name 'Tasked Actions'
@@ -63,7 +16,7 @@ ME ME_5395D0F601A6
  MELINK Parent WL? 'ME_5395D0BF015A' // New Actions Test
  ;
  MELIST Children
-   Seq: ( HWL ME_5395D124034E // TarchiExportActionTest
+   Seq: ( WL? 'ME_5395D124034E' // TarchiExportActionTest
  )
  ; // Children
  MELIST Depends

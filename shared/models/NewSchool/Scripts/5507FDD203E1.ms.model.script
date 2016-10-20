@@ -1,0 +1,457 @@
+// Tl3BatchService 5507FDD203E1 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5507FDD203E1
+%%Inner ME_5507FDD203E1
+
+FORWARD ME_5507FDD203E1
+
+FORWARD ME_5509AAAC0313
+
+ME ME_5509AAC00331
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5509AAAC0313 // Tl3BatchScriptService
+ ;
+ MELINK Target WL? 'ME_5509AA5400EA' // Tl3ScriptService
+ ;
+
+ENDME // ME_5509AAC00331 
+
+MEREF ME_49E7754802A9_ME_5509AAAC0313_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5509AAAC0313_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5509AAAC0313
+
+ME ME_5509AAAC0313
+ MEPROP UID '5509AAAC0313'
+ MEPROP Name 'Tl3BatchScriptService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5509AAAC0313_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5509AAC00331 // Tl3ScriptService
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'BatchScriptService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5509AAAC0313 Tl3BatchScriptService
+
+FORWARD ME_61A12D8261F1
+
+FORWARD ME_5507FDED0373
+
+ME ME_8A081B195E08
+ MEPROP UID '8A081B195E08'
+ MEPROP Name 'IsBatchMode'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_5507FDED0373 // IsBatchMode
+ ;
+
+ENDME // ME_8A081B195E08 IsBatchMode
+
+FORWARD ME_55099B480169
+
+ME ME_3E2DB431FD1A
+ MEPROP UID '3E2DB431FD1A'
+ MEPROP Name 'EnterBatchMode'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ UPLINK Speller HWL ME_55099B480169 // EnterBatchMode
+ ;
+
+ENDME // ME_3E2DB431FD1A EnterBatchMode
+
+FORWARD ME_55099B590257
+
+ME ME_FE46A80B1DA3
+ MEPROP UID 'FE46A80B1DA3'
+ MEPROP Name 'LeaveBatchMode'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ UPLINK Speller HWL ME_55099B590257 // LeaveBatchMode
+ ;
+
+ENDME // ME_FE46A80B1DA3 LeaveBatchMode
+
+FORWARD ME_553F341100FE
+
+ME ME_3BBB07EEB463
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_3BBB07EEB463 aValue
+
+ME ME_194C97B8A2DF
+ MEPROP UID '194C97B8A2DF'
+ MEPROP Name 'PushAnswer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_3BBB07EEB463 // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_553F341100FE // PushAnswer
+ ;
+
+ENDME // ME_194C97B8A2DF PushAnswer
+
+FORWARD ME_553F3424010C
+
+ME ME_FE26372CAD8B
+ MEPROP UID 'FE26372CAD8B'
+ MEPROP Name 'PopAnswer'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UPLINK Speller HWL ME_553F3424010C // PopAnswer
+ ;
+
+ENDME // ME_FE26372CAD8B PopAnswer
+
+FORWARD ME_553F428003A3
+
+ME ME_23858A465AF6
+ MEPROP UID '23858A465AF6'
+ MEPROP Name 'SignalWasDialog'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ UPLINK Speller HWL ME_553F428003A3 // SignalWasDialog
+ ;
+
+ENDME // ME_23858A465AF6 SignalWasDialog
+
+FORWARD ME_553F429502D1
+
+ME ME_217998C234EE
+ MEPROP UID '217998C234EE'
+ MEPROP Name 'CheckWasDialog'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_553F429502D1 // CheckWasDialog
+ ;
+
+ENDME // ME_217998C234EE CheckWasDialog
+
+FORWARD ME_553F4C9802D8
+
+ME ME_37CC2CF2A1FF
+ MEPROP UID '37CC2CF2A1FF'
+ MEPROP Name 'ClearAnswers'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
+ ;
+ UPLINK Speller HWL ME_553F4C9802D8 // ClearAnswers
+ ;
+
+ENDME // ME_37CC2CF2A1FF ClearAnswers
+
+ME ME_61A12D8261F1
+ MEPROP UID '61A12D8261F1'
+ MEPROP Name 'Ml3BatchService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3BatchService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_8A081B195E08 // IsBatchMode
+ HWL ME_3E2DB431FD1A // EnterBatchMode
+ HWL ME_FE46A80B1DA3 // LeaveBatchMode
+ HWL ME_194C97B8A2DF // PushAnswer
+ HWL ME_FE26372CAD8B // PopAnswer
+ HWL ME_23858A465AF6 // SignalWasDialog
+ HWL ME_217998C234EE // CheckWasDialog
+ HWL ME_37CC2CF2A1FF // ClearAnswers
+ )
+ ; // Operations
+
+ENDME // ME_61A12D8261F1 Ml3BatchService
+
+ME ME_5507FDED0373
+ MEPROP UID '5507FDED0373'
+ MEPROP Name 'IsBatchMode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5507FDED0373 IsBatchMode
+
+ME ME_55099B480169
+ MEPROP UID '55099B480169'
+ MEPROP Name 'EnterBatchMode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ENDME // ME_55099B480169 EnterBatchMode
+
+ME ME_55099B590257
+ MEPROP UID '55099B590257'
+ MEPROP Name 'LeaveBatchMode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ENDME // ME_55099B590257 LeaveBatchMode
+
+ME ME_553F341F03E3
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_553F341F03E3 aValue
+
+ME ME_553F341100FE
+ MEPROP UID '553F341100FE'
+ MEPROP Name 'PushAnswer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_553F341F03E3 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_553F341100FE PushAnswer
+
+ME ME_553F3424010C
+ MEPROP UID '553F3424010C'
+ MEPROP Name 'PopAnswer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_553F3424010C PopAnswer
+
+ME ME_553F428003A3
+ MEPROP UID '553F428003A3'
+ MEPROP Name 'SignalWasDialog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ENDME // ME_553F428003A3 SignalWasDialog
+
+ME ME_553F429502D1
+ MEPROP UID '553F429502D1'
+ MEPROP Name 'CheckWasDialog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_553F429502D1 CheckWasDialog
+
+ME ME_553F4C9802D8
+ MEPROP UID '553F4C9802D8'
+ MEPROP Name 'ClearAnswers'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+
+ENDME // ME_553F4C9802D8 ClearAnswers
+
+ME ME_553F33E200B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL? 'ME_4E03119F00B2' // afwAnswer
+ ;
+
+ENDME // ME_553F33E200B6 
+
+ME ME_553F34080180
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_553F34080180 
+
+ME ME_553F71DE029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
+ ;
+ MELINK Target WL? 'ME_553F71BE03E0' // Tl3ModalService
+ ;
+
+ENDME // ME_553F71DE029D 
+
+MEREF ME_553F7345032E_ME_5507FDD203E1_impl
+ MELINK Original WL 'ME_553F7345032E' '553F71BE03E0.ms.model.script' // HasModalWorker
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_553F7345032E_ME_5507FDD203E1_impl HasModalWorker
+
+MEREF ME_553F8EA30300_ME_5507FDD203E1_impl
+ MELINK Original WL 'ME_553F8EA30300' '553F71BE03E0.ms.model.script' // ExecuteCurrentModalWorker
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_553F8EA30300_ME_5507FDD203E1_impl ExecuteCurrentModalWorker
+
+MEREF ME_49E7754802A9_ME_5507FDD203E1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5507FDD203E1_G Tl3ProtoObject
+
+MEREF ME_553F84500218_ME_5507FDD203E1_R
+ MELINK Original WL 'ME_553F84500218' '553F71BE03E0.ms.model.script' // Ml3ModalService
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_553F84500218_ME_5507FDD203E1_R Ml3ModalService
+
+%%ImplementedBy ME_553F84500218 ME_5507FDD203E1
+
+%%InheritedBy ME_49E7754802A9 ME_5507FDD203E1
+
+ME ME_5507FDD203E1
+ MEPROP UID '5507FDD203E1'
+ MEPROP Name 'Tl3BatchService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4E030FC801EB' // BatchServices
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5507FDD203E1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_553F84500218_ME_5507FDD203E1_R // Ml3ModalService
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5507FDED0373 // IsBatchMode
+ HWL ME_55099B480169 // EnterBatchMode
+ HWL ME_55099B590257 // LeaveBatchMode
+ HWL ME_553F341100FE // PushAnswer
+ HWL ME_553F3424010C // PopAnswer
+ HWL ME_553F428003A3 // SignalWasDialog
+ HWL ME_553F429502D1 // CheckWasDialog
+ HWL ME_553F4C9802D8 // ClearAnswers
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_553F7345032E_ME_5507FDD203E1_impl // HasModalWorker
+ ME_553F8EA30300_ME_5507FDD203E1_impl // ExecuteCurrentModalWorker
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_5509AAAC0313 // Tl3BatchScriptService
+ HWL ME_61A12D8261F1 // Ml3BatchService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_553F33E200B6 // afwAnswer
+ ME_553F34080180 // ModalResults
+ ME_553F71DE029D // Tl3ModalService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BatchService.pas'
+ UP extprop:rc:SelfName 'BatchService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3BatchService'
+
+ENDME // ME_5507FDD203E1 Tl3BatchService

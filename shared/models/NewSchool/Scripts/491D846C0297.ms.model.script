@@ -4,11 +4,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_491D846C0297
 
-ME ME_491C264C02C2_ME_491D846C0297
+MEREF ME_491C264C02C2_ME_491D846C0297_over
  MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_491C264C02C2_ME_491D846C0297 GetTimeMachineOff
+ENDMEREF // ME_491C264C02C2_ME_491D846C0297_over GetTimeMachineOff
+
+MEREF ME_47EA20430108_ME_491D846C0297_G
+ MELINK Original WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA20430108_ME_491D846C0297_G dsBaseDocumentPrim
 
 %%InheritedBy ME_47EA20430108 ME_491D846C0297
 
@@ -25,11 +31,11 @@ ME ME_491D846C0297
  MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47EA20430108' // dsBaseDocumentPrim
+   Seq: ( ME_47EA20430108_ME_491D846C0297_G // dsBaseDocumentPrim
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_491C264C02C2_ME_491D846C0297 // GetTimeMachineOff
+   Seq: ( ME_491C264C02C2_ME_491D846C0297_over // GetTimeMachineOff
  )
  ; // Overridden
  UP "author" 'Λσκόÿνεφ Π.Β.'

@@ -7,7 +7,7 @@ FORWARD ME_490865BF02D0
 ME ME_4C99E10C012F
  MEPROP UID '4C99E10C012F'
  MEPROP Name 'nsCreateFilterForFindTagByID'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -18,12 +18,18 @@ ME ME_4C99E10C012F
 
 ENDME // ME_4C99E10C012F nsCreateFilterForFindTagByID
 
+MEREF ME_4F325B840351_ME_4F325B5D0118_R
+ MELINK Original WL 'ME_4F325B840351' '484407720166.ms.model.script' // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F325B840351_ME_4F325B5D0118_R Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+
 %%ImplementedBy ME_4F325B840351 ME_4F325B5D0118
 
 ME ME_4F325B5D0118
  MEPROP UID '4F325B5D0118'
  MEPROP Name 'nsSelectByIterator'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -31,7 +37,7 @@ ME ME_4F325B5D0118
  MELINK Parent HWL ME_490865BF02D0 // nsTagNodeTools
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4F325B840351' '484407720166.ms.model.script' // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+   Seq: ( ME_4F325B840351_ME_4F325B5D0118_R // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
  )
  ; // Implements
  UP extprop:rc:SelfName 'SelectByIterator'

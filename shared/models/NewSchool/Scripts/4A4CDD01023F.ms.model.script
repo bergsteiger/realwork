@@ -1,0 +1,628 @@
+// TatListHelper 4A4CDD01023F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A4CDD01023F
+
+FORWARD ME_4A4CDD01023F
+
+FORWARD ME_4A4CDD360055
+
+ME ME_4A4CDD460116
+ MEPROP UID '4A4CDD460116'
+ MEPROP Name 'SON_ASCENDING'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD360055 // SortOrderNames
+ ;
+ MEPROP Value '''по возрастанию'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по возрастанию'''
+
+ENDME // ME_4A4CDD460116 SON_ASCENDING
+
+ME ME_4A4CDD5903B5
+ MEPROP UID '4A4CDD5903B5'
+ MEPROP Name 'SON_DESCENDING'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD360055 // SortOrderNames
+ ;
+ MEPROP Value '''по убыванию'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по убыванию'''
+
+ENDME // ME_4A4CDD5903B5 SON_DESCENDING
+
+ME ME_4A4CDD360055
+ MEPROP UID '4A4CDD360055'
+ MEPROP Name 'SortOrderNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4CDD460116 // SON_ASCENDING
+ HWL ME_4A4CDD5903B5 // SON_DESCENDING
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4A4CDD360055 SortOrderNames
+
+FORWARD ME_4A4CDD750109
+
+ME ME_4A4CDD8A001C
+ MEPROP UID '4A4CDD8A001C'
+ MEPROP Name 'STN_CREATE_DATE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD750109 // SortTypeNames
+ ;
+ MEPROP Value '''по дате издания'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по дате издания'''
+
+ENDME // ME_4A4CDD8A001C STN_CREATE_DATE
+
+ME ME_4A4CDD980064
+ MEPROP UID '4A4CDD980064'
+ MEPROP Name 'STN_LAST_EDIT_DATE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD750109 // SortTypeNames
+ ;
+ MEPROP Value '''по дате последнего изменения'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по дате последнего изменения'''
+
+ENDME // ME_4A4CDD980064 STN_LAST_EDIT_DATE
+
+ME ME_4A4CDDB70013
+ MEPROP UID '4A4CDDB70013'
+ MEPROP Name 'STN_PRIORITY'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD750109 // SortTypeNames
+ ;
+ MEPROP Value '''по юридической силе'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по юридической силе'''
+
+ENDME // ME_4A4CDDB70013 STN_PRIORITY
+
+ME ME_4A4CDDCB0215
+ MEPROP UID '4A4CDDCB0215'
+ MEPROP Name 'STN_RELEVANCE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD750109 // SortTypeNames
+ ;
+ MEPROP Value '''по релевантности'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''по релевантности'''
+
+ENDME // ME_4A4CDDCB0215 STN_RELEVANCE
+
+ME ME_4A4CDDEB0368
+ MEPROP UID '4A4CDDEB0368'
+ MEPROP Name 'STN_NOT_SORTED'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4CDD750109 // SortTypeNames
+ ;
+ MEPROP Value '''не сортирован'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''не сортирован'''
+
+ENDME // ME_4A4CDDEB0368 STN_NOT_SORTED
+
+ME ME_4A4CDD750109
+ MEPROP UID '4A4CDD750109'
+ MEPROP Name 'SortTypeNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A4CDD8A001C // STN_CREATE_DATE
+ HWL ME_4A4CDD980064 // STN_LAST_EDIT_DATE
+ HWL ME_4A4CDDB70013 // STN_PRIORITY
+ HWL ME_4A4CDDCB0215 // STN_RELEVANCE
+ HWL ME_4A4CDDEB0368 // STN_NOT_SORTED
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4A4CDD750109 SortTypeNames
+
+FORWARD ME_4FD24A98029F
+
+ME ME_5051E5520315
+ MEPROP UID '5051E5520315'
+ MEPROP Name 'History'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_5051E5520315 History
+
+ME ME_5051E87C0078
+ MEPROP UID '5051E87C0078'
+ MEPROP Name 'Root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_5051E87C0078 Root
+
+ME ME_5051E8E7028C
+ MEPROP UID '5051E8E7028C'
+ MEPROP Name 'FirstElement'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "pm" true
+
+ENDME // ME_5051E8E7028C FirstElement
+
+ME ME_4FD24AB501AE
+ MEPROP UID '4FD24AB501AE'
+ MEPROP Name 'EntityInterface'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4FD24AB501AE EntityInterface
+
+ME ME_5051FA780298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_5051FA780298 
+
+ME ME_5052031B0294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD24A98029F // TatList
+ ;
+ MELINK Target WL? 'ME_483C378301CB' // StrUtils
+ ;
+
+ENDME // ME_5052031B0294 
+
+MEREF ME_5000565C019C_ME_4FD24A98029F_over
+ MELINK Original WL 'ME_5000565C019C' '47913F4E02E0.ms.model.script' // ClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5000565C019C_ME_4FD24A98029F_over ClearFields
+
+MEREF ME_505205F10268_ME_4FD24A98029F_G
+ MELINK Original WL? 'ME_505205F10268' // atEntityWithName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_505205F10268_ME_4FD24A98029F_G atEntityWithName
+
+%%InheritedBy ME_505205F10268 ME_4FD24A98029F
+
+ME ME_4FD24A98029F
+ MEPROP UID '4FD24A98029F'
+ MEPROP Name 'TatList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELIST Inherits
+   Seq: ( ME_505205F10268_ME_4FD24A98029F_G // atEntityWithName
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5051E5520315 // History
+ HWL ME_5051E87C0078 // Root
+ HWL ME_5051E8E7028C // FirstElement
+ HWL ME_4FD24AB501AE // EntityInterface
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_5000565C019C_ME_4FD24A98029F_over // ClearFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5051FA780298 // TatStringHelper
+ ME_5052031B0294 // StrUtils
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'atList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FD24A98029F TatList
+
+ME ME_4A4CDE1B02AE
+ MEPROP Name 'aSortType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_456ECC87033C' '456EA56002BF.ms.model.script' // SortType
+ ;
+
+ENDME // ME_4A4CDE1B02AE aSortType
+
+ME ME_4A4CDE0A001A
+ MEPROP UID '4A4CDE0A001A'
+ MEPROP Name 'ST2Str'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4CDE1B02AE // aSortType
+ )
+ ; // Parameters
+
+ENDME // ME_4A4CDE0A001A ST2Str
+
+ME ME_4A4CE28A02AE
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4A4CE28A02AE aStr
+
+ME ME_4A4CE28A02BD
+ MEPROP Name 'theSortType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456ECC87033C' '456EA56002BF.ms.model.script' // SortType
+ ;
+
+ENDME // ME_4A4CE28A02BD theSortType
+
+ME ME_4A4CDE1F03C0
+ MEPROP UID '4A4CDE1F03C0'
+ MEPROP Name 'Str2ST'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4CE28A02AE // aStr
+ ME_4A4CE28A02BD // theSortType
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4A4CDE1F03C0 Str2ST
+
+ME ME_4A4CDE48011E
+ MEPROP Name 'aSortOrder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_456ECB110222' '456EA56002BF.ms.model.script' // SortOrder
+ ;
+
+ENDME // ME_4A4CDE48011E aSortOrder
+
+ME ME_4A4CDE34010F
+ MEPROP UID '4A4CDE34010F'
+ MEPROP Name 'SO2Str'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4CDE48011E // aSortOrder
+ )
+ ; // Parameters
+
+ENDME // ME_4A4CDE34010F SO2Str
+
+ME ME_4A4CE29B0023
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4A4CE29B0023 aStr
+
+ME ME_4A4CE29B0032
+ MEPROP Name 'theSortOrder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_456ECB110222' '456EA56002BF.ms.model.script' // SortOrder
+ ;
+
+ENDME // ME_4A4CE29B0032 theSortOrder
+
+ME ME_4A4CDE4B033B
+ MEPROP UID '4A4CDE4B033B'
+ MEPROP Name 'Str2SO'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4CE29B0023 // aStr
+ ME_4A4CE29B0032 // theSortOrder
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4A4CDE4B033B Str2SO
+
+ME ME_4A4CDF250355
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4A4CDF250355 aList
+
+ME ME_4A4CDF250364
+ MEPROP Name 'aSortType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_456ECC87033C' '456EA56002BF.ms.model.script' // SortType
+ ;
+
+ENDME // ME_4A4CDF250364 aSortType
+
+ME ME_4A4CDEEE00C0
+ MEPROP UID '4A4CDEEE00C0'
+ MEPROP Name 'IsCanBeSortedBy'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4CDF250355 // aList
+ ME_4A4CDF250364 // aSortType
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4A4CDEEE00C0 IsCanBeSortedBy
+
+ME ME_4A4DE6800223
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4A4DE6800223 aList
+
+ME ME_4A4DE6800233
+ MEPROP Name 'aNodesCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A4DE6800233 aNodesCount
+
+ME ME_4A4DE6530114
+ MEPROP UID '4A4DE6530114'
+ MEPROP Name 'LoadList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A4DE6800223 // aList
+ ME_4A4DE6800233 // aNodesCount
+ )
+ ; // Parameters
+
+ENDME // ME_4A4DE6530114 LoadList
+
+ME ME_4A4CDD1D02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_456ECB110222' '456EA56002BF.ms.model.script' // SortOrder
+ ;
+
+ENDME // ME_4A4CDD1D02DD 
+
+ME ME_4A4CDD2200C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_456ECC87033C' '456EA56002BF.ms.model.script' // SortType
+ ;
+
+ENDME // ME_4A4CDD2200C3 
+
+ME ME_4A4CDF360194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4A4CDF360194 
+
+ME ME_4A4CE16201BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A4CE16201BA 
+
+ME ME_4A4CE17F03DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_45EEDB9B038E' '45700BFD0251.ms.model.script' // SortTypes
+ ;
+
+ENDME // ME_4A4CE17F03DC 
+
+ME ME_4A4DE3DB00F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL? 'ME_48078D230277' // TatNodeHelper
+ ;
+
+ENDME // ME_4A4DE3DB00F2 
+
+ME ME_4A4DED900049
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4CDD01023F // TatListHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4A4DED900049 
+
+ME ME_4A4CDD01023F
+ MEPROP UID '4A4CDD01023F'
+ MEPROP Name 'TatListHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A4CDE0A001A // ST2Str
+ HWL ME_4A4CDE1F03C0 // Str2ST
+ HWL ME_4A4CDE34010F // SO2Str
+ HWL ME_4A4CDE4B033B // Str2SO
+ HWL ME_4A4CDEEE00C0 // IsCanBeSortedBy
+ HWL ME_4A4DE6530114 // LoadList
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4FD24A98029F // TatList
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4A4CDD360055 // SortOrderNames
+ HWL ME_4A4CDD750109 // SortTypeNames
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4A4CDD1D02DD // SortOrder
+ ME_4A4CDD2200C3 // SortType
+ ME_4A4CDF360194 // DynList
+ ME_4A4CE16201BA // SysUtils
+ ME_4A4CE17F03DC // SortTypes
+ ME_4A4DE3DB00F2 // TatNodeHelper
+ ME_4A4DED900049 // NodeBase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atListHelper.pas'
+ UP extprop:rc:SelfName 'atListHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atListHelper'
+
+ENDME // ME_4A4CDD01023F TatListHelper

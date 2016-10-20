@@ -1,0 +1,42 @@
+// TkwShowMailMessage 4F0C26900161 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F0C26900161
+
+ME ME_4F0C27B300B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C26900161 // TkwShowMailMessage
+ ;
+ MELINK Target WL 'ME_4F0C276F03DC' '4E4B5F29031C.ms.model.script' // arShowMailWindow
+ ;
+
+ENDME // ME_4F0C27B300B2 
+
+ME ME_4F0C26900161
+ MEPROP UID '4F0C26900161'
+ MEPROP Name 'TkwShowMailMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ShowMailWindow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F0C27B300B2 // arShowMailWindow
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'ShowMailWindow'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwShowMailMessage.pas'
+ UP extprop:rc:SelfName 'ShowMailMessage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwShowMailMessage'
+
+ENDME // ME_4F0C26900161 TkwShowMailMessage

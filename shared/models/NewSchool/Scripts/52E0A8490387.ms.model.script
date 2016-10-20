@@ -1,0 +1,128 @@
+// TevdF1HyperlinkCorrector 52E0A8490387 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E0A8490387
+
+FORWARD ME_52E0C4770010
+
+ME ME_52E0C4BE0393
+ MEPROP UID '52E0C4BE0393'
+ MEPROP Name 'c_F1DocIDThreshold'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52E0C4770010 // Constants
+ ;
+ MEPROP Value 100000
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 100000
+
+ENDME // ME_52E0C4BE0393 c_F1DocIDThreshold
+
+ME ME_52E0C4770010
+ MEPROP UID '52E0C4770010'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E0A8490387 // TevdF1HyperlinkCorrector
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52E0C4BE0393 // c_F1DocIDThreshold
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_52E0C4770010 Constants
+
+ME ME_52E0CCB30275
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E0A8490387 // TevdF1HyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_4C1B91970313' '4C1B918900FD.ms.model.script' // VersionConstants
+ ;
+
+ENDME // ME_52E0CCB30275 
+
+ME ME_52E0D0220322
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E0A8490387 // TevdF1HyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_52E0D0220322 
+
+MEREF ME_52E0B71902EC_ME_52E0A8490387_over
+ MELINK Original WL 'ME_52E0B71902EC' '4C1B8D2F039F.ms.model.script' // IsNeedCorrection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52E0B71902EC_ME_52E0A8490387_over IsNeedCorrection
+
+MEREF ME_52E0B7BF0023_ME_52E0A8490387_over
+ MELINK Original WL 'ME_52E0B7BF0023' '4C1B8D2F039F.ms.model.script' // DoCorrectDocID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52E0B7BF0023_ME_52E0A8490387_over DoCorrectDocID
+
+MEREF ME_52E0B83400F0_ME_52E0A8490387_over
+ MELINK Original WL 'ME_52E0B83400F0' '4C1B8D2F039F.ms.model.script' // CheckDocIDBeforeCorrection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52E0B83400F0_ME_52E0A8490387_over CheckDocIDBeforeCorrection
+
+MEREF ME_4C1B8D2F039F_ME_52E0A8490387_G
+ MELINK Original WL? 'ME_4C1B8D2F039F' // TevdCustomHyperlinkCorrector
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C1B8D2F039F_ME_52E0A8490387_G TevdCustomHyperlinkCorrector
+
+%%InheritedBy ME_4C1B8D2F039F ME_52E0A8490387
+
+ME ME_52E0A8490387
+ MEPROP UID '52E0A8490387'
+ MEPROP Name 'TevdF1HyperlinkCorrector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C1B8D2F039F_ME_52E0A8490387_G // TevdCustomHyperlinkCorrector
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52E0B71902EC_ME_52E0A8490387_over // IsNeedCorrection
+ ME_52E0B7BF0023_ME_52E0A8490387_over // DoCorrectDocID
+ ME_52E0B83400F0_ME_52E0A8490387_over // CheckDocIDBeforeCorrection
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_52E0C4770010 // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52E0CCB30275 // VersionConstants
+ ME_52E0D0220322 // Format
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdF1HyperlinkCorrector.pas'
+ UP extprop:rc:SelfName 'dF1HyperlinkCorrector'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdF1HyperlinkCorrector'
+
+ENDME // ME_52E0A8490387 TevdF1HyperlinkCorrector

@@ -1,0 +1,66 @@
+// TeePicture 54BE4DB30227 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE4DB30227
+
+MEREF ME_54819CB60119_ME_54BE4DB30227_impl
+ MELINK Original WL 'ME_54819CB60119' '4912DD020283.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_54819CB60119_ME_54BE4DB30227_impl Name
+
+MEREF ME_54819D1601EF_ME_54BE4DB30227_impl
+ MELINK Original WL 'ME_54819D1601EF' '4912DD020283.ms.model.script' // SaveToStream
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54819D1601EF_ME_54BE4DB30227_impl SaveToStream
+
+MEREF ME_49523F8B0208_ME_54BE4DB30227_G
+ MELINK Original WL 'ME_49523F8B0208' '54BE4D0B0117.ms.model.script' // TeePara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49523F8B0208_ME_54BE4DB30227_G TeePara
+
+MEREF ME_4F671C7C024B_ME_54BE4DB30227_R
+ MELINK Original WL 'ME_4F671C7C024B' '4912DD020283.ms.model.script' // IeePicture
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F671C7C024B_ME_54BE4DB30227_R IeePicture
+
+%%ImplementedBy ME_4F671C7C024B ME_54BE4DB30227
+
+%%InheritedBy ME_49523F8B0208 ME_54BE4DB30227
+
+ME ME_54BE4DB30227
+ MEPROP UID '54BE4DB30227'
+ MEPROP Name 'TeePicture'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4912E16B01B4' // Engine Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_49523F8B0208_ME_54BE4DB30227_G // TeePara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F671C7C024B_ME_54BE4DB30227_R // IeePicture
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_54819CB60119_ME_54BE4DB30227_impl // Name
+ ME_54819D1601EF_ME_54BE4DB30227_impl // SaveToStream
+ )
+ ; // Implemented
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePicture.pas'
+ UP extprop:rc:SelfName 'eePicture'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eePicture'
+
+ENDME // ME_54BE4DB30227 TeePicture

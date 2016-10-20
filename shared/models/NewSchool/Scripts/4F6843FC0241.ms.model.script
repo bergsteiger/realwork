@@ -1,0 +1,447 @@
+// TddPropertyObject 4F6843FC0241 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6843FC0241
+
+ME ME_525E47240043
+ MEPROP UID '525E47240043'
+ MEPROP Name 'IsDefault'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525E47240043 IsDefault
+
+FORWARD ME_518A13330058
+
+ME ME_518A133D0357
+ MEPROP UID '518A133D0357'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_518A13330058 // Clear
+ ;
+
+ENDME // ME_518A133D0357 DoIt
+
+ME ME_518A13330058
+ MEPROP UID '518A13330058'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_518A133D0357 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_518A13330058 Clear
+
+FORWARD ME_525E369F0158
+
+ME ME_525E36CD02A7
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+
+ENDME // ME_525E36CD02A7 P
+
+ME ME_525E36BE02DB
+ MEPROP UID '525E36BE02DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E369F0158 // MergeWith
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E36CD02A7 // P
+ )
+ ; // Parameters
+
+ENDME // ME_525E36BE02DB DoIt
+
+ME ME_525E369F0158
+ MEPROP UID '525E369F0158'
+ MEPROP Name 'MergeWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E36BE02DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E369F0158 MergeWith
+
+FORWARD ME_525E37430345
+
+ME ME_525E375E01A4
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+
+ENDME // ME_525E375E01A4 P
+
+ME ME_525E374A03C6
+ MEPROP UID '525E374A03C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E37430345 // InheriteFrom
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E375E01A4 // P
+ )
+ ; // Parameters
+
+ENDME // ME_525E374A03C6 DoIt
+
+ME ME_525E37430345
+ MEPROP UID '525E37430345'
+ MEPROP Name 'InheriteFrom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E374A03C6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E37430345 InheriteFrom
+
+FORWARD ME_525E377B007E
+
+ME ME_525E378F0283
+ MEPROP Name 'Generator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_525E378F0283 Generator
+
+ME ME_525E378201E9
+ MEPROP UID '525E378201E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E377B007E // Write2Generator
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E378F0283 // Generator
+ )
+ ; // Parameters
+
+ENDME // ME_525E378201E9 DoIt
+
+ME ME_525E377B007E
+ MEPROP UID '525E377B007E'
+ MEPROP Name 'Write2Generator'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E378201E9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E377B007E Write2Generator
+
+FORWARD ME_525E478A0232
+
+ME ME_525E47940212
+ MEPROP UID '525E47940212'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E478A0232 // Reset
+ ;
+
+ENDME // ME_525E47940212 DoIt
+
+ME ME_525E478A0232
+ MEPROP UID '525E478A0232'
+ MEPROP Name 'Reset'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E47940212 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E478A0232 Reset
+
+FORWARD ME_525E47BE030D
+
+ME ME_525E47D50307
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_525E47D50307 P
+
+ME ME_525E47CD0130
+ MEPROP UID '525E47CD0130'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E47BE030D // JoinWith
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_525E47D50307 // P
+ )
+ ; // Parameters
+
+ENDME // ME_525E47CD0130 DoIt
+
+ME ME_525E47BE030D
+ MEPROP UID '525E47BE030D'
+ MEPROP Name 'JoinWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E47CD0130 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E47BE030D JoinWith
+
+FORWARD ME_525E47E10065
+
+ME ME_565ED24C0181
+ MEPROP Name 'P'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+
+ENDME // ME_565ED24C0181 P
+
+ME ME_565ED24C0191
+ MEPROP Name 'aForReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_565ED24C0191 aForReader
+
+ME ME_525E47EE030E
+ MEPROP UID '525E47EE030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525E47E10065 // Diff
+ ;
+ MELINK Target HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_565ED24C0181 // P
+ ME_565ED24C0191 // aForReader
+ )
+ ; // Parameters
+
+ENDME // ME_525E47EE030E DoIt
+
+ME ME_525E47E10065
+ MEPROP UID '525E47E10065'
+ MEPROP Name 'Diff'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525E47EE030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525E47E10065 Diff
+
+FORWARD ME_5301DFE6002C
+
+ME ME_5301E00F026A
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+
+ENDME // ME_5301E00F026A anOther
+
+ME ME_5301E008029F
+ MEPROP UID '5301E008029F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5301DFE6002C // AssignFrom
+ ;
+ MELIST Parameters
+   Seq: ( ME_5301E00F026A // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5301E008029F DoIt
+
+ME ME_5301DFE6002C
+ MEPROP UID '5301DFE6002C'
+ MEPROP Name 'AssignFrom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5301E008029F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5301DFE6002C AssignFrom
+
+FORWARD ME_5302150D006B
+
+ME ME_5302151501C0
+ MEPROP UID '5302151501C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5302150D006B // Clone
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_5302151501C0 DoIt
+
+ME ME_5302150D006B
+ MEPROP UID '5302150D006B'
+ MEPROP Name 'Clone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843FC0241 // TddPropertyObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5302151501C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5302150D006B Clone
+
+MEREF ME_47914F960008_ME_4F6843FC0241_over
+ MELINK Original WL 'ME_47914F960008' '47879856035F.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47914F960008_ME_4F6843FC0241_over Create
+
+MEREF ME_46780CCE037B_ME_4F6843FC0241_G
+ MELINK Original WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780CCE037B_ME_4F6843FC0241_G Tl3Base
+
+%%InheritedBy ME_46780CCE037B ME_4F6843FC0241
+
+ME ME_4F6843FC0241
+ MEPROP UID '4F6843FC0241'
+ MEPROP Name 'TddPropertyObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780CCE037B_ME_4F6843FC0241_G // Tl3Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525E47240043 // IsDefault
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_518A13330058 // Clear
+ HWL ME_525E369F0158 // MergeWith
+ HWL ME_525E37430345 // InheriteFrom
+ HWL ME_525E377B007E // Write2Generator
+ HWL ME_525E478A0232 // Reset
+ HWL ME_525E47BE030D // JoinWith
+ HWL ME_525E47E10065 // Diff
+ HWL ME_5301DFE6002C // AssignFrom
+ HWL ME_5302150D006B // Clone
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47914F960008_ME_4F6843FC0241_over // Create
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddPropertyObject.pas'
+ UP extprop:rc:SelfName 'ddPropertyObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddPropertyObject'
+
+ENDME // ME_4F6843FC0241 TddPropertyObject

@@ -7,68 +7,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4F5F48ED0181
 %%Inner ME_4F5F48ED0181
 
-FORWARD ME_4F5F48ED0181
-
-ME ME_4F5F490D030B
- MEPROP UID '4F5F490D030B'
- MEPROP Name 'CheckOutputWithInput'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
- ;
- UP "NameForScript" 'tests:CheckOutputWithInput'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas'
- UP extprop:pas:TypeName 'TkwCheckOutputWithInput'
- UP extprop:rc:SelfName 'CheckOutputWithInput'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'kwCheckOutputWithInput'
-
-ENDME // ME_4F5F490D030B CheckOutputWithInput
-
-ME ME_4DD547B70001
- MEPROP UID '4DD547B70001'
- MEPROP Name 'CheckEtalon'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
- ;
- UP "NameForScript" 'tests:CheckEtalon'
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '19.05.2011 20:39'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas'
- UP extprop:pas:TypeName 'TkwCheckEtalon'
- UP extprop:rc:SelfName 'CheckEtalon'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'kwCheckEtalon'
-
-ENDME // ME_4DD547B70001 CheckEtalon
-
-ME ME_53FC3551023F
- MEPROP UID '53FC3551023F'
- MEPROP Name 'test_ResolveInputFilePath'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '*Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.'#13#10'*Формат*'#13#10'{code}'#13#10'aFileName test:ResolveInputFilePath'#13#10'{code}'#13#10'где aFileName - имя файля без пути (!).'#13#10'Результат помещается в стек.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F5F48ED0181 // EtalonsWorking
- ;
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas'
- UP extprop:pas:TypeName 'TkwTestResolveInputFilePath'
- UP extprop:rc:SelfName 'TestResolveInputFilePath'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'kwTestResolveInputFilePath'
-
-ENDME // ME_53FC3551023F test_ResolveInputFilePath
-
 ME ME_4F5F48ED0181
  MEPROP UID '4F5F48ED0181'
  MEPROP Name 'EtalonsWorking'
@@ -80,10 +18,10 @@ ME ME_4F5F48ED0181
  MELINK Parent WL? 'ME_4E1F0EB100C4' // ScriptEngine
  ;
  MELIST Children
-   Seq: ( HWL ME_4F5F490D030B // CheckOutputWithInput
- HWL ME_4DD547B70001 // CheckEtalon
+   Seq: ( WL? 'ME_4F5F490D030B' // CheckOutputWithInput
+ WL? 'ME_4DD547B70001' // CheckEtalon
  WL? 'ME_4F5F495003E0' // EtalonsWorkingPack
- HWL ME_53FC3551023F // test_ResolveInputFilePath
+ WL? 'ME_53FC3551023F' // test_ResolveInputFilePath
  )
  ; // Children
  MELIST Depends

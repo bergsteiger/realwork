@@ -1,0 +1,97 @@
+// TmsmTabCaptionController 57DAA6FB0365 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57DAA6FB0365
+
+ME ME_57DAA71F037B
+ MEPROP UID '57DAA71F037B'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DAA6FB0365 // TmsmTabCaptionController
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57DAA71F037B ConcreteModel
+
+ME ME_57DAAF960213
+ MEPROP UID '57DAAF960213'
+ MEPROP Name 'ViewClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DAA6FB0365 // TmsmTabCaptionController
+ ;
+ MELINK Target WL 'ME_57DAA798006A' '57B4437D02DC.ms.model.script' // TmsmTabSheet
+ ;
+
+ENDME // ME_57DAAF960213 ViewClass
+
+ME ME_57DAA81001A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57DAA6FB0365 // TmsmTabCaptionController
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57DAA81001A5 
+
+MEREF ME_57B6A49900F4_ME_57DAA6FB0365_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57B6A49900F4_ME_57DAA6FB0365_over LinkDataToView
+
+MEREF ME_57DAAADC01B7_ME_57DAA6FB0365_G
+ MELINK Original WL? 'ME_57DAAADC01B7' // msmConcreteModelAndConcreteViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57DAAADC01B7_ME_57DAA6FB0365_G msmConcreteModelAndConcreteViewController
+
+%%InheritedBy ME_57DAAADC01B7 ME_57DAA6FB0365
+
+ME ME_57DAA6FB0365
+ MEPROP UID '57DAA6FB0365'
+ MEPROP Name 'TmsmTabCaptionController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B41F3C01C4' // ViewParents
+ ;
+ MELIST Inherits
+   Seq: ( ME_57DAAADC01B7_ME_57DAA6FB0365_G // msmConcreteModelAndConcreteViewController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57DAA71F037B // ConcreteModel
+ HWL ME_57DAAF960213 // ViewClass
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_57B6A49900F4_ME_57DAA6FB0365_over // LinkDataToView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57DAA81001A5 // CaptionChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmTabCaptionController.pas'
+ UP extprop:rc:SelfName 'msmTabCaptionController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmTabCaptionController'
+
+ENDME // ME_57DAA6FB0365 TmsmTabCaptionController

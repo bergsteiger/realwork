@@ -1,0 +1,141 @@
+// TdaFieldDescriptionListPrim 5538E9AE0163 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5538E9AE0163
+
+FORWARD ME_5538E9AE0163
+
+ME ME_5538ED590245
+ MEPROP UID '5538ED590245'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_5538ED590245 l3Items_NeedsBeforeFreeItem
+
+ME ME_5538E9C702E1
+ MEPROP UID '5538E9C702E1'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_5538E9C702E1 ItemType
+
+ME ME_553903EC0054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5538E9AE0163 // TdaFieldDescriptionListPrim
+ ;
+ MELINK Target WL 'ME_4BCED67800F1' '47877EB202FB.ms.model.script' // ANSISameText
+ ;
+
+ENDME // ME_553903EC0054 
+
+MEREF ME_47B07CF403D0_ME_5538E9AE0163_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_5538E9AE0163_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_5538E9AE0163_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5538E9AE0163_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5538E9AE0163_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5538E9AE0163_impl CompareExistingItems
+
+MEREF ME_4B87FCF8038B_ME_5538E9AE0163_over
+ MELINK Original WL 'ME_4B87FCF8038B' '47B45152003F.ms.model.script' // BeforeFreeItem
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'l3Items_NeedsBeforeFreeItem'
+ENDMEREF // ME_4B87FCF8038B_ME_5538E9AE0163_over BeforeFreeItem
+
+MEREF ME_4A54DD4E036F_ME_5538E9AE0163_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5538E9AE0163_G Tl3ProtoDataContainer
+
+MEREF ME_47B9AF6E0228_ME_5538E9AE0163_R
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_5538E9AE0163_R l3InterfaceRefListPrim
+
+%%ImplementedBy ME_47B9AF6E0228 ME_5538E9AE0163
+
+%%InheritedBy ME_4A54DD4E036F ME_5538E9AE0163
+
+ME ME_5538E9AE0163
+ MEPROP UID '5538E9AE0163'
+ MEPROP Name 'TdaFieldDescriptionListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_552D07D0005E' // DataScheme
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_5538E9AE0163_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B9AF6E0228_ME_5538E9AE0163_R // l3InterfaceRefListPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5538E9C702E1 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_5538E9AE0163_impl // IsSameItems
+ ME_47B2C42A0163_ME_5538E9AE0163_impl // AssignItem
+ ME_47B99D4503A2_ME_5538E9AE0163_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B87FCF8038B_ME_5538E9AE0163_over // BeforeFreeItem
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5538ED590245 // l3Items_NeedsBeforeFreeItem
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_553903EC0054 // ANSISameText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daFieldDescriptionListPrim.pas'
+ UP extprop:rc:SelfName 'daFieldDescriptionListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daFieldDescriptionListPrim'
+
+ENDME // ME_5538E9AE0163 TdaFieldDescriptionListPrim

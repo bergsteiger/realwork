@@ -1,0 +1,63 @@
+// K517772970_TGetDictEditQueryDefault 53197DFD004C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53197DFD004C
+
+ME ME_53197E4302B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53197DFD004C // K517772970_TGetDictEditQueryDefault
+ ;
+ MELINK Target WL? 'ME_52FA591401FA' // csServerTaskTypes
+ ;
+
+ENDME // ME_53197E4302B0 
+
+MEREF ME_53170E4100CF_ME_53197DFD004C_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_53197DFD004C_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_53197DFD004C_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_53197DFD004C_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_53197DFD004C
+
+ME ME_53197DFD004C
+ MEPROP UID '53197DFD004C'
+ MEPROP Name 'K517772970_TGetDictEditQueryDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( ME_53170DE90011_ME_53197DFD004C_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_53197DFD004C_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53197E4302B0 // csServerTaskTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TGetDictEditQueryDefault.pas'
+ UP extprop:pas:TypeName 'TK517772970_TGetDictEditQueryDefault'
+ UP extprop:rc:SelfName 'K517772970_TGetDictEditQueryDefault'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53197DFD004C K517772970_TGetDictEditQueryDefault

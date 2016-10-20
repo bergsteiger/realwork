@@ -1,0 +1,160 @@
+// TddTextSegmentsList 525D40F1024C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_525D40F1024C
+
+ME ME_525D4111016F
+ MEPROP UID '525D4111016F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D40F1024C // TddTextSegmentsList
+ ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_525D4111016F ItemType
+
+ME ME_55E0017903B7
+ MEPROP UID '55E0017903B7'
+ MEPROP Name 'HasHyperlink'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D40F1024C // TddTextSegmentsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_55E0017903B7 HasHyperlink
+
+ME ME_55E0019A0125
+ MEPROP UID '55E0019A0125'
+ MEPROP Name 'HasSegment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D40F1024C // TddTextSegmentsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_55E0019A0125 HasSegment
+
+MEREF ME_47B2C42A0163_ME_525D40F1024C_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_525D40F1024C_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_525D40F1024C_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_525D40F1024C_impl CompareExistingItems
+
+MEREF ME_479731C50290_ME_525D40F1024C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_525D40F1024C_over Cleanup
+
+MEREF ME_47A750E70096_ME_525D40F1024C_over
+ MELINK Original WL 'ME_47A750E70096' '47A74A5F0123.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A750E70096_ME_525D40F1024C_over Add
+
+MEREF ME_47B1C16D0188_ME_525D40F1024C_over
+ MELINK Original WL 'ME_47B1C16D0188' '47A74A5F0123.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B1C16D0188_ME_525D40F1024C_over Clear
+
+MEREF ME_47B4895F01BE_ME_525D40F1024C_over
+ MELINK Original WL 'ME_47B4895F01BE' '47B45152003F.ms.model.script' // DoDelete
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B4895F01BE_ME_525D40F1024C_over DoDelete
+
+MEREF ME_47B49EC50034_ME_525D40F1024C_over
+ MELINK Original WL 'ME_47B49EC50034' '47B45152003F.ms.model.script' // DirectInsert
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B49EC50034_ME_525D40F1024C_over DirectInsert
+
+MEREF ME_47B99E920196_ME_525D40F1024C_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_525D40F1024C_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_525D40F1024C_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_525D40F1024C_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_525D40F1024C
+%%InheritedBy ME_4A54DD4E036F ME_525D40F1024C
+
+ME ME_525D40F1024C
+ MEPROP UID '525D40F1024C'
+ MEPROP Name 'TddTextSegmentsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_525D40F1024C_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_525D40F1024C_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525D4111016F // ItemType
+ HWL ME_55E0017903B7 // HasHyperlink
+ HWL ME_55E0019A0125 // HasSegment
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_525D40F1024C_impl // AssignItem
+ ME_47B99D4503A2_ME_525D40F1024C_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_525D40F1024C_over // Cleanup
+ ME_47A750E70096_ME_525D40F1024C_over // Add
+ ME_47B1C16D0188_ME_525D40F1024C_over // Clear
+ ME_47B4895F01BE_ME_525D40F1024C_over // DoDelete
+ ME_47B49EC50034_ME_525D40F1024C_over // DirectInsert
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTextSegmentsList.pas'
+ UP extprop:rc:SelfName 'ddTextSegmentsList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddTextSegmentsList'
+
+ENDME // ME_525D40F1024C TddTextSegmentsList

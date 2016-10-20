@@ -1,0 +1,63 @@
+// TddRTFReaderSpec 56BB14B90213 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56BB14B90213
+
+ME ME_56BB20BB024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BB14B90213 // TddRTFReaderSpec
+ ;
+ MELINK Target WL? 'ME_56BB14F503A0' // TdestNormSpec
+ ;
+
+ENDME // ME_56BB20BB024B 
+
+MEREF ME_56BB204702E6_ME_56BB14B90213_over
+ MELINK Original WL 'ME_56BB204702E6' '4C971BD4031B.ms.model.script' // GetdestNormClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56BB204702E6_ME_56BB14B90213_over GetdestNormClass
+
+MEREF ME_4C971BD4031B_ME_56BB14B90213_G
+ MELINK Original WL? 'ME_4C971BD4031B' // TddRTFReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C971BD4031B_ME_56BB14B90213_G TddRTFReader
+
+%%InheritedBy ME_4C971BD4031B ME_56BB14B90213
+
+ME ME_56BB14B90213
+ MEPROP UID '56BB14B90213'
+ MEPROP Name 'TddRTFReaderSpec'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читалка со специальынми заточками.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48EA3D1F0232' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C971BD4031B_ME_56BB14B90213_G // TddRTFReader
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56BB204702E6_ME_56BB14B90213_over // GetdestNormClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56BB20BB024B // TdestNormSpec
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFReaderSpec.pas'
+ UP extprop:rc:SelfName 'ddRTFReaderSpec'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRTFReaderSpec'
+
+ENDME // ME_56BB14B90213 TddRTFReaderSpec

@@ -48,7 +48,7 @@ ENDME // ME_4C7CDF3B00BA MultiUsers
 ME ME_4C7CDF1B0192
  MEPROP UID '4C7CDF1B0192'
  MEPROP Name 'LogoutUser'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Отключить пользователя' ;
@@ -116,7 +116,7 @@ ENDME // ME_4C7CDFA20226 Disabled
 ME ME_4C7CDF570361
  MEPROP UID '4C7CDF570361'
  MEPROP Name 'ConsultingStateForNewbie'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга' ;
@@ -184,7 +184,7 @@ ENDME // ME_4C7CE0100153 Disabled
 ME ME_4C7CDFE10330
  MEPROP UID '4C7CDFE10330'
  MEPROP Name 'Autoregistration'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Разрешить/Запретить авторегистрацию новых пользователей' ;
@@ -250,7 +250,7 @@ ENDME // ME_4C7CE05201E7 SingleUser
 ME ME_4C7CE03100BF
  MEPROP UID '4C7CE03100BF'
  MEPROP Name 'AddPrivelegedRight'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сделать выделенных пользователей привилегированными' ;
@@ -316,7 +316,7 @@ ENDME // ME_4C7CE08B003A SingleUser
 ME ME_4C7CE0710199
  MEPROP UID '4C7CE0710199'
  MEPROP Name 'RemovePrivelegedRight'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Отменить для выделенных пользователей режим привилегий' ;
@@ -347,7 +347,7 @@ ENDME // ME_4C7CE0710199 RemovePrivelegedRight
 ME ME_4C7CEDAC0209
  MEPROP UID '4C7CEDAC0209'
  MEPROP Name 'UserFilter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -369,7 +369,7 @@ ENDME // ME_4C7CEDAC0209 UserFilter
 ME ME_4C7CEDB701D6
  MEPROP UID '4C7CEDB701D6'
  MEPROP Name 'DisableConsulting'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -391,7 +391,7 @@ ENDME // ME_4C7CEDB701D6 DisableConsulting
 ME ME_4C7CEDC20353
  MEPROP UID '4C7CEDC20353'
  MEPROP Name 'EnableConsulting'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -410,12 +410,18 @@ ME ME_4C7CEDC20353
 
 ENDME // ME_4C7CEDC20353 EnableConsulting
 
+MEREF ME_4E8079840038_ME_4E807746035F_R
+ MELINK Original WL 'ME_4E8079840038' '481F0CA6017E.ms.model.script' // Возможность назначения пользователям общих фильтров в администраторе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E8079840038_ME_4E807746035F_R Возможность назначения пользователям общих фильтров в администраторе
+
 %%ImplementedBy ME_4E8079840038 ME_4E807746035F
 
 ME ME_4E807746035F
  MEPROP UID '4E807746035F'
  MEPROP Name 'MakeFiltersShared'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сделать фильтры данного пользователя общими' ;
@@ -424,7 +430,7 @@ ME ME_4E807746035F
  MELINK Parent HWL ME_494FD63D011D // Users
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E8079840038' '481F0CA6017E.ms.model.script' // Возможность назначения пользователям общих фильтров в администраторе
+   Seq: ( ME_4E8079840038_ME_4E807746035F_R // Возможность назначения пользователям общих фильтров в администраторе
  )
  ; // Implements
  UP "AutoFocus" false
@@ -442,7 +448,7 @@ ENDME // ME_4E807746035F MakeFiltersShared
 ME ME_4F3D030901C3
  MEPROP UID '4F3D030901C3'
  MEPROP Name 'DenyDeleteIdle'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Не удалять при бездействии' ;
@@ -622,7 +628,7 @@ ENDME // ME_4C7BB8EE00D0 Create
 ME ME_4C7BB8DD0057
  MEPROP UID '4C7BB8DD0057'
  MEPROP Name 'Save'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_VCMOperation ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Сохранить' ;

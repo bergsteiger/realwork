@@ -1,0 +1,80 @@
+// TSelectColumnAndDelete 4C99945800BC TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C99945800BC
+
+ME ME_4CE3B52E02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99945800BC // TSelectColumnAndDelete
+ ;
+ MELINK Target WL 'ME_47FB31D1033A' '47C5207602D1.ms.model.script' // InevLeafPoint
+ ;
+
+ENDME // ME_4CE3B52E02E8 
+
+MEREF ME_4C345B580083_ME_4C99945800BC_impl
+ MELINK Original WL 'ME_4C345B580083' '4CE38AD60265.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C345B580083_ME_4C99945800BC_impl ApplyTools
+
+MEREF ME_4C937013031D_ME_4C99945800BC_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C99945800BC_over GetFolder
+
+MEREF ME_4C9999C50326_ME_4C99945800BC_over
+ MELINK Original WL 'ME_4C9999C50326' '4CE38AD60265.ms.model.script' // CheckOperation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9999C50326_ME_4C99945800BC_over CheckOperation
+
+MEREF ME_4C345A91014E_ME_4C99945800BC_G
+ MELINK Original WL? 'ME_4C345A91014E' // TTableToolsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C345A91014E_ME_4C99945800BC_G TTableToolsTest
+
+%%InheritedBy ME_4C345A91014E ME_4C99945800BC
+
+ME ME_4C99945800BC
+ MEPROP UID '4C99945800BC'
+ MEPROP Name 'TSelectColumnAndDelete'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения и удаления колонки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C345A91014E_ME_4C99945800BC_G // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4C99945800BC_impl // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C99945800BC_over // GetFolder
+ ME_4C9999C50326_ME_4C99945800BC_over // CheckOperation
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE3B52E02E8 // InevLeafPoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SelectColumnAndDelete.pas'
+ UP extprop:rc:SelfName 'SelectColumnAndDelete'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SelectColumnAndDelete'
+
+ENDME // ME_4C99945800BC TSelectColumnAndDelete

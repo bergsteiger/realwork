@@ -1,0 +1,174 @@
+// TevBitmapParaBitmapContainer 4858153B023B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4858153B023B
+%%Inner ME_4858153B023B
+
+FORWARD ME_4858153B023B
+
+ME ME_530757710177
+ MEPROP UID '530757710177'
+ MEPROP Name 'k2TagNoAssign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
+ ;
+ UP extprop:rc:SelfName 'TagNoAssign'
+
+ENDME // ME_530757710177 k2TagNoAssign
+
+ME ME_53578D39007B
+ MEPROP UID '53578D39007B'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_53578D39007B k2Tag_No_f_TagType
+
+FORWARD ME_53075BB9030D
+
+ME ME_53075BCA012A
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53075BCA012A aType
+
+ME ME_53075BC003BF
+ MEPROP UID '53075BC003BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53075BB9030D // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53075BCA012A // aType
+ )
+ ; // Parameters
+
+ENDME // ME_53075BC003BF DoIt
+
+ME ME_53075BB9030D
+ MEPROP UID '53075BB9030D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53075BC003BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53075BB9030D Create
+
+ME ME_535791D003AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4858153B023B // TevBitmapParaBitmapContainer
+ ;
+ MELINK Target WL 'ME_4858116B0355' '48492FC0029D.ms.model.script' // BitmapPara
+ ;
+
+ENDME // ME_535791D003AB 
+
+MEREF ME_49A545580241_ME_4858153B023B_impl
+ MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'k2TagIsAtomic'
+ENDMEREF // ME_49A545580241_ME_4858153B023B_impl SetAtomPrim
+
+MEREF ME_532AE8F2009A_ME_4858153B023B_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_4858153B023B_over GetIsOrd
+
+MEREF ME_533121AF0203_ME_4858153B023B_over
+ MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533121AF0203_ME_4858153B023B_over GetTagType
+
+MEREF ME_47AC5591007B_ME_4858153B023B_G
+ MELINK Original WL? 'ME_47AC5591007B' // k2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC5591007B_ME_4858153B023B_G k2Tag
+
+MEREF ME_48E6486F0123_ME_4858153B023B_G
+ MELINK Original WL? 'ME_48E6486F0123' // Tl3IEBitmapContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E6486F0123_ME_4858153B023B_G Tl3IEBitmapContainer
+
+%%InheritedBy ME_47AC5591007B ME_4858153B023B
+%%InheritedBy ME_48E6486F0123 ME_4858153B023B
+
+ME ME_4858153B023B
+ MEPROP UID '4858153B023B'
+ MEPROP Name 'TevBitmapParaBitmapContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48492FC0029D' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_47AC5591007B_ME_4858153B023B_G // k2Tag
+ ME_48E6486F0123_ME_4858153B023B_G // Tl3IEBitmapContainer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53075BB9030D // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49A545580241_ME_4858153B023B_impl // SetAtomPrim
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_532AE8F2009A_ME_4858153B023B_over // GetIsOrd
+ ME_533121AF0203_ME_4858153B023B_over // GetTagType
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_530757710177 // k2TagNoAssign
+ HWL ME_53578D39007B // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_535791D003AB // BitmapPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '25.02.2000 10:40'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaBitmapContainer.pas'
+ UP extprop:rc:SelfName 'BitmapParaBitmapContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evBitmapParaBitmapContainer'
+
+ENDME // ME_4858153B023B TevBitmapParaBitmapContainer

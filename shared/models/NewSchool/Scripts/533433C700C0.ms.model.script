@@ -1,0 +1,42 @@
+// ClearFindDialog 533433C700C0 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533433C700C0
+
+ME ME_53343429013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533433C700C0 // ClearFindDialog
+ ;
+ MELINK Target WL? 'ME_4F8D618800E7' // D_TxSrch
+ ;
+
+ENDME // ME_53343429013B 
+
+ME ME_533433C700C0
+ MEPROP UID '533433C700C0'
+ MEPROP Name 'ClearFindDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает диалог поиска (удаляет его объект).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5166AF3800B5' // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53343429013B // D_TxSrch
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
+ UP extprop:pas:TypeName 'TkwClearFindDialog'
+ UP extprop:rc:SelfName 'ClearFindDialog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwClearFindDialog'
+
+ENDME // ME_533433C700C0 ClearFindDialog

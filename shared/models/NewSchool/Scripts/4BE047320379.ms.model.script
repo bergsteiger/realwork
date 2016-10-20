@@ -1,0 +1,1178 @@
+// TTextViaEditorProcessorPrim 4BE047320379 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BE047320379
+
+ME ME_4C65361E038A
+ MEPROP UID '4C65361E038A'
+ MEPROP Name 'ScrollCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Количество прокруток до конца документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4C65361E038A ScrollCount
+
+ME ME_4BE047880288
+ MEPROP UID '4BE047880288'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4BE047880288 FormClass
+
+FORWARD ME_4B32454100D9
+
+ME ME_4B3249190277
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4B3249190277 aForm
+
+ME ME_4B3249190295
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B3249190295 aFileName
+
+ME ME_4B32491902B8
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value '''Load'''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value '''Load'''
+
+ENDME // ME_4B32491902B8 aStr
+
+ME ME_4B32454802A7
+ MEPROP UID '4B32454802A7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B32454100D9 // Load
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B3249190277 // aForm
+ ME_4B3249190295 // aFileName
+ ME_4B32491902B8 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4B32454802A7 DoIt
+
+ME ME_4B323C9C0062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32454100D9 // Load
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B323C9C0062 
+
+ME ME_4C1A31D10106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32454100D9 // Load
+ ;
+ MELINK Target WL? 'ME_47E3C78502FB' // Tk2OperationContainer
+ ;
+
+ENDME // ME_4C1A31D10106 
+
+ME ME_4B32454100D9
+ MEPROP UID '4B32454100D9'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загружает документ в редактор указанной формы' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B32454802A7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B323C9C0062 // Document
+ ME_4C1A31D10106 // Tk2OperationContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B32454100D9 Load
+
+FORWARD ME_4BE12AEE0190
+
+ME ME_4BE12B220172
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4BE12B220172 aForm
+
+ME ME_4BE12B1D0158
+ MEPROP UID '4BE12B1D0158'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE12AEE0190 // Save
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BE12B220172 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4BE12B1D0158 DoIt
+
+ME ME_4BE12B470133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE12AEE0190 // Save
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_4BE12B470133 
+
+ME ME_4BE12B4A02F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE12AEE0190 // Save
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4BE12B4A02F3 
+
+ME ME_4BE12B4D01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE12AEE0190 // Save
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4BE12B4D01C9 
+
+ME ME_4BE12AEE0190
+ MEPROP UID '4BE12AEE0190'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохраняет текст из редактора в стандартный выходной файл' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BE12B1D0158 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BE12B470133 // TevdNativeWriter
+ ME_4BE12B4A02F3 // Tl3CustomFiler
+ ME_4BE12B4D01C9 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BE12AEE0190 Save
+
+FORWARD ME_4B32450B0166
+
+ME ME_4B32453A035A
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4B32453A035A aForm
+
+ME ME_4B58919B0315
+ MEPROP Name 'aSubName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B58919B0315 aSubName
+
+ME ME_4B32451F005F
+ MEPROP UID '4B32451F005F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B32453A035A // aForm
+ ME_4B58919B0315 // aSubName
+ )
+ ; // Parameters
+
+ENDME // ME_4B32451F005F DoIt
+
+ME ME_4B323E750154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4B323E750154 
+
+ME ME_4B323E67004A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL 'ME_467D37430253' '467C0CAA02AB.ms.model.script' // Il3CommandTarget
+ ;
+
+ENDME // ME_4B323E67004A 
+
+ME ME_4B55F35201AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4B55F35201AA 
+
+ME ME_4B55F360032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4B55F360032C 
+
+ME ME_4BEBFE4301E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4BEBFE4301E5 
+
+ME ME_4BEC01B00307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B32450B0166 // Scroll
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4BEC01B00307 
+
+ME ME_4B32450B0166
+ MEPROP UID '4B32450B0166'
+ MEPROP Name 'Scroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B32451F005F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B323E750154 // Operations
+ ME_4B323E67004A // Il3CommandTarget
+ ME_4B55F35201AA // Forms
+ ME_4B55F360032C // Windows
+ ME_4BEBFE4301E5 // TevCustomEditorWindow
+ ME_4BEC01B00307 // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B32450B0166 Scroll
+
+FORWARD ME_4BFBDAB2035D
+
+ME ME_4BFBDAD50389
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4BFBDAD50389 aForm
+
+ME ME_4BFBDAD503AD
+ MEPROP Name 'aSubName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BFBDAD503AD aSubName
+
+ME ME_4BFBDAD30259
+ MEPROP UID '4BFBDAD30259'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BFBDAD50389 // aForm
+ ME_4BFBDAD503AD // aSubName
+ )
+ ; // Parameters
+
+ENDME // ME_4BFBDAD30259 DoIt
+
+ME ME_4BFBDB0001BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4BFBDB0001BB 
+
+ME ME_4BFBDB050023
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL 'ME_467D37430253' '467C0CAA02AB.ms.model.script' // Il3CommandTarget
+ ;
+
+ENDME // ME_4BFBDB050023 
+
+ME ME_4BFBDB08010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4BFBDB08010D 
+
+ME ME_4BFBDB0B0203
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4BFBDB0B0203 
+
+ME ME_4BFBDB0E0264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4BFBDB0E0264 
+
+ME ME_4BFBDB1102A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFBDAB2035D // ScrollBack
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4BFBDB1102A0 
+
+ME ME_4BFBDAB2035D
+ MEPROP UID '4BFBDAB2035D'
+ MEPROP Name 'ScrollBack'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скроллирует текст в обратном направлении' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BFBDAD30259 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BFBDB0001BB // Operations
+ ME_4BFBDB050023 // Il3CommandTarget
+ ME_4BFBDB08010D // Forms
+ ME_4BFBDB0B0203 // Windows
+ ME_4BFBDB0E0264 // TevCustomEditorWindow
+ ME_4BFBDB1102A0 // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BFBDAB2035D ScrollBack
+
+FORWARD ME_4BFE3A4003B5
+
+ME ME_4D6F99C000A8
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4D6F99C000A8 aForm
+
+ME ME_4D6F99C000DC
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D6F99C000DC aCount
+
+ME ME_4D6F99C00116
+ MEPROP Name 'aGoTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_4D6F99C00116 aGoTop
+
+ME ME_4BFE3AAC01FB
+ MEPROP UID '4BFE3AAC01FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6F99C000A8 // aForm
+ ME_4D6F99C000DC // aCount
+ ME_4D6F99C00116 // aGoTop
+ )
+ ; // Parameters
+
+ENDME // ME_4BFE3AAC01FB DoIt
+
+ME ME_4BFE3B3701C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL 'ME_467D37430253' '467C0CAA02AB.ms.model.script' // Il3CommandTarget
+ ;
+
+ENDME // ME_4BFE3B3701C2 
+
+ME ME_4BFE3C35010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4BFE3C35010D 
+
+ME ME_4BFE3C4A01D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4BFE3C4A01D4 
+
+ME ME_4BFE3C63024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4BFE3C63024F 
+
+ME ME_4BFE3C780171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4BFE3C780171 
+
+ME ME_4BFE3C9103B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BFE3A4003B5 // ScrollByWeel
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4BFE3C9103B5 
+
+ME ME_4BFE3A4003B5
+ MEPROP UID '4BFE3A4003B5'
+ MEPROP Name 'ScrollByWeel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокрутить заданное число раз с помощью колеса мыши' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BFE3AAC01FB // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BFE3B3701C2 // Il3CommandTarget
+ ME_4BFE3C35010D // Operations
+ ME_4BFE3C4A01D4 // Forms
+ ME_4BFE3C63024F // Windows
+ ME_4BFE3C780171 // TevCustomEditorWindow
+ ME_4BFE3C9103B5 // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BFE3A4003B5 ScrollByWeel
+
+FORWARD ME_4C1B176A0067
+
+ME ME_4C9B28470242
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4C9B28470242 aForm
+
+ME ME_4C455C010083
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C455C010083 aCount
+
+ME ME_4C455C0100AF
+ MEPROP Name 'aUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C455C0100AF aUp
+
+ME ME_4C455C0100DC
+ MEPROP Name 'aFromBottom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C455C0100DC aFromBottom
+
+ME ME_4C1B17B002BF
+ MEPROP UID '4C1B17B002BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B28470242 // aForm
+ ME_4C455C010083 // aCount
+ ME_4C455C0100AF // aUp
+ ME_4C455C0100DC // aFromBottom
+ )
+ ; // Parameters
+
+ENDME // ME_4C1B17B002BF DoIt
+
+ME ME_4C1B18F60156
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C1B18F60156 
+
+ME ME_4C1B1907029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4C1B1907029B 
+
+ME ME_4C1B191D0179
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4C1B191D0179 
+
+ME ME_4C1B192B03D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4C1B192B03D1 
+
+ME ME_4C1B19410372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4C1B19410372 
+
+ME ME_4C1B19620061
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B176A0067 // ScrollByLine
+ ;
+ MELINK Target WL 'ME_467D37430253' '467C0CAA02AB.ms.model.script' // Il3CommandTarget
+ ;
+
+ENDME // ME_4C1B19620061 
+
+ME ME_4C1B176A0067
+ MEPROP UID '4C1B176A0067'
+ MEPROP Name 'ScrollByLine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокручивать построчно заданное число раз вверх или вниз' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C1B17B002BF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C1B18F60156 // Operations
+ ME_4C1B1907029B // Forms
+ ME_4C1B191D0179 // Windows
+ ME_4C1B192B03D1 // TevCustomEditorWindow
+ ME_4C1B19410372 // Msg Codes
+ ME_4C1B19620061 // Il3CommandTarget
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C1B176A0067 ScrollByLine
+
+FORWARD ME_4C46F482017F
+
+ME ME_4C46F4BC0272
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4C46F4BC0272 aForm
+
+ME ME_4C46F4A7038D
+ MEPROP UID '4C46F4A7038D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C46F482017F // GotoDocumentBottom
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C46F4BC0272 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4C46F4A7038D DoIt
+
+ME ME_4C46F482017F
+ MEPROP UID '4C46F482017F'
+ MEPROP Name 'GotoDocumentBottom'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перейти в конец документа' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C46F4A7038D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C46F482017F GotoDocumentBottom
+
+FORWARD ME_4C46F88F039A
+
+ME ME_4C46F9E302AC
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4C46F9E302AC aForm
+
+ME ME_4C46F8D303CC
+ MEPROP UID '4C46F8D303CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C46F88F039A // PageUp
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C46F9E302AC // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4C46F8D303CC DoIt
+
+ME ME_4C46F88F039A
+ MEPROP UID '4C46F88F039A'
+ MEPROP Name 'PageUp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перейти на страницу вверх' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C46F8D303CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C46F88F039A PageUp
+
+FORWARD ME_4D6B8501002F
+
+ME ME_4D6B854C02E7
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4D6B854C02E7 aForm
+
+ME ME_4D6B852F0027
+ MEPROP UID '4D6B852F0027'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6B8501002F // PageDown
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6B854C02E7 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4D6B852F0027 DoIt
+
+ME ME_4D6B8501002F
+ MEPROP UID '4D6B8501002F'
+ MEPROP Name 'PageDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6B852F0027 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6B8501002F PageDown
+
+ME ME_4BEBFE020080
+ MEPROP UID '4BEBFE020080'
+ MEPROP Name 'ScrollByPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BEBFE020080 ScrollByPage
+
+ME ME_4C08CF4300BE
+ MEPROP UID '4C08CF4300BE'
+ MEPROP Name 'WebStyle'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C08CF4300BE WebStyle
+
+ME ME_4C091B9A0305
+ MEPROP UID '4C091B9A0305'
+ MEPROP Name 'SendKey'
+ MEPROP Class class_Operation
+ %SUMMARY 'Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C091B9A0305 SendKey
+
+ME ME_4C9B283C03A7
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_4C9B283C03A7 aView
+
+ME ME_4C1F0A260192
+ MEPROP UID '4C1F0A260192'
+ MEPROP Name 'CheckTopAnchor'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверить якорь начала отрисовки после окончания прокрутки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B283C03A7 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4C1F0A260192 CheckTopAnchor
+
+ME ME_4C9B31F6015E
+ MEPROP UID '4C9B31F6015E'
+ MEPROP Name 'F1Like'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C9B31F6015E F1Like
+
+ME ME_4CA0947C03CE
+ MEPROP UID '4CA0947C03CE'
+ MEPROP Name 'QFLike'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создать форму-редактор для работы с КЗ.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA0947C03CE QFLike
+
+ME ME_4CA195E3030B
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4CA195E3030B aForm
+
+ME ME_4CA18D6B0088
+ MEPROP UID '4CA18D6B0088'
+ MEPROP Name 'DoBeforeLoad'
+ MEPROP Class class_Operation
+ %SUMMARY 'Операции предшествующие загрузке документа' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA195E3030B // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4CA18D6B0088 DoBeforeLoad
+
+ME ME_4D3EE58C037C
+ MEPROP UID '4D3EE58C037C'
+ MEPROP Name 'AllowMultiSelect'
+ MEPROP Class class_Operation
+ %SUMMARY 'Разершить мультивыделение.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D3EE58C037C AllowMultiSelect
+
+ME ME_4D6CB8460086
+ MEPROP UID '4D6CB8460086'
+ MEPROP Name 'WithBaseSearch'
+ MEPROP Class class_Operation
+ %SUMMARY 'Форма со строкой базового поиска.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6CB8460086 WithBaseSearch
+
+ME ME_4BE047950290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4B30C7E800EE' // TextLoad
+ ;
+
+ENDME // ME_4BE047950290 
+
+ME ME_4BE047B0023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4B322E2E0270' // evdSchema
+ ;
+
+ENDME // ME_4BE047B0023C 
+
+ME ME_4C9B31E00370
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4C9B31190392' // F1LikeTextLoad
+ ;
+
+ENDME // ME_4C9B31E00370 
+
+ME ME_4CA094F101FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4CA090120212' // QFLikeTextLoad
+ ;
+
+ENDME // ME_4CA094F101FC 
+
+ME ME_4D6CB7F70383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE047320379 // TTextViaEditorProcessorPrim
+ ;
+ MELINK Target WL? 'ME_4D6CB4B7035F' // F1LikeFormWithBS
+ ;
+
+ENDME // ME_4D6CB7F70383 
+
+MEREF ME_4C08D61F0231_ME_4BE047320379_over
+ MELINK Original WL 'ME_4C08D61F0231' '4BCE9EF8033F.ms.model.script' // FormMade
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C08D61F0231_ME_4BE047320379_over FormMade
+
+MEREF ME_4C9B2B7F0266_ME_4BE047320379_over
+ MELINK Original WL 'ME_4C9B2B7F0266' '4BCE9EF8033F.ms.model.script' // MakeFormClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9B2B7F0266_ME_4BE047320379_over MakeFormClass
+
+MEREF ME_4B30EEEB01EF_ME_4BE047320379_G
+ MELINK Original WL 'ME_4B30EEEB01EF' '4B3235370235.ms.model.script' // TVCMBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B30EEEB01EF_ME_4BE047320379_G TVCMBaseTest
+
+MEREF ME_4BCE9EF8033F_ME_4BE047320379_R
+ MELINK Original WL? 'ME_4BCE9EF8033F' // FormProducer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BCE9EF8033F_ME_4BE047320379_R FormProducer
+
+%%ImplementedBy ME_4BCE9EF8033F ME_4BE047320379
+
+%%InheritedBy ME_4B30EEEB01EF ME_4BE047320379
+
+ME ME_4BE047320379
+ MEPROP UID '4BE047320379'
+ MEPROP Name 'TTextViaEditorProcessorPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик текста через редактор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B30EEEB01EF_ME_4BE047320379_G // TVCMBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BCE9EF8033F_ME_4BE047320379_R // FormProducer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C65361E038A // ScrollCount
+ HWL ME_4BE047880288 // FormClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B32454100D9 // Load
+ HWL ME_4BE12AEE0190 // Save
+ HWL ME_4B32450B0166 // Scroll
+ HWL ME_4BFBDAB2035D // ScrollBack
+ HWL ME_4BFE3A4003B5 // ScrollByWeel
+ HWL ME_4C1B176A0067 // ScrollByLine
+ HWL ME_4C46F482017F // GotoDocumentBottom
+ HWL ME_4C46F88F039A // PageUp
+ HWL ME_4D6B8501002F // PageDown
+ HWL ME_4BEBFE020080 // ScrollByPage
+ HWL ME_4C08CF4300BE // WebStyle
+ HWL ME_4C091B9A0305 // SendKey
+ HWL ME_4C1F0A260192 // CheckTopAnchor
+ HWL ME_4C9B31F6015E // F1Like
+ HWL ME_4CA0947C03CE // QFLike
+ HWL ME_4CA18D6B0088 // DoBeforeLoad
+ HWL ME_4D3EE58C037C // AllowMultiSelect
+ HWL ME_4D6CB8460086 // WithBaseSearch
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C08D61F0231_ME_4BE047320379_over // FormMade
+ ME_4C9B2B7F0266_ME_4BE047320379_over // MakeFormClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4BE047950290 // TextLoad
+ ME_4BE047B0023C // evdSchema
+ ME_4C9B31E00370 // F1LikeTextLoad
+ ME_4CA094F101FC // QFLikeTextLoad
+ ME_4D6CB7F70383 // F1LikeFormWithBS
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TextViaEditorProcessorPrim.pas'
+ UP extprop:rc:SelfName 'TextViaEditorProcessorPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextViaEditorProcessorPrim'
+
+ENDME // ME_4BE047320379 TTextViaEditorProcessorPrim

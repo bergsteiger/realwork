@@ -1,0 +1,509 @@
+// TvcmOperationStatesForRegister 578614D202D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_578614D202D9
+%%Inner ME_578614D202D9
+
+FORWARD ME_578614D202D9
+
+FORWARD ME_578614F1007E
+
+MEREF ME_4683F4D501E9_ME_578618FF012D_G
+ MELINK Original WL 'ME_4683F4D501E9' '467BAB7F021E.ms.model.script' // TvcmOperationStateIndex
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683F4D501E9_ME_578618FF012D_G TvcmOperationStateIndex
+
+%%InheritedBy ME_4683F4D501E9 ME_578618FF012D
+
+ME ME_578618FF012D
+ MEPROP UID '578618FF012D'
+ MEPROP Name 'PvcmOperationStateIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELIST Inherits
+   Seq: ( ME_4683F4D501E9_ME_578618FF012D_G // TvcmOperationStateIndex
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_578618FF012D PvcmOperationStateIndex
+
+FORWARD ME_57861AD701D4
+
+ME ME_57861AFB0358
+ MEPROP UID '57861AFB0358'
+ MEPROP Name 'vcm_osfUndefined'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861AFB0358 vcm_osfUndefined
+
+ME ME_57861B0E0349
+ MEPROP UID '57861B0E0349'
+ MEPROP Name 'vcm_osfFalse'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861B0E0349 vcm_osfFalse
+
+ME ME_57861B17007B
+ MEPROP UID '57861B17007B'
+ MEPROP Name 'vcm_osfTrue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861B17007B vcm_osfTrue
+
+ME ME_57861AD701D4
+ MEPROP UID '57861AD701D4'
+ MEPROP Name 'TvcmOperationStateFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57861AFB0358 // vcm_osfUndefined
+ HWL ME_57861B0E0349 // vcm_osfFalse
+ HWL ME_57861B17007B // vcm_osfTrue
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57861AD701D4 TvcmOperationStateFlag
+
+ME ME_578615F1023F
+ MEPROP UID '578615F1023F'
+ MEPROP Name 'rStateName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_578615F1023F rStateName
+
+ME ME_5786191401A3
+ MEPROP UID '5786191401A3'
+ MEPROP Name 'rVar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target HWL ME_578618FF012D // PvcmOperationStateIndex
+ ;
+
+ENDME // ME_5786191401A3 rVar
+
+ME ME_57861A2D009E
+ MEPROP UID '57861A2D009E'
+ MEPROP Name 'rHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57861A2D009E rHint
+
+ME ME_57861A5C035B
+ MEPROP UID '57861A5C035B'
+ MEPROP Name 'rCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57861A5C035B rCaption
+
+ME ME_57861A6F02D5
+ MEPROP UID '57861A6F02D5'
+ MEPROP Name 'rImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57861A6F02D5 rImageIndex
+
+ME ME_57861B2B0042
+ MEPROP UID '57861B2B0042'
+ MEPROP Name 'rEnabled'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861B2B0042 rEnabled
+
+ME ME_57861B3901EA
+ MEPROP UID '57861B3901EA'
+ MEPROP Name 'rVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861B3901EA rVisible
+
+ME ME_57861B4A0368
+ MEPROP UID '57861B4A0368'
+ MEPROP Name 'rChecked'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELINK Target HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ ;
+
+ENDME // ME_57861B4A0368 rChecked
+
+FORWARD ME_578615FD02BA
+
+ME ME_5786193100FC
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5786193100FC aName
+
+ME ME_57861931011A
+ MEPROP Name 'theVar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4683F4D501E9' '467BAB7F021E.ms.model.script' // TvcmOperationStateIndex
+ ;
+
+ENDME // ME_57861931011A theVar
+
+ME ME_5786160302B3
+ MEPROP UID '5786160302B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578615FD02BA // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_5786193100FC // aName
+ ME_57861931011A // theVar
+ )
+ ; // Parameters
+
+ENDME // ME_5786160302B3 DoIt
+
+ME ME_578615FD02BA
+ MEPROP UID '578615FD02BA'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5786160302B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578615FD02BA C
+
+FORWARD ME_578616150058
+
+ME ME_57861625002A
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+
+ENDME // ME_57861625002A anOther
+
+ME ME_5786161C00F0
+ MEPROP UID '5786161C00F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578616150058 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57861625002A // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5786161C00F0 DoIt
+
+ME ME_578616150058
+ MEPROP UID '578616150058'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5786161C00F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578616150058 EQ
+
+ME ME_578614F1007E
+ MEPROP UID '578614F1007E'
+ MEPROP Name 'TvcmOperationStateForRegister'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578614D202D9 // TvcmOperationStatesForRegister
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_578615F1023F // rStateName
+ HWL ME_5786191401A3 // rVar
+ HWL ME_57861A2D009E // rHint
+ HWL ME_57861A5C035B // rCaption
+ HWL ME_57861A6F02D5 // rImageIndex
+ HWL ME_57861B2B0042 // rEnabled
+ HWL ME_57861B3901EA // rVisible
+ HWL ME_57861B4A0368 // rChecked
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_578615FD02BA // C
+ HWL ME_578616150058 // EQ
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_578618FF012D // PvcmOperationStateIndex
+ HWL ME_57861AD701D4 // TvcmOperationStateFlag
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'OperationStateForRegister'
+
+ENDME // ME_578614F1007E TvcmOperationStateForRegister
+
+MEREF ME_578614F1007E_ME_578616380363_G
+ MELINK Original HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_578614F1007E_ME_578616380363_G TvcmOperationStateForRegister
+
+%%InheritedBy ME_578614F1007E ME_578616380363
+
+ME ME_578616380363
+ MEPROP UID '578616380363'
+ MEPROP Name 'PvcmOperationStateForRegister'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578614D202D9 // TvcmOperationStatesForRegister
+ ;
+ MELIST Inherits
+   Seq: ( ME_578614F1007E_ME_578616380363_G // TvcmOperationStateForRegister
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_578616380363 PvcmOperationStateForRegister
+
+ME ME_57861513016C
+ MEPROP UID '57861513016C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578614D202D9 // TvcmOperationStatesForRegister
+ ;
+ MELINK Target HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+
+ENDME // ME_57861513016C ItemType
+
+FORWARD ME_57861CED02AE
+
+ME ME_57861CFB00E4
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_578614F1007E // TvcmOperationStateForRegister
+ ;
+
+ENDME // ME_57861CFB00E4 aState
+
+ME ME_57861CF803D2
+ MEPROP UID '57861CF803D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57861CED02AE // AddState
+ ;
+ MELINK Target HWL ME_578616380363 // PvcmOperationStateForRegister
+ ;
+ MELIST Parameters
+   Seq: ( ME_57861CFB00E4 // aState
+ )
+ ; // Parameters
+
+ENDME // ME_57861CF803D2 DoIt
+
+ME ME_57861CED02AE
+ MEPROP UID '57861CED02AE'
+ MEPROP Name 'AddState'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578614D202D9 // TvcmOperationStatesForRegister
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57861CF803D2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57861CED02AE AddState
+
+MEREF ME_47B07CF403D0_ME_578614D202D9_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_578614D202D9_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_578614D202D9_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_578614D202D9_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_578614D202D9_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_578614D202D9_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_578614D202D9_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_578614D202D9_G Tl3ProtoDataContainer
+
+MEREF ME_4B223ADC02BF_ME_578614D202D9_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_578614D202D9_G l3RecordListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_578614D202D9
+%%InheritedBy ME_4B223ADC02BF ME_578614D202D9
+
+ME ME_578614D202D9
+ MEPROP UID '578614D202D9'
+ MEPROP Name 'TvcmOperationStatesForRegister'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57851B200290' // Application
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_578614D202D9_G // Tl3ProtoDataContainer
+ ME_4B223ADC02BF_ME_578614D202D9_G // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57861513016C // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57861CED02AE // AddState
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_578614D202D9_impl // IsSameItems
+ ME_47B2C42A0163_ME_578614D202D9_impl // AssignItem
+ ME_47B99D4503A2_ME_578614D202D9_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_578614F1007E // TvcmOperationStateForRegister
+ HWL ME_578616380363 // PvcmOperationStateForRegister
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmOperationStatesForRegister.pas'
+ UP extprop:rc:SelfName 'OperationStatesForRegister'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmOperationStatesForRegister'
+
+ENDME // ME_578614D202D9 TvcmOperationStatesForRegister

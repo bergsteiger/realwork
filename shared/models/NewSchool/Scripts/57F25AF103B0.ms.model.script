@@ -1,0 +1,45 @@
+// TcsPersonificatedMessage 57F25AF103B0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_544E079E0253_ME_57F25AF103B0_G
+ MELINK Original WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544E079E0253_ME_57F25AF103B0_G TncsMessage
+
+MEREF ME_57F25640029D_ME_57F25AF103B0_R
+ MELINK Original WL 'ME_57F25640029D' '484A470100DD.ms.model.script' // csPersonificatedMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F25640029D_ME_57F25AF103B0_R csPersonificatedMessage
+
+%%ImplementedBy ME_57F25640029D ME_57F25AF103B0
+
+%%InheritedBy ME_544E079E0253 ME_57F25AF103B0
+
+ME ME_57F25AF103B0
+ MEPROP UID '57F25AF103B0'
+ MEPROP Name 'TcsPersonificatedMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C686B70253' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_544E079E0253_ME_57F25AF103B0_G // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57F25640029D_ME_57F25AF103B0_R // csPersonificatedMessage
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csPersonificatedMessage.pas'
+ UP extprop:rc:SelfName 'csPersonificatedMessage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csPersonificatedMessage'
+
+ENDME // ME_57F25AF103B0 TcsPersonificatedMessage

@@ -33,7 +33,7 @@ ENDME // ME_53E494D80162 DoIt
 ME ME_53E494B002C7
  MEPROP UID '53E494B002C7'
  MEPROP Name 'Free'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Для ловли Free' ;
@@ -47,6 +47,18 @@ ME ME_53E494B002C7
  ; // Operations
 
 ENDME // ME_53E494B002C7 Free
+
+MEREF ME_53E491DB0065_ME_53E49235000B_G
+ MELINK Original WL 'ME_53E491DB0065' '53E0F45F02B2.ms.model.script' // TGauge
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53E491DB0065_ME_53E49235000B_G TGauge
+
+MEREF ME_47913F970159_ME_53E49235000B_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_53E49235000B_R l3Unknown
 
 %%ImplementedBy ME_47913F970159 ME_53E49235000B
 
@@ -64,11 +76,11 @@ ME ME_53E49235000B
  MELINK Parent WL? 'ME_53E492040261' // Stuff
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_53E491DB0065' '53E0F45F02B2.ms.model.script' // TGauge
+   Seq: ( ME_53E491DB0065_ME_53E49235000B_G // TGauge
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_47913F970159' // l3Unknown
+   Seq: ( ME_47913F970159_ME_53E49235000B_R // l3Unknown
  )
  ; // Implements
  MELIST Operations

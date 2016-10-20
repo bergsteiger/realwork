@@ -47,7 +47,7 @@ ME ME_670D69527CBB
  MEPROP Name 'ShowRenameGroupDialog'
  MEPROP OriginalName 'ShowRenameGroupDialog$4AA8E2C60357'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -99,7 +99,7 @@ ME ME_5FC0D9E13E74
  MEPROP Name 'OpenUserList'
  MEPROP OriginalName 'OpenUserList$4AA512AA00C5'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -165,7 +165,7 @@ ENDME // ME_4AA8E2DA00C1 DoIt
 ME ME_4AA8E2C60357
  MEPROP UID '4AA8E2C60357'
  MEPROP Name 'ShowRenameGroupDialog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -210,7 +210,7 @@ ENDME // ME_4AA512B701C6 DoIt
 ME ME_4AA512AA00C5
  MEPROP UID '4AA512AA00C5'
  MEPROP Name 'OpenUserList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormSetFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -228,6 +228,12 @@ ME ME_4AA512AA00C5
 
 ENDME // ME_4AA512AA00C5 OpenUserList
 
+MEREF ME_49E7754802A9_ME_57A3519700ED_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A3519700ED_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A3519700ED
 
 ME ME_57A3519700ED
@@ -241,7 +247,7 @@ ME ME_57A3519700ED
  MELINK Parent HWL ME_57A351800138 // Services
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_57A3519700ED_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations

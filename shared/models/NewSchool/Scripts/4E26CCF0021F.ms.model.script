@@ -1,0 +1,214 @@
+// TevContentsNodeFactory 4E26CCF0021F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E26CCF0021F
+
+FORWARD ME_4E26CFD1000A
+
+ME ME_4F2AAD8D0007
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F2AAD8D0007 aTag
+
+ME ME_4F2AAD8501D5
+ MEPROP Name 'aSub'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F2AAD8501D5 aSub
+
+ME ME_4F2AAD850247
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A2627EA0145' '47F088300159.ms.model.script' // InevContentsNodeFilter
+ ;
+
+ENDME // ME_4F2AAD850247 aFilter
+
+ME ME_4E26CFF90349
+ MEPROP UID '4E26CFF90349'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E26CFD1000A // CreateContentsNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2AAD8D0007 // aTag
+ ME_4F2AAD8501D5 // aSub
+ ME_4F2AAD850247 // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_4E26CFF90349 DoIt
+
+ME ME_4E26D0D90309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26CFD1000A // CreateContentsNode
+ ;
+ MELINK Target WL? 'ME_4DFEF94101DF' // TevDocumentNode
+ ;
+
+ENDME // ME_4E26D0D90309 
+
+ME ME_4E26D0DD0195
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26CFD1000A // CreateContentsNode
+ ;
+ MELINK Target WL? 'ME_4DFEF1A701F9' // TevContentsTagNode
+ ;
+
+ENDME // ME_4E26D0DD0195 
+
+ME ME_4E26D0E10122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26CFD1000A // CreateContentsNode
+ ;
+ MELINK Target WL? 'ME_4DFEF18B02C4' // TevContentsSubNode
+ ;
+
+ENDME // ME_4E26D0E10122 
+
+ME ME_4E26D4770191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26CFD1000A // CreateContentsNode
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4E26D4770191 
+
+ME ME_4E26CFD1000A
+ MEPROP UID '4E26CFD1000A'
+ MEPROP Name 'CreateContentsNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создает узел ноды для документа, блока, саба.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E26CCF0021F // TevContentsNodeFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E26CFF90349 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E26D0D90309 // TevDocumentNode
+ ME_4E26D0DD0195 // TevContentsTagNode
+ ME_4E26D0E10122 // TevContentsSubNode
+ ME_4E26D4770191 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" true
+
+ENDME // ME_4E26CFD1000A CreateContentsNode
+
+FORWARD ME_4E26D05D00FA
+
+ME ME_4E26D08300C6
+ MEPROP UID '4E26D08300C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E26D05D00FA // CreateRoot
+ ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_4E26D08300C6 DoIt
+
+ME ME_4E26D0B701EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26D05D00FA // CreateRoot
+ ;
+ MELINK Target WL? 'ME_4DFEF8FA00FB' // TevRootContentsNode
+ ;
+
+ENDME // ME_4E26D0B701EF 
+
+ME ME_4E26D05D00FA
+ MEPROP UID '4E26D05D00FA'
+ MEPROP Name 'CreateRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создает рутовый узел.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E26CCF0021F // TevContentsNodeFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E26D08300C6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E26D0B701EF // TevRootContentsNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" true
+
+ENDME // ME_4E26D05D00FA CreateRoot
+
+ME ME_4F2AADA500B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E26CCF0021F // TevContentsNodeFactory
+ ;
+ MELINK Target WL? 'ME_47F25741021C' // l3Nodes
+ ;
+
+ENDME // ME_4F2AADA500B9 
+
+ME ME_4E26CCF0021F
+ MEPROP UID '4E26CCF0021F'
+ MEPROP Name 'TevContentsNodeFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика для создания нод.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DFEEE4A017D' // ContentsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E26CFD1000A // CreateContentsNode
+ HWL ME_4E26D05D00FA // CreateRoot
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2AADA500B9 // l3Nodes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evContentsNodeFactory.pas'
+ UP extprop:rc:SelfName 'ContentsNodeFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evContentsNodeFactory'
+
+ENDME // ME_4E26CCF0021F TevContentsNodeFactory

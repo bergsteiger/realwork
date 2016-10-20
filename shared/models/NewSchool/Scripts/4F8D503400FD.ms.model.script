@@ -1,0 +1,42 @@
+// MainForm_FindDocuments 4F8D503400FD ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8D503400FD
+
+ME ME_4F8D50ED0104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D503400FD // MainForm_FindDocuments
+ ;
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB4D3C01B5.ms.model.script' // TMainForm
+ ;
+
+ENDME // ME_4F8D50ED0104 
+
+ME ME_4F8D503400FD
+ MEPROP UID '4F8D503400FD'
+ MEPROP Name 'MainForm_FindDocuments'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызывает поиск документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F8D50ED0104 // TMainForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormFindDocuments.pas'
+ UP extprop:pas:TypeName 'TkwMainFormFindDocuments'
+ UP extprop:rc:SelfName 'MainFormFindDocuments'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMainFormFindDocuments'
+
+ENDME // ME_4F8D503400FD MainForm_FindDocuments

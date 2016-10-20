@@ -1,0 +1,75 @@
+// TevCommentParaCursor 4A40EB120375 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A40EB120375
+
+ME ME_4D63CD800374
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A40EB120375 // TevCommentParaCursor
+ ;
+ MELINK Target WL? 'ME_4857C9F90189' // TevCommentPara
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_4D63CD800374 
+
+MEREF ME_4A38F7F5022C_ME_4A40EB120375_over
+ MELINK Original WL 'ME_4A38F7F5022C' '47F4D44C01BF.ms.model.script' // DoDeleteChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A38F7F5022C_ME_4A40EB120375_over DoDeleteChar
+
+MEREF ME_4A3FA3FA0033_ME_4A40EB120375_over
+ MELINK Original WL 'ME_4A3FA3FA0033' '4A3FA3290296.ms.model.script' // IsShowingDocumentParts
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3FA3FA0033_ME_4A40EB120375_over IsShowingDocumentParts
+
+MEREF ME_4A3FA3290296_ME_4A40EB120375_G
+ MELINK Original WL? 'ME_4A3FA3290296' // TevDocumentPartCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3FA3290296_ME_4A40EB120375_G TevDocumentPartCursor
+
+%%InjectedBy ME_4857C9F90189 ME_4A40EB120375
+
+%%InheritedBy ME_4A3FA3290296 ME_4A40EB120375
+
+ME ME_4A40EB120375
+ MEPROP UID '4A40EB120375'
+ MEPROP Name 'TevCommentParaCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3FA3290296_ME_4A40EB120375_G // TevDocumentPartCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A38F7F5022C_ME_4A40EB120375_over // DoDeleteChar
+ ME_4A3FA3FA0033_ME_4A40EB120375_over // IsShowingDocumentParts
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D63CD800374 // TevCommentPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '17.11.2004 14:07'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCommentParaCursor.pas'
+ UP extprop:rc:SelfName 'CommentParaCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCommentParaCursor'
+
+ENDME // ME_4A40EB120375 TevCommentParaCursor

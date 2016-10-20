@@ -1,0 +1,341 @@
+// TcaArchiUser 57566B200124 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57566B200124
+
+ME ME_57566B850039
+ MEPROP UID '57566B850039'
+ MEPROP Name 'f_HTUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57566B200124 // TcaArchiUser
+ ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57566B850039 f_HTUser
+
+ME ME_57566B8E004A
+ MEPROP UID '57566B8E004A'
+ MEPROP Name 'f_PGUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57566B200124 // TcaArchiUser
+ ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57566B8E004A f_PGUser
+
+FORWARD ME_57566B3E0317
+
+ME ME_57566B620253
+ MEPROP Name 'aHTUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57566B620253 aHTUser
+
+ME ME_57566B620262
+ MEPROP Name 'aPGUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57566B620262 aPGUser
+
+ME ME_57566B4802E8
+ MEPROP UID '57566B4802E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57566B3E0317 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57566B620253 // aHTUser
+ ME_57566B620262 // aPGUser
+ )
+ ; // Parameters
+
+ENDME // ME_57566B4802E8 DoIt
+
+ME ME_57566B3E0317
+ MEPROP UID '57566B3E0317'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57566B200124 // TcaArchiUser
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57566B4802E8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57566B3E0317 Create
+
+MEREF ME_57566B3E0317_ME_57566B6802A7_G
+ MELINK Original HWL ME_57566B3E0317 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57566B3E0317_ME_57566B6802A7_G Create
+
+MEREF ME_5729DCE2003D_ME_57566B6802A7_R
+ MELINK Original WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5729DCE2003D_ME_57566B6802A7_R IdaArchiUser
+
+%%ImplementedBy ME_5729DCE2003D ME_57566B6802A7
+
+%%InheritedBy ME_57566B3E0317 ME_57566B6802A7
+
+ME ME_57566B6802A7
+ MEPROP UID '57566B6802A7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57566B200124 // TcaArchiUser
+ ;
+ MELIST Inherits
+   Seq: ( ME_57566B3E0317_ME_57566B6802A7_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5729DCE2003D_ME_57566B6802A7_R // IdaArchiUser
+ )
+ ; // Implements
+
+ENDME // ME_57566B6802A7 Make
+
+FORWARD ME_57359E8903CF
+
+ME ME_57359EBD034E
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57359EBD034E aLeft
+
+ME ME_57359EBD035D
+ MEPROP Name 'aRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+
+ENDME // ME_57359EBD035D aRight
+
+ME ME_57359E9A01F0
+ MEPROP UID '57359E9A01F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57359E8903CF // IsUsersEqual
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57359EBD034E // aLeft
+ ME_57359EBD035D // aRight
+ )
+ ; // Parameters
+
+ENDME // ME_57359E9A01F0 DoIt
+
+ME ME_57359E8903CF
+ MEPROP UID '57359E8903CF'
+ MEPROP Name 'IsUsersEqual'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57566B200124 // TcaArchiUser
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57359E9A01F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57359E8903CF IsUsersEqual
+
+MEREF ME_5729DCF300FC_ME_57566B200124_impl
+ MELINK Original WL 'ME_5729DCF300FC' '5432518A0316.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5729DCF300FC_ME_57566B200124_impl Save
+
+MEREF ME_572B08330098_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B08330098' '5432518A0316.ms.model.script' // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_572B08330098_ME_57566B200124_impl Load
+
+MEREF ME_572B1204035B_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B1204035B' '5432518A0316.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B1204035B_ME_57566B200124_impl ID
+
+MEREF ME_572B121B01DF_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B121B01DF' '5432518A0316.ms.model.script' // Active
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B121B01DF_ME_57566B200124_impl Active
+
+MEREF ME_572B123002B7_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B123002B7' '5432518A0316.ms.model.script' // HasAdminRights
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B123002B7_ME_57566B200124_impl HasAdminRights
+
+MEREF ME_572B12420088_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B12420088' '5432518A0316.ms.model.script' // ExportPriority
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B12420088_ME_57566B200124_impl ExportPriority
+
+MEREF ME_572B125E006C_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B125E006C' '5432518A0316.ms.model.script' // ImportPriority
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B125E006C_ME_57566B200124_impl ImportPriority
+
+MEREF ME_572B126D0341_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B126D0341' '5432518A0316.ms.model.script' // IP
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B126D0341_ME_57566B200124_impl IP
+
+MEREF ME_572B127D0098_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B127D0098' '5432518A0316.ms.model.script' // LoginDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B127D0098_ME_57566B200124_impl LoginDate
+
+MEREF ME_572B128D015A_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B128D015A' '5432518A0316.ms.model.script' // LoginName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B128D015A_ME_57566B200124_impl LoginName
+
+MEREF ME_572B129D021B_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B129D021B' '5432518A0316.ms.model.script' // Password
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B129D021B_ME_57566B200124_impl Password
+
+MEREF ME_572B12AE028C_ME_57566B200124_impl
+ MELINK Original WL 'ME_572B12AE028C' '5432518A0316.ms.model.script' // UserName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_572B12AE028C_ME_57566B200124_impl UserName
+
+MEREF ME_479731C50290_ME_57566B200124_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57566B200124_over Cleanup
+
+MEREF ME_49E7754802A9_ME_57566B200124_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57566B200124_G Tl3ProtoObject
+
+MEREF ME_5729DCE2003D_ME_57566B200124_R
+ MELINK Original WL 'ME_5729DCE2003D' '5432518A0316.ms.model.script' // IdaArchiUser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5729DCE2003D_ME_57566B200124_R IdaArchiUser
+
+%%ImplementedBy ME_5729DCE2003D ME_57566B200124
+
+%%InheritedBy ME_49E7754802A9 ME_57566B200124
+
+ME ME_57566B200124
+ MEPROP UID '57566B200124'
+ MEPROP Name 'TcaArchiUser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A86AF40350' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57566B200124_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5729DCE2003D_ME_57566B200124_R // IdaArchiUser
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57566B850039 // f_HTUser
+ HWL ME_57566B8E004A // f_PGUser
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57566B3E0317 // Create
+ HWL ME_57566B6802A7 // Make
+ HWL ME_57359E8903CF // IsUsersEqual
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5729DCF300FC_ME_57566B200124_impl // Save
+ ME_572B08330098_ME_57566B200124_impl // Load
+ ME_572B1204035B_ME_57566B200124_impl // ID
+ ME_572B121B01DF_ME_57566B200124_impl // Active
+ ME_572B123002B7_ME_57566B200124_impl // HasAdminRights
+ ME_572B12420088_ME_57566B200124_impl // ExportPriority
+ ME_572B125E006C_ME_57566B200124_impl // ImportPriority
+ ME_572B126D0341_ME_57566B200124_impl // IP
+ ME_572B127D0098_ME_57566B200124_impl // LoginDate
+ ME_572B128D015A_ME_57566B200124_impl // LoginName
+ ME_572B129D021B_ME_57566B200124_impl // Password
+ ME_572B12AE028C_ME_57566B200124_impl // UserName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57566B200124_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caArchiUser.pas'
+ UP extprop:rc:SelfName 'caArchiUser'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'caArchiUser'
+
+ENDME // ME_57566B200124 TcaArchiUser

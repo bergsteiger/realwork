@@ -51,7 +51,7 @@ ME ME_4AC226EE03B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7EA010274 // MainWindow
  ;
- MELINK Target WL 'ME_4AC226030181' '4AC225E70273.ms.model.script' // TnsBaseSearcher
+ MELINK Target WL? 'ME_4AC226030181' // TnsBaseSearcher
  ;
 
 ENDME // ME_4AC226EE03B7 
@@ -71,10 +71,22 @@ ME ME_4ADC51AB0001
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA7EA010274 // MainWindow
  ;
- MELINK Target WL 'ME_4ADC5175035B' '4F6B421102FB.ms.model.script' // TnsWindowsList
+ MELINK Target WL? 'ME_4ADC5175035B' // TnsWindowsList
  ;
 
 ENDME // ME_4ADC51AB0001 
+
+MEREF ME_4F7DAC14027A_ME_4AA7EA010274_G
+ MELINK Original WL? 'ME_4F7DAC14027A' // MainWithReminders
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F7DAC14027A_ME_4AA7EA010274_G MainWithReminders
+
+MEREF ME_65A08EE64C38_ME_4AA7EA010274_R
+ MELINK Original HWL ME_65A08EE64C38 // MainWindow$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_65A08EE64C38_ME_4AA7EA010274_R MainWindow$Def
 
 %%ImplementedBy ME_65A08EE64C38 ME_4AA7EA010274
 
@@ -93,11 +105,11 @@ ME ME_4AA7EA010274
  MELINK Parent WL? 'ME_4A925AFF01BA' // PrimNemesis
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4F7DAC14027A' // MainWithReminders
+   Seq: ( ME_4F7DAC14027A_ME_4AA7EA010274_G // MainWithReminders
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_65A08EE64C38 // MainWindow$Def
+   Seq: ( ME_65A08EE64C38_ME_4AA7EA010274_R // MainWindow$Def
  )
  ; // Implements
  MELIST Operations

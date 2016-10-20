@@ -1,0 +1,253 @@
+// TnevSBSRowFormatInfo 4E70655403BD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E70655403BD
+
+ME ME_4ED71A4D017D
+ MEPROP UID '4ED71A4D017D'
+ MEPROP Name 'f_SecondColWdith'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Кешированная ширина второй колонки для проверки изменений.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ED71A4D017D f_SecondColWdith
+
+FORWARD ME_4ED4B9B50021
+
+ME ME_4ED63ACA03C9
+ MEPROP Name 'aParentWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ED63ACA03C9 aParentWidth
+
+ME ME_4ED63ACB0001
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ED63ACB0001 aValue
+
+ME ME_4ED4B9E0013D
+ MEPROP UID '4ED4B9E0013D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ED4B9B50021 // CalcNewWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ED63ACA03C9 // aParentWidth
+ ME_4ED63ACB0001 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4ED4B9E0013D DoIt
+
+ME ME_4ED4B9B50021
+ MEPROP UID '4ED4B9B50021'
+ MEPROP Name 'CalcNewWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ED4B9E0013D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ED4B9B50021 CalcNewWidth
+
+FORWARD ME_4ED61E7200D0
+
+ME ME_4ED61EDA0206
+ MEPROP UID '4ED61EDA0206'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ED61E7200D0 // ParentWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ED61EDA0206 DoIt
+
+ME ME_4ED61E7200D0
+ MEPROP UID '4ED61E7200D0'
+ MEPROP Name 'ParentWidth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ширина для вычислений.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ED61EDA0206 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ED61E7200D0 ParentWidth
+
+ME ME_4ED4C01A0100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ED4C01A0100 
+
+ME ME_4ED4C0CD0030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL? 'ME_47E0C36201C7' // l3Math
+ ;
+
+ENDME // ME_4ED4C0CD0030 
+
+ME ME_4ED4C17D031B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4ED4C17D031B 
+
+ME ME_4ED63B9F026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4ED63B9F026A 
+
+ME ME_4ED63BF901F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL? 'ME_480CA9AD0198' // evSectionPara
+ ;
+
+ENDME // ME_4ED63BF901F2 
+
+ME ME_4ED7265900BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E70655403BD // TnevSBSRowFormatInfo
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4ED7265900BD 
+
+MEREF ME_4ED4ADA90212_ME_4E70655403BD_over
+ MELINK Original WL 'ME_4ED4ADA90212' '4678209200A6.ms.model.script' // CalcClientValue4Column
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED4ADA90212_ME_4E70655403BD_over CalcClientValue4Column
+
+MEREF ME_4ED4AE2B03D3_ME_4E70655403BD_over
+ MELINK Original WL 'ME_4ED4AE2B03D3' '4678209200A6.ms.model.script' // ResizeColumn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED4AE2B03D3_ME_4E70655403BD_over ResizeColumn
+
+MEREF ME_4ED719EE01C1_ME_4E70655403BD_over
+ MELINK Original WL 'ME_4ED719EE01C1' '482098D2015E.ms.model.script' // WasChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED719EE01C1_ME_4E70655403BD_over WasChanged
+
+MEREF ME_4ED71A110169_ME_4E70655403BD_over
+ MELINK Original WL 'ME_4ED71A110169' '482098D2015E.ms.model.script' // ClearChangedFlag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED71A110169_ME_4E70655403BD_over ClearChangedFlag
+
+MEREF ME_482098D2015E_ME_4E70655403BD_G
+ MELINK Original WL? 'ME_482098D2015E' // TnevRubberCellsRenderInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482098D2015E_ME_4E70655403BD_G TnevRubberCellsRenderInfo
+
+%%InheritedBy ME_482098D2015E ME_4E70655403BD
+
+ME ME_4E70655403BD
+ MEPROP UID '4E70655403BD'
+ MEPROP Name 'TnevSBSRowFormatInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( ME_482098D2015E_ME_4E70655403BD_G // TnevRubberCellsRenderInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ED71A4D017D // f_SecondColWdith
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ED4B9B50021 // CalcNewWidth
+ HWL ME_4ED61E7200D0 // ParentWidth
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4ED4ADA90212_ME_4E70655403BD_over // CalcClientValue4Column
+ ME_4ED4AE2B03D3_ME_4E70655403BD_over // ResizeColumn
+ ME_4ED719EE01C1_ME_4E70655403BD_over // WasChanged
+ ME_4ED71A110169_ME_4E70655403BD_over // ClearChangedFlag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED4C01A0100 // Tk2TagID
+ ME_4ED4C0CD0030 // l3Math
+ ME_4ED4C17D031B // l3MinMax
+ ME_4ED63B9F026A // InevObjectHolder
+ ME_4ED63BF901F2 // evSectionPara
+ ME_4ED7265900BD // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '14.09.2011 12:27'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevSBSRowFormatInfo.pas'
+ UP extprop:rc:SelfName 'SBSRowFormatInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevSBSRowFormatInfo'
+
+ENDME // ME_4E70655403BD TnevSBSRowFormatInfo

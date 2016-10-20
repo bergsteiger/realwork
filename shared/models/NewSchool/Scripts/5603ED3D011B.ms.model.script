@@ -92,7 +92,7 @@ ENDME // ME_5603F0260334 Filer
 ME ME_5616668C01A8
  MEPROP UID '5616668C01A8'
  MEPROP Name 'RollBack'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -235,6 +235,12 @@ ME ME_560A4D4F01AE
 
 ENDME // ME_560A4D4F01AE TddExportDivideBy
 
+MEREF ME_560A4D4F01AE_ME_560A4DCA0199_G
+ MELINK Original HWL ME_560A4D4F01AE // TddExportDivideBy
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_560A4D4F01AE_ME_560A4DCA0199_G TddExportDivideBy
+
 %%InheritedBy ME_560A4D4F01AE ME_560A4DCA0199
 
 ME ME_560A4DCA0199
@@ -248,7 +254,7 @@ ME ME_560A4DCA0199
  MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_560A4D4F01AE // TddExportDivideBy
+   Seq: ( ME_560A4D4F01AE_ME_560A4DCA0199_G // TddExportDivideBy
  )
  ; // Inherits
 
@@ -356,6 +362,18 @@ ME ME_560BBAF40223
 
 ENDME // ME_560BBAF40223 eptExportDate
 
+MEREF ME_46780D0003AF_ME_560BADDA015F_G
+ MELINK Original WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780D0003AF_ME_560BADDA015F_G Tl3WString
+
+MEREF ME_560BB87D0082_ME_560BADDA015F_R
+ MELINK Original HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_560BB87D0082_ME_560BADDA015F_R TddExportFileMaskPatternType
+
 %%ImplementedBy ME_560BB87D0082 ME_560BADDA015F
 
 %%InheritedBy ME_46780D0003AF ME_560BADDA015F
@@ -371,11 +389,11 @@ ME ME_560BADDA015F
  MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+   Seq: ( ME_46780D0003AF_ME_560BADDA015F_G // Tl3WString
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+   Seq: ( ME_560BB87D0082_ME_560BADDA015F_R // TddExportFileMaskPatternType
  )
  ; // Implements
  MELIST Attributes
@@ -433,6 +451,18 @@ ME ME_5612641400DF
 
 ENDME // ME_5612641400DF edpAnnotation
 
+MEREF ME_476136D3010B_ME_56126374035D_G
+ MELINK Original WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476136D3010B_ME_56126374035D_G String
+
+MEREF ME_5603EDF40264_ME_56126374035D_R
+ MELINK Original HWL ME_5603EDF40264 // TddExportDocPart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5603EDF40264_ME_56126374035D_R TddExportDocPart
+
 %%ImplementedBy ME_5603EDF40264 ME_56126374035D
 
 %%InheritedBy ME_476136D3010B ME_56126374035D
@@ -448,11 +478,11 @@ ME ME_56126374035D
  MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+   Seq: ( ME_476136D3010B_ME_56126374035D_G // String
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_5603EDF40264 // TddExportDocPart
+   Seq: ( ME_5603EDF40264_ME_56126374035D_R // TddExportDocPart
  )
  ; // Implements
  MELIST Attributes
@@ -672,7 +702,7 @@ ENDME // ME_564C60EA03DB DoIt
 ME ME_564C60D40342
  MEPROP UID '564C60D40342'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

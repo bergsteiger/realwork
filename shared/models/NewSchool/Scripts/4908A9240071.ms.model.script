@@ -1,0 +1,148 @@
+// TnsDataResetTree 4908A9240071 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4908A9240071
+
+ME ME_4908A98E02C6
+ MEPROP UID '4908A98E02C6'
+ MEPROP Name 'f_InGetRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908A9240071 // TnsDataResetTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4908A98E02C6 f_InGetRoot
+
+ME ME_4908A99D027C
+ MEPROP UID '4908A99D027C'
+ MEPROP Name 'BeenReseted'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4908A9240071 // TnsDataResetTree
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4908A99D027C BeenReseted
+
+ME ME_4908AAED02BD
+ MEPROP UID '4908AAED02BD'
+ MEPROP Name 'BeforeReset'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4908A9240071 // TnsDataResetTree
+ ;
+
+ENDME // ME_4908AAED02BD BeforeReset
+
+ME ME_4908AAF6015C
+ MEPROP UID '4908AAF6015C'
+ MEPROP Name 'AfterReget'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4908A9240071 // TnsDataResetTree
+ ;
+
+ENDME // ME_4908AAF6015C AfterReget
+
+ME ME_4908AB070319
+ MEPROP UID '4908AB070319'
+ MEPROP Name 'RegetRootNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4908A9240071 // TnsDataResetTree
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_4908AB070319 RegetRootNode
+
+MEREF ME_479731C50290_ME_4908A9240071_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4908A9240071_over Cleanup
+
+MEREF ME_47EA4E9002C6_ME_4908A9240071_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4908A9240071_over FinishDataUpdate
+
+MEREF ME_4FFC1D0502D0_ME_4908A9240071_over
+ MELINK Original WL 'ME_4FFC1D0502D0' '4804BDA10127.ms.model.script' // Get__CRootNode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FFC1D0502D0_ME_4908A9240071_over Get__CRootNode
+
+MEREF ME_47EA4BEF0140_ME_4908A9240071_G
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4908A9240071_G afwApplicationDataUpdate
+
+MEREF ME_4804BDA10127_ME_4908A9240071_G
+ MELINK Original WL? 'ME_4804BDA10127' // Tl3Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4804BDA10127_ME_4908A9240071_G Tl3Tree
+
+%%InheritedBy ME_47EA4BEF0140 ME_4908A9240071
+%%InheritedBy ME_4804BDA10127 ME_4908A9240071
+
+ME ME_4908A9240071
+ MEPROP UID '4908A9240071'
+ MEPROP Name 'TnsDataResetTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4908A8A20107' // OldTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_47EA4BEF0140_ME_4908A9240071_G // afwApplicationDataUpdate
+ ME_4804BDA10127_ME_4908A9240071_G // Tl3Tree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4908A98E02C6 // f_InGetRoot
+ HWL ME_4908A99D027C // BeenReseted
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4908AAED02BD // BeforeReset
+ HWL ME_4908AAF6015C // AfterReget
+ HWL ME_4908AB070319 // RegetRootNode
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4908A9240071_over // Cleanup
+ ME_47EA4E9002C6_ME_4908A9240071_over // FinishDataUpdate
+ ME_4FFC1D0502D0_ME_4908A9240071_over // Get__CRootNode
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '2005/11/21 17:21:06'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTree.pas'
+ UP extprop:rc:SelfName 'DataResetTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDataResetTree'
+
+ENDME // ME_4908A9240071 TnsDataResetTree

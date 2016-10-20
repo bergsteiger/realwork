@@ -1,0 +1,273 @@
+// TsmSectionTree 570B6AB10204 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_570B6AB10204
+
+ME ME_570B6B9E00E4
+ MEPROP UID '570B6B9E00E4'
+ MEPROP Name 'f_Sections'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELINK Target WL 'ME_56FE606A033E' '4DD24BD40021.ms.model.script' // MainMenuSectionList
+ ;
+
+ENDME // ME_570B6B9E00E4 f_Sections
+
+FORWARD ME_570B6C6701A9
+
+ME ME_570B6C9A027E
+ MEPROP UID '570B6C9A027E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B6C6701A9 // MakeRoot
+ ;
+ MELINK Target WL 'ME_4771111001F9' '476BF10A0280.ms.model.script' // Il3RootNode
+ ;
+
+ENDME // ME_570B6C9A027E DoIt
+
+ME ME_570B6C6701A9
+ MEPROP UID '570B6C6701A9'
+ MEPROP Name 'MakeRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_570B6C9A027E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_570B6C6701A9 MakeRoot
+
+FORWARD ME_570B7D6D0066
+
+ME ME_570B7D7C015C
+ MEPROP Name 'aSections'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56FE606A033E' '4DD24BD40021.ms.model.script' // MainMenuSectionList
+ ;
+
+ENDME // ME_570B7D7C015C aSections
+
+ME ME_570B7D720322
+ MEPROP UID '570B7D720322'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B7D6D0066 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_570B7D7C015C // aSections
+ )
+ ; // Parameters
+
+ENDME // ME_570B7D720322 DoIt
+
+ME ME_570B7D6D0066
+ MEPROP UID '570B7D6D0066'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_570B7D720322 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_570B7D6D0066 Create
+
+MEREF ME_570B7D6D0066_ME_570B7D870049_G
+ MELINK Original HWL ME_570B7D6D0066 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_570B7D6D0066_ME_570B7D870049_G Create
+
+MEREF ME_46825CC00249_ME_570B7D870049_R
+ MELINK Original WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46825CC00249_ME_570B7D870049_R Il3SimpleTree
+
+%%ImplementedBy ME_46825CC00249 ME_570B7D870049
+
+%%InheritedBy ME_570B7D6D0066 ME_570B7D870049
+
+ME ME_570B7D870049
+ MEPROP UID '570B7D870049'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_570B7D6D0066_ME_570B7D870049_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46825CC00249_ME_570B7D870049_R // Il3SimpleTree
+ )
+ ; // Implements
+
+ENDME // ME_570B7D870049 Make
+
+ME ME_570B7DA901A5
+ MEPROP UID '570B7DA901A5'
+ MEPROP Name 'AddNodes'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+
+ENDME // ME_570B7DA901A5 AddNodes
+
+ME ME_570B6B160087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELINK Target WL? 'ME_5707EE3A0158' // TnsMainMenuSectionNode
+ ;
+
+ENDME // ME_570B6B160087 
+
+ME ME_570B90E7023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELINK Target WL 'ME_48FF63BC0129' '4A6854C70390.ms.model.script' // TnsResetTreeStatus
+ ;
+
+ENDME // ME_570B90E7023F 
+
+ME ME_570B90EA01D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELINK Target WL? 'ME_490AF9B0039B' // TnsNewCachableNode
+ ;
+
+ENDME // ME_570B90EA01D4 
+
+ME ME_570B90EC0364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_570B6AB10204 // TsmSectionTree
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_570B90EC0364 
+
+MEREF ME_479731C50290_ME_570B6AB10204_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_570B6AB10204_over Cleanup
+
+MEREF ME_47A042E100E2_ME_570B6AB10204_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_570B6AB10204_over InitFields
+
+MEREF ME_4908AAED02BD_ME_570B6AB10204_over
+ MELINK Original WL 'ME_4908AAED02BD' '4908A9240071.ms.model.script' // BeforeReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAED02BD_ME_570B6AB10204_over BeforeReset
+
+MEREF ME_4908AAF6015C_ME_570B6AB10204_over
+ MELINK Original WL 'ME_4908AAF6015C' '4908A9240071.ms.model.script' // AfterReget
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AAF6015C_ME_570B6AB10204_over AfterReget
+
+MEREF ME_4908AB070319_ME_570B6AB10204_over
+ MELINK Original WL 'ME_4908AB070319' '4908A9240071.ms.model.script' // RegetRootNode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4908AB070319_ME_570B6AB10204_over RegetRootNode
+
+MEREF ME_4908A9240071_ME_570B6AB10204_G
+ MELINK Original WL? 'ME_4908A9240071' // TnsDataResetTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4908A9240071_ME_570B6AB10204_G TnsDataResetTree
+
+%%InheritedBy ME_4908A9240071 ME_570B6AB10204
+
+ME ME_570B6AB10204
+ MEPROP UID '570B6AB10204'
+ MEPROP Name 'TsmSectionTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FB4EE00FE' // MainMenuTrees
+ ;
+ MELIST Inherits
+   Seq: ( ME_4908A9240071_ME_570B6AB10204_G // TnsDataResetTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_570B6B9E00E4 // f_Sections
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_570B6C6701A9 // MakeRoot
+ HWL ME_570B7D6D0066 // Create
+ HWL ME_570B7D870049 // Make
+ HWL ME_570B7DA901A5 // AddNodes
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_570B6AB10204_over // Cleanup
+ ME_47A042E100E2_ME_570B6AB10204_over // InitFields
+ ME_4908AAED02BD_ME_570B6AB10204_over // BeforeReset
+ ME_4908AAF6015C_ME_570B6AB10204_over // AfterReget
+ ME_4908AB070319_ME_570B6AB10204_over // RegetRootNode
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_570B6B160087 // TnsMainMenuSectionNode
+ ME_570B90E7023F // TnsResetTreeStatus
+ ME_570B90EA01D4 // TnsNewCachableNode
+ ME_570B90EC0364 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainMenu\smSectionTree.pas'
+ UP extprop:rc:SelfName 'smSectionTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'smSectionTree'
+
+ENDME // ME_570B6AB10204 TsmSectionTree

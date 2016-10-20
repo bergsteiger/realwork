@@ -1,0 +1,82 @@
+// TevPersistentDataObjectEx 48F89F4302E3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F89F4302E3
+
+ME ME_48F89F810133
+ MEPROP UID '48F89F810133'
+ MEPROP Name 'Holder'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_48F89F810133 Holder
+
+ME ME_48F89FC002B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ ;
+ MELINK Target WL 'ME_47F351160396' '483E6CFE02DC.ms.model.script' // TnevPersistentDocumentContainer
+ ;
+
+ENDME // ME_48F89FC002B4 
+
+MEREF ME_48F479680376_ME_48F89F4302E3_over
+ MELINK Original WL 'ME_48F479680376' '48F4732803C8.ms.model.script' // Sharp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F479680376_ME_48F89F4302E3_over Sharp
+
+MEREF ME_48F4732803C8_ME_48F89F4302E3_G
+ MELINK Original WL? 'ME_48F4732803C8' // TevPersistentDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F4732803C8_ME_48F89F4302E3_G TevPersistentDataObject
+
+%%InheritedBy ME_48F4732803C8 ME_48F89F4302E3
+
+ME ME_48F89F4302E3
+ MEPROP UID '48F89F4302E3'
+ MEPROP Name 'TevPersistentDataObjectEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F4732803C8_ME_48F89F4302E3_G // TevPersistentDataObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48F89F810133 // Holder
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48F479680376_ME_48F89F4302E3_over // Sharp
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F89FC002B4 // TnevPersistentDocumentContainer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '17.10.2008 18:21'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPersistentDataObjectEx.pas'
+ UP extprop:rc:SelfName 'PersistentDataObjectEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evPersistentDataObjectEx'
+
+ENDME // ME_48F89F4302E3 TevPersistentDataObjectEx

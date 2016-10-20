@@ -1,0 +1,229 @@
+// TtfwRegisterableWordPrim 54D229E702B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54D229E702B6
+
+FORWARD ME_53F1E3A4014D
+
+ME ME_53F1E3C10217
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53F1E3C10217 aName
+
+ME ME_53F1E3BD0393
+ MEPROP UID '53F1E3BD0393'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53F1E3A4014D // RegisterInstance
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F1E3C10217 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_53F1E3BD0393 DoIt
+
+ME ME_53F1E3A4014D
+ MEPROP UID '53F1E3A4014D'
+ MEPROP Name 'RegisterInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53F1E3BD0393 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53F1E3A4014D RegisterInstance
+
+FORWARD ME_4DDFD69F00FE
+
+ME ME_4DDFD6BE0097
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DDFD6BE0097 aName
+
+ME ME_4DDFD6AE025F
+ MEPROP UID '4DDFD6AE025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDFD69F00FE // Register
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DDFD6BE0097 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4DDFD6AE025F DoIt
+
+ME ME_4DDFD69F00FE
+ MEPROP UID '4DDFD69F00FE'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DDFD6AE025F // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DDFD69F00FE Register
+
+FORWARD ME_4DC2E05B03DD
+
+ME ME_4DC2E06A02F2
+ MEPROP UID '4DC2E06A02F2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC2E05B03DD // ReallyNeedRegister
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DC2E06A02F2 DoIt
+
+ME ME_4DC2E05B03DD
+ MEPROP UID '4DC2E05B03DD'
+ MEPROP Name 'ReallyNeedRegister'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DC2E06A02F2 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DC2E05B03DD ReallyNeedRegister
+
+FORWARD ME_52A086150180
+
+ME ME_52A086290366
+ MEPROP UID '52A086290366'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A086150180 // RegisterInEngine
+ ;
+
+ENDME // ME_52A086290366 DoIt
+
+ME ME_52A086150180
+ MEPROP UID '52A086150180'
+ MEPROP Name 'RegisterInEngine'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A086290366 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_52A086150180 RegisterInEngine
+
+ME ME_4DB0614603C8
+ MEPROP UID '4DB0614603C8'
+ MEPROP Name 'GetWordNameForRegister'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DB0614603C8 GetWordNameForRegister
+
+ME ME_54D22A3201A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ;
+ MELINK Target WL? 'ME_4DB05FF60115' // TtfwAutoregisteredDiction
+ ;
+
+ENDME // ME_54D22A3201A9 
+
+MEREF ME_4DAEED140007_ME_54D229E702B6_G
+ MELINK Original WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DAEED140007_ME_54D229E702B6_G TtfwWord
+
+%%InheritedBy ME_4DAEED140007 ME_54D229E702B6
+
+ME ME_54D229E702B6
+ MEPROP UID '54D229E702B6'
+ MEPROP Name 'TtfwRegisterableWordPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DAEED140007_ME_54D229E702B6_G // TtfwWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53F1E3A4014D // RegisterInstance
+ HWL ME_4DDFD69F00FE // Register
+ HWL ME_4DC2E05B03DD // ReallyNeedRegister
+ HWL ME_52A086150180 // RegisterInEngine
+ HWL ME_4DB0614603C8 // GetWordNameForRegister
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54D22A3201A9 // TtfwAutoregisteredDiction
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRegisterableWordPrim.pas'
+ UP extprop:rc:SelfName 'RegisterableWordPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwRegisterableWordPrim'
+
+ENDME // ME_54D229E702B6 TtfwRegisterableWordPrim

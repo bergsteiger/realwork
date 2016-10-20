@@ -1,0 +1,41 @@
+// TkwSetExpiredStyle 4F22AFC0008A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F22AFC0008A
+
+ME ME_4F22B00703E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F22AFC0008A // TkwSetExpiredStyle
+ ;
+ MELINK Target WL 'ME_4F22AE6C0165' '4E4B5F29031C.ms.model.script' // acSetExpiredStyle
+ ;
+
+ENDME // ME_4F22B00703E7 
+
+ME ME_4F22AFC0008A
+ MEPROP UID '4F22AFC0008A'
+ MEPROP Name 'TkwSetExpiredStyle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F22B00703E7 // acSetExpiredStyle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:SetExpiredStyle'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetExpiredStyle.pas'
+ UP extprop:rc:SelfName 'SetExpiredStyle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSetExpiredStyle'
+
+ENDME // ME_4F22AFC0008A TkwSetExpiredStyle

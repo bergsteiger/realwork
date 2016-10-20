@@ -1,0 +1,88 @@
+// TTwoSpaceForOneReplacerTest 4C3C4853033E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3C4853033E
+
+ME ME_4C3C4C44031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3C4853033E // TTwoSpaceForOneReplacerTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C3C4C44031A 
+
+ME ME_4C3C4CDC008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3C4853033E // TTwoSpaceForOneReplacerTest
+ ;
+ MELINK Target WL 'ME_4C288FE9025C' '47F1F94201F6.ms.model.script' // TevTextReplacer
+ ;
+
+ENDME // ME_4C3C4CDC008A 
+
+MEREF ME_4C288BAA0058_ME_4C3C4853033E_impl
+ MELINK Original WL 'ME_4C288BAA0058' '4C288B4D012F.ms.model.script' // Searcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C288BAA0058_ME_4C3C4853033E_impl Searcher
+
+MEREF ME_4C288BFC002C_ME_4C3C4853033E_impl
+ MELINK Original WL 'ME_4C288BFC002C' '4C288B4D012F.ms.model.script' // Replacer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C288BFC002C_ME_4C3C4853033E_impl Replacer
+
+MEREF ME_4C288CC60231_ME_4C3C4853033E_impl
+ MELINK Original WL 'ME_4C288CC60231' '4C288B4D012F.ms.model.script' // Options
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C288CC60231_ME_4C3C4853033E_impl Options
+
+MEREF ME_4C288B4D012F_ME_4C3C4853033E_G
+ MELINK Original WL? 'ME_4C288B4D012F' // TSearchAndReplacePrimTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C288B4D012F_ME_4C3C4853033E_G TSearchAndReplacePrimTest
+
+%%InheritedBy ME_4C288B4D012F ME_4C3C4853033E
+
+ME ME_4C3C4853033E
+ MEPROP UID '4C3C4853033E'
+ MEPROP Name 'TTwoSpaceForOneReplacerTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест замены одного пробела на один' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C288B4D012F_ME_4C3C4853033E_G // TSearchAndReplacePrimTest
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4C288BAA0058_ME_4C3C4853033E_impl // Searcher
+ ME_4C288BFC002C_ME_4C3C4853033E_impl // Replacer
+ ME_4C288CC60231_ME_4C3C4853033E_impl // Options
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C3C4C44031A // FreeAndNil
+ ME_4C3C4CDC008A // TevTextReplacer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas'
+ UP extprop:rc:SelfName 'TwoSpaceForOneReplacerTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TwoSpaceForOneReplacerTest'
+
+ENDME // ME_4C3C4853033E TTwoSpaceForOneReplacerTest

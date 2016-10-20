@@ -1,0 +1,256 @@
+// TafwCanvasEx 47414C8700D5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47414C8700D5
+
+ME ME_478E3F640288
+ MEPROP UID '478E3F640288'
+ MEPROP Name 'f_CurrentPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_478E3F640288 f_CurrentPage
+
+ME ME_478E3F7B03D9
+ MEPROP UID '478E3F7B03D9'
+ MEPROP Name 'f_IsPreview'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_478E3F7B03D9 f_IsPreview
+
+ME ME_4CC69EF102F0
+ MEPROP UID '4CC69EF102F0'
+ MEPROP Name 'f_PreviewPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_473C60E70003' '467823B7002C.ms.model.script' // IafwPreviewPage
+ ;
+
+ENDME // ME_4CC69EF102F0 f_PreviewPage
+
+ME ME_4CC69FC8022D
+ MEPROP UID '4CC69FC8022D'
+ MEPROP Name 'f_PagesArray'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+
+ENDME // ME_4CC69FC8022D f_PagesArray
+
+FORWARD ME_4CC69EC600C3
+
+ME ME_4CC69ED10268
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_4CC69ED10268 aPrinter
+
+ME ME_4CC69ED10280
+ MEPROP Name 'aPagesArray'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_473C571F02A2' '473C569D0287.ms.model.script' // TafwPrintPagesArray
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4CC69ED10280 aPagesArray
+
+ME ME_4CC69ED00037
+ MEPROP UID '4CC69ED00037'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC69EC600C3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC69ED10268 // aPrinter
+ ME_4CC69ED10280 // aPagesArray
+ )
+ ; // Parameters
+
+ENDME // ME_4CC69ED00037 Create
+
+ME ME_4CC69EC600C3
+ MEPROP UID '4CC69EC600C3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC69ED00037 // Create
+ )
+ ; // Operations
+
+ENDME // ME_4CC69EC600C3 Create
+
+MEREF ME_4CC69EC600C3_ME_4CC69EB001E3_G
+ MELINK Original HWL ME_4CC69EC600C3 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC69EC600C3_ME_4CC69EB001E3_G Create
+
+MEREF ME_4727449A00A2_ME_4CC69EB001E3_R
+ MELINK Original WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4727449A00A2_ME_4CC69EB001E3_R Il3Canvas
+
+%%ImplementedBy ME_4727449A00A2 ME_4CC69EB001E3
+
+%%InheritedBy ME_4CC69EC600C3 ME_4CC69EB001E3
+
+ME ME_4CC69EB001E3
+ MEPROP UID '4CC69EB001E3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CC69EC600C3_ME_4CC69EB001E3_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4727449A00A2_ME_4CC69EB001E3_R // Il3Canvas
+ )
+ ; // Implements
+
+ENDME // ME_4CC69EB001E3 Make
+
+ME ME_478E43D70095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47414C8700D5 // TafwCanvasEx
+ ;
+ MELINK Target WL? 'ME_474155B703C6' // TafwPreviewPage
+ ;
+
+ENDME // ME_478E43D70095 
+
+MEREF ME_479731C50290_ME_47414C8700D5_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47414C8700D5_over Cleanup
+
+MEREF ME_56B0AE550267_ME_47414C8700D5_over
+ MELINK Original WL 'ME_56B0AE550267' '4A4CB79A02C6.ms.model.script' // SetCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B0AE550267_ME_47414C8700D5_over SetCanvas
+
+MEREF ME_56B0B9790320_ME_47414C8700D5_over
+ MELINK Original WL 'ME_56B0B9790320' '4A4CB79A02C6.ms.model.script' // IsPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B0B9790320_ME_47414C8700D5_over IsPreview
+
+MEREF ME_56B4A55202AB_ME_47414C8700D5_over
+ MELINK Original WL 'ME_56B4A55202AB' '4A4CB79A02C6.ms.model.script' // NeedOpenRealPage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B4A55202AB_ME_47414C8700D5_over NeedOpenRealPage
+
+MEREF ME_56B4BDA30301_ME_47414C8700D5_over
+ MELINK Original WL 'ME_56B4BDA30301' '4A4CB79A02C6.ms.model.script' // DoEndPaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56B4BDA30301_ME_47414C8700D5_over DoEndPaint
+
+MEREF ME_478E3C97021E_ME_47414C8700D5_G
+ MELINK Original WL? 'ME_478E3C97021E' // Tl3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E3C97021E_ME_47414C8700D5_G Tl3Canvas
+
+%%InheritedBy ME_478E3C97021E ME_47414C8700D5
+
+ME ME_47414C8700D5
+ MEPROP UID '47414C8700D5'
+ MEPROP Name 'TafwCanvasEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канва с информацией о разбиении документа на страницы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( ME_478E3C97021E_ME_47414C8700D5_G // Tl3Canvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_478E3F640288 // f_CurrentPage
+ HWL ME_478E3F7B03D9 // f_IsPreview
+ HWL ME_4CC69EF102F0 // f_PreviewPage
+ HWL ME_4CC69FC8022D // f_PagesArray
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC69EC600C3 // Create
+ HWL ME_4CC69EB001E3 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47414C8700D5_over // Cleanup
+ ME_56B0AE550267_ME_47414C8700D5_over // SetCanvas
+ ME_56B0B9790320_ME_47414C8700D5_over // IsPreview
+ ME_56B4A55202AB_ME_47414C8700D5_over // NeedOpenRealPage
+ ME_56B4BDA30301_ME_47414C8700D5_over // DoEndPaint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_478E43D70095 // TafwPreviewPage
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '28.09.1999 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCanvasEx.pas'
+ UP extprop:rc:SelfName 'afwCanvasEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwCanvasEx'
+
+ENDME // ME_47414C8700D5 TafwCanvasEx

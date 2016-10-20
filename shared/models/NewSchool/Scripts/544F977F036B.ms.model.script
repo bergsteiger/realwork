@@ -1,0 +1,103 @@
+// TncsPriorityMessageList 544F977F036B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_544F977F036B
+
+ME ME_544F98080257
+ MEPROP UID '544F98080257'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_544F977F036B // TncsPriorityMessageList
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_544F98080257 ItemType
+
+ME ME_5450AE6C031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_544F977F036B // TncsPriorityMessageList
+ ;
+ MELINK Target WL 'ME_4E8C103D01B1' '4808A20402DC.ms.model.script' // Sign
+ ;
+
+ENDME // ME_5450AE6C031E 
+
+MEREF ME_47B2C42A0163_ME_544F977F036B_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_544F977F036B_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_544F977F036B_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_544F977F036B_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_544F977F036B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_544F977F036B_G Tl3ProtoDataContainer
+
+MEREF ME_47B99E920196_ME_544F977F036B_R
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_544F977F036B_R l3UncomparabeObjectRefList
+
+%%ImplementedBy ME_47B99E920196 ME_544F977F036B
+
+%%InheritedBy ME_4A54DD4E036F ME_544F977F036B
+
+ME ME_544F977F036B
+ MEPROP UID '544F977F036B'
+ MEPROP Name 'TncsPriorityMessageList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список сортированый по приоритету и дате сообщения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_544F977F036B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B99E920196_ME_544F977F036B_R // l3UncomparabeObjectRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_544F98080257 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_544F977F036B_impl // AssignItem
+ ME_47B99D4503A2_ME_544F977F036B_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5450AE6C031E // Sign
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsPriorityMessageList.pas'
+ UP extprop:rc:SelfName 'ncsPriorityMessageList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsPriorityMessageList'
+
+ENDME // ME_544F977F036B TncsPriorityMessageList

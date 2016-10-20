@@ -1,0 +1,62 @@
+// TtfwCStringArray 4F4D384500A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4D384500A3
+
+ME ME_4F4D3E610203
+ MEPROP UID '4F4D3E610203'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4D384500A3 // TtfwCStringArray
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F4D3E610203 ItemType
+
+MEREF ME_4B86890E0307_ME_4F4D384500A3_G
+ MELINK Original WL? 'ME_4B86890E0307' // l3OpenArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B86890E0307_ME_4F4D384500A3_G l3OpenArray
+
+MEREF ME_4F473F370158_ME_4F4D384500A3_G
+ MELINK Original WL? 'ME_4F473F370158' // TtfwCStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F473F370158_ME_4F4D384500A3_G TtfwCStringList
+
+%%InheritedBy ME_4B86890E0307 ME_4F4D384500A3
+%%InheritedBy ME_4F473F370158 ME_4F4D384500A3
+
+ME ME_4F4D384500A3
+ MEPROP UID '4F4D384500A3'
+ MEPROP Name 'TtfwCStringArray'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F473F0902B2' // CString
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B86890E0307_ME_4F4D384500A3_G // l3OpenArray
+ ME_4F473F370158_ME_4F4D384500A3_G // TtfwCStringList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F4D3E610203 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCStringArray.pas'
+ UP extprop:rc:SelfName 'CStringArray'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwCStringArray'
+
+ENDME // ME_4F4D384500A3 TtfwCStringArray

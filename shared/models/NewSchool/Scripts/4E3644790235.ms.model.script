@@ -1,0 +1,50 @@
+// pop_editor_ResizeTableColumn 4E3644790235 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E3644790235
+
+MEREF ME_4DB0614603C8_ME_4E3644790235_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E3644790235_over GetWordNameForRegister
+
+MEREF ME_4E37F5B402A5_ME_4E3644790235_G
+ MELINK Original WL? 'ME_4E37F5B402A5' // TkwEditorFromStackTableColumnResize
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E37F5B402A5_ME_4E3644790235_G TkwEditorFromStackTableColumnResize
+
+%%InheritedBy ME_4E37F5B402A5 ME_4E3644790235
+
+ME ME_4E3644790235
+ MEPROP UID '4E3644790235'
+ MEPROP Name 'pop_editor_ResizeTableColumn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '»зменить размер колонки таблицы. ѕример:'#13#10'{code}   aDelta aCol aRow editor:ResizeTableColumn {code}'#13#10'{panel}'#13#10' * aCol - номер €чейки, которую т€нем'#13#10' * aRow - номер строки'#13#10' * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).'#13#10'{panel}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E37F5B402A5_ME_4E3644790235_G // TkwEditorFromStackTableColumnResize
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E3644790235_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorResizeTableColumn'
+ UP extprop:rc:SelfName 'PopEditorResizeTableColumn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorResizeTableColumn'
+
+ENDME // ME_4E3644790235 pop_editor_ResizeTableColumn

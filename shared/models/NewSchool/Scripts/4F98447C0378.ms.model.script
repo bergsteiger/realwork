@@ -1,0 +1,86 @@
+// TnsFiltersListenersDocManager 4F98447C0378 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F98447C0378
+
+ME ME_4F9848190238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F98447C0378 // TnsFiltersListenersDocManager
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4F9848190238 
+
+MEREF ME_4FFD459003A6_ME_4F98447C0378_impl
+ MELINK Original WL 'ME_4FFD459003A6' '4F98242D007E.ms.model.script' // GetInstance
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_4FFD459003A6_ME_4F98447C0378_impl GetInstance
+
+MEREF ME_4FFD45CD0313_ME_4F98447C0378_impl
+ MELINK Original WL 'ME_4FFD45CD0313' '4F98242D007E.ms.model.script' // HasInstance
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_4FFD45CD0313_ME_4F98447C0378_impl HasInstance
+
+MEREF ME_479731C50290_ME_4F98447C0378_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F98447C0378_over Cleanup
+
+MEREF ME_47A042E100E2_ME_4F98447C0378_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F98447C0378_over InitFields
+
+MEREF ME_4F98242D007E_ME_4F98447C0378_G
+ MELINK Original WL? 'ME_4F98242D007E' // TnsFiltersListenersManagerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F98242D007E_ME_4F98447C0378_G TnsFiltersListenersManagerPrim
+
+%%InheritedBy ME_4F98242D007E ME_4F98447C0378
+
+ME ME_4F98447C0378
+ MEPROP UID '4F98447C0378'
+ MEPROP Name 'TnsFiltersListenersDocManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9823DB021B' // FiltersNotification
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F98242D007E_ME_4F98447C0378_G // TnsFiltersListenersManagerPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4FFD459003A6_ME_4F98447C0378_impl // GetInstance
+ ME_4FFD45CD0313_ME_4F98447C0378_impl // HasInstance
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F98447C0378_over // Cleanup
+ ME_47A042E100E2_ME_4F98447C0378_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F9848190238 // DefDataAdapter
+ )
+ ; // Dependencies
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersDocManager.pas'
+ UP extprop:rc:SelfName 'FiltersListenersDocManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFiltersListenersDocManager'
+
+ENDME // ME_4F98447C0378 TnsFiltersListenersDocManager

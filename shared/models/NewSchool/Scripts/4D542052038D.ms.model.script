@@ -8,138 +8,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4D542052038D
 %%Inner ME_4D542052038D
 
-FORWARD ME_4D542052038D
-
-FORWARD ME_4D542078016E
-
-ME ME_4D5EAD10009D
- MEPROP UID '4D5EAD10009D'
- MEPROP Name 'IsVisual'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4D542078016E // TvgCustomObject
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
- UP "needs field" false
- UP "pm" true
-
-ENDME // ME_4D5EAD10009D IsVisual
-
-%%InheritedBy ME_4D52A881018B ME_4D542078016E
-
-ME ME_4D542078016E
- MEPROP UID '4D542078016E'
- MEPROP Name 'TvgCustomObject'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4D542052038D // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_4D5EAD10009D // IsVisual
- )
- ; // Attributes
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '10.02.2011 20:29'
- UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomObject.pas'
- UP extprop:rc:SelfName 'Object'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vgCustomObject'
-
-ENDME // ME_4D542078016E TvgCustomObject
-
-%%InheritedBy ME_4D52A881018B ME_4D54299F035D
-
-ME ME_4D54299F035D
- MEPROP UID '4D54299F035D'
- MEPROP Name 'TvgCustomResources'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4D542052038D // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '10.02.2011 21:08'
- UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomResources.pas'
- UP extprop:rc:SelfName 'Resources'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vgCustomResources'
-
-ENDME // ME_4D54299F035D TvgCustomResources
-
-%%InheritedBy ME_4D5413C00089 ME_4D542A150195
-
-ME ME_4D542A150195
- MEPROP UID '4D542A150195'
- MEPROP Name 'TvgCustomBitmap'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4D542052038D // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4D5413C00089' '4D52A63D0365.ms.model.script' // TvgInterfacedPersistent
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '10.02.2011 21:10'
- UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomBitmap.pas'
- UP extprop:rc:SelfName 'Bitmap'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vgCustomBitmap'
-
-ENDME // ME_4D542A150195 TvgCustomBitmap
-
-%%InheritedBy ME_4D52A6B50343 ME_4D5435820356
-
-ME ME_4D5435820356
- MEPROP UID '4D5435820356'
- MEPROP Name 'TvgCustomCanvas'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4D542052038D // Core
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '10.02.2011 21:59'
- UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomCanvas.pas'
- UP extprop:rc:SelfName 'Canvas'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vgCustomCanvas'
-
-ENDME // ME_4D5435820356 TvgCustomCanvas
-
 ME ME_4D542052038D
  MEPROP UID '4D542052038D'
  MEPROP Name 'Core'
@@ -151,10 +19,10 @@ ME ME_4D542052038D
  MELINK Parent WL? 'ME_4CFCE4F203CE' // VGScene
  ;
  MELIST Children
-   Seq: ( HWL ME_4D542078016E // TvgCustomObject
- HWL ME_4D54299F035D // TvgCustomResources
- HWL ME_4D542A150195 // TvgCustomBitmap
- HWL ME_4D5435820356 // TvgCustomCanvas
+   Seq: ( WL? 'ME_4D542078016E' // TvgCustomObject
+ WL? 'ME_4D54299F035D' // TvgCustomResources
+ WL? 'ME_4D542A150195' // TvgCustomBitmap
+ WL? 'ME_4D5435820356' // TvgCustomCanvas
  WL? 'ME_4D552A2E00A3' // vgTypesPrim
  )
  ; // Children

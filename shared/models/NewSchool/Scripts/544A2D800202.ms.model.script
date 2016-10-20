@@ -1,0 +1,46 @@
+// Tm3StorageIndexStreamForIterate 544A2D800202 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_544A2D800202
+
+MEREF ME_544A2D9F0368_ME_544A2D800202_over
+ MELINK Original WL 'ME_544A2D9F0368' '54182F8A0069.ms.model.script' // NeedBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_544A2D9F0368_ME_544A2D800202_over NeedBuffering
+
+MEREF ME_54182F8A0069_ME_544A2D800202_G
+ MELINK Original WL? 'ME_54182F8A0069' // Tm3StorageIndexStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54182F8A0069_ME_544A2D800202_G Tm3StorageIndexStream
+
+%%InheritedBy ME_54182F8A0069 ME_544A2D800202
+
+ME ME_544A2D800202
+ MEPROP UID '544A2D800202'
+ MEPROP Name 'Tm3StorageIndexStreamForIterate'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_54182F8A0069_ME_544A2D800202_G // Tm3StorageIndexStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_544A2D9F0368_ME_544A2D800202_over // NeedBuffering
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageIndexStreamForIterate.pas'
+ UP extprop:rc:SelfName 'm3StorageIndexStreamForIterate'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3StorageIndexStreamForIterate'
+
+ENDME // ME_544A2D800202 Tm3StorageIndexStreamForIterate

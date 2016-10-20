@@ -1,0 +1,48 @@
+// TevControlSegmentHotSpot 4A27A44403BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A27A44403BE
+
+MEREF ME_4A267FC6016B_ME_4A27A44403BE_over
+ MELINK Original WL 'ME_4A267FC6016B' '4A267FA903BA.ms.model.script' // DoHitTest
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A267FC6016B_ME_4A27A44403BE_over DoHitTest
+
+MEREF ME_4A268E590029_ME_4A27A44403BE_G
+ MELINK Original WL? 'ME_4A268E590029' // TevSegmentHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A268E590029_ME_4A27A44403BE_G TevSegmentHotSpot
+
+%%InheritedBy ME_4A268E590029 ME_4A27A44403BE
+
+ME ME_4A27A44403BE
+ MEPROP UID '4A27A44403BE'
+ MEPROP Name 'TevControlSegmentHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A268E590029_ME_4A27A44403BE_G // TevSegmentHotSpot
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A267FC6016B_ME_4A27A44403BE_over // DoHitTest
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '12.11.2004 15:46'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlSegmentHotSpot.pas'
+ UP extprop:rc:SelfName 'ControlSegmentHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evControlSegmentHotSpot'
+
+ENDME // ME_4A27A44403BE TevControlSegmentHotSpot

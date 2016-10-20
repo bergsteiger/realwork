@@ -1,0 +1,57 @@
+// TcsAutoClassTask 53F46C710363 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F46C710363
+
+MEREF ME_53B3D8A8011F_ME_53F46C710363_over
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53B3D8A8011F_ME_53F46C710363_over Create
+
+MEREF ME_52F8C2BF0110_ME_53F46C710363_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53F46C710363_G TddProcessTask
+
+MEREF ME_53B681E000B9_ME_53F46C710363_R
+ MELINK Original WL 'ME_53B681E000B9' '484A470100DD.ms.model.script' // AutoClassTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B681E000B9_ME_53F46C710363_R AutoClassTask
+
+%%ImplementedBy ME_53B681E000B9 ME_53F46C710363
+
+%%InheritedBy ME_52F8C2BF0110 ME_53F46C710363
+
+ME ME_53F46C710363
+ MEPROP UID '53F46C710363'
+ MEPROP Name 'TcsAutoClassTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8C2BF0110_ME_53F46C710363_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B681E000B9_ME_53F46C710363_R // AutoClassTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_53F46C710363_over // Create
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csAutoClassTask.pas'
+ UP extprop:rc:SelfName 'csAutoClassTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csAutoClassTask'
+
+ENDME // ME_53F46C710363 TcsAutoClassTask

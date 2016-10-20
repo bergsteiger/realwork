@@ -46,12 +46,18 @@ ME ME_7637D6AAAE38
 
 ENDME // ME_7637D6AAAE38 DoIt
 
+MEREF ME_4F33E2A30116_ME_4F33E3A20056_G
+ MELINK Original WL 'ME_4F33E2A30116' '4678209200A6.ms.model.script' // AllowsThisDecor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33E2A30116_ME_4F33E3A20056_G AllowsThisDecor
+
 %%InheritedBy ME_4F33E2A30116 ME_4F33E3A20056
 
 ME ME_4F33E3A20056
  MEPROP UID '4F33E3A20056'
  MEPROP Name 'GetAllowsThisDecor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -59,7 +65,7 @@ ME ME_4F33E3A20056
  MELINK Parent HWL ME_4F33E5FD009E // nevDocumentContainerDecorationRules
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F33E2A30116' '4678209200A6.ms.model.script' // AllowsThisDecor
+   Seq: ( ME_4F33E2A30116_ME_4F33E3A20056_G // AllowsThisDecor
  )
  ; // Inherits
  MELIST Operations
@@ -69,11 +75,17 @@ ME ME_4F33E3A20056
 
 ENDME // ME_4F33E3A20056 GetAllowsThisDecor
 
-ME ME_4F33E2A30116_ME_4F33E5FD009E
+MEREF ME_4F33E2A30116_ME_4F33E5FD009E_impl
  MELINK Original WL 'ME_4F33E2A30116' '4678209200A6.ms.model.script' // AllowsThisDecor
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F33E2A30116_ME_4F33E5FD009E AllowsThisDecor
+ENDMEREF // ME_4F33E2A30116_ME_4F33E5FD009E_impl AllowsThisDecor
+
+MEREF ME_4F33E5480364_ME_4F33E5FD009E_R
+ MELINK Original WL 'ME_4F33E5480364' '4678209200A6.ms.model.script' // MnevDocumentContainerDecorationRules
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33E5480364_ME_4F33E5FD009E_R MnevDocumentContainerDecorationRules
 
 %%ImplementedBy ME_4F33E5480364 ME_4F33E5FD009E
 
@@ -89,7 +101,7 @@ ME ME_4F33E5FD009E
  MELINK Parent WL? 'ME_4F4B48E5029E' // Aspects
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4F33E5480364' '4678209200A6.ms.model.script' // MnevDocumentContainerDecorationRules
+   Seq: ( ME_4F33E5480364_ME_4F33E5FD009E_R // MnevDocumentContainerDecorationRules
  )
  ; // Implements
  MELIST Operations
@@ -97,7 +109,7 @@ ME ME_4F33E5FD009E
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4F33E2A30116_ME_4F33E5FD009E // AllowsThisDecor
+   Seq: ( ME_4F33E2A30116_ME_4F33E5FD009E_impl // AllowsThisDecor
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

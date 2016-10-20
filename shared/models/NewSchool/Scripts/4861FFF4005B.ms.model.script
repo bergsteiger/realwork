@@ -23,11 +23,17 @@ ME ME_486200F902AB
 
 ENDME // ME_486200F902AB T
 
-ME ME_48620066005A_ME_4862008C0017
+MEREF ME_48620066005A_ME_4862008C0017_impl
  MELINK Original WL 'ME_48620066005A' '4861FFE8022A.ms.model.script' // compare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48620066005A_ME_4862008C0017 compare
+ENDMEREF // ME_48620066005A_ME_4862008C0017_impl compare
+
+MEREF ME_4862003B01A0_ME_4862008C0017_R
+ MELINK Original WL 'ME_4862003B01A0' '4861FFE8022A.ms.model.script' // Comparable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4862003B01A0_ME_4862008C0017_R Comparable
 
 %%ImplementedBy ME_4862003B01A0 ME_4862008C0017
 
@@ -43,7 +49,7 @@ ME ME_4862008C0017
  MELINK Parent HWL ME_4861FFF4005B // Concret
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4862003B01A0' '4861FFE8022A.ms.model.script' // Comparable
+   Seq: ( ME_4862003B01A0_ME_4862008C0017_R // Comparable
  )
  ; // Implements
  MELIST Attributes
@@ -51,7 +57,7 @@ ME ME_4862008C0017
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_48620066005A_ME_4862008C0017 // compare
+   Seq: ( ME_48620066005A_ME_4862008C0017_impl // compare
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts true

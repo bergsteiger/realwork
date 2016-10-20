@@ -1,0 +1,307 @@
+// TatSynchroPoint 491D9DFA0288 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_491D9DFA0288
+%%Inner ME_491D9DFA0288
+
+FORWARD ME_491D9DFA0288
+
+FORWARD ME_491DA0F70009
+
+ME ME_491DA11303E3
+ MEPROP UID '491DA11303E3'
+ MEPROP Name 'Total'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491DA0F70009 // TSyncData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_491DA11303E3 Total
+
+ME ME_491DA1240356
+ MEPROP UID '491DA1240356'
+ MEPROP Name 'Waiting'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491DA0F70009 // TSyncData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_491DA1240356 Waiting
+
+ME ME_491DA0F70009
+ MEPROP UID '491DA0F70009'
+ MEPROP Name 'TSyncData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_491DA11303E3 // Total
+ HWL ME_491DA1240356 // Waiting
+ )
+ ; // Attributes
+
+ENDME // ME_491DA0F70009 TSyncData
+
+MEREF ME_491DA0F70009_ME_491DA13301AB_G
+ MELINK Original HWL ME_491DA0F70009 // TSyncData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491DA0F70009_ME_491DA13301AB_G TSyncData
+
+%%InheritedBy ME_491DA0F70009 ME_491DA13301AB
+
+ME ME_491DA13301AB
+ MEPROP UID '491DA13301AB'
+ MEPROP Name 'PSyncData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELIST Inherits
+   Seq: ( ME_491DA0F70009_ME_491DA13301AB_G // TSyncData
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_491DA13301AB PSyncData
+
+ME ME_491DA0C9021B
+ MEPROP UID '491DA0C9021B'
+ MEPROP Name 'f_Mutex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL? 'ME_491D8DFA00BB' // TatNamedMutex
+ ;
+
+ENDME // ME_491DA0C9021B f_Mutex
+
+ME ME_491DA0DE03A9
+ MEPROP UID '491DA0DE03A9'
+ MEPROP Name 'f_SharedBuf'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL? 'ME_491D776401B4' // TatSharedBuffer
+ ;
+
+ENDME // ME_491DA0DE03A9 f_SharedBuf
+
+ME ME_491DA16D00C3
+ MEPROP UID '491DA16D00C3'
+ MEPROP Name 'f_SyncData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target HWL ME_491DA13301AB // PSyncData
+ ;
+
+ENDME // ME_491DA16D00C3 f_SyncData
+
+ME ME_491DA18D0342
+ MEPROP UID '491DA18D0342'
+ MEPROP Name 'f_ContinueEvent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_491DA18D0342 f_ContinueEvent
+
+ME ME_491DA1AF02EB
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_491DA1AF02EB aName
+
+ME ME_491DA1A60030
+ MEPROP UID '491DA1A60030'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_491DA1AF02EB // aName
+ )
+ ; // Parameters
+
+ENDME // ME_491DA1A60030 Create
+
+ME ME_491DA84102A8
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_491DA84102A8 aTimeOut
+
+ME ME_491DA82B01A2
+ MEPROP UID '491DA82B01A2'
+ MEPROP Name 'Synchronize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Функция возвращает управление либо после успешной синхронизации (когда все дошли до вызова Synchronize), либо по истечении таймаута. В первом случае резельтат - true, во втором - false.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_491DA84102A8 // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_491DA82B01A2 Synchronize
+
+ME ME_491DAE930239
+ MEPROP UID '491DAE930239'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+
+ENDME // ME_491DAE930239 Register
+
+ME ME_491DAE9E02BF
+ MEPROP UID '491DAE9E02BF'
+ MEPROP Name 'Unregister'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+
+ENDME // ME_491DAE9E02BF Unregister
+
+ME ME_491DB4E001EF
+ MEPROP UID '491DB4E001EF'
+ MEPROP Name 'ContinueIfSynchronized'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_491DB4E001EF ContinueIfSynchronized
+
+ME ME_491DB86E01F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D9DFA0288 // TatSynchroPoint
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_491DB86E01F9 
+
+MEREF ME_479731C50290_ME_491D9DFA0288_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_491D9DFA0288_over Cleanup
+
+MEREF ME_47879856035F_ME_491D9DFA0288_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_491D9DFA0288_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_491D9DFA0288
+
+ME ME_491D9DFA0288
+ MEPROP UID '491D9DFA0288'
+ MEPROP Name 'TatSynchroPoint'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не достигнут этого места".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_491D9DFA0288_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491DA0C9021B // f_Mutex
+ HWL ME_491DA0DE03A9 // f_SharedBuf
+ HWL ME_491DA16D00C3 // f_SyncData
+ HWL ME_491DA18D0342 // f_ContinueEvent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_491DA1A60030 // Create
+ HWL ME_491DA82B01A2 // Synchronize
+ HWL ME_491DAE930239 // Register
+ HWL ME_491DAE9E02BF // Unregister
+ HWL ME_491DB4E001EF // ContinueIfSynchronized
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_491D9DFA0288_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_491DA0F70009 // TSyncData
+ HWL ME_491DA13301AB // PSyncData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_491DB86E01F9 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atSynchroPoint.pas'
+ UP extprop:rc:SelfName 'atSynchroPoint'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSynchroPoint'
+
+ENDME // ME_491D9DFA0288 TatSynchroPoint

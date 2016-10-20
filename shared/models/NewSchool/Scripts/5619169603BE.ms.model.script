@@ -1,0 +1,52 @@
+// TtfwPropertyLike 5619169603BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5619169603BE
+
+MEREF ME_5617C8A30023_ME_5619169603BE_over
+ MELINK Original WL 'ME_5617C8A30023' '55CCAE000335.ms.model.script' // BindParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5617C8A30023_ME_5619169603BE_over BindParams
+
+MEREF ME_561916700342_ME_5619169603BE_over
+ MELINK Original WL 'ME_561916700342' '55CCAE000335.ms.model.script' // StrictChecking
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_561916700342_ME_5619169603BE_over StrictChecking
+
+MEREF ME_55CCAE000335_ME_5619169603BE_G
+ MELINK Original WL? 'ME_55CCAE000335' // TtfwClassLike
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55CCAE000335_ME_5619169603BE_G TtfwClassLike
+
+%%InheritedBy ME_55CCAE000335 ME_5619169603BE
+
+ME ME_5619169603BE
+ MEPROP UID '5619169603BE'
+ MEPROP Name 'TtfwPropertyLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_55CCADD2013D' // ClassLikeMapping
+ ;
+ MELIST Inherits
+   Seq: ( ME_55CCAE000335_ME_5619169603BE_G // TtfwClassLike
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5617C8A30023_ME_5619169603BE_over // BindParams
+ ME_561916700342_ME_5619169603BE_over // StrictChecking
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwPropertyLike.pas'
+ UP extprop:rc:SelfName 'PropertyLike'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwPropertyLike'
+
+ENDME // ME_5619169603BE TtfwPropertyLike

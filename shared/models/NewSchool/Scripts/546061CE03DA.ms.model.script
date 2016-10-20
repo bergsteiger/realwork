@@ -1,0 +1,317 @@
+// TncsProcessThread 546061CE03DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_546061CE03DA
+
+ME ME_5461D7EA00E4
+ MEPROP UID '5461D7EA00E4'
+ MEPROP Name 'ReplyWaiter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELINK Target WL? 'ME_5461D9EE0244' // TncsReplyWaiter
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5461D7EA00E4 ReplyWaiter
+
+ME ME_5464BDA603BD
+ MEPROP UID '5464BDA603BD'
+ MEPROP Name 'f_Transporter'
+ MEPROP Class class_Attribute
+ %SUMMARY '[weak] IncsTransporter' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_5464BDA603BD f_Transporter
+
+ME ME_5464BE030256
+ MEPROP UID '5464BE030256'
+ MEPROP Name 'Transporter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+ UP "pm" true
+
+ENDME // ME_5464BE030256 Transporter
+
+FORWARD ME_5460680D0277
+
+ME ME_5460681F01B0
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_5460681F01B0 aMessage
+
+ME ME_5460681B02B0
+ MEPROP UID '5460681B02B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELIST Parameters
+   Seq: ( ME_5460681F01B0 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_5460681B02B0 DoIt
+
+ME ME_54606E1A0207
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_54606E1A0207 
+
+ME ME_5460734B00FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5460734B00FE 
+
+ME ME_546073DF01D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL? 'ME_54607384020A' // TncsMessageExecutorFactory
+ ;
+
+ENDME // ME_546073DF01D8 
+
+ME ME_5460797F01C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+
+ENDME // ME_5460797F01C3 
+
+ME ME_54784861030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_54649C7C00E7' '5453986402AC.ms.model.script' // TncsInvalidMessage
+ ;
+
+ENDME // ME_54784861030C 
+
+ME ME_54784865026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_5461CFB8002C' '5461F0A303D6.ms.model.script' // TncsMessageKind
+ ;
+
+ENDME // ME_54784865026A 
+
+ME ME_547848860360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5460680D0277 // ProcessMessage
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_547848860360 
+
+ME ME_5460680D0277
+ MEPROP UID '5460680D0277'
+ MEPROP Name 'ProcessMessage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5460681B02B0 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54606E1A0207 // l3System
+ ME_5460734B00FE // FreeAndNil
+ ME_546073DF01D8 // TncsMessageExecutorFactory
+ ME_5460797F01C3 // IncsExecutor
+ ME_54784861030C // TncsInvalidMessage
+ ME_54784865026A // TncsMessageKind
+ ME_547848860360 // Exception
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_5460680D0277 ProcessMessage
+
+FORWARD ME_5464BDC203B1
+
+ME ME_5464BDEF00E1
+ MEPROP Name 'anQueue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_544E3C54031D' // TncsMessageQueue
+ ;
+
+ENDME // ME_5464BDEF00E1 anQueue
+
+ME ME_5464BDEF00F1
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5464B4730055' '5460A4DB018A.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_5464BDEF00F1 aTransporter
+
+ME ME_5493FA0C0300
+ MEPROP Name 'aWaiter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_5461D9EE0244' // TncsReplyWaiter
+ ;
+
+ENDME // ME_5493FA0C0300 aWaiter
+
+ME ME_5464BDCD0296
+ MEPROP UID '5464BDCD0296'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5464BDC203B1 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5464BDEF00E1 // anQueue
+ ME_5464BDEF00F1 // aTransporter
+ ME_5493FA0C0300 // aWaiter
+ )
+ ; // Parameters
+
+ENDME // ME_5464BDCD0296 DoIt
+
+ME ME_5464BDC203B1
+ MEPROP UID '5464BDC203B1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5464BDCD0296 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5464BDC203B1 Create
+
+ME ME_5462046F018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546061CE03DA // TncsProcessThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5462046F018C 
+
+MEREF ME_479731C50290_ME_546061CE03DA_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_546061CE03DA_over Cleanup
+
+MEREF ME_4911B69E037D_ME_546061CE03DA_over
+ MELINK Original WL 'ME_4911B69E037D' '4773D64E036C.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4911B69E037D_ME_546061CE03DA_over DoExecute
+
+MEREF ME_5452248C02B8_ME_546061CE03DA_G
+ MELINK Original WL? 'ME_5452248C02B8' // TncsTransporterThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5452248C02B8_ME_546061CE03DA_G TncsTransporterThread
+
+%%InheritedBy ME_5452248C02B8 ME_546061CE03DA
+
+ME ME_546061CE03DA
+ MEPROP UID '546061CE03DA'
+ MEPROP Name 'TncsProcessThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_5452248C02B8_ME_546061CE03DA_G // TncsTransporterThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5461D7EA00E4 // ReplyWaiter
+ HWL ME_5464BDA603BD // f_Transporter
+ HWL ME_5464BE030256 // Transporter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5460680D0277 // ProcessMessage
+ HWL ME_5464BDC203B1 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_546061CE03DA_over // Cleanup
+ ME_4911B69E037D_ME_546061CE03DA_over // DoExecute
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5462046F018C // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsProcessThread.pas'
+ UP extprop:rc:SelfName 'ncsProcessThread'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsProcessThread'
+
+ENDME // ME_546061CE03DA TncsProcessThread

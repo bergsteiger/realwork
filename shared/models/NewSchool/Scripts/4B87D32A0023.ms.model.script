@@ -1,0 +1,129 @@
+// TevSubPanelSubCollection 4B87D32A0023 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B87D32A0023
+
+FORWARD ME_4B87D6CD02BD
+
+ME ME_4B87D6E00047
+ MEPROP Name 'aHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F9C3C02F4' '4678193C009C.ms.model.script' // Tl3Handle
+ ;
+
+ENDME // ME_4B87D6E00047 aHandle
+
+ME ME_4B87D6D9023B
+ MEPROP UID '4B87D6D9023B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87D6CD02BD // CheckLayer
+ ;
+ MELINK Target WL? 'ME_4B87B6A2008E' // TevSubPanelSubArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B87D6E00047 // aHandle
+ )
+ ; // Parameters
+
+ENDME // ME_4B87D6D9023B DoIt
+
+ME ME_4B87D7E8027A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B87D6CD02BD // CheckLayer
+ ;
+ MELINK Target WL 'ME_4B87D7D701D0' '4773D64E036C.ms.model.script' // l3FreeAndGetRef
+ ;
+
+ENDME // ME_4B87D7E8027A 
+
+ME ME_4B87EA8F0135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B87D6CD02BD // CheckLayer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B87EA8F0135 
+
+ME ME_4B87D6CD02BD
+ MEPROP UID '4B87D6CD02BD'
+ MEPROP Name 'CheckLayer'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87D32A0023 // TevSubPanelSubCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B87D6D9023B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B87D7E8027A // l3FreeAndGetRef
+ ME_4B87EA8F0135 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B87D6CD02BD CheckLayer
+
+MEREF ME_4B87D2A7029B_ME_4B87D32A0023_G
+ MELINK Original WL? 'ME_4B87D2A7029B' // TevSubPanelSubCollectionPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B87D2A7029B_ME_4B87D32A0023_G TevSubPanelSubCollectionPrim
+
+MEREF ME_4B8919220120_ME_4B87D32A0023_R
+ MELINK Original WL? 'ME_4B8919220120' // l3ObjectByHandleSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8919220120_ME_4B87D32A0023_R l3ObjectByHandleSearcher
+
+%%ImplementedBy ME_4B8919220120 ME_4B87D32A0023
+
+%%InheritedBy ME_4B87D2A7029B ME_4B87D32A0023
+
+ME ME_4B87D32A0023
+ MEPROP UID '4B87D32A0023'
+ MEPROP Name 'TevSubPanelSubCollection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B87B5720153' // SubPanel
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B87D2A7029B_ME_4B87D32A0023_G // TevSubPanelSubCollectionPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B8919220120_ME_4B87D32A0023_R // l3ObjectByHandleSearcher
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B87D6CD02BD // CheckLayer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '26.02.2010 16:57'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubCollection.pas'
+ UP extprop:rc:SelfName 'SubPanelSubCollection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSubPanelSubCollection'
+
+ENDME // ME_4B87D32A0023 TevSubPanelSubCollection

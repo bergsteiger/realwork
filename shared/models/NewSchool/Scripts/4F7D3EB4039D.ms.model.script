@@ -1,0 +1,102 @@
+// TevOutTextParaEliminator 4F7D3EB4039D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7D3EB4039D
+
+ME ME_4F7D3F2E01D1
+ MEPROP UID '4F7D3F2E01D1'
+ MEPROP Name 'f_InDocument'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7D3EB4039D // TevOutTextParaEliminator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F7D3F2E01D1 f_InDocument
+
+ME ME_4F7D440E00A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7D3EB4039D // TevOutTextParaEliminator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4F7D440E00A5 
+
+MEREF ME_47A042E100E2_ME_4F7D3EB4039D_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4F7D3EB4039D_over InitFields
+
+MEREF ME_4A2D1217037A_ME_4F7D3EB4039D_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_4F7D3EB4039D_over DoStartChild
+
+MEREF ME_4CA3006302BC_ME_4F7D3EB4039D_over
+ MELINK Original WL 'ME_4CA3006302BC' '49E487A70144.ms.model.script' // NeedTranslateChildToNext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA3006302BC_ME_4F7D3EB4039D_over NeedTranslateChildToNext
+
+MEREF ME_4E45166B0156_ME_4F7D3EB4039D_over
+ MELINK Original WL 'ME_4E45166B0156' '49E487A70144.ms.model.script' // DoCloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E45166B0156_ME_4F7D3EB4039D_over DoCloseStructure
+
+MEREF ME_49E487A70144_ME_4F7D3EB4039D_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4F7D3EB4039D_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4F7D3EB4039D
+
+ME ME_4F7D3EB4039D
+ MEPROP UID '4F7D3EB4039D'
+ MEPROP Name 'TevOutTextParaEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '‘ильтр удал€ющий мусорные текстовые параграфы за пределами документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487A70144_ME_4F7D3EB4039D_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F7D3F2E01D1 // f_InDocument
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4F7D3EB4039D_over // InitFields
+ ME_4A2D1217037A_ME_4F7D3EB4039D_over // DoStartChild
+ ME_4CA3006302BC_ME_4F7D3EB4039D_over // NeedTranslateChildToNext
+ ME_4E45166B0156_ME_4F7D3EB4039D_over // DoCloseStructure
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F7D440E00A5 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evOutTextParaEliminator.pas'
+ UP extprop:rc:SelfName 'OutTextParaEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evOutTextParaEliminator'
+
+ENDME // ME_4F7D3EB4039D TevOutTextParaEliminator

@@ -1,0 +1,57 @@
+// TnsMedicFirmsCountryFilterTree 49071DD902DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49071DD902DC
+
+ME ME_49071E1D0102
+ MEPROP UID '49071E1D0102'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49071DD902DC // TnsMedicFirmsCountryFilterTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49071E1D0102 Make
+
+MEREF ME_49071BFA03A4_ME_49071DD902DC_G
+ MELINK Original WL? 'ME_49071BFA03A4' // TnsMedicFirmsCountryFilterTreeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49071BFA03A4_ME_49071DD902DC_G TnsMedicFirmsCountryFilterTreeBase
+
+%%InheritedBy ME_49071BFA03A4 ME_49071DD902DC
+
+ME ME_49071DD902DC
+ MEPROP UID '49071DD902DC'
+ MEPROP Name 'TnsMedicFirmsCountryFilterTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901F07D039B' // Medic$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_49071BFA03A4_ME_49071DD902DC_G // TnsMedicFirmsCountryFilterTreeBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_49071E1D0102 // Make
+ )
+ ; // Operations
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '2008/03/21 11:36:49'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsCountryFilterTree.pas'
+ UP extprop:rc:SelfName 'MedicFirmsCountryFilterTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsMedicFirmsCountryFilterTree'
+
+ENDME // ME_49071DD902DC TnsMedicFirmsCountryFilterTree

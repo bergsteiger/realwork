@@ -1,0 +1,116 @@
+// TmsmViewOfModelElement 57E3BD5101AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E3BD5101AF
+
+ME ME_57E3BDB60268
+ MEPROP UID '57E3BDB60268'
+ MEPROP Name 'Element'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57E3BD5101AF // TmsmViewOfModelElement
+ ;
+ MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57E3BDB60268 Element
+
+FORWARD ME_57E3BD8F0102
+
+ME ME_57E3BD9802E7
+ MEPROP Name 'anElement'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
+ ;
+
+ENDME // ME_57E3BD9802E7 anElement
+
+ME ME_57E3BD960255
+ MEPROP UID '57E3BD960255'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3BD8F0102 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E3BD9802E7 // anElement
+ )
+ ; // Parameters
+
+ENDME // ME_57E3BD960255 DoIt
+
+ME ME_57E3BD8F0102
+ MEPROP UID '57E3BD8F0102'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3BD5101AF // TmsmViewOfModelElement
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E3BD960255 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E3BD8F0102 Create
+
+MEREF ME_479731C50290_ME_57E3BD5101AF_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57E3BD5101AF_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_57E3BD5101AF_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_57E3BD5101AF_G Tl3CProtoObject
+
+%%InheritedBy ME_4AE5CA2D0034 ME_57E3BD5101AF
+
+ME ME_57E3BD5101AF
+ MEPROP UID '57E3BD5101AF'
+ MEPROP Name 'TmsmViewOfModelElement'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57A9D5CD0111' // ModelLoading
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_57E3BD5101AF_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E3BDB60268 // Element
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E3BD8F0102 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57E3BD5101AF_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmViewOfModelElement.pas'
+ UP extprop:rc:SelfName 'msmViewOfModelElement'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmViewOfModelElement'
+
+ENDME // ME_57E3BD5101AF TmsmViewOfModelElement

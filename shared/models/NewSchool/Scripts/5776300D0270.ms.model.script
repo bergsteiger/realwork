@@ -1,0 +1,80 @@
+// TvtClipSpyService 5776300D0270 ServiceImplementation Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5776300D0270
+
+ME ME_57763299022D
+ MEPROP UID '57763299022D'
+ MEPROP Name 'f_ClipSpyWnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5776300D0270 // TvtClipSpyService
+ ;
+ MELINK Target WL 'ME_5776326B0167' '577629E002C1.ms.model.script' // TClipSpyWnd
+ ;
+
+ENDME // ME_57763299022D f_ClipSpyWnd
+
+ME ME_5776303C000C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5776300D0270 // TvtClipSpyService
+ ;
+ MELINK Target WL? 'ME_57762BA20039' // Tl3ClipSpyService
+ ;
+
+ENDME // ME_5776303C000C 
+
+MEREF ME_479731C50290_ME_5776300D0270_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5776300D0270_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5776300D0270_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5776300D0270_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5776300D0270
+
+ME ME_5776300D0270
+ MEPROP UID '5776300D0270'
+ MEPROP Name 'TvtClipSpyService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47F485150151' // vtCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5776300D0270_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57763299022D // f_ClipSpyWnd
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5776300D0270_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5776303C000C // Tl3ClipSpyService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtClipSpyService.pas'
+ UP extprop:rc:SelfName 'ClipSpyService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtClipSpyService'
+
+ENDME // ME_5776300D0270 TvtClipSpyService

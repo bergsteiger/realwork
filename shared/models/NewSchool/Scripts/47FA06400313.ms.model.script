@@ -1,0 +1,66 @@
+// TevMultiDocumentPreview 47FA06400313 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47FA06400313
+
+ME ME_480DECB9008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47FA06400313 // TevMultiDocumentPreview
+ ;
+ MELINK Target WL 'ME_47CD37D9035A' '4B8BA52200D8.ms.model.script' // TnevPrintMessages
+ ;
+
+ENDME // ME_480DECB9008B 
+
+MEREF ME_480DE6420179_ME_47FA06400313_over
+ MELINK Original WL 'ME_480DE6420179' '480DE55C0315.ms.model.script' // GetDocumentName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_480DE6420179_ME_47FA06400313_over GetDocumentName
+
+MEREF ME_480DE55C0315_ME_47FA06400313_G
+ MELINK Original WL? 'ME_480DE55C0315' // TafwMultiDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DE55C0315_ME_47FA06400313_G TafwMultiDocumentPreview
+
+%%InheritedBy ME_480DE55C0315 ME_47FA06400313
+
+ME ME_47FA06400313
+ MEPROP UID '47FA06400313'
+ MEPROP Name 'TevMultiDocumentPreview'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предварительный просмотр нескольких документов пачкой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA968D0155' // Printing
+ ;
+ MELIST Inherits
+   Seq: ( ME_480DE55C0315_ME_47FA06400313_G // TafwMultiDocumentPreview
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_480DE6420179_ME_47FA06400313_over // GetDocumentName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_480DECB9008B // TnevPrintMessages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '02.03.2005 13:17'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiDocumentPreview.pas'
+ UP extprop:rc:SelfName 'MultiDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evMultiDocumentPreview'
+
+ENDME // ME_47FA06400313 TevMultiDocumentPreview

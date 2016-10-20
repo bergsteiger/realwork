@@ -71,6 +71,10 @@ ME ME_48200F89020E
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
+ MELIST Implements
+   Seq: (  // Печать объектов
+ )
+ ; // Implements
  MELIST Children
    Seq: ( HWL ME_4E9F01830010 // Не игнорировать пользовательский размер шрифта при печати ПСЕВДОГРАФИЧЕСКИХ таблиц
  HWL ME_4F5470CE00CD // В колонтитулах должны уметь отображаться имя документа и дата редакции
@@ -96,6 +100,10 @@ ME ME_4820112E00B7
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
+ MELIST Implements
+   Seq: (  // Предварительный просмотр
+ )
+ ; // Implements
 
 ENDME // ME_4820112E00B7 Предварительный просмотр  печати
 
@@ -110,6 +118,10 @@ ME ME_48201D2E0282
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
+ MELIST Implements
+   Seq: (  // Настройки страницы
+ )
+ ; // Implements
 
 ENDME // ME_48201D2E0282 Диалог настройки страницы
 
@@ -126,6 +138,10 @@ ME ME_484E539101BE
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
+ MELIST Implements
+   Seq: (  // Экспорт объектов
+ )
+ ; // Implements
 
 ENDME // ME_484E539101BE Экспорт в файл
 
@@ -140,6 +156,10 @@ ME ME_484E5531000E
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
+ MELIST Implements
+   Seq: (  // Экспорт объектов
+ )
+ ; // Implements
 
 ENDME // ME_484E5531000E Вызов внешнего приложения
 
@@ -173,6 +193,12 @@ ME ME_4F633C0803B4
 
 ENDME // ME_4F633C0803B4 В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
 
+MEREF ME_48200F89020E_ME_4F633BD400BA_G
+ MELINK Original HWL ME_48200F89020E // Печать
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48200F89020E_ME_4F633BD400BA_G Печать
+
 %%InheritedBy ME_48200F89020E ME_4F633BD400BA
 
 ME ME_4F633BD400BA
@@ -186,7 +212,7 @@ ME ME_4F633BD400BA
  MELINK Parent HWL ME_48200CF8039E // Печать, Экспорт
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48200F89020E // Печать
+   Seq: ( ME_48200F89020E_ME_4F633BD400BA_G // Печать
  )
  ; // Inherits
  MELIST Children

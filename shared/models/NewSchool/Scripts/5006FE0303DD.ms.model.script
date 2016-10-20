@@ -22,7 +22,7 @@ ME ME_5006FE7A0066
  MEPROP Name 'anQuery'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4A549C190378' '48078CC202EC.ms.model.script' // TatQuery
+ MELINK Target WL? 'ME_4A549C190378' // TatQuery
  ;
 
 ENDME // ME_5006FE7A0066 anQuery
@@ -88,7 +88,7 @@ ME ME_50102E7E0033
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5006FE0303DD // atSaveQueryToXMLAddon
  ;
- MELINK Target WL 'ME_50045BDB00CA' '48078CC202EC.ms.model.script' // TatQueryTypeConverter
+ MELINK Target WL? 'ME_50045BDB00CA' // TatQueryTypeConverter
  ;
 
 ENDME // ME_50102E7E0033 
@@ -103,17 +103,23 @@ ME ME_50114CC4017A
 
 ENDME // ME_50114CC4017A 
 
-ME ME_48089F460352_ME_5006FE0303DD
+MEREF ME_48089F460352_ME_5006FE0303DD_impl
  MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48089F460352_ME_5006FE0303DD ExecuteSelf
+ENDMEREF // ME_48089F460352_ME_5006FE0303DD_impl ExecuteSelf
 
-ME ME_48089F3701B4_ME_5006FE0303DD
+MEREF ME_48089F3701B4_ME_5006FE0303DD_over
  MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48089F3701B4_ME_5006FE0303DD InitParamList
+ENDMEREF // ME_48089F3701B4_ME_5006FE0303DD_over InitParamList
+
+MEREF ME_4FD0D8A60276_ME_5006FE0303DD_R
+ MELINK Original WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0D8A60276_ME_5006FE0303DD_R MatOperationBase
 
 %%ImplementedBy ME_4FD0D8A60276 ME_5006FE0303DD
 
@@ -129,7 +135,7 @@ ME ME_5006FE0303DD
  MELINK Parent WL? 'ME_4808ADB9014E' // Operations
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+   Seq: ( ME_4FD0D8A60276_ME_5006FE0303DD_R // MatOperationBase
  )
  ; // Implements
  MELIST Attributes
@@ -141,11 +147,11 @@ ME ME_5006FE0303DD
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_48089F460352_ME_5006FE0303DD // ExecuteSelf
+   Seq: ( ME_48089F460352_ME_5006FE0303DD_impl // ExecuteSelf
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_48089F3701B4_ME_5006FE0303DD // InitParamList
+   Seq: ( ME_48089F3701B4_ME_5006FE0303DD_over // InitParamList
  )
  ; // Overridden
  MELIST Dependencies

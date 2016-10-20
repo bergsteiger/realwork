@@ -1,0 +1,115 @@
+// TnsTipsTree 4906F6A103D5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4906F6A103D5
+
+ME ME_4906F6FD017E
+ MEPROP UID '4906F6FD017E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4906F6FD017E Make
+
+ME ME_4906F73E00DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4906F73E00DA 
+
+ME ME_4906F74E00E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
+ ;
+ MELINK Target WL? 'ME_47FB50E4008E' // nsConst
+ ;
+
+ENDME // ME_4906F74E00E5 
+
+ME ME_4906F79100A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4906F6A103D5 // TnsTipsTree
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4906F79100A6 
+
+MEREF ME_48FF64F60078_ME_4906F6A103D5_impl
+ MELINK Original WL 'ME_48FF64F60078' '468361010204.ms.model.script' // ReAqurieUnfilteredRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48FF64F60078_ME_4906F6A103D5_impl ReAqurieUnfilteredRoot
+
+MEREF ME_48FF56D003E6_ME_4906F6A103D5_over
+ MELINK Original WL 'ME_48FF56D003E6' '46835BD201D6.ms.model.script' // SettingsID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF56D003E6_ME_4906F6A103D5_over SettingsID
+
+MEREF ME_468361010204_ME_4906F6A103D5_G
+ MELINK Original WL? 'ME_468361010204' // TnsDataResetTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468361010204_ME_4906F6A103D5_G TnsDataResetTreeStruct
+
+%%InheritedBy ME_468361010204 ME_4906F6A103D5
+
+ME ME_4906F6A103D5
+ MEPROP UID '4906F6A103D5'
+ MEPROP Name 'TnsTipsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4906F67500B0' // DayTipsData
+ ;
+ MELIST Inherits
+   Seq: ( ME_468361010204_ME_4906F6A103D5_G // TnsDataResetTreeStruct
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4906F6FD017E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48FF64F60078_ME_4906F6A103D5_impl // ReAqurieUnfilteredRoot
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48FF56D003E6_ME_4906F6A103D5_over // SettingsID
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4906F73E00DA // DataAdapter
+ ME_4906F74E00E5 // nsConst
+ ME_4906F79100A6 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β,'
+ UP "no hands" true
+ UP "started" '2008/02/21 06:56:43'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsTree.pas'
+ UP extprop:rc:SelfName 'TipsTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsTipsTree'
+
+ENDME // ME_4906F6A103D5 TnsTipsTree

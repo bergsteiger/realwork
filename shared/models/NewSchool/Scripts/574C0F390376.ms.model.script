@@ -1,0 +1,182 @@
+// TalcuMdpStagesSyncronizer 574C0F390376 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_574C0F390376
+
+FORWARD ME_574EC035002D
+
+ME ME_574EC066030E
+ MEPROP Name 'aStageType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_574EBE00019E' '47BC51FE018B.ms.model.script' // TStageType
+ ;
+
+ENDME // ME_574EC066030E aStageType
+
+ME ME_574EC04B0197
+ MEPROP UID '574EC04B0197'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574EC035002D // GetGardocStageCode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_574EC066030E // aStageType
+ )
+ ; // Parameters
+
+ENDME // ME_574EC04B0197 DoIt
+
+ME ME_574EC035002D
+ MEPROP UID '574EC035002D'
+ MEPROP Name 'GetGardocStageCode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_574EC04B0197 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_574EC035002D GetGardocStageCode
+
+ME ME_574EBCF901A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL? 'ME_55AE44E10097' // Tl3XMLWriter
+ ;
+
+ENDME // ME_574EBCF901A1 
+
+ME ME_574EBD590078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL 'ME_46A456CF0239' '4677FBA70343.ms.model.script' // Il3XMLWriter
+ ;
+
+ENDME // ME_574EBD590078 
+
+ME ME_574EC10E024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL? 'ME_47D02918035D' // l3Date
+ ;
+
+ENDME // ME_574EC10E024D 
+
+ME ME_574EC1560029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_574EC1560029 
+
+ME ME_574EC1C70336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL? 'ME_519B719002F1' // dt_Sab
+ ;
+
+ENDME // ME_574EC1C70336 
+
+ME ME_576149DC0126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_576149DC0126 
+
+MEREF ME_574C359C0010_ME_574C0F390376_impl
+ MELINK Original WL 'ME_574C359C0010' '574C0E84031E.ms.model.script' // PrepareData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_574C359C0010_ME_574C0F390376_impl PrepareData
+
+MEREF ME_574C395100E9_ME_574C0F390376_impl
+ MELINK Original WL 'ME_574C395100E9' '574C0E84031E.ms.model.script' // GetTitle
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_574C395100E9_ME_574C0F390376_impl GetTitle
+
+MEREF ME_574E9F28031C_ME_574C0F390376_impl
+ MELINK Original WL 'ME_574E9F28031C' '574E9D3400B0.ms.model.script' // GetIniParamName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_574E9F28031C_ME_574C0F390376_impl GetIniParamName
+
+MEREF ME_574E9D3400B0_ME_574C0F390376_G
+ MELINK Original WL? 'ME_574E9D3400B0' // TalcuMdpDatedSyncronizer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574E9D3400B0_ME_574C0F390376_G TalcuMdpDatedSyncronizer
+
+%%InheritedBy ME_574E9D3400B0 ME_574C0F390376
+
+ME ME_574C0F390376
+ MEPROP UID '574C0F390376'
+ MEPROP Name 'TalcuMdpStagesSyncronizer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронизация этапов в Гардок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54041E840266' // Process
+ ;
+ MELIST Inherits
+   Seq: ( ME_574E9D3400B0_ME_574C0F390376_G // TalcuMdpDatedSyncronizer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_574EC035002D // GetGardocStageCode
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_574C359C0010_ME_574C0F390376_impl // PrepareData
+ ME_574C395100E9_ME_574C0F390376_impl // GetTitle
+ ME_574E9F28031C_ME_574C0F390376_impl // GetIniParamName
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_574EBCF901A1 // Tl3XMLWriter
+ ME_574EBD590078 // Il3XMLWriter
+ ME_574EC10E024D // l3Date
+ ME_574EC1560029 // ISab
+ ME_574EC1C70336 // dt_Sab
+ ME_576149DC0126 // TdaUserID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\NOT_FINISHED_alcuMdpStagesSyncronizer.pas'
+ UP extprop:rc:SelfName 'alcuMdpStagesSyncronizer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuMdpStagesSyncronizer'
+
+ENDME // ME_574C0F390376 TalcuMdpStagesSyncronizer

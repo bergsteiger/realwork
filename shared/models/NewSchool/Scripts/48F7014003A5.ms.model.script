@@ -1,0 +1,111 @@
+// TevNodeData 48F7014003A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F7014003A5
+
+ME ME_48F8D1AF01C4
+ MEPROP UID '48F8D1AF01C4'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F7014003A5 // TevNodeData
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_48F8D1AF01C4 DataType
+
+ME ME_48F8D4FD022D
+ MEPROP UID '48F8D4FD022D'
+ MEPROP Name 'DataClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F7014003A5 // TevNodeData
+ ;
+ MELINK Target WL? 'ME_48F4DC5A018D' // TevNodeDataObject
+ ;
+
+ENDME // ME_48F8D4FD022D DataClass
+
+ME ME_48F7047001C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F7014003A5 // TevNodeData
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_48F7047001C6 
+
+ME ME_48F704C9034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F7014003A5 // TevNodeData
+ ;
+ MELINK Target WL? 'ME_48F4B5300085' // l3TreeConst
+ ;
+
+ENDME // ME_48F704C9034B 
+
+MEREF ME_48F4B33501DE_ME_48F7014003A5_over
+ MELINK Original WL 'ME_48F4B33501DE' '4680F8DE02E2.ms.model.script' // GetFormats
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F4B33501DE_ME_48F7014003A5_over GetFormats
+
+MEREF ME_48F895480266_ME_48F7014003A5_G
+ MELINK Original WL? 'ME_48F895480266' // evTreeData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F895480266_ME_48F7014003A5_G evTreeData
+
+%%InheritedBy ME_48F895480266 ME_48F7014003A5
+
+ME ME_48F7014003A5
+ MEPROP UID '48F7014003A5'
+ MEPROP Name 'TevNodeData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_469C688102A3' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F895480266_ME_48F7014003A5_G // evTreeData
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8D1AF01C4 // DataType
+ HWL ME_48F8D4FD022D // DataClass
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48F4B33501DE_ME_48F7014003A5_over // GetFormats
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F7047001C6 // Clipboard Formats
+ ME_48F704C9034B // l3TreeConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '26.12.2006 17:02'
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evNodeData.pas'
+ UP extprop:rc:SelfName 'NodeData'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evNodeData'
+
+ENDME // ME_48F7014003A5 TevNodeData

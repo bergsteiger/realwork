@@ -1,0 +1,81 @@
+// TddExtObjectDataList 5798E3C30126 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5798E3C30126
+
+ME ME_5798E3CF0209
+ MEPROP UID '5798E3CF0209'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5798E3C30126 // TddExtObjectDataList
+ ;
+ MELINK Target WL? 'ME_5798CC75000A' // TddExtObjectData
+ ;
+
+ENDME // ME_5798E3CF0209 ItemType
+
+MEREF ME_47B2C42A0163_ME_5798E3C30126_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_5798E3C30126_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_5798E3C30126_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_5798E3C30126_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_5798E3C30126_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_5798E3C30126_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_5798E3C30126_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5798E3C30126_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_5798E3C30126
+%%InheritedBy ME_4A54DD4E036F ME_5798E3C30126
+
+ME ME_5798E3C30126
+ MEPROP UID '5798E3C30126'
+ MEPROP Name 'TddExtObjectDataList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_5798E3C30126_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_5798E3C30126_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5798E3CF0209 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_5798E3C30126_impl // AssignItem
+ ME_47B99D4503A2_ME_5798E3C30126_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjectDataList.pas'
+ UP extprop:rc:SelfName 'ddExtObjectDataList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExtObjectDataList'
+
+ENDME // ME_5798E3C30126 TddExtObjectDataList

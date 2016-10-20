@@ -1,0 +1,109 @@
+// TevOEMTableFlagFilter 4C3FED3103B2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3FED3103B2
+
+ME ME_4C3FF5F40163
+ MEPROP UID '4C3FF5F40163'
+ MEPROP Name 'f_NeedChange'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак нужно ли менять флаг.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C3FF5F40163 f_NeedChange
+
+ME ME_4C3FF8130092
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4C3FF8130092 
+
+ME ME_4C3FF8350398
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C3FF8350398 
+
+MEREF ME_4836D4C20059_ME_4C3FED3103B2_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4C3FED3103B2_over CloseStructure
+
+MEREF ME_4A2D1217037A_ME_4C3FED3103B2_over
+ MELINK Original WL 'ME_4A2D1217037A' '49E487A70144.ms.model.script' // DoStartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1217037A_ME_4C3FED3103B2_over DoStartChild
+
+MEREF ME_4A2D1634025B_ME_4C3FED3103B2_over
+ MELINK Original WL 'ME_4A2D1634025B' '49E487A70144.ms.model.script' // DoAddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A2D1634025B_ME_4C3FED3103B2_over DoAddAtomEx
+
+MEREF ME_49E487A70144_ME_4C3FED3103B2_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4C3FED3103B2_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4C3FED3103B2
+
+ME ME_4C3FED3103B2
+ MEPROP UID '4C3FED3103B2'
+ MEPROP Name 'TevOEMTableFlagFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр выставления флага выливать в псевдографику таблицам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C407B410029' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487A70144_ME_4C3FED3103B2_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C3FF5F40163 // f_NeedChange
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4836D4C20059_ME_4C3FED3103B2_over // CloseStructure
+ ME_4A2D1217037A_ME_4C3FED3103B2_over // DoStartChild
+ ME_4A2D1634025B_ME_4C3FED3103B2_over // DoAddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C3FF8130092 // Table
+ ME_4C3FF8350398 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas'
+ UP extprop:rc:SelfName 'OEMTableFlagFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evOEMTableFlagFilter'
+
+ENDME // ME_4C3FED3103B2 TevOEMTableFlagFilter

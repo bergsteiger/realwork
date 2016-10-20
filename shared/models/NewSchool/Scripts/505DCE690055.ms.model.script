@@ -119,7 +119,7 @@ ENDME // ME_505DA9C401C8 DoIt
 ME ME_505DA9AF003E
  MEPROP UID '505DA9AF003E'
  MEPROP Name 'Unsubscribe'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -162,7 +162,7 @@ ENDME // ME_505DA9E20331 DoIt
 ME ME_505DA9D50000
  MEPROP UID '505DA9D50000'
  MEPROP Name 'SendNotificationToClients'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -205,7 +205,7 @@ ENDME // ME_505DA993034F DoIt
 ME ME_505DA97101BB
  MEPROP UID '505DA97101BB'
  MEPROP Name 'Subscribe'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -258,7 +258,7 @@ ENDME // ME_505DD9520040 DoIt
 ME ME_505DCA6603AA
  MEPROP UID '505DCA6603AA'
  MEPROP Name 'Notify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -325,6 +325,18 @@ ME ME_505DC5D003BE
 
 ENDME // ME_505DC5D003BE ItemType
 
+MEREF ME_47B57D630029_ME_505DA61E00A6_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_505DA61E00A6_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_505DA61E00A6_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_505DA61E00A6_G Tl3ProtoDataContainer
+
 %%InheritedBy ME_47B57D630029 ME_505DA61E00A6
 %%InheritedBy ME_4A54DD4E036F ME_505DA61E00A6
 
@@ -339,8 +351,8 @@ ME ME_505DA61E00A6
  MELINK Parent HWL ME_505DCE690055 // StatusBarUtils
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B57D630029' // l3InterfacePtrList
- WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( ME_47B57D630029_ME_505DA61E00A6_G // l3InterfacePtrList
+ ME_4A54DD4E036F_ME_505DA61E00A6_G // Tl3ProtoDataContainer
  )
  ; // Inherits
  MELIST Attributes

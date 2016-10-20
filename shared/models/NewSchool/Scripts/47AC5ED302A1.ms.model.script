@@ -1,0 +1,82 @@
+// Tk2DictRec 47AC5ED302A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC5ED302A1
+
+ME ME_4A606010000E
+ MEPROP UID '4A606010000E'
+ MEPROP Name 'HashType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC5ED302A1 // Tk2DictRec
+ ;
+ MELINK Target WL 'ME_4A605C540221' '47AC5ABE00B6.ms.model.script' // Tl3OneBytePtrHash
+ ;
+
+ENDME // ME_4A606010000E HashType
+
+ME ME_49A65B4A005E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC5ED302A1 // Tk2DictRec
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_49A65B4A005E 
+
+MEREF ME_47AC562D0134_ME_47AC5ED302A1_G
+ MELINK Original WL? 'ME_47AC562D0134' // k2HashTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC562D0134_ME_47AC5ED302A1_G k2HashTag
+
+MEREF ME_53208F54004F_ME_47AC5ED302A1_G
+ MELINK Original WL? 'ME_53208F54004F' // Tk2DictRecTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53208F54004F_ME_47AC5ED302A1_G Tk2DictRecTag
+
+%%InheritedBy ME_47AC562D0134 ME_47AC5ED302A1
+%%InheritedBy ME_53208F54004F ME_47AC5ED302A1
+
+ME ME_47AC5ED302A1
+ MEPROP UID '47AC5ED302A1'
+ MEPROP Name 'Tk2DictRec'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47AC562D0134_ME_47AC5ED302A1_G // k2HashTag
+ ME_53208F54004F_ME_47AC5ED302A1_G // Tk2DictRecTag
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A606010000E // HashType
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_49A65B4A005E // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '11.10.1999 12:08'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictRec.pas'
+ UP extprop:rc:SelfName 'DictRec'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2DictRec'
+
+ENDME // ME_47AC5ED302A1 Tk2DictRec

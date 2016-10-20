@@ -11,132 +11,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_47ECB04A01F8
 %%Inner ME_47ECB04A01F8
 
-FORWARD ME_47ECB04A01F8
-
-%%InheritedBy ME_47F3521002C7 ME_482D8ABE024B
-
-ME ME_482D8ABE024B
- MEPROP UID '482D8ABE024B'
- MEPROP Name 'TevNotifiedProcessor'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB04A01F8 // Processors
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47F3521002C7' '47F351BC0145.ms.model.script' // TevCustomUndoProcessor
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" false
- UP "started" '01.12.2005 06:21'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evNotifiedProcessor.pas'
- UP extprop:rc:SelfName 'NotifiedProcessor'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evNotifiedProcessor'
-
-ENDME // ME_482D8ABE024B TevNotifiedProcessor
-
-ME ME_47F35FBA0208
- MEPROP UID '47F35FBA0208'
- MEPROP Name 'TevDefaultContext'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB04A01F8 // Processors
- ;
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" false
- UP "started" '25.10.2000 16:46'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDefaultContext.pas'
- UP extprop:rc:SelfName 'DefaultContext'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evDefaultContext'
-
-ENDME // ME_47F35FBA0208 TevDefaultContext
-
-%%InheritedBy ME_482D8ABE024B ME_47ECB0850387
-
-ME ME_47ECB0850387
- MEPROP UID '47ECB0850387'
- MEPROP Name 'TevPreviewProcessor'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB04A01F8 // Processors
- ;
- MELIST Inherits
-   Seq: ( HWL ME_482D8ABE024B // TevNotifiedProcessor
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" false
- UP "started" '01.12.2005 06:21'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evPreviewProcessor.pas'
- UP extprop:rc:SelfName 'PreviewProcessor'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evPreviewProcessor'
-
-ENDME // ME_47ECB0850387 TevPreviewProcessor
-
-%%InheritedBy ME_482D8ABE024B ME_482D8A7101CE
-
-ME ME_482D8A7101CE
- MEPROP UID '482D8A7101CE'
- MEPROP Name 'TevCustomEditorWindowProcessor'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB04A01F8 // Processors
- ;
- MELIST Inherits
-   Seq: ( HWL ME_482D8ABE024B // TevNotifiedProcessor
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" false
- UP "started" '21.07.2005 08:46'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindowProcessor.pas'
- UP extprop:rc:SelfName 'EditorWindowProcessor'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evCustomEditorWindowProcessor'
-
-ENDME // ME_482D8A7101CE TevCustomEditorWindowProcessor
-
-%%InheritedBy ME_482D8A7101CE ME_47F35EA70305
-
-ME ME_47F35EA70305
- MEPROP UID '47F35EA70305'
- MEPROP Name 'TevEditorWindowProcessor'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB04A01F8 // Processors
- ;
- MELIST Inherits
-   Seq: ( HWL ME_482D8A7101CE // TevCustomEditorWindowProcessor
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" false
- UP "started" '21.07.2005 08:46'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEditorWindowProcessor.pas'
- UP extprop:rc:SelfName 'EditorWindowProcessor'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'evEditorWindowProcessor'
-
-ENDME // ME_47F35EA70305 TevEditorWindowProcessor
-
 ME ME_47ECB04A01F8
  MEPROP UID '47ECB04A01F8'
  MEPROP Name 'Processors'
@@ -150,11 +24,11 @@ ME ME_47ECB04A01F8
  MELIST Children
    Seq: ( WL? 'ME_47F252060091' // evUndoB
  WL? 'ME_47F351BC0145' // evOpProc
- HWL ME_482D8ABE024B // TevNotifiedProcessor
- HWL ME_47F35FBA0208 // TevDefaultContext
- HWL ME_47ECB0850387 // TevPreviewProcessor
- HWL ME_482D8A7101CE // TevCustomEditorWindowProcessor
- HWL ME_47F35EA70305 // TevEditorWindowProcessor
+ WL? 'ME_482D8ABE024B' // TevNotifiedProcessor
+ WL? 'ME_47F35FBA0208' // TevDefaultContext
+ WL? 'ME_47ECB0850387' // TevPreviewProcessor
+ WL? 'ME_482D8A7101CE' // TevCustomEditorWindowProcessor
+ WL? 'ME_47F35EA70305' // TevEditorWindowProcessor
  WL? 'ME_552BAA150205' // evStandardActions
  )
  ; // Children

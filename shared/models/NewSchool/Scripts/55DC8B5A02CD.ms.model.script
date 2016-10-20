@@ -1,0 +1,62 @@
+// TsegObjectList 55DC8B5A02CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DC8B5A02CD
+
+ME ME_55DC8B700047
+ MEPROP UID '55DC8B700047'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55DC8B5A02CD // TsegObjectList
+ ;
+ MELINK Target WL 'ME_55DC7A770012' '55DC6B2E0347.ms.model.script' // TsegObject
+ ;
+
+ENDME // ME_55DC8B700047 ItemType
+
+MEREF ME_4A54DD4E036F_ME_55DC8B5A02CD_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55DC8B5A02CD_G Tl3ProtoDataContainer
+
+MEREF ME_55DEEA210182_ME_55DC8B5A02CD_G
+ MELINK Original WL? 'ME_55DEEA210182' // l3NotSortedObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55DEEA210182_ME_55DC8B5A02CD_G l3NotSortedObjectRefList
+
+%%InheritedBy ME_4A54DD4E036F ME_55DC8B5A02CD
+%%InheritedBy ME_55DEEA210182 ME_55DC8B5A02CD
+
+ME ME_55DC8B5A02CD
+ MEPROP UID '55DC8B5A02CD'
+ MEPROP Name 'TsegObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55DC6B0D020D' // NSRCReaderCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_55DC8B5A02CD_G // Tl3ProtoDataContainer
+ ME_55DEEA210182_ME_55DC8B5A02CD_G // l3NotSortedObjectRefList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55DC8B700047 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\segObjectList.pas'
+ UP extprop:rc:SelfName 'segObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'segObjectList'
+
+ENDME // ME_55DC8B5A02CD TsegObjectList

@@ -29,6 +29,18 @@ ME ME_60BD30ED24A4
 
 ENDME // ME_60BD30ED24A4 ProgressIndicator$Def
 
+MEREF ME_4A93F1980324_ME_4A93F1CC01A8_G
+ MELINK Original WL? 'ME_4A93F1980324' // PrimProgressIndicator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A93F1980324_ME_4A93F1CC01A8_G PrimProgressIndicator
+
+MEREF ME_60BD30ED24A4_ME_4A93F1CC01A8_R
+ MELINK Original HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_60BD30ED24A4_ME_4A93F1CC01A8_R ProgressIndicator$Def
+
 %%ImplementedBy ME_60BD30ED24A4 ME_4A93F1CC01A8
 
 %%InheritedBy ME_4A93F1980324 ME_4A93F1CC01A8
@@ -45,11 +57,11 @@ ME ME_4A93F1CC01A8
  MELINK Parent WL? 'ME_4A92C1380380' // PrimF1Common
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A93F1980324' // PrimProgressIndicator
+   Seq: ( ME_4A93F1980324_ME_4A93F1CC01A8_G // PrimProgressIndicator
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_60BD30ED24A4 // ProgressIndicator$Def
+   Seq: ( ME_60BD30ED24A4_ME_4A93F1CC01A8_R // ProgressIndicator$Def
  )
  ; // Implements
  MELIST Children

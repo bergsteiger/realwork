@@ -1,0 +1,166 @@
+// TnsDocumentLikeStateHolder 51ED304D0068 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51ED304D0068
+
+FORWARD ME_51ED304D0068
+
+FORWARD ME_51ED558501F2
+
+ME ME_51ED55A2038E
+ MEPROP UID '51ED55A2038E'
+ MEPROP Name 'LikeState'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_51ED558501F2 // InsDocumentLikeStateHolder
+ ;
+ MELINK Target WL 'ME_500E5CDD00C5' '491B305A0096.ms.model.script' // TdocLikeState
+ ;
+ UP "pm" false
+
+ENDME // ME_51ED55A2038E LikeState
+
+ME ME_51ED558501F2
+ MEPROP UID '51ED558501F2'
+ MEPROP GUID '944B3FBB-00EB-4E3D-AE0B-AC0B0F59788F'
+ MEPROP Name 'InsDocumentLikeStateHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51ED304D0068 // TnsDocumentLikeStateHolder
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51ED55A2038E // LikeState
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'DocumentLikeStateHolder'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51ED558501F2 InsDocumentLikeStateHolder
+
+ME ME_51ED30850254
+ MEPROP UID '51ED30850254'
+ MEPROP Name 'f_LikeState'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51ED304D0068 // TnsDocumentLikeStateHolder
+ ;
+ MELINK Target WL 'ME_500E5CDD00C5' '491B305A0096.ms.model.script' // TdocLikeState
+ ;
+
+ENDME // ME_51ED30850254 f_LikeState
+
+ME ME_51ED52BC02FC
+ MEPROP UID '51ED52BC02FC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51ED304D0068 // TnsDocumentLikeStateHolder
+ ;
+
+ENDME // ME_51ED52BC02FC Create
+
+MEREF ME_51ED52BC02FC_ME_51ED55B50288_G
+ MELINK Original HWL ME_51ED52BC02FC // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51ED52BC02FC_ME_51ED55B50288_G Create
+
+%%InheritedBy ME_51ED52BC02FC ME_51ED55B50288
+
+ME ME_51ED55B50288
+ MEPROP UID '51ED55B50288'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51ED304D0068 // TnsDocumentLikeStateHolder
+ ;
+ MELIST Inherits
+   Seq: ( ME_51ED52BC02FC_ME_51ED55B50288_G // Create
+ )
+ ; // Inherits
+
+ENDME // ME_51ED55B50288 Make
+
+MEREF ME_51ED55A2038E_ME_51ED304D0068_impl
+ MELINK Original HWL ME_51ED55A2038E // LikeState
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_51ED55A2038E_ME_51ED304D0068_impl LikeState
+
+MEREF ME_49E7754802A9_ME_51ED304D0068_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_51ED304D0068_G Tl3ProtoObject
+
+MEREF ME_51ED558501F2_ME_51ED304D0068_R
+ MELINK Original HWL ME_51ED558501F2 // InsDocumentLikeStateHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51ED558501F2_ME_51ED304D0068_R InsDocumentLikeStateHolder
+
+%%ImplementedBy ME_51ED558501F2 ME_51ED304D0068
+
+%%InheritedBy ME_49E7754802A9 ME_51ED304D0068
+
+ME ME_51ED304D0068
+ MEPROP UID '51ED304D0068'
+ MEPROP Name 'TnsDocumentLikeStateHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47EA50050263' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_51ED304D0068_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_51ED558501F2_ME_51ED304D0068_R // InsDocumentLikeStateHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51ED30850254 // f_LikeState
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51ED52BC02FC // Create
+ HWL ME_51ED55B50288 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_51ED55A2038E_ME_51ED304D0068_impl // LikeState
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_51ED558501F2 // InsDocumentLikeStateHolder
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentLikeStateHolder.pas'
+ UP extprop:rc:SelfName 'DocumentLikeStateHolder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsDocumentLikeStateHolder'
+
+ENDME // ME_51ED304D0068 TnsDocumentLikeStateHolder

@@ -1,0 +1,647 @@
+// TvcmHistoryService 559BA19C0076 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_559BA19C0076
+
+FORWARD ME_559BA19C0076
+
+FORWARD ME_401DD96F3E52
+
+FORWARD ME_559BA1B80327
+
+ME ME_493AC3689E3E
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_493AC3689E3E aForm
+
+ME ME_96E2DB43E67B
+ MEPROP UID '96E2DB43E67B'
+ MEPROP Name 'GetFormHistory'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_493AC3689E3E // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_559BA1B80327 // GetFormHistory
+ ;
+
+ENDME // ME_96E2DB43E67B GetFormHistory
+
+FORWARD ME_559BA3270003
+
+ME ME_B4096AE580A2
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_B4096AE580A2 aForm
+
+ME ME_975F702287E2
+ MEPROP UID '975F702287E2'
+ MEPROP Name 'SaveFormState'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_B4096AE580A2 // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_559BA3270003 // SaveFormState
+ ;
+
+ENDME // ME_975F702287E2 SaveFormState
+
+FORWARD ME_559CAE8C0067
+
+ME ME_B3743F6FCC10
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_B3743F6FCC10 aContainer
+
+ME ME_27BEBF0EE9FD
+ MEPROP UID '27BEBF0EE9FD'
+ MEPROP Name 'GetContainerHistory'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_B3743F6FCC10 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_559CAE8C0067 // GetContainerHistory
+ ;
+
+ENDME // ME_27BEBF0EE9FD GetContainerHistory
+
+FORWARD ME_55B8A6460123
+
+ME ME_F7A0DB6ABDCF
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_F7A0DB6ABDCF aForm
+
+ME ME_A872A2AAB575
+ MEPROP UID 'A872A2AAB575'
+ MEPROP Name 'IsInBF'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_F7A0DB6ABDCF // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_55B8A6460123 // IsInBF
+ ;
+
+ENDME // ME_A872A2AAB575 IsInBF
+
+FORWARD ME_569E01920150
+
+ME ME_3361EEC787AF
+ MEPROP Name 'aForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_3361EEC787AF aForm
+
+ME ME_18FC3BA729CF
+ MEPROP UID '18FC3BA729CF'
+ MEPROP Name 'Back'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_3361EEC787AF // aForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_569E01920150 // Back
+ ;
+
+ENDME // ME_18FC3BA729CF Back
+
+FORWARD ME_57AD88650343
+
+ME ME_7FFB69440CD9
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_7FFB69440CD9 aContainer
+
+ME ME_03988C3B417F
+ MEPROP UID '03988C3B417F'
+ MEPROP Name 'MakingCloneStarted'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_7FFB69440CD9 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57AD88650343 // MakingCloneStarted
+ ;
+
+ENDME // ME_03988C3B417F MakingCloneStarted
+
+FORWARD ME_57AD88AF012D
+
+ME ME_8E4355CC24CA
+ MEPROP Name 'aOrgContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_8E4355CC24CA aOrgContainer
+
+ME ME_8E4355CC24CB
+ MEPROP Name 'aCloneContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_8E4355CC24CB aCloneContainer
+
+ME ME_94ACDF598B06
+ MEPROP UID '94ACDF598B06'
+ MEPROP Name 'ContainerForCloneMade'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_8E4355CC24CA // aOrgContainer
+ ME_8E4355CC24CB // aCloneContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57AD88AF012D // ContainerForCloneMade
+ ;
+
+ENDME // ME_94ACDF598B06 ContainerForCloneMade
+
+FORWARD ME_57AD88D00074
+
+ME ME_6D3FF4FDD47C
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_6D3FF4FDD47C aContainer
+
+ME ME_19896856BA74
+ MEPROP UID '19896856BA74'
+ MEPROP Name 'MakingCloneFinished'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_6D3FF4FDD47C // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57AD88D00074 // MakingCloneFinished
+ ;
+
+ENDME // ME_19896856BA74 MakingCloneFinished
+
+FORWARD ME_57AD88DC01F7
+
+ME ME_BE62725471DD
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_BE62725471DD aContainer
+
+ME ME_BB06F1B944C6
+ MEPROP UID 'BB06F1B944C6'
+ MEPROP Name 'IsClone'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_BE62725471DD // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57AD88DC01F7 // IsClone
+ ;
+
+ENDME // ME_BB06F1B944C6 IsClone
+
+ME ME_401DD96F3E52
+ MEPROP UID '401DD96F3E52'
+ MEPROP Name 'MvcmHistoryService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmHistoryService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_96E2DB43E67B // GetFormHistory
+ HWL ME_975F702287E2 // SaveFormState
+ HWL ME_27BEBF0EE9FD // GetContainerHistory
+ HWL ME_A872A2AAB575 // IsInBF
+ HWL ME_18FC3BA729CF // Back
+ HWL ME_03988C3B417F // MakingCloneStarted
+ HWL ME_94ACDF598B06 // ContainerForCloneMade
+ HWL ME_19896856BA74 // MakingCloneFinished
+ HWL ME_BB06F1B944C6 // IsClone
+ )
+ ; // Operations
+
+ENDME // ME_401DD96F3E52 MvcmHistoryService
+
+ME ME_559BA32202BC
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_559BA32202BC aForm
+
+ME ME_559BA1B80327
+ MEPROP UID '559BA1B80327'
+ MEPROP Name 'GetFormHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BA32202BC // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_559BA1B80327 GetFormHistory
+
+ME ME_559BA33401A0
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_559BA33401A0 aForm
+
+ME ME_559BA3270003
+ MEPROP UID '559BA3270003'
+ MEPROP Name 'SaveFormState'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BA33401A0 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_559BA3270003 SaveFormState
+
+ME ME_559CB2E2007D
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_559CB2E2007D aContainer
+
+ME ME_559CAE8C0067
+ MEPROP UID '559CAE8C0067'
+ MEPROP Name 'GetContainerHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL 'ME_49940B4A02FC' '4683F37902CF.ms.model.script' // IvcmHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_559CB2E2007D // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_559CAE8C0067 GetContainerHistory
+
+ME ME_55B8A65200C1
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_55B8A65200C1 aForm
+
+ME ME_55B8A6460123
+ MEPROP UID '55B8A6460123'
+ MEPROP Name 'IsInBF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B8A65200C1 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_55B8A6460123 IsInBF
+
+ME ME_569E019A000B
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_569E019A000B aForm
+
+ME ME_569E01920150
+ MEPROP UID '569E01920150'
+ MEPROP Name 'Back'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_569E019A000B // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_569E01920150 Back
+
+ME ME_57AD886F0077
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57AD886F0077 aContainer
+
+ME ME_57AD88650343
+ MEPROP UID '57AD88650343'
+ MEPROP Name 'MakingCloneStarted'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD886F0077 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57AD88650343 MakingCloneStarted
+
+ME ME_57AD88CA0114
+ MEPROP Name 'aOrgContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57AD88CA0114 aOrgContainer
+
+ME ME_57AD88CA0143
+ MEPROP Name 'aCloneContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57AD88CA0143 aCloneContainer
+
+ME ME_57AD88AF012D
+ MEPROP UID '57AD88AF012D'
+ MEPROP Name 'ContainerForCloneMade'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD88CA0114 // aOrgContainer
+ ME_57AD88CA0143 // aCloneContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57AD88AF012D ContainerForCloneMade
+
+ME ME_57AD88D803C2
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57AD88D803C2 aContainer
+
+ME ME_57AD88D00074
+ MEPROP UID '57AD88D00074'
+ MEPROP Name 'MakingCloneFinished'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD88D803C2 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57AD88D00074 MakingCloneFinished
+
+ME ME_57AD88FD0310
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57AD88FD0310 aContainer
+
+ME ME_57AD88DC01F7
+ MEPROP UID '57AD88DC01F7'
+ MEPROP Name 'IsClone'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AD88FD0310 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57AD88DC01F7 IsClone
+
+ME ME_559BA1F00004
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL? 'ME_47752AF90375' // afwFacade
+ ;
+
+ENDME // ME_559BA1F00004 
+
+ME ME_559BA2950341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_559BA2950341 
+
+MEREF ME_49E7754802A9_ME_559BA19C0076_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_559BA19C0076_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_559BA19C0076
+
+ME ME_559BA19C0076
+ MEPROP UID '559BA19C0076'
+ MEPROP Name 'TvcmHistoryService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_553893E60323' // Services
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_559BA19C0076_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_559BA1B80327 // GetFormHistory
+ HWL ME_559BA3270003 // SaveFormState
+ HWL ME_559CAE8C0067 // GetContainerHistory
+ HWL ME_55B8A6460123 // IsInBF
+ HWL ME_569E01920150 // Back
+ HWL ME_57AD88650343 // MakingCloneStarted
+ HWL ME_57AD88AF012D // ContainerForCloneMade
+ HWL ME_57AD88D00074 // MakingCloneFinished
+ HWL ME_57AD88DC01F7 // IsClone
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_401DD96F3E52 // MvcmHistoryService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_559BA1F00004 // afwFacade
+ ME_559BA2950341 // vcmBase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmHistoryService.pas'
+ UP extprop:rc:SelfName 'HistoryService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmHistoryService'
+
+ENDME // ME_559BA19C0076 TvcmHistoryService

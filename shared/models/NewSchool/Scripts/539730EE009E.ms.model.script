@@ -1,0 +1,94 @@
+// TatSaveListToFileOperation 539730EE009E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_539730EE009E
+
+ME ME_53973154036D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_539730EE009E // TatSaveListToFileOperation
+ ;
+ MELINK Target WL? 'ME_5397269D015F' // TatComparableList
+ ;
+
+ENDME // ME_53973154036D 
+
+ME ME_5397320D01E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_539730EE009E // TatSaveListToFileOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5397320D01E6 
+
+ME ME_539783EB012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_539730EE009E // TatSaveListToFileOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_539783EB012F 
+
+MEREF ME_48089F460352_ME_539730EE009E_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_539730EE009E_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_539730EE009E_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_539730EE009E_over InitParamList
+
+MEREF ME_48076E9D013E_ME_539730EE009E_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_539730EE009E_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_539730EE009E
+
+ME ME_539730EE009E
+ MEPROP UID '539730EE009E'
+ MEPROP Name 'TatSaveListToFileOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_539730EE009E_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_539730EE009E_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_539730EE009E_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53973154036D // TatComparableList
+ ME_5397320D01E6 // SysUtils
+ ME_539783EB012F // atLogger
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSaveListToFileOperation.pas'
+ UP extprop:rc:SelfName 'atSaveListToFileOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSaveListToFileOperation'
+
+ENDME // ME_539730EE009E TatSaveListToFileOperation

@@ -1,0 +1,226 @@
+// TnsAttributeTreeCacheNew 4912AB3A01ED SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4912AB3A01ED
+
+FORWARD ME_4912ABB40360
+
+ME ME_4912ABCF0125
+ MEPROP UID '4912ABCF0125'
+ MEPROP Name 'aTag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4912ABB40360 // AttributeRoot
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4912ABCF0125 aTag
+
+ME ME_4912ABB40360
+ MEPROP UID '4912ABB40360'
+ MEPROP Name 'AttributeRoot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4912ABCF0125 // aTag
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4912ABB40360 AttributeRoot
+
+FORWARD ME_4912ABE4035C
+
+ME ME_4912AC010174
+ MEPROP UID '4912AC010174'
+ MEPROP Name 'aTag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4912ABE4035C // AttributeRootClosed
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4912AC010174 aTag
+
+ME ME_4912ABE4035C
+ MEPROP UID '4912ABE4035C'
+ MEPROP Name 'AttributeRootClosed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4912AC010174 // aTag
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4912ABE4035C AttributeRootClosed
+
+ME ME_4912AC77001A
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4912AC77001A aTag
+
+ME ME_4912AC77004E
+ MEPROP Name 'aDropFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4912AC77004E aDropFlags
+
+ME ME_4912AC600333
+ MEPROP UID '4912AC600333'
+ MEPROP Name 'GetAttributeRoot'
+ MEPROP Class class_Operation
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_4912AC77001A // aTag
+ ME_4912AC77004E // aDropFlags
+ )
+ ; // Parameters
+
+ENDME // ME_4912AC600333 GetAttributeRoot
+
+ME ME_4912B02900AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_4912B02900AF 
+
+ME ME_4912B04C01C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_4912B04C01C6 
+
+ME ME_4912B21B00FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4912AB3A01ED // TnsAttributeTreeCacheNew
+ ;
+ MELINK Target WL 'ME_4912B1E80264' '4912B19E0139.ms.model.script' // EUnknownFactoryKey
+ ;
+
+ENDME // ME_4912B21B00FB 
+
+MEREF ME_47B9866E034D_ME_4912AB3A01ED_over
+ MELINK Original WL 'ME_47B9866E034D' '47A74A5F0123.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9866E034D_ME_4912AB3A01ED_over Create
+
+MEREF ME_47EA4E9002C6_ME_4912AB3A01ED_over
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47EA4E9002C6_ME_4912AB3A01ED_over FinishDataUpdate
+
+MEREF ME_47EA4BEF0140_ME_4912AB3A01ED_G
+ MELINK Original WL? 'ME_47EA4BEF0140' // afwApplicationDataUpdate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EA4BEF0140_ME_4912AB3A01ED_G afwApplicationDataUpdate
+
+MEREF ME_4912A9950311_ME_4912AB3A01ED_G
+ MELINK Original WL? 'ME_4912A9950311' // Tl3InterfacedStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4912A9950311_ME_4912AB3A01ED_G Tl3InterfacedStringList
+
+%%InheritedBy ME_47EA4BEF0140 ME_4912AB3A01ED
+%%InheritedBy ME_4912A9950311 ME_4912AB3A01ED
+
+ME ME_4912AB3A01ED
+ MEPROP UID '4912AB3A01ED'
+ MEPROP Name 'TnsAttributeTreeCacheNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49006FAB024A' // Search
+ ;
+ MELIST Inherits
+   Seq: ( ME_47EA4BEF0140_ME_4912AB3A01ED_G // afwApplicationDataUpdate
+ ME_4912A9950311_ME_4912AB3A01ED_G // Tl3InterfacedStringList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4912ABB40360 // AttributeRoot
+ HWL ME_4912ABE4035C // AttributeRootClosed
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4912AC600333 // GetAttributeRoot
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47B9866E034D_ME_4912AB3A01ED_over // Create
+ ME_47EA4E9002C6_ME_4912AB3A01ED_over // FinishDataUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4912B02900AF // StringRoutines
+ ME_4912B04C01C6 // DataAdapter
+ ME_4912B21B00FB // EUnknownFactoryKey
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas'
+ UP extprop:rc:SelfName 'AttributeTreeCacheNew'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsAttributeTreeCacheNew'
+
+ENDME // ME_4912AB3A01ED TnsAttributeTreeCacheNew

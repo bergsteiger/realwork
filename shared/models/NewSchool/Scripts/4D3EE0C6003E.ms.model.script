@@ -1,0 +1,154 @@
+// TevHolderDataObject 4D3EE0C6003E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D3EE0C6003E
+
+ME ME_4D3EE1000344
+ MEPROP UID '4D3EE1000344'
+ MEPROP Name 'f_Holder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4D3EE1000344 f_Holder
+
+FORWARD ME_4D3EE11B022F
+
+ME ME_4D3EE1340362
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4D3EE1340362 aHolder
+
+ME ME_4D3EE12D0355
+ MEPROP UID '4D3EE12D0355'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE11B022F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EE1340362 // aHolder
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EE12D0355 DoIt
+
+ME ME_4D3EE11B022F
+ MEPROP UID '4D3EE11B022F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3EE12D0355 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D3EE11B022F Create
+
+MEREF ME_4D3EE11B022F_ME_4D3EE13B0146_G
+ MELINK Original HWL ME_4D3EE11B022F // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D3EE11B022F_ME_4D3EE13B0146_G Create
+
+MEREF ME_47C68BEF02B9_ME_4D3EE13B0146_R
+ MELINK Original WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C68BEF02B9_ME_4D3EE13B0146_R InevStorable
+
+%%ImplementedBy ME_47C68BEF02B9 ME_4D3EE13B0146
+
+%%InheritedBy ME_4D3EE11B022F ME_4D3EE13B0146
+
+ME ME_4D3EE13B0146
+ MEPROP UID '4D3EE13B0146'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D3EE11B022F_ME_4D3EE13B0146_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C68BEF02B9_ME_4D3EE13B0146_R // InevStorable
+ )
+ ; // Implements
+
+ENDME // ME_4D3EE13B0146 Make
+
+MEREF ME_48EA34990191_ME_4D3EE0C6003E_impl
+ MELINK Original WL 'ME_48EA34990191' '48EA32DB03E6.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48EA34990191_ME_4D3EE0C6003E_impl DoStore
+
+MEREF ME_48EA32DB03E6_ME_4D3EE0C6003E_G
+ MELINK Original WL? 'ME_48EA32DB03E6' // TevStreamedDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48EA32DB03E6_ME_4D3EE0C6003E_G TevStreamedDataObject
+
+%%InheritedBy ME_48EA32DB03E6 ME_4D3EE0C6003E
+
+ME ME_4D3EE0C6003E
+ MEPROP UID '4D3EE0C6003E'
+ MEPROP Name 'TevHolderDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48EA32DB03E6_ME_4D3EE0C6003E_G // TevStreamedDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D3EE1000344 // f_Holder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D3EE11B022F // Create
+ HWL ME_4D3EE13B0146 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48EA34990191_ME_4D3EE0C6003E_impl // DoStore
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '25.01.2011 17:40'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHolderDataObject.pas'
+ UP extprop:rc:SelfName 'HolderDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evHolderDataObject'
+
+ENDME // ME_4D3EE0C6003E TevHolderDataObject

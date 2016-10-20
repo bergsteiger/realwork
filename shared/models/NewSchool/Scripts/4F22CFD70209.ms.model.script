@@ -1,0 +1,82 @@
+// TvcmEntityFormImplementationModelPart 4F22CFD70209 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F22CFD70209
+
+ME ME_4F748E660326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F22CFD70209 // TvcmEntityFormImplementationModelPart
+ ;
+ MELINK Target WL? 'ME_4F22CB1E0009' // TvcmEntityFormModelPart
+ ;
+
+ENDME // ME_4F748E660326 
+
+MEREF ME_4F22CB9701DC_ME_4F22CFD70209_impl
+ MELINK Original WL 'ME_4F22CB9701DC' '4683F37902CF.ms.model.script' // VCMClosing
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4F22CB9701DC_ME_4F22CFD70209_impl VCMClosing
+
+MEREF ME_4F748C140133_ME_4F22CFD70209_impl
+ MELINK Original WL 'ME_4F748C140133' '4683F37902CF.ms.model.script' // IsBaloon
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F748C140133_ME_4F22CFD70209_impl IsBaloon
+
+MEREF ME_4F22CFBC016D_ME_4F22CFD70209_G
+ MELINK Original WL 'ME_4F22CFBC016D' '47F4EED50062.ms.model.script' // TvcmFormImplementation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F22CFBC016D_ME_4F22CFD70209_G TvcmFormImplementation
+
+MEREF ME_4F22CB690084_ME_4F22CFD70209_R
+ MELINK Original WL 'ME_4F22CB690084' '4683F37902CF.ms.model.script' // MvcmEntityFormState
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F22CB690084_ME_4F22CFD70209_R MvcmEntityFormState
+
+%%ImplementedBy ME_4F22CB690084 ME_4F22CFD70209
+
+%%InheritedBy ME_4F22CFBC016D ME_4F22CFD70209
+
+ME ME_4F22CFD70209
+ MEPROP UID '4F22CFD70209'
+ MEPROP Name 'TvcmEntityFormImplementationModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F22CFBC016D_ME_4F22CFD70209_G // TvcmFormImplementation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F22CB690084_ME_4F22CFD70209_R // MvcmEntityFormState
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4F22CB9701DC_ME_4F22CFD70209_impl // VCMClosing
+ ME_4F748C140133_ME_4F22CFD70209_impl // IsBaloon
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F748E660326 // TvcmEntityFormModelPart
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '27.01.2012 20:37'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormImplementationModelPart.pas'
+ UP extprop:rc:SelfName 'EntityFormImplementationModelPart'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmEntityFormImplementationModelPart'
+
+ENDME // ME_4F22CFD70209 TvcmEntityFormImplementationModelPart

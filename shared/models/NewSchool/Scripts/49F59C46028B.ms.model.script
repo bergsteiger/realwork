@@ -1,0 +1,155 @@
+// TbsSelectedUsers 49F59C46028B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F59C46028B
+
+ME ME_49F5A6780010
+ MEPROP UID '49F5A6780010'
+ MEPROP Name 'f_Items'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F59C46028B // TbsSelectedUsers
+ ;
+ MELINK Target WL 'ME_46A4756D00CC' '4677FBA70343.ms.model.script' // Il3StringsEx
+ ;
+
+ENDME // ME_49F5A6780010 f_Items
+
+ME ME_49F59C6C01A3
+ MEPROP UID '49F59C6C01A3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F59C46028B // TbsSelectedUsers
+ ;
+
+ENDME // ME_49F59C6C01A3 Make
+
+ME ME_49F5A7D70158
+ MEPROP UID '49F5A7D70158'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F59C46028B // TbsSelectedUsers
+ ;
+
+ENDME // ME_49F5A7D70158 Create
+
+ME ME_49F5A6B201C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F59C46028B // TbsSelectedUsers
+ ;
+ MELINK Target WL 'ME_48721F730220' '48721EA10381.ms.model.script' // Tl3Strings
+ ;
+
+ENDME // ME_49F5A6B201C6 
+
+MEREF ME_49F1ADEF0280_ME_49F59C46028B_impl
+ MELINK Original WL 'ME_49F1ADEF0280' '47ECAAF901F8.ms.model.script' // AddUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49F1ADEF0280_ME_49F59C46028B_impl AddUser
+
+MEREF ME_49F1AE8F03C3_ME_49F59C46028B_impl
+ MELINK Original WL 'ME_49F1AE8F03C3' '47ECAAF901F8.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49F1AE8F03C3_ME_49F59C46028B_impl Name
+
+MEREF ME_49F1AED002EE_ME_49F59C46028B_impl
+ MELINK Original WL 'ME_49F1AED002EE' '47ECAAF901F8.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49F1AED002EE_ME_49F59C46028B_impl Count
+
+MEREF ME_49F1AEFF0284_ME_49F59C46028B_impl
+ MELINK Original WL 'ME_49F1AEFF0284' '47ECAAF901F8.ms.model.script' // UID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49F1AEFF0284_ME_49F59C46028B_impl UID
+
+MEREF ME_479731C50290_ME_49F59C46028B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49F59C46028B_over Cleanup
+
+MEREF ME_47BC391D0259_ME_49F59C46028B_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_49F59C46028B_G Tl3SimpleObject
+
+MEREF ME_49F1AD9B00B6_ME_49F59C46028B_R
+ MELINK Original WL 'ME_49F1AD9B00B6' '47ECAAF901F8.ms.model.script' // IbsSelectedUsers
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49F1AD9B00B6_ME_49F59C46028B_R IbsSelectedUsers
+
+%%ImplementedBy ME_49F1AD9B00B6 ME_49F59C46028B
+
+%%InheritedBy ME_47BC391D0259 ME_49F59C46028B
+
+ME ME_49F59C46028B
+ MEPROP UID '49F59C46028B'
+ MEPROP Name 'TbsSelectedUsers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49F17D370263' // UsersDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_49F59C46028B_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49F1AD9B00B6_ME_49F59C46028B_R // IbsSelectedUsers
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49F5A6780010 // f_Items
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49F59C6C01A3 // Make
+ HWL ME_49F5A7D70158 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49F1ADEF0280_ME_49F59C46028B_impl // AddUser
+ ME_49F1AE8F03C3_ME_49F59C46028B_impl // Name
+ ME_49F1AED002EE_ME_49F59C46028B_impl // Count
+ ME_49F1AEFF0284_ME_49F59C46028B_impl // UID
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49F59C46028B_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49F5A6B201C6 // Tl3Strings
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\bsSelectedUsers.pas'
+ UP extprop:rc:SelfName 'bsSelectedUsers'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsSelectedUsers'
+
+ENDME // ME_49F59C46028B TbsSelectedUsers

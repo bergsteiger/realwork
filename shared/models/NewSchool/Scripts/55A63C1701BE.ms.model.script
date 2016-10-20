@@ -43,7 +43,7 @@ ENDME // ME_55A3DF7000D9 DoIt
 ME ME_55A3DF6602FC
  MEPROP UID '55A3DF6602FC'
  MEPROP Name 'Insert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -86,7 +86,7 @@ ENDME // ME_55A3DF5800DB DoIt
 ME ME_55A3DF510076
  MEPROP UID '55A3DF510076'
  MEPROP Name 'Add'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -141,7 +141,7 @@ ENDME // ME_559E91B8030C
 ME ME_559E857A037A
  MEPROP UID '559E857A037A'
  MEPROP Name 'FindDictionary'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -188,7 +188,7 @@ ENDME // ME_55A6630B003C DoIt
 ME ME_55A663000019
  MEPROP UID '55A663000019'
  MEPROP Name 'Remove'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -208,7 +208,7 @@ ME ME_55A66DEA033F
  MEPROP Name 'anItem'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55A4FCDC01B8' '4F2275C00012.ms.model.script' // TtfwDictionaryExPrim
+ MELINK Target WL? 'ME_55A4FCDC01B8' // TtfwDictionaryExPrim
  ;
 
 ENDME // ME_55A66DEA033F anItem
@@ -231,7 +231,7 @@ ENDME // ME_55A66DE6039F DoIt
 ME ME_55A66DCF00D9
  MEPROP UID '55A66DCF00D9'
  MEPROP Name 'RemoveUsersOf'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -274,7 +274,7 @@ ENDME // ME_55AE37B400CB DoIt
 ME ME_55AE379002EB
  MEPROP UID '55AE379002EB'
  MEPROP Name 'CollectNotValidTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -317,7 +317,7 @@ ENDME // ME_55AFA4B4012A DoIt
 ME ME_55AFA4930133
  MEPROP UID '55AFA4930133'
  MEPROP Name 'RemoveElementsOf'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -347,7 +347,7 @@ ENDME // ME_55AFAA6602D1 DoIt
 ME ME_55AFAA59009E
  MEPROP UID '55AFAA59009E'
  MEPROP Name 'RemoveNotValid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -360,6 +360,12 @@ ME ME_55AFAA59009E
  ; // Operations
 
 ENDME // ME_55AFAA59009E RemoveNotValid
+
+MEREF ME_57C5572B036F_ME_55A63C1701BE_R
+ MELINK Original WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C5572B036F_ME_55A63C1701BE_R seCriticalSectionHolder
 
 %%ImplementedBy ME_57C5572B036F ME_55A63C1701BE
 
@@ -375,7 +381,7 @@ ME ME_55A63C1701BE
  MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
  ;
  MELIST Implements
-   Seq: ( WL? 'ME_57C5572B036F' // seCriticalSectionHolder
+   Seq: ( ME_57C5572B036F_ME_55A63C1701BE_R // seCriticalSectionHolder
  )
  ; // Implements
  MELIST Operations

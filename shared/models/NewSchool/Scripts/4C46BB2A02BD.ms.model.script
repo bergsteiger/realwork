@@ -1,0 +1,71 @@
+// TScrollBackByLineWithCheckTopAnchoTest 4C46BB2A02BD TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C46BB2A02BD
+
+ME ME_4C46BC2702DF
+ MEPROP UID '4C46BC2702DF'
+ MEPROP Name 'f_PrevTopAnchor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C46BB2A02BD // TScrollBackByLineWithCheckTopAnchoTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4C46BC2702DF f_PrevTopAnchor
+
+MEREF ME_4B2F40FD0088_ME_4C46BB2A02BD_over
+ MELINK Original WL 'ME_4B2F40FD0088' '4B2A0DCE03A9.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B2F40FD0088_ME_4C46BB2A02BD_over Cleanup
+
+MEREF ME_4C1F0A260192_ME_4C46BB2A02BD_over
+ MELINK Original WL 'ME_4C1F0A260192' '4BE047320379.ms.model.script' // CheckTopAnchor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C1F0A260192_ME_4C46BB2A02BD_over CheckTopAnchor
+
+MEREF ME_4C45563D00F7_ME_4C46BB2A02BD_G
+ MELINK Original WL? 'ME_4C45563D00F7' // TScrollBackByLineTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C45563D00F7_ME_4C46BB2A02BD_G TScrollBackByLineTest
+
+%%InheritedBy ME_4C45563D00F7 ME_4C46BB2A02BD
+
+ME ME_4C46BB2A02BD
+ MEPROP UID '4C46BB2A02BD'
+ MEPROP Name 'TScrollBackByLineWithCheckTopAnchoTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест прокрутки документа вверх с проверкой TopAnchor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C45563D00F7_ME_4C46BB2A02BD_G // TScrollBackByLineTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C46BC2702DF // f_PrevTopAnchor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4B2F40FD0088_ME_4C46BB2A02BD_over // Cleanup
+ ME_4C1F0A260192_ME_4C46BB2A02BD_over // CheckTopAnchor
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\ScrollBackByLineWithCheckTopAnchoTest.pas'
+ UP extprop:rc:SelfName 'ScrollBackByLineWithCheckTopAnchoTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollBackByLineWithCheckTopAnchoTest'
+
+ENDME // ME_4C46BB2A02BD TScrollBackByLineWithCheckTopAnchoTest

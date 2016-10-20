@@ -1,0 +1,147 @@
+// Tm3CustomStream 53FDCE880154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FDCE880154
+
+ME ME_5481A7CD003B
+ MEPROP UID '5481A7CD003B'
+ MEPROP Name 'InnerStream'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53FDCE880154 // Tm3CustomStream
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5481A7CD003B InnerStream
+
+FORWARD ME_5480895501A0
+
+ME ME_5480897F02E5
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_5480897F02E5 aStream
+
+ME ME_5480897F0348
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_5480897F0348 anAccess
+
+ME ME_5480895B00FE
+ MEPROP UID '5480895B00FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5480895501A0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5480897F02E5 // aStream
+ ME_5480897F0348 // anAccess
+ )
+ ; // Parameters
+
+ENDME // ME_5480895B00FE DoIt
+
+ME ME_5480895501A0
+ MEPROP UID '5480895501A0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDCE880154 // Tm3CustomStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5480895B00FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5480895501A0 Create
+
+ME ME_55FFD3E400C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCE880154 // Tm3CustomStream
+ ;
+ MELINK Target WL? 'ME_540725D100E7' // m3Exceptions
+ ;
+
+ENDME // ME_55FFD3E400C0 
+
+MEREF ME_479731C50290_ME_53FDCE880154_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53FDCE880154_over Cleanup
+
+MEREF ME_4FA280DB0288_ME_53FDCE880154_over
+ MELINK Original WL 'ME_4FA280DB0288' '5481CCCF0319.ms.model.script' // Commit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA280DB0288_ME_53FDCE880154_over Commit
+
+MEREF ME_4FA276800294_ME_53FDCE880154_G
+ MELINK Original WL? 'ME_4FA276800294' // Tm3BaseStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA276800294_ME_53FDCE880154_G Tm3BaseStream
+
+%%InheritedBy ME_4FA276800294 ME_53FDCE880154
+
+ME ME_53FDCE880154
+ MEPROP UID '53FDCE880154'
+ MEPROP Name 'Tm3CustomStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FA276800294_ME_53FDCE880154_G // Tm3BaseStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5481A7CD003B // InnerStream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5480895501A0 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53FDCE880154_over // Cleanup
+ ME_4FA280DB0288_ME_53FDCE880154_over // Commit
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55FFD3E400C0 // m3Exceptions
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3CustomStream.pas'
+ UP extprop:rc:SelfName 'm3CustomStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3CustomStream'
+
+ENDME // ME_53FDCE880154 Tm3CustomStream

@@ -1,0 +1,143 @@
+// pop_editor_SelectCellByMouse 4E980426001F ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E980426001F
+
+ME ME_4E980B53029A
+ MEPROP UID '4E980B53029A'
+ MEPROP Name 'f_Row'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Номер строки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E980B53029A f_Row
+
+ME ME_4E980B790282
+ MEPROP UID '4E980B790282'
+ MEPROP Name 'f_Col'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Номер колонки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E980B790282 f_Col
+
+ME ME_4E98107C02A6
+ MEPROP UID '4E98107C02A6'
+ MEPROP Name 'f_Table'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4E98107C02A6 f_Table
+
+ME ME_4E98125B0294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E980426001F // pop_editor_SelectCellByMouse
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E98125B0294 
+
+MEREF ME_50B8BCDF0093_ME_4E980426001F_impl
+ MELINK Original WL 'ME_50B8BCDF0093' '50B88DF40154.ms.model.script' // DoCursor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50B8BCDF0093_ME_4E980426001F_impl DoCursor
+
+MEREF ME_4BF4E6A00093_ME_4E980426001F_over
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BF4E6A00093_ME_4E980426001F_over GetInnerPara
+
+MEREF ME_4DB0614603C8_ME_4E980426001F_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E980426001F_over GetWordNameForRegister
+
+MEREF ME_50B88DF40154_ME_4E980426001F_G
+ MELINK Original WL? 'ME_50B88DF40154' // TkwEditorFromStackCursorWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50B88DF40154_ME_4E980426001F_G TkwEditorFromStackCursorWord
+
+MEREF ME_4E97EE2D00D7_ME_4E980426001F_R
+ MELINK Original WL? 'ME_4E97EE2D00D7' // CellSelectionByMouse
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E97EE2D00D7_ME_4E980426001F_R CellSelectionByMouse
+
+%%ImplementedBy ME_4E97EE2D00D7 ME_4E980426001F
+
+%%InheritedBy ME_50B88DF40154 ME_4E980426001F
+
+ME ME_4E980426001F
+ MEPROP UID '4E980426001F'
+ MEPROP Name 'pop_editor_SelectCellByMouse'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'editorSelectCellByMouse' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_50B88DF40154_ME_4E980426001F_G // TkwEditorFromStackCursorWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E97EE2D00D7_ME_4E980426001F_R // CellSelectionByMouse
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E980B53029A // f_Row
+ HWL ME_4E980B790282 // f_Col
+ HWL ME_4E98107C02A6 // f_Table
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_50B8BCDF0093_ME_4E980426001F_impl // DoCursor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BF4E6A00093_ME_4E980426001F_over // GetInnerPara
+ ME_4DB0614603C8_ME_4E980426001F_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E98125B0294 // Table
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSelectCellByMouse'
+ UP extprop:rc:SelfName 'PopEditorSelectCellByMouse'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSelectCellByMouse'
+
+ENDME // ME_4E980426001F pop_editor_SelectCellByMouse

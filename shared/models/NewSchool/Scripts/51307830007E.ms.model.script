@@ -1,0 +1,52 @@
+// TAutoTestSuiteWithDUnitSupport 51307830007E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51307830007E
+
+ME ME_5130789403E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ ;
+ MELINK Target WL? 'ME_51304A1F02AD' // kwKeyWordsPack
+ ;
+
+ENDME // ME_5130789403E4 
+
+MEREF ME_4DC40A7E00C8_ME_51307830007E_G
+ MELINK Original WL 'ME_4DC40A7E00C8' '4DC24CA4037E.ms.model.script' // TCustomAutoTestSuite
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC40A7E00C8_ME_51307830007E_G TCustomAutoTestSuite
+
+%%InheritedBy ME_4DC40A7E00C8 ME_51307830007E
+
+ME ME_51307830007E
+ MEPROP UID '51307830007E'
+ MEPROP Name 'TAutoTestSuiteWithDUnitSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5130776E01BE' // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DC40A7E00C8_ME_51307830007E_G // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5130789403E4 // kwKeyWordsPack
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestSuiteWithDUnitSupport.pas'
+ UP extprop:rc:SelfName 'AutoTestSuiteWithDUnitSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'AutoTestSuiteWithDUnitSupport'
+
+ENDME // ME_51307830007E TAutoTestSuiteWithDUnitSupport

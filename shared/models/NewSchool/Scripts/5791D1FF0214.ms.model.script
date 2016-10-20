@@ -19,7 +19,7 @@ ME ME_F2CACA9697A2
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_F2CACA9697A2 aMainForm
@@ -29,7 +29,7 @@ ME ME_A04AF61577FD
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_A04AF61577FD anOwner
@@ -56,7 +56,7 @@ ME ME_29DBB79C11FF
  MEPROP Name 'MakeChild'
  MEPROP OriginalName 'MakeChild$5791E0EF0247'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -82,7 +82,7 @@ ME ME_A7D7607FA316
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_A7D7607FA316 aMainForm
@@ -108,7 +108,7 @@ ME ME_69D99D6C3E20
  MEPROP Name 'MakeParent'
  MEPROP OriginalName 'MakeParent$4F6B678D03B8'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -149,7 +149,7 @@ ME ME_5791E10302F1
  MEPROP Name 'aMainForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_5791E10302F1 aMainForm
@@ -158,7 +158,7 @@ ME ME_5791E1030319
  MEPROP Name 'anOwner'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ MELINK Target WL? 'ME_49525B34022A' // TvcmEntityForm
  ;
 
 ENDME // ME_5791E1030319 anOwner
@@ -182,7 +182,7 @@ ENDME // ME_5791E10101A2 DoIt
 ME ME_5791E0EF0247
  MEPROP UID '5791E0EF0247'
  MEPROP Name 'MakeChild'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -201,7 +201,7 @@ ME ME_4F6B67ED0116
  MEPROP Name 'aMainForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ MELINK Target WL? 'ME_49525C7A0114' // TvcmMainForm
  ;
 
 ENDME // ME_4F6B67ED0116 aMainForm
@@ -224,7 +224,7 @@ ENDME // ME_4F6B67E20007 DoIt
 ME ME_4F6B678D03B8
  MEPROP UID '4F6B678D03B8'
  MEPROP Name 'MakeParent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -239,6 +239,12 @@ ME ME_4F6B678D03B8
 
 ENDME // ME_4F6B678D03B8 MakeParent
 
+MEREF ME_49E7754802A9_ME_5791D23B02DA_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5791D23B02DA_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_5791D23B02DA
 
 ME ME_5791D23B02DA
@@ -252,7 +258,7 @@ ME ME_5791D23B02DA
  MELINK Parent HWL ME_5791D1FF0214 // Contracts
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_5791D23B02DA_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations

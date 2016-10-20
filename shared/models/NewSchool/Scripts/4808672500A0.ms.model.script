@@ -1,0 +1,265 @@
+// TatUserWorkContext 4808672500A0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4808672500A0
+
+ME ME_4808679100E8
+ MEPROP UID '4808679100E8'
+ MEPROP Name 'DocHistoryLength'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4808679100E8 DocHistoryLength
+
+ME ME_483A884E0115
+ MEPROP UID '483A884E0115'
+ MEPROP Name 'ListHistoryLength'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_483A884E0115 ListHistoryLength
+
+ME ME_480867F10278
+ MEPROP UID '480867F10278'
+ MEPROP Name 'CurrDoc'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY '“екущий (последний в истории) документ. Ќапример, операци€ открыти€ документа его устанавливает. —юда мы устанавливаем закладку, добавл€ем комментарии и вообще когда нам понадобитс€ документ мы его берем отсюда.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_480867F10278 CurrDoc
+
+ME ME_483A85FB0088
+ MEPROP UID '483A85FB0088'
+ MEPROP Name 'CurrList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY '“екущий (последний в истории) список. ≈сли кака€-то операци€ получает список, то она его ложит сюда, чтобы те операции которым нужен список пользовались.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_483A85FB0088 CurrList
+
+ME ME_483A9A5D0075
+ MEPROP UID '483A9A5D0075'
+ MEPROP Name 'f_DocumentHistory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL? 'ME_483A9A3600C3' // TatDocumentHistory
+ ;
+
+ENDME // ME_483A9A5D0075 f_DocumentHistory
+
+ME ME_483A9A800046
+ MEPROP UID '483A9A800046'
+ MEPROP Name 'f_ListHistory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL? 'ME_483A9A690324' // TatListHistory
+ ;
+
+ENDME // ME_483A9A800046 f_ListHistory
+
+ME ME_484AA281000E
+ MEPROP UID '484AA281000E'
+ MEPROP Name 'CurrFolder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY '“екуща€ папка. Ќапример, операци€ создани€ папки будет ее устанавливать, а операци€ сохранени€ закладки сможет туда сохранить закладку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_484AA281000E CurrFolder
+
+ME ME_4808681E00D9
+ MEPROP UID '4808681E00D9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+
+ENDME // ME_4808681E00D9 Create
+
+ME ME_4808684202C3
+ MEPROP Name 'document'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4808684202C3 document
+
+ME ME_480868380180
+ MEPROP UID '480868380180'
+ MEPROP Name 'AddDocToHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808684202C3 // document
+ )
+ ; // Parameters
+
+ENDME // ME_480868380180 AddDocToHistory
+
+ME ME_4808684A0084
+ MEPROP UID '4808684A0084'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+
+ENDME // ME_4808684A0084 Clear
+
+ME ME_483A887D023E
+ MEPROP Name 'list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_483A887D023E list
+
+ME ME_483A88650069
+ MEPROP UID '483A88650069'
+ MEPROP Name 'AddListToHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_483A887D023E // list
+ )
+ ; // Parameters
+
+ENDME // ME_483A88650069 AddListToHistory
+
+ME ME_4808697103C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4808672500A0 // TatUserWorkContext
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4808697103C3 
+
+MEREF ME_48077504027E_ME_4808672500A0_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4808672500A0_over Destroy
+
+MEREF ME_4807745602C8_ME_4808672500A0_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_4808672500A0_G TObject
+
+%%InheritedBy ME_4807745602C8 ME_4808672500A0
+
+ME ME_4808672500A0
+ MEPROP UID '4808672500A0'
+ MEPROP Name 'TatUserWorkContext'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807745602C8_ME_4808672500A0_G // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4808679100E8 // DocHistoryLength
+ HWL ME_483A884E0115 // ListHistoryLength
+ HWL ME_480867F10278 // CurrDoc
+ HWL ME_483A85FB0088 // CurrList
+ HWL ME_483A9A5D0075 // f_DocumentHistory
+ HWL ME_483A9A800046 // f_ListHistory
+ HWL ME_484AA281000E // CurrFolder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4808681E00D9 // Create
+ HWL ME_480868380180 // AddDocToHistory
+ HWL ME_4808684A0084 // Clear
+ HWL ME_483A88650069 // AddListToHistory
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4808672500A0_over // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4808697103C3 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atUserWorkContext.pas'
+ UP extprop:rc:SelfName 'atUserWorkContext'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atUserWorkContext'
+
+ENDME // ME_4808672500A0 TatUserWorkContext

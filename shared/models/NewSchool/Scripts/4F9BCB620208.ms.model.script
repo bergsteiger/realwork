@@ -1,0 +1,90 @@
+// TPl3MessageIDList 4F9BCB620208 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9BCB620208
+
+FORWARD ME_4F9BCF5401F8
+
+ME ME_4F9BCF6401AF
+ MEPROP UID '4F9BCF6401AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BCF5401F8 // CleanupItems
+ ;
+
+ENDME // ME_4F9BCF6401AF DoIt
+
+ME ME_4F9BCF5401F8
+ MEPROP UID '4F9BCF5401F8'
+ MEPROP Name 'CleanupItems'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9BCB620208 // TPl3MessageIDList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9BCF6401AF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F9BCF5401F8 CleanupItems
+
+MEREF ME_479731C50290_ME_4F9BCB620208_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4F9BCB620208_over Cleanup
+
+MEREF ME_479F2AFB0397_ME_4F9BCB620208_over
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2AFB0397_ME_4F9BCB620208_over Release
+
+MEREF ME_4F9BCAD90297_ME_4F9BCB620208_G
+ MELINK Original WL? 'ME_4F9BCAD90297' // TPl3MessageIDListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F9BCAD90297_ME_4F9BCB620208_G TPl3MessageIDListPrim
+
+%%InheritedBy ME_4F9BCAD90297 ME_4F9BCB620208
+
+ME ME_4F9BCB620208
+ MEPROP UID '4F9BCB620208'
+ MEPROP Name 'TPl3MessageIDList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9BDEEE01BC' // Поддержка локализованных сообщений
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F9BCAD90297_ME_4F9BCB620208_G // TPl3MessageIDListPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F9BCF5401F8 // CleanupItems
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F9BCB620208_over // Cleanup
+ ME_479F2AFB0397_ME_4F9BCB620208_over // Release
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ UP extprop:rc:SelfName 'Pl3MessageIDList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Pl3MessageIDList'
+
+ENDME // ME_4F9BCB620208 TPl3MessageIDList

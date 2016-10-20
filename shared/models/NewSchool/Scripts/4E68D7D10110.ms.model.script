@@ -1,0 +1,95 @@
+// pop_editor_UpdateCursorFromHotSpot 4E68D7D10110 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E68D7D10110
+
+FORWARD ME_4E68D7D10110
+
+MEREF ME_4829D92A037B_ME_4E68D85100F0_G
+ MELINK Original WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4829D92A037B_ME_4E68D85100F0_G TevCustomEditorWindow
+
+%%InheritedBy ME_4829D92A037B ME_4E68D85100F0
+
+ME ME_4E68D85100F0
+ MEPROP UID '4E68D85100F0'
+ MEPROP Name 'TevCustomEditorWindowHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E68D7D10110 // pop_editor_UpdateCursorFromHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( ME_4829D92A037B_ME_4E68D85100F0_G // TevCustomEditorWindow
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EditorWindowHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E68D85100F0 TevCustomEditorWindowHack
+
+MEREF ME_4F4CB81200CA_ME_4E68D7D10110_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4E68D7D10110_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4E68D7D10110_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4E68D7D10110_over GetWordNameForRegister
+
+MEREF ME_4F4CB625027A_ME_4E68D7D10110_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4E68D7D10110_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4E68D7D10110
+
+ME ME_4E68D7D10110
+ MEPROP UID '4E68D7D10110'
+ MEPROP Name 'pop_editor_UpdateCursorFromHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4E68D7D10110_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4E68D7D10110_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4E68D7D10110_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E68D85100F0 // TevCustomEditorWindowHack
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '08.09.2011 18:57'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorUpdateCursorFromHotSpot'
+ UP extprop:rc:SelfName 'PopEditorUpdateCursorFromHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorUpdateCursorFromHotSpot'
+
+ENDME // ME_4E68D7D10110 pop_editor_UpdateCursorFromHotSpot

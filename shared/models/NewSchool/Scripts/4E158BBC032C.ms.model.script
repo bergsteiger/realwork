@@ -1,0 +1,172 @@
+// TInsertSectionBreak 4E158BBC032C TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E158BBC032C
+
+FORWARD ME_4E158FBB0190
+
+ME ME_4E158FD70303
+ MEPROP UID '4E158FD70303'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E158FBB0190 // MoveCursorCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E158FD70303 DoIt
+
+ME ME_4E158FBB0190
+ MEPROP UID '4E158FBB0190'
+ MEPROP Name 'MoveCursorCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E158BBC032C // TInsertSectionBreak
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E158FD70303 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E158FBB0190 MoveCursorCount
+
+FORWARD ME_4E15941B03E7
+
+ME ME_4E15977002DF
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E15977002DF aText
+
+ME ME_4E1596FA00DB
+ MEPROP UID '4E1596FA00DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E15941B03E7 // CheckPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E15977002DF // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4E1596FA00DB DoIt
+
+ME ME_4E15941B03E7
+ MEPROP UID '4E15941B03E7'
+ MEPROP Name 'CheckPara'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E158BBC032C // TInsertSectionBreak
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E1596FA00DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E15941B03E7 CheckPara
+
+ME ME_4E158F2F0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E158BBC032C // TInsertSectionBreak
+ ;
+ MELINK Target WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+
+ENDME // ME_4E158F2F0205 
+
+MEREF ME_4BE13147032C_ME_4E158BBC032C_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4E158BBC032C_impl Process
+
+MEREF ME_4C07AC6F036D_ME_4E158BBC032C_over
+ MELINK Original WL 'ME_4C07AC6F036D' '4BE425C70228.ms.model.script' // GetNormalFontSize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07AC6F036D_ME_4E158BBC032C_over GetNormalFontSize
+
+MEREF ME_4C08CF4300BE_ME_4E158BBC032C_over
+ MELINK Original WL 'ME_4C08CF4300BE' '4BE047320379.ms.model.script' // WebStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C08CF4300BE_ME_4E158BBC032C_over WebStyle
+
+MEREF ME_4BE111D30229_ME_4E158BBC032C_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4E158BBC032C_G TTextViaEditorProcessor
+
+MEREF ME_4C500D6101D8_ME_4E158BBC032C_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4E158BBC032C_R CursorMover
+
+%%ImplementedBy ME_4C500D6101D8 ME_4E158BBC032C
+
+%%InheritedBy ME_4BE111D30229 ME_4E158BBC032C
+
+ME ME_4E158BBC032C
+ MEPROP UID '4E158BBC032C'
+ MEPROP Name 'TInsertSectionBreak'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест на вставку разрыва раздела.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE111D30229_ME_4E158BBC032C_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C500D6101D8_ME_4E158BBC032C_R // CursorMover
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E158FBB0190 // MoveCursorCount
+ HWL ME_4E15941B03E7 // CheckPara
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4E158BBC032C_impl // Process
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C07AC6F036D_ME_4E158BBC032C_over // GetNormalFontSize
+ ME_4C08CF4300BE_ME_4E158BBC032C_over // WebStyle
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E158F2F0205 // PageOrientation
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\InsertSectionBreak.pas'
+ UP extprop:rc:SelfName 'InsertSectionBreak'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'InsertSectionBreak'
+
+ENDME // ME_4E158BBC032C TInsertSectionBreak

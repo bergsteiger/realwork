@@ -1,0 +1,135 @@
+// TevDocumentPartGeneratorPrim 4A8BBCB90035 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8BBCB90035
+
+ME ME_4A8BBD430288
+ MEPROP UID '4A8BBD430288'
+ MEPROP Name 'Flags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8BBCB90035 // TevDocumentPartGeneratorPrim
+ ;
+ MELINK Target WL 'ME_476BED630189' '4678209200A6.ms.model.script' // TevLoadFlags
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4A8BBD430288 Flags
+
+ME ME_4A8BBFBE02D4
+ MEPROP UID '4A8BBFBE02D4'
+ MEPROP Name 'AtEndChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8BBCB90035 // TevDocumentPartGeneratorPrim
+ ;
+
+ENDME // ME_4A8BBFBE02D4 AtEndChanged
+
+MEREF ME_4A253D5102D2_ME_4A8BBCB90035_impl
+ MELINK Original WL 'ME_4A253D5102D2' '4A253C760202.ms.model.script' // NeedJoin
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4A253D5102D2_ME_4A8BBCB90035_impl NeedJoin
+
+MEREF ME_4A253D76025F_ME_4A8BBCB90035_impl
+ MELINK Original WL 'ME_4A253D76025F' '4A253C760202.ms.model.script' // AtEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4A253D76025F_ME_4A8BBCB90035_impl AtEnd
+
+MEREF ME_4A253D8700C8_ME_4A8BBCB90035_impl
+ MELINK Original WL 'ME_4A253D8700C8' '4A253C760202.ms.model.script' // NeedSkipSubDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4A253D8700C8_ME_4A8BBCB90035_impl NeedSkipSubDocuments
+
+MEREF ME_4A8BBC390385_ME_4A8BBCB90035_impl
+ MELINK Original WL 'ME_4A8BBC390385' '4A253C760202.ms.model.script' // LoadFlags
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A8BBC390385_ME_4A8BBCB90035_impl LoadFlags
+
+MEREF ME_479731C50290_ME_4A8BBCB90035_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4A8BBCB90035_over Cleanup
+
+MEREF ME_48E4B88600A9_ME_4A8BBCB90035_G
+ MELINK Original WL 'ME_48E4B88600A9' '47F222D30060.ms.model.script' // TevHighLevelDocumentGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E4B88600A9_ME_4A8BBCB90035_G TevHighLevelDocumentGenerator
+
+MEREF ME_4A253D28023D_ME_4A8BBCB90035_R
+ MELINK Original WL 'ME_4A253D28023D' '4A253C760202.ms.model.script' // IevJoinGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A253D28023D_ME_4A8BBCB90035_R IevJoinGenerator
+
+%%ImplementedBy ME_4A253D28023D ME_4A8BBCB90035
+
+%%InheritedBy ME_48E4B88600A9 ME_4A8BBCB90035
+
+ME ME_4A8BBCB90035
+ MEPROP UID '4A8BBCB90035'
+ MEPROP Name 'TevDocumentPartGeneratorPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_48E4B88600A9_ME_4A8BBCB90035_G // TevHighLevelDocumentGenerator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4A253D28023D_ME_4A8BBCB90035_R // IevJoinGenerator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A8BBD430288 // Flags
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8BBFBE02D4 // AtEndChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A253D5102D2_ME_4A8BBCB90035_impl // NeedJoin
+ ME_4A253D76025F_ME_4A8BBCB90035_impl // AtEnd
+ ME_4A253D8700C8_ME_4A8BBCB90035_impl // NeedSkipSubDocuments
+ ME_4A8BBC390385_ME_4A8BBCB90035_impl // LoadFlags
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A8BBCB90035_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '19.08.2009 12:50'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartGeneratorPrim.pas'
+ UP extprop:rc:SelfName 'DocumentPartGeneratorPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentPartGeneratorPrim'
+
+ENDME // ME_4A8BBCB90035 TevDocumentPartGeneratorPrim

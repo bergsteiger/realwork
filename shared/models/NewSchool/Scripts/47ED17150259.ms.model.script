@@ -1,0 +1,65 @@
+// TnevWaiterList 47ED17150259 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ED17150259
+
+ME ME_47ED173E0371
+ MEPROP UID '47ED173E0371'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47ED17150259 // TnevWaiterList
+ ;
+ MELINK Target WL 'ME_47C6B2F701AA' '47C5207602D1.ms.model.script' // InevWaiter
+ ;
+
+ENDME // ME_47ED173E0371 ItemType
+
+MEREF ME_47B57D830369_ME_47ED17150259_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47ED17150259_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47ED17150259_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47ED17150259_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47ED17150259
+%%InheritedBy ME_4A54DD4E036F ME_47ED17150259
+
+ME ME_47ED17150259
+ MEPROP UID '47ED17150259'
+ MEPROP Name 'TnevWaiterList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47ED17150259_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47ED17150259_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47ED173E0371 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '28.03.2008 19:05'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevWaiterList.pas'
+ UP extprop:rc:SelfName 'WaiterList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevWaiterList'
+
+ENDME // ME_47ED17150259 TnevWaiterList

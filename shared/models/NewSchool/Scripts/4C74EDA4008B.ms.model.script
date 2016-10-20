@@ -1,0 +1,107 @@
+// GZipTest 4C74EDA4008B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C74EDA4008B
+
+FORWARD ME_4C74EDE00008
+
+ME ME_4C74EDC70332
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C74EDE00008 // DoIt
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_4C74EDC70332 
+
+ME ME_4C74EE420106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C74EDE00008 // DoIt
+ ;
+ MELINK Target WL? 'ME_4C74EE240075' // Tl3GZipStream
+ ;
+
+ENDME // ME_4C74EE420106 
+
+ME ME_4C74EEA90230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C74EDE00008 // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C74EEA90230 
+
+ME ME_4C74EECF000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C74EDE00008 // DoIt
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4C74EECF000F 
+
+ME ME_4C74EDE00008
+ MEPROP UID '4C74EDE00008'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C74EDA4008B // GZipTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4C74EDC70332 // Tl3FileStream
+ ME_4C74EE420106 // Tl3GZipStream
+ ME_4C74EEA90230 // FreeAndNil
+ ME_4C74EECF000F // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_4C74EDE00008 DoIt
+
+MEREF ME_4B2A11BC0255_ME_4C74EDA4008B_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4C74EDA4008B_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4C74EDA4008B
+
+ME ME_4C74EDA4008B
+ MEPROP UID '4C74EDA4008B'
+ MEPROP Name 'GZipTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C74ED8300A5' // GZip
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4C74EDA4008B_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C74EDE00008 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '25.08.2010 14:17'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\GZipTest.pas'
+ UP extprop:pas:TypeName 'TGZipTest'
+ UP extprop:rc:SelfName 'GZipTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C74EDA4008B GZipTest

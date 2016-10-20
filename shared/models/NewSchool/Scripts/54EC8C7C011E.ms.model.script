@@ -161,7 +161,7 @@ ME ME_55B7A47D035F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54EC8C7C011E // vtComboBoxWordsPack
  ;
- MELINK Target WL 'ME_55B7A39F0035' '55B7A3160128.ms.model.script' // TtfwAxiomaticsResNameGetters
+ MELINK Target WL? 'ME_55B7A39F0035' // TtfwAxiomaticsResNameGetters
  ;
 
 ENDME // ME_55B7A47D035F 
@@ -201,7 +201,7 @@ ME ME_55B7A67701B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54EC8C7C011E // vtComboBoxWordsPack
  ;
- MELINK Target WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ MELINK Target WL? 'ME_55B780E60398' // TvtComboTree
  ;
 
 ENDME // ME_55B7A67701B8 
@@ -246,6 +246,18 @@ ME ME_55B7A7D60393
 
 ENDME // ME_55B7A7D60393 
 
+MEREF ME_5049DA2A035D_ME_54EC8C7C011E_G
+ MELINK Original WL 'ME_5049DA2A035D' '48C78D5402A6.ms.model.script' // TCustomComboBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5049DA2A035D_ME_54EC8C7C011E_G TCustomComboBox
+
+MEREF ME_55B780E60398_ME_54EC8C7C011E_G
+ MELINK Original WL? 'ME_55B780E60398' // TvtComboTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B780E60398_ME_54EC8C7C011E_G TvtComboTree
+
 %%InjectedBy ME_483158FD0155 ME_54EC8C7C011E
 
 %%InheritedBy ME_5049DA2A035D ME_54EC8C7C011E
@@ -263,8 +275,8 @@ ME ME_54EC8C7C011E
  MELINK Parent WL? 'ME_54EC8C220105' // vtComboBoxWords
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5049DA2A035D' '48C78D5402A6.ms.model.script' // TCustomComboBox
- WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+   Seq: ( ME_5049DA2A035D_ME_54EC8C7C011E_G // TCustomComboBox
+ ME_55B780E60398_ME_54EC8C7C011E_G // TvtComboTree
  )
  ; // Inherits
  MELIST Operations

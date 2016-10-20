@@ -1,0 +1,178 @@
+// TdMedicFirmList 493A66C50034 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493A66C50034
+
+ME ME_4B22184C032E
+ MEPROP UID '4B22184C032E'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_493A66C50034 // TdMedicFirmList
+ ;
+ MELINK Target WL 'ME_4939264B0061' '491D7C9603B2.ms.model.script' // IdMedicFirmList
+ ;
+
+ENDME // ME_4B22184C032E IvcmRealData
+
+FORWARD ME_4B1923BF0331
+
+ME ME_4B1923C60022
+ MEPROP UID '4B1923C60022'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1923BF0331 // Make
+ ;
+
+ENDME // ME_4B1923C60022 DoIt
+
+ME ME_4B1923BF0331
+ MEPROP UID '4B1923BF0331'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_493A66C50034 // TdMedicFirmList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1923C60022 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1923BF0331 Make
+
+ME ME_4B1923E20218
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493A66C50034 // TdMedicFirmList
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B1923E20218 
+
+ME ME_4B19243903E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493A66C50034 // TdMedicFirmList
+ ;
+ MELINK Target WL? 'ME_4982B6510327' // vcmFormDataSourceRef
+ ;
+
+ENDME // ME_4B19243903E1 
+
+MEREF ME_2A46ABCE9C2A_ME_493A66C50034_impl
+ MELINK Original WL 'ME_2A46ABCE9C2A' '491D7C9603B2.ms.model.script' // dsSynchroViewRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_2A46ABCE9C2A_ME_493A66C50034_impl dsSynchroViewRef
+
+MEREF ME_9B8E07D2C1BA_ME_493A66C50034_impl
+ MELINK Original WL 'ME_9B8E07D2C1BA' '491D7C9603B2.ms.model.script' // MedicFirmList_SynchroView_Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_9B8E07D2C1BA_ME_493A66C50034_impl MedicFirmList_SynchroView_Form
+
+MEREF ME_DD81AF5E2804_ME_493A66C50034_impl
+ MELINK Original WL 'ME_DD81AF5E2804' '491D7C9603B2.ms.model.script' // dsFirmListRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_DD81AF5E2804_ME_493A66C50034_impl dsFirmListRef
+
+MEREF ME_47A042E100E2_ME_493A66C50034_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_493A66C50034_over InitFields
+
+MEREF ME_4B16B8CF0307_ME_493A66C50034_over
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B16B8CF0307_ME_493A66C50034_over AssignData
+
+MEREF ME_493965B600E9_ME_493A66C50034_G
+ MELINK Original WL? 'ME_493965B600E9' // dMedicFirmDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493965B600E9_ME_493A66C50034_G dMedicFirmDocument
+
+MEREF ME_4939264B0061_ME_493A66C50034_R
+ MELINK Original WL 'ME_4939264B0061' '491D7C9603B2.ms.model.script' // IdMedicFirmList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4939264B0061_ME_493A66C50034_R IdMedicFirmList
+
+%%ImplementedBy ME_4939264B0061 ME_493A66C50034
+
+%%InheritedBy ME_493965B600E9 ME_493A66C50034
+
+ME ME_493A66C50034
+ MEPROP UID '493A66C50034'
+ MEPROP Name 'TdMedicFirmList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( ME_493965B600E9_ME_493A66C50034_G // dMedicFirmDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4939264B0061_ME_493A66C50034_R // IdMedicFirmList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B22184C032E // IvcmRealData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1923BF0331 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_2A46ABCE9C2A_ME_493A66C50034_impl // dsSynchroViewRef
+ ME_9B8E07D2C1BA_ME_493A66C50034_impl // MedicFirmList_SynchroView_Form
+ ME_DD81AF5E2804_ME_493A66C50034_impl // dsFirmListRef
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_493A66C50034_over // InitFields
+ ME_4B16B8CF0307_ME_493A66C50034_over // AssignData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B1923E20218 // Supports
+ ME_4B19243903E1 // vcmFormDataSourceRef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '12.07.2006'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmList.pas'
+ UP extprop:rc:SelfName 'dMedicFirmList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dMedicFirmList'
+
+ENDME // ME_493A66C50034 TdMedicFirmList

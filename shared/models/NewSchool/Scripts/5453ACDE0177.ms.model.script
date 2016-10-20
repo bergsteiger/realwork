@@ -1,0 +1,80 @@
+// Tm3BranchHandle 5453ACDE0177 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5453ACDE0177
+
+ME ME_5453AD0A03D3
+ MEPROP UID '5453AD0A03D3'
+ MEPROP Name 'NormalForms'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453ACDE0177 // Tm3BranchHandle
+ ;
+ MELINK Target WL 'ME_5453ACB101F8' '5453AB7202EC.ms.model.script' // Pm3BranchHandlePrim
+ ;
+
+ENDME // ME_5453AD0A03D3 NormalForms
+
+ME ME_545A1B9502F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5453ACDE0177 // Tm3BranchHandle
+ ;
+ MELINK Target WL? 'ME_545A1B76019B' // Tm3NormalFormsManager
+ ;
+
+ENDME // ME_545A1B9502F7 
+
+MEREF ME_479731C50290_ME_5453ACDE0177_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5453ACDE0177_over Cleanup
+
+MEREF ME_5453AB7202EC_ME_5453ACDE0177_G
+ MELINK Original WL? 'ME_5453AB7202EC' // Tm3BranchHandlePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5453AB7202EC_ME_5453ACDE0177_G Tm3BranchHandlePrim
+
+%%InheritedBy ME_5453AB7202EC ME_5453ACDE0177
+
+ME ME_5453ACDE0177
+ MEPROP UID '5453ACDE0177'
+ MEPROP Name 'Tm3BranchHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5453AB7202EC_ME_5453ACDE0177_G // Tm3BranchHandlePrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5453AD0A03D3 // NormalForms
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5453ACDE0177_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_545A1B9502F7 // Tm3NormalFormsManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BranchHandle.pas'
+ UP extprop:rc:SelfName 'm3BranchHandle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3BranchHandle'
+
+ENDME // ME_5453ACDE0177 Tm3BranchHandle

@@ -1,0 +1,397 @@
+// TevNSRCPlusWriter 4836CFF1028E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4836CFF1028E
+
+FORWARD ME_4836CFF1028E
+
+MEREF ME_46A60290017E_ME_483A6B320055_G
+ MELINK Original WL 'ME_46A60290017E' '4677FBA70343.ms.model.script' // Tl3FramePartIndex
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A60290017E_ME_483A6B320055_G Tl3FramePartIndex
+
+%%InheritedBy ME_46A60290017E ME_483A6B320055
+
+ME ME_483A6B320055
+ MEPROP UID '483A6B320055'
+ MEPROP Name 'TevFramePartIndexes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELIST Inherits
+   Seq: ( ME_46A60290017E_ME_483A6B320055_G // Tl3FramePartIndex
+ )
+ ; // Inherits
+
+ENDME // ME_483A6B320055 TevFramePartIndexes
+
+ME ME_483A6B4B03D6
+ MEPROP UID '483A6B4B03D6'
+ MEPROP Name 'f_Frame'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target HWL ME_483A6B320055 // TevFramePartIndexes
+ ;
+
+ENDME // ME_483A6B4B03D6 f_Frame
+
+ME ME_483A72E80188
+ MEPROP UID '483A72E80188'
+ MEPROP Name 'f_MergeStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_483A72E80188 f_MergeStatus
+
+ME ME_483A73C00102
+ MEPROP UID '483A73C00102'
+ MEPROP Name 'f_CellWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_483A73C00102 f_CellWidth
+
+ME ME_483A760300E7
+ MEPROP UID '483A760300E7'
+ MEPROP Name 'f_VerticalAlignment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_467BC89800B9' '469D0AC7005E.ms.model.script' // VerticalAligment
+ ;
+
+ENDME // ME_483A760300E7 f_VerticalAlignment
+
+ME ME_4E5E1B790181
+ MEPROP UID '4E5E1B790181'
+ MEPROP Name 'f_CellOpened'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ячейка была начата. Сбрасывается сразу после выливки рамки!' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E5E1B790181 f_CellOpened
+
+FORWARD ME_52BC39E70137
+
+ME ME_52BC39FE0066
+ MEPROP UID '52BC39FE0066'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52BC39E70137 // GetCellOpened
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52BC39FE0066 DoIt
+
+ME ME_52BC39E70137
+ MEPROP UID '52BC39E70137'
+ MEPROP Name 'GetCellOpened'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52BC39FE0066 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52BC39E70137 GetCellOpened
+
+ME ME_483A65ED02DD
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_483A65ED02DD aValue
+
+ME ME_483A65DA031D
+ MEPROP UID '483A65DA031D'
+ MEPROP Name 'OutNewString'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELIST Parameters
+   Seq: ( ME_483A65ED02DD // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_483A65DA031D OutNewString
+
+ME ME_4836E7F803A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_4836E7F803A6 
+
+ME ME_4836E8F3016D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4836E8F3016D 
+
+ME ME_483A699D0163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_483A699D0163 
+
+ME ME_49B1323800A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_4857E2A70175' '48492FC0029D.ms.model.script' // SBS
+ ;
+
+ENDME // ME_49B1323800A9 
+
+ME ME_49B1323C0043
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_49B1323C0043 
+
+ME ME_49B1323F01B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_49B1323F01B9 
+
+ME ME_49B132420263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_49B132420263 
+
+ME ME_4A8D36F80113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_48622EC901AF' '484A470100DD.ms.model.script' // Empty
+ ;
+
+ENDME // ME_4A8D36F80113 
+
+ME ME_4A8D37020243
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_48622EE00015' '484A470100DD.ms.model.script' // Solid
+ ;
+
+ENDME // ME_4A8D37020243 
+
+ME ME_4E3923A2017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836CFF1028E // TevNSRCPlusWriter
+ ;
+ MELINK Target WL 'ME_484FD50602E9' '484A470100DD.ms.model.script' // TabStop
+ ;
+
+ENDME // ME_4E3923A2017C 
+
+MEREF ME_479731C50290_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4836CFF1028E_over Cleanup
+
+MEREF ME_4836D4650177_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_4836CFF1028E_over StartChild
+
+MEREF ME_4836D477022A_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_4836D477022A' '47ECAA270135.ms.model.script' // StartTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D477022A_ME_4836CFF1028E_over StartTag
+
+MEREF ME_4836D4C20059_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4836CFF1028E_over CloseStructure
+
+MEREF ME_4836D52400D9_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_4836CFF1028E_over AddAtomEx
+
+MEREF ME_483A6DE30208_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_483A6DE30208' '4836BFC9011E.ms.model.script' // OutEOL
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_483A6DE30208_ME_4836CFF1028E_over OutEOL
+
+MEREF ME_4E3924CE03A3_ME_4836CFF1028E_over
+ MELINK Original WL 'ME_4E3924CE03A3' '4836C0A201C1.ms.model.script' // CheckDigitalSeparatorAlignment
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E3924CE03A3_ME_4836CFF1028E_over CheckDigitalSeparatorAlignment
+
+MEREF ME_4836C0A201C1_ME_4836CFF1028E_G
+ MELINK Original WL? 'ME_4836C0A201C1' // TevCustomNSRCWriter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836C0A201C1_ME_4836CFF1028E_G TevCustomNSRCWriter
+
+MEREF ME_4E5E029D03AD_ME_4836CFF1028E_R
+ MELINK Original WL? 'ME_4E5E029D03AD' // DigitalSeparatorSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5E029D03AD_ME_4836CFF1028E_R DigitalSeparatorSupport
+
+MEREF ME_5148407D0202_ME_4836CFF1028E_R
+ MELINK Original WL? 'ME_5148407D0202' // CellsCountStack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5148407D0202_ME_4836CFF1028E_R CellsCountStack
+
+%%ImplementedBy ME_4E5E029D03AD ME_4836CFF1028E
+%%ImplementedBy ME_5148407D0202 ME_4836CFF1028E
+
+%%InheritedBy ME_4836C0A201C1 ME_4836CFF1028E
+
+ME ME_4836CFF1028E
+ MEPROP UID '4836CFF1028E'
+ MEPROP Name 'TevNSRCPlusWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Писатель формата NSRC+. Для решения задачи [$91848978].' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4836C0A201C1_ME_4836CFF1028E_G // TevCustomNSRCWriter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E5E029D03AD_ME_4836CFF1028E_R // DigitalSeparatorSupport
+ ME_5148407D0202_ME_4836CFF1028E_R // CellsCountStack
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_483A6B4B03D6 // f_Frame
+ HWL ME_483A72E80188 // f_MergeStatus
+ HWL ME_483A73C00102 // f_CellWidth
+ HWL ME_483A760300E7 // f_VerticalAlignment
+ HWL ME_4E5E1B790181 // f_CellOpened
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52BC39E70137 // GetCellOpened
+ HWL ME_483A65DA031D // OutNewString
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4836CFF1028E_over // Cleanup
+ ME_4836D4650177_ME_4836CFF1028E_over // StartChild
+ ME_4836D477022A_ME_4836CFF1028E_over // StartTag
+ ME_4836D4C20059_ME_4836CFF1028E_over // CloseStructure
+ ME_4836D52400D9_ME_4836CFF1028E_over // AddAtomEx
+ ME_483A6DE30208_ME_4836CFF1028E_over // OutEOL
+ ME_4E3924CE03A3_ME_4836CFF1028E_over // CheckDigitalSeparatorAlignment
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_483A6B320055 // TevFramePartIndexes
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4836E7F803A6 // k2Base
+ ME_4836E8F3016D // Tk2TagID
+ ME_483A699D0163 // SysUtils
+ ME_49B1323800A9 // SBS
+ ME_49B1323C0043 // Table
+ ME_49B1323F01B9 // TableRow
+ ME_49B132420263 // TableCell
+ ME_4A8D36F80113 // Empty
+ ME_4A8D37020243 // Solid
+ ME_4E3923A2017C // TabStop
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "started" '23.05.2008 18:09'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evNSRCPlusWriter.pas'
+ UP extprop:rc:SelfName 'NSRCPlusWriter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evNSRCPlusWriter'
+
+ENDME // ME_4836CFF1028E TevNSRCPlusWriter

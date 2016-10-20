@@ -1,0 +1,41 @@
+// TkwOpenInsDWin 4E2448BD014D ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E2448BD014D
+
+ME ME_4E2449FE014E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2448BD014D // TkwOpenInsDWin
+ ;
+ MELINK Target WL 'ME_4E2447BF0259' '4DE60853015A.ms.model.script' // acOpenInsDWin
+ ;
+
+ENDME // ME_4E2449FE014E 
+
+ME ME_4E2448BD014D
+ MEPROP UID '4E2448BD014D'
+ MEPROP Name 'TkwOpenInsDWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E2449FE014E // acOpenInsDWin
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'редактор_словарей'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwOpenInsDWin.pas'
+ UP extprop:rc:SelfName 'OpenInsDWin'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwOpenInsDWin'
+
+ENDME // ME_4E2448BD014D TkwOpenInsDWin

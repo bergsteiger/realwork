@@ -11,30 +11,11 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_51612EBB02F5
 
-%%InheritedBy ME_4807745602C8 ME_516137AD0362
-%%InheritedBy ME_51614065019A ME_516137AD0362
-
-ME ME_516137AD0362
- MEPROP UID '516137AD0362'
- MEPROP Name 'TRefcounted'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51612EBB02F5 // Ref Counting
+MEREF ME_51612ED700B4_ME_51DEB13301ED_G
+ MELINK Original WL? 'ME_51612ED700B4' // RefCountedPrim
  ;
- MELIST Inherits
-   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
- WL? 'ME_51614065019A' // RefCounted
- )
- ; // Inherits
- UP intf.pas:Path 'common\components\rtl\Garant\L3\Refcounted.pas'
- UP extprop:rc:SelfName 'Refcounted'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'Refcounted'
-
-ENDME // ME_516137AD0362 TRefcounted
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51612ED700B4_ME_51DEB13301ED_G RefCountedPrim
 
 %%InheritedBy ME_51612ED700B4 ME_51DEB13301ED
 
@@ -49,7 +30,7 @@ ME ME_51DEB13301ED
  MELINK Parent HWL ME_51612EBB02F5 // Ref Counting
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_51612ED700B4' // RefCountedPrim
+   Seq: ( ME_51612ED700B4_ME_51DEB13301ED_G // RefCountedPrim
  )
  ; // Inherits
 
@@ -70,7 +51,7 @@ ME ME_51612EBB02F5
  WL? 'ME_51614065019A' // RefCounted
  WL? 'ME_516D4D0D0237' // UnknownImpl
  WL? 'ME_516D4D45029C' // Unknown
- HWL ME_516137AD0362 // TRefcounted
+ WL? 'ME_516137AD0362' // TRefcounted
  HWL ME_51DEB13301ED // MRefCounted
  )
  ; // Children

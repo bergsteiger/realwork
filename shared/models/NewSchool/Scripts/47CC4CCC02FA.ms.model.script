@@ -1,0 +1,60 @@
+// Tl3InterfacedString 47CC4CCC02FA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CC4CCC02FA
+
+MEREF ME_47A6FEE600FC_ME_47CC4CCC02FA_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_47CC4CCC02FA_over IsCacheable
+
+MEREF ME_47BC50F5038E_ME_47CC4CCC02FA_G
+ MELINK Original WL? 'ME_47BC50F5038E' // Tl3NCString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC50F5038E_ME_47CC4CCC02FA_G Tl3NCString
+
+MEREF ME_46780DA40383_ME_47CC4CCC02FA_R
+ MELINK Original WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780DA40383_ME_47CC4CCC02FA_R Il3CString
+
+%%ImplementedBy ME_46780DA40383 ME_47CC4CCC02FA
+
+%%InheritedBy ME_47BC50F5038E ME_47CC4CCC02FA
+
+ME ME_47CC4CCC02FA
+ MEPROP UID '47CC4CCC02FA'
+ MEPROP Name 'Tl3InterfacedString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интерфейса строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC50F5038E_ME_47CC4CCC02FA_G // Tl3NCString
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46780DA40383_ME_47CC4CCC02FA_R // Il3CString
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_47CC4CCC02FA_over // IsCacheable
+ )
+ ; // Overridden
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfacedString.pas'
+ UP extprop:rc:SelfName 'InterfacedString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3InterfacedString'
+
+ENDME // ME_47CC4CCC02FA Tl3InterfacedString

@@ -1,0 +1,88 @@
+// TevMarkersList 47CC15130269 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CC15130269
+
+ME ME_47CC155C031F
+ MEPROP UID '47CC155C031F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CC15130269 // TevMarkersList
+ ;
+ MELINK Target WL 'ME_47C6885E01DF' '47C5207602D1.ms.model.script' // IevMarker
+ ;
+
+ENDME // ME_47CC155C031F ItemType
+
+MEREF ME_4BB08B8902F2_ME_47CC15130269_impl
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4BB08B8902F2_ME_47CC15130269_impl Count
+
+MEREF ME_47B57D830369_ME_47CC15130269_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47CC15130269_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47CC15130269_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47CC15130269_G Tl3ProtoDataContainer
+
+MEREF ME_47CC136B033A_ME_47CC15130269_R
+ MELINK Original WL 'ME_47CC136B033A' '47C5207602D1.ms.model.script' // IevMarkersList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CC136B033A_ME_47CC15130269_R IevMarkersList
+
+%%ImplementedBy ME_47CC136B033A ME_47CC15130269
+
+%%InheritedBy ME_47B57D830369 ME_47CC15130269
+%%InheritedBy ME_4A54DD4E036F ME_47CC15130269
+
+ME ME_47CC15130269
+ MEPROP UID '47CC15130269'
+ MEPROP Name 'TevMarkersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47CC15130269_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47CC15130269_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47CC136B033A_ME_47CC15130269_R // IevMarkersList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47CC155C031F // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_47CC15130269_impl // Count
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '03.03.2008 18:11'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evMarkersList.pas'
+ UP extprop:rc:SelfName 'MarkersList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evMarkersList'
+
+ENDME // ME_47CC15130269 TevMarkersList

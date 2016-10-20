@@ -1,0 +1,67 @@
+// K585129079_NSRC_EAST_EUROPE 5491B03300A0 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5491B03300A0
+
+ME ME_5491B046017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5491B03300A0 // K585129079_NSRC_EAST_EUROPE
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_5491B046017A 
+
+MEREF ME_4BEBCEA00177_ME_5491B03300A0_over
+ MELINK Original WL 'ME_4BEBCEA00177' '4B4F68EE006B.ms.model.script' // NSRCCodePage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BEBCEA00177_ME_5491B03300A0_over NSRCCodePage
+
+MEREF ME_5491B011031B_ME_5491B03300A0_over
+ MELINK Original WL 'ME_5491B011031B' '4B4F68EE006B.ms.model.script' // PainterCodePage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5491B011031B_ME_5491B03300A0_over PainterCodePage
+
+MEREF ME_4B8542C302E3_ME_5491B03300A0_G
+ MELINK Original WL? 'ME_4B8542C302E3' // TEVDtoBothNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B8542C302E3_ME_5491B03300A0_G TEVDtoBothNSRCWriterTest
+
+%%InheritedBy ME_4B8542C302E3 ME_5491B03300A0
+
+ME ME_5491B03300A0
+ MEPROP UID '5491B03300A0'
+ MEPROP Name 'K585129079_NSRC_EAST_EUROPE'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:585129079}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_549199FF02ED' // 7.11
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B8542C302E3_ME_5491B03300A0_G // TEVDtoBothNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4BEBCEA00177_ME_5491B03300A0_over // NSRCCodePage
+ ME_5491B011031B_ME_5491B03300A0_over // PainterCodePage
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5491B046017A // Code Pages
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K585129079_NSRC_EAST_EUROPE.pas'
+ UP extprop:pas:TypeName 'TK585129079_NSRC_EAST_EUROPE'
+ UP extprop:rc:SelfName 'K585129079_NSRC_EAST_EUROPE'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5491B03300A0 K585129079_NSRC_EAST_EUROPE

@@ -1,0 +1,110 @@
+// TmsmOperationsSeparator 57D25DA703D8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D25DA703D8
+
+ME ME_57D25DD20388
+ MEPROP UID '57D25DD20388'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D25DA703D8 // TmsmOperationsSeparator
+ ;
+
+ENDME // ME_57D25DD20388 Create
+
+MEREF ME_57D25DD20388_ME_57D25DE50033_G
+ MELINK Original HWL ME_57D25DD20388 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D25DD20388_ME_57D25DE50033_G Create
+
+MEREF ME_57B568620397_ME_57D25DE50033_R
+ MELINK Original WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B568620397_ME_57D25DE50033_R ImsmOperation
+
+%%ImplementedBy ME_57B568620397 ME_57D25DE50033
+
+%%InheritedBy ME_57D25DD20388 ME_57D25DE50033
+
+ME ME_57D25DE50033
+ MEPROP UID '57D25DE50033'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D25DA703D8 // TmsmOperationsSeparator
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D25DD20388_ME_57D25DE50033_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57B568620397_ME_57D25DE50033_R // ImsmOperation
+ )
+ ; // Implements
+
+ENDME // ME_57D25DE50033 Make
+
+MEREF ME_57CEB1F602D1_ME_57D25DA703D8_impl
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB1C1010D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57CEB1F602D1_ME_57D25DA703D8_impl DoDoIt
+
+MEREF ME_57EB6D020381_ME_57D25DA703D8_impl
+ MELINK Original WL 'ME_57EB6D020381' '57CEB1C1010D.ms.model.script' // GetEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EB6D020381_ME_57D25DA703D8_impl GetEnabled
+
+MEREF ME_57CEB1C1010D_ME_57D25DA703D8_G
+ MELINK Original WL? 'ME_57CEB1C1010D' // TmsmOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEB1C1010D_ME_57D25DA703D8_G TmsmOperation
+
+%%InheritedBy ME_57CEB1C1010D ME_57D25DA703D8
+
+ME ME_57D25DA703D8
+ MEPROP UID '57D25DA703D8'
+ MEPROP Name 'TmsmOperationsSeparator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEB008027D' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_57CEB1C1010D_ME_57D25DA703D8_G // TmsmOperation
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57D25DD20388 // Create
+ HWL ME_57D25DE50033 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57D25DA703D8_impl // DoDoIt
+ ME_57EB6D020381_ME_57D25DA703D8_impl // GetEnabled
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationsSeparator.pas'
+ UP extprop:rc:SelfName 'msmOperationsSeparator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmOperationsSeparator'
+
+ENDME // ME_57D25DA703D8 TmsmOperationsSeparator

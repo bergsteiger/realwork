@@ -1,0 +1,46 @@
+// K226001213 4C3C2D63027E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3C2D63027E
+
+MEREF ME_4C9874060367_ME_4C3C2D63027E_over
+ MELINK Original WL 'ME_4C9874060367' '4CC815A00031.ms.model.script' // SelectColumn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C9874060367_ME_4C3C2D63027E_over SelectColumn
+
+MEREF ME_4C3C2BE800AF_ME_4C3C2D63027E_G
+ MELINK Original WL? 'ME_4C3C2BE800AF' // TColumnAlignHorisontallyTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C3C2BE800AF_ME_4C3C2D63027E_G TColumnAlignHorisontallyTest
+
+%%InheritedBy ME_4C3C2BE800AF ME_4C3C2D63027E
+
+ME ME_4C3C2D63027E
+ MEPROP UID '4C3C2D63027E'
+ MEPROP Name 'K226001213'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$226001213]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C3C2BE800AF_ME_4C3C2D63027E_G // TColumnAlignHorisontallyTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C9874060367_ME_4C3C2D63027E_over // SelectColumn
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K226001213.pas'
+ UP extprop:pas:TypeName 'TK226001213'
+ UP extprop:rc:SelfName 'K226001213'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C3C2D63027E K226001213

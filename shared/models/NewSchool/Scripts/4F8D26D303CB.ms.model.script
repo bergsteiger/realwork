@@ -11,7 +11,7 @@ FORWARD ME_4F8D26E9004F
 ME ME_4F8D273401A2
  MEPROP UID '4F8D273401A2'
  MEPROP Name 'Execute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -20,6 +20,12 @@ ME ME_4F8D273401A2
  ;
 
 ENDME // ME_4F8D273401A2 Execute
+
+MEREF ME_4E4B62A40251_ME_4F8D26E9004F_G
+ MELINK Original WL? 'ME_4E4B62A40251' // TBottomBtnDlg
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E4B62A40251_ME_4F8D26E9004F_G TBottomBtnDlg
 
 %%InheritedBy ME_4E4B62A40251 ME_4F8D26E9004F
 
@@ -34,7 +40,7 @@ ME ME_4F8D26E9004F
  MELINK Parent HWL ME_4F8D26D303CB // D_Srch
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
+   Seq: ( ME_4E4B62A40251_ME_4F8D26E9004F_G // TBottomBtnDlg
  )
  ; // Inherits
  MELIST Operations

@@ -1,0 +1,62 @@
+// TOvcKeyDataListenerList 53B23EFD0347 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B23EFD0347
+
+ME ME_53B23FB902BA
+ MEPROP UID '53B23FB902BA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B23EFD0347 // TOvcKeyDataListenerList
+ ;
+ MELINK Target WL 'ME_53B11944038A' '467C0CAA02AB.ms.model.script' // Il3KeyDataListener
+ ;
+
+ENDME // ME_53B23FB902BA ItemType
+
+MEREF ME_47B57D630029_ME_53B23EFD0347_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_53B23EFD0347_G l3InterfacePtrList
+
+MEREF ME_47BC3A07027F_ME_53B23EFD0347_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_53B23EFD0347_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_53B23EFD0347
+%%InheritedBy ME_47BC3A07027F ME_53B23EFD0347
+
+ME ME_53B23EFD0347
+ MEPROP UID '53B23EFD0347'
+ MEPROP Name 'TOvcKeyDataListenerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53B23EDB01DF' // OvcKeyDataListeners
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D630029_ME_53B23EFD0347_G // l3InterfacePtrList
+ ME_47BC3A07027F_ME_53B23EFD0347_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53B23FB902BA // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\external\Orpheus\OvcKeyDataListenerList.pas'
+ UP extprop:rc:SelfName 'OvcKeyDataListenerList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'OvcKeyDataListenerList'
+
+ENDME // ME_53B23EFD0347 TOvcKeyDataListenerList

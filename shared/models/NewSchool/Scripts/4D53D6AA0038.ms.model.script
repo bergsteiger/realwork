@@ -1,0 +1,53 @@
+// TColumnResizeWithCtrl 4D53D6AA0038 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D53D6AA0038
+
+MEREF ME_4C937013031D_ME_4D53D6AA0038_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D53D6AA0038_over GetFolder
+
+MEREF ME_4E32CA120170_ME_4D53D6AA0038_over
+ MELINK Original WL 'ME_4E32CA120170' '4E32C9540390.ms.model.script' // GetKeys
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E32CA120170_ME_4D53D6AA0038_over GetKeys
+
+MEREF ME_4D53D6170280_ME_4D53D6AA0038_G
+ MELINK Original WL? 'ME_4D53D6170280' // TColumnResizeByMousePrimTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D53D6170280_ME_4D53D6AA0038_G TColumnResizeByMousePrimTest
+
+%%InheritedBy ME_4D53D6170280 ME_4D53D6AA0038
+
+ME ME_4D53D6AA0038
+ MEPROP UID '4D53D6AA0038'
+ MEPROP Name 'TColumnResizeWithCtrl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменение размера колонки с зажатым Ctrl' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D53D6170280_ME_4D53D6AA0038_G // TColumnResizeByMousePrimTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4D53D6AA0038_over // GetFolder
+ ME_4E32CA120170_ME_4D53D6AA0038_over // GetKeys
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ColumnResizeWithCtrl.pas'
+ UP extprop:rc:SelfName 'ColumnResizeWithCtrl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ColumnResizeWithCtrl'
+
+ENDME // ME_4D53D6AA0038 TColumnResizeWithCtrl

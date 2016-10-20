@@ -1,0 +1,100 @@
+// BracketBegin 4DBFBBE603E5 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DBFBBE603E5
+
+ME ME_52D7B74D014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBFBBE603E5 // BracketBegin
+ ;
+ MELINK Target WL? 'ME_52D7B7360146' // BracketEnd
+ ;
+
+ENDME // ME_52D7B74D014B 
+
+ME ME_5609374403BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DBFBBE603E5 // BracketBegin
+ ;
+ MELINK Target WL? 'ME_560937350073' // TkwTypedBeginLikeCompiledCode
+ ;
+
+ENDME // ME_5609374403BB 
+
+MEREF ME_4DB6C99F026E_ME_4DBFBBE603E5_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB6C99F026E_ME_4DBFBBE603E5_impl EndBracket
+
+MEREF ME_4DB0614603C8_ME_4DBFBBE603E5_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DBFBBE603E5_over GetWordNameForRegister
+
+MEREF ME_4DBAEE0D028D_ME_4DBFBBE603E5_over
+ MELINK Original WL 'ME_4DBAEE0D028D' '4DB6C8F30161.ms.model.script' // CompiledWordClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DBAEE0D028D_ME_4DBFBBE603E5_over CompiledWordClass
+
+MEREF ME_560941240035_ME_4DBFBBE603E5_over
+ MELINK Original WL 'ME_560941240035' '4DB6C8F30161.ms.model.script' // CheckWordInfoOnCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_560941240035_ME_4DBFBBE603E5_over CheckWordInfoOnCompile
+
+MEREF ME_4DBAEF29031F_ME_4DBFBBE603E5_G
+ MELINK Original WL? 'ME_4DBAEF29031F' // TtfwBeginLikeWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DBAEF29031F_ME_4DBFBBE603E5_G TtfwBeginLikeWord
+
+%%InheritedBy ME_4DBAEF29031F ME_4DBFBBE603E5
+
+ME ME_4DBFBBE603E5
+ MEPROP UID '4DBFBBE603E5'
+ MEPROP Name 'BracketBegin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка скобок. '#13#10'Пример:'#13#10'{code}'#13#10' 10 LOOP ( ''Hello'' . )'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5284E8850019' // CodeBranchingWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DBAEF29031F_ME_4DBFBBE603E5_G // TtfwBeginLikeWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4DBFBBE603E5_impl // EndBracket
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DBFBBE603E5_over // GetWordNameForRegister
+ ME_4DBAEE0D028D_ME_4DBFBBE603E5_over // CompiledWordClass
+ ME_560941240035_ME_4DBFBBE603E5_over // CheckWordInfoOnCompile
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D7B74D014B // BracketEnd
+ ME_5609374403BB // TkwTypedBeginLikeCompiledCode
+ )
+ ; // Dependencies
+ UP "NameForScript" '('
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.05.2011 12:25'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas'
+ UP extprop:pas:TypeName 'TkwBracketBegin'
+ UP extprop:rc:SelfName 'BracketBegin'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwBracketBegin'
+
+ENDME // ME_4DBFBBE603E5 BracketBegin

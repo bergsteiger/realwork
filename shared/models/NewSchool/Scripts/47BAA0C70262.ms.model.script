@@ -1,0 +1,80 @@
+// Tl3IDIndex 47BAA0C70262 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BAA0C70262
+
+ME ME_4B892DDC0135
+ MEPROP UID '4B892DDC0135'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BAA0C70262 // Tl3IDIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B892DDC0135 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_47BAA0C70262_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47BAA0C70262_over CompareItemWithData
+
+MEREF ME_47B9AB6902AF_ME_47BAA0C70262_G
+ MELINK Original WL? 'ME_47B9AB6902AF' // Tl3IDIndexPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AB6902AF_ME_47BAA0C70262_G Tl3IDIndexPrim
+
+MEREF ME_47B47E230134_ME_47BAA0C70262_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47BAA0C70262_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47BAA0C70262
+
+%%InheritedBy ME_47B9AB6902AF ME_47BAA0C70262
+
+ME ME_47BAA0C70262
+ MEPROP UID '47BAA0C70262'
+ MEPROP Name 'Tl3IDIndex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список строк с возможностью поиска по целочисленному идентификатору.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9AB6902AF_ME_47BAA0C70262_G // Tl3IDIndexPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_47BAA0C70262_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B892DDC0135 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BAA0C70262_over // CompareItemWithData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3IDIndex.pas'
+ UP extprop:rc:SelfName 'IDIndex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3IDIndex'
+
+ENDME // ME_47BAA0C70262 Tl3IDIndex

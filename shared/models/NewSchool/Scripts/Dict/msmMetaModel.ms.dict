@@ -1,0 +1,220 @@
+UNIT msmMetaModel.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ MDProcess_Templates.tpi.script
+;
+
+USES
+ MDProcess_ForDelphi.tpi.script
+;
+
+BOOLEAN elem_func IsLocalMethod
+ Self .IsStereotype st_localmethod 
+ >>> Result
+; // IsLocalMethod
+
+BOOLEAN elem_func IsMethod
+ Self .IsStereotype st_method 
+ >>> Result
+; // IsMethod
+
+BOOLEAN elem_func IsFunction
+ Self .IsStereotype st_Function 
+ >>> Result
+; // IsFunction
+
+BOOLEAN elem_func IsProject
+ Self .IsStereotype st_Project
+ >>> Result
+; // IsProject
+
+BOOLEAN elem_func IsUnit
+ Self .IsStereotype st_Unit
+ >>> Result
+; // IsUnit
+
+BOOLEAN elem_func IsExeTarget
+ Self .IsStereotype st_ExeTarget 
+ >>> Result
+; // IsExeTarget
+
+BOOLEAN elem_func IsLibrary
+ Self .IsStereotype st_Library
+ >>> Result
+; // IsLibrary
+
+BOOLEAN elem_func IsInternalInterfaces
+ Self .IsStereotype st_InternalInterfaces
+ >>> Result
+; // IsInternalInterfaces
+
+BOOLEAN elem_func IsInterfaces
+ //Cached:
+ (
+  RULES
+   ( Self .IsStereotype st_Interfaces ) 
+    true
+   ( Self .IsInternalInterfaces )
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ )
+ >>> Result
+; // IsInterfaces
+
+BOOLEAN elem_func IsMixIn
+ Self .IsStereotype st_Impurity
+ >>> Result
+; // IsMixIn
+
+BOOLEAN elem_func IsEvent
+ Self .IsStereotype st_Event
+ >>> Result
+; // IsEvent
+
+BOOLEAN elem_func IsUseCaseControllerImp
+ Self .IsStereotype st_UseCaseControllerImp 
+ >>> Result
+; // IsUseCaseControllerImp
+
+BOOLEAN elem_func IsViewAreaControllerImp
+ Self .IsStereotype st_ViewAreaControllerImp 
+ >>> Result
+; // IsViewAreaControllerImp
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ RoseModel.ms.dict
+;
+
+BOOLEAN elem_func IsService
+ Self .IsStereotype st_Service
+ >>> Result
+; // IsService
+
+BOOLEAN elem_func IsServiceImplementation
+ Self .IsStereotype st_ServiceImplementation
+ >>> Result
+; // IsServiceImplementation
+
+BOOLEAN elem_func IsScriptKeyword
+ Self .IsStereotype st_ScriptKeyword 
+ >>> Result
+; // IsScriptKeyword
+
+BOOLEAN elem_func IsTestCase
+ Self .IsStereotype st_TestCase 
+ >>> Result
+; // IsTestCase
+
+BOOLEAN elem_func IsGuiControl
+ Self .IsStereotype st_GuiControl
+ >>> Result
+; // IsGuiControl
+
+BOOLEAN elem_func IsVCMForm
+ Self .IsStereotype st_VCMForm 
+ >>> Result
+; // IsVCMForm
+
+BOOLEAN elem_func IsVCMContainer
+ Self .IsStereotype st_VCMContainer
+ >>> Result
+; // IsVCMContainer
+
+BOOLEAN elem_func IsSimpleClass
+ Cached:
+ (
+  RULES
+   ( Self .IsEvent )
+    true
+   ( Self .IsUseCaseControllerImp )
+    ( Self .Abstraction at_abstract != )
+   ( Self .IsViewAreaControllerImp )
+    ( Self .Abstraction at_abstract != )
+   ( Self .IsStereotype st_SimpleClass ) 
+    true
+   ( Self .IsStereotype st_ObjStub ) 
+    true
+   ( Self .IsService ) 
+    true
+   ( Self .IsServiceImplementation ) 
+    true
+   ( Self .IsScriptKeyword ) 
+    true
+   ( Self .IsTestCase ) 
+    true
+   ( Self .IsGuiControl ) 
+    true
+   ( Self .IsVCMForm ) 
+    true
+   ( Self .IsStereotype st_VCMFinalForm ) 
+    true
+   ( Self .IsVCMContainer ) 
+    true
+   ( Self .IsStereotype st_VCMFinalContainer ) 
+    true
+   DEFAULT
+    false 
+  ; // RULES
+ )  
+ >>> Result
+; // IsSimpleClass
+
+BOOLEAN elem_func IsScriptKeywordsPack
+ Self .IsStereotype st_ScriptKeywordsPack 
+ >>> Result
+; // IsScriptKeywordsPack
+
+BOOLEAN elem_func IsUtilityPack
+ Cached:
+ (
+  RULES
+   ( Self .IsStereotype st_UtilityPack )
+    true
+   ( Self .IsScriptKeywordsPack ) 
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ ) 
+ >>> Result
+; // IsUtilityPack
+
+BOOLEAN elem_func IsMixInMirror
+ Self .IsStereotype st_MixInMirror
+ >>> Result
+; // IsMixInMirror
+
+BOOLEAN elem_func IsEnum
+ Self .IsStereotype st_Enum 
+ >>> Result
+; // IsEnum
+
+BOOLEAN elem_func IsTypedef
+ Self .IsStereotype st_Typedef 
+ >>> Result
+; // IsTypedef
+
+BOOLEAN elem_func IsUseCase
+ Self .IsStereotype st_UseCase
+ >>> Result
+; // IsUseCase
+
+BOOLEAN elem_func IsInterface
+ Self .IsStereotype st_Facet
+ >>> Result
+; // IsInterface
+ 

@@ -1,0 +1,81 @@
+// TtfwConsoleScriptCaller 55C48FCE03AB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C48FCE03AB
+
+ME ME_55C4A57800C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C48FCE03AB // TtfwConsoleScriptCaller
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55C4A57800C7 
+
+ME ME_55CC96DE0296
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C48FCE03AB // TtfwConsoleScriptCaller
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_55CC96DE0296 
+
+MEREF ME_55C491FC025C_ME_55C48FCE03AB_over
+ MELINK Original WL 'ME_55C491FC025C' '55C482690029.ms.model.script' // DoPrint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55C491FC025C_ME_55C48FCE03AB_over DoPrint
+
+MEREF ME_55CC867301F7_ME_55C48FCE03AB_over
+ MELINK Original WL 'ME_55CC867301F7' '55C482690029.ms.model.script' // DictPath
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_55CC867301F7_ME_55C48FCE03AB_over DictPath
+
+MEREF ME_55C482690029_ME_55C48FCE03AB_G
+ MELINK Original WL? 'ME_55C482690029' // TtfwDefaultScriptCaller
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C482690029_ME_55C48FCE03AB_G TtfwDefaultScriptCaller
+
+%%InheritedBy ME_55C482690029 ME_55C48FCE03AB
+
+ME ME_55C48FCE03AB
+ MEPROP UID '55C48FCE03AB'
+ MEPROP Name 'TtfwConsoleScriptCaller'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55C481E00003' // ScriptCallers
+ ;
+ MELIST Inherits
+   Seq: ( ME_55C482690029_ME_55C48FCE03AB_G // TtfwDefaultScriptCaller
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55C491FC025C_ME_55C48FCE03AB_over // DoPrint
+ ME_55CC867301F7_ME_55C48FCE03AB_over // DictPath
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55C4A57800C7 // l3String
+ ME_55CC96DE0296 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwConsoleScriptCaller.pas'
+ UP extprop:rc:SelfName 'ConsoleScriptCaller'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwConsoleScriptCaller'
+
+ENDME // ME_55C48FCE03AB TtfwConsoleScriptCaller

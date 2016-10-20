@@ -1,0 +1,62 @@
+// TmsmShowInNavigator 57CEBC210073 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEBC210073
+
+MEREF ME_57CEB1F602D1_ME_57CEBC210073_impl
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB1C1010D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57CEB1F602D1_ME_57CEBC210073_impl DoDoIt
+
+MEREF ME_57EB6D020381_ME_57CEBC210073_impl
+ MELINK Original WL 'ME_57EB6D020381' '57CEB1C1010D.ms.model.script' // GetEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EB6D020381_ME_57CEBC210073_impl GetEnabled
+
+MEREF ME_57EBADA9033E_ME_57CEBC210073_over
+ MELINK Original WL 'ME_57EBADA9033E' '57CEB1C1010D.ms.model.script' // InitOperationParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57EBADA9033E_ME_57CEBC210073_over InitOperationParams
+
+MEREF ME_57CEBBA601F1_ME_57CEBC210073_G
+ MELINK Original WL? 'ME_57CEBBA601F1' // TmsmListToTreeOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEBBA601F1_ME_57CEBC210073_G TmsmListToTreeOperation
+
+%%InheritedBy ME_57CEBBA601F1 ME_57CEBC210073
+
+ME ME_57CEBC210073
+ MEPROP UID '57CEBC210073'
+ MEPROP Name 'TmsmShowInNavigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( ME_57CEBBA601F1_ME_57CEBC210073_G // TmsmListToTreeOperation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57CEBC210073_impl // DoDoIt
+ ME_57EB6D020381_ME_57CEBC210073_impl // GetEnabled
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57EBADA9033E_ME_57CEBC210073_over // InitOperationParams
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmShowInNavigator.pas'
+ UP extprop:rc:SelfName 'msmShowInNavigator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmShowInNavigator'
+
+ENDME // ME_57CEBC210073 TmsmShowInNavigator

@@ -1,0 +1,290 @@
+// TevReqGroupHotSpotTester 4D64068D027B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D64068D027B
+
+FORWARD ME_4D64068D027B
+
+FORWARD ME_4D64077A0131
+
+MEREF ME_4BBF40C603BD_ME_4D66225602D8_G
+ MELINK Original WL 'ME_4BBF40C603BD' '4BBF3D8B00CD.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF40C603BD_ME_4D66225602D8_G Create
+
+MEREF ME_48E263B60071_ME_4D66225602D8_R
+ MELINK Original WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E263B60071_ME_4D66225602D8_R IevAdvancedHotSpot
+
+%%ImplementedBy ME_48E263B60071 ME_4D66225602D8
+
+%%InheritedBy ME_4BBF40C603BD ME_4D66225602D8
+
+ME ME_4D66225602D8
+ MEPROP UID '4D66225602D8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D64077A0131 // TevReqGroupHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BBF40C603BD_ME_4D66225602D8_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48E263B60071_ME_4D66225602D8_R // IevAdvancedHotSpot
+ )
+ ; // Implements
+
+ENDME // ME_4D66225602D8 Make
+
+ME ME_4D66322903B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64077A0131 // TevReqGroupHotSpot
+ ;
+ MELINK Target WL 'ME_4D63B8AF035D' '48492FC0029D.ms.model.script' // ReqGroup
+ ;
+
+ENDME // ME_4D66322903B0 
+
+MEREF ME_48E263CD01BD_ME_4D64077A0131_impl
+ MELINK Original WL 'ME_48E263CD01BD' '4A1FCBA0014C.ms.model.script' // MouseAction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48E263CD01BD_ME_4D64077A0131_impl MouseAction
+
+MEREF ME_4ECCD6840014_ME_4D64077A0131_impl
+ MELINK Original WL 'ME_4ECCD6840014' '4A1FCBA0014C.ms.model.script' // CanDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4ECCD6840014_ME_4D64077A0131_impl CanDrag
+
+MEREF ME_4A267FC6016B_ME_4D64077A0131_over
+ MELINK Original WL 'ME_4A267FC6016B' '4A267FA903BA.ms.model.script' // DoHitTest
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A267FC6016B_ME_4D64077A0131_over DoHitTest
+
+MEREF ME_4A267FA903BA_ME_4D64077A0131_G
+ MELINK Original WL? 'ME_4A267FA903BA' // TevHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A267FA903BA_ME_4D64077A0131_G TevHotSpot
+
+MEREF ME_480F4E9301DE_ME_4D64077A0131_R
+ MELINK Original WL? 'ME_480F4E9301DE' // nevParaListTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480F4E9301DE_ME_4D64077A0131_R nevParaListTool
+
+MEREF ME_48E263B60071_ME_4D64077A0131_R
+ MELINK Original WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E263B60071_ME_4D64077A0131_R IevAdvancedHotSpot
+
+%%ImplementedBy ME_480F4E9301DE ME_4D64077A0131
+%%ImplementedBy ME_48E263B60071 ME_4D64077A0131
+
+%%InheritedBy ME_4A267FA903BA ME_4D64077A0131
+
+ME ME_4D64077A0131
+ MEPROP UID '4D64077A0131'
+ MEPROP Name 'TevReqGroupHotSpot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A267FA903BA_ME_4D64077A0131_G // TevHotSpot
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_480F4E9301DE_ME_4D64077A0131_R // nevParaListTool
+ ME_48E263B60071_ME_4D64077A0131_R // IevAdvancedHotSpot
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D66225602D8 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E263CD01BD_ME_4D64077A0131_impl // MouseAction
+ ME_4ECCD6840014_ME_4D64077A0131_impl // CanDrag
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A267FC6016B_ME_4D64077A0131_over // DoHitTest
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D66322903B0 // ReqGroup
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '22.02.2011 21:59'
+ UP extprop:rc:SelfName 'ReqGroupHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D64077A0131 TevReqGroupHotSpot
+
+ME ME_4D64083E01DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4A269456002A' // evHotSpotMisc
+ ;
+
+ENDME // ME_4D64083E01DA 
+
+ME ME_4D66281702A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D66281702A2 
+
+ME ME_4D662CF4012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4D662CF4012A 
+
+ME ME_4D662D6B0117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4D662D6B0117 
+
+ME ME_4D66304201E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4D66304201E7 
+
+ME ME_4E14242900FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL 'ME_4D63B8AF035D' '48492FC0029D.ms.model.script' // ReqGroup
+ ;
+
+ENDME // ME_4E14242900FE 
+
+ME ME_53CE5EEC03CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4D63C1860228' // TevReqGroup
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53CE5EEC03CB 
+
+ME ME_53CE5EF70269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4D64068D027B // TevReqGroupHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53CE5EF70269 
+
+MEREF ME_4D6406EE0228_ME_4D64068D027B_over
+ MELINK Original WL 'ME_4D6406EE0228' '4E6E373A03A3.ms.model.script' // GetChildHotSpot
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D6406EE0228_ME_4D64068D027B_over GetChildHotSpot
+
+MEREF ME_4D6406760152_ME_4D64068D027B_G
+ MELINK Original WL 'ME_4D6406760152' '4D640655011C.ms.model.script' // TevTableHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D6406760152_ME_4D64068D027B_G TevTableHotSpotTester
+
+%%InjectedBy ME_4D63C1860228 ME_4D64068D027B
+
+%%InheritedBy ME_4D6406760152 ME_4D64068D027B
+
+ME ME_4D64068D027B
+ MEPROP UID '4D64068D027B'
+ MEPROP Name 'TevReqGroupHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D6406760152_ME_4D64068D027B_G // TevTableHotSpotTester
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D6406EE0228_ME_4D64068D027B_over // GetChildHotSpot
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D64077A0131 // TevReqGroupHotSpot
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D64083E01DA // evHotSpotMisc
+ ME_4D66281702A2 // Tk2TagID
+ ME_4D662CF4012A // Tl3Point
+ ME_4D662D6B0117 // L3 Core Consts
+ ME_4D66304201E7 // l3MinMax
+ ME_4E14242900FE // ReqGroup
+ ME_53CE5EEC03CB // TevReqGroup
+ ME_53CE5EF70269 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifdef" 'evReqGroupNeedsRadio'
+ UP "no hands" true
+ UP "started" '22.02.2011 21:55'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqGroupHotSpotTester.pas'
+ UP extprop:rc:SelfName 'ReqGroupHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqGroupHotSpotTester'
+
+ENDME // ME_4D64068D027B TevReqGroupHotSpotTester

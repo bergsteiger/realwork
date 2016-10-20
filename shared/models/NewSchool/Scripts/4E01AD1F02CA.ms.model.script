@@ -1,0 +1,42 @@
+// TkwDeleteSub 4E01AD1F02CA ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E01AD1F02CA
+
+ME ME_4E01ADFF021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01AD1F02CA // TkwDeleteSub
+ ;
+ MELINK Target WL 'ME_4E01AD6F0280' '4DE60853015A.ms.model.script' // arDeleteSub
+ ;
+
+ENDME // ME_4E01ADFF021C 
+
+ME ME_4E01AD1F02CA
+ MEPROP UID '4E01AD1F02CA'
+ MEPROP Name 'TkwDeleteSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:удалить_саб' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E01ADFF021C // arDeleteSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:удалить_саб'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDeleteSub.pas'
+ UP extprop:rc:SelfName 'DeleteSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDeleteSub'
+
+ENDME // ME_4E01AD1F02CA TkwDeleteSub

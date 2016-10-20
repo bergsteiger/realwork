@@ -15,6 +15,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_499192F203B4
 
+MEREF ME_475E7E3203DE_ME_492438C90376_G
+ MELINK Original WL 'ME_475E7E3203DE' '467823B7002C.ms.model.script' // IafwStringValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7E3203DE_ME_492438C90376_G IafwStringValueMap
+
 %%InheritedBy ME_475E7E3203DE ME_492438C90376
 
 ME ME_492438C90376
@@ -28,7 +34,7 @@ ME ME_492438C90376
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7E3203DE' '467823B7002C.ms.model.script' // IafwStringValueMap
+   Seq: ( ME_475E7E3203DE_ME_492438C90376_G // IafwStringValueMap
  )
  ; // Inherits
  UP extprop:rc:SelfName 'StringValueMap'
@@ -102,36 +108,42 @@ ME ME_4991940E0147
 
 ENDME // ME_4991940E0147 MaxValue
 
-ME ME_46A5EFE602DE_ME_499193D2014D
+MEREF ME_46A5EFE602DE_ME_499193D2014D_impl
  MELINK Original WL 'ME_46A5EFE602DE' '4677FBA70343.ms.model.script' // MapID
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_46A5EFE602DE_ME_499193D2014D MapID
+ENDMEREF // ME_46A5EFE602DE_ME_499193D2014D_impl MapID
 
-ME ME_46A5F0130365_ME_499193D2014D
+MEREF ME_46A5F0130365_ME_499193D2014D_impl
  MELINK Original WL 'ME_46A5F0130365' '4677FBA70343.ms.model.script' // GetDisplayNames
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F0130365_ME_499193D2014D GetDisplayNames
+ENDMEREF // ME_46A5F0130365_ME_499193D2014D_impl GetDisplayNames
 
-ME ME_46A5F03800A2_ME_499193D2014D
+MEREF ME_46A5F03800A2_ME_499193D2014D_impl
  MELINK Original WL 'ME_46A5F03800A2' '4677FBA70343.ms.model.script' // MapSize
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F03800A2_ME_499193D2014D MapSize
+ENDMEREF // ME_46A5F03800A2_ME_499193D2014D_impl MapSize
 
-ME ME_46A5F155021E_ME_499193D2014D
+MEREF ME_46A5F155021E_ME_499193D2014D_impl
  MELINK Original WL 'ME_46A5F155021E' '4677FBA70343.ms.model.script' // DisplayNameToValue
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F155021E_ME_499193D2014D DisplayNameToValue
+ENDMEREF // ME_46A5F155021E_ME_499193D2014D_impl DisplayNameToValue
 
-ME ME_46A5F1700191_ME_499193D2014D
+MEREF ME_46A5F1700191_ME_499193D2014D_impl
  MELINK Original WL 'ME_46A5F1700191' '4677FBA70343.ms.model.script' // ValueToDisplayName
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F1700191_ME_499193D2014D ValueToDisplayName
+ENDMEREF // ME_46A5F1700191_ME_499193D2014D_impl ValueToDisplayName
+
+MEREF ME_492438C90376_ME_499193D2014D_G
+ MELINK Original HWL ME_492438C90376 // InsStringValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492438C90376_ME_499193D2014D_G InsStringValueMap
 
 %%InheritedBy ME_492438C90376 ME_499193D2014D
 
@@ -148,7 +160,7 @@ ME ME_499193D2014D
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_492438C90376 // InsStringValueMap
+   Seq: ( ME_492438C90376_ME_499193D2014D_G // InsStringValueMap
  )
  ; // Inherits
  MELIST Attributes
@@ -159,17 +171,23 @@ ME ME_499193D2014D
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_46A5EFE602DE_ME_499193D2014D // MapID
- ME_46A5F0130365_ME_499193D2014D // GetDisplayNames
- ME_46A5F03800A2_ME_499193D2014D // MapSize
- ME_46A5F155021E_ME_499193D2014D // DisplayNameToValue
- ME_46A5F1700191_ME_499193D2014D // ValueToDisplayName
+   Seq: ( ME_46A5EFE602DE_ME_499193D2014D_impl // MapID
+ ME_46A5F0130365_ME_499193D2014D_impl // GetDisplayNames
+ ME_46A5F03800A2_ME_499193D2014D_impl // MapSize
+ ME_46A5F155021E_ME_499193D2014D_impl // DisplayNameToValue
+ ME_46A5F1700191_ME_499193D2014D_impl // ValueToDisplayName
  )
  ; // Implemented
  UP extprop:rc:SelfName 'SpecialStringValueMap'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499193D2014D InsSpecialStringValueMap
+
+MEREF ME_473D93190033_ME_4991945C0196_G
+ MELINK Original WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D93190033_ME_4991945C0196_G IafwStringsSource
 
 %%InheritedBy ME_473D93190033 ME_4991945C0196
 
@@ -184,13 +202,19 @@ ME ME_4991945C0196
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+   Seq: ( ME_473D93190033_ME_4991945C0196_G // IafwStringsSource
  )
  ; // Inherits
  UP extprop:rc:SelfName 'StringsSource'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_4991945C0196 InsStringsSource
+
+MEREF ME_475E7D540159_ME_4991947702E9_G
+ MELINK Original WL 'ME_475E7D540159' '467823B7002C.ms.model.script' // TafwValueMapID
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7D540159_ME_4991947702E9_G TafwValueMapID
 
 %%InheritedBy ME_475E7D540159 ME_4991947702E9
 
@@ -205,11 +229,17 @@ ME ME_4991947702E9
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7D540159' '467823B7002C.ms.model.script' // TafwValueMapID
+   Seq: ( ME_475E7D540159_ME_4991947702E9_G // TafwValueMapID
  )
  ; // Inherits
 
 ENDME // ME_4991947702E9 TnsValueMapID
+
+MEREF ME_475E7E080385_ME_499194AE007A_G
+ MELINK Original WL 'ME_475E7E080385' '467823B7002C.ms.model.script' // IafwValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7E080385_ME_499194AE007A_G IafwValueMap
 
 %%InheritedBy ME_475E7E080385 ME_499194AE007A
 
@@ -224,13 +254,19 @@ ME ME_499194AE007A
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7E080385' '467823B7002C.ms.model.script' // IafwValueMap
+   Seq: ( ME_475E7E080385_ME_499194AE007A_G // IafwValueMap
  )
  ; // Inherits
  UP extprop:rc:SelfName 'ValueMap'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499194AE007A InsValueMap
+
+MEREF ME_475E7E4B0357_ME_499194C3028F_G
+ MELINK Original WL 'ME_475E7E4B0357' '467823B7002C.ms.model.script' // IafwStringValueMapFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7E4B0357_ME_499194C3028F_G IafwStringValueMapFactory
 
 %%InheritedBy ME_475E7E4B0357 ME_499194C3028F
 
@@ -245,13 +281,19 @@ ME ME_499194C3028F
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7E4B0357' '467823B7002C.ms.model.script' // IafwStringValueMapFactory
+   Seq: ( ME_475E7E4B0357_ME_499194C3028F_G // IafwStringValueMapFactory
  )
  ; // Inherits
  UP extprop:rc:SelfName 'StringValueMapFactory'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499194C3028F InsStringValueMapFactory
+
+MEREF ME_475E7E670242_ME_499194D801B1_G
+ MELINK Original WL 'ME_475E7E670242' '467823B7002C.ms.model.script' // IafwStringValueMapManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7E670242_ME_499194D801B1_G IafwStringValueMapManager
 
 %%InheritedBy ME_475E7E670242 ME_499194D801B1
 
@@ -266,13 +308,19 @@ ME ME_499194D801B1
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7E670242' '467823B7002C.ms.model.script' // IafwStringValueMapManager
+   Seq: ( ME_475E7E670242_ME_499194D801B1_G // IafwStringValueMapManager
  )
  ; // Inherits
  UP extprop:rc:SelfName 'StringValueMapManager'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499194D801B1 InsStringValueMapManager
+
+MEREF ME_475E7EA30269_ME_499194F40273_G
+ MELINK Original WL 'ME_475E7EA30269' '467823B7002C.ms.model.script' // IafwIntegerValueMap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7EA30269_ME_499194F40273_G IafwIntegerValueMap
 
 %%InheritedBy ME_475E7EA30269 ME_499194F40273
 
@@ -287,13 +335,19 @@ ME ME_499194F40273
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7EA30269' '467823B7002C.ms.model.script' // IafwIntegerValueMap
+   Seq: ( ME_475E7EA30269_ME_499194F40273_G // IafwIntegerValueMap
  )
  ; // Inherits
  UP extprop:rc:SelfName 'IntegerValueMap'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499194F40273 InsIntegerValueMap
+
+MEREF ME_475E7EE10252_ME_499195060208_G
+ MELINK Original WL 'ME_475E7EE10252' '467823B7002C.ms.model.script' // IafwIntegerValueMapFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7EE10252_ME_499195060208_G IafwIntegerValueMapFactory
 
 %%InheritedBy ME_475E7EE10252 ME_499195060208
 
@@ -308,13 +362,19 @@ ME ME_499195060208
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7EE10252' '467823B7002C.ms.model.script' // IafwIntegerValueMapFactory
+   Seq: ( ME_475E7EE10252_ME_499195060208_G // IafwIntegerValueMapFactory
  )
  ; // Inherits
  UP extprop:rc:SelfName 'IntegerValueMapFactory'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_499195060208 InsIntegerValueMapFactory
+
+MEREF ME_475E7F100044_ME_49919596034A_G
+ MELINK Original WL 'ME_475E7F100044' '467823B7002C.ms.model.script' // IafwIntegerValueMapManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E7F100044_ME_49919596034A_G IafwIntegerValueMapManager
 
 %%InheritedBy ME_475E7F100044 ME_49919596034A
 
@@ -329,7 +389,7 @@ ME ME_49919596034A
  MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_475E7F100044' '467823B7002C.ms.model.script' // IafwIntegerValueMapManager
+   Seq: ( ME_475E7F100044_ME_49919596034A_G // IafwIntegerValueMapManager
  )
  ; // Inherits
  UP extprop:rc:SelfName 'IntegerValueMapManager'

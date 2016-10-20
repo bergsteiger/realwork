@@ -1,0 +1,93 @@
+// TdaSelectFieldList 55C84D190010 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C84D190010
+
+ME ME_55C84D2C0204
+ MEPROP UID '55C84D2C0204'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55C84D190010 // TdaSelectFieldList
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55C84D2C0204 FindDataType
+
+ME ME_55C857AC038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C84D190010 // TdaSelectFieldList
+ ;
+ MELINK Target WL 'ME_4BCED67800F1' '47877EB202FB.ms.model.script' // ANSISameText
+ ;
+
+ENDME // ME_55C857AC038E 
+
+MEREF ME_47B9BAFD01F4_ME_55C84D190010_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_55C84D190010_over CompareItemWithData
+
+MEREF ME_5551E0B301DC_ME_55C84D190010_G
+ MELINK Original WL? 'ME_5551E0B301DC' // TdaSelectFieldListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551E0B301DC_ME_55C84D190010_G TdaSelectFieldListPrim
+
+MEREF ME_47B47E230134_ME_55C84D190010_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_55C84D190010_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_55C84D190010
+
+%%InheritedBy ME_5551E0B301DC ME_55C84D190010
+
+ME ME_55C84D190010
+ MEPROP UID '55C84D190010'
+ MEPROP Name 'TdaSelectFieldList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_5551E0B301DC_ME_55C84D190010_G // TdaSelectFieldListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_55C84D190010_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C84D2C0204 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_55C84D190010_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55C857AC038E // ANSISameText
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daSelectFieldList.pas'
+ UP extprop:rc:SelfName 'daSelectFieldList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daSelectFieldList'
+
+ENDME // ME_55C84D190010 TdaSelectFieldList

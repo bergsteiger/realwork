@@ -4,41 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_52A1ACC102FE
 
-FORWARD ME_52A1ACC102FE
-
-%%ImplementedBy ME_47913F970159 ME_4C8E3AC40306
-
-%%InheritedBy ME_49A5750A01E8 ME_4C8E3AC40306
-
-ME ME_4C8E3AC40306
- MEPROP UID '4C8E3AC40306'
- MEPROP Name 'TvcmPopupMenuPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52A1ACC102FE // PopupMenu
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49A5750A01E8' '47E7ABAE0110.ms.model.script' // TPopupMenu
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_47913F970159' // l3Unknown
- )
- ; // Implements
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas'
- UP extprop:rc:SelfName 'PopupMenuPrim'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vcmPopupMenuPrim'
-
-ENDME // ME_4C8E3AC40306 TvcmPopupMenuPrim
-
 ME ME_52A1ACC102FE
  MEPROP UID '52A1ACC102FE'
  MEPROP Name 'PopupMenu'
@@ -50,7 +15,7 @@ ME ME_52A1ACC102FE
  MELINK Parent WL? 'ME_4E13416D0227' // VCM$Visual
  ;
  MELIST Children
-   Seq: ( HWL ME_4C8E3AC40306 // TvcmPopupMenuPrim
+   Seq: ( WL? 'ME_4C8E3AC40306' // TvcmPopupMenuPrim
  )
  ; // Children
  MELIST Depends

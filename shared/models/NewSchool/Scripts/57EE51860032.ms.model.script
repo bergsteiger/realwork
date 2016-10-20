@@ -1,0 +1,45 @@
+// TcsMultiOperation 57EE51860032 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_57F25AF103B0_ME_57EE51860032_G
+ MELINK Original WL? 'ME_57F25AF103B0' // TcsPersonificatedMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57F25AF103B0_ME_57EE51860032_G TcsPersonificatedMessage
+
+MEREF ME_57EE4F6402C7_ME_57EE51860032_R
+ MELINK Original WL 'ME_57EE4F6402C7' '484A470100DD.ms.model.script' // csMultiOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57EE4F6402C7_ME_57EE51860032_R csMultiOperation
+
+%%ImplementedBy ME_57EE4F6402C7 ME_57EE51860032
+
+%%InheritedBy ME_57F25AF103B0 ME_57EE51860032
+
+ME ME_57EE51860032
+ MEPROP UID '57EE51860032'
+ MEPROP Name 'TcsMultiOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C686B70253' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_57F25AF103B0_ME_57EE51860032_G // TcsPersonificatedMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_57EE4F6402C7_ME_57EE51860032_R // csMultiOperation
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiOperation.pas'
+ UP extprop:rc:SelfName 'csMultiOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiOperation'
+
+ENDME // ME_57EE51860032 TcsMultiOperation

@@ -6,6 +6,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_530495650309
 
+MEREF ME_47E1201703C3_ME_5305A6C50214_G
+ MELINK Original WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1201703C3_ME_5305A6C50214_G TControl
+
 %%InheritedBy ME_47E1201703C3 ME_5305A6C50214
 
 ME ME_5305A6C50214
@@ -19,7 +25,7 @@ ME ME_5305A6C50214
  MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+   Seq: ( ME_47E1201703C3_ME_5305A6C50214_G // TControl
  )
  ; // Inherits
  UP extprop:rc:SelfName 'HackControl'
@@ -58,7 +64,7 @@ ENDME // ME_5304ACA500F4 f_ArrangeCount
 ME ME_5304958A00B1
  MEPROP UID '5304958A00B1'
  MEPROP Name 'BuildGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -71,7 +77,7 @@ ENDME // ME_5304958A00B1 BuildGrid
 ME ME_530495F40209
  MEPROP UID '530495F40209'
  MEPROP Name 'ArrangeGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -84,7 +90,7 @@ ENDME // ME_530495F40209 ArrangeGrid
 ME ME_5304960402E1
  MEPROP UID '5304960402E1'
  MEPROP Name 'RecalcGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -112,7 +118,7 @@ ENDME // ME_530496A000F1 DoIt
 ME ME_530496230291
  MEPROP UID '530496230291'
  MEPROP Name 'GridParentControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -144,7 +150,7 @@ ENDME // ME_530496CE0178 DoIt
 ME ME_530496BF0361
  MEPROP UID '530496BF0361'
  MEPROP Name 'DoBuildGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -187,7 +193,7 @@ ENDME // ME_53049F7A0085 DoIt
 ME ME_5304972201A1
  MEPROP UID '5304972201A1'
  MEPROP Name 'DoRecalcGrid'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -230,7 +236,7 @@ ENDME // ME_5304AC51031E DoIt
 ME ME_5304AC3C01D4
  MEPROP UID '5304AC3C01D4'
  MEPROP Name 'GridSizeChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -273,7 +279,7 @@ ENDME // ME_5305A7BB005C DoIt
 ME ME_5305A79C02E4
  MEPROP UID '5305A79C02E4'
  MEPROP Name 'GridParentControlResize'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -327,18 +333,24 @@ ME ME_5305A789012E
 
 ENDME // ME_5305A789012E 
 
-ME ME_479731C50290_ME_530495650309
+MEREF ME_479731C50290_ME_530495650309_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_530495650309 Cleanup
+ENDMEREF // ME_479731C50290_ME_530495650309_over Cleanup
 
-ME ME_4B0E845502C1_ME_530495650309
+MEREF ME_4B0E845502C1_ME_530495650309_over
  MELINK Original WL 'ME_4B0E845502C1' '47E13C6B0341.ms.model.script' // NeedAutoScroll
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'l3HackedVCL'
-ENDME // ME_4B0E845502C1_ME_530495650309 NeedAutoScroll
+ENDMEREF // ME_4B0E845502C1_ME_530495650309_over NeedAutoScroll
+
+MEREF ME_4A82BCFA02EF_ME_530495650309_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_530495650309_R MvcmEntityForm
 
 %%ImplementedBy ME_4A82BCFA02EF ME_530495650309
 
@@ -354,7 +366,7 @@ ME ME_530495650309
  MELINK Parent WL? 'ME_4AC9B14A02E3' // Grid
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( ME_4A82BCFA02EF_ME_530495650309_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Attributes
@@ -374,8 +386,8 @@ ME ME_530495650309
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_530495650309 // Cleanup
- ME_4B0E845502C1_ME_530495650309 // NeedAutoScroll
+   Seq: ( ME_479731C50290_ME_530495650309_over // Cleanup
+ ME_4B0E845502C1_ME_530495650309_over // NeedAutoScroll
  )
  ; // Overridden
  MELIST Children

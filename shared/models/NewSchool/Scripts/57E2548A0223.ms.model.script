@@ -1,0 +1,271 @@
+// TarCustomMultiModifyDocsHelper 57E2548A0223 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E2548A0223
+
+ME ME_57E254D2005D
+ MEPROP UID '57E254D2005D'
+ MEPROP Name 'Generator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' // Tk2TagGenerator
+ ;
+ UP "pm" true
+
+ENDME // ME_57E254D2005D Generator
+
+ME ME_57E255C10209
+ MEPROP UID '57E255C10209'
+ MEPROP Name 'FamilyID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57E255C10209 FamilyID
+
+ME ME_57E256010271
+ MEPROP UID '57E256010271'
+ MEPROP Name 'WasException'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57E256010271 WasException
+
+ME ME_57E25617026E
+ MEPROP UID '57E25617026E'
+ MEPROP Name 'AnouncedDate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57E25617026E AnouncedDate
+
+ME ME_57E258B00053
+ MEPROP UID '57E258B00053'
+ MEPROP Name 'f_Generator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_57E258B00053 f_Generator
+
+FORWARD ME_57E256C401F8
+
+ME ME_57E256EB02A6
+ MEPROP Name 'aFamily'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57E256EB02A6 aFamily
+
+ME ME_57E256EB02B5
+ MEPROP Name 'anAnouncedDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_57E256EB02B5 anAnouncedDate
+
+ME ME_57E256CE016C
+ MEPROP UID '57E256CE016C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E256C401F8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E256EB02A6 // aFamily
+ ME_57E256EB02B5 // anAnouncedDate
+ )
+ ; // Parameters
+
+ENDME // ME_57E256CE016C DoIt
+
+ME ME_57E256C401F8
+ MEPROP UID '57E256C401F8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E256CE016C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E256C401F8 Create
+
+ME ME_57E254A501FA
+ MEPROP UID '57E254A501FA'
+ MEPROP Name 'ModifyDocs'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E254A501FA ModifyDocs
+
+ME ME_57E256520079
+ MEPROP UID '57E256520079'
+ MEPROP Name 'HasLockedDocs'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57E256520079 HasLockedDocs
+
+ME ME_57E2566D037A
+ MEPROP UID '57E2566D037A'
+ MEPROP Name 'SignalException'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E2566D037A SignalException
+
+ME ME_57E2569A0391
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_515413200198' '515412C70072.ms.model.script' // Tl3StringDataList
+ ;
+
+ENDME // ME_57E2569A0391 aList
+
+ME ME_57E256910017
+ MEPROP UID '57E256910017'
+ MEPROP Name 'FillLockedList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E2569A0391 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_57E256910017 FillLockedList
+
+ME ME_57E2665F03D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E2548A0223 // TarCustomMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57E2665F03D3 
+
+MEREF ME_479731C50290_ME_57E2548A0223_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_57E2548A0223_over Cleanup
+
+MEREF ME_49E7754802A9_ME_57E2548A0223_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57E2548A0223_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_57E2548A0223
+
+ME ME_57E2548A0223
+ MEPROP UID '57E2548A0223'
+ MEPROP Name 'TarCustomMultiModifyDocsHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57E2336703B0' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_57E2548A0223_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E254D2005D // Generator
+ HWL ME_57E255C10209 // FamilyID
+ HWL ME_57E256010271 // WasException
+ HWL ME_57E25617026E // AnouncedDate
+ HWL ME_57E258B00053 // f_Generator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E256C401F8 // Create
+ HWL ME_57E254A501FA // ModifyDocs
+ HWL ME_57E256520079 // HasLockedDocs
+ HWL ME_57E2566D037A // SignalException
+ HWL ME_57E256910017 // FillLockedList
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57E2548A0223_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E2665F03D3 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arCustomMultiModifyDocsHelper.pas'
+ UP extprop:rc:SelfName 'arCustomMultiModifyDocsHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arCustomMultiModifyDocsHelper'
+
+ENDME // ME_57E2548A0223 TarCustomMultiModifyDocsHelper

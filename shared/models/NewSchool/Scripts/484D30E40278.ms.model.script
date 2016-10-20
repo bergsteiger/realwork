@@ -1,0 +1,107 @@
+// WevStyle 484D30E40278 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484D30E40278
+
+ME ME_484D329501DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D30E40278 // WevStyle
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_484D329501DB 
+
+ME ME_484D352E014E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D30E40278 // WevStyle
+ ;
+ MELINK Target WL 'ME_47AC79B70202' '47AC79EA0132.ms.model.script' // Tl3Dictionary
+ ;
+
+ENDME // ME_484D352E014E 
+
+ME ME_484D353E00F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D30E40278 // WevStyle
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_484D353E00F3 
+
+ME ME_484D35B6014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D30E40278 // WevStyle
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_484D35B6014F 
+
+ME ME_5304E79202BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484D30E40278 // WevStyle
+ ;
+ MELINK Target WL? 'ME_4860AF86034F' // Tk2Dictionary
+ ;
+
+ENDME // ME_5304E79202BA 
+
+MEREF ME_484D10530133_ME_484D30E40278_G
+ MELINK Original WL? 'ME_484D10530133' // Wk2DictRec
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D10530133_ME_484D30E40278_G Wk2DictRec
+
+MEREF ME_484D11240282_ME_484D30E40278_R
+ MELINK Original WL 'ME_484D11240282' '484A470100DD.ms.model.script' // Style
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484D11240282_ME_484D30E40278_R Style
+
+%%ImplementedBy ME_484D11240282 ME_484D30E40278
+
+%%InheritedBy ME_484D10530133 ME_484D30E40278
+
+ME ME_484D30E40278
+ MEPROP UID '484D30E40278'
+ MEPROP Name 'WevStyle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_484A470100DD' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_484D10530133_ME_484D30E40278_G // Wk2DictRec
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_484D11240282_ME_484D30E40278_R // Style
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_484D329501DB // Standard
+ ME_484D352E014E // Tl3Dictionary
+ ME_484D353E00F3 // k2Base
+ ME_484D35B6014F // Tk2TagID
+ ME_5304E79202BA // Tk2Dictionary
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evStyle_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evStyle_Wrap'
+
+ENDME // ME_484D30E40278 WevStyle

@@ -1,0 +1,268 @@
+// TdaSelectField 5551DCD200EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5551DCD200EE
+
+ME ME_55535D5000EC
+ MEPROP UID '55535D5000EC'
+ MEPROP Name 'f_Alias'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5551DCD200EE // TdaSelectField
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55535D5000EC f_Alias
+
+ME ME_55535D5F029A
+ MEPROP UID '55535D5F029A'
+ MEPROP Name 'f_TableAlias'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5551DCD200EE // TdaSelectField
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55535D5F029A f_TableAlias
+
+ME ME_55535D960371
+ MEPROP UID '55535D960371'
+ MEPROP Name 'f_Field'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5551DCD200EE // TdaSelectField
+ ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_55535D960371 f_Field
+
+FORWARD ME_5551F6DC02D0
+
+ME ME_5551F752015D
+ MEPROP Name 'aTableAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5551F752015D aTableAlias
+
+ME ME_5551F752016C
+ MEPROP Name 'aField'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_5551F752016C aField
+
+ME ME_5551F752018C
+ MEPROP Name 'anAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_5551F752018C anAlias
+
+ME ME_5551F71900BC
+ MEPROP UID '5551F71900BC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5551F6DC02D0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5551F752015D // aTableAlias
+ ME_5551F752016C // aField
+ ME_5551F752018C // anAlias
+ )
+ ; // Parameters
+
+ENDME // ME_5551F71900BC DoIt
+
+ME ME_5551F6DC02D0
+ MEPROP UID '5551F6DC02D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5551DCD200EE // TdaSelectField
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5551F71900BC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5551F6DC02D0 Create
+
+MEREF ME_5551F6DC02D0_ME_5551F6EC0008_G
+ MELINK Original HWL ME_5551F6DC02D0 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551F6DC02D0_ME_5551F6EC0008_G Create
+
+MEREF ME_5551DC0F012D_ME_5551F6EC0008_R
+ MELINK Original WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551DC0F012D_ME_5551F6EC0008_R IdaSelectField
+
+%%ImplementedBy ME_5551DC0F012D ME_5551F6EC0008
+
+%%InheritedBy ME_5551F6DC02D0 ME_5551F6EC0008
+
+ME ME_5551F6EC0008
+ MEPROP UID '5551F6EC0008'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5551DCD200EE // TdaSelectField
+ ;
+ MELIST Inherits
+   Seq: ( ME_5551F6DC02D0_ME_5551F6EC0008_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5551DC0F012D_ME_5551F6EC0008_R // IdaSelectField
+ )
+ ; // Implements
+
+ENDME // ME_5551F6EC0008 Make
+
+MEREF ME_555351D702B3_ME_5551DCD200EE_impl
+ MELINK Original WL 'ME_555351D702B3' '5432518A0316.ms.model.script' // TableAlias
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_555351D702B3_ME_5551DCD200EE_impl TableAlias
+
+MEREF ME_555351F500BC_ME_5551DCD200EE_impl
+ MELINK Original WL 'ME_555351F500BC' '5432518A0316.ms.model.script' // Field
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_555351F500BC_ME_5551DCD200EE_impl Field
+
+MEREF ME_555352070022_ME_5551DCD200EE_impl
+ MELINK Original WL 'ME_555352070022' '5432518A0316.ms.model.script' // Alias
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_555352070022_ME_5551DCD200EE_impl Alias
+
+MEREF ME_5608E5A4025F_ME_5551DCD200EE_impl
+ MELINK Original WL 'ME_5608E5A4025F' '5432518A0316.ms.model.script' // BuildSQLValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5608E5A4025F_ME_5551DCD200EE_impl BuildSQLValue
+
+MEREF ME_5756AC9B0213_ME_5551DCD200EE_impl
+ MELINK Original WL 'ME_5756AC9B0213' '5432518A0316.ms.model.script' // IterateTables
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDMEREF // ME_5756AC9B0213_ME_5551DCD200EE_impl IterateTables
+
+MEREF ME_479731C50290_ME_5551DCD200EE_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5551DCD200EE_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5551DCD200EE_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5551DCD200EE_G Tl3ProtoObject
+
+MEREF ME_5551DC0F012D_ME_5551DCD200EE_R
+ MELINK Original WL 'ME_5551DC0F012D' '5432518A0316.ms.model.script' // IdaSelectField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551DC0F012D_ME_5551DCD200EE_R IdaSelectField
+
+MEREF ME_555351BE026E_ME_5551DCD200EE_R
+ MELINK Original WL 'ME_555351BE026E' '5432518A0316.ms.model.script' // IdaFieldFromTable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_555351BE026E_ME_5551DCD200EE_R IdaFieldFromTable
+
+%%ImplementedBy ME_5551DC0F012D ME_5551DCD200EE
+%%ImplementedBy ME_555351BE026E ME_5551DCD200EE
+
+%%InheritedBy ME_49E7754802A9 ME_5551DCD200EE
+
+ME ME_5551DCD200EE
+ MEPROP UID '5551DCD200EE'
+ MEPROP Name 'TdaSelectField'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5551DCD200EE_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5551DC0F012D_ME_5551DCD200EE_R // IdaSelectField
+ ME_555351BE026E_ME_5551DCD200EE_R // IdaFieldFromTable
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55535D5000EC // f_Alias
+ HWL ME_55535D5F029A // f_TableAlias
+ HWL ME_55535D960371 // f_Field
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5551F6DC02D0 // Create
+ HWL ME_5551F6EC0008 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_555351D702B3_ME_5551DCD200EE_impl // TableAlias
+ ME_555351F500BC_ME_5551DCD200EE_impl // Field
+ ME_555352070022_ME_5551DCD200EE_impl // Alias
+ ME_5608E5A4025F_ME_5551DCD200EE_impl // BuildSQLValue
+ ME_5756AC9B0213_ME_5551DCD200EE_impl // IterateTables
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5551DCD200EE_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daSelectField.pas'
+ UP extprop:rc:SelfName 'daSelectField'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daSelectField'
+
+ENDME // ME_5551DCD200EE TdaSelectField

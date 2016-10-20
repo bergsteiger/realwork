@@ -1,0 +1,275 @@
+// TnsUserDataObject 49F56C06023C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F56C06023C
+
+ME ME_49F56CDF0209
+ MEPROP UID '49F56CDF0209'
+ MEPROP Name 'f_Inited'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Данные зачитаны в поток.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49F56CDF0209 f_Inited
+
+ME ME_49F56D1701DE
+ MEPROP UID '49F56D1701DE'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_49F1AD9B00B6' '47ECAAF901F8.ms.model.script' // IbsSelectedUsers
+ ;
+
+ENDME // ME_49F56D1701DE f_List
+
+ME ME_49F56D5803A8
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49F1AD9B00B6' '47ECAAF901F8.ms.model.script' // IbsSelectedUsers
+ ;
+
+ENDME // ME_49F56D5803A8 aList
+
+ME ME_49F56D450147
+ MEPROP UID '49F56D450147'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F56D5803A8 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_49F56D450147 Create
+
+ME ME_49F56D6700B3
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49F1AD9B00B6' '47ECAAF901F8.ms.model.script' // IbsSelectedUsers
+ ;
+
+ENDME // ME_49F56D6700B3 aList
+
+ME ME_49F56D5F038D
+ MEPROP UID '49F56D5F038D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_49F56D6700B3 // aList
+ )
+ ; // Parameters
+ UP "need As" true
+
+ENDME // ME_49F56D5F038D Make
+
+ME ME_49F579B701C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_49F579B701C7 
+
+ME ME_49F579E9036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_49F579E9036A 
+
+ME ME_49F57BC00069
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_49F57BC00069 
+
+ME ME_49F57BF001A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_48F47C8001FF' '478CF30500C1.ms.model.script' // TSeekOrigin
+ ;
+
+ENDME // ME_49F57BF001A2 
+
+ME ME_49F5800D02FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL? 'ME_49F57FF400B2' // TnsUserInterfacedDataObject
+ ;
+
+ENDME // ME_49F5800D02FA 
+
+ME ME_49F58BC50013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_49F58BC50013 
+
+ME ME_49F58BC80107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_49F58BC80107 
+
+ME ME_49F58BCB01DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
+ ;
+
+ENDME // ME_49F58BCB01DD 
+
+ME ME_49F5904F02BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_49F5904F02BE 
+
+ME ME_49F5905C0068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49F56C06023C // TnsUserDataObject
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_49F5905C0068 
+
+MEREF ME_48F475350256_ME_49F56C06023C_over
+ MELINK Original WL 'ME_48F475350256' '48F4745E0023.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F475350256_ME_49F56C06023C_over COMQueryInterface
+
+MEREF ME_48F4795901B5_ME_49F56C06023C_over
+ MELINK Original WL 'ME_48F4795901B5' '48F4732803C8.ms.model.script' // DataObjectClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F4795901B5_ME_49F56C06023C_over DataObjectClass
+
+MEREF ME_48F4818300A5_ME_49F56C06023C_over
+ MELINK Original WL 'ME_48F4818300A5' '48F4732803C8.ms.model.script' // GetIsQuestionNeedBeforeFlush
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F4818300A5_ME_49F56C06023C_over GetIsQuestionNeedBeforeFlush
+
+MEREF ME_48F481B6035B_ME_49F56C06023C_over
+ MELINK Original WL 'ME_48F481B6035B' '48F4732803C8.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F481B6035B_ME_49F56C06023C_over DoStore
+
+MEREF ME_48F89F4302E3_ME_49F56C06023C_G
+ MELINK Original WL? 'ME_48F89F4302E3' // TevPersistentDataObjectEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F89F4302E3_ME_49F56C06023C_G TevPersistentDataObjectEx
+
+%%InheritedBy ME_48F89F4302E3 ME_49F56C06023C
+
+ME ME_49F56C06023C
+ MEPROP UID '49F56C06023C'
+ MEPROP Name 'TnsUserDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект данных для нод дерева пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49F17D370263' // UsersDataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F89F4302E3_ME_49F56C06023C_G // TevPersistentDataObjectEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49F56CDF0209 // f_Inited
+ HWL ME_49F56D1701DE // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49F56D450147 // Create
+ HWL ME_49F56D5F038D // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48F475350256_ME_49F56C06023C_over // COMQueryInterface
+ ME_48F4795901B5_ME_49F56C06023C_over // DataObjectClass
+ ME_48F4818300A5_ME_49F56C06023C_over // GetIsQuestionNeedBeforeFlush
+ ME_48F481B6035B_ME_49F56C06023C_over // DoStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49F579B701C7 // InevObjectHolder
+ ME_49F579E9036A // Clipboard Formats
+ ME_49F57BC00069 // l3Base
+ ME_49F57BF001A2 // TSeekOrigin
+ ME_49F5800D02FA // TnsUserInterfacedDataObject
+ ME_49F58BC50013 // Tl3FileMode
+ ME_49F58BC80107 // Tk2TagID
+ ME_49F58BCB01DD // TevdNativeWriter
+ ME_49F5904F02BE // Document
+ ME_49F5905C0068 // TextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\nsUserDataObject.pas'
+ UP extprop:rc:SelfName 'UserDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsUserDataObject'
+
+ENDME // ME_49F56C06023C TnsUserDataObject

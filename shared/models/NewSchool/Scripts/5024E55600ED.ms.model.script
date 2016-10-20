@@ -1,0 +1,74 @@
+// TnsAACDocumentSynchroViewContainer 5024E55600ED SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5024E55600ED
+
+ME ME_5024EA72009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5024E55600ED // TnsAACDocumentSynchroViewContainer
+ ;
+ MELINK Target WL 'ME_4FBE15CD02C7' '469D0AC7005E.ms.model.script' // BlockViewKind
+ ;
+
+ENDME // ME_5024EA72009D 
+
+MEREF ME_500E7677002B_ME_5024E55600ED_impl
+ MELINK Original WL 'ME_500E7677002B' '500E758002C7.ms.model.script' // AcceptableBlockViewKinds
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_500E7677002B_ME_5024E55600ED_impl AcceptableBlockViewKinds
+
+MEREF ME_500E758002C7_ME_5024E55600ED_G
+ MELINK Original WL? 'ME_500E758002C7' // TnsAACDocumentContainerPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_500E758002C7_ME_5024E55600ED_G TnsAACDocumentContainerPrim
+
+MEREF ME_5024F90003C7_ME_5024E55600ED_R
+ MELINK Original WL 'ME_5024F90003C7' '484FA67302D7.ms.model.script' // ААК - текст при синхронном просмотре
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5024F90003C7_ME_5024E55600ED_R ААК - текст при синхронном просмотре
+
+%%ImplementedBy ME_5024F90003C7 ME_5024E55600ED
+
+%%InheritedBy ME_500E758002C7 ME_5024E55600ED
+
+ME ME_5024E55600ED
+ MEPROP UID '5024E55600ED'
+ MEPROP Name 'TnsAACDocumentSynchroViewContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C6A7BA001A5' // F1DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_500E758002C7_ME_5024E55600ED_G // TnsAACDocumentContainerPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5024F90003C7_ME_5024E55600ED_R // ААК - текст при синхронном просмотре
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_500E7677002B_ME_5024E55600ED_impl // AcceptableBlockViewKinds
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5024EA72009D // BlockViewKind
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsAACDocumentSynchroViewContainer.pas'
+ UP extprop:rc:SelfName 'AACDocumentSynchroViewContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsAACDocumentSynchroViewContainer'
+
+ENDME // ME_5024E55600ED TnsAACDocumentSynchroViewContainer

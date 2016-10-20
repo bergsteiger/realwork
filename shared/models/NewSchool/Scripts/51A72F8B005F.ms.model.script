@@ -1,0 +1,47 @@
+// K321986755 51A72F8B005F TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51A72F8B005F
+
+MEREF ME_51AF49E5001B_ME_51A72F8B005F_over
+ MELINK Original WL 'ME_51AF49E5001B' '4B2A11BC0255.ms.model.script' // EtalonNeedsXE
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'XE'
+ENDMEREF // ME_51AF49E5001B_ME_51A72F8B005F_over EtalonNeedsXE
+
+MEREF ME_4E5BD013008D_ME_51A72F8B005F_G
+ MELINK Original WL? 'ME_4E5BD013008D' // TPreviewTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E5BD013008D_ME_51A72F8B005F_G TPreviewTest
+
+%%InheritedBy ME_4E5BD013008D ME_51A72F8B005F
+
+ME ME_51A72F8B005F
+ MEPROP UID '51A72F8B005F'
+ MEPROP Name 'K321986755'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:321986755}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F86C70700BD' // 7.8
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E5BD013008D_ME_51A72F8B005F_G // TPreviewTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_51AF49E5001B_ME_51A72F8B005F_over // EtalonNeedsXE
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K321986755.pas'
+ UP extprop:pas:TypeName 'TK321986755'
+ UP extprop:rc:SelfName 'K321986755'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51A72F8B005F K321986755

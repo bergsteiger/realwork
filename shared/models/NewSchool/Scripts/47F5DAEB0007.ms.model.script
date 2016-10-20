@@ -1,0 +1,157 @@
+// Tk2ToolPrim 47F5DAEB0007 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F5DAEB0007
+
+FORWARD ME_52BC1DD60298
+
+ME ME_52BC1DF9020E
+ MEPROP Name 'Source'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47F5DAEB0007 // Tk2ToolPrim
+ ;
+
+ENDME // ME_52BC1DF9020E Source
+
+ME ME_52BC1DF40109
+ MEPROP UID '52BC1DF40109'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52BC1DD60298 // Assign
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BC1DF9020E // Source
+ )
+ ; // Parameters
+
+ENDME // ME_52BC1DF40109 DoIt
+
+ME ME_52BC1DD60298
+ MEPROP UID '52BC1DD60298'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F5DAEB0007 // Tk2ToolPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52BC1DF40109 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52BC1DD60298 Assign
+
+ME ME_49DF4E12001A
+ MEPROP UID '49DF4E12001A'
+ MEPROP Name 'StoreToOldCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F5DAEB0007 // Tk2ToolPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_49DF4E12001A StoreToOldCache
+
+ME ME_49E75FAA016F
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_49E75FAA016F aTag
+
+ME ME_49E75FA4010C
+ MEPROP UID '49E75FA4010C'
+ MEPROP Name 'SetTagQT'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47F5DAEB0007 // Tk2ToolPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E75FAA016F // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_49E75FA4010C SetTagQT
+
+MEREF ME_47A6FEE600FC_ME_47F5DAEB0007_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_47F5DAEB0007_over IsCacheable
+
+MEREF ME_531EEB8503AE_ME_47F5DAEB0007_over
+ MELINK Original WL 'ME_531EEB8503AE' '47913F4E02E0.ms.model.script' // AfterFree
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_531EEB8503AE_ME_47F5DAEB0007_over AfterFree
+
+MEREF ME_5319C00B0313_ME_47F5DAEB0007_G
+ MELINK Original WL? 'ME_5319C00B0313' // Tk2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5319C00B0313_ME_47F5DAEB0007_G Tk2Tag
+
+MEREF ME_47913BA402ED_ME_47F5DAEB0007_R
+ MELINK Original WL 'ME_47913BA402ED' '4807744200AA.ms.model.script' // IUnknown$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913BA402ED_ME_47F5DAEB0007_R IUnknown$Def
+
+%%ImplementedBy ME_47913BA402ED ME_47F5DAEB0007
+
+%%InheritedBy ME_5319C00B0313 ME_47F5DAEB0007
+
+ME ME_47F5DAEB0007
+ MEPROP UID '47F5DAEB0007'
+ MEPROP Name 'Tk2ToolPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_49A58A1A03C4' // k2PrimObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5319C00B0313_ME_47F5DAEB0007_G // Tk2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47913BA402ED_ME_47F5DAEB0007_R // IUnknown$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52BC1DD60298 // Assign
+ HWL ME_49DF4E12001A // StoreToOldCache
+ HWL ME_49E75FA4010C // SetTagQT
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_47F5DAEB0007_over // IsCacheable
+ ME_531EEB8503AE_ME_47F5DAEB0007_over // AfterFree
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ToolPrim.pas'
+ UP extprop:rc:SelfName 'ToolPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2ToolPrim'
+
+ENDME // ME_47F5DAEB0007 Tk2ToolPrim

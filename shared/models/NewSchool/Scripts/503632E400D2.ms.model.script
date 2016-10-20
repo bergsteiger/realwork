@@ -1,0 +1,55 @@
+// EVDtoXMLWiterTest 503632E400D2 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_503632E400D2
+
+ME ME_5036347502D4
+ MEPROP UID '5036347502D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503632E400D2 // EVDtoXMLWiterTest
+ ;
+
+ENDME // ME_5036347502D4 DoIt
+
+MEREF ME_503632AC03D9_ME_503632E400D2_G
+ MELINK Original WL? 'ME_503632AC03D9' // XMLWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_503632AC03D9_ME_503632E400D2_G XMLWriterTest
+
+%%InheritedBy ME_503632AC03D9 ME_503632E400D2
+
+ME ME_503632E400D2
+ MEPROP UID '503632E400D2'
+ MEPROP Name 'EVDtoXMLWiterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_50363289039D' // XML
+ ;
+ MELIST Inherits
+   Seq: ( ME_503632AC03D9_ME_503632E400D2_G // XMLWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5036347502D4 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoXMLWiterTest.pas'
+ UP extprop:pas:TypeName 'TEVDtoXMLWiterTest'
+ UP extprop:rc:SelfName 'EVDtoXMLWiterTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_503632E400D2 EVDtoXMLWiterTest

@@ -1,0 +1,78 @@
+// TnsOpenDocumentFromLinkEvent 4B0A781302C3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B0A781302C3
+
+ME ME_4B0A785F00E4
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4B0A785F00E4 aDoc
+
+ME ME_4B0A78550087
+ MEPROP UID '4B0A78550087'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0A781302C3 // TnsOpenDocumentFromLinkEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B0A785F00E4 // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4B0A78550087 Log
+
+ME ME_55B7B60E0366
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B0A781302C3 // TnsOpenDocumentFromLinkEvent
+ ;
+ MELINK Target WL? 'ME_4BA763B0004B' // bsTypesNew
+ ;
+
+ENDME // ME_55B7B60E0366 
+
+MEREF ME_4B0A6109010C_ME_4B0A781302C3_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_4B0A781302C3_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_4B0A781302C3
+
+ME ME_4B0A781302C3
+ MEPROP UID '4B0A781302C3'
+ MEPROP Name 'TnsOpenDocumentFromLinkEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A815BFF0168' // Navigation
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_4B0A781302C3_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B0A78550087 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55B7B60E0366 // bsTypesNew
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocumentFromLinkEvent.pas'
+ UP extprop:rc:SelfName 'OpenDocumentFromLinkEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsOpenDocumentFromLinkEvent'
+
+ENDME // ME_4B0A781302C3 TnsOpenDocumentFromLinkEvent

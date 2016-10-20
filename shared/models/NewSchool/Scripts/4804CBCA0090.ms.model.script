@@ -1,0 +1,87 @@
+// TevBitmapParaPainter 4804CBCA0090 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4804CBCA0090
+
+ME ME_4DD67C2A01F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ MELINK Target WL? 'ME_4858137901EF' // TevBitmapPara
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67C2A01F6 
+
+ME ME_53D0F11C01A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4804CBCA0090 // TevBitmapParaPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D0F11C01A6 
+
+MEREF ME_4804B86403BE_ME_4804CBCA0090_over
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B86403BE_ME_4804CBCA0090_over DoFillSelection
+
+MEREF ME_4804C81000B9_ME_4804CBCA0090_over
+ MELINK Original WL 'ME_4804C81000B9' '4804C7B60375.ms.model.script' // DrawLeaf
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804C81000B9_ME_4804CBCA0090_over DrawLeaf
+
+MEREF ME_49DB53330394_ME_4804CBCA0090_G
+ MELINK Original WL? 'ME_49DB53330394' // TevLeafParaPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DB53330394_ME_4804CBCA0090_G TevLeafParaPainter
+
+%%InjectedBy ME_4858137901EF ME_4804CBCA0090
+
+%%InheritedBy ME_49DB53330394 ME_4804CBCA0090
+
+ME ME_4804CBCA0090
+ MEPROP UID '4804CBCA0090'
+ MEPROP Name 'TevBitmapParaPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"рисователь" параграфа с картинкой. Реализует интерфейс IevPainter.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4804A24003C1' // LeafPara Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DB53330394_ME_4804CBCA0090_G // TevLeafParaPainter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4804B86403BE_ME_4804CBCA0090_over // DoFillSelection
+ ME_4804C81000B9_ME_4804CBCA0090_over // DrawLeaf
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD67C2A01F6 // TevBitmapPara
+ ME_53D0F11C01A6 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '16.12.2002 14:35'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evBitmapParaPainter.pas'
+ UP extprop:rc:SelfName 'BitmapParaPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evBitmapParaPainter'
+
+ENDME // ME_4804CBCA0090 TevBitmapParaPainter

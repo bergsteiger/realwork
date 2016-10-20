@@ -19,12 +19,18 @@ ME ME_497A0B2203C4
 
 ENDME // ME_497A0B2203C4 BaseSearch
 
-ME ME_496F344101D0_ME_496F3F2500A8
+MEREF ME_496F344101D0_ME_496F3F2500A8_impl
  MELINK Original WL 'ME_496F344101D0' '491B305A0096.ms.model.script' // CanRunBaseSearch
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_496F344101D0_ME_496F3F2500A8 CanRunBaseSearch
+ENDMEREF // ME_496F344101D0_ME_496F3F2500A8_impl CanRunBaseSearch
+
+MEREF ME_496F33D900C1_ME_496F3F2500A8_R
+ MELINK Original WL 'ME_496F33D900C1' '491B305A0096.ms.model.script' // BaseSearchSupportQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_496F33D900C1_ME_496F3F2500A8_R BaseSearchSupportQuery
 
 %%ImplementedBy ME_496F33D900C1 ME_496F3F2500A8
 
@@ -41,7 +47,7 @@ ME ME_496F3F2500A8
  MELINK Parent WL? 'ME_47F22C7501F6' // Document
  ;
  MELIST Implements
-   Seq: ( WL 'ME_496F33D900C1' '491B305A0096.ms.model.script' // BaseSearchSupportQuery
+   Seq: ( ME_496F33D900C1_ME_496F3F2500A8_R // BaseSearchSupportQuery
  )
  ; // Implements
  MELIST Attributes
@@ -49,7 +55,7 @@ ME ME_496F3F2500A8
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_496F344101D0_ME_496F3F2500A8 // CanRunBaseSearch
+   Seq: ( ME_496F344101D0_ME_496F3F2500A8_impl // CanRunBaseSearch
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

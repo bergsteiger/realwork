@@ -38,11 +38,17 @@ ME ME_49302FF8014A
 
 ENDME // ME_49302FF8014A 
 
-ME ME_49590D4802EE_ME_492428D203A1
+MEREF ME_49590D4802EE_ME_492428D203A1_impl
  MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_49590D4802EE_ME_492428D203A1 Process
+ENDMEREF // ME_49590D4802EE_ME_492428D203A1_impl Process
+
+MEREF ME_49590CE80397_ME_492428D203A1_R
+ MELINK Original WL 'ME_49590CE80397' '491DAF4202EE.ms.model.script' // CurrentChangedListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49590CE80397_ME_492428D203A1_R CurrentChangedListener
 
 %%ImplementedBy ME_49590CE80397 ME_492428D203A1
 
@@ -59,7 +65,7 @@ ME ME_492428D203A1
  MELINK Parent WL? 'ME_4AA005310028' // Search
  ;
  MELIST Implements
-   Seq: ( WL 'ME_49590CE80397' '491DAF4202EE.ms.model.script' // CurrentChangedListener
+   Seq: ( ME_49590CE80397_ME_492428D203A1_R // CurrentChangedListener
  )
  ; // Implements
  MELIST Operations
@@ -67,7 +73,7 @@ ME ME_492428D203A1
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_49590D4802EE_ME_492428D203A1 // Process
+   Seq: ( ME_49590D4802EE_ME_492428D203A1_impl // Process
  )
  ; // Implemented
  MELIST Dependencies

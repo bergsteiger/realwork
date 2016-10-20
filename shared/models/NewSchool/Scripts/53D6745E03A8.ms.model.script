@@ -1,0 +1,100 @@
+// TnevTableIevChangeParamToolMapper 53D6745E03A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D6745E03A8
+
+ME ME_53D6748201B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D6745E03A8 // TnevTableIevChangeParamToolMapper
+ ;
+ MELINK Target WL? 'ME_4857E163036B' // TevTable
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D6748201B0 
+
+ME ME_53D674B403D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D6745E03A8 // TnevTableIevChangeParamToolMapper
+ ;
+ MELINK Target WL 'ME_4A2625FB03C2' '47F088300159.ms.model.script' // IevChangeParamTool
+ ;
+
+ENDME // ME_53D674B403D6 
+
+ME ME_53D674E30236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D6745E03A8 // TnevTableIevChangeParamToolMapper
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_53D674E30236 
+
+ME ME_53D674FF021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D6745E03A8 // TnevTableIevChangeParamToolMapper
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_53D674FF021D 
+
+MEREF ME_53D639B601D7_ME_53D6745E03A8_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53D639B601D7_ME_53D6745E03A8_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D6745E03A8_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D6745E03A8_G Tk2InterfaceMapper
+
+%%InjectedBy ME_4857E163036B ME_53D6745E03A8
+
+%%InheritedBy ME_53D6399F03E1 ME_53D6745E03A8
+
+ME ME_53D6745E03A8
+ MEPROP UID '53D6745E03A8'
+ MEPROP Name 'TnevTableIevChangeParamToolMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_53D6399F03E1_ME_53D6745E03A8_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D6745E03A8_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D6748201B0 // TevTable
+ ME_53D674B403D6 // IevChangeParamTool
+ ME_53D674E30236 // InevObject
+ ME_53D674FF021D // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'evNeedHotSpot'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableIevChangeParamToolMapper.pas'
+ UP extprop:rc:SelfName 'TableIevChangeParamToolMapper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevTableIevChangeParamToolMapper'
+
+ENDME // ME_53D6745E03A8 TnevTableIevChangeParamToolMapper

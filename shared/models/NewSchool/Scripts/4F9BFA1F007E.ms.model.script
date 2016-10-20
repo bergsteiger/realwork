@@ -1,0 +1,69 @@
+// TevdEmptySubsEliminator 4F9BFA1F007E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9BFA1F007E
+
+ME ME_4F9BFCA2020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9BFA1F007E // TevdEmptySubsEliminator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F9BFCA2020E 
+
+MEREF ME_4C56D54B002A_ME_4F9BFA1F007E_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_4F9BFA1F007E_over NeedStartBuffering
+
+MEREF ME_4CF7BC520161_ME_4F9BFA1F007E_over
+ MELINK Original WL 'ME_4CF7BC520161' '49E496880120.ms.model.script' // NeedFlushBuffer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CF7BC520161_ME_4F9BFA1F007E_over NeedFlushBuffer
+
+MEREF ME_49E4965202A1_ME_4F9BFA1F007E_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4F9BFA1F007E_G TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4F9BFA1F007E
+
+ME ME_4F9BFA1F007E
+ MEPROP UID '4F9BFA1F007E'
+ MEPROP Name 'TevdEmptySubsEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E4965202A1_ME_4F9BFA1F007E_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C56D54B002A_ME_4F9BFA1F007E_over // NeedStartBuffering
+ ME_4CF7BC520161_ME_4F9BFA1F007E_over // NeedFlushBuffer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F9BFCA2020E // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdEmptySubsEliminator.pas'
+ UP extprop:rc:SelfName 'dEmptySubsEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdEmptySubsEliminator'
+
+ENDME // ME_4F9BFA1F007E TevdEmptySubsEliminator

@@ -1,0 +1,229 @@
+// TtfwProcedure 4F37B27502EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F37B27502EE
+
+FORWARD ME_55915A27028A
+
+ME ME_55915A2F01A7
+ MEPROP UID '55915A2F01A7'
+ MEPROP Name 'cCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55915A27028A // Inner
+ ;
+ MEPROP Value '''Caller'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Caller'''
+
+ENDME // ME_55915A2F01A7 cCaller
+
+ME ME_55915A27028A
+ MEPROP UID '55915A27028A'
+ MEPROP Name 'Inner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55915A2F01A7 // cCaller
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_55915A27028A Inner
+
+FORWARD ME_4F3FF55403AB
+
+ME ME_4F3FF5710220
+ MEPROP UID '4F3FF5710220'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3FF55403AB // AddedParameters
+ ;
+ MELINK Target WL 'ME_46A61D0B0256' '4677FBA70343.ms.model.script' // Tl3CStringArray
+ ;
+
+ENDME // ME_4F3FF5710220 DoIt
+
+ME ME_4F3FF55403AB
+ MEPROP UID '4F3FF55403AB'
+ MEPROP Name 'AddedParameters'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F3FF5710220 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F3FF55403AB AddedParameters
+
+ME ME_52D6AE29028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_52D6AC5402E7' // StandardProcedureCloseBracket
+ ;
+
+ENDME // ME_52D6AE29028B 
+
+ME ME_559159EB0266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_4F21976E01C2' // TkwCompiledWordWorkerWord
+ ;
+
+ENDME // ME_559159EB0266 
+
+ME ME_55915ABA0285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55915ABA0285 
+
+ME ME_55916D1B0114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_4F216D8D01A0' // TkwCompiledProcedure
+ ;
+
+ENDME // ME_55916D1B0114 
+
+ME ME_559299520034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_4F3BEDFE0051' // TkwCompiledFunction
+ ;
+
+ENDME // ME_559299520034 
+
+ME ME_559299610224
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_528F655002C2' // TkwCompiledProcedureWithStackChecking
+ ;
+
+ENDME // ME_559299610224 
+
+ME ME_5592997B029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F37B27502EE // TtfwProcedure
+ ;
+ MELINK Target WL? 'ME_53ED9C3B01F3' // TkwInlinedWord
+ ;
+
+ENDME // ME_5592997B029D 
+
+MEREF ME_4DB6C99F026E_ME_4F37B27502EE_impl
+ MELINK Original WL 'ME_4DB6C99F026E' '4DB6C8F30161.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DB6C99F026E_ME_4F37B27502EE_impl EndBracket
+
+MEREF ME_4DBAEE0D028D_ME_4F37B27502EE_over
+ MELINK Original WL 'ME_4DBAEE0D028D' '4DB6C8F30161.ms.model.script' // CompiledWordClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DBAEE0D028D_ME_4F37B27502EE_over CompiledWordClass
+
+MEREF ME_4F219629036A_ME_4F37B27502EE_over
+ MELINK Original WL 'ME_4F219629036A' '4DB9B6D20168.ms.model.script' // FinishDefinitionOfNewWord
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F219629036A_ME_4F37B27502EE_over FinishDefinitionOfNewWord
+
+MEREF ME_4F21A4F60049_ME_4F37B27502EE_over
+ MELINK Original WL 'ME_4F21A4F60049' '4DB6C8F30161.ms.model.script' // FillCompiledWord
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F21A4F60049_ME_4F37B27502EE_over FillCompiledWord
+
+MEREF ME_4DB9B6D20168_ME_4F37B27502EE_G
+ MELINK Original WL? 'ME_4DB9B6D20168' // TtfwNewWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB9B6D20168_ME_4F37B27502EE_G TtfwNewWord
+
+%%InheritedBy ME_4DB9B6D20168 ME_4F37B27502EE
+
+ME ME_4F37B27502EE
+ MEPROP UID '4F37B27502EE'
+ MEPROP Name 'TtfwProcedure'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB9B6D20168_ME_4F37B27502EE_G // TtfwNewWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F3FF55403AB // AddedParameters
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4F37B27502EE_impl // EndBracket
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DBAEE0D028D_ME_4F37B27502EE_over // CompiledWordClass
+ ME_4F219629036A_ME_4F37B27502EE_over // FinishDefinitionOfNewWord
+ ME_4F21A4F60049_ME_4F37B27502EE_over // FillCompiledWord
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_55915A27028A // Inner
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52D6AE29028B // StandardProcedureCloseBracket
+ ME_559159EB0266 // TkwCompiledWordWorkerWord
+ ME_55915ABA0285 // FreeAndNil
+ ME_55916D1B0114 // TkwCompiledProcedure
+ ME_559299520034 // TkwCompiledFunction
+ ME_559299610224 // TkwCompiledProcedureWithStackChecking
+ ME_5592997B029D // TkwInlinedWord
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwProcedure.pas'
+ UP extprop:rc:SelfName 'Procedure'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwProcedure'
+
+ENDME // ME_4F37B27502EE TtfwProcedure

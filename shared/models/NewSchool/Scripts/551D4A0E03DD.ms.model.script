@@ -22,7 +22,7 @@ ME ME_551D4AA003A2
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_551D4A0E03DD // VGSceneAndWinControlPack
  ;
- MELINK Target WL 'ME_4D4956480326' '4CFCE51A00B0.ms.model.script' // TvgObject
+ MELINK Target WL? 'ME_4D4956480326' // TvgObject
  ;
  MELIST Parameters
    Seq: ( ME_551D4AC3026E // aName
@@ -41,6 +41,12 @@ ME ME_551D5363005B
 
 ENDME // ME_551D5363005B 
 
+MEREF ME_47E124E90272_ME_551D4A0E03DD_R
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_551D4A0E03DD_R TWinControl
+
 %%ImplementedBy ME_47E124E90272 ME_551D4A0E03DD
 
 ME ME_551D4A0E03DD
@@ -55,7 +61,7 @@ ME ME_551D4A0E03DD
  MELINK Parent WL? 'ME_506AC2F00283' // VGSceneWords
  ;
  MELIST Implements
-   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+   Seq: ( ME_47E124E90272_ME_551D4A0E03DD_R // TWinControl
  )
  ; // Implements
  MELIST Operations

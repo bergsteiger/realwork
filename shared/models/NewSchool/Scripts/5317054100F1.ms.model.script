@@ -1,0 +1,50 @@
+// TalcuAutoExportTask 5317054100F1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5317054100F1
+
+ME ME_54001C750042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5317054100F1 // TalcuAutoExportTask
+ ;
+ MELINK Target WL? 'ME_54001C560310' // TalcuAutoExportTaskResult
+ ;
+
+ENDME // ME_54001C750042 
+
+MEREF ME_53B6A5FA0212_ME_5317054100F1_G
+ MELINK Original WL? 'ME_53B6A5FA0212' // TalcuAutoExportTaskPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B6A5FA0212_ME_5317054100F1_G TalcuAutoExportTaskPrim
+
+%%InheritedBy ME_53B6A5FA0212 ME_5317054100F1
+
+ME ME_5317054100F1
+ MEPROP UID '5317054100F1'
+ MEPROP Name 'TalcuAutoExportTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_53B6A5FA0212_ME_5317054100F1_G // TalcuAutoExportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_54001C750042 // TalcuAutoExportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoExportTask.pas'
+ UP extprop:rc:SelfName 'alcuAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuAutoExportTask'
+
+ENDME // ME_5317054100F1 TalcuAutoExportTask

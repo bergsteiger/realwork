@@ -138,7 +138,7 @@ ENDME // ME_57AB589A0334 DoIt
 ME ME_57AB589001D7
  MEPROP UID '57AB589001D7'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -152,6 +152,18 @@ ME ME_57AB589001D7
 
 ENDME // ME_57AB589001D7 Create
 
+MEREF ME_57AB589001D7_ME_57AB58A80202_G
+ MELINK Original HWL ME_57AB589001D7 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB589001D7_ME_57AB58A80202_G Create
+
+MEREF ME_57AB05790383_ME_57AB58A80202_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57AB58A80202_R ImsmViewController
+
 %%ImplementedBy ME_57AB05790383 ME_57AB58A80202
 
 %%InheritedBy ME_57AB589001D7 ME_57AB58A80202
@@ -159,7 +171,7 @@ ENDME // ME_57AB589001D7 Create
 ME ME_57AB58A80202
  MEPROP UID '57AB58A80202'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -167,11 +179,11 @@ ME ME_57AB58A80202
  MELINK Parent HWL ME_57AB5C9A00F3 // msmOwnViewController
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AB589001D7 // Create
+   Seq: ( ME_57AB589001D7_ME_57AB58A80202_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+   Seq: ( ME_57AB05790383_ME_57AB58A80202_R // ImsmViewController
  )
  ; // Implements
 
@@ -195,7 +207,7 @@ ENDME // ME_7862CE3DF1B9 DoIt
 ME ME_57ADFB33027D
  MEPROP UID '57ADFB33027D'
  MEPROP Name 'InitOwnView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -259,7 +271,7 @@ ME ME_57B45A7F000E
  MEPROP UID '57B45A7F000E'
  MEPROP Name 'Create'
  MEPROP OriginalName 'Create$WithContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -273,6 +285,18 @@ ME ME_57B45A7F000E
 
 ENDME // ME_57B45A7F000E Create$WithContext
 
+MEREF ME_57B45A7F000E_ME_57B45A58031F_G
+ MELINK Original HWL ME_57B45A7F000E // Create$WithContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B45A7F000E_ME_57B45A58031F_G Create$WithContext
+
+MEREF ME_57AB05790383_ME_57B45A58031F_R
+ MELINK Original WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AB05790383_ME_57B45A58031F_R ImsmViewController
+
 %%ImplementedBy ME_57AB05790383 ME_57B45A58031F
 
 %%InheritedBy ME_57B45A7F000E ME_57B45A58031F
@@ -281,7 +305,7 @@ ME ME_57B45A58031F
  MEPROP UID '57B45A58031F'
  MEPROP Name 'Make'
  MEPROP OriginalName 'Make$WithContext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -289,11 +313,11 @@ ME ME_57B45A58031F
  MELINK Parent HWL ME_57AB5C9A00F3 // msmOwnViewController
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B45A7F000E // Create$WithContext
+   Seq: ( ME_57B45A7F000E_ME_57B45A58031F_G // Create$WithContext
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57AB05790383' '57AAE8D403E5.ms.model.script' // ImsmViewController
+   Seq: ( ME_57AB05790383_ME_57B45A58031F_R // ImsmViewController
  )
  ; // Implements
 
@@ -319,11 +343,17 @@ ME ME_57B45BBE009F
 
 ENDME // ME_57B45BBE009F 
 
-ME ME_479731C50290_ME_57AB5C9A00F3
+MEREF ME_479731C50290_ME_57AB5C9A00F3_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57AB5C9A00F3 Cleanup
+ENDMEREF // ME_479731C50290_ME_57AB5C9A00F3_over Cleanup
+
+MEREF ME_57ADB523009E_ME_57AB5C9A00F3_G
+ MELINK Original WL? 'ME_57ADB523009E' // TmsmParentedViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADB523009E_ME_57AB5C9A00F3_G TmsmParentedViewController
 
 %%InheritedBy ME_57ADB523009E ME_57AB5C9A00F3
 
@@ -339,7 +369,7 @@ ME ME_57AB5C9A00F3
  MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57ADB523009E' '57AAE90E02B6.ms.model.script' // TmsmParentedViewController
+   Seq: ( ME_57ADB523009E_ME_57AB5C9A00F3_G // TmsmParentedViewController
  )
  ; // Inherits
  MELIST Attributes
@@ -358,7 +388,7 @@ ME ME_57AB5C9A00F3
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57AB5C9A00F3 // Cleanup
+   Seq: ( ME_479731C50290_ME_57AB5C9A00F3_over // Cleanup
  )
  ; // Overridden
  MELIST Children

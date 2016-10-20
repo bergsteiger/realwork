@@ -21,6 +21,12 @@ ME ME_48F8C8FC01FD
 
 ENDME // ME_48F8C8FC01FD StorableClass
 
+MEREF ME_48F8C8FC01FD_ME_48F8CA5502C3_G
+ MELINK Original HWL ME_48F8C8FC01FD // StorableClass
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F8C8FC01FD_ME_48F8CA5502C3_G StorableClass
+
 %%InheritedBy ME_48F8C8FC01FD ME_48F8CA5502C3
 
 ME ME_48F8CA5502C3
@@ -34,7 +40,7 @@ ME ME_48F8CA5502C3
  MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48F8C8FC01FD // StorableClass
+   Seq: ( ME_48F8C8FC01FD_ME_48F8CA5502C3_G // StorableClass
  )
  ; // Inherits
  UP "isClassRef" true
@@ -119,7 +125,7 @@ ENDME // ME_4CDD6F4B0345 DoIt
 ME ME_4CDD6F4403CD
  MEPROP UID '4CDD6F4403CD'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -133,6 +139,18 @@ ME ME_4CDD6F4403CD
 
 ENDME // ME_4CDD6F4403CD Create
 
+MEREF ME_4CDD6F4403CD_ME_4CDD6F670138_G
+ MELINK Original HWL ME_4CDD6F4403CD // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD6F4403CD_ME_4CDD6F670138_G Create
+
+MEREF ME_4680F4790135_ME_4CDD6F670138_R
+ MELINK Original WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F4790135_ME_4CDD6F670138_R IDataObject
+
 %%ImplementedBy ME_4680F4790135 ME_4CDD6F670138
 
 %%InheritedBy ME_4CDD6F4403CD ME_4CDD6F670138
@@ -140,7 +158,7 @@ ENDME // ME_4CDD6F4403CD Create
 ME ME_4CDD6F670138
  MEPROP UID '4CDD6F670138'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -148,11 +166,11 @@ ME ME_4CDD6F670138
  MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4CDD6F4403CD // Create
+   Seq: ( ME_4CDD6F4403CD_ME_4CDD6F670138_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+   Seq: ( ME_4680F4790135_ME_4CDD6F670138_R // IDataObject
  )
  ; // Implements
  UP "need As" true
@@ -212,11 +230,17 @@ ME ME_48F8D340016B
 
 ENDME // ME_48F8D340016B 
 
-ME ME_479731C50290_ME_48F8C3780325
+MEREF ME_479731C50290_ME_48F8C3780325_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_48F8C3780325 Cleanup
+ENDMEREF // ME_479731C50290_ME_48F8C3780325_over Cleanup
+
+MEREF ME_48F89F4302E3_ME_48F8C3780325_G
+ MELINK Original WL? 'ME_48F89F4302E3' // TevPersistentDataObjectEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F89F4302E3_ME_48F8C3780325_G TevPersistentDataObjectEx
 
 %%InheritedBy ME_48F89F4302E3 ME_48F8C3780325
 
@@ -232,7 +256,7 @@ ME ME_48F8C3780325
  MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48F89F4302E3' '4802FF41005C.ms.model.script' // TevPersistentDataObjectEx
+   Seq: ( ME_48F89F4302E3_ME_48F8C3780325_G // TevPersistentDataObjectEx
  )
  ; // Inherits
  MELIST Attributes
@@ -248,7 +272,7 @@ ME ME_48F8C3780325
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_48F8C3780325 // Cleanup
+   Seq: ( ME_479731C50290_ME_48F8C3780325_over // Cleanup
  )
  ; // Overridden
  MELIST Children

@@ -6,6 +6,12 @@ FORWARD ME_4C8A210E018C
 
 FORWARD ME_502136030326
 
+MEREF ME_4F6B38AA020C_ME_5021362D03A4_G
+ MELINK Original WL 'ME_4F6B38AA020C' '4F6B382E00D9.ms.model.script' // LeftNavigator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6B38AA020C_ME_5021362D03A4_G LeftNavigator
+
 %%InheritedBy ME_4F6B38AA020C ME_5021362D03A4
 
 ME ME_5021362D03A4
@@ -19,7 +25,7 @@ ME ME_5021362D03A4
  MELINK Parent HWL ME_502136030326 // ClientZone
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F6B38AA020C' '4F6B382E00D9.ms.model.script' // LeftNavigator
+   Seq: ( ME_4F6B38AA020C_ME_5021362D03A4_G // LeftNavigator
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -28,6 +34,12 @@ ME ME_5021362D03A4
  UP "put to dfm" true
 
 ENDME // ME_5021362D03A4 LeftNavigator
+
+MEREF ME_4F6B38BE03C7_ME_50213639032B_G
+ MELINK Original WL 'ME_4F6B38BE03C7' '4F6B382E00D9.ms.model.script' // RightNavigator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6B38BE03C7_ME_50213639032B_G RightNavigator
 
 %%InheritedBy ME_4F6B38BE03C7 ME_50213639032B
 
@@ -42,7 +54,7 @@ ME ME_50213639032B
  MELINK Parent HWL ME_502136030326 // ClientZone
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F6B38BE03C7' '4F6B382E00D9.ms.model.script' // RightNavigator
+   Seq: ( ME_4F6B38BE03C7_ME_50213639032B_G // RightNavigator
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -52,6 +64,12 @@ ME ME_50213639032B
  UP "put to dfm" true
 
 ENDME // ME_50213639032B RightNavigator
+
+MEREF ME_4F6B46AE004A_ME_502136030326_G
+ MELINK Original WL 'ME_4F6B46AE004A' '4F6B382E00D9.ms.model.script' // ClientZone
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6B46AE004A_ME_502136030326_G ClientZone
 
 %%InheritedBy ME_4F6B46AE004A ME_502136030326
 
@@ -66,7 +84,7 @@ ME ME_502136030326
  MELINK Parent HWL ME_4C8A210E018C // PrimMainOptions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F6B46AE004A' '4F6B382E00D9.ms.model.script' // ClientZone
+   Seq: ( ME_4F6B46AE004A_ME_502136030326_G // ClientZone
  )
  ; // Inherits
  MELIST Attributes
@@ -114,7 +132,7 @@ ME ME_4C8A2BB10208
 
 ENDME // ME_4C8A2BB10208 
 
-ME ME_4C8A27DA0087_ME_4C8A210E018C
+MEREF ME_4C8A27DA0087_ME_4C8A210E018C_impl
  MELINK Original WL 'ME_4C8A27DA0087' '4A8EC95E015F.ms.model.script' // HelpTopics
  ;
  MEPROP OpKind opkind_Implemented
@@ -127,7 +145,19 @@ ME ME_4C8A27DA0087_ME_4C8A210E018C
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4C8A27DA0087_ME_4C8A210E018C HelpTopics
+ENDMEREF // ME_4C8A27DA0087_ME_4C8A210E018C_impl HelpTopics
+
+MEREF ME_4A92BD85004D_ME_4C8A210E018C_G
+ MELINK Original WL? 'ME_4A92BD85004D' // PrimMain
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A92BD85004D_ME_4C8A210E018C_G PrimMain
+
+MEREF ME_4C8A27C4035F_ME_4C8A210E018C_R
+ MELINK Original WL 'ME_4C8A27C4035F' '4A8EC95E015F.ms.model.script' // Help
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C8A27C4035F_ME_4C8A210E018C_R Help
 
 %%ImplementedBy ME_4C8A27C4035F ME_4C8A210E018C
 
@@ -145,11 +175,11 @@ ME ME_4C8A210E018C
  MELINK Parent WL? 'ME_4A92BBDF0126' // PrimF1
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A92BD85004D' // PrimMain
+   Seq: ( ME_4A92BD85004D_ME_4C8A210E018C_G // PrimMain
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4C8A27C4035F' '4A8EC95E015F.ms.model.script' // Help
+   Seq: ( ME_4C8A27C4035F_ME_4C8A210E018C_R // Help
  )
  ; // Implements
  MELIST Attributes
@@ -157,7 +187,7 @@ ME ME_4C8A210E018C
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4C8A27DA0087_ME_4C8A210E018C // HelpTopics
+   Seq: ( ME_4C8A27DA0087_ME_4C8A210E018C_impl // HelpTopics
  )
  ; // Implemented
  MELIST Dependencies

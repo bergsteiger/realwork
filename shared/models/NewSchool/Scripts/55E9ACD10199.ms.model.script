@@ -1,0 +1,57 @@
+// TtfwDictionaryListIterator 55E9ACD10199 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55E9ACD10199
+
+ME ME_55E9ACF5006D
+ MEPROP UID '55E9ACF5006D'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E9ACD10199 // TtfwDictionaryListIterator
+ ;
+ MELINK Target WL? 'ME_55A4E71403B3' // TtfwDictionaryList
+ ;
+
+ENDME // ME_55E9ACF5006D ListType
+
+MEREF ME_55E9AB2C03C3_ME_55E9ACD10199_G
+ MELINK Original WL? 'ME_55E9AB2C03C3' // tfwDictionaryListIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E9AB2C03C3_ME_55E9ACD10199_G tfwDictionaryListIterator
+
+%%InheritedBy ME_55E9AB2C03C3 ME_55E9ACD10199
+
+ME ME_55E9ACD10199
+ MEPROP UID '55E9ACD10199'
+ MEPROP Name 'TtfwDictionaryListIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_55E9AB2C03C3_ME_55E9ACD10199_G // tfwDictionaryListIterator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55E9ACF5006D // ListType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.pas'
+ UP extprop:rc:SelfName 'DictionaryListIterator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDictionaryListIterator'
+
+ENDME // ME_55E9ACD10199 TtfwDictionaryListIterator

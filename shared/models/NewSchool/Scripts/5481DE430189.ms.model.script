@@ -19,26 +19,38 @@ ME ME_54942ED1018E
 
 ENDME // ME_54942ED1018E 
 
-ME ME_5481A0350122_ME_5481DE6C03AA
+MEREF ME_5481A0350122_ME_5481DE6C03AA_impl
  MELINK Original WL 'ME_5481A0350122' '4912DD020283.ms.model.script' // Subs
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_5481A0350122_ME_5481DE6C03AA Subs
+ENDMEREF // ME_5481A0350122_ME_5481DE6C03AA_impl Subs
 
-ME ME_5481A03B01F9_ME_5481DE6C03AA
+MEREF ME_5481A03B01F9_ME_5481DE6C03AA_impl
  MELINK Original WL 'ME_5481A03B01F9' '4912DD020283.ms.model.script' // Markers
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_5481A03B01F9_ME_5481DE6C03AA Markers
+ENDMEREF // ME_5481A03B01F9_ME_5481DE6C03AA_impl Markers
 
-ME ME_5481A043035B_ME_5481DE6C03AA
+MEREF ME_5481A043035B_ME_5481DE6C03AA_impl
  MELINK Original WL 'ME_5481A043035B' '4912DD020283.ms.model.script' // Bookmarks
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_5481A043035B_ME_5481DE6C03AA Bookmarks
+ENDMEREF // ME_5481A043035B_ME_5481DE6C03AA_impl Bookmarks
+
+MEREF ME_547DB8BC03D3_ME_5481DE6C03AA_G
+ MELINK Original WL 'ME_547DB8BC03D3' '547DB02F034B.ms.model.script' // TevSubDescriptors
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547DB8BC03D3_ME_5481DE6C03AA_G TevSubDescriptors
+
+MEREF ME_5481A0160157_ME_5481DE6C03AA_R
+ MELINK Original WL 'ME_5481A0160157' '4912DD020283.ms.model.script' // IeeSubViewDescriptors
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5481A0160157_ME_5481DE6C03AA_R IeeSubViewDescriptors
 
 %%ImplementedBy ME_5481A0160157 ME_5481DE6C03AA
 
@@ -55,17 +67,17 @@ ME ME_5481DE6C03AA
  MELINK Parent HWL ME_5481DE430189 // eeSubDescriptorsExport
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547DB8BC03D3' '547DB02F034B.ms.model.script' // TevSubDescriptors
+   Seq: ( ME_547DB8BC03D3_ME_5481DE6C03AA_G // TevSubDescriptors
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_5481A0160157' '4912DD020283.ms.model.script' // IeeSubViewDescriptors
+   Seq: ( ME_5481A0160157_ME_5481DE6C03AA_R // IeeSubViewDescriptors
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_5481A0350122_ME_5481DE6C03AA // Subs
- ME_5481A03B01F9_ME_5481DE6C03AA // Markers
- ME_5481A043035B_ME_5481DE6C03AA // Bookmarks
+   Seq: ( ME_5481A0350122_ME_5481DE6C03AA_impl // Subs
+ ME_5481A03B01F9_ME_5481DE6C03AA_impl // Markers
+ ME_5481A043035B_ME_5481DE6C03AA_impl // Bookmarks
  )
  ; // Implemented
  MELIST Dependencies
@@ -146,7 +158,7 @@ ENDME // ME_54940BE80143 DoIt
 ME ME_54940BE30056
  MEPROP UID '54940BE30056'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -160,12 +172,18 @@ ME ME_54940BE30056
 
 ENDME // ME_54940BE30056 Create
 
+MEREF ME_54940BE30056_ME_54940BF401C3_G
+ MELINK Original HWL ME_54940BE30056 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54940BE30056_ME_54940BF401C3_G Create
+
 %%InheritedBy ME_54940BE30056 ME_54940BF401C3
 
 ME ME_54940BF401C3
  MEPROP UID '54940BF401C3'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -173,24 +191,36 @@ ME ME_54940BF401C3
  MELINK Parent HWL ME_5481DE6402F5 // TeeSubDescriptor
  ;
  MELIST Inherits
-   Seq: ( HWL ME_54940BE30056 // Create
+   Seq: ( ME_54940BE30056_ME_54940BF401C3_G // Create
  )
  ; // Inherits
 
 ENDME // ME_54940BF401C3 Make
 
-ME ME_54819FF50172_ME_5481DE6402F5
+MEREF ME_54819FF50172_ME_5481DE6402F5_impl
  MELINK Original WL 'ME_54819FF50172' '4912DD020283.ms.model.script' // Visible
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_54819FF50172_ME_5481DE6402F5 Visible
+ENDMEREF // ME_54819FF50172_ME_5481DE6402F5_impl Visible
 
-ME ME_479731C50290_ME_5481DE6402F5
+MEREF ME_479731C50290_ME_5481DE6402F5_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_5481DE6402F5 Cleanup
+ENDMEREF // ME_479731C50290_ME_5481DE6402F5_over Cleanup
+
+MEREF ME_46780E690001_ME_5481DE6402F5_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_5481DE6402F5_G Tl3CacheableBase
+
+MEREF ME_54819FDB0116_ME_5481DE6402F5_R
+ MELINK Original WL 'ME_54819FDB0116' '4912DD020283.ms.model.script' // IeeSubViewDescriptor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54819FDB0116_ME_5481DE6402F5_R IeeSubViewDescriptor
 
 %%ImplementedBy ME_54819FDB0116 ME_5481DE6402F5
 
@@ -207,11 +237,11 @@ ME ME_5481DE6402F5
  MELINK Parent HWL ME_5481DE430189 // eeSubDescriptorsExport
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+   Seq: ( ME_46780E690001_ME_5481DE6402F5_G // Tl3CacheableBase
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_54819FDB0116' '4912DD020283.ms.model.script' // IeeSubViewDescriptor
+   Seq: ( ME_54819FDB0116_ME_5481DE6402F5_R // IeeSubViewDescriptor
  )
  ; // Implements
  MELIST Attributes
@@ -225,11 +255,11 @@ ME ME_5481DE6402F5
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_54819FF50172_ME_5481DE6402F5 // Visible
+   Seq: ( ME_54819FF50172_ME_5481DE6402F5_impl // Visible
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_5481DE6402F5 // Cleanup
+   Seq: ( ME_479731C50290_ME_5481DE6402F5_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

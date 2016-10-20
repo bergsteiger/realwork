@@ -1,0 +1,60 @@
+// TddExtObjectData 5798CC75000A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5798CC75000A
+
+ME ME_5798D1A502A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5798CC75000A // TddExtObjectData
+ ;
+ MELINK Target WL? 'ME_5798D19702A1' // TddExtObjectDataStream
+ ;
+
+ENDME // ME_5798D1A502A2 
+
+MEREF ME_530B3F560201_ME_5798CC75000A_over
+ MELINK Original WL 'ME_530B3F560201' '47AB1FDE03E4.ms.model.script' // GetMemoryStreamClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_530B3F560201_ME_5798CC75000A_over GetMemoryStreamClass
+
+MEREF ME_53B546BC00BF_ME_5798CC75000A_G
+ MELINK Original WL 'ME_53B546BC00BF' '53B5469D0049.ms.model.script' // Tk2RawData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B546BC00BF_ME_5798CC75000A_G Tk2RawData
+
+%%InheritedBy ME_53B546BC00BF ME_5798CC75000A
+
+ME ME_5798CC75000A
+ MEPROP UID '5798CC75000A'
+ MEPROP Name 'TddExtObjectData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ƒанные картинки зачитанные из Im3DB, через TddExtObjInserter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_53B546BC00BF_ME_5798CC75000A_G // Tk2RawData
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_530B3F560201_ME_5798CC75000A_over // GetMemoryStreamClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5798D1A502A2 // TddExtObjectDataStream
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjectData.pas'
+ UP extprop:rc:SelfName 'ddExtObjectData'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExtObjectData'
+
+ENDME // ME_5798CC75000A TddExtObjectData

@@ -1,0 +1,133 @@
+// TnevFontTool 4E7203ED01F2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E7203ED01F2
+
+FORWARD ME_4E7204190000
+
+ME ME_4E7204210050
+ MEPROP UID '4E7204210050'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7204190000 // Create
+ ;
+
+ENDME // ME_4E7204210050 DoIt
+
+ME ME_4E7204190000
+ MEPROP UID '4E7204190000'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7203ED01F2 // TnevFontTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7204210050 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7204190000 Create
+
+MEREF ME_4E7204190000_ME_4E7204280219_G
+ MELINK Original HWL ME_4E7204190000 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E7204190000_ME_4E7204280219_G Create
+
+MEREF ME_467D2AA900F1_ME_4E7204280219_R
+ MELINK Original WL 'ME_467D2AA900F1' '4F4B74180276.ms.model.script' // InevFontTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467D2AA900F1_ME_4E7204280219_R InevFontTool
+
+%%ImplementedBy ME_467D2AA900F1 ME_4E7204280219
+
+%%InheritedBy ME_4E7204190000 ME_4E7204280219
+
+ME ME_4E7204280219
+ MEPROP UID '4E7204280219'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7203ED01F2 // TnevFontTool
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E7204190000_ME_4E7204280219_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_467D2AA900F1_ME_4E7204280219_R // InevFontTool
+ )
+ ; // Implements
+
+ENDME // ME_4E7204280219 Make
+
+MEREF ME_4AE5CA2D0034_ME_4E7203ED01F2_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4E7203ED01F2_G Tl3CProtoObject
+
+MEREF ME_4E72038F00C3_ME_4E7203ED01F2_G
+ MELINK Original WL? 'ME_4E72038F00C3' // nevFontTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E72038F00C3_ME_4E7203ED01F2_G nevFontTool
+
+MEREF ME_467D2AA900F1_ME_4E7203ED01F2_R
+ MELINK Original WL 'ME_467D2AA900F1' '4F4B74180276.ms.model.script' // InevFontTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467D2AA900F1_ME_4E7203ED01F2_R InevFontTool
+
+%%ImplementedBy ME_467D2AA900F1 ME_4E7203ED01F2
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4E7203ED01F2
+%%InheritedBy ME_4E72038F00C3 ME_4E7203ED01F2
+
+ME ME_4E7203ED01F2
+ MEPROP UID '4E7203ED01F2'
+ MEPROP Name 'TnevFontTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E71FAFC0240' // Garbage
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_4E7203ED01F2_G // Tl3CProtoObject
+ ME_4E72038F00C3_ME_4E7203ED01F2_G // nevFontTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_467D2AA900F1_ME_4E7203ED01F2_R // InevFontTool
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E7204190000 // Create
+ HWL ME_4E7204280219 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '15.09.2011 17:56'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevFontTool.pas'
+ UP extprop:rc:SelfName 'FontTool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevFontTool'
+
+ENDME // ME_4E7203ED01F2 TnevFontTool

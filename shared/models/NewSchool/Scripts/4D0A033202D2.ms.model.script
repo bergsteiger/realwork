@@ -1,0 +1,569 @@
+// TatUserJournalHelper 4D0A033202D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D0A033202D2
+
+FORWARD ME_4D0A033202D2
+
+FORWARD ME_4FC8EC8900FE
+
+ME ME_4FC8ED700289
+ MEPROP UID '4FC8ED700289'
+ MEPROP Name 'EntityInterface'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8EC8900FE // TatJournalBookmark
+ ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4FC8ED700289 EntityInterface
+
+ME ME_4FC8EDB701E9
+ MEPROP UID '4FC8EDB701E9'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8EC8900FE // TatJournalBookmark
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" true
+
+ENDME // ME_4FC8EDB701E9 Document
+
+ME ME_4FC8EE000329
+ MEPROP UID '4FC8EE000329'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8EC8900FE // TatJournalBookmark
+ ;
+ MELINK Target WL 'ME_45EEB65202AA' '4570511E038A.ms.model.script' // ParaId
+ ;
+ UP "pm" true
+
+ENDME // ME_4FC8EE000329 Para
+
+ME ME_4FC8EE480371
+ MEPROP UID '4FC8EE480371'
+ MEPROP Name 'FullName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8EC8900FE // TatJournalBookmark
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_4FC8EE480371 FullName
+
+MEREF ME_4FC8E5780345_ME_4FC8EC8900FE_over
+ MELINK Original WL 'ME_4FC8E5780345' '4FC8E3BF0125.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "force overload" true
+ENDMEREF // ME_4FC8E5780345_ME_4FC8EC8900FE_over Create
+
+MEREF ME_505205F10268_ME_4FC8EC8900FE_G
+ MELINK Original WL? 'ME_505205F10268' // atEntityWithName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_505205F10268_ME_4FC8EC8900FE_G atEntityWithName
+
+%%InheritedBy ME_505205F10268 ME_4FC8EC8900FE
+
+ME ME_4FC8EC8900FE
+ MEPROP UID '4FC8EC8900FE'
+ MEPROP Name 'TatJournalBookmark'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Inherits
+   Seq: ( ME_505205F10268_ME_4FC8EC8900FE_G // atEntityWithName
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FC8ED700289 // EntityInterface
+ HWL ME_4FC8EDB701E9 // Document
+ HWL ME_4FC8EE000329 // Para
+ HWL ME_4FC8EE480371 // FullName
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4FC8E5780345_ME_4FC8EC8900FE_over // Create
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'atJournalBookmark'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC8EC8900FE TatJournalBookmark
+
+ME ME_4D0A079F03B4
+ MEPROP Name 'aBookmark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4D0A079F03B4 aBookmark
+
+ME ME_4D0A078B002B
+ MEPROP UID '4D0A078B002B'
+ MEPROP Name 'AddBookmark'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A079F03B4 // aBookmark
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A078B002B AddBookmark
+
+ME ME_4D0A07B401D7
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4D0A07B401D7 aQuery
+
+ME ME_4D0A07A7007E
+ MEPROP UID '4D0A07A7007E'
+ MEPROP Name 'AddQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A07B401D7 // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A07A7007E AddQuery
+
+ME ME_4D0A07C00107
+ MEPROP UID '4D0A07C00107'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+
+ENDME // ME_4D0A07C00107 Clear
+
+ME ME_4D0A07D1012C
+ MEPROP UID '4D0A07D1012C'
+ MEPROP Name 'ReadAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+
+ENDME // ME_4D0A07D1012C ReadAll
+
+ME ME_4D0A08010247
+ MEPROP Name 'aMaxItems'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D0A08010247 aMaxItems
+
+ME ME_4D0A07EB0282
+ MEPROP UID '4D0A07EB0282'
+ MEPROP Name 'ReadHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A08010247 // aMaxItems
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A07EB0282 ReadHistory
+
+ME ME_4D0A104B021E
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4D0A104B021E aNode
+
+ME ME_4D0A100E0332
+ MEPROP UID '4D0A100E0332'
+ MEPROP Name 'ReadJournalNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A104B021E // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A100E0332 ReadJournalNode
+
+ME ME_4D0A10760120
+ MEPROP Name 'aJournalBookmark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A8A8F640192' '4570511E038A.ms.model.script' // JournalBookmark
+ ;
+
+ENDME // ME_4D0A10760120 aJournalBookmark
+
+ME ME_4D0A10510060
+ MEPROP UID '4D0A10510060'
+ MEPROP Name 'ReadJournalBookmark'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A10760120 // aJournalBookmark
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A10510060 ReadJournalBookmark
+
+ME ME_4D0A10940247
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4D0A10940247 aQuery
+
+ME ME_4D0A107B033E
+ MEPROP UID '4D0A107B033E'
+ MEPROP Name 'ReadJournalQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D0A10940247 // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_4D0A107B033E ReadJournalQuery
+
+ME ME_4D0A18D900B0
+ MEPROP UID '4D0A18D900B0'
+ MEPROP Name 'UserJournal'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4A7FF6610114' '4A7FF5F301B2.ms.model.script' // UserJournal
+ ;
+
+ENDME // ME_4D0A18D900B0 UserJournal
+
+ME ME_4FFDCBA0008E
+ MEPROP Name 'aDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4FFDCBA0008E aDate
+
+ME ME_4FC8C0CF0161
+ MEPROP UID '4FC8C0CF0161'
+ MEPROP Name 'GetElements'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4807688A0144' '4807687301D4.ms.model.script' // TObjectList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FFDCBA0008E // aDate
+ )
+ ; // Parameters
+
+ENDME // ME_4FC8C0CF0161 GetElements
+
+ME ME_500D99A3027E
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE13200E5' '45EEAA8E034E.ms.model.script' // QueryType
+ ;
+
+ENDME // ME_500D99A3027E aType
+
+ME ME_500D99A3029D
+ MEPROP Name 'aMaxCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_500D99A3029D aMaxCount
+
+ME ME_500D90A4007E
+ MEPROP UID '500D90A4007E'
+ MEPROP Name 'GetQueryHistory'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4807688A0144' '4807687301D4.ms.model.script' // TObjectList
+ ;
+ MELIST Parameters
+   Seq: ( ME_500D99A3027E // aType
+ ME_500D99A3029D // aMaxCount
+ )
+ ; // Parameters
+
+ENDME // ME_500D90A4007E GetQueryHistory
+
+ME ME_4D0A04E1034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL? 'ME_48078D230277' // TatNodeHelper
+ ;
+
+ENDME // ME_4D0A04E1034C 
+
+ME ME_4D0A04E6007D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_483C0B6B0167' '483C0AEA0186.ms.model.script' // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4D0A04E6007D 
+
+ME ME_4D0A04E9014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4D0A04E9014F 
+
+ME ME_4D0A04EC0278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4D0A04EC0278 
+
+ME ME_4D0A04F0009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4A8A9DCF030D' '4570511E038A.ms.model.script' // JournalBookmarkList
+ ;
+
+ENDME // ME_4D0A04F0009C 
+
+ME ME_4D0A04F301FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_45EEE1BC02F7' '45EEAA8E034E.ms.model.script' // QueryList
+ ;
+
+ENDME // ME_4D0A04F301FB 
+
+ME ME_4D0A04F60382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+
+ENDME // ME_4D0A04F60382 
+
+ME ME_4D0A04FA01DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_4A8001010232' '4A7FF5F301B2.ms.model.script' // BookmarkJournalType
+ ;
+
+ENDME // ME_4D0A04FA01DC 
+
+ME ME_4D0A05100379
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4D0A05100379 
+
+ME ME_4D0A08330192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_45EEE13200E5' '45EEAA8E034E.ms.model.script' // QueryType
+ ;
+
+ENDME // ME_4D0A08330192 
+
+ME ME_4D0A1A420112
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4D0A1A420112 
+
+ME ME_4D0A1B8801BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4D0A1B8801BE 
+
+ME ME_4D0A37B00346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4D0A37B00346 
+
+ME ME_4FC902100363
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D0A033202D2 // TatUserJournalHelper
+ ;
+ MELINK Target WL? 'ME_4A549C190378' // TatQuery
+ ;
+
+ENDME // ME_4FC902100363 
+
+ME ME_4D0A033202D2
+ MEPROP UID '4D0A033202D2'
+ MEPROP Name 'TatUserJournalHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D0A078B002B // AddBookmark
+ HWL ME_4D0A07A7007E // AddQuery
+ HWL ME_4D0A07C00107 // Clear
+ HWL ME_4D0A07D1012C // ReadAll
+ HWL ME_4D0A07EB0282 // ReadHistory
+ HWL ME_4D0A100E0332 // ReadJournalNode
+ HWL ME_4D0A10510060 // ReadJournalBookmark
+ HWL ME_4D0A107B033E // ReadJournalQuery
+ HWL ME_4D0A18D900B0 // UserJournal
+ HWL ME_4FC8C0CF0161 // GetElements
+ HWL ME_500D90A4007E // GetQueryHistory
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4FC8EC8900FE // TatJournalBookmark
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D0A04E1034C // TatNodeHelper
+ ME_4D0A04E6007D // TatGblAdapterWorker
+ ME_4D0A04E9014F // String
+ ME_4D0A04EC0278 // NodeBase
+ ME_4D0A04F0009C // JournalBookmarkList
+ ME_4D0A04F301FB // QueryList
+ ME_4D0A04F60382 // JournalObjectType
+ ME_4D0A04FA01DC // BookmarkJournalType
+ ME_4D0A05100379 // atLogger
+ ME_4D0A08330192 // QueryType
+ ME_4D0A1A420112 // SysUtils
+ ME_4D0A1B8801BE // EntityBase
+ ME_4D0A37B00346 // CanNotFindData
+ ME_4FC902100363 // TatQuery
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atUserJournalHelper.pas'
+ UP extprop:rc:SelfName 'atUserJournalHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atUserJournalHelper'
+
+ENDME // ME_4D0A033202D2 TatUserJournalHelper

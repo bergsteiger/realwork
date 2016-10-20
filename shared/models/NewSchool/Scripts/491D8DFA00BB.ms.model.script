@@ -1,0 +1,161 @@
+// TatNamedMutex 491D8DFA00BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D8DFA00BB
+
+ME ME_491D94DB03D1
+ MEPROP UID '491D94DB03D1'
+ MEPROP Name 'f_MutexHandle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_491D94DB03D1 f_MutexHandle
+
+ME ME_491D94F602F3
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_491D94F602F3 aName
+
+ME ME_491D94ED015F
+ MEPROP UID '491D94ED015F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+ MELIST Parameters
+   Seq: ( ME_491D94F602F3 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_491D94ED015F Create
+
+ME ME_491D957601E8
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ MEPROP Value 'INFINITE'
+ MELINK ValueType WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ UP extprop:pas:Value 'INFINITE'
+
+ENDME // ME_491D957601E8 aTimeOut
+
+ME ME_491D955302A3
+ MEPROP UID '491D955302A3'
+ MEPROP Name 'Acquire'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_491D957601E8 // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_491D955302A3 Acquire
+
+ME ME_491D959F0347
+ MEPROP UID '491D959F0347'
+ MEPROP Name 'Release'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+
+ENDME // ME_491D959F0347 Release
+
+ME ME_491D8FF8000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_491D8FF8000B 
+
+ME ME_491D9C3D0176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D8DFA00BB // TatNamedMutex
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_491D9C3D0176 
+
+MEREF ME_479731C50290_ME_491D8DFA00BB_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_491D8DFA00BB_over Cleanup
+
+MEREF ME_47879856035F_ME_491D8DFA00BB_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_491D8DFA00BB_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_491D8DFA00BB
+
+ME ME_491D8DFA00BB
+ MEPROP UID '491D8DFA00BB'
+ MEPROP Name 'TatNamedMutex'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обертка вокруг виндового мьютекса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_491D8DFA00BB_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491D94DB03D1 // f_MutexHandle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_491D94ED015F // Create
+ HWL ME_491D955302A3 // Acquire
+ HWL ME_491D959F0347 // Release
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_491D8DFA00BB_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_491D8FF8000B // Windows
+ ME_491D9C3D0176 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atNamedMutex.pas'
+ UP extprop:rc:SelfName 'atNamedMutex'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atNamedMutex'
+
+ENDME // ME_491D8DFA00BB TatNamedMutex

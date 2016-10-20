@@ -1,0 +1,55 @@
+// TIntegerList 51DEB249012E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DEB249012E
+
+ME ME_51DEB29F02C0
+ MEPROP UID '51DEB29F02C0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DEB249012E // TIntegerList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DEB29F02C0 ItemType
+
+MEREF ME_51E809FD01DF_ME_51DEB249012E_G
+ MELINK Original WL? 'ME_51E809FD01DF' // StandardAtomicList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E809FD01DF_ME_51DEB249012E_G StandardAtomicList
+
+%%InheritedBy ME_51E809FD01DF ME_51DEB249012E
+
+ME ME_51DEB249012E
+ MEPROP UID '51DEB249012E'
+ MEPROP Name 'TIntegerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список Integer''ов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB22001AC' // FinalContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_51E809FD01DF_ME_51DEB249012E_G // StandardAtomicList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DEB29F02C0 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\SandBox\IntegerList.pas'
+ UP extprop:rc:SelfName 'IntegerList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IntegerList'
+
+ENDME // ME_51DEB249012E TIntegerList

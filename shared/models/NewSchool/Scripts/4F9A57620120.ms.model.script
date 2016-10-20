@@ -63,7 +63,7 @@ ENDME // ME_4F9A5C1D0195 DoIt
 ME ME_4F9A5C0C01F7
  MEPROP UID '4F9A5C0C01F7'
  MEPROP Name 'CheckSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -93,7 +93,7 @@ ENDME // ME_4F9A5C4D0224 new_operation
 ME ME_4F9A5C410274
  MEPROP UID '4F9A5C410274'
  MEPROP Name 'LoadSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -123,7 +123,7 @@ ENDME // ME_4F9A5C65021B new_operation
 ME ME_4F9A5C530398
  MEPROP UID '4F9A5C530398'
  MEPROP Name 'SaveSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -153,7 +153,7 @@ ENDME // ME_4F9A5C790368 new_operation
 ME ME_4F9A5C720010
  MEPROP UID '4F9A5C720010'
  MEPROP Name 'CheckLoadSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -183,7 +183,7 @@ ENDME // ME_4F9A5C8D0142 new_operation
 ME ME_4F9A5C8103C2
  MEPROP UID '4F9A5C8103C2'
  MEPROP Name 'CheckSaveSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -197,25 +197,37 @@ ME ME_4F9A5C8103C2
 
 ENDME // ME_4F9A5C8103C2 CheckSaveSettings
 
-ME ME_473DA149020D_ME_4F9A57620120
+MEREF ME_473DA149020D_ME_4F9A57620120_impl
  MELINK Original WL 'ME_473DA149020D' '467823B7002C.ms.model.script' // Settings
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_473DA149020D_ME_4F9A57620120 Settings
+ENDMEREF // ME_473DA149020D_ME_4F9A57620120_impl Settings
 
-ME ME_473DA15800E2_ME_4F9A57620120
+MEREF ME_473DA15800E2_ME_4F9A57620120_impl
  MELINK Original WL 'ME_473DA15800E2' '467823B7002C.ms.model.script' // BaseId
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_473DA15800E2_ME_4F9A57620120 BaseId
+ENDMEREF // ME_473DA15800E2_ME_4F9A57620120_impl BaseId
 
-ME ME_479731C50290_ME_4F9A57620120
+MEREF ME_479731C50290_ME_4F9A57620120_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4F9A57620120 Cleanup
+ENDMEREF // ME_479731C50290_ME_4F9A57620120_over Cleanup
+
+MEREF ME_476A5EFF00B5_ME_4F9A57620120_R
+ MELINK Original WL 'ME_476A5EFF00B5' '467BAB7F021E.ms.model.script' // IvcmSettingsSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_476A5EFF00B5_ME_4F9A57620120_R IvcmSettingsSource
+
+MEREF ME_4A5CB93700CF_ME_4F9A57620120_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4F9A57620120_R Ml3Unknown
 
 %%ImplementedBy ME_476A5EFF00B5 ME_4F9A57620120
 %%ImplementedBy ME_4A5CB93700CF ME_4F9A57620120
@@ -233,8 +245,8 @@ ME ME_4F9A57620120
  MELINK Parent WL? 'ME_53288DFA03A7' // NewReminders
  ;
  MELIST Implements
-   Seq: ( WL 'ME_476A5EFF00B5' '467BAB7F021E.ms.model.script' // IvcmSettingsSource
- WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( ME_476A5EFF00B5_ME_4F9A57620120_R // IvcmSettingsSource
+ ME_4A5CB93700CF_ME_4F9A57620120_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -251,12 +263,12 @@ ME ME_4F9A57620120
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_473DA149020D_ME_4F9A57620120 // Settings
- ME_473DA15800E2_ME_4F9A57620120 // BaseId
+   Seq: ( ME_473DA149020D_ME_4F9A57620120_impl // Settings
+ ME_473DA15800E2_ME_4F9A57620120_impl // BaseId
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4F9A57620120 // Cleanup
+   Seq: ( ME_479731C50290_ME_4F9A57620120_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

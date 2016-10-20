@@ -1,0 +1,170 @@
+// TmsmWordsManaging 57E457780235 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E457780235
+
+FORWARD ME_57E457A50292
+
+ME ME_57E457D70038
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E457D70038 aName
+
+ME ME_57E457C00025
+ MEPROP UID '57E457C00025'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E457A50292 // FindWord
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E457D70038 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57E457C00025 DoIt
+
+ME ME_57E457A50292
+ MEPROP UID '57E457A50292'
+ MEPROP Name 'FindWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E457C00025 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_57E457A50292 FindWord
+
+FORWARD ME_57E553EC01EB
+
+ME ME_57E5541302A0
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E5541302A0 aName
+
+ME ME_57E55403022E
+ MEPROP UID '57E55403022E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E553EC01EB // FindWords
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E5541302A0 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57E55403022E DoIt
+
+ME ME_57E553EC01EB
+ MEPROP UID '57E553EC01EB'
+ MEPROP Name 'FindWords'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E55403022E // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_57E553EC01EB FindWords
+
+ME ME_57E4578D01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELINK Target WL? 'ME_57B2D8C90390' // TmsmWordsCache
+ ;
+
+ENDME // ME_57E4578D01F4 
+
+ME ME_57E46198009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELINK Target WL? 'ME_57AA00BD022E' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57E46198009C 
+
+ME ME_57E50B9D038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELINK Target WL? 'ME_57E50B7A0140' // TmsmWordsByUserNameIndex
+ ;
+
+ENDME // ME_57E50B9D038E 
+
+ME ME_57E539240147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E457780235 // TmsmWordsManaging
+ ;
+ MELINK Target WL? 'ME_57E538DB0262' // TmsmModelService
+ ;
+
+ENDME // ME_57E539240147 
+
+ME ME_57E457780235
+ MEPROP UID '57E457780235'
+ MEPROP Name 'TmsmWordsManaging'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E457A50292 // FindWord
+ HWL ME_57E553EC01EB // FindWords
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57E4578D01F4 // TmsmWordsCache
+ ME_57E46198009C // TmsmModelElementMethodCaller
+ ME_57E50B9D038E // TmsmWordsByUserNameIndex
+ ME_57E539240147 // TmsmModelService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWordsManaging.pas'
+ UP extprop:rc:SelfName 'msmWordsManaging'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmWordsManaging'
+
+ENDME // ME_57E457780235 TmsmWordsManaging

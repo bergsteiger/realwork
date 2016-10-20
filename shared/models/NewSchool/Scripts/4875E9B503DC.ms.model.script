@@ -1,0 +1,157 @@
+// TatOpenDocumentsFromListOperation 4875E9B503DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4875E9B503DC
+
+ME ME_487609E8039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL? 'ME_4815C75902A2' // TatDocumentHelper
+ ;
+
+ENDME // ME_487609E8039E 
+
+ME ME_48760A7A0237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_48760A7A0237 
+
+ME ME_48760A7F013D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_48760A7F013D 
+
+ME ME_48760A830360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_48760A830360 
+
+ME ME_48775BA903C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL? 'ME_4808A20402DC' // Math
+ ;
+
+ENDME // ME_48775BA903C7 
+
+ME ME_48775C78029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_48775C78029E 
+
+ME ME_487783E60074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL 'ME_45EEDB87037E' '45700BFD0251.ms.model.script' // ListEntryInfo
+ ;
+
+ENDME // ME_487783E60074 
+
+ME ME_4DCD66C00015
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4875E9B503DC // TatOpenDocumentsFromListOperation
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4DCD66C00015 
+
+MEREF ME_48089F460352_ME_4875E9B503DC_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4875E9B503DC_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4875E9B503DC_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4875E9B503DC_over InitParamList
+
+MEREF ME_48089F660238_ME_4875E9B503DC_over
+ MELINK Original WL 'ME_48089F660238' '48089D120398.ms.model.script' // ExecuteChilds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F660238_ME_4875E9B503DC_over ExecuteChilds
+
+MEREF ME_48076E9D013E_ME_4875E9B503DC_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4875E9B503DC_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4875E9B503DC
+
+ME ME_4875E9B503DC
+ MEPROP UID '4875E9B503DC'
+ MEPROP Name 'TatOpenDocumentsFromListOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открывает документы из списка документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4875E9B503DC_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4875E9B503DC_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4875E9B503DC_over // InitParamList
+ ME_48089F660238_ME_4875E9B503DC_over // ExecuteChilds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_487609E8039E // TatDocumentHelper
+ ME_48760A7A0237 // Document
+ ME_48760A7F013D // NodeBase
+ ME_48760A830360 // atLogger
+ ME_48775BA903C7 // Math
+ ME_48775C78029E // EntityBase
+ ME_487783E60074 // ListEntryInfo
+ ME_4DCD66C00015 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atOpenDocumentsFromListOperation.pas'
+ UP extprop:rc:SelfName 'atOpenDocumentsFromListOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atOpenDocumentsFromListOperation'
+
+ENDME // ME_4875E9B503DC TatOpenDocumentsFromListOperation

@@ -1,0 +1,188 @@
+// TddHyperlinkTarget 525D26AF0039 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_525D26AF0039
+
+ME ME_525D29490108
+ MEPROP UID '525D29490108'
+ MEPROP Name 'DocID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D26AF0039 // TddHyperlinkTarget
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525D29490108 DocID
+
+ME ME_525D29630041
+ MEPROP UID '525D29630041'
+ MEPROP Name 'SubID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D26AF0039 // TddHyperlinkTarget
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525D29630041 SubID
+
+ME ME_525D2978035A
+ MEPROP UID '525D2978035A'
+ MEPROP Name 'TypeID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_525D26AF0039 // TddHyperlinkTarget
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_525D2978035A TypeID
+
+FORWARD ME_542540630026
+
+ME ME_542545AC030C
+ MEPROP Name 'aTypeID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_542545AC030C aTypeID
+
+ME ME_542545AC031B
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_542545AC031B aDocID
+
+ME ME_542545AC032B
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_542545AC032B aSubID
+
+ME ME_5425406A0327
+ MEPROP UID '5425406A0327'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542540630026 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_542545AC030C // aTypeID
+ ME_542545AC031B // aDocID
+ ME_542545AC032B // aSubID
+ )
+ ; // Parameters
+
+ENDME // ME_5425406A0327 DoIt
+
+ME ME_542540630026
+ MEPROP UID '542540630026'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525D26AF0039 // TddHyperlinkTarget
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5425406A0327 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542540630026 Create
+
+MEREF ME_54DC9795018B_ME_525D26AF0039_impl
+ MELINK Original WL 'ME_54DC9795018B' '52BACF040379.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54DC9795018B_ME_525D26AF0039_impl Write2Generator
+
+MEREF ME_52BACF8A01A9_ME_525D26AF0039_over
+ MELINK Original WL 'ME_52BACF8A01A9' '52BACF040379.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BACF8A01A9_ME_525D26AF0039_over Assign
+
+MEREF ME_52BACF040379_ME_525D26AF0039_G
+ MELINK Original WL? 'ME_52BACF040379' // TddBaseObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BACF040379_ME_525D26AF0039_G TddBaseObject
+
+%%InheritedBy ME_52BACF040379 ME_525D26AF0039
+
+ME ME_525D26AF0039
+ MEPROP UID '525D26AF0039'
+ MEPROP Name 'TddHyperlinkTarget'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_52BACF040379_ME_525D26AF0039_G // TddBaseObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_525D29490108 // DocID
+ HWL ME_525D29630041 // SubID
+ HWL ME_525D2978035A // TypeID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_542540630026 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54DC9795018B_ME_525D26AF0039_impl // Write2Generator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_52BACF8A01A9_ME_525D26AF0039_over // Assign
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddHyperlinkTarget.pas'
+ UP extprop:rc:SelfName 'ddHyperlinkTarget'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddHyperlinkTarget'
+
+ENDME // ME_525D26AF0039 TddHyperlinkTarget

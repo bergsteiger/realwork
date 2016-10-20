@@ -1,0 +1,53 @@
+// K347636412 4F6C568000A6 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6C568000A6
+
+MEREF ME_4CC818F4022D_ME_4F6C568000A6_over
+ MELINK Original WL 'ME_4CC818F4022D' '4CC815A00031.ms.model.script' // GetTablePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC818F4022D_ME_4F6C568000A6_over GetTablePara
+
+MEREF ME_4CC81D4101AC_ME_4F6C568000A6_over
+ MELINK Original WL 'ME_4CC81D4101AC' '4CC815A00031.ms.model.script' // GetSelectParam
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC81D4101AC_ME_4F6C568000A6_over GetSelectParam
+
+MEREF ME_4C123E8103B3_ME_4F6C568000A6_G
+ MELINK Original WL? 'ME_4C123E8103B3' // TMergeCellsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C123E8103B3_ME_4F6C568000A6_G TMergeCellsTest
+
+%%InheritedBy ME_4C123E8103B3 ME_4F6C568000A6
+
+ME ME_4F6C568000A6
+ MEPROP UID '4F6C568000A6'
+ MEPROP Name 'K347636412'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{Requestlink:347636412}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D02571C01D0' // 7.7
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C123E8103B3_ME_4F6C568000A6_G // TMergeCellsTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CC818F4022D_ME_4F6C568000A6_over // GetTablePara
+ ME_4CC81D4101AC_ME_4F6C568000A6_over // GetSelectParam
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K347636412.pas'
+ UP extprop:pas:TypeName 'TK347636412'
+ UP extprop:rc:SelfName 'K347636412'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F6C568000A6 K347636412

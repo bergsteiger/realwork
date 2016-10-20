@@ -207,13 +207,13 @@ PROCEDURE "Заполнить окно экспорта выборки" INTEGER IN anExportID STRING IN anEx
 	"Контрол по имени {('OK')}" pop:Control:Click  
 ;
 
-PROCEDURE "Проверить в каталоге экспорта картинки и NSRC"
+PROCEDURE "Проверить в каталоге экспорта картинки '4000003, 4000004' и NSRC"
 	STRING VAR l_FullFileName
 	STRING VAR l_PictureDirName
 	STRING VAR l_ExportNSRName
 	STRING VAR l_PictureName 
 	STRING VAR l_NewDocIDNumber
-	'4000001.png' >>> l_PictureName 
+	'4000003.png' >>> l_PictureName 
 	'12345' >>> l_NewDocIDNumber
 	"Сформировать имя документа NSR из полного имени скрипта" >>> l_ExportNSRName
 	[ g_ExportDirectory '\' l_ExportNSRName ] strings:Cat >>> l_FullFileName 
@@ -3166,7 +3166,135 @@ PROCEDURE "Открыть окно 'Внешний объект' и очистить строку номера объектного топ
 		"Контрол по имени {('edtValue')}" pop:Control:SetFocus ?ASSURE [ 'Нет фокуса в поле edtValue!' ]
 		"Нажать 'Удалить' в списке"
 		"Обработать сообщения"
+		1000 SLEEP
 		"Нажать кнопку ОК"
 	)
-	"Обработать сообщения"
+;
+
+// topic nsrc
+
+STRING FUNCTION "Сформировать имя документа Objtopic NSR из полного имени скрипта"
+	 script:FileName 'o.NSR' sysutils:ChangeFileExt
+	 sysutils:ExtractFileName >>> Result
+;
+
+PROCEDURE "Заполнить окно экспорта документа и Objtopic" INTEGER IN anExportID STRING IN anExportName BOOLEAN IN anObjName
+	"Заполнить поле 'Рабочая директория'"
+	"Выбрать 'Экспортировать Текущий документ'"
+	"Выбрать метод 'Все документы в один файл'"
+	Если ( 
+		( anExportID РАВНО cnRTFItemIndex ) ИЛИ 
+		( anExportID РАВНО cnHTMLItemIndex ) ИЛИ 
+		( anExportID РАВНО cnXMLItemIndex ) 
+	) то
+	( 
+		cnEVDItemIndex "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+
+		Если ( anObjName ) то (
+			// object topic
+			"Контрол по имени {("Поле 'Имя файла для объектных топиков'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для объектных топиков'" ]
+			anExportName emitstring
+		)
+		иначе (
+			"Контрол по имени {("Поле 'Имя файла для документов'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для документов'" ]
+			anExportName emitstring
+
+		)
+
+		OBJECT VAR l_CheckListBox 
+		"Контрол по имени {("Список 'Экспортировать следующие части'")}" >>> l_CheckListBox    
+		l_CheckListBox pop:CheckListBox:UncheckAll	
+        true 0 l_CheckListBox pop:CheckListBox:SetChecked
+		anExportID "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+    	) 
+	иначе (
+		anExportID "Контрол по имени {("Список 'Формат экспорта'")}" pop:ComboBox:SetItemIndex
+
+		Если ( anObjName ) то (
+			// object topic
+			"Контрол по имени {("Поле 'Имя файла для объектных топиков'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для объектных топиков'" ]
+			anExportName emitstring
+		)
+		иначе (
+			"Контрол по имени {("Поле 'Имя файла для документов'")}" pop:Control:SetFocus ?ASSURE [ 'Нельзя установить фокус в поле ' "Поле 'Имя файла для документов'" ]
+			anExportName emitstring
+
+		)
+
+		OBJECT VAR l_CheckListBox 
+		"Контрол по имени {("Список 'Экспортировать следующие части'")}" >>> l_CheckListBox    
+		l_CheckListBox pop:CheckListBox:UncheckAll	
+        true 0 l_CheckListBox pop:CheckListBox:SetChecked 			
+	)
+	"Контрол по имени {(acButtonOK)}" pop:Control:Click  
+;
+
+PROCEDURE "Экспортировать выборку Objtopic в формате NSRC" STRING IN anExportName BOOLEAN IN anObjName
+	"Инициализировать директорию экспорта"
+	"Почистить за собой"	
+	@ ( "Экспорт документов" ) MODAL ( "Заполнить окно экспорта документа и Objtopic {(cnNSRCItemIndex)} {(anExportName)} {(anObjName)}" )	
+;
+
+PROCEDURE "В контекстном меню метки выбрать курсором мыши 'Удалить внешний объект'"
+	OBJECT VAR l_SubPanel
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Установить курсор мыши по координатам {(15 10)} относительно контрола {(l_SubPanel)}"
+ 	THREAD ( 500 SLEEP 
+		"Установить курсор мыши по координатам {(30 250)} относительно контрола в фокусе"
+		"Выполнить с ожиданием 'Да'" ( "Клик левой кнопкой мыши" )
+	)
+	"Клик правой кнопкой мыши"
+;
+
+PROCEDURE "Сравнить меню с эталоном расширенно" OBJECT IN aMenu BOOLEAN IN anItemName
+ FORWARD DoItem
+ INTEGER VAR l_Indent 
+ PROCEDURE DoItem OBJECT IN anItem
+  VAR l_Index
+  l_Index := 0
+  anItem menuitem:GetCount LOOP (
+   VAR l_Item
+   l_Index anItem menuitem:GetItem =: l_Item
+   l_Item menuitem:IsVisible ? (
+    [ 
+      l_Indent #32 char:Dupe
+	  anItemName ? ( 'name' l_Item pop:object:GetStrProp ':' Cat )
+      l_Item menuitem:GetCaption
+      l_Item menuitem:IsEnabled ! ? (
+       ' [Запрещён]'
+       ' ' l_Item pop:Component:Name
+      )
+    ] strings:Cat .
+    ++! l_Indent
+    TRY
+     l_Item DoItem
+    FINALLY
+     --! l_Indent
+    END // TRY..FINALLY
+   ) // l_Item menuitem:IsVisible
+   ++! l_Index
+  ) // anItem menuitem:GetCount LOOP
+ ; // DoItem
+ 
+ l_Indent := 0
+ 
+ aMenu DoItem
+; 
+
+PROCEDURE "Сравнить контекстное меню контрола с эталоном расширенно" OBJECT IN aControl
+	OBJECT VAR l_Menu
+	0 0 aControl pop:Control:GetPopupMenu >>> l_Menu
+	"Сравнить меню {(l_Menu)} с эталоном расширенно {(true)}"
+; 
+
+PROCEDURE "Открыть контекстное меню метки курсором мыши и сравнить с эталоном"
+	OBJECT VAR l_SubPanel
+	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
+	"Установить курсор мыши по координатам {(15 10)} относительно контрола {(l_SubPanel)}"
+ 	THREAD ( 500 SLEEP
+		"Сравнить контекстное меню контрола {(l_SubPanel)} с эталоном расширенно"
+		"Установить курсор мыши посередине текущего редактора"
+		"Клик левой кнопкой мыши"
+	)
+	"Клик правой кнопкой мыши"
 ;

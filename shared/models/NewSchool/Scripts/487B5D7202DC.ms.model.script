@@ -1,0 +1,396 @@
+// TevWindowCursor 487B5D7202DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_487B5D7202DC
+
+ME ME_48E36E570032
+ MEPROP UID '48E36E570032'
+ MEPROP Name 'f_WasCollapsed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E36E570032 f_WasCollapsed
+
+ME ME_48E36E67015A
+ MEPROP UID '48E36E67015A'
+ MEPROP Name 'Caret'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL? 'ME_480DDF270394' // TafwCaret
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_48E36E67015A Caret
+
+ME ME_48E36E850021
+ MEPROP UID '48E36E850021'
+ MEPROP Name 'f_Updates'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL? 'ME_47E271DA01B1' // TnevBasePointList
+ ;
+
+ENDME // ME_48E36E850021 f_Updates
+
+ME ME_48E36EA001DF
+ MEPROP UID '48E36EA001DF'
+ MEPROP Name 'xxxLock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_48E36EA001DF xxxLock
+
+ME ME_48E3723E0107
+ MEPROP UID '48E3723E0107'
+ MEPROP Name 'Collapsed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Есть ли выделение?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48E3723E0107 Collapsed
+
+ME ME_48E378EC00FF
+ MEPROP UID '48E378EC00FF'
+ MEPROP Name 'Locked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Запрещена нотификация об изменениях?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_48E378EC00FF Locked
+
+ME ME_48E370400283
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_48E370400283 aView
+
+ME ME_48E3704002C3
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_48E3704002C3 anOwner
+
+ME ME_48E37037038C
+ MEPROP UID '48E37037038C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E370400283 // aView
+ ME_48E3704002C3 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_48E37037038C Create
+
+ME ME_48E370FF0359
+ MEPROP UID '48E370FF0359'
+ MEPROP Name 'SetFocus'
+ MEPROP Class class_Operation
+ %SUMMARY 'Окно получило фокус' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+
+ENDME // ME_48E370FF0359 SetFocus
+
+ME ME_48E371100137
+ MEPROP UID '48E371100137'
+ MEPROP Name 'KillFocus'
+ MEPROP Class class_Operation
+ %SUMMARY 'Окно потеряло фокус' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+
+ENDME // ME_48E371100137 KillFocus
+
+ME ME_48E371FE00D8
+ MEPROP UID '48E371FE00D8'
+ MEPROP Name 'Refresh'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обновить курсор' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+
+ENDME // ME_48E371FE00D8 Refresh
+
+ME ME_48E372210049
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_48E372210049 aCursor
+
+ME ME_48E372190135
+ MEPROP UID '48E372190135'
+ MEPROP Name 'UpdateCursor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E372210049 // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_48E372190135 UpdateCursor
+
+ME ME_48E373570156
+ MEPROP UID '48E373570156'
+ MEPROP Name 'ShowCaret'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+
+ENDME // ME_48E373570156 ShowCaret
+
+ME ME_48E3736E019C
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_48E3736E019C aCursor
+
+ME ME_48E37364035C
+ MEPROP UID '48E37364035C'
+ MEPROP Name 'IsBlockCursor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E3736E019C // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_48E37364035C IsBlockCursor
+
+ME ME_48E375C200CF
+ MEPROP UID '48E375C200CF'
+ MEPROP Name 'Show'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показать курсор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48E375C200CF Show
+
+ME ME_48E3702502F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48E3702502F4 
+
+ME ME_48E37335027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_48E37335027E 
+
+ME ME_49E61B7103A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_47C5BCED01F8' '4678209200A6.ms.model.script' // TevUpdateWindowFlag
+ ;
+
+ENDME // ME_49E61B7103A0 
+
+ME ME_52FCF46A03AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_487B5D7202DC // TevWindowCursor
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_52FCF46A03AF 
+
+MEREF ME_479731C50290_ME_487B5D7202DC_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_487B5D7202DC_over Cleanup
+
+MEREF ME_48E27228010F_ME_487B5D7202DC_over
+ MELINK Original WL 'ME_48E27228010F' '487B5D2D004E.ms.model.script' // DoCursorChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E27228010F_ME_487B5D7202DC_over DoCursorChanged
+
+MEREF ME_48E275700381_ME_487B5D7202DC_over
+ MELINK Original WL 'ME_48E275700381' '487B5D2D004E.ms.model.script' // Lock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E275700381_ME_487B5D7202DC_over Lock
+
+MEREF ME_48E27580037A_ME_487B5D7202DC_over
+ MELINK Original WL 'ME_48E27580037A' '487B5D2D004E.ms.model.script' // Unlock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E27580037A_ME_487B5D7202DC_over Unlock
+
+MEREF ME_48E276B10286_ME_487B5D7202DC_over
+ MELINK Original WL 'ME_48E276B10286' '487B5D2D004E.ms.model.script' // DoSetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48E276B10286_ME_487B5D7202DC_over DoSetDocument
+
+MEREF ME_487B5D2D004E_ME_487B5D7202DC_G
+ MELINK Original WL? 'ME_487B5D2D004E' // TevCursorController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_487B5D2D004E_ME_487B5D7202DC_G TevCursorController
+
+%%InheritedBy ME_487B5D2D004E ME_487B5D7202DC
+
+ME ME_487B5D7202DC
+ MEPROP UID '487B5D7202DC'
+ MEPROP Name 'TevWindowCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Курсор, привязанный к окну, которое имеет Handle' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_487B5D2D004E_ME_487B5D7202DC_G // TevCursorController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48E36E570032 // f_WasCollapsed
+ HWL ME_48E36E67015A // Caret
+ HWL ME_48E36E850021 // f_Updates
+ HWL ME_48E36EA001DF // xxxLock
+ HWL ME_48E3723E0107 // Collapsed
+ HWL ME_48E378EC00FF // Locked
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48E37037038C // Create
+ HWL ME_48E370FF0359 // SetFocus
+ HWL ME_48E371100137 // KillFocus
+ HWL ME_48E371FE00D8 // Refresh
+ HWL ME_48E372190135 // UpdateCursor
+ HWL ME_48E373570156 // ShowCaret
+ HWL ME_48E37364035C // IsBlockCursor
+ HWL ME_48E375C200CF // Show
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_487B5D7202DC_over // Cleanup
+ ME_48E27228010F_ME_487B5D7202DC_over // DoCursorChanged
+ ME_48E275700381_ME_487B5D7202DC_over // Lock
+ ME_48E27580037A_ME_487B5D7202DC_over // Unlock
+ ME_48E276B10286_ME_487B5D7202DC_over // DoSetDocument
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E3702502F4 // l3Base
+ ME_48E37335027E // l3InterfacesMisc
+ ME_49E61B7103A0 // TevUpdateWindowFlag
+ ME_52FCF46A03AF // TWinControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '09.12.1998 16:17'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evWindowCursor.pas'
+ UP extprop:rc:SelfName 'WindowCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evWindowCursor'
+
+ENDME // ME_487B5D7202DC TevWindowCursor

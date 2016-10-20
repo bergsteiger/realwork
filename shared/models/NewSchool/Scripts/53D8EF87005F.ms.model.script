@@ -1,0 +1,88 @@
+// TevInevDrawingShapeMapper 53D8EF87005F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D8EF87005F
+
+ME ME_53D8EFA002FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D8EF87005F // TevInevDrawingShapeMapper
+ ;
+ MELINK Target WL? 'ME_485678B701BD' // TevPara
+ ;
+ UP "injects as" 'mapper'
+
+ENDME // ME_53D8EFA002FA 
+
+ME ME_53D8EFC40364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D8EF87005F // TevInevDrawingShapeMapper
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_53D8EFC40364 
+
+ME ME_53D8EFD0006A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D8EF87005F // TevInevDrawingShapeMapper
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D8EFD0006A 
+
+MEREF ME_53D639B601D7_ME_53D8EF87005F_impl
+ MELINK Original WL 'ME_53D639B601D7' '53D6399F03E1.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53D639B601D7_ME_53D8EF87005F_impl Make
+
+MEREF ME_53D6399F03E1_ME_53D8EF87005F_G
+ MELINK Original WL? 'ME_53D6399F03E1' // Tk2InterfaceMapper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D6399F03E1_ME_53D8EF87005F_G Tk2InterfaceMapper
+
+%%InjectedBy ME_485678B701BD ME_53D8EF87005F
+
+%%InheritedBy ME_53D6399F03E1 ME_53D8EF87005F
+
+ME ME_53D8EF87005F
+ MEPROP UID '53D8EF87005F'
+ MEPROP Name 'TevInevDrawingShapeMapper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCBC09029B' // Drawing Framework
+ ;
+ MELIST Inherits
+   Seq: ( ME_53D6399F03E1_ME_53D8EF87005F_G // Tk2InterfaceMapper
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53D639B601D7_ME_53D8EF87005F_impl // Make
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53D8EFA002FA // TevPara
+ ME_53D8EFC40364 // InevDrawingShape
+ ME_53D8EFD0006A // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evInevDrawingShapeMapper.pas'
+ UP extprop:rc:SelfName 'InevDrawingShapeMapper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evInevDrawingShapeMapper'
+
+ENDME // ME_53D8EF87005F TevInevDrawingShapeMapper

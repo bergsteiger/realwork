@@ -1,0 +1,74 @@
+// pop_editor_CheckContinueCells 507510BF02AB ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_507510BF02AB
+
+ME ME_50751F7F0310
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ ;
+ MELINK Target WL 'ME_50751F2001E9' '50751A0A0164.ms.model.script' // TevTextInContinueCellSearcher
+ ;
+
+ENDME // ME_50751F7F0310 
+
+ME ME_5075242900C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_507510BF02AB // pop_editor_CheckContinueCells
+ ;
+ MELINK Target WL 'ME_47C6CAC503DE' '47C695A10172.ms.model.script' // TevSearchOptionEx
+ ;
+
+ENDME // ME_5075242900C8 
+
+MEREF ME_4F4CB81200CA_ME_507510BF02AB_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_507510BF02AB_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_507510BF02AB_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_507510BF02AB_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_507510BF02AB
+
+ME ME_507510BF02AB
+ MEPROP UID '507510BF02AB'
+ MEPROP Name 'pop_editor_CheckContinueCells'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_507510BF02AB_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_507510BF02AB_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50751F7F0310 // TevTextInContinueCellSearcher
+ ME_5075242900C8 // TevSearchOptionEx
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckContinueCells.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCheckContinueCells'
+ UP extprop:rc:SelfName 'PopEditorCheckContinueCells'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCheckContinueCells'
+
+ENDME // ME_507510BF02AB pop_editor_CheckContinueCells

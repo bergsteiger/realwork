@@ -33,7 +33,7 @@ ME ME_55522C6101FF
  MEPROP Name 'G'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
+ MELINK Target WL? 'ME_47F226C7001F' // Tk2DocumentGenerator
  ;
 
 ENDME // ME_55522C6101FF G
@@ -42,7 +42,7 @@ ME ME_55522C61021D
  MEPROP Name 'Atom'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_47F2272B0394' '47ECA80B000D.ms.model.script' // Tk2StackAtom
+ MELINK Target WL 'ME_47F2272B0394' '47F226C7001F.ms.model.script' // Tk2StackAtom
  ;
 
 ENDME // ME_55522C61021D Atom
@@ -68,7 +68,7 @@ ENDME // ME_55522C5C00A1 DoIt
 ME ME_55522C52008B
  MEPROP UID '55522C52008B'
  MEPROP Name 'DoFinishAtom'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -112,7 +112,7 @@ ME ME_55522CA900D2
  MEPROP UID '55522CA900D2'
  MEPROP Name 'Load'
  MEPROP OriginalName 'Load$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -156,7 +156,7 @@ ME ME_55522CC50260
  MEPROP UID '55522CC50260'
  MEPROP Name 'Load'
  MEPROP OriginalName 'Load$2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -200,7 +200,7 @@ ME ME_55522CDE0277
  MEPROP UID '55522CDE0277'
  MEPROP Name 'Save'
  MEPROP OriginalName 'Save$1'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -258,7 +258,7 @@ ME ME_55522D1803AB
  MEPROP UID '55522D1803AB'
  MEPROP Name 'Save'
  MEPROP OriginalName 'Save$2'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -301,7 +301,7 @@ ENDME // ME_55522D4B0385 DoIt
 ME ME_55522D4500AB
  MEPROP UID '55522D4500AB'
  MEPROP Name 'SaveCurrent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -320,16 +320,22 @@ ME ME_55522E5B0139
  MELINK Stereotype st_friend::Dependency ;
  MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
  ;
- MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
+ MELINK Target WL? 'ME_4860AF86034F' // Tk2Dictionary
  ;
 
 ENDME // ME_55522E5B0139 
 
-ME ME_47A042E100E2_ME_55522B5101D3
+MEREF ME_47A042E100E2_ME_55522B5101D3_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_55522B5101D3 InitFields
+ENDMEREF // ME_47A042E100E2_ME_55522B5101D3_over InitFields
+
+MEREF ME_480DB927035A_ME_55522B5101D3_G
+ MELINK Original WL? 'ME_480DB927035A' // TevStyleInterface
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480DB927035A_ME_55522B5101D3_G TevStyleInterface
 
 %%InheritedBy ME_480DB927035A ME_55522B5101D3
 
@@ -344,7 +350,7 @@ ME ME_55522B5101D3
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+   Seq: ( ME_480DB927035A_ME_55522B5101D3_G // TevStyleInterface
  )
  ; // Inherits
  MELIST Attributes
@@ -361,7 +367,7 @@ ME ME_55522B5101D3
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
+   Seq: ( ME_47A042E100E2_ME_55522B5101D3_over // InitFields
  )
  ; // Overridden
  MELIST Dependencies
@@ -387,10 +393,16 @@ ME ME_55522DCC00B5
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55522D920268 // TevStyleTableGenerator
  ;
- MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
+ MELINK Target WL? 'ME_4860AF86034F' // Tk2Dictionary
  ;
 
 ENDME // ME_55522DCC00B5 f_StyleTable
+
+MEREF ME_47F226C7001F_ME_55522D920268_G
+ MELINK Original WL? 'ME_47F226C7001F' // Tk2DocumentGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F226C7001F_ME_55522D920268_G Tk2DocumentGenerator
 
 %%InheritedBy ME_47F226C7001F ME_55522D920268
 
@@ -405,7 +417,7 @@ ME ME_55522D920268
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
+   Seq: ( ME_47F226C7001F_ME_55522D920268_G // Tk2DocumentGenerator
  )
  ; // Inherits
  MELIST Attributes
@@ -506,7 +518,7 @@ ME ME_55532A5D026D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_4BE404E701DB' '47E3C64F037E.ms.model.script' // Tk2Context
+ MELINK Target WL? 'ME_4BE404E701DB' // Tk2Context
  ;
 
 ENDME // ME_55532A5D026D 
@@ -546,7 +558,7 @@ ME ME_55532B1F0083
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_55532B1F0083 
@@ -576,7 +588,7 @@ ME ME_55532B5E0391
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_5319CECC039A' '5319CE3F02E2.ms.model.script' // Tk2SimpleTagList
+ MELINK Target WL? 'ME_5319CECC039A' // Tk2SimpleTagList
  ;
 
 ENDME // ME_55532B5E0391 
@@ -586,7 +598,7 @@ ME ME_55532BBF02A6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_4E32AB1401C0' '47ECB2870309.ms.model.script' // TevStyleTableFontSizeCorrector
+ MELINK Target WL? 'ME_4E32AB1401C0' // TevStyleTableFontSizeCorrector
  ;
 
 ENDME // ME_55532BBF02A6 
@@ -606,7 +618,7 @@ ME ME_55532C1D0107
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_531075C102DD' '47E3C64F037E.ms.model.script' // Tk2NonOptimizeContext
+ MELINK Target WL? 'ME_531075C102DD' // Tk2NonOptimizeContext
  ;
 
 ENDME // ME_55532C1D0107 
@@ -616,7 +628,7 @@ ME ME_555330EC02B9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
  ;
- MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ MELINK Target WL? 'ME_483D7C55027A' // TevdNativeWriter
  ;
 
 ENDME // ME_555330EC02B9 

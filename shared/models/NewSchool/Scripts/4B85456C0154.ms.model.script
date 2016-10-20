@@ -1,0 +1,86 @@
+// TEVDtoNSRCWriterTest 4B85456C0154 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B85456C0154
+
+FORWARD ME_4B853EA60332
+
+ME ME_4E83179B0353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B853EA60332 // DoIt
+ ;
+ MELINK Target WL 'ME_4E8316290291' '4787B0A8007B.ms.model.script' // El3BadPictureFormat
+ ;
+
+ENDME // ME_4E83179B0353 
+
+ME ME_4B853EA60332
+ MEPROP UID '4B853EA60332'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B85456C0154 // TEVDtoNSRCWriterTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E83179B0353 // El3BadPictureFormat
+ )
+ ; // Dependencies
+
+ENDME // ME_4B853EA60332 DoIt
+
+ME ME_4B8545CC03D2
+ MEPROP UID '4B8545CC03D2'
+ MEPROP Name 'IsNSRCPlus'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B85456C0154 // TEVDtoNSRCWriterTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B8545CC03D2 IsNSRCPlus
+
+MEREF ME_4B4F68EE006B_ME_4B85456C0154_G
+ MELINK Original WL? 'ME_4B4F68EE006B' // TNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F68EE006B_ME_4B85456C0154_G TNSRCWriterTest
+
+%%InheritedBy ME_4B4F68EE006B ME_4B85456C0154
+
+ME ME_4B85456C0154
+ MEPROP UID '4B85456C0154'
+ MEPROP Name 'TEVDtoNSRCWriterTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест записи из EVD в NSRC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B4F68EE006B_ME_4B85456C0154_G // TNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B853EA60332 // DoIt
+ HWL ME_4B8545CC03D2 // IsNSRCPlus
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoNSRCWriterTest.pas'
+ UP extprop:rc:SelfName 'EVDtoNSRCWriterTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'EVDtoNSRCWriterTest'
+
+ENDME // ME_4B85456C0154 TEVDtoNSRCWriterTest

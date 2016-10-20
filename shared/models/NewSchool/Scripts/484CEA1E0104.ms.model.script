@@ -1,0 +1,146 @@
+// WevFontName 484CEA1E0104 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484CEA1E0104
+
+ME ME_484CEBE90064
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_484CEBE90064 
+
+ME ME_484CEC8600B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_484CEC8600B3 
+
+ME ME_484CEC9C010B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_484CEC9C010B 
+
+ME ME_53037EBE003D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_4B88F0F00211' // Tl3FontManagerEx
+ ;
+
+ENDME // ME_53037EBE003D 
+
+ME ME_53189647010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_53188A6D02A7' // Tk2FontName
+ ;
+
+ENDME // ME_53189647010E 
+
+ME ME_53189786030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_53189786030E 
+
+ME ME_531897A5006C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_484CEA1E0104 // WevFontName
+ ;
+ MELINK Target WL? 'ME_5318974F0065' // Tk2FontManager
+ ;
+
+ENDME // ME_531897A5006C 
+
+MEREF ME_484CCEBC00DC_ME_484CEA1E0104_over
+ MELINK Original WL 'ME_484CCEBC00DC' '47AC6F0B025E.ms.model.script' // StrToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCEBC00DC_ME_484CEA1E0104_over StrToTag
+
+MEREF ME_484CEAD301AE_ME_484CEA1E0104_over
+ MELINK Original WL 'ME_484CEAD301AE' '47AC6F0B025E.ms.model.script' // ObjToTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CEAD301AE_ME_484CEA1E0104_over ObjToTag
+
+MEREF ME_484945C0000E_ME_484CEA1E0104_G
+ MELINK Original WL? 'ME_484945C0000E' // Wl3String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484945C0000E_ME_484CEA1E0104_G Wl3String
+
+MEREF ME_484CE9CE0107_ME_484CEA1E0104_R
+ MELINK Original WL 'ME_484CE9CE0107' '52669BFC024E.ms.model.script' // FontName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CE9CE0107_ME_484CEA1E0104_R FontName
+
+%%ImplementedBy ME_484CE9CE0107 ME_484CEA1E0104
+
+%%InheritedBy ME_484945C0000E ME_484CEA1E0104
+
+ME ME_484CEA1E0104
+ MEPROP UID '484CEA1E0104'
+ MEPROP Name 'WevFontName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_484945C0000E_ME_484CEA1E0104_G // Wl3String
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_484CE9CE0107_ME_484CEA1E0104_R // FontName
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CCEBC00DC_ME_484CEA1E0104_over // StrToTag
+ ME_484CEAD301AE_ME_484CEA1E0104_over // ObjToTag
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_484CEBE90064 // l3Base
+ ME_484CEC8600B3 // SysUtils
+ ME_484CEC9C010B // k2Base
+ ME_53037EBE003D // Tl3FontManagerEx
+ ME_53189647010E // Tk2FontName
+ ME_53189786030E // Tl3LogFont
+ ME_531897A5006C // Tk2FontManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\evFontName_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evFontName_Wrap'
+
+ENDME // ME_484CEA1E0104 WevFontName

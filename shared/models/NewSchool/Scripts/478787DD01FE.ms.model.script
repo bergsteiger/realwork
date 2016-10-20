@@ -1,0 +1,210 @@
+// TafwStatus 478787DD01FE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478787DD01FE
+
+ME ME_47878A0803D5
+ MEPROP UID '47878A0803D5'
+ MEPROP Name 'f_MainForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47878A0803D5 f_MainForm
+
+ME ME_4F6C7643013C
+ MEPROP UID '4F6C7643013C'
+ MEPROP Name 'f_Elements'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELINK Target WL? 'ME_4F6C75F500F1' // TIafwStatusElementPtrList
+ ;
+
+ENDME // ME_4F6C7643013C f_Elements
+
+ME ME_47878A280267
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D95780253' '467823B7002C.ms.model.script' // IafwMainForm
+ ;
+
+ENDME // ME_47878A280267 aMainForm
+
+ME ME_47878A1D02C4
+ MEPROP UID '47878A1D02C4'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELIST Parameters
+   Seq: ( ME_47878A280267 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_47878A1D02C4 Create
+
+ME ME_47878A470160
+ MEPROP Name 'aMainForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D95780253' '467823B7002C.ms.model.script' // IafwMainForm
+ ;
+
+ENDME // ME_47878A470160 aMainForm
+
+ME ME_47878A3501C8
+ MEPROP UID '47878A3501C8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Создает экземпляр класса, в виде интерфейса IafwStatus.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELINK Target WL 'ME_473D9626039D' '467823B7002C.ms.model.script' // IafwStatus
+ ;
+ MELIST Parameters
+   Seq: ( ME_47878A470160 // aMainForm
+ )
+ ; // Parameters
+
+ENDME // ME_47878A3501C8 Make
+
+ME ME_47878E7B03DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_47878E7B03DD 
+
+ME ME_47B467FF0052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478787DD01FE // TafwStatus
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_47B467FF0052 
+
+MEREF ME_473D964C00F9_ME_478787DD01FE_impl
+ MELINK Original WL 'ME_473D964C00F9' '467823B7002C.ms.model.script' // AddElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D964C00F9_ME_478787DD01FE_impl AddElement
+
+MEREF ME_473D96570159_ME_478787DD01FE_impl
+ MELINK Original WL 'ME_473D96570159' '467823B7002C.ms.model.script' // RemoveElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D96570159_ME_478787DD01FE_impl RemoveElement
+
+MEREF ME_473D965F03DB_ME_478787DD01FE_impl
+ MELINK Original WL 'ME_473D965F03DB' '467823B7002C.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D965F03DB_ME_478787DD01FE_impl Update
+
+MEREF ME_473D9669014B_ME_478787DD01FE_impl
+ MELINK Original WL 'ME_473D9669014B' '467823B7002C.ms.model.script' // GetStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D9669014B_ME_478787DD01FE_impl GetStatus
+
+MEREF ME_479731C50290_ME_478787DD01FE_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_478787DD01FE_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_478787DD01FE_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_478787DD01FE_G Tl3CProtoObject
+
+MEREF ME_473D9626039D_ME_478787DD01FE_R
+ MELINK Original WL 'ME_473D9626039D' '467823B7002C.ms.model.script' // IafwStatus
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D9626039D_ME_478787DD01FE_R IafwStatus
+
+%%ImplementedBy ME_473D9626039D ME_478787DD01FE
+
+%%InheritedBy ME_4AE5CA2D0034 ME_478787DD01FE
+
+ME ME_478787DD01FE
+ MEPROP UID '478787DD01FE'
+ MEPROP Name 'TafwStatus'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация строки статуса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47764CED0308' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_478787DD01FE_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_473D9626039D_ME_478787DD01FE_R // IafwStatus
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47878A0803D5 // f_MainForm
+ HWL ME_4F6C7643013C // f_Elements
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47878A1D02C4 // Create
+ HWL ME_47878A3501C8 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D964C00F9_ME_478787DD01FE_impl // AddElement
+ ME_473D96570159_ME_478787DD01FE_impl // RemoveElement
+ ME_473D965F03DB_ME_478787DD01FE_impl // Update
+ ME_473D9669014B_ME_478787DD01FE_impl // GetStatus
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_478787DD01FE_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47878E7B03DD // l3String
+ ME_47B467FF0052 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwStatus.pas'
+ UP extprop:rc:SelfName 'afwStatus'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwStatus'
+
+ENDME // ME_478787DD01FE TafwStatus

@@ -1,0 +1,89 @@
+// TafwSettingsImplPrim 4F6C7D5F00E6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6C7D5F00E6
+
+ME ME_4F6C7EC00298
+ MEPROP UID '4F6C7EC00298'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7EC00298 FindDataType
+
+ME ME_4F6C7EE80165
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6C7D5F00E6 // TafwSettingsImplPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F6C7EE80165 
+
+MEREF ME_47B9BAFD01F4_ME_4F6C7D5F00E6_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4F6C7D5F00E6_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4F6C7D5F00E6_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4F6C7D5F00E6_G l3Searcher
+
+MEREF ME_4F6C6EAD0053_ME_4F6C7D5F00E6_G
+ MELINK Original WL? 'ME_4F6C6EAD0053' // TafwSettingsImplPrimPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6C6EAD0053_ME_4F6C7D5F00E6_G TafwSettingsImplPrimPrim
+
+%%InheritedBy ME_47B47E230134 ME_4F6C7D5F00E6
+%%InheritedBy ME_4F6C6EAD0053 ME_4F6C7D5F00E6
+
+ME ME_4F6C7D5F00E6
+ MEPROP UID '4F6C7D5F00E6'
+ MEPROP Name 'TafwSettingsImplPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F6C5511015F' // afwSettings
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_4F6C7D5F00E6_G // l3Searcher
+ ME_4F6C6EAD0053_ME_4F6C7D5F00E6_G // TafwSettingsImplPrimPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C7EC00298 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4F6C7D5F00E6_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F6C7EE80165 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwSettingsImplPrim.pas'
+ UP extprop:rc:SelfName 'afwSettingsImplPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwSettingsImplPrim'
+
+ENDME // ME_4F6C7D5F00E6 TafwSettingsImplPrim

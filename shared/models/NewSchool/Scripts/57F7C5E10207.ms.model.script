@@ -1,0 +1,45 @@
+// TmsmRefcountedForm 57F7C5E10207 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F7C5E10207
+
+MEREF ME_47D1602000C6_ME_57F7C5E10207_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57F7C5E10207_over Create
+
+MEREF ME_49525A0F034B_ME_57F7C5E10207_G
+ MELINK Original WL 'ME_49525A0F034B' '495259ED005C.ms.model.script' // Tl3Form
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525A0F034B_ME_57F7C5E10207_G Tl3Form
+
+%%InheritedBy ME_49525A0F034B ME_57F7C5E10207
+
+ME ME_57F7C5E10207
+ MEPROP UID '57F7C5E10207'
+ MEPROP Name 'TmsmRefcountedForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( ME_49525A0F034B_ME_57F7C5E10207_G // Tl3Form
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57F7C5E10207_over // Create
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmRefcountedForm.pas'
+ UP extprop:rc:SelfName 'msmRefcountedForm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmRefcountedForm'
+
+ENDME // ME_57F7C5E10207 TmsmRefcountedForm

@@ -1,0 +1,63 @@
+// TInsertFormulaTest 4DAFEAAD012D TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAFEAAD012D
+
+ME ME_4DAFEAFC033F
+ MEPROP UID '4DAFEAFC033F'
+ MEPROP Name 'GetFormulaText'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DAFEAAD012D // TInsertFormulaTest
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAFEAFC033F GetFormulaText
+
+MEREF ME_4BE13147032C_ME_4DAFEAAD012D_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4DAFEAAD012D_impl Process
+
+MEREF ME_4BE111D30229_ME_4DAFEAAD012D_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4DAFEAAD012D_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4DAFEAAD012D
+
+ME ME_4DAFEAAD012D
+ MEPROP UID '4DAFEAAD012D'
+ MEPROP Name 'TInsertFormulaTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест на вставку формулы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE111D30229_ME_4DAFEAAD012D_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DAFEAFC033F // GetFormulaText
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4DAFEAAD012D_impl // Process
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\InsertFormulaTest.pas'
+ UP extprop:rc:SelfName 'InsertFormulaTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'InsertFormulaTest'
+
+ENDME // ME_4DAFEAAD012D TInsertFormulaTest

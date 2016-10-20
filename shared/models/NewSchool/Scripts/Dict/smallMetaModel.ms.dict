@@ -1,0 +1,33 @@
+UNIT smallMetaModel.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ MDProcess_ForDelphi.tpi.script
+;
+
+BOOLEAN elem_func IsInjects
+ Self .IsStereotype st_injects::Dependency 
+ >>> Result
+; // IsInjects
+
+BOOLEAN elem_func IsProjectGroup
+ Self .IsStereotype st_ProjectGroup
+ >>> Result
+; // IsProjectGroup
+
+BOOLEAN elem_func IsVCMFormDefinition
+ Self .IsStereotype st_VCMFormDefinition
+ >>> Result
+; // IsVCMFormDefinition
+
+BOOLEAN elem_func IsAtom
+ Self .IsStereotype st_Atom
+ >>> Result
+; // IsAtom

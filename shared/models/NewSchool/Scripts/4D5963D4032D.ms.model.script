@@ -1,0 +1,78 @@
+// TnevControlsBlock 4D5963D4032D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5963D4032D
+
+ME ME_4DDFB6770095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4D5963D4032D // TnevControlsBlock
+ ;
+ MELINK Target WL? 'ME_485807480091' // TevControlsBlock
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DDFB6770095 
+
+ME ME_53D636C50274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4D5963D4032D // TnevControlsBlock
+ ;
+ MELINK Target WL 'ME_47C6AFC8021F' '47C5207602D1.ms.model.script' // IevCommonControl
+ ;
+
+ENDME // ME_53D636C50274 
+
+MEREF ME_4D596369028C_ME_4D5963D4032D_over
+ MELINK Original WL 'ME_4D596369028C' '48CE0A490377.ms.model.script' // TreatCollapsedAsHidden
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D596369028C_ME_4D5963D4032D_over TreatCollapsedAsHidden
+
+MEREF ME_48CE0B85029C_ME_4D5963D4032D_G
+ MELINK Original WL? 'ME_48CE0B85029C' // TnevParaList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48CE0B85029C_ME_4D5963D4032D_G TnevParaList
+
+%%InjectedBy ME_485807480091 ME_4D5963D4032D
+
+%%InheritedBy ME_48CE0B85029C ME_4D5963D4032D
+
+ME ME_4D5963D4032D
+ MEPROP UID '4D5963D4032D'
+ MEPROP Name 'TnevControlsBlock'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_48CE0B85029C_ME_4D5963D4032D_G // TnevParaList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4D596369028C_ME_4D5963D4032D_over // TreatCollapsedAsHidden
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DDFB6770095 // TevControlsBlock
+ ME_53D636C50274 // IevCommonControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevControlsBlock.pas'
+ UP extprop:rc:SelfName 'ControlsBlock'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevControlsBlock'
+
+ENDME // ME_4D5963D4032D TnevControlsBlock

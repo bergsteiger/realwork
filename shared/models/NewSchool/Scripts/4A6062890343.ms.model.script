@@ -1,0 +1,104 @@
+// TevHugeParaListPrim 4A6062890343 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A6062890343
+
+FORWARD ME_4A6062890343
+
+ME ME_4DD3E109019B
+ MEPROP UID '4DD3E109019B'
+ MEPROP Name 'l3Items_NoOwner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6062890343 // TevHugeParaListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoOwner'
+
+ENDME // ME_4DD3E109019B l3Items_NoOwner
+
+ME ME_4A60664801E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6062890343 // TevHugeParaListPrim
+ ;
+ MELINK Target WL 'ME_469F7CE1016C' '49A6646B0044.ms.model.script' // k2_amAll
+ ;
+
+ENDME // ME_4A60664801E4 
+
+MEREF ME_47B2C42A0163_ME_4A6062890343_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4A6062890343_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4A6062890343_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4A6062890343_impl CompareExistingItems
+
+MEREF ME_5320814702B4_ME_4A6062890343_G
+ MELINK Original WL? 'ME_5320814702B4' // Tk2ListTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5320814702B4_ME_4A6062890343_G Tk2ListTag
+
+MEREF ME_534515CD039A_ME_4A6062890343_G
+ MELINK Original WL? 'ME_534515CD039A' // l3VariantListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534515CD039A_ME_4A6062890343_G l3VariantListPrim
+
+%%InheritedBy ME_5320814702B4 ME_4A6062890343
+%%InheritedBy ME_534515CD039A ME_4A6062890343
+
+ME ME_4A6062890343
+ MEPROP UID '4A6062890343'
+ MEPROP Name 'TevHugeParaListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список параграфов с числом свойств больше 32' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5320814702B4_ME_4A6062890343_G // Tk2ListTag
+ ME_534515CD039A_ME_4A6062890343_G // l3VariantListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4A6062890343_impl // AssignItem
+ ME_47B99D4503A2_ME_4A6062890343_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4DD3E109019B // l3Items_NoOwner
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A60664801E4 // k2_amAll
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '17.06.2009 15:38'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\evHugeParaListPrim.pas'
+ UP extprop:rc:SelfName 'HugeParaListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evHugeParaListPrim'
+
+ENDME // ME_4A6062890343 TevHugeParaListPrim

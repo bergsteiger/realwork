@@ -1,0 +1,108 @@
+// TkwObjectFromStackWord 4F212BA80137 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F212BA80137
+
+FORWARD ME_4F212BD5010E
+
+ME ME_4F212C06004A
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4F212C06004A anObject
+
+ME ME_4F212C06009B
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F212C06009B aCtx
+
+ME ME_4F212BFB0113
+ MEPROP UID '4F212BFB0113'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F212BD5010E // DoObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F212C06004A // anObject
+ ME_4F212C06009B // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4F212BFB0113 DoIt
+
+ME ME_4F212BD5010E
+ MEPROP UID '4F212BD5010E'
+ MEPROP Name 'DoObject'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F212BA80137 // TkwObjectFromStackWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F212BFB0113 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F212BD5010E DoObject
+
+MEREF ME_4DAEEDE10285_ME_4F212BA80137_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4F212BA80137_impl DoDoIt
+
+MEREF ME_53EDC0E701BC_ME_4F212BA80137_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_4F212BA80137_G TtfwRegisterableWord
+
+%%InheritedBy ME_53EDC0E701BC ME_4F212BA80137
+
+ME ME_4F212BA80137
+ MEPROP UID '4F212BA80137'
+ MEPROP Name 'TkwObjectFromStackWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_54DC9ACA0156' // RTL bindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_53EDC0E701BC_ME_4F212BA80137_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F212BD5010E // DoObject
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4F212BA80137_impl // DoDoIt
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '26.01.2012 14:32'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwObjectFromStackWord.pas'
+ UP extprop:rc:SelfName 'ObjectFromStackWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwObjectFromStackWord'
+
+ENDME // ME_4F212BA80137 TkwObjectFromStackWord

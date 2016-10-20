@@ -53,7 +53,7 @@ ENDME // ME_4D63E36D0216 DoIt
 ME ME_4D63E3490015
  MEPROP UID '4D63E3490015'
  MEPROP Name 'AfterDrawChild'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -99,7 +99,7 @@ ENDME // ME_4E82C576031A DoIt
 ME ME_4E82C51501A9
  MEPROP UID '4E82C51501A9'
  MEPROP Name 'MakeBottomAnchorInnerAfterEnd'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Метод сделан, чтобы не тащить связь от Cursors в ParaListPainters' ;
@@ -153,7 +153,7 @@ ENDME // ME_4FD97FAA01C7 DoIt
 ME ME_4FD97F890377
  MEPROP UID '4FD97F890377'
  MEPROP Name 'CheckNeedLaterFilling'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -398,7 +398,7 @@ ME ME_481D755A02DF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_481D6C300084 // evParaListPainter
  ;
- MELINK Target WL 'ME_473C4F1E01A1' '473C3BEE0334.ms.model.script' // Tl3VirtualCanvas
+ MELINK Target WL? 'ME_473C4F1E01A1' // Tl3VirtualCanvas
  ;
 
 ENDME // ME_481D755A02DF 
@@ -408,7 +408,7 @@ ME ME_481D757200C2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_481D6C300084 // evParaListPainter
  ;
- MELINK Target WL 'ME_481213C903A2' '4811D4EC0237.ms.model.script' // TnevVirtualDrawView
+ MELINK Target WL? 'ME_481213C903A2' // TnevVirtualDrawView
  ;
 
 ENDME // ME_481D757200C2 
@@ -438,7 +438,7 @@ ME ME_481D78310189
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_481D6C300084 // evParaListPainter
  ;
- MELINK Target WL 'ME_47F6036500E3' '47E3DF460095.ms.model.script' // TnevAfterEndPoint
+ MELINK Target WL? 'ME_47F6036500E3' // TnevAfterEndPoint
  ;
 
 ENDME // ME_481D78310189 
@@ -473,24 +473,30 @@ ME ME_481D78C10169
 
 ENDME // ME_481D78C10169 
 
-ME ME_47A6FEE600FC_ME_481D6C300084
+MEREF ME_47A6FEE600FC_ME_481D6C300084_over
  MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_481D6C300084 IsCacheable
+ENDMEREF // ME_47A6FEE600FC_ME_481D6C300084_over IsCacheable
 
-ME ME_4804BC2401C2_ME_481D6C300084
+MEREF ME_4804BC2401C2_ME_481D6C300084_over
  MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4804BC2401C2_ME_481D6C300084 DoDraw
+ENDMEREF // ME_4804BC2401C2_ME_481D6C300084_over DoDraw
 
-ME ME_4804BC800172_ME_481D6C300084
+MEREF ME_4804BC800172_ME_481D6C300084_over
  MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4804BC800172_ME_481D6C300084 InitBottom
+ENDMEREF // ME_4804BC800172_ME_481D6C300084_over InitBottom
+
+MEREF ME_4804A2C101A5_ME_481D6C300084_G
+ MELINK Original WL? 'ME_4804A2C101A5' // evParaPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4804A2C101A5_ME_481D6C300084_G evParaPainter
 
 %%InheritedBy ME_4804A2C101A5 ME_481D6C300084
 
@@ -507,7 +513,7 @@ ME ME_481D6C300084
  MELINK Parent WL? 'ME_49DCBC09029B' // Drawing Framework
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4804A2C101A5' // evParaPainter
+   Seq: ( ME_4804A2C101A5_ME_481D6C300084_G // evParaPainter
  )
  ; // Inherits
  MELIST Operations
@@ -526,9 +532,9 @@ ME ME_481D6C300084
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A6FEE600FC_ME_481D6C300084 // IsCacheable
- ME_4804BC2401C2_ME_481D6C300084 // DoDraw
- ME_4804BC800172_ME_481D6C300084 // InitBottom
+   Seq: ( ME_47A6FEE600FC_ME_481D6C300084_over // IsCacheable
+ ME_4804BC2401C2_ME_481D6C300084_over // DoDraw
+ ME_4804BC800172_ME_481D6C300084_over // InitBottom
  )
  ; // Overridden
  MELIST Dependencies

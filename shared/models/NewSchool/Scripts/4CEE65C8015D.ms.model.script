@@ -1,0 +1,104 @@
+// TnsCommentModifier 4CEE65C8015D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEE65C8015D
+
+ME ME_4CEE6865016F
+ MEPROP UID '4CEE6865016F'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+
+ENDME // ME_4CEE6865016F ini
+
+ME ME_4CEE66280329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEE66280329 
+
+ME ME_4CEE69EC003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEE69EC003B 
+
+ME ME_4CEE69FD0291
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEE69FD0291 
+
+MEREF ME_4CEE6187015A_ME_4CEE65C8015D_over
+ MELINK Original WL 'ME_4CEE6187015A' '484FD34600BA.ms.model.script' // MarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_4CEE6187015A_ME_4CEE65C8015D_over MarkModified
+
+MEREF ME_4CEE61DE01C6_ME_4CEE65C8015D_G
+ MELINK Original WL 'ME_4CEE61DE01C6' '4CED2FED0255.ms.model.script' // TevCommentModifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEE61DE01C6_ME_4CEE65C8015D_G TevCommentModifier
+
+%%InheritedBy ME_4CEE61DE01C6 ME_4CEE65C8015D
+
+ME ME_4CEE65C8015D
+ MEPROP UID '4CEE65C8015D'
+ MEPROP Name 'TnsCommentModifier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CEE659103B3' // EVD Schema Tuning
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CEE61DE01C6_ME_4CEE65C8015D_G // TevCommentModifier
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CEE6865016F // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CEE6187015A_ME_4CEE65C8015D_over // MarkModified
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CEE66280329 // If1CommentSink
+ ME_4CEE69EC003B // Supports
+ ME_4CEE69FD0291 // If1CommentSink
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '25.11.2010 16:34'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentModifier.pas'
+ UP extprop:rc:SelfName 'CommentModifier'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsCommentModifier'
+
+ENDME // ME_4CEE65C8015D TnsCommentModifier

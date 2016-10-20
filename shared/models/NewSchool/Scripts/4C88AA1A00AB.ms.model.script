@@ -1,0 +1,95 @@
+// TPasteColumnTest 4C88AA1A00AB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C88AA1A00AB
+
+ME ME_4C88B74000E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88AA1A00AB // TPasteColumnTest
+ ;
+ MELINK Target WL? 'ME_48453B7601F9' // evCursorTools
+ ;
+
+ENDME // ME_4C88B74000E3 
+
+ME ME_4C88B9560039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88AA1A00AB // TPasteColumnTest
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4C88B9560039 
+
+ME ME_4C88DB4500B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88AA1A00AB // TPasteColumnTest
+ ;
+ MELINK Target WL 'ME_47AAB5EC03C2' '4773D64E036C.ms.model.script' // Tl3System
+ ;
+
+ENDME // ME_4C88DB4500B9 
+
+MEREF ME_4BE13147032C_ME_4C88AA1A00AB_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4C88AA1A00AB_impl Process
+
+MEREF ME_4C937013031D_ME_4C88AA1A00AB_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4C88AA1A00AB_over GetFolder
+
+MEREF ME_4BE111D30229_ME_4C88AA1A00AB_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4C88AA1A00AB_G TTextViaEditorProcessor
+
+%%InheritedBy ME_4BE111D30229 ME_4C88AA1A00AB
+
+ME ME_4C88AA1A00AB
+ MEPROP UID '4C88AA1A00AB'
+ MEPROP Name 'TPasteColumnTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест копирования и вставки из буфера колонки с объединенной ячейкой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE111D30229_ME_4C88AA1A00AB_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4C88AA1A00AB_impl // Process
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4C88AA1A00AB_over // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C88B74000E3 // evCursorTools
+ ME_4C88B9560039 // InevSelection
+ ME_4C88DB4500B9 // Tl3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\PasteColumnTest.pas'
+ UP extprop:rc:SelfName 'PasteColumnTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'PasteColumnTest'
+
+ENDME // ME_4C88AA1A00AB TPasteColumnTest

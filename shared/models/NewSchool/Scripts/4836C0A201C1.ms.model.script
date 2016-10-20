@@ -1,0 +1,111 @@
+// TevCustomNSRCWriter 4836C0A201C1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836C0A201C1
+
+FORWARD ME_4E3924CE03A3
+
+ME ME_4E3924F00279
+ MEPROP UID '4E3924F00279'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3924CE03A3 // CheckDigitalSeparatorAlignment
+ ;
+
+ENDME // ME_4E3924F00279 DoIt
+
+ME ME_4E3924CE03A3
+ MEPROP UID '4E3924CE03A3'
+ MEPROP Name 'CheckDigitalSeparatorAlignment'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корректировка стиля на наличие выравнивания по разделителю.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836C0A201C1 // TevCustomNSRCWriter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3924F00279 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E3924CE03A3 CheckDigitalSeparatorAlignment
+
+ME ME_4BAC9A040096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4836C0A201C1 // TevCustomNSRCWriter
+ ;
+ MELINK Target WL? 'ME_4BAC99EA03CF' // evNSRWrt
+ ;
+
+ENDME // ME_4BAC9A040096 
+
+MEREF ME_4836C07500D0_ME_4836C0A201C1_G
+ MELINK Original WL? 'ME_4836C07500D0' // TevCustomTextPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836C07500D0_ME_4836C0A201C1_G TevCustomTextPainter
+
+MEREF ME_4BBB34EC029C_ME_4836C0A201C1_R
+ MELINK Original WL 'ME_4BBB34EC029C' '4F266203018F.ms.model.script' // Выливка в формат NSRC
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBB34EC029C_ME_4836C0A201C1_R Выливка в формат NSRC
+
+MEREF ME_4F4DD4AB0339_ME_4836C0A201C1_R
+ MELINK Original WL 'ME_4F4DD4AB0339' '4F266203018F.ms.model.script' // Картинки внутри сегментов должны уметь писаться в NSRC
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4DD4AB0339_ME_4836C0A201C1_R Картинки внутри сегментов должны уметь писаться в NSRC
+
+%%ImplementedBy ME_4BBB34EC029C ME_4836C0A201C1
+%%ImplementedBy ME_4F4DD4AB0339 ME_4836C0A201C1
+
+%%InheritedBy ME_4836C07500D0 ME_4836C0A201C1
+
+ME ME_4836C0A201C1
+ MEPROP UID '4836C0A201C1'
+ MEPROP Name 'TevCustomNSRCWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр для записи текста в формате NSRC.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4836C07500D0_ME_4836C0A201C1_G // TevCustomTextPainter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBB34EC029C_ME_4836C0A201C1_R // Выливка в формат NSRC
+ ME_4F4DD4AB0339_ME_4836C0A201C1_R // Картинки внутри сегментов должны уметь писаться в NSRC
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E3924CE03A3 // CheckDigitalSeparatorAlignment
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BAC9A040096 // evNSRWrt
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '04.10.1999 17:55'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomNSRCWriter.pas'
+ UP extprop:rc:SelfName 'NSRCWriter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomNSRCWriter'
+
+ENDME // ME_4836C0A201C1 TevCustomNSRCWriter

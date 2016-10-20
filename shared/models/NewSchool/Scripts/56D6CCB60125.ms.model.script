@@ -1,0 +1,45 @@
+// HTMLtoEVDFull 56D6CCB60125 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56D6CCB60125
+
+MEREF ME_56A613A30375_ME_56D6CCB60125_over
+ MELINK Original WL 'ME_56A613A30375' '4E847D990353.ms.model.script' // TuningReader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56A613A30375_ME_56D6CCB60125_over TuningReader
+
+MEREF ME_4E847E770184_ME_56D6CCB60125_G
+ MELINK Original WL? 'ME_4E847E770184' // HTMLtoEVDTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E847E770184_ME_56D6CCB60125_G HTMLtoEVDTest
+
+%%InheritedBy ME_4E847E770184 ME_56D6CCB60125
+
+ME ME_56D6CCB60125
+ MEPROP UID '56D6CCB60125'
+ MEPROP Name 'HTMLtoEVDFull'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4E847D6D002B' // HTML
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E847E770184_ME_56D6CCB60125_G // HTMLtoEVDTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56A613A30375_ME_56D6CCB60125_over // TuningReader
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\HTMLtoEVDFull.pas'
+ UP extprop:pas:TypeName 'THTMLtoEVDFull'
+ UP extprop:rc:SelfName 'HTMLtoEVDFull'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56D6CCB60125 HTMLtoEVDFull

@@ -69,7 +69,7 @@ ME ME_8DB149CAB5A3
  MEPROP Name 'OpenTreeSelection'
  MEPROP OriginalName 'OpenTreeSelection$4AAF590401AC'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -154,7 +154,7 @@ ME ME_600E2BE04415
  MEPROP Name 'MakeAttributeSelect'
  MEPROP OriginalName 'MakeAttributeSelect$4AAF4FC80387'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -228,7 +228,7 @@ ME ME_5ABF99DDFE2F
  MEPROP Name 'MakeSelectedAttributes'
  MEPROP OriginalName 'MakeSelectedAttributes$4AAF52280022'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -313,7 +313,7 @@ ME ME_2B4BA68BAEF4
  MEPROP Name 'MakeTreeAttributeSelect'
  MEPROP OriginalName 'MakeTreeAttributeSelect$4AAF48F502E7'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -401,7 +401,7 @@ ENDME // ME_4AAF590D003A DoIt
 ME ME_4AAF590401AC
  MEPROP UID '4AAF590401AC'
  MEPROP Name 'OpenTreeSelection'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FactoryMethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -476,7 +476,7 @@ ENDME // ME_4AAF4FD80301 DoIt
 ME ME_4AAF4FC80387
  MEPROP UID '4AAF4FC80387'
  MEPROP Name 'MakeAttributeSelect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -538,7 +538,7 @@ ENDME // ME_4AAF525203A3 DoIt
 ME ME_4AAF52280022
  MEPROP UID '4AAF52280022'
  MEPROP Name 'MakeSelectedAttributes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -610,7 +610,7 @@ ENDME // ME_4AAF491301EB DoIt
 ME ME_4AAF48F502E7
  MEPROP UID '4AAF48F502E7'
  MEPROP Name 'MakeTreeAttributeSelect'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_FormFactory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -625,6 +625,12 @@ ME ME_4AAF48F502E7
 
 ENDME // ME_4AAF48F502E7 MakeTreeAttributeSelect
 
+MEREF ME_49E7754802A9_ME_57A3152102C6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_57A3152102C6_G Tl3ProtoObject
+
 %%InheritedBy ME_49E7754802A9 ME_57A3152102C6
 
 ME ME_57A3152102C6
@@ -638,7 +644,7 @@ ME ME_57A3152102C6
  MELINK Parent HWL ME_57A3150402BC // Services
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_57A3152102C6_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations

@@ -1,0 +1,60 @@
+// TnsComplectInfoRootNode 468276240241 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_468276240241
+
+ME ME_4909885C02F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_468276240241 // TnsComplectInfoRootNode
+ ;
+ MELINK Target WL? 'ME_4682778E0223' // TnsComplectInfoNode
+ ;
+
+ENDME // ME_4909885C02F8 
+
+MEREF ME_490989330020_ME_468276240241_over
+ MELINK Original WL 'ME_490989330020' '4682732A02F9.ms.model.script' // GetChildNodeClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_490989330020_ME_468276240241_over GetChildNodeClass
+
+MEREF ME_468275200341_ME_468276240241_G
+ MELINK Original WL? 'ME_468275200341' // TnsINodeRootWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468275200341_ME_468276240241_G TnsINodeRootWrap
+
+%%InheritedBy ME_468275200341 ME_468276240241
+
+ME ME_468276240241
+ MEPROP UID '468276240241'
+ MEPROP Name 'TnsComplectInfoRootNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корневой узел дерева с информацией о комплекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_490873CD01B9' // ComplectInfo
+ ;
+ MELIST Inherits
+   Seq: ( ME_468275200341_ME_468276240241_G // TnsINodeRootWrap
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_490989330020_ME_468276240241_over // GetChildNodeClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4909885C02F8 // TnsComplectInfoNode
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoRootNode.pas'
+ UP extprop:rc:SelfName 'ComplectInfoRootNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsComplectInfoRootNode'
+
+ENDME // ME_468276240241 TnsComplectInfoRootNode

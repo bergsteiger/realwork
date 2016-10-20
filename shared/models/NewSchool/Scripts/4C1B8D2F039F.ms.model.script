@@ -1,0 +1,332 @@
+// TevdCustomHyperlinkCorrector 4C1B8D2F039F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C1B8D2F039F
+
+ME ME_4C1B99FB0199
+ MEPROP UID '4C1B99FB0199'
+ MEPROP Name 'f_Converter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_4C1B99400116' '48F4E61C0060.ms.model.script' // ExternalDocNumberToInternal
+ ;
+
+ENDME // ME_4C1B99FB0199 f_Converter
+
+ME ME_52DE5FEC01EE
+ MEPROP UID '52DE5FEC01EE'
+ MEPROP Name 'f_ExternalHandle'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Внешний номер передаваемого документа для подставки в ссылку.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52DE5FEC01EE f_ExternalHandle
+
+FORWARD ME_4C1B9990015E
+
+ME ME_4C1B99DB01D0
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_4C1B99DB01D0 theGenerator
+
+ME ME_4C1B99DB01E8
+ MEPROP Name 'aConverter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4C1B99400116' '48F4E61C0060.ms.model.script' // ExternalDocNumberToInternal
+ ;
+
+ENDME // ME_4C1B99DB01E8 aConverter
+
+ME ME_4C1B999D00BE
+ MEPROP UID '4C1B999D00BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C1B9990015E // SetTo
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C1B99DB01D0 // theGenerator
+ ME_4C1B99DB01E8 // aConverter
+ )
+ ; // Parameters
+
+ENDME // ME_4C1B999D00BE DoIt
+
+ME ME_4C1B9990015E
+ MEPROP UID '4C1B9990015E'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C1B999D00BE // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4C1B9990015E SetTo
+
+FORWARD ME_52E0B71902EC
+
+ME ME_52E0B73901BD
+ MEPROP UID '52E0B73901BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E0B71902EC // IsNeedCorrection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52E0B73901BD DoIt
+
+ME ME_52E0B71902EC
+ MEPROP UID '52E0B71902EC'
+ MEPROP Name 'IsNeedCorrection'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E0B73901BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52E0B71902EC IsNeedCorrection
+
+FORWARD ME_52E0B7BF0023
+
+ME ME_52E0B81A012D
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52E0B81A012D aDocID
+
+ME ME_52E0B7D400E3
+ MEPROP UID '52E0B7D400E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E0B7BF0023 // DoCorrectDocID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52E0B81A012D // aDocID
+ )
+ ; // Parameters
+
+ENDME // ME_52E0B7D400E3 DoIt
+
+ME ME_52E0B7BF0023
+ MEPROP UID '52E0B7BF0023'
+ MEPROP Name 'DoCorrectDocID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E0B7D400E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52E0B7BF0023 DoCorrectDocID
+
+FORWARD ME_52E0B83400F0
+
+ME ME_52E0B85F01C8
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52E0B85F01C8 aDocID
+
+ME ME_52E0B84803C8
+ MEPROP UID '52E0B84803C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E0B83400F0 // CheckDocIDBeforeCorrection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52E0B85F01C8 // aDocID
+ )
+ ; // Parameters
+
+ENDME // ME_52E0B84803C8 DoIt
+
+ME ME_52E0B83400F0
+ MEPROP UID '52E0B83400F0'
+ MEPROP Name 'CheckDocIDBeforeCorrection'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E0B84803C8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52E0B83400F0 CheckDocIDBeforeCorrection
+
+ME ME_4C1B8DB503BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_4C1B8DB503BE 
+
+ME ME_4C1B8DC6010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C1B8DC6010A 
+
+ME ME_4C1B8DEA0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+
+ENDME // ME_4C1B8DEA0244 
+
+ME ME_52DE606B0192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C1B8D2F039F // TevdCustomHyperlinkCorrector
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_52DE606B0192 
+
+MEREF ME_4836D52400D9_ME_4C1B8D2F039F_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_4C1B8D2F039F_over AddAtomEx
+
+MEREF ME_49E488070386_ME_4C1B8D2F039F_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_4C1B8D2F039F_over ParaTypeForFiltering
+
+MEREF ME_49E4883E0176_ME_4C1B8D2F039F_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_4C1B8D2F039F_over DoWritePara
+
+MEREF ME_49E487650342_ME_4C1B8D2F039F_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_4C1B8D2F039F_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_4C1B8D2F039F
+
+ME ME_4C1B8D2F039F
+ MEPROP UID '4C1B8D2F039F'
+ MEPROP Name 'TevdCustomHyperlinkCorrector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр исправляющий адреса ссылок из F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_4C1B8D2F039F_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C1B99FB0199 // f_Converter
+ HWL ME_52DE5FEC01EE // f_ExternalHandle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C1B9990015E // SetTo
+ HWL ME_52E0B71902EC // IsNeedCorrection
+ HWL ME_52E0B7BF0023 // DoCorrectDocID
+ HWL ME_52E0B83400F0 // CheckDocIDBeforeCorrection
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4836D52400D9_ME_4C1B8D2F039F_over // AddAtomEx
+ ME_49E488070386_ME_4C1B8D2F039F_over // ParaTypeForFiltering
+ ME_49E4883E0176_ME_4C1B8D2F039F_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C1B8DB503BE // HyperLink
+ ME_4C1B8DC6010A // Tk2TagID
+ ME_4C1B8DEA0244 // Hyperlink Const
+ ME_52DE606B0192 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.06.2010 19:15'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdCustomHyperlinkCorrector.pas'
+ UP extprop:rc:SelfName 'dCustomHyperlinkCorrector'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdCustomHyperlinkCorrector'
+
+ENDME // ME_4C1B8D2F039F TevdCustomHyperlinkCorrector

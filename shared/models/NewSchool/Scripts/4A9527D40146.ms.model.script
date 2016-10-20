@@ -249,10 +249,16 @@ ME ME_571F6B5903D1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A9527D40146 // Nemesis
  ;
- MELINK Target WL 'ME_4DEF306102FF' '4DEF302C0007.ms.model.script' // TtfwScriptEngineEX
+ MELINK Target WL? 'ME_4DEF306102FF' // TtfwScriptEngineEX
  ;
 
 ENDME // ME_571F6B5903D1 
+
+MEREF ME_4A925AFF01BA_ME_4A9527D40146_G
+ MELINK Original WL? 'ME_4A925AFF01BA' // PrimNemesis
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A925AFF01BA_ME_4A9527D40146_G PrimNemesis
 
 %%InheritedBy ME_4A925AFF01BA ME_4A9527D40146
 
@@ -269,7 +275,7 @@ ME ME_4A9527D40146
  MELINK Parent WL? 'ME_4F7EBBE70147' // Nemesis
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4A925AFF01BA' // PrimNemesis
+   Seq: ( ME_4A925AFF01BA_ME_4A9527D40146_G // PrimNemesis
  )
  ; // Inherits
  MELIST Dependencies

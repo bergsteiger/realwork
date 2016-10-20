@@ -1,0 +1,187 @@
+// TatNamedParameter 480890870368 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480890870368
+
+ME ME_480890A30214
+ MEPROP UID '480890A30214'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480890870368 // TatNamedParameter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_480890A30214 Name
+
+ME ME_480890B1018D
+ MEPROP UID '480890B1018D'
+ MEPROP Name 'Description'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480890870368 // TatNamedParameter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_480890B1018D Description
+
+ME ME_480890D00284
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890D00284 name
+
+ME ME_480890D002AF
+ MEPROP Name 'description'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890D002AF description
+
+ME ME_480890D002D7
+ MEPROP Name 'defaultValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890D002D7 defaultValue
+
+ME ME_480890C200C7
+ MEPROP UID '480890C200C7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480890870368 // TatNamedParameter
+ ;
+ MELIST Parameters
+   Seq: ( ME_480890D00284 // name
+ ME_480890D002AF // description
+ ME_480890D002D7 // defaultValue
+ )
+ ; // Parameters
+
+ENDME // ME_480890C200C7 Create
+
+ME ME_480890E303AF
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890E303AF name
+
+ME ME_480890E303DB
+ MEPROP Name 'description'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890E303DB description
+
+ME ME_480890DD012B
+ MEPROP UID '480890DD012B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480890870368 // TatNamedParameter
+ ;
+ MELIST Parameters
+   Seq: ( ME_480890E303AF // name
+ ME_480890E303DB // description
+ )
+ ; // Parameters
+
+ENDME // ME_480890DD012B Create
+
+ME ME_480890F30196
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_480890F30196 name
+
+ME ME_480890EF00D2
+ MEPROP UID '480890EF00D2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480890870368 // TatNamedParameter
+ ;
+ MELIST Parameters
+   Seq: ( ME_480890F30196 // name
+ )
+ ; // Parameters
+
+ENDME // ME_480890EF00D2 Create
+
+MEREF ME_48086D7103BE_ME_480890870368_G
+ MELINK Original WL? 'ME_48086D7103BE' // TatParameter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48086D7103BE_ME_480890870368_G TatParameter
+
+%%InheritedBy ME_48086D7103BE ME_480890870368
+
+ME ME_480890870368
+ MEPROP UID '480890870368'
+ MEPROP Name 'TatNamedParameter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48086D7103BE_ME_480890870368_G // TatParameter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480890A30214 // Name
+ HWL ME_480890B1018D // Description
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480890C200C7 // Create
+ HWL ME_480890DD012B // Create
+ HWL ME_480890EF00D2 // Create
+ )
+ ; // Operations
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atNamedParameter.pas'
+ UP extprop:rc:SelfName 'atNamedParameter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atNamedParameter'
+
+ENDME // ME_480890870368 TatNamedParameter

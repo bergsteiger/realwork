@@ -1,0 +1,99 @@
+// Tl3TabService 550AE937003B Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_550AE937003B
+
+FORWARD ME_550AE937003B
+
+FORWARD ME_B9924A64571A
+
+FORWARD ME_550AE94503E6
+
+ME ME_A8AF111E1F35
+ MEPROP UID 'A8AF111E1F35'
+ MEPROP Name 'HasTabs'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_B9924A64571A // Ml3TabService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UPLINK Speller HWL ME_550AE94503E6 // HasTabs
+ ;
+
+ENDME // ME_A8AF111E1F35 HasTabs
+
+ME ME_B9924A64571A
+ MEPROP UID 'B9924A64571A'
+ MEPROP Name 'Ml3TabService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3TabService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_550AE937003B // Tl3TabService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_A8AF111E1F35 // HasTabs
+ )
+ ; // Operations
+
+ENDME // ME_B9924A64571A Ml3TabService
+
+ME ME_550AE94503E6
+ MEPROP UID '550AE94503E6'
+ MEPROP Name 'HasTabs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550AE937003B // Tl3TabService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_550AE94503E6 HasTabs
+
+MEREF ME_49E7754802A9_ME_550AE937003B_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_550AE937003B_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_550AE937003B
+
+ME ME_550AE937003B
+ MEPROP UID '550AE937003B'
+ MEPROP Name 'Tl3TabService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5506D079035B' // AFWServices
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_550AE937003B_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_550AE94503E6 // HasTabs
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_B9924A64571A // Ml3TabService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3TabService.pas'
+ UP extprop:rc:SelfName 'TabService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3TabService'
+
+ENDME // ME_550AE937003B Tl3TabService

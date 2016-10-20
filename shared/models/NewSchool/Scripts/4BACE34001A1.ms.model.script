@@ -1,0 +1,73 @@
+// K199591594 4BACE34001A1 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BACE34001A1
+
+ME ME_4BACE4A50338
+ MEPROP UID '4BACE4A50338'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACE34001A1 // K199591594
+ ;
+
+ENDME // ME_4BACE4A50338 DoIt
+
+MEREF ME_4C937013031D_ME_4BACE34001A1_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4BACE34001A1_over GetFolder
+
+MEREF ME_4CA45DAA01BA_ME_4BACE34001A1_over
+ MELINK Original WL 'ME_4CA45DAA01BA' '4B2A11BC0255.ms.model.script' // EtalonNeedsComputerName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA45DAA01BA_ME_4BACE34001A1_over EtalonNeedsComputerName
+
+MEREF ME_4BACDEF50001_ME_4BACE34001A1_G
+ MELINK Original WL? 'ME_4BACDEF50001' // RTFWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDEF50001_ME_4BACE34001A1_G RTFWriterTest
+
+%%InheritedBy ME_4BACDEF50001 ME_4BACE34001A1
+
+ME ME_4BACE34001A1
+ MEPROP UID '4BACE34001A1'
+ MEPROP Name 'K199591594'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$199591594]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4BAC88690141' // 7.5
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BACDEF50001_ME_4BACE34001A1_G // RTFWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BACE4A50338 // DoIt
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4BACE34001A1_over // GetFolder
+ ME_4CA45DAA01BA_ME_4BACE34001A1_over // EtalonNeedsComputerName
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K199591594.pas'
+ UP extprop:pas:TypeName 'TK199591594'
+ UP extprop:rc:SelfName 'K199591594'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BACE34001A1 K199591594

@@ -1,0 +1,62 @@
+// RTFtoEVDWithiddenTextExtractor 538C2F3502BB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538C2F3502BB
+
+ME ME_538C2F9F0008
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538C2F3502BB // RTFtoEVDWithiddenTextExtractor
+ ;
+ MELINK Target WL? 'ME_538C1D82017A' // Tdd_lcHiddenTextExtractor
+ ;
+
+ENDME // ME_538C2F9F0008 
+
+MEREF ME_4C07BCBE01F2_ME_538C2F3502BB_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_538C2F3502BB_over SetFilters
+
+MEREF ME_4C971C2203DD_ME_538C2F3502BB_G
+ MELINK Original WL? 'ME_4C971C2203DD' // RTFtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C971C2203DD_ME_538C2F3502BB_G RTFtoEVDWriterTest
+
+%%InheritedBy ME_4C971C2203DD ME_538C2F3502BB
+
+ME ME_538C2F3502BB
+ MEPROP UID '538C2F3502BB'
+ MEPROP Name 'RTFtoEVDWithiddenTextExtractor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4BACDED003CE' // RTF
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C971C2203DD_ME_538C2F3502BB_G // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_538C2F3502BB_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_538C2F9F0008 // Tdd_lcHiddenTextExtractor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RTFtoEVDWithiddenTextExtractor.pas'
+ UP extprop:pas:TypeName 'TRTFtoEVDWithiddenTextExtractor'
+ UP extprop:rc:SelfName 'RTFtoEVDWithiddenTextExtractor'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_538C2F3502BB RTFtoEVDWithiddenTextExtractor

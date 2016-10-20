@@ -1,0 +1,79 @@
+// TvcmMessageQueue 4E089AEB01DA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E089AEB01DA
+
+FORWARD ME_4E089B4302D8
+
+ME ME_4E089B5203E4
+ MEPROP UID '4E089B5203E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E089B4302D8 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E089B5203E4 DoIt
+
+ME ME_4E089B4302D8
+ MEPROP UID '4E089B4302D8'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E089AEB01DA // TvcmMessageQueue
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E089B5203E4 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4E089B4302D8 Exists
+
+MEREF ME_4E089A99009F_ME_4E089AEB01DA_G
+ MELINK Original WL? 'ME_4E089A99009F' // TvcmMessageQueuePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E089A99009F_ME_4E089AEB01DA_G TvcmMessageQueuePrim
+
+%%InheritedBy ME_4E089A99009F ME_4E089AEB01DA
+
+ME ME_4E089AEB01DA
+ MEPROP UID '4E089AEB01DA'
+ MEPROP Name 'TvcmMessageQueue'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AADF9450143' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E089A99009F_ME_4E089AEB01DA_G // TvcmMessageQueuePrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E089B4302D8 // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '27.06.2011 19:00'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMessageQueue.pas'
+ UP extprop:rc:SelfName 'MessageQueue'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMessageQueue'
+
+ENDME // ME_4E089AEB01DA TvcmMessageQueue

@@ -1,0 +1,107 @@
+// TnsFirstLevelStruct 4909DC950238 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4909DC950238
+
+ME ME_4909DCEF03BE
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4909DCEF03BE aTag
+
+ME ME_4909DCEF03DF
+ MEPROP Name 'aShowRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4909DCEF03DF aShowRoot
+
+ME ME_4909DCCD018E
+ MEPROP UID '4909DCCD018E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Создаёт экземпляр дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4909DC950238 // TnsFirstLevelStruct
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4909DCEF03BE // aTag
+ ME_4909DCEF03DF // aShowRoot
+ )
+ ; // Parameters
+
+ENDME // ME_4909DCCD018E Make
+
+ME ME_4909DCBF033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909DC950238 // TnsFirstLevelStruct
+ ;
+ MELINK Target WL? 'ME_4912AB3A01ED' // TnsAttributeTreeCacheNew
+ ;
+
+ENDME // ME_4909DCBF033D 
+
+ME ME_4B0197D30294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4909DC950238 // TnsFirstLevelStruct
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B0197D30294 
+
+MEREF ME_4683698E01BC_ME_4909DC950238_G
+ MELINK Original WL? 'ME_4683698E01BC' // TnsAttributeOneLevelTreeStruct
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4683698E01BC_ME_4909DC950238_G TnsAttributeOneLevelTreeStruct
+
+%%InheritedBy ME_4683698E01BC ME_4909DC950238
+
+ME ME_4909DC950238
+ MEPROP UID '4909DC950238'
+ MEPROP Name 'TnsFirstLevelStruct'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49006FAB024A' // Search
+ ;
+ MELIST Inherits
+   Seq: ( ME_4683698E01BC_ME_4909DC950238_G // TnsAttributeOneLevelTreeStruct
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4909DCCD018E // Make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4909DCBF033D // TnsAttributeTreeCacheNew
+ ME_4B0197D30294 // NodeBase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Search\nsFirstLevelStruct.pas'
+ UP extprop:rc:SelfName 'FirstLevelStruct'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsFirstLevelStruct'
+
+ENDME // ME_4909DC950238 TnsFirstLevelStruct

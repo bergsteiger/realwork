@@ -1,0 +1,297 @@
+// Tl3PicturePathService 552406830331 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_552406830331
+
+FORWARD ME_552406830331
+
+FORWARD ME_1AB4F93DAE7F
+
+FORWARD ME_5524069502F4
+
+ME ME_C287C1278289
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_C287C1278289 aValue
+
+ME ME_4706AFD6D823
+ MEPROP UID '4706AFD6D823'
+ MEPROP Name 'SetEnableSave'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1AB4F93DAE7F // Ml3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_C287C1278289 // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5524069502F4 // SetEnableSave
+ ;
+
+ENDME // ME_4706AFD6D823 SetEnableSave
+
+FORWARD ME_552406BA0045
+
+ME ME_7EBBABC236C5
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_7EBBABC236C5 aValue
+
+ME ME_86EACEE128F2
+ MEPROP UID '86EACEE128F2'
+ MEPROP Name 'SetPDF4Etalon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1AB4F93DAE7F // Ml3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_7EBBABC236C5 // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_552406BA0045 // SetPDF4Etalon
+ ;
+
+ENDME // ME_86EACEE128F2 SetPDF4Etalon
+
+FORWARD ME_552406DE00CA
+
+ME ME_863883F8FC75
+ MEPROP Name 'aPath'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_863883F8FC75 aPath
+
+ME ME_3FB12D269858
+ MEPROP UID '3FB12D269858'
+ MEPROP Name 'AddPicturePath'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1AB4F93DAE7F // Ml3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_863883F8FC75 // aPath
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_552406DE00CA // AddPicturePath
+ ;
+
+ENDME // ME_3FB12D269858 AddPicturePath
+
+FORWARD ME_552406F80065
+
+ME ME_D0AE3CC06AE7
+ MEPROP Name 'aName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_D0AE3CC06AE7 aName
+
+ME ME_2DCD42915D2E
+ MEPROP UID '2DCD42915D2E'
+ MEPROP Name 'SetTestName'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_1AB4F93DAE7F // Ml3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_D0AE3CC06AE7 // aName
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_552406F80065 // SetTestName
+ ;
+
+ENDME // ME_2DCD42915D2E SetTestName
+
+ME ME_1AB4F93DAE7F
+ MEPROP UID '1AB4F93DAE7F'
+ MEPROP Name 'Ml3PicturePathService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3PicturePathService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_552406830331 // Tl3PicturePathService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4706AFD6D823 // SetEnableSave
+ HWL ME_86EACEE128F2 // SetPDF4Etalon
+ HWL ME_3FB12D269858 // AddPicturePath
+ HWL ME_2DCD42915D2E // SetTestName
+ )
+ ; // Operations
+
+ENDME // ME_1AB4F93DAE7F Ml3PicturePathService
+
+ME ME_552406A6022B
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552406A6022B aValue
+
+ME ME_5524069502F4
+ MEPROP UID '5524069502F4'
+ MEPROP Name 'SetEnableSave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552406830331 // Tl3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552406A6022B // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_5524069502F4 SetEnableSave
+
+ME ME_552406C200E3
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552406C200E3 aValue
+
+ME ME_552406BA0045
+ MEPROP UID '552406BA0045'
+ MEPROP Name 'SetPDF4Etalon'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552406830331 // Tl3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552406C200E3 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552406BA0045 SetPDF4Etalon
+
+ME ME_552406ED0312
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_552406ED0312 aPath
+
+ME ME_552406DE00CA
+ MEPROP UID '552406DE00CA'
+ MEPROP Name 'AddPicturePath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552406830331 // Tl3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552406ED0312 // aPath
+ )
+ ; // Parameters
+
+ENDME // ME_552406DE00CA AddPicturePath
+
+ME ME_552407040243
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_552407040243 aName
+
+ME ME_552406F80065
+ MEPROP UID '552406F80065'
+ MEPROP Name 'SetTestName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552406830331 // Tl3PicturePathService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552407040243 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_552406F80065 SetTestName
+
+MEREF ME_49E7754802A9_ME_552406830331_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_552406830331_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_552406830331
+
+ME ME_552406830331
+ MEPROP UID '552406830331'
+ MEPROP Name 'Tl3PicturePathService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_552405FA0066' // ScreenShots
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_552406830331_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5524069502F4 // SetEnableSave
+ HWL ME_552406BA0045 // SetPDF4Etalon
+ HWL ME_552406DE00CA // AddPicturePath
+ HWL ME_552406F80065 // SetTestName
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_1AB4F93DAE7F // Ml3PicturePathService
+ )
+ ; // Children
+ MELIST Injected
+   Seq: ( WL 'ME_552BD74401A3' '552BD71503BD.ms.model.script' // PictureEtalonsWorkingPack
+ )
+ ; // Injected
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PicturePathService.pas'
+ UP extprop:rc:SelfName 'PicturePathService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3PicturePathService'
+
+ENDME // ME_552406830331 Tl3PicturePathService

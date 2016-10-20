@@ -1,0 +1,144 @@
+// TevMultiSelectionLocation 48ECCE2903AD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48ECCE2903AD
+
+ME ME_48ECD1D903A1
+ MEPROP UID '48ECD1D903A1'
+ MEPROP Name 'GetRange'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48ECCE2903AD // TevMultiSelectionLocation
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_48ECD1D903A1 GetRange
+
+ME ME_48ECD26D01EC
+ MEPROP UID '48ECD26D01EC'
+ MEPROP Name 'GetFormatting'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48ECCE2903AD // TevMultiSelectionLocation
+ ;
+ MELINK Target WL 'ME_47C5B5F400F4' '47C5207602D1.ms.model.script' // InevDataFormatting
+ ;
+
+ENDME // ME_48ECD26D01EC GetFormatting
+
+ME ME_48ECD288024B
+ MEPROP UID '48ECD288024B'
+ MEPROP Name 'GetText'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48ECCE2903AD // TevMultiSelectionLocation
+ ;
+ MELINK Target WL 'ME_47C5B21900C2' '47C5207602D1.ms.model.script' // InevText
+ ;
+
+ENDME // ME_48ECD288024B GetText
+
+MEREF ME_47C5B55D00B4_ME_48ECCE2903AD_impl
+ MELINK Original WL 'ME_47C5B55D00B4' '47C5207602D1.ms.model.script' // Range
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C5B55D00B4_ME_48ECCE2903AD_impl Range
+
+MEREF ME_47C5B603039F_ME_48ECCE2903AD_impl
+ MELINK Original WL 'ME_47C5B603039F' '47C5207602D1.ms.model.script' // Formatting
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47C5B603039F_ME_48ECCE2903AD_impl Formatting
+
+MEREF ME_49DDD02D00E3_ME_48ECCE2903AD_impl
+ MELINK Original WL 'ME_49DDD02D00E3' '47C5207602D1.ms.model.script' // Obj
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49DDD02D00E3_ME_48ECCE2903AD_impl Obj
+
+MEREF ME_49E6FB10002A_ME_48ECCE2903AD_impl
+ MELINK Original WL 'ME_49E6FB10002A' '47C5207602D1.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49E6FB10002A_ME_48ECCE2903AD_impl Text
+
+MEREF ME_4A5C6DB4014D_ME_48ECCE2903AD_impl
+ MELINK Original WL 'ME_4A5C6DB4014D' '47C5207602D1.ms.model.script' // AsPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A5C6DB4014D_ME_48ECCE2903AD_impl AsPoint
+
+MEREF ME_467C18A303CB_ME_48ECCE2903AD_G
+ MELINK Original WL? 'ME_467C18A303CB' // Tk2TagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467C18A303CB_ME_48ECCE2903AD_G Tk2TagTool
+
+MEREF ME_47F5D32F0059_ME_48ECCE2903AD_G
+ MELINK Original WL? 'ME_47F5D32F0059' // nevParaTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F5D32F0059_ME_48ECCE2903AD_G nevParaTool
+
+MEREF ME_47C5B50E0118_ME_48ECCE2903AD_R
+ MELINK Original WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C5B50E0118_ME_48ECCE2903AD_R InevLocation
+
+%%ImplementedBy ME_47C5B50E0118 ME_48ECCE2903AD
+
+%%InheritedBy ME_467C18A303CB ME_48ECCE2903AD
+%%InheritedBy ME_47F5D32F0059 ME_48ECCE2903AD
+
+ME ME_48ECCE2903AD
+ MEPROP UID '48ECCE2903AD'
+ MEPROP Name 'TevMultiSelectionLocation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_467C18A303CB_ME_48ECCE2903AD_G // Tk2TagTool
+ ME_47F5D32F0059_ME_48ECCE2903AD_G // nevParaTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C5B50E0118_ME_48ECCE2903AD_R // InevLocation
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48ECD1D903A1 // GetRange
+ HWL ME_48ECD26D01EC // GetFormatting
+ HWL ME_48ECD288024B // GetText
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C5B55D00B4_ME_48ECCE2903AD_impl // Range
+ ME_47C5B603039F_ME_48ECCE2903AD_impl // Formatting
+ ME_49DDD02D00E3_ME_48ECCE2903AD_impl // Obj
+ ME_49E6FB10002A_ME_48ECCE2903AD_impl // Text
+ ME_4A5C6DB4014D_ME_48ECCE2903AD_impl // AsPoint
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '08.10.2008 19:14'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiSelectionLocation.pas'
+ UP extprop:rc:SelfName 'MultiSelectionLocation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evMultiSelectionLocation'
+
+ENDME // ME_48ECCE2903AD TevMultiSelectionLocation

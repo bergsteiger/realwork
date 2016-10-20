@@ -75,7 +75,7 @@ ENDME // ME_4FA3C6E402D5 DoIt
 ME ME_4FA3C6D2025F
  MEPROP UID '4FA3C6D2025F'
  MEPROP Name 'DoCloseLog'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -128,7 +128,7 @@ ENDME // ME_4FA3CBB40052 DoIt
 ME ME_4FA3CBA503D7
  MEPROP UID '4FA3CBA503D7'
  MEPROP Name 'SaveDrawing'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -152,23 +152,29 @@ ME ME_4FA3C80103D4
 
 ENDME // ME_4FA3C80103D4 
 
-ME ME_4D00C91B03B2_ME_4FA3BB1500BA
- MELINK Original WL 'ME_4D00C91B03B2' '473C3BEE0334.ms.model.script' // OpenLinesLog
+MEREF ME_4D00C91B03B2_ME_4FA3BB1500BA_impl
+ MELINK Original WL 'ME_4D00C91B03B2' '4D00B058024F.ms.model.script' // OpenLinesLog
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4D00C91B03B2_ME_4FA3BB1500BA OpenLinesLog
+ENDMEREF // ME_4D00C91B03B2_ME_4FA3BB1500BA_impl OpenLinesLog
 
-ME ME_4D00C9410153_ME_4FA3BB1500BA
- MELINK Original WL 'ME_4D00C9410153' '473C3BEE0334.ms.model.script' // CloseLinesLog
+MEREF ME_4D00C9410153_ME_4FA3BB1500BA_impl
+ MELINK Original WL 'ME_4D00C9410153' '4D00B058024F.ms.model.script' // CloseLinesLog
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4D00C9410153_ME_4FA3BB1500BA CloseLinesLog
+ENDMEREF // ME_4D00C9410153_ME_4FA3BB1500BA_impl CloseLinesLog
 
-ME ME_4FA3D5A500A9_ME_4FA3BB1500BA
- MELINK Original WL 'ME_4FA3D5A500A9' '473C3BEE0334.ms.model.script' // GetPrecision
+MEREF ME_4FA3D5A500A9_ME_4FA3BB1500BA_impl
+ MELINK Original WL 'ME_4FA3D5A500A9' '4D00B058024F.ms.model.script' // GetPrecision
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4FA3D5A500A9_ME_4FA3BB1500BA GetPrecision
+ENDMEREF // ME_4FA3D5A500A9_ME_4FA3BB1500BA_impl GetPrecision
+
+MEREF ME_4D00C63C03E2_ME_4FA3BB1500BA_R
+ MELINK Original WL 'ME_4D00C63C03E2' '4D00B058024F.ms.model.script' // Il3FrameLinesLogger
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D00C63C03E2_ME_4FA3BB1500BA_R Il3FrameLinesLogger
 
 %%ImplementedBy ME_4D00C63C03E2 ME_4FA3BB1500BA
 
@@ -184,7 +190,7 @@ ME ME_4FA3BB1500BA
  MELINK Parent WL? 'ME_4E1C0134031B' // MixIns
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4D00C63C03E2' '473C3BEE0334.ms.model.script' // Il3FrameLinesLogger
+   Seq: ( ME_4D00C63C03E2_ME_4FA3BB1500BA_R // Il3FrameLinesLogger
  )
  ; // Implements
  MELIST Attributes
@@ -199,9 +205,9 @@ ME ME_4FA3BB1500BA
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4D00C91B03B2_ME_4FA3BB1500BA // OpenLinesLog
- ME_4D00C9410153_ME_4FA3BB1500BA // CloseLinesLog
- ME_4FA3D5A500A9_ME_4FA3BB1500BA // GetPrecision
+   Seq: ( ME_4D00C91B03B2_ME_4FA3BB1500BA_impl // OpenLinesLog
+ ME_4D00C9410153_ME_4FA3BB1500BA_impl // CloseLinesLog
+ ME_4FA3D5A500A9_ME_4FA3BB1500BA_impl // GetPrecision
  )
  ; // Implemented
  MELIST Dependencies

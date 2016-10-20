@@ -1,0 +1,62 @@
+// TatDocumentHistory 483A9A3600C3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483A9A3600C3
+
+ME ME_483A9A4B0111
+ MEPROP UID '483A9A4B0111'
+ MEPROP Name 'HistoryStoredObject'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483A9A3600C3 // TatDocumentHistory
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_483A9A4B0111 HistoryStoredObject
+
+MEREF ME_4807825A006E_ME_483A9A3600C3_G
+ MELINK Original WL 'ME_4807825A006E' '478CF30500C1.ms.model.script' // TInterfaceList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807825A006E_ME_483A9A3600C3_G TInterfaceList
+
+MEREF ME_483A7BE60395_ME_483A9A3600C3_G
+ MELINK Original WL? 'ME_483A7BE60395' // atObjectHistory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_483A7BE60395_ME_483A9A3600C3_G atObjectHistory
+
+%%InheritedBy ME_4807825A006E ME_483A9A3600C3
+%%InheritedBy ME_483A7BE60395 ME_483A9A3600C3
+
+ME ME_483A9A3600C3
+ MEPROP UID '483A9A3600C3'
+ MEPROP Name 'TatDocumentHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807825A006E_ME_483A9A3600C3_G // TInterfaceList
+ ME_483A7BE60395_ME_483A9A3600C3_G // atObjectHistory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_483A9A4B0111 // HistoryStoredObject
+ )
+ ; // Attributes
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atDocumentHistory.pas'
+ UP extprop:rc:SelfName 'atDocumentHistory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atDocumentHistory'
+
+ENDME // ME_483A9A3600C3 TatDocumentHistory

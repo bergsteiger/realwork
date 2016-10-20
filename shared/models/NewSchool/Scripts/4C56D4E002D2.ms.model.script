@@ -1,0 +1,150 @@
+// TevUnblockEmptyParaFilter 4C56D4E002D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C56D4E002D2
+
+ME ME_4C5AB08D0294
+ MEPROP UID '4C5AB08D0294'
+ MEPROP Name 'f_NeedToReport'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C5AB08D0294 f_NeedToReport
+
+ME ME_4C56D6610144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4C56D6610144 
+
+ME ME_4C56D68D026F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_4C56D68D026F 
+
+ME ME_4C56D69B0032
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C56D69B0032 
+
+ME ME_4C56D6C602D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4C56D6C602D8 
+
+ME ME_4C56D6E7010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_4C56D6E7010C 
+
+ME ME_4C5AAB3600DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ MELINK Target WL 'ME_47AAB5EC03C2' '4773D64E036C.ms.model.script' // Tl3System
+ ;
+
+ENDME // ME_4C5AAB3600DB 
+
+MEREF ME_4836D4650177_ME_4C56D4E002D2_over
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4650177_ME_4C56D4E002D2_over StartChild
+
+MEREF ME_4836D4C20059_ME_4C56D4E002D2_over
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D4C20059_ME_4C56D4E002D2_over CloseStructure
+
+MEREF ME_4C56D54B002A_ME_4C56D4E002D2_over
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C56D54B002A_ME_4C56D4E002D2_over NeedStartBuffering
+
+MEREF ME_49E4965202A1_ME_4C56D4E002D2_G
+ MELINK Original WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E4965202A1_ME_4C56D4E002D2_G TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4C56D4E002D2
+
+ME ME_4C56D4E002D2
+ MEPROP UID '4C56D4E002D2'
+ MEPROP Name 'TevUnblockEmptyParaFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы наверх. См. [$228692043]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C407B410029' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E4965202A1_ME_4C56D4E002D2_G // TevdBufferedFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C5AB08D0294 // f_NeedToReport
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4836D4650177_ME_4C56D4E002D2_over // StartChild
+ ME_4836D4C20059_ME_4C56D4E002D2_over // CloseStructure
+ ME_4C56D54B002A_ME_4C56D4E002D2_over // NeedStartBuffering
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C56D6610144 // l3String
+ ME_4C56D68D026F // Ik2Tag
+ ME_4C56D69B0032 // Tk2TagID
+ ME_4C56D6C602D8 // Block
+ ME_4C56D6E7010C // LeafPara
+ ME_4C5AAB3600DB // Tl3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evUnblockEmptyParaFilter.pas'
+ UP extprop:rc:SelfName 'UnblockEmptyParaFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evUnblockEmptyParaFilter'
+
+ENDME // ME_4C56D4E002D2 TevUnblockEmptyParaFilter

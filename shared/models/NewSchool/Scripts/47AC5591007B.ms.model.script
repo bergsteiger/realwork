@@ -89,7 +89,7 @@ ME ME_47AC85C00370
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47AC5591007B // k2Tag
  ;
- MELINK Target WL 'ME_47B9D76B0301' '467FC43F01F9.ms.model.script' // Tk2TagList
+ MELINK Target WL? 'ME_47B9D76B0301' // Tk2TagList
  ;
 
 ENDME // ME_47AC85C00370 
@@ -159,7 +159,7 @@ ME ME_5304E10E01B6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47AC5591007B // k2Tag
  ;
- MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
+ MELINK Target WL? 'ME_4860AF86034F' // Tk2Dictionary
  ;
 
 ENDME // ME_5304E10E01B6 
@@ -169,7 +169,7 @@ ME ME_531086CC0301
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47AC5591007B // k2Tag
  ;
- MELINK Target WL 'ME_531075C102DD' '47E3C64F037E.ms.model.script' // Tk2NonOptimizeContext
+ MELINK Target WL? 'ME_531075C102DD' // Tk2NonOptimizeContext
  ;
 
 ENDME // ME_531086CC0301 
@@ -179,7 +179,7 @@ ME ME_5310C13B00A1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47AC5591007B // k2Tag
  ;
- MELINK Target WL 'ME_530F1BCA00B2' '467FC43F01F9.ms.model.script' // Tk2VariantImpl
+ MELINK Target WL? 'ME_530F1BCA00B2' // Tk2VariantImpl
  ;
 
 ENDME // ME_5310C13B00A1 
@@ -199,10 +199,16 @@ ME ME_5315F4DC039D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47AC5591007B // k2Tag
  ;
- MELINK Target WL 'ME_53073D3D00BE' '467FC43F01F9.ms.model.script' // Tk2String
+ MELINK Target WL? 'ME_53073D3D00BE' // Tk2String
  ;
 
 ENDME // ME_5315F4DC039D 
+
+MEREF ME_53280B9801E7_ME_47AC5591007B_G
+ MELINK Original WL? 'ME_53280B9801E7' // k2TagPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53280B9801E7_ME_47AC5591007B_G k2TagPrim
 
 %%InheritedBy ME_53280B9801E7 ME_47AC5591007B
 
@@ -219,7 +225,7 @@ ME ME_47AC5591007B
  MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_53280B9801E7' // k2TagPrim
+   Seq: ( ME_53280B9801E7_ME_47AC5591007B_G // k2TagPrim
  )
  ; // Inherits
  MELIST Dependencies

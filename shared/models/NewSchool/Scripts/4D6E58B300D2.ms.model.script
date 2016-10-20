@@ -1,0 +1,83 @@
+// TnsF1AutoreferatDocumentTagNode 4D6E58B300D2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6E58B300D2
+
+ME ME_4D6E5E40036C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D6E5E40036C 
+
+ME ME_4D6E5F9602FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6E58B300D2 // TnsF1AutoreferatDocumentTagNode
+ ;
+ MELINK Target WL 'ME_4C6D1B070024' '4C6E92E9016E.ms.model.script' // TnsNodeState
+ ;
+
+ENDME // ME_4D6E5F9602FC 
+
+MEREF ME_4C6D1D450332_ME_4D6E58B300D2_over
+ MELINK Original WL 'ME_4C6D1D450332' '467FCCB101CF.ms.model.script' // DoGetSubAtom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6D1D450332_ME_4D6E58B300D2_over DoGetSubAtom
+
+MEREF ME_4CED5CEF011A_ME_4D6E58B300D2_over
+ MELINK Original WL 'ME_4CED5CEF011A' '467FCE2703D6.ms.model.script' // NodeChildrenCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CED5CEF011A_ME_4D6E58B300D2_over NodeChildrenCount
+
+MEREF ME_4C6A750F024E_ME_4D6E58B300D2_G
+ MELINK Original WL? 'ME_4C6A750F024E' // TnsF1DocumentTagNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6A750F024E_ME_4D6E58B300D2_G TnsF1DocumentTagNode
+
+%%InheritedBy ME_4C6A750F024E ME_4D6E58B300D2
+
+ME ME_4D6E58B300D2
+ MEPROP UID '4D6E58B300D2'
+ MEPROP Name 'TnsF1AutoreferatDocumentTagNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491C3ADB03A5' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C6A750F024E_ME_4D6E58B300D2_G // TnsF1DocumentTagNode
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C6D1D450332_ME_4D6E58B300D2_over // DoGetSubAtom
+ ME_4CED5CEF011A_ME_4D6E58B300D2_over // NodeChildrenCount
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D6E5E40036C // Tk2TagID
+ ME_4D6E5F9602FC // TnsNodeState
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '02.03.2011 17:48'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsF1AutoreferatDocumentTagNode.pas'
+ UP extprop:rc:SelfName 'F1AutoreferatDocumentTagNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsF1AutoreferatDocumentTagNode'
+
+ENDME // ME_4D6E58B300D2 TnsF1AutoreferatDocumentTagNode

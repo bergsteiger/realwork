@@ -1,0 +1,63 @@
+// TatPauseOperation 4A5222F60224 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A5222F60224
+
+ME ME_4A5223240025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5222F60224 // TatPauseOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4A5223240025 
+
+MEREF ME_48089F460352_ME_4A5222F60224_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4A5222F60224_impl ExecuteSelf
+
+MEREF ME_48076E9D013E_ME_4A5222F60224_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4A5222F60224_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4A5222F60224
+
+ME ME_4A5222F60224
+ MEPROP UID '4A5222F60224'
+ MEPROP Name 'TatPauseOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Приостанавливает выполнение до нажатия пользователем Enter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4A5222F60224_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4A5222F60224_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4A5223240025 // atLogger
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atPauseOperation.pas'
+ UP extprop:rc:SelfName 'atPauseOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atPauseOperation'
+
+ENDME // ME_4A5222F60224 TatPauseOperation

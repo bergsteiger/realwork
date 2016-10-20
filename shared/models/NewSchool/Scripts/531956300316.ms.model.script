@@ -1,0 +1,63 @@
+// K517772970_TalcuAutoClassTaskDefault 531956300316 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_531956300316
+
+ME ME_531968BB0204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531956300316 // K517772970_TalcuAutoClassTaskDefault
+ ;
+ MELINK Target WL? 'ME_5303549A038F' // alcuAutoClassifier
+ ;
+
+ENDME // ME_531968BB0204 
+
+MEREF ME_53170E4100CF_ME_531956300316_impl
+ MELINK Original WL 'ME_53170E4100CF' '53170DE90011.ms.model.script' // GetTaskClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_53170E4100CF_ME_531956300316_impl GetTaskClass
+
+MEREF ME_53170DE90011_ME_531956300316_G
+ MELINK Original WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53170DE90011_ME_531956300316_G K517772970_TCheckSaveToStreamDefault
+
+%%InheritedBy ME_53170DE90011 ME_531956300316
+
+ME ME_531956300316
+ MEPROP UID '531956300316'
+ MEPROP Name 'K517772970_TalcuAutoClassTaskDefault'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53185EDF0306' // TasksSaveLoadWithDefault
+ ;
+ MELIST Inherits
+   Seq: ( ME_53170DE90011_ME_531956300316_G // K517772970_TCheckSaveToStreamDefault
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_53170E4100CF_ME_531956300316_impl // GetTaskClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_531968BB0204 // alcuAutoClassifier
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TalcuAutoClassTaskDefault.pas'
+ UP extprop:pas:TypeName 'TK517772970_TalcuAutoClassTaskDefault'
+ UP extprop:rc:SelfName 'K517772970_TalcuAutoClassTaskDefault'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_531956300316 K517772970_TalcuAutoClassTaskDefault

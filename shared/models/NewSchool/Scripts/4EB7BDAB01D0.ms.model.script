@@ -35,7 +35,7 @@ ENDME // ME_57AD7BDC03D3 DoIt
 ME ME_57AD7BC3004F
  MEPROP UID '57AD7BC3004F'
  MEPROP Name 'NeedDropActiveClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -54,16 +54,28 @@ ME ME_572AF0D300B6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4EB7BDAB01D0 // BaseSearchPresentationFor296635421
  ;
- MELINK Target WL 'ME_559BA19C0076' '553893E60323.ms.model.script' // TvcmHistoryService
+ MELINK Target WL? 'ME_559BA19C0076' // TvcmHistoryService
  ;
 
 ENDME // ME_572AF0D300B6 
 
-ME ME_49803F5503AA_ME_4EB7BDAB01D0
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4EB7BDAB01D0_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4EB7BDAB01D0 DoInit
+ENDMEREF // ME_49803F5503AA_ME_4EB7BDAB01D0_over DoInit
+
+MEREF ME_4AD5E6A60262_ME_4EB7BDAB01D0_G
+ MELINK Original WL? 'ME_4AD5E6A60262' // BaseSearchPresentation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AD5E6A60262_ME_4EB7BDAB01D0_G BaseSearchPresentation
+
+MEREF ME_4EB7BA320128_ME_4EB7BDAB01D0_R
+ MELINK Original WL 'ME_4EB7BA320128' '484FA67302D7.ms.model.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EB7BA320128_ME_4EB7BDAB01D0_R Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
 
 %%ImplementedBy ME_4EB7BA320128 ME_4EB7BDAB01D0
 
@@ -81,11 +93,11 @@ ME ME_4EB7BDAB01D0
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AD5E6A60262' // BaseSearchPresentation
+   Seq: ( ME_4AD5E6A60262_ME_4EB7BDAB01D0_G // BaseSearchPresentation
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4EB7BA320128' '484FA67302D7.ms.model.script' // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
+   Seq: ( ME_4EB7BA320128_ME_4EB7BDAB01D0_R // Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню"
  )
  ; // Implements
  MELIST Operations
@@ -93,7 +105,7 @@ ME ME_4EB7BDAB01D0
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_49803F5503AA_ME_4EB7BDAB01D0 // DoInit
+   Seq: ( ME_49803F5503AA_ME_4EB7BDAB01D0_over // DoInit
  )
  ; // Overridden
  MELIST Dependencies

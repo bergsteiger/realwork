@@ -1,0 +1,227 @@
+// TnsToMSWordOp 496DA60C03CA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_496DA60C03CA
+
+FORWARD ME_496DA60C03CA
+
+FORWARD ME_4975FB83030B
+
+ME ME_4975FBA30317
+ MEPROP UID '4975FBA30317'
+ MEPROP Name 'mswekNewFile'
+ MEPROP Class class_Attribute
+ %SUMMARY 'В новый файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4975FB83030B // TnsToMSWordExportKind
+ ;
+
+ENDME // ME_4975FBA30317 mswekNewFile
+
+ME ME_4975FBB2036C
+ MEPROP UID '4975FBB2036C'
+ MEPROP Name 'mswekActiveWindow'
+ MEPROP Class class_Attribute
+ %SUMMARY 'В активное окно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4975FB83030B // TnsToMSWordExportKind
+ ;
+
+ENDME // ME_4975FBB2036C mswekActiveWindow
+
+ME ME_4975FB83030B
+ MEPROP UID '4975FB83030B'
+ MEPROP Name 'TnsToMSWordExportKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Куда экспортировать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4975FBA30317 // mswekNewFile
+ HWL ME_4975FBB2036C // mswekActiveWindow
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4975FB83030B TnsToMSWordExportKind
+
+ME ME_4975FB3F0301
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_4975FB3F0301 aParams
+
+ME ME_4975FB3102A5
+ MEPROP UID '4975FB3102A5'
+ MEPROP Name 'Test'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELIST Parameters
+   Seq: ( ME_4975FB3F0301 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4975FB3102A5 Test
+
+ME ME_4975FB5102FA
+ MEPROP Name 'aFilePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4975FB5102FA aFilePath
+
+ME ME_4975FB51030E
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4975FB83030B // TnsToMSWordExportKind
+ ;
+
+ENDME // ME_4975FB51030E aKind
+
+ME ME_4975FB460262
+ MEPROP UID '4975FB460262'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4975FB5102FA // aFilePath
+ ME_4975FB51030E // aKind
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4975FB460262 Execute
+
+ME ME_4975FB650264
+ MEPROP Name 'aFilePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4975FB650264 aFilePath
+
+ME ME_4975FB650279
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_4975FB650279 aParams
+
+ME ME_4975FB5B0162
+ MEPROP UID '4975FB5B0162'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4975FB650264 // aFilePath
+ ME_4975FB650279 // aParams
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4975FB5B0162 Execute
+
+ME ME_4975FBEA01B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_4975FBEA01B5 
+
+ME ME_4975FBFE0304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4975FBFE0304 
+
+ME ME_4975FC0F00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_496DA60C03CA // TnsToMSWordOp
+ ;
+ MELINK Target WL? 'ME_47F9C7C9010E' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_4975FC0F00B2 
+
+ME ME_496DA60C03CA
+ MEPROP UID '496DA60C03CA'
+ MEPROP Name 'TnsToMSWordOp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Экспорт в ворд' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_497ED74F0032' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4975FB3102A5 // Test
+ HWL ME_4975FB460262 // Execute
+ HWL ME_4975FB5B0162 // Execute
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4975FB83030B // TnsToMSWordExportKind
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4975FBEA01B5 // vcmBase
+ ME_4975FBFE0304 // StdRes
+ ME_4975FC0F00B2 // nsExternalObjectPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '2009/01/14 09:35:09'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\nsToMSWordOp.pas'
+ UP extprop:rc:SelfName 'ToMSWordOp'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsToMSWordOp'
+
+ENDME // ME_496DA60C03CA TnsToMSWordOp

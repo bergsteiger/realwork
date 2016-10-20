@@ -75,7 +75,7 @@ ENDME // ME_4A8551E70149
 ME ME_4A854E340357
  MEPROP UID '4A854E340357'
  MEPROP Name 'GetTopParaID'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает верхний нумерованный параграф на видимой странице' ;
@@ -173,7 +173,7 @@ ENDME // ME_4A854F93030A
 ME ME_4A854F880181
  MEPROP UID '4A854F880181'
  MEPROP Name 'GetParaForPositionning'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает текущий параграф, если он виден или первый видимый на экране' ;
@@ -210,6 +210,12 @@ ME ME_4DF1F50C028D
 
 ENDME // ME_4DF1F50C028D 
 
+MEREF ME_4A82BCFA02EF_ME_4A853E260311_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4A853E260311_R MvcmEntityForm
+
 %%ImplementedBy ME_4A82BCFA02EF ME_4A853E260311
 
 ME ME_4A853E260311
@@ -225,7 +231,7 @@ ME ME_4A853E260311
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( ME_4A82BCFA02EF_ME_4A853E260311_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Attributes

@@ -1,0 +1,272 @@
+// Tk2String 53073D3D00BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53073D3D00BE
+%%Inner ME_53073D3D00BE
+
+FORWARD ME_53073D3D00BE
+
+ME ME_53073DC7033D
+ MEPROP UID '53073DC7033D'
+ MEPROP Name 'k2TagIsString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ UP extprop:rc:SelfName 'TagIsString'
+
+ENDME // ME_53073DC7033D k2TagIsString
+
+ME ME_53578CE80248
+ MEPROP UID '53578CE80248'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_53578CE80248 k2Tag_No_f_TagType
+
+FORWARD ME_5315D861004C
+
+ME ME_5315D87F00D6
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_5315D87F00D6 aType
+
+ME ME_5315D8730239
+ MEPROP UID '5315D8730239'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5315D861004C // Create$FromType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5315D87F00D6 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_5315D8730239 DoIt
+
+ME ME_5315D861004C
+ MEPROP UID '5315D861004C'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$FromType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5315D8730239 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5315D861004C Create$FromType
+
+FORWARD ME_5315D8840067
+
+ME ME_5315D88A024F
+ MEPROP UID '5315D88A024F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5315D8840067 // Create
+ ;
+
+ENDME // ME_5315D88A024F DoIt
+
+ME ME_5315D8840067
+ MEPROP UID '5315D8840067'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5315D88A024F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5315D8840067 Create
+
+FORWARD ME_5356A98502EE
+
+ME ME_5356A9AB03C4
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_5356A9AB03C4 aType
+
+ME ME_5356A99D0157
+ MEPROP UID '5356A99D0157'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5356A98502EE // Make
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_5356A9AB03C4 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_5356A99D0157 DoIt
+
+ME ME_5356A991011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5356A98502EE // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5356A991011C 
+
+ME ME_5356A98502EE
+ MEPROP UID '5356A98502EE'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5356A99D0157 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5356A991011C // FreeAndNil
+ )
+ ; // Dependencies
+ UP "force overload" true
+ UP "is static" true
+
+ENDME // ME_5356A98502EE Make
+
+ME ME_53073D7400C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53073D3D00BE // Tk2String
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+
+ENDME // ME_53073D7400C1 
+
+MEREF ME_49A545580241_ME_53073D3D00BE_impl
+ MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'k2TagIsAtomic'
+ENDMEREF // ME_49A545580241_ME_53073D3D00BE_impl SetAtomPrim
+
+MEREF ME_47A042E100E2_ME_53073D3D00BE_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_53073D3D00BE_over InitFields
+
+MEREF ME_532AE8F2009A_ME_53073D3D00BE_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_53073D3D00BE_over GetIsOrd
+
+MEREF ME_533121AF0203_ME_53073D3D00BE_over
+ MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533121AF0203_ME_53073D3D00BE_over GetTagType
+
+MEREF ME_4773DED9004C_ME_53073D3D00BE_G
+ MELINK Original WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DED9004C_ME_53073D3D00BE_G Tl3_String
+
+MEREF ME_47AC5591007B_ME_53073D3D00BE_G
+ MELINK Original WL? 'ME_47AC5591007B' // k2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC5591007B_ME_53073D3D00BE_G k2Tag
+
+%%InheritedBy ME_4773DED9004C ME_53073D3D00BE
+%%InheritedBy ME_47AC5591007B ME_53073D3D00BE
+
+ME ME_53073D3D00BE
+ MEPROP UID '53073D3D00BE'
+ MEPROP Name 'Tk2String'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DED9004C_ME_53073D3D00BE_G // Tl3_String
+ ME_47AC5591007B_ME_53073D3D00BE_G // k2Tag
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5315D861004C // Create$FromType
+ HWL ME_5315D8840067 // Create
+ HWL ME_5356A98502EE // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49A545580241_ME_53073D3D00BE_impl // SetAtomPrim
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_53073D3D00BE_over // InitFields
+ ME_532AE8F2009A_ME_53073D3D00BE_over // GetIsOrd
+ ME_533121AF0203_ME_53073D3D00BE_over // GetTagType
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53073DC7033D // k2TagIsString
+ HWL ME_53578CE80248 // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53073D7400C1 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2String.pas'
+ UP extprop:rc:SelfName 'String'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2String'
+
+ENDME // ME_53073D3D00BE Tk2String

@@ -61,7 +61,7 @@ ENDME // ME_54538E2B03A5 DoIt
 ME ME_54538E130272
  MEPROP UID '54538E130272'
  MEPROP Name 'FindItemByKey'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -116,7 +116,7 @@ ENDME // ME_5421A07A0199 DoIt
 ME ME_5421A06902CD
  MEPROP UID '5421A06902CD'
  MEPROP Name 'CompareKeyByItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -129,6 +129,12 @@ ME ME_5421A06902CD
  ; // Operations
 
 ENDME // ME_5421A06902CD CompareKeyByItem
+
+MEREF ME_542179C40347_ME_545B7E6B00A1_G
+ MELINK Original WL? 'ME_542179C40347' // m3AutoAllocList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542179C40347_ME_545B7E6B00A1_G m3AutoAllocList
 
 %%InheritedBy ME_542179C40347 ME_545B7E6B00A1
 
@@ -144,7 +150,7 @@ ME ME_545B7E6B00A1
  MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_542179C40347' // m3AutoAllocList
+   Seq: ( ME_542179C40347_ME_545B7E6B00A1_G // m3AutoAllocList
  )
  ; // Inherits
  MELIST Operations

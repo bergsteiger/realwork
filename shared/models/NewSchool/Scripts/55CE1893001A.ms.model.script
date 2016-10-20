@@ -5,58 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_55CE1893001A
 %%Inner ME_55CE1893001A
 
-FORWARD ME_55CE1893001A
-
-%%InheritedBy ME_4B8542C302E3 ME_55CE18D901C2
-
-ME ME_55CE18D901C2
- MEPROP UID '55CE18D901C2'
- MEPROP Name 'K604929313'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:604929313}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55CE1893001A // DecorText
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B8542C302E3' '4B4F68D4033F.ms.model.script' // TEVDtoBothNSRCWriterTest
- )
- ; // Inherits
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K604929313.pas'
- UP extprop:pas:TypeName 'TK604929313'
- UP extprop:rc:SelfName 'K604929313'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55CE18D901C2 K604929313
-
-%%InheritedBy ME_4BED405E0256 ME_55D1ED1E0071
-
-ME ME_55D1ED1E0071
- MEPROP UID '55D1ED1E0071'
- MEPROP Name 'K604929290'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:604929290}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55CE1893001A // DecorText
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4BED405E0256' '4B4F68D4033F.ms.model.script' // NSRCtoEVDTest
- )
- ; // Inherits
- UP "author" 'Ëþëèí À.Â.'
- UP "started" '17.08.2015 17:18'
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K604929290.pas'
- UP extprop:pas:TypeName 'TK604929290'
- UP extprop:rc:SelfName 'K604929290'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55D1ED1E0071 K604929290
-
 ME ME_55CE1893001A
  MEPROP UID '55CE1893001A'
  MEPROP Name 'DecorText'
@@ -69,8 +17,8 @@ ME ME_55CE1893001A
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_55CE18D901C2 // K604929313
- HWL ME_55D1ED1E0071 // K604929290
+   Seq: ( WL? 'ME_55CE18D901C2' // K604929313
+ WL? 'ME_55D1ED1E0071' // K604929290
  )
  ; // Children
  MELIST Depends

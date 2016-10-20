@@ -1,0 +1,529 @@
+// TdaTabledQuery 5600FA2301B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5600FA2301B9
+
+ME ME_5600FAAE01F9
+ MEPROP UID '5600FAAE01F9'
+ MEPROP Name 'SelectFields'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL? 'ME_55C84D190010' // TdaSelectFieldList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5600FAAE01F9 SelectFields
+
+ME ME_5600FAC103DE
+ MEPROP UID '5600FAC103DE'
+ MEPROP Name 'WhereCondition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5600FAC103DE WhereCondition
+
+ME ME_5666B60F0331
+ MEPROP UID '5666B60F0331'
+ MEPROP Name 'FromClause'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5666B60F0331 FromClause
+
+ME ME_567D049401A1
+ MEPROP UID '567D049401A1'
+ MEPROP Name 'OrderBy'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL? 'ME_5680F609012D' // TdaSortFieldList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_567D049401A1 OrderBy
+
+ME ME_5746E8BC038F
+ MEPROP UID '5746E8BC038F'
+ MEPROP Name 'Factory'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5746E8BC038F Factory
+
+FORWARD ME_5600FB3903DE
+
+ME ME_574D599F029D
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_574D599F029D aFactory
+
+ME ME_574D599F02AD
+ MEPROP Name 'aDataConverter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5559950F0013' '5432518A0316.ms.model.script' // IdaDataConverter
+ ;
+
+ENDME // ME_574D599F02AD aDataConverter
+
+ME ME_574D599F02AE
+ MEPROP Name 'aFromClause'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57442A09018B' '5432518A0316.ms.model.script' // IdaFromClause
+ ;
+
+ENDME // ME_574D599F02AE aFromClause
+
+ME ME_5600FB45039D
+ MEPROP UID '5600FB45039D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FB3903DE // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_574D599F029D // aFactory
+ ME_574D599F02AD // aDataConverter
+ ME_574D599F02AE // aFromClause
+ )
+ ; // Parameters
+
+ENDME // ME_5600FB45039D DoIt
+
+ME ME_5600FB3903DE
+ MEPROP UID '5600FB3903DE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5600FB45039D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5600FB3903DE Create
+
+FORWARD ME_56050F450363
+
+ME ME_5746C22B0084
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5608FDE00371' '5432518A0316.ms.model.script' // IdaParamListHelper
+ ;
+
+ENDME // ME_5746C22B0084 aHelper
+
+ME ME_56050F6B0143
+ MEPROP UID '56050F6B0143'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56050F450363 // BuildFromClause
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5746C22B0084 // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_56050F6B0143 DoIt
+
+ME ME_56050F450363
+ MEPROP UID '56050F450363'
+ MEPROP Name 'BuildFromClause'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56050F6B0143 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56050F450363 BuildFromClause
+
+FORWARD ME_56050F3E0081
+
+ME ME_56050F640390
+ MEPROP UID '56050F640390'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56050F3E0081 // BuildSelectClause
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56050F640390 DoIt
+
+ME ME_56050F3E0081
+ MEPROP UID '56050F3E0081'
+ MEPROP Name 'BuildSelectClause'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56050F640390 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56050F3E0081 BuildSelectClause
+
+FORWARD ME_56050F510228
+
+ME ME_564318F10214
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5608FDE00371' '5432518A0316.ms.model.script' // IdaParamListHelper
+ ;
+
+ENDME // ME_564318F10214 aHelper
+
+ME ME_56050F7102DF
+ MEPROP UID '56050F7102DF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56050F510228 // BuildWhereClause
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_564318F10214 // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_56050F7102DF DoIt
+
+ME ME_56050F510228
+ MEPROP UID '56050F510228'
+ MEPROP Name 'BuildWhereClause'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56050F7102DF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56050F510228 BuildWhereClause
+
+FORWARD ME_566A892A0191
+
+ME ME_E346FBFAAC40
+ MEPROP UID 'E346FBFAAC40'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода PrepareTable' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566A892A0191 // PrepareTable
+ ;
+
+ENDME // ME_E346FBFAAC40 DoIt
+
+ME ME_566A892A0191
+ MEPROP UID '566A892A0191'
+ MEPROP Name 'PrepareTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E346FBFAAC40 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_566A892A0191 PrepareTable
+
+FORWARD ME_566A893B03C7
+
+ME ME_782EDA10912D
+ MEPROP UID '782EDA10912D'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода UnPrepareTable' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566A893B03C7 // UnPrepareTable
+ ;
+
+ENDME // ME_782EDA10912D DoIt
+
+ME ME_566A893B03C7
+ MEPROP UID '566A893B03C7'
+ MEPROP Name 'UnPrepareTable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_782EDA10912D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_566A893B03C7 UnPrepareTable
+
+FORWARD ME_5680E19E003D
+
+ME ME_5680E1BA00BD
+ MEPROP UID '5680E1BA00BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5680E19E003D // BuildOrderByClause
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5680E1BA00BD DoIt
+
+ME ME_5680E19E003D
+ MEPROP UID '5680E19E003D'
+ MEPROP Name 'BuildOrderByClause'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5680E1BA00BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5680E19E003D BuildOrderByClause
+
+ME ME_5600FFB50050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5600FFB50050 
+
+ME ME_566AA117019D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ MELINK Target WL 'ME_56667A4D00EA' '5432448401BC.ms.model.script' // TdaParamType
+ ;
+
+ENDME // ME_566AA117019D 
+
+MEREF ME_5551DC42038C_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_5551DC42038C' '5432518A0316.ms.model.script' // AddSelectField
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5551DC42038C_ME_5600FA2301B9_impl AddSelectField
+
+MEREF ME_56010A7801F2_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_56010A7801F2' '566A7DCD0151.ms.model.script' // MakeResultSet
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56010A7801F2_ME_5600FA2301B9_impl MakeResultSet
+
+MEREF ME_56010AB70258_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_56010AB70258' '566A7DCD0151.ms.model.script' // PrepareQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56010AB70258_ME_5600FA2301B9_impl PrepareQuery
+
+MEREF ME_56010ACB00F0_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_56010ACB00F0' '566A7DCD0151.ms.model.script' // UnprepareQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56010ACB00F0_ME_5600FA2301B9_impl UnprepareQuery
+
+MEREF ME_563B18FB0212_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_563B18FB0212' '5432518A0316.ms.model.script' // WhereCondition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_563B18FB0212_ME_5600FA2301B9_impl WhereCondition
+
+MEREF ME_566A850001E5_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_566A850001E5' '566A7DCD0151.ms.model.script' // DoBuildSQLValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_566A850001E5_ME_5600FA2301B9_impl DoBuildSQLValue
+
+MEREF ME_567D12D00384_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_567D12D00384' '5432518A0316.ms.model.script' // AddOrderBy
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_567D12D00384_ME_5600FA2301B9_impl AddOrderBy
+
+MEREF ME_56F3D89F01C8_ME_5600FA2301B9_impl
+ MELINK Original WL 'ME_56F3D89F01C8' '5432518A0316.ms.model.script' // SelectFieldByName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56F3D89F01C8_ME_5600FA2301B9_impl SelectFieldByName
+
+MEREF ME_479731C50290_ME_5600FA2301B9_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5600FA2301B9_over Cleanup
+
+MEREF ME_566A7DCD0151_ME_5600FA2301B9_G
+ MELINK Original WL? 'ME_566A7DCD0151' // TdaQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_566A7DCD0151_ME_5600FA2301B9_G TdaQuery
+
+MEREF ME_5549C4060117_ME_5600FA2301B9_R
+ MELINK Original WL 'ME_5549C4060117' '5432518A0316.ms.model.script' // IdaTabledQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5549C4060117_ME_5600FA2301B9_R IdaTabledQuery
+
+%%ImplementedBy ME_5549C4060117 ME_5600FA2301B9
+
+%%InheritedBy ME_566A7DCD0151 ME_5600FA2301B9
+
+ME ME_5600FA2301B9
+ MEPROP UID '5600FA2301B9'
+ MEPROP Name 'TdaTabledQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_566A7DCD0151_ME_5600FA2301B9_G // TdaQuery
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5549C4060117_ME_5600FA2301B9_R // IdaTabledQuery
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5600FAAE01F9 // SelectFields
+ HWL ME_5600FAC103DE // WhereCondition
+ HWL ME_5666B60F0331 // FromClause
+ HWL ME_567D049401A1 // OrderBy
+ HWL ME_5746E8BC038F // Factory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5600FB3903DE // Create
+ HWL ME_56050F450363 // BuildFromClause
+ HWL ME_56050F3E0081 // BuildSelectClause
+ HWL ME_56050F510228 // BuildWhereClause
+ HWL ME_566A892A0191 // PrepareTable
+ HWL ME_566A893B03C7 // UnPrepareTable
+ HWL ME_5680E19E003D // BuildOrderByClause
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5551DC42038C_ME_5600FA2301B9_impl // AddSelectField
+ ME_56010A7801F2_ME_5600FA2301B9_impl // MakeResultSet
+ ME_56010AB70258_ME_5600FA2301B9_impl // PrepareQuery
+ ME_56010ACB00F0_ME_5600FA2301B9_impl // UnprepareQuery
+ ME_563B18FB0212_ME_5600FA2301B9_impl // WhereCondition
+ ME_566A850001E5_ME_5600FA2301B9_impl // DoBuildSQLValue
+ ME_567D12D00384_ME_5600FA2301B9_impl // AddOrderBy
+ ME_56F3D89F01C8_ME_5600FA2301B9_impl // SelectFieldByName
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5600FA2301B9_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5600FFB50050 // FreeAndNil
+ ME_566AA117019D // TdaParamType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daTabledQuery.pas'
+ UP extprop:rc:SelfName 'daTabledQuery'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daTabledQuery'
+
+ENDME // ME_5600FA2301B9 TdaTabledQuery

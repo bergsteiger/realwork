@@ -1,0 +1,240 @@
+// Tl3CStringDataObject 55E5CAA801A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55E5CAA801A1
+
+ME ME_55E5CAF200C6
+ MEPROP UID '55E5CAF200C6'
+ MEPROP Name 'f_String'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55E5CAF200C6 f_String
+
+FORWARD ME_55E5CB0A0231
+
+ME ME_55E5CB1A0300
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55E5CB1A0300 aString
+
+ME ME_55E5CB1102D4
+ MEPROP UID '55E5CB1102D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5CB0A0231 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E5CB1A0300 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_55E5CB1102D4 DoIt
+
+ME ME_55E5CB0A0231
+ MEPROP UID '55E5CB0A0231'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55E5CB1102D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55E5CB0A0231 Create
+
+MEREF ME_55E5CB0A0231_ME_55E5CB2C01E4_G
+ MELINK Original HWL ME_55E5CB0A0231 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55E5CB0A0231_ME_55E5CB2C01E4_G Create
+
+MEREF ME_4680F4790135_ME_55E5CB2C01E4_R
+ MELINK Original WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F4790135_ME_55E5CB2C01E4_R IDataObject
+
+%%ImplementedBy ME_4680F4790135 ME_55E5CB2C01E4
+
+%%InheritedBy ME_55E5CB0A0231 ME_55E5CB2C01E4
+
+ME ME_55E5CB2C01E4
+ MEPROP UID '55E5CB2C01E4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELIST Inherits
+   Seq: ( ME_55E5CB0A0231_ME_55E5CB2C01E4_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4680F4790135_ME_55E5CB2C01E4_R // IDataObject
+ )
+ ; // Implements
+
+ENDME // ME_55E5CB2C01E4 Make
+
+ME ME_55E5CBCF014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_55E5CBCF014B 
+
+ME ME_55E5CBEC0188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_55E5CBEC0188 
+
+ME ME_55E5DDC80026
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_55E5DDC80026 
+
+ME ME_55E5DDD8020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_55E5DDD8020D 
+
+ME ME_55E6FF840369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55E6FF840369 
+
+ME ME_56BDD78C01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E5CAA801A1 // Tl3CStringDataObject
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_56BDD78C01A7 
+
+MEREF ME_4680FC190114_ME_55E5CAA801A1_impl
+ MELINK Original WL 'ME_4680FC190114' '4677FBA70343.ms.model.script' // IsQuestionNeedBeforeFlush
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4680FC190114_ME_55E5CAA801A1_impl IsQuestionNeedBeforeFlush
+
+MEREF ME_48F37AC50290_ME_55E5CAA801A1_impl
+ MELINK Original WL 'ME_48F37AC50290' '4680F7E70110.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48F37AC50290_ME_55E5CAA801A1_impl Store
+
+MEREF ME_4680F7E70110_ME_55E5CAA801A1_G
+ MELINK Original WL? 'ME_4680F7E70110' // Tl3StorableDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F7E70110_ME_55E5CAA801A1_G Tl3StorableDataObject
+
+MEREF ME_4680FBF2003C_ME_55E5CAA801A1_R
+ MELINK Original WL 'ME_4680FBF2003C' '4677FBA70343.ms.model.script' // Il3DataObjectInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680FBF2003C_ME_55E5CAA801A1_R Il3DataObjectInfo
+
+%%ImplementedBy ME_4680FBF2003C ME_55E5CAA801A1
+
+%%InheritedBy ME_4680F7E70110 ME_55E5CAA801A1
+
+ME ME_55E5CAA801A1
+ MEPROP UID '55E5CAA801A1'
+ MEPROP Name 'Tl3CStringDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4680F5600033' // l3DataObject
+ ;
+ MELIST Inherits
+   Seq: ( ME_4680F7E70110_ME_55E5CAA801A1_G // Tl3StorableDataObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4680FBF2003C_ME_55E5CAA801A1_R // Il3DataObjectInfo
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55E5CAF200C6 // f_String
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55E5CB0A0231 // Create
+ HWL ME_55E5CB2C01E4 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4680FC190114_ME_55E5CAA801A1_impl // IsQuestionNeedBeforeFlush
+ ME_48F37AC50290_ME_55E5CAA801A1_impl // Store
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55E5CBCF014B // IStream
+ ME_55E5CBEC0188 // Supports
+ ME_55E5DDC80026 // Tl3_String
+ ME_55E5DDD8020D // Code Pages
+ ME_55E6FF840369 // l3String
+ ME_56BDD78C01A7 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CStringDataObject.pas'
+ UP extprop:rc:SelfName 'CStringDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3CStringDataObject'
+
+ENDME // ME_55E5CAA801A1 Tl3CStringDataObject

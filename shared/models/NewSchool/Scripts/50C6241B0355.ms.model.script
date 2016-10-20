@@ -1,0 +1,258 @@
+// TvtHintManager 50C6241B0355 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50C6241B0355
+
+ME ME_50C7347A0192
+ MEPROP UID '50C7347A0192'
+ MEPROP Name 'f_Hints'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELINK Target WL? 'ME_4773DBBD000D' // Tl3ObjectList
+ ;
+
+ENDME // ME_50C7347A0192 f_Hints
+
+FORWARD ME_50C734B60190
+
+ME ME_50C734EF02EC
+ MEPROP UID '50C734EF02EC'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C734B60190 // Item
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50C734EF02EC anIndex
+
+ME ME_50C734B60190
+ MEPROP UID '50C734B60190'
+ MEPROP Name 'Item'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELINK Target WL? 'ME_50C61AAC00BF' // TvtMultilineHint
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50C734EF02EC // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_50C734B60190 Item
+
+ME ME_50C7352402AD
+ MEPROP UID '50C7352402AD'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_50C7352402AD Count
+
+FORWARD ME_50C624A002CF
+
+ME ME_50C624EE03D3
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_50C61AAC00BF' // TvtMultilineHint
+ ;
+
+ENDME // ME_50C624EE03D3 aHint
+
+ME ME_50C624EB0318
+ MEPROP UID '50C624EB0318'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C624A002CF // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C624EE03D3 // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_50C624EB0318 DoIt
+
+ME ME_50C624A002CF
+ MEPROP UID '50C624A002CF'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50C624EB0318 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50C624A002CF Add
+
+FORWARD ME_50C624D30325
+
+ME ME_50C624E00140
+ MEPROP Name 'aHint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_50C61AAC00BF' // TvtMultilineHint
+ ;
+
+ENDME // ME_50C624E00140 aHint
+
+ME ME_50C624DC03CC
+ MEPROP UID '50C624DC03CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C624D30325 // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_50C624E00140 // aHint
+ )
+ ; // Parameters
+
+ENDME // ME_50C624DC03CC DoIt
+
+ME ME_50C624D30325
+ MEPROP UID '50C624D30325'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50C624DC03CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50C624D30325 Remove
+
+FORWARD ME_52F9C53B0374
+
+ME ME_52F9C5470125
+ MEPROP UID '52F9C5470125'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F9C53B0374 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52F9C5470125 DoIt
+
+ME ME_52F9C53B0374
+ MEPROP UID '52F9C53B0374'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50C6241B0355 // TvtHintManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F9C5470125 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_52F9C53B0374 Exists
+
+MEREF ME_479731C50290_ME_50C6241B0355_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_50C6241B0355_over Cleanup
+
+MEREF ME_47A042E100E2_ME_50C6241B0355_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_50C6241B0355_over InitFields
+
+MEREF ME_49E7754802A9_ME_50C6241B0355_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_50C6241B0355_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_50C6241B0355
+
+ME ME_50C6241B0355
+ MEPROP UID '50C6241B0355'
+ MEPROP Name 'TvtHintManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50C61A7F0303' // Hints
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_50C6241B0355_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50C7347A0192 // f_Hints
+ HWL ME_50C734B60190 // Item
+ HWL ME_50C7352402AD // Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50C624A002CF // Add
+ HWL ME_50C624D30325 // Remove
+ HWL ME_52F9C53B0374 // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_50C6241B0355_over // Cleanup
+ ME_47A042E100E2_ME_50C6241B0355_over // InitFields
+ )
+ ; // Overridden
+ MELIST Injected
+   Seq: ( WL 'ME_54EC8AD103D2' '54EC8A6F01D7.ms.model.script' // vtHintWordsPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "register in scripts" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtHintManager.pas'
+ UP extprop:rc:SelfName 'HintManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtHintManager'
+
+ENDME // ME_50C6241B0355 TvtHintManager

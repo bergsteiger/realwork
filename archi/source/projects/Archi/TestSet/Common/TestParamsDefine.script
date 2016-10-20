@@ -575,6 +575,7 @@ CONST cnExport2EVDAndCheckWithEtalon 37
 CONST cnCheckCursorIndexNameEtalon 38
 CONST cnCheckEvdWithPicture 39
 CONST cnCheckNSRWithAnno 40
+CONST cnExport2ObjtopicNSRAndCheckWithEtalon 41
 
 PROCEDURE "Без проверок"
 	cnNoneAction >>> g_CheckAction
@@ -590,6 +591,10 @@ PROCEDURE "Проверка NSR эталона"
 
 PROCEDURE "Вылить в NSR и сравнить c эталоном"
 	cnExport2NSRAndCheckWithEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Вылить Objtopic в NSR и сравнить c эталоном"
+	cnExport2ObjtopicNSRAndCheckWithEtalon >>> g_CheckAction
 ;
 
 PROCEDURE "Вылить в EVD и сравнить c эталоном"
@@ -1063,6 +1068,11 @@ PROCEDURE "Документ ОКАТО"
 
 PROCEDURE "Открывать документ с внешними объектами"
 	"Документ с внешними объектами" >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "Открывать объектный топик документа с внешними объектами"
+	"Объектный топик документа с внешними объектами" >>> glNumDoc
 	"Открывать документ из базы"
 ;
 

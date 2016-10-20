@@ -1,0 +1,167 @@
+// TvtSaveDialog 4C37236E02A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C37236E02A1
+
+FORWARD ME_4DCAD2B2008F
+
+ME ME_4DCAD2CD0135
+ MEPROP UID '4DCAD2CD0135'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить имя файла для корректировки расширения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCAD2B2008F // GetFileNameForAdjust
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DCAD2CD0135 DoIt
+
+ME ME_4DCAD2B2008F
+ MEPROP UID '4DCAD2B2008F'
+ MEPROP Name 'GetFileNameForAdjust'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C37236E02A1 // TvtSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCAD2CD0135 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCAD2B2008F GetFileNameForAdjust
+
+FORWARD ME_4DCAD9560008
+
+ME ME_4DCBAAF80368
+ MEPROP UID '4DCBAAF80368'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCAD9560008 // FirstCorrectFileName
+ ;
+
+ENDME // ME_4DCBAAF80368 DoIt
+
+ME ME_4DCAD9560008
+ MEPROP UID '4DCAD9560008'
+ MEPROP Name 'FirstCorrectFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C37236E02A1 // TvtSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCBAAF80368 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCAD9560008 FirstCorrectFileName
+
+FORWARD ME_4DCBC96000E3
+
+ME ME_4DCBC9ED0318
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DCBC9ED0318 aFileName
+
+ME ME_4DCBC9B90049
+ MEPROP UID '4DCBC9B90049'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Установить откорректированное имя файла' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCBC96000E3 // SetAdjustedFileName
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DCBC9ED0318 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4DCBC9B90049 DoIt
+
+ME ME_4DCBC96000E3
+ MEPROP UID '4DCBC96000E3'
+ MEPROP Name 'SetAdjustedFileName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Установить откорректированное имя файла' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C37236E02A1 // TvtSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCBC9B90049 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCBC96000E3 SetAdjustedFileName
+
+ME ME_4DD668280154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C37236E02A1 // TvtSaveDialog
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4DD668280154 
+
+MEREF ME_4DCC0BE20198_ME_4C37236E02A1_G
+ MELINK Original WL 'ME_4DCC0BE20198' '4AB0EE02004E.ms.model.script' // TSaveDialog
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCC0BE20198_ME_4C37236E02A1_G TSaveDialog
+
+%%InheritedBy ME_4DCC0BE20198 ME_4C37236E02A1
+
+ME ME_4C37236E02A1
+ MEPROP UID '4C37236E02A1'
+ MEPROP Name 'TvtSaveDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B8E675402AB' // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DCC0BE20198_ME_4C37236E02A1_G // TSaveDialog
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DCAD2B2008F // GetFileNameForAdjust
+ HWL ME_4DCAD9560008 // FirstCorrectFileName
+ HWL ME_4DCBC96000E3 // SetAdjustedFileName
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DD668280154 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtSaveDialog.pas'
+ UP extprop:rc:SelfName 'SaveDialog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtSaveDialog'
+
+ENDME // ME_4C37236E02A1 TvtSaveDialog

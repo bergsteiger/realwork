@@ -1,0 +1,211 @@
+// Tk2Op 47E3C7030369 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E3C7030369
+
+FORWARD ME_4DF7856D027C
+
+ME ME_4DF785810093
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47E3C7030369 // Tk2Op
+ ;
+
+ENDME // ME_4DF785810093 anOp
+
+ME ME_4DF78577001E
+ MEPROP UID '4DF78577001E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF7856D027C // CompareWith
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DF785810093 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4DF78577001E DoIt
+
+ME ME_4DF7856D027C
+ MEPROP UID '4DF7856D027C'
+ MEPROP Name 'CompareWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DF78577001E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DF7856D027C CompareWith
+
+ME ME_47F107CE008F
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47E3C7030369 // Tk2Op
+ ;
+
+ENDME // ME_47F107CE008F anOperation
+
+ME ME_47F107C80149
+ MEPROP UID '47F107C80149'
+ MEPROP Name 'CanJoinWith'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F107CE008F // anOperation
+ )
+ ; // Parameters
+
+ENDME // ME_47F107C80149 CanJoinWith
+
+ME ME_47F107F2015F
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47E3C7030369 // Tk2Op
+ ;
+
+ENDME // ME_47F107F2015F anOperation
+
+ME ME_47F107DF00E6
+ MEPROP UID '47F107DF00E6'
+ MEPROP Name 'DoJoin'
+ MEPROP Class class_Operation
+ %SUMMARY 'соединяет две операции и возвращает:'#13#10'          nil  - соединение неудачно'#13#10'          Self - соединение удачно и все поместилось в старую запись'#13#10'          New  - распределена новая операция' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELINK Target HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F107F2015F // anOperation
+ )
+ ; // Parameters
+
+ENDME // ME_47F107DF00E6 DoJoin
+
+ME ME_47F1081A03CD
+ MEPROP Name 'Container'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AFD0224' '4A4DE48C0344.ms.model.script' // Ik2Op
+ ;
+
+ENDME // ME_47F1081A03CD Container
+
+ME ME_47F1080F00E8
+ MEPROP UID '47F1080F00E8'
+ MEPROP Name 'DoUndo'
+ MEPROP Class class_Operation
+ %SUMMARY 'отменить операцию' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F1081A03CD // Container
+ )
+ ; // Parameters
+
+ENDME // ME_47F1080F00E8 DoUndo
+
+ME ME_47F108400113
+ MEPROP Name 'Container'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AFD0224' '4A4DE48C0344.ms.model.script' // Ik2Op
+ ;
+
+ENDME // ME_47F108400113 Container
+
+ME ME_47F1082B00D0
+ MEPROP UID '47F1082B00D0'
+ MEPROP Name 'DoRedo'
+ MEPROP Class class_Operation
+ %SUMMARY 'вернуть операцию' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F108400113 // Container
+ )
+ ; // Parameters
+
+ENDME // ME_47F1082B00D0 DoRedo
+
+ME ME_4DD4F2D503B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E3C7030369 // Tk2Op
+ ;
+ MELINK Target WL? 'ME_4DD4F2B10308' // Tk2NilOp
+ ;
+
+ENDME // ME_4DD4F2D503B1 
+
+MEREF ME_46780E690001_ME_47E3C7030369_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_47E3C7030369_G Tl3CacheableBase
+
+%%InheritedBy ME_46780E690001 ME_47E3C7030369
+
+ME ME_47E3C7030369
+ MEPROP UID '47E3C7030369'
+ MEPROP Name 'Tk2Op'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3C64F037E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_47E3C7030369_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DF7856D027C // CompareWith
+ HWL ME_47F107C80149 // CanJoinWith
+ HWL ME_47F107DF00E6 // DoJoin
+ HWL ME_47F1080F00E8 // DoUndo
+ HWL ME_47F1082B00D0 // DoRedo
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4DD4F2D503B1 // Tk2NilOp
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '07.12.1999 19:05'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Op.pas'
+ UP extprop:rc:SelfName 'Op'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2Op'
+
+ENDME // ME_47E3C7030369 Tk2Op

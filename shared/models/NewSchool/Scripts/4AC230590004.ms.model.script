@@ -1,0 +1,155 @@
+// TnsWrapperNode 4AC230590004 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC230590004
+
+ME ME_4ADF18FE0010
+ MEPROP UID '4ADF18FE0010'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC230590004 // TnsWrapperNode
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_4ADF18FE0010 f_Name
+
+ME ME_4ADF190301A6
+ MEPROP UID '4ADF190301A6'
+ MEPROP Name 'f_Comment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC230590004 // TnsWrapperNode
+ ;
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+
+ENDME // ME_4ADF190301A6 f_Comment
+
+ME ME_4ADF18CC02E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC230590004 // TnsWrapperNode
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4ADF18CC02E1 
+
+ME ME_4ADF18E600D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC230590004 // TnsWrapperNode
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4ADF18E600D2 
+
+MEREF ME_49904DAD00EB_ME_4AC230590004_impl
+ MELINK Original WL 'ME_49904DAD00EB' '4AC22E040232.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49904DAD00EB_ME_4AC230590004_impl Name
+
+MEREF ME_49904DBF02F0_ME_4AC230590004_impl
+ MELINK Original WL 'ME_49904DBF02F0' '4AC22E040232.ms.model.script' // Comment
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49904DBF02F0_ME_4AC230590004_impl Comment
+
+MEREF ME_479731C50290_ME_4AC230590004_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4AC230590004_over Cleanup
+
+MEREF ME_47A869BB02DE_ME_4AC230590004_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_4AC230590004_over GetAsPCharLen
+
+MEREF ME_47A869D10074_ME_4AC230590004_over
+ MELINK Original WL 'ME_47A869D10074' '53317D14019D.ms.model.script' // DoSetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869D10074_ME_4AC230590004_over DoSetAsPCharLen
+
+MEREF ME_4A573D2F00C6_ME_4AC230590004_G
+ MELINK Original WL 'ME_4A573D2F00C6' '54C61BFC0342.ms.model.script' // Tl3PlaceNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A573D2F00C6_ME_4AC230590004_G Tl3PlaceNode
+
+MEREF ME_49904D800350_ME_4AC230590004_R
+ MELINK Original WL 'ME_49904D800350' '4AC22E040232.ms.model.script' // InsWrapperNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49904D800350_ME_4AC230590004_R InsWrapperNode
+
+%%ImplementedBy ME_49904D800350 ME_4AC230590004
+
+%%InheritedBy ME_4A573D2F00C6 ME_4AC230590004
+
+ME ME_4AC230590004
+ MEPROP UID '4AC230590004'
+ MEPROP Name 'TnsWrapperNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4908A8A20107' // OldTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A573D2F00C6_ME_4AC230590004_G // Tl3PlaceNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49904D800350_ME_4AC230590004_R // InsWrapperNode
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADF18FE0010 // f_Name
+ HWL ME_4ADF190301A6 // f_Comment
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_49904DAD00EB_ME_4AC230590004_impl // Name
+ ME_49904DBF02F0_ME_4AC230590004_impl // Comment
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AC230590004_over // Cleanup
+ ME_47A869BB02DE_ME_4AC230590004_over // GetAsPCharLen
+ ME_47A869D10074_ME_4AC230590004_over // DoSetAsPCharLen
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADF18CC02E1 // l3Set
+ ME_4ADF18E600D2 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'Admin'
+ UP "no hands" true
+ UP "started" '21.10.2009 18:22'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsWrapperNode.pas'
+ UP extprop:rc:SelfName 'WrapperNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsWrapperNode'
+
+ENDME // ME_4AC230590004 TnsWrapperNode

@@ -1,0 +1,66 @@
+// K259890927 4E96F20A02AD TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E96F20A02AD
+
+ME ME_4E96F5150395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E96F20A02AD // K259890927
+ ;
+ MELINK Target WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+
+ENDME // ME_4E96F5150395 
+
+MEREF ME_4C07BCBE01F2_ME_4E96F20A02AD_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_4E96F20A02AD_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_4E96F20A02AD_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_4E96F20A02AD_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_4E96F20A02AD
+
+ME ME_4E96F20A02AD
+ MEPROP UID '4E96F20A02AD'
+ MEPROP Name 'K259890927'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:259890927}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D6BE7850038' // 7.7 Lulin
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C07B5E300F2_ME_4E96F20A02AD_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_4E96F20A02AD_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E96F5150395 // TevdLeafParaFilter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '13.10.2011 18:13'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K259890927.pas'
+ UP extprop:pas:TypeName 'TK259890927'
+ UP extprop:rc:SelfName 'K259890927'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E96F20A02AD K259890927

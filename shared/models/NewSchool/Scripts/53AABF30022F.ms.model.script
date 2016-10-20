@@ -1,0 +1,116 @@
+// Tk2PropertyArray 53AABF30022F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53AABF30022F
+
+FORWARD ME_53AABF30022F
+
+ME ME_53AAC0110237
+ MEPROP UID '53AAC0110237'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AABF30022F // Tk2PropertyArray
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_53AAC0110237 l3Items_NoSort
+
+ME ME_53AABFA60396
+ MEPROP UID '53AABFA60396'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53AABF30022F // Tk2PropertyArray
+ ;
+ MELINK Target WL 'ME_5331A06F028A' '53317D14019D.ms.model.script' // Tl3VariantDef
+ ;
+
+ENDME // ME_53AABFA60396 ItemType
+
+MEREF ME_47B2C42A0163_ME_53AABF30022F_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_53AABF30022F_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_53AABF30022F_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_53AABF30022F_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_53AABF30022F_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_53AABF30022F_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_53AABF30022F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53AABF30022F_G Tl3ProtoDataContainer
+
+MEREF ME_4B86890E0307_ME_53AABF30022F_R
+ MELINK Original WL? 'ME_4B86890E0307' // l3OpenArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B86890E0307_ME_53AABF30022F_R l3OpenArray
+
+%%ImplementedBy ME_4B86890E0307 ME_53AABF30022F
+
+%%InheritedBy ME_47B99E920196 ME_53AABF30022F
+%%InheritedBy ME_4A54DD4E036F ME_53AABF30022F
+
+ME ME_53AABF30022F
+ MEPROP UID '53AABF30022F'
+ MEPROP Name 'Tk2PropertyArray'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A4DE16302A2' // k2Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_53AABF30022F_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_53AABF30022F_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B86890E0307_ME_53AABF30022F_R // l3OpenArray
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53AABFA60396 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_53AABF30022F_impl // AssignItem
+ ME_47B99D4503A2_ME_53AABF30022F_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_53AAC0110237 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2PropertyArray.pas'
+ UP extprop:rc:SelfName 'PropertyArray'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2PropertyArray'
+
+ENDME // ME_53AABF30022F Tk2PropertyArray

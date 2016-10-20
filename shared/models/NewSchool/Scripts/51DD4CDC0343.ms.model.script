@@ -1,0 +1,207 @@
+// TdestListTable 51DD4CDC0343 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DD4CDC0343
+
+ME ME_51DD522B0069
+ MEPROP UID '51DD522B0069'
+ MEPROP Name 'f_Lists'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD4CDC0343 // TdestListTable
+ ;
+ MELINK Target WL 'ME_51DD50BC016D' '51DD4C5301CD.ms.model.script' // TrtfListTable
+ ;
+
+ENDME // ME_51DD522B0069 f_Lists
+
+FORWARD ME_51DD525200F4
+
+ME ME_51DD5275016C
+ MEPROP UID '51DD5275016C'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD525200F4 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5275016C anIndex
+
+ME ME_51DD525200F4
+ MEPROP UID '51DD525200F4'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD4CDC0343 // TdestListTable
+ ;
+ MELINK Target WL 'ME_51DD4DB6034E' '51DD4C5301CD.ms.model.script' // TrtfList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51DD5275016C // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_51DD525200F4 Items
+
+ME ME_51DD5310001B
+ MEPROP UID '51DD5310001B'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD4CDC0343 // TdestListTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_51DD5310001B Count
+
+FORWARD ME_51DD52C10041
+
+ME ME_51DD52D60292
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_51DD4CCF004F' // TdestList
+ ;
+
+ENDME // ME_51DD52D60292 aList
+
+ME ME_51DD52C80236
+ MEPROP UID '51DD52C80236'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD52C10041 // AddList
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DD52D60292 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_51DD52C80236 DoIt
+
+ME ME_51DD52C10041
+ MEPROP UID '51DD52C10041'
+ MEPROP Name 'AddList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD4CDC0343 // TdestListTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD52C80236 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD52C10041 AddList
+
+ME ME_51DD56AD0228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DD4CDC0343 // TdestListTable
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51DD56AD0228 
+
+MEREF ME_5461BEC2017D_ME_51DD4CDC0343_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_51DD4CDC0343_impl Close
+
+MEREF ME_54E1F08400F9_ME_51DD4CDC0343_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_51DD4CDC0343_impl WriteText$1
+
+MEREF ME_479731C50290_ME_51DD4CDC0343_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_51DD4CDC0343_over Cleanup
+
+MEREF ME_51E7C9DB0213_ME_51DD4CDC0343_over
+ MELINK Original WL 'ME_51E7C9DB0213' '5190A37F0134.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E7C9DB0213_ME_51DD4CDC0343_over Create
+
+MEREF ME_51D276C40106_ME_51DD4CDC0343_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_51DD4CDC0343_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_51DD4CDC0343
+
+ME ME_51DD4CDC0343
+ MEPROP UID '51DD4CDC0343'
+ MEPROP Name 'TdestListTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51D276C40106_ME_51DD4CDC0343_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DD522B0069 // f_Lists
+ HWL ME_51DD525200F4 // Items
+ HWL ME_51DD5310001B // Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51DD52C10041 // AddList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_51DD4CDC0343_impl // Close
+ ME_54E1F08400F9_ME_51DD4CDC0343_impl // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51DD4CDC0343_over // Cleanup
+ ME_51E7C9DB0213_ME_51DD4CDC0343_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51DD56AD0228 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destListTable.pas'
+ UP extprop:rc:SelfName 'destListTable'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'destListTable'
+
+ENDME // ME_51DD4CDC0343 TdestListTable

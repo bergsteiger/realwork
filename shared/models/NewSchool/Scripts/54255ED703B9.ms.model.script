@@ -1,0 +1,42 @@
+// dialogs_LockDocument_GetSkipMode 54255ED703B9 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54255ED703B9
+
+ME ME_54255FE40127
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54255ED703B9 // dialogs_LockDocument_GetSkipMode
+ ;
+ MELINK Target WL 'ME_5425548D01DD' '4DE60853015A.ms.model.script' // TarTestConfig
+ ;
+
+ENDME // ME_54255FE40127 
+
+ME ME_54255ED703B9
+ MEPROP UID '54255ED703B9'
+ MEPROP Name 'dialogs_LockDocument_GetSkipMode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '¬озращает установленный режим работы с диалогом о залочке документа:'#13#10'{code}'#13#10'  ar_AsUsual // ѕоказывать диалог и провер€ть его результат.'#13#10'  ar_OpenDocument // ≈сли есть залоченный - все равно открывать.'#13#10'  ar_NotOpen // ≈сли есть залоченный - не открывать.'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54255FE40127 // TarTestConfig
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDialogsLockDocumentGetSkipMode.pas'
+ UP extprop:pas:TypeName 'TkwDialogsLockDocumentGetSkipMode'
+ UP extprop:rc:SelfName 'DialogsLockDocumentGetSkipMode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwDialogsLockDocumentGetSkipMode'
+
+ENDME // ME_54255ED703B9 dialogs_LockDocument_GetSkipMode

@@ -1,0 +1,42 @@
+// TkwArchiCloseDocument 4DE632EF020B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE632EF020B
+
+ME ME_4DE6335103A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE632EF020B // TkwArchiCloseDocument
+ ;
+ MELINK Target WL 'ME_4DE6331E00DA' '4DE60853015A.ms.model.script' // arCloseActiveDocument
+ ;
+
+ENDME // ME_4DE6335103A5 
+
+ME ME_4DE632EF020B
+ MEPROP UID '4DE632EF020B'
+ MEPROP Name 'TkwArchiCloseDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*Формат:* Закрыть'#13#10'*Описание:* Закрывает текущее дочернее окно в Арчи. В качестве окна может выступать окно документа, окно почтового сообщения, окно словарей и т.п.'#13#10' *Пример:*'#13#10'{code}'#13#10' ''76.bmp'' Создать_Объектный_топик_из'#13#10' TRY'#13#10'   carPictureViewer TryFocus ASSERT'#13#10'   acCut arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10'   acPaste arMainActionList carMainForm Action:Execute'#13#10'   ProcessMessages'#13#10' FINALLY'#13#10'  wait:No'#13#10'  Закрыть'#13#10'  waited:? ASSERT'#13#10' END'#13#10'{code}'#13#10' *Результат:*'#13#10' Создает объектный топик из графического файла, выполняет с ними набор тестовых операций (в данном случае, копирование/вставка картинкуи в/из буфера обмена) и закрывает документ без вопроса о необходимости сохранения.'#13#10'*Примечания:*'#13#10' В скриптах напрямую практически не используется, так как есть более удобные функции в файле:'#13#10'{code}'#13#10' w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DE6335103A5 // arCloseActiveDocument
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'Закрыть'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiCloseDocument.pas'
+ UP extprop:rc:SelfName 'ArchiCloseDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwArchiCloseDocument'
+
+ENDME // ME_4DE632EF020B TkwArchiCloseDocument

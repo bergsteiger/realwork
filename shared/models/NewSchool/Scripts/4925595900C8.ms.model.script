@@ -24,7 +24,7 @@ ME ME_492559B800FE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
  ;
- MELINK Target WL 'ME_492559970076' '491D7CDC0221.ms.model.script' // TdeMedicDiction
+ MELINK Target WL? 'ME_492559970076' // TdeMedicDiction
  ;
 
 ENDME // ME_492559B800FE 
@@ -34,7 +34,7 @@ ME ME_49255A03004D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4925595900C8 // TdsMedicDiction
  ;
- MELINK Target WL 'ME_49070AD5032C' '4901F07D039B.ms.model.script' // TnsMedicDictionTree
+ MELINK Target WL? 'ME_49070AD5032C' // TnsMedicDictionTree
  ;
 
 ENDME // ME_49255A03004D 
@@ -49,30 +49,36 @@ ME ME_55F00B2801AB
 
 ENDME // ME_55F00B2801AB 
 
-ME ME_47F4C2B9014A_ME_4925595900C8
+MEREF ME_47F4C2B9014A_ME_4925595900C8_impl
  MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47F4C2B9014A_ME_4925595900C8 MakeSimpleTree
+ENDMEREF // ME_47F4C2B9014A_ME_4925595900C8_impl MakeSimpleTree
 
-ME ME_49254515003C_ME_4925595900C8
+MEREF ME_49254515003C_ME_4925595900C8_impl
  MELINK Original WL 'ME_49254515003C' '4925449A0296.ms.model.script' // MakeDocInfoForCurrentChanged
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_49254515003C_ME_4925595900C8 MakeDocInfoForCurrentChanged
+ENDMEREF // ME_49254515003C_ME_4925595900C8_impl MakeDocInfoForCurrentChanged
 
-ME ME_5571EB84007F_ME_4925595900C8
+MEREF ME_5571EB84007F_ME_4925595900C8_impl
  MELINK Original WL 'ME_5571EB84007F' '4925449A0296.ms.model.script' // DictionKind
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_5571EB84007F_ME_4925595900C8 DictionKind
+ENDMEREF // ME_5571EB84007F_ME_4925595900C8_impl DictionKind
 
-ME ME_55097FF5008E_ME_4925595900C8
+MEREF ME_55097FF5008E_ME_4925595900C8_over
  MELINK Original WL 'ME_55097FF5008E' '5017EAF4027D.ms.model.script' // GetIsDataAvailable
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_55097FF5008E_ME_4925595900C8 GetIsDataAvailable
+ENDMEREF // ME_55097FF5008E_ME_4925595900C8_over GetIsDataAvailable
+
+MEREF ME_4925449A0296_ME_4925595900C8_G
+ MELINK Original WL? 'ME_4925449A0296' // dsCommonDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4925449A0296_ME_4925595900C8_G dsCommonDiction
 
 %%InheritedBy ME_4925449A0296 ME_4925595900C8
 
@@ -89,7 +95,7 @@ ME ME_4925595900C8
  MELINK Parent WL? 'ME_491D7CDC0221' // Medic
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4925449A0296' // dsCommonDiction
+   Seq: ( ME_4925449A0296_ME_4925595900C8_G // dsCommonDiction
  )
  ; // Inherits
  MELIST Attributes
@@ -97,13 +103,13 @@ ME ME_4925595900C8
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47F4C2B9014A_ME_4925595900C8 // MakeSimpleTree
- ME_49254515003C_ME_4925595900C8 // MakeDocInfoForCurrentChanged
- ME_5571EB84007F_ME_4925595900C8 // DictionKind
+   Seq: ( ME_47F4C2B9014A_ME_4925595900C8_impl // MakeSimpleTree
+ ME_49254515003C_ME_4925595900C8_impl // MakeDocInfoForCurrentChanged
+ ME_5571EB84007F_ME_4925595900C8_impl // DictionKind
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_55097FF5008E_ME_4925595900C8 // GetIsDataAvailable
+   Seq: ( ME_55097FF5008E_ME_4925595900C8_over // GetIsDataAvailable
  )
  ; // Overridden
  MELIST Dependencies

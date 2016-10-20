@@ -1,0 +1,103 @@
+// TkwIntegerFactory 4F3E401D03AF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F3E401D03AF
+
+FORWARD ME_4F3E412801B7
+
+ME ME_4F3E41F2024F
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F3E41F2024F aValue
+
+ME ME_4F3E413D032E
+ MEPROP UID '4F3E413D032E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3E412801B7 // MakeKW
+ ;
+ MELINK Target WL? 'ME_4DB6CCE100E0' // TkwInteger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F3E41F2024F // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4F3E413D032E DoIt
+
+ME ME_4F3E432B036D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F3E412801B7 // MakeKW
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4F3E432B036D 
+
+ME ME_4F3E412801B7
+ MEPROP UID '4F3E412801B7'
+ MEPROP Name 'MakeKW'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3E401D03AF // TkwIntegerFactory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F3E413D032E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F3E432B036D // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_4F3E412801B7 MakeKW
+
+MEREF ME_4F3E40EC0328_ME_4F3E401D03AF_G
+ MELINK Original WL? 'ME_4F3E40EC0328' // TkwIntegerArray
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F3E40EC0328_ME_4F3E401D03AF_G TkwIntegerArray
+
+%%InheritedBy ME_4F3E40EC0328 ME_4F3E401D03AF
+
+ME ME_4F3E401D03AF
+ MEPROP UID '4F3E401D03AF'
+ MEPROP Name 'TkwIntegerFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F3E3F5F0160' // PrimitiveWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F3E40EC0328_ME_4F3E401D03AF_G // TkwIntegerArray
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F3E412801B7 // MakeKW
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIntegerFactory.pas'
+ UP extprop:rc:SelfName 'IntegerFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwIntegerFactory'
+
+ENDME // ME_4F3E401D03AF TkwIntegerFactory

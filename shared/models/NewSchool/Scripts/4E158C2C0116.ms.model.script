@@ -1,0 +1,70 @@
+// K272666721 4E158C2C0116 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E158C2C0116
+
+ME ME_4E159E8A038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E158C2C0116 // K272666721
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4E159E8A038F 
+
+MEREF ME_4E158FBB0190_ME_4E158C2C0116_impl
+ MELINK Original WL 'ME_4E158FBB0190' '4E158BBC032C.ms.model.script' // MoveCursorCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E158FBB0190_ME_4E158C2C0116_impl MoveCursorCount
+
+MEREF ME_4E15941B03E7_ME_4E158C2C0116_impl
+ MELINK Original WL 'ME_4E15941B03E7' '4E158BBC032C.ms.model.script' // CheckPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E15941B03E7_ME_4E158C2C0116_impl CheckPara
+
+MEREF ME_4E158BBC032C_ME_4E158C2C0116_G
+ MELINK Original WL? 'ME_4E158BBC032C' // TInsertSectionBreak
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E158BBC032C_ME_4E158C2C0116_G TInsertSectionBreak
+
+%%InheritedBy ME_4E158BBC032C ME_4E158C2C0116
+
+ME ME_4E158C2C0116
+ MEPROP UID '4E158C2C0116'
+ MEPROP Name 'K272666721'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$272666721]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D02571C01D0' // 7.7
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E158BBC032C_ME_4E158C2C0116_G // TInsertSectionBreak
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E158FBB0190_ME_4E158C2C0116_impl // MoveCursorCount
+ ME_4E15941B03E7_ME_4E158C2C0116_impl // CheckPara
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4E159E8A038F // TnevFormatInfoPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K272666721.pas'
+ UP extprop:pas:TypeName 'TK272666721'
+ UP extprop:rc:SelfName 'K272666721'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E158C2C0116 K272666721

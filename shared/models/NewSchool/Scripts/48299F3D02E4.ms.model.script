@@ -19,6 +19,10 @@ ME ME_4829B7A6018F
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48299F3D02E4 // Редактор с выпадающим деревом
  ;
+ MELIST Implements
+   Seq: (  // Строка ввода с возможностью раскраски слов
+ )
+ ; // Implements
  MELIST Depends
    Seq: ( WL? 'ME_482ACC330173' // TelCustomEdit
  )
@@ -39,9 +43,14 @@ ME ME_482C1F4B0189
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48299F3D02E4 // Редактор с выпадающим деревом
  ;
+ MELIST Implements
+   Seq: (  // Редактор должен сообщать об изменённости текста
+  // В комбобоксе с типом ct_cbDropDownList выделение недоступно
+ )
+ ; // Implements
  MELIST Depends
    Seq: ( WL? 'ME_48315948025E' // TEditableBox
- WL 'ME_487B5D8D00ED' '4829D7D50156.ms.model.script' // TevBlockCursor
+ WL? 'ME_487B5D8D00ED' // TevBlockCursor
  )
  ; // Depends
  MESTRINGLIST DiagramsNames
@@ -60,6 +69,10 @@ ME ME_4843B5A00287
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48299F3D02E4 // Редактор с выпадающим деревом
  ;
+ MELIST Implements
+   Seq: (  // Возможность управления заменой символов при вводе
+ )
+ ; // Implements
  MELIST Depends
    Seq: ( WL? 'ME_482ACC330173' // TelCustomEdit
  WL 'ME_53317DB50257' '4A4DE48C0344.ms.model.script' // Ik2Processor
@@ -81,6 +94,10 @@ ME ME_487CAAFC0279
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48299F3D02E4 // Редактор с выпадающим деревом
  ;
+ MELIST Implements
+   Seq: (  // Автоматическая подгонка ширины выпадающего списка
+ )
+ ; // Implements
 
 ENDME // ME_487CAAFC0279 Выбор значений из дерева
 

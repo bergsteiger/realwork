@@ -153,38 +153,3 @@ WordAlias [[ [
 WordAlias ]] ]
 %REMARK '«аканчивает определение константного массива. ѕока просто мапируетс€ на неконстантный.'
 
-ARRAY FUNCTION .filterNil>
-  ARRAY IN anArray
- anArray
- .filter> .IsNotNil
- >>> Result
-; // .filterNil>
-
-ARRAY FUNCTION array:CopyWithoutDuplicates
-  IN anArray
- RULES
-  ( anArray .IsNil )
-   [nil]
-  DEFAULT 
-   (
-    VAR l_Copy
-    [] >>> l_Copy
-    VAR l_Empty
-    true >>> l_Empty
-    anArray 
-    .filter> .AddToArray?: l_Copy
-    .for> ( 
-      IN anElement
-     false >>> l_Empty
-    ) // anArray .for>
-    RULES
-     l_Empty
-      [nil]
-     DEFAULT
-      l_Copy 
-    ; // RULES
-   ) 
- ; // RULES 
- >>> Result
-; // array:CopyWithoutDuplicates
-

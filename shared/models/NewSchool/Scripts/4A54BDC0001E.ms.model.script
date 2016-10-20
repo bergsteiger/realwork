@@ -1,0 +1,117 @@
+// TatSendConsultationOperation 4A54BDC0001E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A54BDC0001E
+
+ME ME_4A54BDE400CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A54BDC0001E // TatSendConsultationOperation
+ ;
+ MELINK Target WL? 'ME_4A54B2EB00FF' // TatNewConsultation
+ ;
+
+ENDME // ME_4A54BDE400CF 
+
+ME ME_4A54BEA900A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A54BDC0001E // TatSendConsultationOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4A54BEA900A9 
+
+ME ME_4A54BEAC0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A54BDC0001E // TatSendConsultationOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4A54BEAC0150 
+
+ME ME_4A54C1800041
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A54BDC0001E // TatSendConsultationOperation
+ ;
+ MELINK Target WL? 'ME_4808A20402DC' // Math
+ ;
+
+ENDME // ME_4A54C1800041 
+
+ME ME_4A54C28B029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A54BDC0001E // TatSendConsultationOperation
+ ;
+ MELINK Target WL? 'ME_48172C290190' // atCommon
+ ;
+
+ENDME // ME_4A54C28B029E 
+
+MEREF ME_48089F460352_ME_4A54BDC0001E_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4A54BDC0001E_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4A54BDC0001E_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4A54BDC0001E_over InitParamList
+
+MEREF ME_48076E9D013E_ME_4A54BDC0001E_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4A54BDC0001E_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4A54BDC0001E
+
+ME ME_4A54BDC0001E
+ MEPROP UID '4A54BDC0001E'
+ MEPROP Name 'TatSendConsultationOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создает и посылает новую консультацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4A54BDC0001E_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4A54BDC0001E_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4A54BDC0001E_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A54BDE400CF // TatNewConsultation
+ ME_4A54BEA900A9 // atLogger
+ ME_4A54BEAC0150 // SysUtils
+ ME_4A54C1800041 // Math
+ ME_4A54C28B029E // atCommon
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atSendConsultationOperation.pas'
+ UP extprop:rc:SelfName 'atSendConsultationOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSendConsultationOperation'
+
+ENDME // ME_4A54BDC0001E TatSendConsultationOperation

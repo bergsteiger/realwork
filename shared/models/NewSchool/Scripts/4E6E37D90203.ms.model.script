@@ -1,0 +1,70 @@
+// TevDocumentHotSpotTester 4E6E37D90203 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E6E37D90203
+
+ME ME_4E6E381F03A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4E6E37D90203 // TevDocumentHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4857B637007C' // TevDocument
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4E6E381F03A3 
+
+ME ME_53D26E4703DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4E6E37D90203 // TevDocumentHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53D26E4703DA 
+
+MEREF ME_4A27B7300174_ME_4E6E37D90203_G
+ MELINK Original WL? 'ME_4A27B7300174' // TevParaListHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27B7300174_ME_4E6E37D90203_G TevParaListHotSpotTester
+
+%%InjectedBy ME_4857B637007C ME_4E6E37D90203
+
+%%InheritedBy ME_4A27B7300174 ME_4E6E37D90203
+
+ME ME_4E6E37D90203
+ MEPROP UID '4E6E37D90203'
+ MEPROP Name 'TevDocumentHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A27B7300174_ME_4E6E37D90203_G // TevParaListHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E6E381F03A3 // TevDocument
+ ME_53D26E4703DA // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '12.09.2011 20:48'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentHotSpotTester.pas'
+ UP extprop:rc:SelfName 'DocumentHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentHotSpotTester'
+
+ENDME // ME_4E6E37D90203 TevDocumentHotSpotTester

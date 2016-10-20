@@ -65,6 +65,12 @@ ME ME_53BEAD8B03B2
 
 ENDME // ME_53BEAD8B03B2 TeeRenderTarget
 
+MEREF ME_47F0870E0034_ME_4EF06C6C014A_G
+ MELINK Original WL? 'ME_47F0870E0034' // TnevDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F0870E0034_ME_4EF06C6C014A_G TnevDocumentContainer
+
 %%InheritedBy ME_47F0870E0034 ME_4EF06C6C014A
 
 ME ME_4EF06C6C014A
@@ -78,7 +84,7 @@ ME ME_4EF06C6C014A
  MELINK Parent HWL ME_4B72DF7B0164 // eeRenderFormula
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F0870E0034' '47F086170200.ms.model.script' // TnevDocumentContainer
+   Seq: ( ME_47F0870E0034_ME_4EF06C6C014A_G // TnevDocumentContainer
  )
  ; // Inherits
  UP extprop:rc:SelfName 'DocumentContainerHack'
@@ -167,7 +173,7 @@ ENDME // ME_4EF0A8330394
 ME ME_4EF0A285035D
  MEPROP UID '4EF0A285035D'
  MEPROP Name 'DoRender'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Собствеено рендерит формулу' ;
@@ -263,7 +269,7 @@ ENDME // ME_53BE8DEB01F2 DoIt
 ME ME_53BE8DDD026E
  MEPROP UID '53BE8DDD026E'
  MEPROP Name 'RenderFormula'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -391,7 +397,7 @@ ME ME_4CBD72BF011A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72DF930061 // RenderFormulaPrim
  ;
- MELINK Target WL 'ME_47ECA82403AC' '47ECA80B000D.ms.model.script' // Tk2DocumentBuffer
+ MELINK Target WL? 'ME_47ECA82403AC' // Tk2DocumentBuffer
  ;
 
 ENDME // ME_4CBD72BF011A 
@@ -401,7 +407,7 @@ ME ME_4CBD72D50029
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72DF930061 // RenderFormulaPrim
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
 
 ENDME // ME_4CBD72D50029 
@@ -411,7 +417,7 @@ ME ME_4CBD731F0166
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72DF930061 // RenderFormulaPrim
  ;
- MELINK Target WL 'ME_4CBD730A0323' '473C3BEE0334.ms.model.script' // Tl3BitmapContainer
+ MELINK Target WL? 'ME_4CBD730A0323' // Tl3BitmapContainer
  ;
 
 ENDME // ME_4CBD731F0166 
@@ -591,7 +597,7 @@ ME ME_4EF06D2D0107
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72DF930061 // RenderFormulaPrim
  ;
- MELINK Target WL 'ME_481213C903A2' '4811D4EC0237.ms.model.script' // TnevVirtualDrawView
+ MELINK Target WL? 'ME_481213C903A2' // TnevVirtualDrawView
  ;
 
 ENDME // ME_4EF06D2D0107 
@@ -636,13 +642,25 @@ ME ME_53BEC3A001FC
 
 ENDME // ME_53BEC3A001FC 
 
+MEREF ME_4EF09E0D007E_ME_4B72DF930061_R
+ MELINK Original WL 'ME_4EF09E0D007E' '4EF09DE80211.ms.model.script' // Рендеринг формул в PNG
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF09E0D007E_ME_4B72DF930061_R Рендеринг формул в PNG
+
+MEREF ME_4EF09E25025C_ME_4B72DF930061_R
+ MELINK Original WL 'ME_4EF09E25025C' '4EF09DE80211.ms.model.script' // При рендеренге должен учитываться Zoom
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EF09E25025C_ME_4B72DF930061_R При рендеренге должен учитываться Zoom
+
 %%ImplementedBy ME_4EF09E0D007E ME_4B72DF930061
 %%ImplementedBy ME_4EF09E25025C ME_4B72DF930061
 
 ME ME_4B72DF930061
  MEPROP UID '4B72DF930061'
  MEPROP Name 'RenderFormulaPrim'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -650,8 +668,8 @@ ME ME_4B72DF930061
  MELINK Parent HWL ME_4B72DF7B0164 // eeRenderFormula
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4EF09E0D007E' '4EF09DE80211.ms.model.script' // Рендеринг формул в PNG
- WL 'ME_4EF09E25025C' '4EF09DE80211.ms.model.script' // При рендеренге должен учитываться Zoom
+   Seq: ( ME_4EF09E0D007E_ME_4B72DF930061_R // Рендеринг формул в PNG
+ ME_4EF09E25025C_ME_4B72DF930061_R // При рендеренге должен учитываться Zoom
  )
  ; // Implements
  MELIST Operations

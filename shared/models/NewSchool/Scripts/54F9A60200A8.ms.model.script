@@ -1,0 +1,356 @@
+// TdaDataProviderParams 54F9A60200A8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54F9A60200A8
+
+FORWARD ME_54F9A60200A8
+
+MEREF ME_54F9A60200A8_ME_550FD4CC0309_G
+ MELINK Original HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F9A60200A8_ME_550FD4CC0309_G TdaDataProviderParams
+
+%%InheritedBy ME_54F9A60200A8 ME_550FD4CC0309
+
+ME ME_550FD4CC0309
+ MEPROP UID '550FD4CC0309'
+ MEPROP Name 'TdaDataProviderParamsClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELIST Inherits
+   Seq: ( ME_54F9A60200A8_ME_550FD4CC0309_G // TdaDataProviderParams
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:SelfName 'daDataProviderParamsClass'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_550FD4CC0309 TdaDataProviderParamsClass
+
+ME ME_55111BEE0301
+ MEPROP UID '55111BEE0301'
+ MEPROP Name 'UserID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55111BEE0301 UserID
+
+ME ME_55C1ECC40309
+ MEPROP UID '55C1ECC40309'
+ MEPROP Name 'FullHomeDirPath'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'ѕолный путь к домашнему каталогу (с ID пользовател€)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_55C1ECC40309 FullHomeDirPath
+
+ME ME_5649C1DA022A
+ MEPROP UID '5649C1DA022A'
+ MEPROP Name 'AliasesList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5649C1DA022A AliasesList
+
+ME ME_55194F830311
+ MEPROP UID '55194F830311'
+ MEPROP Name 'CorrectAfterSet'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+
+ENDME // ME_55194F830311 CorrectAfterSet
+
+FORWARD ME_55195AE803E0
+
+ME ME_55195B0900BF
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55195B0900BF aPath
+
+ME ME_55195AFB027A
+ MEPROP UID '55195AFB027A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55195AE803E0 // ChangeBasePath
+ ;
+ MELIST Parameters
+   Seq: ( ME_55195B0900BF // aPath
+ )
+ ; // Parameters
+
+ENDME // ME_55195AFB027A DoIt
+
+ME ME_55195AE803E0
+ MEPROP UID '55195AE803E0'
+ MEPROP Name 'ChangeBasePath'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55195AFB027A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55195AE803E0 ChangeBasePath
+
+FORWARD ME_553A37E902C9
+
+ME ME_553A38150085
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+
+ENDME // ME_553A38150085 aParams
+
+ME ME_553A37FF0059
+ MEPROP UID '553A37FF0059'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553A37E902C9 // AssignParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_553A38150085 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_553A37FF0059 DoIt
+
+ME ME_553A37E902C9
+ MEPROP UID '553A37E902C9'
+ MEPROP Name 'AssignParams'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_553A37FF0059 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_553A37E902C9 AssignParams
+
+FORWARD ME_55F7DD1803E2
+
+ME ME_55F7DD5C0214
+ MEPROP UID '55F7DD5C0214'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F7DD1803E2 // MakeBaseIni
+ ;
+ MELINK Target WL 'ME_5433C1D30101' '51BAE2BF011A.ms.model.script' // TCfgList
+ ;
+
+ENDME // ME_55F7DD5C0214 DoIt
+
+ME ME_55F7DD1803E2
+ MEPROP UID '55F7DD1803E2'
+ MEPROP Name 'MakeBaseIni'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55F7DD5C0214 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55F7DD1803E2 MakeBaseIni
+
+ME ME_550AB45B0179
+ MEPROP UID '550AB45B0179'
+ MEPROP Name 'ParamsKey'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_550AB45B0179 ParamsKey
+
+ME ME_5511760A001C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_5511760A001C 
+
+ME ME_55C1F1B90126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F9A60200A8 // TdaDataProviderParams
+ ;
+ MELINK Target WL 'ME_551E861C0377' '5437B276039C.ms.model.script' // GetHomePathCode
+ ;
+
+ENDME // ME_55C1F1B90126 
+
+MEREF ME_53AC03EE01FD_ME_54F9A60200A8_impl
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53AC03EE01FD_ME_54F9A60200A8_impl GetTaggedDataType
+
+MEREF ME_479731C50290_ME_54F9A60200A8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_54F9A60200A8_over Cleanup
+
+MEREF ME_47A042E100E2_ME_54F9A60200A8_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_54F9A60200A8_over InitFields
+
+MEREF ME_534572370056_ME_54F9A60200A8_G
+ MELINK Original WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534572370056_ME_54F9A60200A8_G Tl3Tag
+
+MEREF ME_53AC01CD0335_ME_54F9A60200A8_R
+ MELINK Original WL? 'ME_53AC01CD0335' // evdTagHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC01CD0335_ME_54F9A60200A8_R evdTagHolder
+
+MEREF ME_54327F640135_ME_54F9A60200A8_R
+ MELINK Original WL 'ME_54327F640135' '484A470100DD.ms.model.script' // DataProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54327F640135_ME_54F9A60200A8_R DataProviderParams
+
+%%ImplementedBy ME_53AC01CD0335 ME_54F9A60200A8
+%%ImplementedBy ME_54327F640135 ME_54F9A60200A8
+
+%%InheritedBy ME_534572370056 ME_54F9A60200A8
+
+ME ME_54F9A60200A8
+ MEPROP UID '54F9A60200A8'
+ MEPROP Name 'TdaDataProviderParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_534572370056_ME_54F9A60200A8_G // Tl3Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53AC01CD0335_ME_54F9A60200A8_R // evdTagHolder
+ ME_54327F640135_ME_54F9A60200A8_R // DataProviderParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55111BEE0301 // UserID
+ HWL ME_55C1ECC40309 // FullHomeDirPath
+ HWL ME_5649C1DA022A // AliasesList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55194F830311 // CorrectAfterSet
+ HWL ME_55195AE803E0 // ChangeBasePath
+ HWL ME_553A37E902C9 // AssignParams
+ HWL ME_55F7DD1803E2 // MakeBaseIni
+ HWL ME_550AB45B0179 // ParamsKey
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53AC03EE01FD_ME_54F9A60200A8_impl // GetTaggedDataType
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54F9A60200A8_over // Cleanup
+ ME_47A042E100E2_ME_54F9A60200A8_over // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_550FD4CC0309 // TdaDataProviderParamsClass
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5511760A001C // ConcatDirName
+ ME_55C1F1B90126 // GetHomePathCode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daDataProviderParams.pas'
+ UP extprop:rc:SelfName 'daDataProviderParams'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daDataProviderParams'
+
+ENDME // ME_54F9A60200A8 TdaDataProviderParams

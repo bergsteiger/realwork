@@ -18,12 +18,24 @@ ME ME_57CD326402EB
 
 ENDME // ME_57CD326402EB f_Caption
 
-ME ME_57B1A47403C5_ME_57CD32280214
+MEREF ME_57B1A47403C5_ME_57CD32280214_impl
  MELINK Original WL 'ME_57B1A47403C5' '57AAE8D403E5.ms.model.script' // Caption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_57B1A47403C5_ME_57CD32280214 Caption
+ENDMEREF // ME_57B1A47403C5_ME_57CD32280214_impl Caption
+
+MEREF ME_57ADBFD200CA_ME_57CD32280214_G
+ MELINK Original WL? 'ME_57ADBFD200CA' // TmsmModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADBFD200CA_ME_57CD32280214_G TmsmModel
+
+MEREF ME_57B1A4520214_ME_57CD32280214_R
+ MELINK Original WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1A4520214_ME_57CD32280214_R ImsmCaptionModel
 
 %%ImplementedBy ME_57B1A4520214 ME_57CD32280214
 
@@ -41,11 +53,11 @@ ME ME_57CD32280214
  MELINK Parent WL? 'ME_57AE0D6601AE' // ConcreteModels
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57ADBFD200CA' '57B1B48C00F8.ms.model.script' // TmsmModel
+   Seq: ( ME_57ADBFD200CA_ME_57CD32280214_G // TmsmModel
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+   Seq: ( ME_57B1A4520214_ME_57CD32280214_R // ImsmCaptionModel
  )
  ; // Implements
  MELIST Attributes
@@ -53,7 +65,7 @@ ME ME_57CD32280214
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_57B1A47403C5_ME_57CD32280214 // Caption
+   Seq: ( ME_57B1A47403C5_ME_57CD32280214_impl // Caption
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

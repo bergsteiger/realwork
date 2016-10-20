@@ -1,0 +1,179 @@
+// TMultyOperationTest 54193E6A0023 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54193E6A0023
+
+FORWARD ME_54193F6B00F8
+
+ME ME_541957C60009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL? 'ME_541957650320' // TDataBaseTester
+ ;
+
+ENDME // ME_541957C60009 
+
+ME ME_542012F10323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_542012F10323 
+
+ME ME_542015B80053
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL? 'ME_4FA278B00247' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_542015B80053 
+
+ME ME_54193F6B00F8
+ MEPROP UID '54193F6B00F8'
+ MEPROP Name 'DoIt()'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54193E6A0023 // TMultyOperationTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_541957C60009 // TDataBaseTester
+ ME_542012F10323 // FreeAndNil
+ ME_542015B80053 // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+
+ENDME // ME_54193F6B00F8 DoIt()
+
+FORWARD ME_54200FFA01D8
+
+ME ME_5420100F0266
+ MEPROP Name 'aBasePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_5420100F0266 aBasePath
+
+ME ME_542010050087
+ MEPROP UID '542010050087'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_5420100F0266 // aBasePath
+ )
+ ; // Parameters
+
+ENDME // ME_542010050087 DoIt
+
+ME ME_542012A9013A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_542012A9013A 
+
+ME ME_542012C8003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELINK Target WL 'ME_4742CA9702AE' '4742D9F50189.ms.model.script' // Tm3DB
+ ;
+
+ENDME // ME_542012C8003A 
+
+ME ME_54200FFA01D8
+ MEPROP UID '54200FFA01D8'
+ MEPROP Name 'ClearBase'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54193E6A0023 // TMultyOperationTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542010050087 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_542012A9013A // Im3DB
+ ME_542012C8003A // Tm3DB
+ )
+ ; // Dependencies
+
+ENDME // ME_54200FFA01D8 ClearBase
+
+MEREF ME_4C937013031D_ME_54193E6A0023_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_54193E6A0023_over GetFolder
+
+MEREF ME_4DAED6F60146_ME_54193E6A0023_over
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0DCE03A9.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DAED6F60146_ME_54193E6A0023_over GetModelElementGUID
+
+MEREF ME_4B2A11BC0255_ME_54193E6A0023_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_54193E6A0023_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_54193E6A0023
+
+ME ME_54193E6A0023
+ MEPROP UID '54193E6A0023'
+ MEPROP Name 'TMultyOperationTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F19320901A0' // DataBase
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_54193E6A0023_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54193F6B00F8 // DoIt()
+ HWL ME_54200FFA01D8 // ClearBase
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_54193E6A0023_over // GetFolder
+ ME_4DAED6F60146_ME_54193E6A0023_over // GetModelElementGUID
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas'
+ UP extprop:rc:SelfName 'MultyOperationTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'MultyOperationTest'
+
+ENDME // ME_54193E6A0023 TMultyOperationTest

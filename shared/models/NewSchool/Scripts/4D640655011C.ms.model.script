@@ -1,0 +1,121 @@
+// TevTableHotSpot 4D640655011C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D640655011C
+
+FORWARD ME_4D640655011C
+
+FORWARD ME_4D6406760152
+
+ME ME_53D673E103CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4D6406760152 // TevTableHotSpotTester
+ ;
+ MELINK Target WL? 'ME_4857E163036B' // TevTable
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D673E103CF 
+
+ME ME_53D674030209
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4D6406760152 // TevTableHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53D674030209 
+
+MEREF ME_4A27B7300174_ME_4D6406760152_G
+ MELINK Original WL? 'ME_4A27B7300174' // TevParaListHotSpotTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A27B7300174_ME_4D6406760152_G TevParaListHotSpotTester
+
+%%InjectedBy ME_4857E163036B ME_4D6406760152
+
+%%InheritedBy ME_4A27B7300174 ME_4D6406760152
+
+ME ME_4D6406760152
+ MEPROP UID '4D6406760152'
+ MEPROP Name 'TevTableHotSpotTester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D640655011C // TevTableHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A27B7300174_ME_4D6406760152_G // TevParaListHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D673E103CF // TevTable
+ ME_53D674030209 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'TableHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D6406760152 TevTableHotSpotTester
+
+ME ME_4E142444022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4D640655011C // TevTableHotSpot
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E142444022D 
+
+MEREF ME_4D6406160297_ME_4D640655011C_G
+ MELINK Original WL? 'ME_4D6406160297' // TevSelectingHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D6406160297_ME_4D640655011C_G TevSelectingHotSpot
+
+%%InheritedBy ME_4D6406160297 ME_4D640655011C
+
+ME ME_4D640655011C
+ MEPROP UID '4D640655011C'
+ MEPROP Name 'TevTableHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D6406160297_ME_4D640655011C_G // TevSelectingHotSpot
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4D6406760152 // TevTableHotSpotTester
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E142444022D // Table
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableHotSpot.pas'
+ UP extprop:rc:SelfName 'TableHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTableHotSpot'
+
+ENDME // ME_4D640655011C TevTableHotSpot

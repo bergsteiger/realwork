@@ -23,7 +23,7 @@ ENDME // ME_51E03FE602DF ListType
 ME ME_51DEB319037C
  MEPROP UID '51DEB319037C'
  MEPROP Name 'DoIt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -36,7 +36,7 @@ ENDME // ME_51DEB319037C DoIt
 ME ME_51DED6FC03C1
  MEPROP UID '51DED6FC03C1'
  MEPROP Name 'TestTwoLists'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -49,7 +49,7 @@ ENDME // ME_51DED6FC03C1 TestTwoLists
 ME ME_51E6AC74038B
  MEPROP UID '51E6AC74038B'
  MEPROP Name 'TestInsert'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -77,7 +77,7 @@ ENDME // ME_51E6ADED001F DoIt
 ME ME_51E6ADE0016E
  MEPROP UID '51E6ADE0016E'
  MEPROP Name 'RandomItem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -94,7 +94,7 @@ ENDME // ME_51E6ADE0016E RandomItem
 ME ME_51E6B4260008
  MEPROP UID '51E6B4260008'
  MEPROP Name 'TestInsertAt0'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -107,7 +107,7 @@ ENDME // ME_51E6B4260008 TestInsertAt0
 ME ME_51E7F6EF0285
  MEPROP UID '51E7F6EF0285'
  MEPROP Name 'DeleteTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Тест удаления элемента' ;
@@ -121,7 +121,7 @@ ENDME // ME_51E7F6EF0285 DeleteTest
 ME ME_51E80DC50154
  MEPROP UID '51E80DC50154'
  MEPROP Name 'AddTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Тест добавления элемента' ;
@@ -135,7 +135,7 @@ ENDME // ME_51E80DC50154 AddTest
 ME ME_51E8127802AF
  MEPROP UID '51E8127802AF'
  MEPROP Name 'RemoveTest'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Test ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Тест удаления элемента по значению' ;
@@ -156,6 +156,18 @@ ME ME_51DEB33D01CF
 
 ENDME // ME_51DEB33D01CF 
 
+MEREF ME_4B2A0DDE028B_ME_51E03FC80111_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_51E03FC80111_G TTestCase
+
+MEREF ME_51E80DD30125_ME_51E03FC80111_G
+ MELINK Original WL? 'ME_51E80DD30125' // ListTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E80DD30125_ME_51E03FC80111_G ListTest
+
 %%InheritedBy ME_4B2A0DDE028B ME_51E03FC80111
 %%InheritedBy ME_51E80DD30125 ME_51E03FC80111
 
@@ -171,8 +183,8 @@ ME ME_51E03FC80111
  MELINK Parent WL? 'ME_51DEB2C70024' // FinalContainersTests
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
- WL? 'ME_51E80DD30125' // ListTest
+   Seq: ( ME_4B2A0DDE028B_ME_51E03FC80111_G // TTestCase
+ ME_51E80DD30125_ME_51E03FC80111_G // ListTest
  )
  ; // Inherits
  MELIST Operations

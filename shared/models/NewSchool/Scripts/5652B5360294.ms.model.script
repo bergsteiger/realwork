@@ -1,0 +1,165 @@
+// TpgRenumerator 5652B5360294 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5652B5360294
+
+ME ME_5652CB3E019E
+ MEPROP UID '5652CB3E019E'
+ MEPROP Name 'f_ToRealQuery'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5652B5360294 // TpgRenumerator
+ ;
+ MELINK Target WL 'ME_5549C4060117' '5432518A0316.ms.model.script' // IdaTabledQuery
+ ;
+
+ENDME // ME_5652CB3E019E f_ToRealQuery
+
+FORWARD ME_5652CB64000B
+
+ME ME_5652CB820383
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_5652CB820383 aFactory
+
+ME ME_5652CB6C006B
+ MEPROP UID '5652CB6C006B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5652CB64000B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5652CB820383 // aFactory
+ )
+ ; // Parameters
+
+ENDME // ME_5652CB6C006B DoIt
+
+ME ME_5652CB64000B
+ MEPROP UID '5652CB64000B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5652B5360294 // TpgRenumerator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5652CB6C006B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5652CB64000B Create
+
+ME ME_5652B5A302E5
+ MEPROP Name 'aImpID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5652B5A302E5 aImpID
+
+ME ME_5652B58D01EF
+ MEPROP UID '5652B58D01EF'
+ MEPROP Name 'ConvertToRealNumber'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5652B5360294 // TpgRenumerator
+ ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+ MELIST Parameters
+   Seq: ( ME_5652B5A302E5 // aImpID
+ )
+ ; // Parameters
+
+ENDME // ME_5652B58D01EF ConvertToRealNumber
+
+ME ME_5652CBB602B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5652B5360294 // TpgRenumerator
+ ;
+ MELINK Target WL 'ME_55377C9C0289' '5432448401BC.ms.model.script' // TdaTables
+ ;
+
+ENDME // ME_5652CBB602B9 
+
+ME ME_5652CBC703B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5652B5360294 // TpgRenumerator
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_5652CBC703B7 
+
+MEREF ME_479731C50290_ME_5652B5360294_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5652B5360294_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5652B5360294_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5652B5360294_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5652B5360294
+
+ME ME_5652B5360294
+ MEPROP UID '5652B5360294'
+ MEPROP Name 'TpgRenumerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55D6CF3B014B' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5652B5360294_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5652CB3E019E // f_ToRealQuery
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5652CB64000B // Create
+ HWL ME_5652B58D01EF // ConvertToRealNumber
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5652B5360294_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5652CBB602B9 // TdaTables
+ ME_5652CBC703B7 // TdaScheme
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\PG\pgRenumerator.pas'
+ UP extprop:rc:SelfName 'pgRenumerator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'pgRenumerator'
+
+ENDME // ME_5652B5360294 TpgRenumerator

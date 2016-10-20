@@ -5,116 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_53CCCA40004C
 %%Inner ME_53CCCA40004C
 
-FORWARD ME_53CCCA40004C
-
-ME ME_53CCCA5B036F
- MEPROP UID '53CCCA5B036F'
- MEPROP Name 'TalcuBaseEngine'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53CCCA40004C // BaseEngine
- ;
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuBaseEngine.pas'
- UP extprop:rc:SelfName 'alcuBaseEngine'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'alcuBaseEngine'
-
-ENDME // ME_53CCCA5B036F TalcuBaseEngine
-
-FORWARD ME_53CE4F2F008D
-
-ME ME_53CE4F5F0206
- MEPROP UID '53CE4F5F0206'
- MEPROP Name 'BaseEngine'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
- ;
- MELINK Target HWL ME_53CCCA5B036F // TalcuBaseEngine
- ;
- UP "pm" true
- UP "reads field" true
-
-ENDME // ME_53CE4F5F0206 BaseEngine
-
-ME ME_561CCA19026B
- MEPROP UID '561CCA19026B'
- MEPROP Name 'IsBaseLocked'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_561CCA19026B IsBaseLocked
-
-ME ME_53CE578B0132
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_53CE578B0132 
-
-ME ME_479731C50290_ME_53CE4F2F008D
- MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53CE4F2F008D Cleanup
-
-%%InheritedBy ME_49E7754802A9 ME_53CE4F2F008D
-
-ME ME_53CE4F2F008D
- MEPROP UID '53CE4F2F008D'
- MEPROP Name 'TalcuBaseEngineHolder'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53CCCA40004C // BaseEngine
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_53CE4F5F0206 // BaseEngine
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_561CCA19026B // IsBaseLocked
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53CE4F2F008D // Cleanup
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_53CE578B0132 // FreeAndNil
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Uses' )
- ; // DiagramsNames
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
- UP extprop:rc:SelfName 'alcuBaseEngineHolder'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'alcuBaseEngineHolder'
-
-ENDME // ME_53CE4F2F008D TalcuBaseEngineHolder
-
 ME ME_53CCCA40004C
  MEPROP UID '53CCCA40004C'
  MEPROP Name 'BaseEngine'
@@ -126,8 +16,8 @@ ME ME_53CCCA40004C
  MELINK Parent WL? 'ME_53CCC1D8036D' // Server
  ;
  MELIST Children
-   Seq: ( HWL ME_53CCCA5B036F // TalcuBaseEngine
- HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
+   Seq: ( WL? 'ME_53CCCA5B036F' // TalcuBaseEngine
+ WL? 'ME_53CE4F2F008D' // TalcuBaseEngineHolder
  )
  ; // Children
  MELIST Depends

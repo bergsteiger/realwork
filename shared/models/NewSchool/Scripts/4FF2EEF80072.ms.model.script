@@ -2,6 +2,18 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+MEREF ME_47ECE94D03D4_ME_4FF2EEF80072_G
+ MELINK Original WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47ECE94D03D4_ME_4FF2EEF80072_G vcmFormDataSourcePrim
+
+MEREF ME_4FF2E6F200CC_ME_4FF2EEF80072_R
+ MELINK Original WL 'ME_4FF2E6F200CC' '491B305A0096.ms.model.script' // IdsAACContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FF2E6F200CC_ME_4FF2EEF80072_R IdsAACContainer
+
 %%ImplementedBy ME_4FF2E6F200CC ME_4FF2EEF80072
 
 %%InheritedBy ME_47ECE94D03D4 ME_4FF2EEF80072
@@ -18,11 +30,11 @@ ME ME_4FF2EEF80072
  MELINK Parent WL? 'ME_4FF2E66802B4' // AACImplementation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47ECE94D03D4' // vcmFormDataSourcePrim
+   Seq: ( ME_47ECE94D03D4_ME_4FF2EEF80072_G // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FF2E6F200CC' '491B305A0096.ms.model.script' // IdsAACContainer
+   Seq: ( ME_4FF2E6F200CC_ME_4FF2EEF80072_R // IdsAACContainer
  )
  ; // Implements
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACContainer.pas'

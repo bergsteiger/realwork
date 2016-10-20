@@ -4,84 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_4D551198021D
 
-FORWARD ME_4D551198021D
-
-FORWARD ME_4D5511DB011D
-
-ME ME_4D55121700BA
- MEPROP UID '4D55121700BA'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4D5511DB011D // TvgSceneList
- ;
- MELINK Target WL 'ME_4D550C5B0341' '4D550C220363.ms.model.script' // IvgScene
- ;
-
-ENDME // ME_4D55121700BA ItemType
-
-ME ME_47B07CF403D0_ME_4D5511DB011D
- MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_4D5511DB011D IsSameItems
-
-ME ME_47B2C42A0163_ME_4D5511DB011D
- MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifdef" 'l3Items_NeedsAssignItem'
- UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4D5511DB011D AssignItem
-
-ME ME_47B99D4503A2_ME_4D5511DB011D
- MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4D5511DB011D CompareExistingItems
-
-%%InheritedBy ME_4A54DD4E036F ME_4D5511DB011D
-%%InheritedBy ME_4A6FFCC00354 ME_4D5511DB011D
-
-ME ME_4D5511DB011D
- MEPROP UID '4D5511DB011D'
- MEPROP Name 'TvgSceneList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4D551198021D // lulin1
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL? 'ME_4A6FFCC00354' // l3InterfacePtrListPrim
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_4D55121700BA // ItemType
- )
- ; // Attributes
- MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_4D5511DB011D // IsSameItems
- ME_47B2C42A0163_ME_4D5511DB011D // AssignItem
- ME_47B99D4503A2_ME_4D5511DB011D // CompareExistingItems
- )
- ; // Implemented
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '11.02.2011 13:39'
- UP intf.pas:Path 'common\components\rtl\external\VGScene\vgSceneList.pas'
- UP extprop:rc:SelfName 'SceneList'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'vgSceneList'
-
-ENDME // ME_4D5511DB011D TvgSceneList
-
 ME ME_4D551198021D
  MEPROP UID '4D551198021D'
  MEPROP Name 'lulin1'
@@ -93,7 +15,7 @@ ME ME_4D551198021D
  MELINK Parent WL? 'ME_4CFCE4F203CE' // VGScene
  ;
  MELIST Children
-   Seq: ( HWL ME_4D5511DB011D // TvgSceneList
+   Seq: ( WL? 'ME_4D5511DB011D' // TvgSceneList
  )
  ; // Children
  MELIST Depends

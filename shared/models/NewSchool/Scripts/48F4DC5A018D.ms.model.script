@@ -1,0 +1,73 @@
+// TevNodeDataObject 48F4DC5A018D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F4DC5A018D
+
+ME ME_48F8CA81035D
+ MEPROP UID '48F8CA81035D'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4DC5A018D // TevNodeDataObject
+ ;
+ MELINK Target WL? 'ME_48F4D8230366' // TevNodeStorable
+ ;
+
+ENDME // ME_48F8CA81035D StorableClass
+
+ME ME_48F8CAFC0156
+ MEPROP UID '48F8CAFC0156'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4DC5A018D // TevNodeDataObject
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_48F8CAFC0156 DataType
+
+MEREF ME_48F8C3780325_ME_48F4DC5A018D_G
+ MELINK Original WL? 'ME_48F8C3780325' // evDataObjectFromStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F8C3780325_ME_48F4DC5A018D_G evDataObjectFromStorable
+
+%%InheritedBy ME_48F8C3780325 ME_48F4DC5A018D
+
+ME ME_48F4DC5A018D
+ MEPROP UID '48F4DC5A018D'
+ MEPROP Name 'TevNodeDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F8C3780325_ME_48F4DC5A018D_G // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8CA81035D // StorableClass
+ HWL ME_48F8CAFC0156 // DataType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '26.12.2006 16:16'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evNodeDataObject.pas'
+ UP extprop:rc:SelfName 'NodeDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evNodeDataObject'
+
+ENDME // ME_48F4DC5A018D TevNodeDataObject

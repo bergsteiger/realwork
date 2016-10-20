@@ -1,0 +1,127 @@
+// TevReqRow 4857EAD30281 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4857EAD30281
+
+ME ME_0626BAE6331F
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EAD30281 // TevReqRow
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_0626BAE6331F 
+
+ME ME_00859314149C
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EAD30281 // TevReqRow
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+
+ENDME // ME_00859314149C 
+
+ME ME_C8B41A6BF7BA
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EAD30281 // TevReqRow
+ ;
+ MELINK Target WL 'ME_47CD6644026F' '47CD5C7602CD.ms.model.script' // IevReq
+ ;
+
+ENDME // ME_C8B41A6BF7BA 
+
+ME ME_3E722367B733
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EAD30281 // TevReqRow
+ ;
+ MELINK Target WL 'ME_47CD74AD0343' '47CD5C7602CD.ms.model.script' // IevComboReq
+ ;
+
+ENDME // ME_3E722367B733 
+
+ME ME_98454C2605B6
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EAD30281 // TevReqRow
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_98454C2605B6 
+
+MEREF ME_53CCBDA5026D_ME_4857EAD30281_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_4857EAD30281_over COMQueryTool
+
+MEREF ME_4857D32B011E_ME_4857EAD30281_G
+ MELINK Original WL? 'ME_4857D32B011E' // TevTableRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857D32B011E_ME_4857EAD30281_G TevTableRow
+
+MEREF ME_4857EA97011D_ME_4857EAD30281_R
+ MELINK Original WL 'ME_4857EA97011D' '48492FC0029D.ms.model.script' // ReqRow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857EA97011D_ME_4857EAD30281_R ReqRow
+
+%%ImplementedBy ME_4857EA97011D ME_4857EAD30281
+
+%%InheritedBy ME_4857D32B011E ME_4857EAD30281
+
+ME ME_4857EAD30281
+ MEPROP UID '4857EAD30281'
+ MEPROP Name 'TevReqRow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( ME_4857D32B011E_ME_4857EAD30281_G // TevTableRow
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4857EA97011D_ME_4857EAD30281_R // ReqRow
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53CCBDA5026D_ME_4857EAD30281_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_0626BAE6331F // IevPainter
+ ME_00859314149C // InevHotSpotTester2
+ ME_C8B41A6BF7BA // IevReq
+ ME_3E722367B733 // IevComboReq
+ ME_98454C2605B6 // InevDrawingShape
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_53D667F403CC' '50D3F54E00A8.ms.model.script' // TevReqRowPainter
+ WL 'ME_53D6687F003B' '53D668610126.ms.model.script' // TevReqRowHotSpotTester
+ WL 'ME_53D668FB01EB' '53D668DE0251.ms.model.script' // TevReqRowModelControlMapper
+ )
+ ; // Injected
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqRow_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TevReqRowInterfaceFactory'
+ UP extprop:rc:SelfName 'ReqRowInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqRow_InterfaceFactory'
+
+ENDME // ME_4857EAD30281 TevReqRow

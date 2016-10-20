@@ -1,0 +1,149 @@
+// TatTestChatOperation 4B7155A4014A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B7155A4014A
+
+ME ME_4B7155D602CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_4B683B57028D' // TatChatWorker
+ ;
+
+ENDME // ME_4B7155D602CE 
+
+ME ME_4B7155EC03B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4B7155EC03B4 
+
+ME ME_4B71561D0394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL 'ME_4B6BFA9E030A' '4B6C27F50058.ms.model.script' // TatArrayOfUID
+ ;
+
+ENDME // ME_4B71561D0394 
+
+ME ME_4B715620039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_4B6C27F50058' // TatUserListHelper
+ ;
+
+ENDME // ME_4B715620039F 
+
+ME ME_4B719207015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4B719207015D 
+
+ME ME_4B7290570157
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4B7290570157 
+
+ME ME_4B758D340219
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL 'ME_480768DD00F0' '478CF30500C1.ms.model.script' // TList
+ ;
+
+ENDME // ME_4B758D340219 
+
+ME ME_4B75914E004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B7155A4014A // TatTestChatOperation
+ ;
+ MELINK Target WL? 'ME_48172C290190' // atCommon
+ ;
+
+ENDME // ME_4B75914E004C 
+
+MEREF ME_48089F460352_ME_4B7155A4014A_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_4B7155A4014A_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_4B7155A4014A_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_4B7155A4014A_over InitParamList
+
+MEREF ME_48076E9D013E_ME_4B7155A4014A_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_4B7155A4014A_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_4B7155A4014A
+
+ME ME_4B7155A4014A
+ MEPROP UID '4B7155A4014A'
+ MEPROP Name 'TatTestChatOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_4B7155A4014A_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4B7155A4014A_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4B7155A4014A_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B7155D602CE // TatChatWorker
+ ME_4B7155EC03B4 // SysUtils
+ ME_4B71561D0394 // TatArrayOfUID
+ ME_4B715620039F // TatUserListHelper
+ ME_4B719207015D // Windows
+ ME_4B7290570157 // atLogger
+ ME_4B758D340219 // TList
+ ME_4B75914E004C // atCommon
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atTestChatOperation.pas'
+ UP extprop:rc:SelfName 'atTestChatOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atTestChatOperation'
+
+ENDME // ME_4B7155A4014A TatTestChatOperation

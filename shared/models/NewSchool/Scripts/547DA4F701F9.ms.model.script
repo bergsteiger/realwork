@@ -27,18 +27,30 @@ ME ME_547DA57802CD
 
 ENDME // ME_547DA57802CD Control
 
-ME ME_547CA11F002F_ME_547DA51401F2
+MEREF ME_547CA11F002F_ME_547DA51401F2_impl
  MELINK Original WL 'ME_547CA11F002F' '547C9F6D029C.ms.model.script' // Control
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_547CA11F002F_ME_547DA51401F2 Control
+ENDMEREF // ME_547CA11F002F_ME_547DA51401F2_impl Control
 
-ME ME_515317860183_ME_547DA51401F2
+MEREF ME_515317860183_ME_547DA51401F2_over
  MELINK Original WL 'ME_515317860183' '47E11FC3021E.ms.model.script' // MouseWheelHandler
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_515317860183_ME_547DA51401F2 MouseWheelHandler
+ENDMEREF // ME_515317860183_ME_547DA51401F2_over MouseWheelHandler
+
+MEREF ME_547CB3C6025E_ME_547DA51401F2_G
+ MELINK Original WL 'ME_547CB3C6025E' '547CB3B5032B.ms.model.script' // TevCustomToolPanel
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547CB3C6025E_ME_547DA51401F2_G TevCustomToolPanel
+
+MEREF ME_547CA0E40341_ME_547DA51401F2_R
+ MELINK Original WL 'ME_547CA0E40341' '547C9F6D029C.ms.model.script' // IevLinkedToolWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547CA0E40341_ME_547DA51401F2_R IevLinkedToolWindow
 
 %%ImplementedBy ME_547CA0E40341 ME_547DA51401F2
 
@@ -56,11 +68,11 @@ ME ME_547DA51401F2
  MELINK Parent HWL ME_547DA4F701F9 // evLinkedToolPanel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547CB3C6025E' '547CB3B5032B.ms.model.script' // TevCustomToolPanel
+   Seq: ( ME_547CB3C6025E_ME_547DA51401F2_G // TevCustomToolPanel
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_547CA0E40341' '547C9F6D029C.ms.model.script' // IevLinkedToolWindow
+   Seq: ( ME_547CA0E40341_ME_547DA51401F2_R // IevLinkedToolWindow
  )
  ; // Implements
  MELIST Attributes
@@ -68,11 +80,11 @@ ME ME_547DA51401F2
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_547CA11F002F_ME_547DA51401F2 // Control
+   Seq: ( ME_547CA11F002F_ME_547DA51401F2_impl // Control
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_515317860183_ME_547DA51401F2 // MouseWheelHandler
+   Seq: ( ME_515317860183_ME_547DA51401F2_over // MouseWheelHandler
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

@@ -1,0 +1,152 @@
+// TCsQueryRequesterTool 538DA33503D9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DA33503D9
+
+FORWARD ME_538DA34E03C3
+
+ME ME_538DA3A403A5
+ MEPROP Name 'aQueryId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_538DA3A403A5 aQueryId
+
+ME ME_538DA5410050
+ MEPROP Name 'aClientID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
+ ;
+
+ENDME // ME_538DA5410050 aClientID
+
+ME ME_538DA44C01E7
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_537F62DD009F' // TCsDataPipe
+ ;
+
+ENDME // ME_538DA44C01E7 aPipe
+
+ME ME_538DA51300CC
+ MEPROP Name 'aQueryProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_538DA3DA035E' '538DA3BD02A0.ms.model.script' // TCsQueryProc
+ ;
+
+ENDME // ME_538DA51300CC aQueryProc
+
+ME ME_538DA58C03A6
+ MEPROP Name 'aWrite2Log'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_538DA58C03A6 aWrite2Log
+
+ME ME_538DA37301F1
+ MEPROP UID '538DA37301F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_538DA3A403A5 // aQueryId
+ ME_538DA5410050 // aClientID
+ ME_538DA44C01E7 // aPipe
+ ME_538DA51300CC // aQueryProc
+ ME_538DA58C03A6 // aWrite2Log
+ )
+ ; // Parameters
+
+ENDME // ME_538DA37301F1 DoIt
+
+ME ME_538DA3F903B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_538DA3F903B5 
+
+ME ME_538DA4B3025F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
+ ;
+ MELINK Target WL? 'ME_538DA49902A4' // CsConst
+ ;
+
+ENDME // ME_538DA4B3025F 
+
+ME ME_538DA56801C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
+ ;
+ MELINK Target WL 'ME_4767748503B5' '4767743E00E5.ms.model.script' // TTypeInfo
+ ;
+
+ENDME // ME_538DA56801C9 
+
+ME ME_538DA34E03C3
+ MEPROP UID '538DA34E03C3'
+ MEPROP Name 'ExecuteQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_538DA33503D9 // TCsQueryRequesterTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DA37301F1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_538DA3F903B5 // l3Base
+ ME_538DA4B3025F // CsConst
+ ME_538DA56801C9 // TTypeInfo
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_538DA34E03C3 ExecuteQuery
+
+ME ME_538DA33503D9
+ MEPROP UID '538DA33503D9'
+ MEPROP Name 'TCsQueryRequesterTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA20300A7' // ClientSide
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_538DA34E03C3 // ExecuteQuery
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsQueryRequesterTool.pas'
+ UP extprop:rc:SelfName 'CsQueryRequesterTool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsQueryRequesterTool'
+
+ENDME // ME_538DA33503D9 TCsQueryRequesterTool

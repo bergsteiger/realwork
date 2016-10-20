@@ -19,7 +19,7 @@ ME ME_4E007EF703CE
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4E007419002D // TarCustomDocument
  ;
- MELINK Target WL 'ME_4E007ECC01EC' '4E0072500208.ms.model.script' // RarTextOfDocument
+ MELINK Target WL 'ME_4E007ECC01EC' '4E0072E100DB.ms.model.script' // RarTextOfDocument
  ;
 
 ENDME // ME_4E007EF703CE GetTextOfDocumentClass
@@ -29,7 +29,7 @@ ME ME_4F7D45950280
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E007419002D // TarCustomDocument
  ;
- MELINK Target WL 'ME_4F7D3EB4039D' '47ECACA70141.ms.model.script' // TevOutTextParaEliminator
+ MELINK Target WL? 'ME_4F7D3EB4039D' // TevOutTextParaEliminator
  ;
 
 ENDME // ME_4F7D45950280 
@@ -39,7 +39,7 @@ ME ME_57E3AAFA0258
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E007419002D // TarCustomDocument
  ;
- MELINK Target WL 'ME_57CFC14E01DF' '57CFC13E033D.ms.model.script' // TarRemoteSaveDocumentHelper
+ MELINK Target WL? 'ME_57CFC14E01DF' // TarRemoteSaveDocumentHelper
  ;
 
 ENDME // ME_57E3AAFA0258 
@@ -76,16 +76,22 @@ ME ME_4F9502DD02C5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E00742A00F5 // TarSprDocument
  ;
- MELINK Target WL 'ME_4F9502130133' '4E0072500208.ms.model.script' // TarSpravkaTextOfDocument
+ MELINK Target WL? 'ME_4F9502130133' // TarSpravkaTextOfDocument
  ;
 
 ENDME // ME_4F9502DD02C5 
 
-ME ME_4E007EF703CE_ME_4E00742A00F5
+MEREF ME_4E007EF703CE_ME_4E00742A00F5_impl
  MELINK Original HWL ME_4E007EF703CE // GetTextOfDocumentClass
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4E007EF703CE_ME_4E00742A00F5 GetTextOfDocumentClass
+ENDMEREF // ME_4E007EF703CE_ME_4E00742A00F5_impl GetTextOfDocumentClass
+
+MEREF ME_4E007419002D_ME_4E00742A00F5_G
+ MELINK Original HWL ME_4E007419002D // TarCustomDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E007419002D_ME_4E00742A00F5_G TarCustomDocument
 
 %%InheritedBy ME_4E007419002D ME_4E00742A00F5
 
@@ -100,11 +106,11 @@ ME ME_4E00742A00F5
  MELINK Parent HWL ME_4E0072C40154 // DocIntf
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E007419002D // TarCustomDocument
+   Seq: ( ME_4E007419002D_ME_4E00742A00F5_G // TarCustomDocument
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4E007EF703CE_ME_4E00742A00F5 // GetTextOfDocumentClass
+   Seq: ( ME_4E007EF703CE_ME_4E00742A00F5_impl // GetTextOfDocumentClass
  )
  ; // Implemented
  MELIST Dependencies
@@ -122,11 +128,17 @@ ENDME // ME_4E00742A00F5 TarSprDocument
 
 FORWARD ME_4E00743901FC
 
-ME ME_4E007EF703CE_ME_4E00743901FC
+MEREF ME_4E007EF703CE_ME_4E00743901FC_impl
  MELINK Original HWL ME_4E007EF703CE // GetTextOfDocumentClass
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4E007EF703CE_ME_4E00743901FC GetTextOfDocumentClass
+ENDMEREF // ME_4E007EF703CE_ME_4E00743901FC_impl GetTextOfDocumentClass
+
+MEREF ME_4E007419002D_ME_4E00743901FC_G
+ MELINK Original HWL ME_4E007419002D // TarCustomDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E007419002D_ME_4E00743901FC_G TarCustomDocument
 
 %%InheritedBy ME_4E007419002D ME_4E00743901FC
 
@@ -141,11 +153,11 @@ ME ME_4E00743901FC
  MELINK Parent HWL ME_4E0072C40154 // DocIntf
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4E007419002D // TarCustomDocument
+   Seq: ( ME_4E007419002D_ME_4E00743901FC_G // TarCustomDocument
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_4E007EF703CE_ME_4E00743901FC // GetTextOfDocumentClass
+   Seq: ( ME_4E007EF703CE_ME_4E00743901FC_impl // GetTextOfDocumentClass
  )
  ; // Implemented
  UP "finished" false
@@ -207,7 +219,7 @@ ME ME_4E007EEC0321
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E0072C40154 // DocIntf
  ;
- MELINK Target WL 'ME_4E0072E100DB' '4E0072500208.ms.model.script' // TarTextOfDocument
+ MELINK Target WL? 'ME_4E0072E100DB' // TarTextOfDocument
  ;
 
 ENDME // ME_4E007EEC0321 

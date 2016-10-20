@@ -1,0 +1,210 @@
+// TdDrugList 47EB3E410033 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EB3E410033
+
+ME ME_47FF3A7E02A7
+ MEPROP UID '47FF3A7E02A7'
+ MEPROP Name 'f_NodeForPositioning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47EB3E410033 // TdDrugList
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_47FF3A7E02A7 f_NodeForPositioning
+
+ME ME_47F37FDA00B9
+ MEPROP UID '47F37FDA00B9'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47EB3E410033 // TdDrugList
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_47F37FDA00B9 f_List
+
+ME ME_4B220E3B03E3
+ MEPROP UID '4B220E3B03E3'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47EB3E410033 // TdDrugList
+ ;
+ MELINK Target WL 'ME_47EB3BEB00F1' '491D7C9603B2.ms.model.script' // IdDrugList
+ ;
+
+ENDME // ME_4B220E3B03E3 IvcmRealData
+
+ME ME_494176F40163
+ MEPROP UID '494176F40163'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'Фабричный метод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47EB3E410033 // TdDrugList
+ ;
+
+ENDME // ME_494176F40163 Make
+
+ME ME_47EB5C780228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EB3E410033 // TdDrugList
+ ;
+ MELINK Target WL 'ME_47EB55FD007A' '4982B6510327.ms.model.script' // TvcmFormDataSourceRef
+ ;
+
+ENDME // ME_47EB5C780228 
+
+MEREF ME_0048137F6167_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_0048137F6167' '491D7C9603B2.ms.model.script' // dsFiltersRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_0048137F6167_ME_47EB3E410033_impl dsFiltersRef
+
+MEREF ME_38AF3FCA8739_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_38AF3FCA8739' '491D7C9603B2.ms.model.script' // dsDrugListRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_38AF3FCA8739_ME_47EB3E410033_impl dsDrugListRef
+
+MEREF ME_47F37CF2000D_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_47F37CF2000D' '491D7C9603B2.ms.model.script' // List
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47F37CF2000D_ME_47EB3E410033_impl List
+
+MEREF ME_47FF3A4C03E7_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_47FF3A4C03E7' '491D7C9603B2.ms.model.script' // NodeForPositioning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47FF3A4C03E7_ME_47EB3E410033_impl NodeForPositioning
+
+MEREF ME_6DCE2C2DE35F_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_6DCE2C2DE35F' '491D7C9603B2.ms.model.script' // dsListInfoRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_6DCE2C2DE35F_ME_47EB3E410033_impl dsListInfoRef
+
+MEREF ME_8C15EA0B7407_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_8C15EA0B7407' '491D7C9603B2.ms.model.script' // dsSynchroViewRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_8C15EA0B7407_ME_47EB3E410033_impl dsSynchroViewRef
+
+MEREF ME_B53EF7286977_ME_47EB3E410033_impl
+ MELINK Original WL 'ME_B53EF7286977' '491D7C9603B2.ms.model.script' // DrugList_SynchroView_Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDMEREF // ME_B53EF7286977_ME_47EB3E410033_impl DrugList_SynchroView_Form
+
+MEREF ME_47A042E100E2_ME_47EB3E410033_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_47EB3E410033_over InitFields
+
+MEREF ME_4B16B8CF0307_ME_47EB3E410033_over
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B16B8CF0307_ME_47EB3E410033_over AssignData
+
+MEREF ME_47F07A9F0098_ME_47EB3E410033_G
+ MELINK Original WL? 'ME_47F07A9F0098' // dBaseDrugDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F07A9F0098_ME_47EB3E410033_G dBaseDrugDocument
+
+MEREF ME_47EB3BEB00F1_ME_47EB3E410033_R
+ MELINK Original WL 'ME_47EB3BEB00F1' '491D7C9603B2.ms.model.script' // IdDrugList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47EB3BEB00F1_ME_47EB3E410033_R IdDrugList
+
+%%ImplementedBy ME_47EB3BEB00F1 ME_47EB3E410033
+
+%%InheritedBy ME_47F07A9F0098 ME_47EB3E410033
+
+ME ME_47EB3E410033
+ MEPROP UID '47EB3E410033'
+ MEPROP Name 'TdDrugList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные сборки "Список лекартсвенных препаратов".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A9FCCDB035B' // DrugData
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F07A9F0098_ME_47EB3E410033_G // dBaseDrugDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47EB3BEB00F1_ME_47EB3E410033_R // IdDrugList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47FF3A7E02A7 // f_NodeForPositioning
+ HWL ME_47F37FDA00B9 // f_List
+ HWL ME_4B220E3B03E3 // IvcmRealData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_494176F40163 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_0048137F6167_ME_47EB3E410033_impl // dsFiltersRef
+ ME_38AF3FCA8739_ME_47EB3E410033_impl // dsDrugListRef
+ ME_47F37CF2000D_ME_47EB3E410033_impl // List
+ ME_47FF3A4C03E7_ME_47EB3E410033_impl // NodeForPositioning
+ ME_6DCE2C2DE35F_ME_47EB3E410033_impl // dsListInfoRef
+ ME_8C15EA0B7407_ME_47EB3E410033_impl // dsSynchroViewRef
+ ME_B53EF7286977_ME_47EB3E410033_impl // DrugList_SynchroView_Form
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_47EB3E410033_over // InitFields
+ ME_4B16B8CF0307_ME_47EB3E410033_over // AssignData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47EB5C780228 // TvcmFormDataSourceRef
+ )
+ ; // Dependencies
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dDrugList.pas'
+ UP extprop:rc:SelfName 'dDrugList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dDrugList'
+
+ENDME // ME_47EB3E410033 TdDrugList

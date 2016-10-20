@@ -1,0 +1,45 @@
+// TdeMedicDiction 492559970076 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492559970076
+
+MEREF ME_4B1E714A0125_ME_492559970076_over
+ MELINK Original WL 'ME_4B1E714A0125' '491C0BE302FF.ms.model.script' // DefaultDocType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1E714A0125_ME_492559970076_over DefaultDocType
+
+MEREF ME_4B1E70D20312_ME_492559970076_G
+ MELINK Original WL? 'ME_4B1E70D20312' // TdeCommonDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1E70D20312_ME_492559970076_G TdeCommonDiction
+
+%%InheritedBy ME_4B1E70D20312 ME_492559970076
+
+ME ME_492559970076
+ MEPROP UID '492559970076'
+ MEPROP Name 'TdeMedicDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B1E70D20312_ME_492559970076_G // TdeCommonDiction
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4B1E714A0125_ME_492559970076_over // DefaultDocType
+ )
+ ; // Overridden
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\deMedicDiction.pas'
+ UP extprop:rc:SelfName 'deMedicDiction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'deMedicDiction'
+
+ENDME // ME_492559970076 TdeMedicDiction

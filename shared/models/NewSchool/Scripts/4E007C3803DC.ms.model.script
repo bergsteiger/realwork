@@ -1,0 +1,80 @@
+// TarDocumentContainer 4E007C3803DC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E007C3803DC
+
+ME ME_4E007CAA032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007C3803DC // TarDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4E004E2F0251' // TarHAFPainer
+ ;
+
+ENDME // ME_4E007CAA032D 
+
+ME ME_535F5A68007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007C3803DC // TarDocumentContainer
+ ;
+ MELINK Target WL? 'ME_535F5A0E0098' // TarSubImplementation
+ ;
+
+ENDME // ME_535F5A68007B 
+
+MEREF ME_47F27721012A_ME_4E007C3803DC_over
+ MELINK Original WL 'ME_47F27721012A' '47F0870E0034.ms.model.script' // DoGetSubEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27721012A_ME_4E007C3803DC_over DoGetSubEx
+
+MEREF ME_47F35CAC00E4_ME_4E007C3803DC_over
+ MELINK Original WL 'ME_47F35CAC00E4' '47F34F00021C.ms.model.script' // HAFPainterClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35CAC00E4_ME_4E007C3803DC_over HAFPainterClass
+
+MEREF ME_47F34F00021C_ME_4E007C3803DC_G
+ MELINK Original WL? 'ME_47F34F00021C' // TnevPrintableDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F34F00021C_ME_4E007C3803DC_G TnevPrintableDocumentContainer
+
+%%InheritedBy ME_47F34F00021C ME_4E007C3803DC
+
+ME ME_4E007C3803DC
+ MEPROP UID '4E007C3803DC'
+ MEPROP Name 'TarDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E004D460329' // DocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F34F00021C_ME_4E007C3803DC_G // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F27721012A_ME_4E007C3803DC_over // DoGetSubEx
+ ME_47F35CAC00E4_ME_4E007C3803DC_over // HAFPainterClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E007CAA032D // TarHAFPainer
+ ME_535F5A68007B // TarSubImplementation
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\arDocumentContainer.pas'
+ UP extprop:rc:SelfName 'arDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arDocumentContainer'
+
+ENDME // ME_4E007C3803DC TarDocumentContainer

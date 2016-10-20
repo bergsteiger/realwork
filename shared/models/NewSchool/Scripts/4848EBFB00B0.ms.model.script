@@ -1,0 +1,410 @@
+// TnevTableRowRenderInfo 4848EBFB00B0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4848EBFB00B0
+
+ME ME_4848EC670029
+ MEPROP UID '4848EC670029'
+ MEPROP Name 'f_DeltaHeight'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Здесь храним вычисленную поправку к высоте.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4848EC670029 f_DeltaHeight
+
+ME ME_4B3B21C000CD
+ MEPROP UID '4B3B21C000CD'
+ MEPROP Name 'f_GreatestObjPID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Индекс продолжения Head-ячейки в последней строке (если она Head-ячейка влияет на высоту - иначе -1).' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B3B21C000CD f_GreatestObjPID
+
+ME ME_4BA35B4502AE
+ MEPROP UID '4BA35B4502AE'
+ MEPROP Name 'f_HeightList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_4BA35B4502AE f_HeightList
+
+ME ME_4C0D258C0296
+ MEPROP UID '4C0D258C0296'
+ MEPROP Name 'f_AllCellsIsMerged'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Все ячейки строки объединены' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C0D258C0296 f_AllCellsIsMerged
+
+ME ME_55794E9D00F6
+ MEPROP UID '55794E9D00F6'
+ MEPROP Name 'f_HeadMax'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55794E9D00F6 f_HeadMax
+
+FORWARD ME_4B9A319D01D2
+
+ME ME_4B9A31B401AB
+ MEPROP UID '4B9A31B401AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9A319D01D2 // CheckDeltaHeight
+ ;
+
+ENDME // ME_4B9A31B401AB DoIt
+
+ME ME_4B9A319D01D2
+ MEPROP UID '4B9A319D01D2'
+ MEPROP Name 'CheckDeltaHeight'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B9A31B401AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B9A319D01D2 CheckDeltaHeight
+
+FORWARD ME_50A37A030343
+
+ME ME_50A38D7C00B4
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50A38D7C00B4 anIndex
+
+ME ME_50A37A750013
+ MEPROP UID '50A37A750013'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50A37A030343 // IsCellChildSpacingEqual
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50A38D7C00B4 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_50A37A750013 DoIt
+
+ME ME_50A37A030343
+ MEPROP UID '50A37A030343'
+ MEPROP Name 'IsCellChildSpacingEqual'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50A37A750013 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50A37A030343 IsCellChildSpacingEqual
+
+ME ME_4848EECE0287
+ MEPROP UID '4848EECE0287'
+ MEPROP Name 'CalcDeltaHeight'
+ MEPROP Class class_Operation
+ %SUMMARY 'Здесь считаем добавку к высоте строки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4848EECE0287 CalcDeltaHeight
+
+ME ME_4848F03C009F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_481EC92500B4' '4810DFE100B4.ms.model.script' // TnevRenderingInfoPart
+ ;
+
+ENDME // ME_4848F03C009F 
+
+ME ME_484A38FB0141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_484A38FB0141 
+
+ME ME_484A39C4011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_484A39C4011A 
+
+ME ME_484A39EB0392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL? 'ME_47D00CC20108' // nevFacade
+ ;
+
+ENDME // ME_484A39EB0392 
+
+ME ME_484A3A410327
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_484A3A410327 
+
+ME ME_484A3AB201A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_484A3AB201A7 
+
+ME ME_49D10FD2026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_49D10FD2026B 
+
+ME ME_4B9A311301F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4B9A311301F9 
+
+ME ME_4BA35B8100FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4BA35B8100FE 
+
+ME ME_4BCE9D720213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4BCE9D720213 
+
+ME ME_4CA1F308000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4848EBFB00B0 // TnevTableRowRenderInfo
+ ;
+ MELINK Target WL? 'ME_4C3849220132' // evTableCellUtils
+ ;
+
+ENDME // ME_4CA1F308000F 
+
+MEREF ME_479731C50290_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4848EBFB00B0_over Cleanup
+
+MEREF ME_48175C1302A3_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_48175C1302A3' '4810DFE100B4.ms.model.script' // wForce
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48175C1302A3_ME_4848EBFB00B0_over wForce
+
+MEREF ME_4848EB800387_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4848EB800387' '4810DFE100B4.ms.model.script' // locDeltaHeight
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_4848EB800387_ME_4848EBFB00B0_over locDeltaHeight
+
+MEREF ME_4B9A10070246_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4B9A10070246' '4810DFE100B4.ms.model.script' // DoCompareWithMax
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B9A10070246_ME_4848EBFB00B0_over DoCompareWithMax
+
+MEREF ME_4B9A1028013D_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4B9A1028013D' '4810DFE100B4.ms.model.script' // DoUpdateHeitghPart
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B9A1028013D_ME_4848EBFB00B0_over DoUpdateHeitghPart
+
+MEREF ME_4BC45843011E_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4BC45843011E' '4810DFE100B4.ms.model.script' // GetMaxLinesCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BC45843011E_ME_4848EBFB00B0_over GetMaxLinesCount
+
+MEREF ME_4C0D27380357_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4C0D27380357' '4810DFE100B4.ms.model.script' // GetIsHidden
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C0D27380357_ME_4848EBFB00B0_over GetIsHidden
+
+MEREF ME_4E7096D600BD_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_4E7096D600BD' '4815B8510359.ms.model.script' // HRecalcChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E7096D600BD_ME_4848EBFB00B0_over HRecalcChild
+
+MEREF ME_55794BA600EA_ME_4848EBFB00B0_over
+ MELINK Original WL 'ME_55794BA600EA' '4678209200A6.ms.model.script' // GreatestObjPID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55794BA600EA_ME_4848EBFB00B0_over GreatestObjPID
+
+MEREF ME_4815B8510359_ME_4848EBFB00B0_G
+ MELINK Original WL? 'ME_4815B8510359' // TnevListFormatInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4815B8510359_ME_4848EBFB00B0_G TnevListFormatInfo
+
+%%InheritedBy ME_4815B8510359 ME_4848EBFB00B0
+
+ME ME_4848EBFB00B0
+ MEPROP UID '4848EBFB00B0'
+ MEPROP Name 'TnevTableRowRenderInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о форматировании строки таблицы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48185390010A' // Rendering
+ ;
+ MELIST Inherits
+   Seq: ( ME_4815B8510359_ME_4848EBFB00B0_G // TnevListFormatInfo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4848EC670029 // f_DeltaHeight
+ HWL ME_4B3B21C000CD // f_GreatestObjPID
+ HWL ME_4BA35B4502AE // f_HeightList
+ HWL ME_4C0D258C0296 // f_AllCellsIsMerged
+ HWL ME_55794E9D00F6 // f_HeadMax
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B9A319D01D2 // CheckDeltaHeight
+ HWL ME_50A37A030343 // IsCellChildSpacingEqual
+ HWL ME_4848EECE0287 // CalcDeltaHeight
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4848EBFB00B0_over // Cleanup
+ ME_48175C1302A3_ME_4848EBFB00B0_over // wForce
+ ME_4848EB800387_ME_4848EBFB00B0_over // locDeltaHeight
+ ME_4B9A10070246_ME_4848EBFB00B0_over // DoCompareWithMax
+ ME_4B9A1028013D_ME_4848EBFB00B0_over // DoUpdateHeitghPart
+ ME_4BC45843011E_ME_4848EBFB00B0_over // GetMaxLinesCount
+ ME_4C0D27380357_ME_4848EBFB00B0_over // GetIsHidden
+ ME_4E7096D600BD_ME_4848EBFB00B0_over // HRecalcChild
+ ME_55794BA600EA_ME_4848EBFB00B0_over // GreatestObjPID
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4848F03C009F // TnevRenderingInfoPart
+ ME_484A38FB0141 // l3MinMax
+ ME_484A39C4011A // InevPara
+ ME_484A39EB0392 // nevFacade
+ ME_484A3A410327 // Tk2TagID
+ ME_484A3AB201A7 // MergeStatus
+ ME_49D10FD2026B // TnevFormatInfoPrim
+ ME_4B9A311301F9 // evL3CoreConsts
+ ME_4BA35B8100FE // FreeAndNil
+ ME_4BCE9D720213 // l3Base
+ ME_4CA1F308000F // evTableCellUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '06.06.2008 11:50'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTableRowRenderInfo.pas'
+ UP extprop:rc:SelfName 'TableRowRenderInfo'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevTableRowRenderInfo'
+
+ENDME // ME_4848EBFB00B0 TnevTableRowRenderInfo

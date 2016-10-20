@@ -1,0 +1,79 @@
+// Tl3BaseWithIDList 47BD8675002D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BD8675002D
+
+ME ME_47BD86E40149
+ MEPROP UID '47BD86E40149'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47BD8675002D // Tl3BaseWithIDList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BD86E40149 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_47BD8675002D_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47BD8675002D_over CompareItemWithData
+
+MEREF ME_47BD864F00D2_ME_47BD8675002D_G
+ MELINK Original WL? 'ME_47BD864F00D2' // Tl3BaseWithIDListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BD864F00D2_ME_47BD8675002D_G Tl3BaseWithIDListPrim
+
+MEREF ME_47B47E230134_ME_47BD8675002D_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47BD8675002D_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47BD8675002D
+
+%%InheritedBy ME_47BD864F00D2 ME_47BD8675002D
+
+ME ME_47BD8675002D
+ MEPROP UID '47BD8675002D'
+ MEPROP Name 'Tl3BaseWithIDList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BD864F00D2_ME_47BD8675002D_G // Tl3BaseWithIDListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_47BD8675002D_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47BD86E40149 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BD8675002D_over // CompareItemWithData
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3BaseWithIDList.pas'
+ UP extprop:rc:SelfName 'BaseWithIDList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3BaseWithIDList'
+
+ENDME // ME_47BD8675002D Tl3BaseWithIDList

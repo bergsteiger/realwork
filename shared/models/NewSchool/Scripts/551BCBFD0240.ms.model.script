@@ -1,0 +1,251 @@
+// Tl3FormatObjectInfoHelper 551BCBFD0240 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_551BCBFD0240
+
+FORWARD ME_551BCBFD0240
+
+FORWARD ME_6FB88E211F27
+
+FORWARD ME_551BCC1F00E6
+
+ME ME_18E0BD886492
+ MEPROP Name 'anObject'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_18E0BD886492 anObject
+
+ME ME_18E0BD886493
+ MEPROP Name 'aShortInfo'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_18E0BD886493 aShortInfo
+
+ME ME_18E0BD886494
+ MEPROP Name 'anObjectPropFound'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5320560B0287' '5012BFDC0300.ms.model.script' // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ENDME // ME_18E0BD886494 anObjectPropFound
+
+ME ME_D4A861440DBF
+ MEPROP UID 'D4A861440DBF'
+ MEPROP Name 'Format'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_18E0BD886492 // anObject
+ ME_18E0BD886493 // aShortInfo
+ ME_18E0BD886494 // anObjectPropFound
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_551BCC1F00E6 // Format
+ ;
+
+ENDME // ME_D4A861440DBF Format
+
+ME ME_6FB88E211F27
+ MEPROP UID '6FB88E211F27'
+ MEPROP Name 'Ml3FormatObjectInfoHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3FormatObjectInfoHelper' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_D4A861440DBF // Format
+ )
+ ; // Operations
+
+ENDME // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
+
+ME ME_551BE08301D7
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_551BE08301D7 anObject
+
+ME ME_551BE083021B
+ MEPROP Name 'aShortInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_551BE083021B aShortInfo
+
+ME ME_551BE083025F
+ MEPROP Name 'anObjectPropFound'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5320560B0287' '5012BFDC0300.ms.model.script' // TRTTIInfoObjectPropertyFoundCallBack
+ ;
+
+ENDME // ME_551BE083025F anObjectPropFound
+
+ME ME_551BCC1F00E6
+ MEPROP UID '551BCC1F00E6'
+ MEPROP Name 'Format'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_551BE08301D7 // anObject
+ ME_551BE083021B // aShortInfo
+ ME_551BE083025F // anObjectPropFound
+ )
+ ; // Parameters
+
+ENDME // ME_551BCC1F00E6 Format
+
+ME ME_551BCC1303DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_551442110069' // Tl3FormatActionInfoHelper
+ ;
+
+ENDME // ME_551BCC1303DA 
+
+ME ME_551BCCE303C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_47E11FC3021E' // Controls
+ ;
+
+ENDME // ME_551BCCE303C0 
+
+ME ME_551BCD5B036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_47E76250004C' // ActnList
+ ;
+
+ENDME // ME_551BCD5B036A 
+
+ME ME_551BCDCA01B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL 'ME_4F82F2A000A1' '4767743E00E5.ms.model.script' // GetObjectProp
+ ;
+
+ENDME // ME_551BCDCA01B5 
+
+ME ME_551BE05B00B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_5012BFDC0300' // l3RTTI
+ ;
+
+ENDME // ME_551BE05B00B1 
+
+ME ME_551BE86403E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_551542E902F5' // Tl3HugeMessageDlgWithWikiHelper
+ ;
+
+ENDME // ME_551BE86403E7 
+
+ME ME_551BE8F600B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_551BE8F600B4 
+
+MEREF ME_49E7754802A9_ME_551BCBFD0240_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_551BCBFD0240_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_551BCBFD0240
+
+ME ME_551BCBFD0240
+ MEPROP UID '551BCBFD0240'
+ MEPROP Name 'Tl3FormatObjectInfoHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_55001317029B' // VCLHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_551BCBFD0240_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_551BCC1F00E6 // Format
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_551BCC1303DA // Tl3FormatActionInfoHelper
+ ME_551BCCE303C0 // Controls
+ ME_551BCD5B036A // ActnList
+ ME_551BCDCA01B5 // GetObjectProp
+ ME_551BE05B00B1 // l3RTTI
+ ME_551BE86403E7 // Tl3HugeMessageDlgWithWikiHelper
+ ME_551BE8F600B4 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas'
+ UP extprop:rc:SelfName 'FormatObjectInfoHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FormatObjectInfoHelper'
+
+ENDME // ME_551BCBFD0240 Tl3FormatObjectInfoHelper

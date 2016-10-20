@@ -28,7 +28,7 @@ ENDME // ME_4BD71C0000AE flSituation
 
 FORWARD ME_4AEF14BA019B
 
-ME ME_4BDAF7880236_ME_4AEF14BA019B
+MEREF ME_4BDAF7880236_ME_4AEF14BA019B_impl
  MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
  ;
  MEPROP OpKind opkind_Implemented
@@ -41,9 +41,9 @@ ME ME_4BDAF7880236_ME_4AEF14BA019B
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4BDAF7880236_ME_4AEF14BA019B ExpandAll
+ENDMEREF // ME_4BDAF7880236_ME_4AEF14BA019B_impl ExpandAll
 
-ME ME_4BDAF7A2005C_ME_4AEF14BA019B
+MEREF ME_4BDAF7A2005C_ME_4AEF14BA019B_impl
  MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
  ;
  MEPROP OpKind opkind_Implemented
@@ -56,9 +56,9 @@ ME ME_4BDAF7A2005C_ME_4AEF14BA019B
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4BDAF7A2005C_ME_4AEF14BA019B CollapseAll
+ENDMEREF // ME_4BDAF7A2005C_ME_4AEF14BA019B_impl CollapseAll
 
-ME ME_4BDAF7B803CF_ME_4AEF14BA019B
+MEREF ME_4BDAF7B803CF_ME_4AEF14BA019B_impl
  MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
  ;
  MEPROP OpKind opkind_Implemented
@@ -71,7 +71,13 @@ ME ME_4BDAF7B803CF_ME_4AEF14BA019B
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4BDAF7B803CF_ME_4AEF14BA019B Wrap
+ENDMEREF // ME_4BDAF7B803CF_ME_4AEF14BA019B_impl Wrap
+
+MEREF ME_4BDAF7790158_ME_4AEF14BA019B_R
+ MELINK Original WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BDAF7790158_ME_4AEF14BA019B_R Tree
 
 %%ImplementedBy ME_4BDAF7790158 ME_4AEF14BA019B
 
@@ -86,13 +92,13 @@ ME ME_4AEF14BA019B
  MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+   Seq: ( ME_4BDAF7790158_ME_4AEF14BA019B_R // Tree
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4BDAF7880236_ME_4AEF14BA019B // ExpandAll
- ME_4BDAF7A2005C_ME_4AEF14BA019B // CollapseAll
- ME_4BDAF7B803CF_ME_4AEF14BA019B // Wrap
+   Seq: ( ME_4BDAF7880236_ME_4AEF14BA019B_impl // ExpandAll
+ ME_4BDAF7A2005C_ME_4AEF14BA019B_impl // CollapseAll
+ ME_4BDAF7B803CF_ME_4AEF14BA019B_impl // Wrap
  )
  ; // Implemented
  UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
@@ -145,12 +151,18 @@ ME ME_4AEF141D0045
 
 ENDME // ME_4AEF141D0045 f_InternalMove
 
+MEREF ME_47D63B6D0157_ME_52728D2A036D_G
+ MELINK Original WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D63B6D0157_ME_52728D2A036D_G Tl3GetItemImage
+
 %%InheritedBy ME_47D63B6D0157 ME_52728D2A036D
 
 ME ME_52728D2A036D
  MEPROP UID '52728D2A036D'
  MEPROP Name 'FirstLevelContentGetItemImage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -158,18 +170,24 @@ ME ME_52728D2A036D
  MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+   Seq: ( ME_47D63B6D0157_ME_52728D2A036D_G // Tl3GetItemImage
  )
  ; // Inherits
 
 ENDME // ME_52728D2A036D FirstLevelContentGetItemImage
+
+MEREF ME_4A9D4FB0034A_ME_52728D32009E_G
+ MELINK Original WL 'ME_4A9D4FB0034A' '494B949E022B.ms.model.script' // TeeCurrentChanged
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A9D4FB0034A_ME_52728D32009E_G TeeCurrentChanged
 
 %%InheritedBy ME_4A9D4FB0034A ME_52728D32009E
 
 ME ME_52728D32009E
  MEPROP UID '52728D32009E'
  MEPROP Name 'FirstLevelContentCurrentChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -177,18 +195,24 @@ ME ME_52728D32009E
  MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4A9D4FB0034A' '494B949E022B.ms.model.script' // TeeCurrentChanged
+   Seq: ( ME_4A9D4FB0034A_ME_52728D32009E_G // TeeCurrentChanged
  )
  ; // Inherits
 
 ENDME // ME_52728D32009E FirstLevelContentCurrentChanged
+
+MEREF ME_5143230F01E4_ME_52728D3A0299_G
+ MELINK Original WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5143230F01E4_ME_52728D3A0299_G TeeNewCharPressed
 
 %%InheritedBy ME_5143230F01E4 ME_52728D3A0299
 
 ME ME_52728D3A0299
  MEPROP UID '52728D3A0299'
  MEPROP Name 'FirstLevelContentNewCharPressed'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -196,7 +220,7 @@ ME ME_52728D3A0299
  MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+   Seq: ( ME_5143230F01E4_ME_52728D3A0299_G // TeeNewCharPressed
  )
  ; // Inherits
 
@@ -231,7 +255,7 @@ ENDME // ME_52728FC3019B DoIt
 ME ME_52728FBC02D2
  MEPROP UID '52728FBC02D2'
  MEPROP Name 'UpdateCurrent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -260,7 +284,7 @@ ME ME_4AEF154A015A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_497EC6A4022F // PrimTreeAttributeFirstLevel
  ;
- MELINK Target WL 'ME_4683698E01BC' '49006FAB024A.ms.model.script' // TnsAttributeOneLevelTreeStruct
+ MELINK Target WL? 'ME_4683698E01BC' // TnsAttributeOneLevelTreeStruct
  ;
 
 ENDME // ME_4AEF154A015A 
@@ -305,13 +329,13 @@ ME ME_527362D10014
 
 ENDME // ME_527362D10014 
 
-ME ME_497465F501B7_ME_497EC6A4022F
+MEREF ME_497465F501B7_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_497465F501B7' '4974652502DA.ms.model.script' // CurrentChangedNotification
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_497465F501B7_ME_497EC6A4022F CurrentChangedNotification
+ENDMEREF // ME_497465F501B7_ME_497EC6A4022F_impl CurrentChangedNotification
 
-ME ME_4AEF129601AC_ME_497EC6A4022F
+MEREF ME_4AEF129601AC_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_4AEF129601AC' '4AE831B30019.ms.model.script' // SetParent
  ;
  MEPROP OpKind opkind_Implemented
@@ -323,9 +347,9 @@ ME ME_4AEF129601AC_ME_497EC6A4022F
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AEF129601AC_ME_497EC6A4022F SetParent
+ENDMEREF // ME_4AEF129601AC_ME_497EC6A4022F_impl SetParent
 
-ME ME_4AEF14460025_ME_497EC6A4022F
+MEREF ME_4AEF14460025_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_4AEF14460025' '4AE831B30019.ms.model.script' // ExtSetRoot
  ;
  MEPROP OpKind opkind_Implemented
@@ -337,9 +361,9 @@ ME ME_4AEF14460025_ME_497EC6A4022F
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AEF14460025_ME_497EC6A4022F ExtSetRoot
+ENDMEREF // ME_4AEF14460025_ME_497EC6A4022F_impl ExtSetRoot
 
-ME ME_4AF3EBC001C4_ME_497EC6A4022F
+MEREF ME_4AF3EBC001C4_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_4AF3EBC001C4' '4AE831B30019.ms.model.script' // SetRoot
  ;
  MEPROP OpKind opkind_Implemented
@@ -351,9 +375,9 @@ ME ME_4AF3EBC001C4_ME_497EC6A4022F
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AF3EBC001C4_ME_497EC6A4022F SetRoot
+ENDMEREF // ME_4AF3EBC001C4_ME_497EC6A4022F_impl SetRoot
 
-ME ME_4BDAF7880236_ME_497EC6A4022F
+MEREF ME_4BDAF7880236_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
  ;
  MEPROP OpKind opkind_Implemented
@@ -366,9 +390,9 @@ ME ME_4BDAF7880236_ME_497EC6A4022F
  UP "is FormActivate" true
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4BDAF7880236_ME_497EC6A4022F ExpandAll
+ENDMEREF // ME_4BDAF7880236_ME_497EC6A4022F_impl ExpandAll
 
-ME ME_4BDAF7A2005C_ME_497EC6A4022F
+MEREF ME_4BDAF7A2005C_ME_497EC6A4022F_impl
  MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
  ;
  MEPROP OpKind opkind_Implemented
@@ -381,25 +405,49 @@ ME ME_4BDAF7A2005C_ME_497EC6A4022F
  UP "is FormActivate" true
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4BDAF7A2005C_ME_497EC6A4022F CollapseAll
+ENDMEREF // ME_4BDAF7A2005C_ME_497EC6A4022F_impl CollapseAll
 
-ME ME_47A042E100E2_ME_497EC6A4022F
+MEREF ME_47A042E100E2_ME_497EC6A4022F_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_497EC6A4022F InitFields
+ENDMEREF // ME_47A042E100E2_ME_497EC6A4022F_over InitFields
 
-ME ME_497469C90140_ME_497EC6A4022F
+MEREF ME_497469C90140_ME_497EC6A4022F_over
  MELINK Original WL 'ME_497469C90140' '500004240202.ms.model.script' // NotifyDataSourceChanged
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_497469C90140_ME_497EC6A4022F NotifyDataSourceChanged
+ENDMEREF // ME_497469C90140_ME_497EC6A4022F_over NotifyDataSourceChanged
 
-ME ME_4A8E8F2E0195_ME_497EC6A4022F
+MEREF ME_4A8E8F2E0195_ME_497EC6A4022F_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_497EC6A4022F InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_497EC6A4022F_over InitControls
+
+MEREF ME_4974652502DA_ME_497EC6A4022F_G
+ MELINK Original WL? 'ME_4974652502DA' // TreeAttribute
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4974652502DA_ME_497EC6A4022F_G TreeAttribute
+
+MEREF ME_4AEF128901C3_ME_497EC6A4022F_R
+ MELINK Original WL 'ME_4AEF128901C3' '4AE831B30019.ms.model.script' // AttributeTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AEF128901C3_ME_497EC6A4022F_R AttributeTree
+
+MEREF ME_4AF3EB1C03A9_ME_497EC6A4022F_R
+ MELINK Original WL 'ME_4AF3EB1C03A9' '4AE831B30019.ms.model.script' // AttributeTree$SetRoot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AF3EB1C03A9_ME_497EC6A4022F_R AttributeTree$SetRoot
+
+MEREF ME_4BDAF7790158_ME_497EC6A4022F_R
+ MELINK Original WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BDAF7790158_ME_497EC6A4022F_R Tree
 
 %%ImplementedBy ME_4AEF128901C3 ME_497EC6A4022F
 %%ImplementedBy ME_4AF3EB1C03A9 ME_497EC6A4022F
@@ -420,13 +468,13 @@ ME ME_497EC6A4022F
  MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4974652502DA' // TreeAttribute
+   Seq: ( ME_4974652502DA_ME_497EC6A4022F_G // TreeAttribute
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AEF128901C3' '4AE831B30019.ms.model.script' // AttributeTree
- WL 'ME_4AF3EB1C03A9' '4AE831B30019.ms.model.script' // AttributeTree$SetRoot
- WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+   Seq: ( ME_4AEF128901C3_ME_497EC6A4022F_R // AttributeTree
+ ME_4AF3EB1C03A9_ME_497EC6A4022F_R // AttributeTree$SetRoot
+ ME_4BDAF7790158_ME_497EC6A4022F_R // Tree
  )
  ; // Implements
  MELIST Attributes
@@ -444,18 +492,18 @@ ME ME_497EC6A4022F
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_497465F501B7_ME_497EC6A4022F // CurrentChangedNotification
- ME_4AEF129601AC_ME_497EC6A4022F // SetParent
- ME_4AEF14460025_ME_497EC6A4022F // ExtSetRoot
- ME_4AF3EBC001C4_ME_497EC6A4022F // SetRoot
- ME_4BDAF7880236_ME_497EC6A4022F // ExpandAll
- ME_4BDAF7A2005C_ME_497EC6A4022F // CollapseAll
+   Seq: ( ME_497465F501B7_ME_497EC6A4022F_impl // CurrentChangedNotification
+ ME_4AEF129601AC_ME_497EC6A4022F_impl // SetParent
+ ME_4AEF14460025_ME_497EC6A4022F_impl // ExtSetRoot
+ ME_4AF3EBC001C4_ME_497EC6A4022F_impl // SetRoot
+ ME_4BDAF7880236_ME_497EC6A4022F_impl // ExpandAll
+ ME_4BDAF7A2005C_ME_497EC6A4022F_impl // CollapseAll
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_497EC6A4022F // InitFields
- ME_497469C90140_ME_497EC6A4022F // NotifyDataSourceChanged
- ME_4A8E8F2E0195_ME_497EC6A4022F // InitControls
+   Seq: ( ME_47A042E100E2_ME_497EC6A4022F_over // InitFields
+ ME_497469C90140_ME_497EC6A4022F_over // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_497EC6A4022F_over // InitControls
  )
  ; // Overridden
  MELIST Children

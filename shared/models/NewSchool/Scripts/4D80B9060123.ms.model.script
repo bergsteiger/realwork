@@ -1,0 +1,86 @@
+// TScrollByArrowAndCheckShapesTest 4D80B9060123 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D80B9060123
+
+ME ME_4D80BB670151
+ MEPROP UID '4D80BB670151'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D80B9060123 // TScrollByArrowAndCheckShapesTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D80BB670151 GetScrollCount
+
+MEREF ME_4CAC45AE011E_ME_4D80B9060123_over
+ MELINK Original WL 'ME_4CAC45AE011E' '4CAC405703AE.ms.model.script' // DoBeforeDrawing
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CAC45AE011E_ME_4D80B9060123_over DoBeforeDrawing
+
+MEREF ME_4CC7F3170362_ME_4D80B9060123_G
+ MELINK Original WL? 'ME_4CC7F3170362' // TDrawTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CC7F3170362_ME_4D80B9060123_G TDrawTest
+
+MEREF ME_4C500D6101D8_ME_4D80B9060123_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4D80B9060123_R CursorMover
+
+MEREF ME_4CE2958803D0_ME_4D80B9060123_R
+ MELINK Original WL? 'ME_4CE2958803D0' // ScrollSupport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE2958803D0_ME_4D80B9060123_R ScrollSupport
+
+%%ImplementedBy ME_4C500D6101D8 ME_4D80B9060123
+%%ImplementedBy ME_4CE2958803D0 ME_4D80B9060123
+
+%%InheritedBy ME_4CC7F3170362 ME_4D80B9060123
+
+ME ME_4D80B9060123
+ MEPROP UID '4D80B9060123'
+ MEPROP Name 'TScrollByArrowAndCheckShapesTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Прокрутить стрелкой до определенной позиции и сравнить "картинку".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CC7F3170362_ME_4D80B9060123_G // TDrawTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C500D6101D8_ME_4D80B9060123_R // CursorMover
+ ME_4CE2958803D0_ME_4D80B9060123_R // ScrollSupport
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D80BB670151 // GetScrollCount
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CAC45AE011E_ME_4D80B9060123_over // DoBeforeDrawing
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\ScrollByArrowAndCheckShapesTest.pas'
+ UP extprop:rc:SelfName 'ScrollByArrowAndCheckShapesTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollByArrowAndCheckShapesTest'
+
+ENDME // ME_4D80B9060123 TScrollByArrowAndCheckShapesTest

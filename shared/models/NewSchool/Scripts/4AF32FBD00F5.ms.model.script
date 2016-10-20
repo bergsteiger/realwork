@@ -1,0 +1,838 @@
+// TnsSaveDialog 4AF32FBD00F5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AF32FBD00F5
+
+FORWARD ME_4AF32FBD00F5
+
+FORWARD ME_4DC936320385
+
+ME ME_4DC9365D005C
+ MEPROP UID '4DC9365D005C'
+ MEPROP Name 'c_ListKinds'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC936320385 // nsSaveDialog Constants
+ ;
+ MEPROP Value '[ns_sdkListInternal, ns_sdkList]'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '[ns_sdkListInternal, ns_sdkList]'
+
+ENDME // ME_4DC9365D005C c_ListKinds
+
+ME ME_4DC936320385
+ MEPROP UID '4DC936320385'
+ MEPROP Name 'nsSaveDialog Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DC9365D005C // c_ListKinds
+ )
+ ; // Attributes
+ UP "spell names" false
+ UP extprop:rc:SelfName 'SaveDialog Constants'
+
+ENDME // ME_4DC936320385 nsSaveDialog Constants
+
+MEREF ME_47E124E90272_ME_4DCC2AE00306_G
+ MELINK Original WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E124E90272_ME_4DCC2AE00306_G TWinControl
+
+%%InheritedBy ME_47E124E90272 ME_4DCC2AE00306
+
+ME ME_4DCC2AE00306
+ MEPROP UID '4DCC2AE00306'
+ MEPROP Name 'THackWinControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Inherits
+   Seq: ( ME_47E124E90272_ME_4DCC2AE00306_G // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'HackWinControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DCC2AE00306 THackWinControl
+
+ME ME_4DBB11B8006A
+ MEPROP UID '4DBB11B8006A'
+ MEPROP Name 'SelectedOnlyEnabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DBB11B8006A SelectedOnlyEnabled
+
+ME ME_4DBB1205024C
+ MEPROP UID '4DBB1205024C'
+ MEPROP Name 'SaveListTarget'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DBB1205024C SaveListTarget
+
+ME ME_4DBB12460192
+ MEPROP UID '4DBB12460192'
+ MEPROP Name 'MergeChecked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DBB12460192 MergeChecked
+
+ME ME_4DBB126F02FE
+ MEPROP UID '4DBB126F02FE'
+ MEPROP Name 'MergeEnabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DBB126F02FE MergeEnabled
+
+ME ME_4DBB129E010A
+ MEPROP UID '4DBB129E010A'
+ MEPROP Name 'SelectedFileFormat'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_57335B010093' '4A6854C70390.ms.model.script' // TnsFileFormat
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DBB129E010A SelectedFileFormat
+
+ME ME_4DC924D60196
+ MEPROP UID '4DC924D60196'
+ MEPROP Name 'SelectedOnlyChecked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4DC924D60196 SelectedOnlyChecked
+
+ME ME_4DC985040315
+ MEPROP UID '4DC985040315'
+ MEPROP Name 'f_ListTargetGroup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4DC9890D009D' // TeeGroupBox
+ ;
+
+ENDME // ME_4DC985040315 f_ListTargetGroup
+
+ME ME_4DCA876C0345
+ MEPROP UID '4DCA876C0345'
+ MEPROP Name 'f_SelectedOnlyCheckBox'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_5179419B01DA' // TvtCheckBox
+ ;
+
+ENDME // ME_4DCA876C0345 f_SelectedOnlyCheckBox
+
+ME ME_4DB830A00114
+ MEPROP UID '4DB830A00114'
+ MEPROP Name 'f_ExtraPanel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4A7961A701CF' // TvtPanel
+ ;
+
+ENDME // ME_4DB830A00114 f_ExtraPanel
+
+ME ME_4DB831620140
+ MEPROP UID '4DB831620140'
+ MEPROP Name 'f_MergeCheckBox'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_5179419B01DA' // TvtCheckBox
+ ;
+
+ENDME // ME_4DB831620140 f_MergeCheckBox
+
+ME ME_4DC15E1000A2
+ MEPROP UID '4DC15E1000A2'
+ MEPROP Name 'f_SaveFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DC15E1000A2 f_SaveFileName
+
+ME ME_4DC2F34E0143
+ MEPROP UID '4DC2F34E0143'
+ MEPROP Name 'DialogKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_496B58F900AA' '49804E310263.ms.model.script' // TnsSaveDialogKind
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4DC2F34E0143 DialogKind
+
+ME ME_4DC44788002C
+ MEPROP UID '4DC44788002C'
+ MEPROP Name 'f_TitlesRadio'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_517941E500BF' // TvtRadioButton
+ ;
+
+ENDME // ME_4DC44788002C f_TitlesRadio
+
+ME ME_4DC4479E01CE
+ MEPROP UID '4DC4479E01CE'
+ MEPROP Name 'f_ContentsRadio'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_517941E500BF' // TvtRadioButton
+ ;
+
+ENDME // ME_4DC4479E01CE f_ContentsRadio
+
+ME ME_4DC447BC010B
+ MEPROP UID '4DC447BC010B'
+ MEPROP Name 'f_NumbersRadio'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_517941E500BF' // TvtRadioButton
+ ;
+
+ENDME // ME_4DC447BC010B f_NumbersRadio
+
+ME ME_4DC4486A018F
+ MEPROP UID '4DC4486A018F'
+ MEPROP Name 'f_Executing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DC4486A018F f_Executing
+
+FORWARD ME_4DD269E001B6
+
+ME ME_4DD26A100067
+ MEPROP Name 'ForceEnable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4DD26A100067 ForceEnable
+
+ME ME_4DD26A000164
+ MEPROP UID '4DD26A000164'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD269E001B6 // UpdateFileNameEditEnable
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD26A100067 // ForceEnable
+ )
+ ; // Parameters
+
+ENDME // ME_4DD26A000164 DoIt
+
+ME ME_4DD269E001B6
+ MEPROP UID '4DD269E001B6'
+ MEPROP Name 'UpdateFileNameEditEnable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD26A000164 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DD269E001B6 UpdateFileNameEditEnable
+
+FORWARD ME_4DD26A2E0223
+
+ME ME_4DD26A4D02A8
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4DD26A4D02A8 Sender
+
+ME ME_4DD26A42010A
+ MEPROP UID '4DD26A42010A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD26A2E0223 // MergeClick
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD26A4D02A8 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4DD26A42010A DoIt
+
+ME ME_4DD26A2E0223
+ MEPROP UID '4DD26A2E0223'
+ MEPROP Name 'MergeClick'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD26A42010A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DD26A2E0223 MergeClick
+
+FORWARD ME_4DD26A5D0253
+
+ME ME_4DD26A7A03A6
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4DD26A7A03A6 Sender
+
+ME ME_4DD26A7300E8
+ MEPROP UID '4DD26A7300E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD26A5D0253 // ListTargetClick
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD26A7A03A6 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4DD26A7300E8 DoIt
+
+ME ME_4DD26A5D0253
+ MEPROP UID '4DD26A5D0253'
+ MEPROP Name 'ListTargetClick'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD26A7300E8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DD26A5D0253 ListTargetClick
+
+FORWARD ME_4DD26A8700A8
+
+ME ME_4DD26A980082
+ MEPROP UID '4DD26A980082'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD26A8700A8 // ClearControls
+ ;
+
+ENDME // ME_4DD26A980082 DoIt
+
+ME ME_4DD26A8700A8
+ MEPROP UID '4DD26A8700A8'
+ MEPROP Name 'ClearControls'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD26A980082 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DD26A8700A8 ClearControls
+
+ME ME_4DD0E65702A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_4DD0E65702A4 
+
+ME ME_4DD0F0F9033A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_4C52BE8601C9' '4DD0F321010A.ms.model.script' // TeeRadioButton
+ ;
+
+ENDME // ME_4DD0F0F9033A 
+
+ME ME_4DD0F35E0108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4DD0F321010A' // TeeButton
+ ;
+
+ENDME // ME_4DD0F35E0108 
+
+ME ME_4DD115C300EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4DD115C300EE 
+
+ME ME_4DD11AF003E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4C2D9FF00326' // Consts
+ ;
+
+ENDME // ME_4DD11AF003E4 
+
+ME ME_4DD11B390145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47E13C6B0341' // Forms
+ ;
+
+ENDME // ME_4DD11B390145 
+
+ME ME_4DD11BD2038B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4808A20402DC' // Math
+ ;
+
+ENDME // ME_4DD11BD2038B 
+
+ME ME_4DD11BFE036D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4DD11BFE036D 
+
+ME ME_4DD11C330236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47F260EC02C7' // StdRes
+ ;
+
+ENDME // ME_4DD11C330236 
+
+ME ME_4DD11E66023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_4DD11E66023A 
+
+ME ME_4DD11FE8032B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4DD11FE8032B 
+
+ME ME_4DD1201C03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_48C78D5402A6' // StdCtrls
+ ;
+
+ENDME // ME_4DD1201C03DB 
+
+ME ME_4DD1203A032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_4DD1203A032D 
+
+ME ME_4DD1205A00DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_48C7C95C0221' // ExtCtrls
+ ;
+
+ENDME // ME_4DD1205A00DA 
+
+ME ME_4DD1209B039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4CFF6D8701C9' // Buttons
+ ;
+
+ENDME // ME_4DD1209B039E 
+
+ME ME_4DD120D20267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4AB0EE02004E' // Dialogs
+ ;
+
+ENDME // ME_4DD120D20267 
+
+ME ME_4DD120F3021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4AC62798032A' // ComCtrls
+ ;
+
+ENDME // ME_4DD120F3021F 
+
+ME ME_4DD124590336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4DD1237B00AE' // CommDlg
+ ;
+
+ENDME // ME_4DD124590336 
+
+ME ME_4DD4E2BB0236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL 'ME_4683F4B103DC' '4683F37902CF.ms.model.script' // TvcmStringID
+ ;
+
+ENDME // ME_4DD4E2BB0236 
+
+ME ME_4DD65B940290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AF32FBD00F5 // TnsSaveDialog
+ ;
+ MELINK Target WL? 'ME_4C37236E02A1' // TvtSaveDialog
+ ;
+
+ENDME // ME_4DD65B940290 
+
+MEREF ME_47D1602000C6_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_4AF32FBD00F5_over Create
+
+MEREF ME_48077504027E_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4AF32FBD00F5_over Destroy
+
+MEREF ME_4DCAD2B2008F_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCAD2B2008F' '4C37236E02A1.ms.model.script' // GetFileNameForAdjust
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCAD2B2008F_ME_4AF32FBD00F5_over GetFileNameForAdjust
+
+MEREF ME_4DCAD9560008_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCAD9560008' '4C37236E02A1.ms.model.script' // FirstCorrectFileName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCAD9560008_ME_4AF32FBD00F5_over FirstCorrectFileName
+
+MEREF ME_4DCBC96000E3_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCBC96000E3' '4C37236E02A1.ms.model.script' // SetAdjustedFileName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCBC96000E3_ME_4AF32FBD00F5_over SetAdjustedFileName
+
+MEREF ME_4DCC1EF50061_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCC1EF50061' '4AB0EE02004E.ms.model.script' // DoClose
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC1EF50061_ME_4AF32FBD00F5_over DoClose
+
+MEREF ME_4DCC1FEE0352_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCC1FEE0352' '4AB0EE02004E.ms.model.script' // DoShow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC1FEE0352_ME_4AF32FBD00F5_over DoShow
+
+MEREF ME_4DCC203E0199_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCC203E0199' '4AB0EE02004E.ms.model.script' // DoCanClose
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC203E0199_ME_4AF32FBD00F5_over DoCanClose
+
+MEREF ME_4DCC20C10116_ME_4AF32FBD00F5_over
+ MELINK Original WL 'ME_4DCC20C10116' '4AB0EE02004E.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DCC20C10116_ME_4AF32FBD00F5_over Execute
+
+MEREF ME_4C37236E02A1_ME_4AF32FBD00F5_G
+ MELINK Original WL? 'ME_4C37236E02A1' // TvtSaveDialog
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C37236E02A1_ME_4AF32FBD00F5_G TvtSaveDialog
+
+%%InheritedBy ME_4C37236E02A1 ME_4AF32FBD00F5
+
+ME ME_4AF32FBD00F5
+ MEPROP UID '4AF32FBD00F5'
+ MEPROP Name 'TnsSaveDialog'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DDA34AA023B' // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C37236E02A1_ME_4AF32FBD00F5_G // TvtSaveDialog
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DBB11B8006A // SelectedOnlyEnabled
+ HWL ME_4DBB1205024C // SaveListTarget
+ HWL ME_4DBB12460192 // MergeChecked
+ HWL ME_4DBB126F02FE // MergeEnabled
+ HWL ME_4DBB129E010A // SelectedFileFormat
+ HWL ME_4DC924D60196 // SelectedOnlyChecked
+ HWL ME_4DC985040315 // f_ListTargetGroup
+ HWL ME_4DCA876C0345 // f_SelectedOnlyCheckBox
+ HWL ME_4DB830A00114 // f_ExtraPanel
+ HWL ME_4DB831620140 // f_MergeCheckBox
+ HWL ME_4DC15E1000A2 // f_SaveFileName
+ HWL ME_4DC2F34E0143 // DialogKind
+ HWL ME_4DC44788002C // f_TitlesRadio
+ HWL ME_4DC4479E01CE // f_ContentsRadio
+ HWL ME_4DC447BC010B // f_NumbersRadio
+ HWL ME_4DC4486A018F // f_Executing
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DD269E001B6 // UpdateFileNameEditEnable
+ HWL ME_4DD26A2E0223 // MergeClick
+ HWL ME_4DD26A5D0253 // ListTargetClick
+ HWL ME_4DD26A8700A8 // ClearControls
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4AF32FBD00F5_over // Create
+ ME_48077504027E_ME_4AF32FBD00F5_over // Destroy
+ ME_4DCAD2B2008F_ME_4AF32FBD00F5_over // GetFileNameForAdjust
+ ME_4DCAD9560008_ME_4AF32FBD00F5_over // FirstCorrectFileName
+ ME_4DCBC96000E3_ME_4AF32FBD00F5_over // SetAdjustedFileName
+ ME_4DCC1EF50061_ME_4AF32FBD00F5_over // DoClose
+ ME_4DCC1FEE0352_ME_4AF32FBD00F5_over // DoShow
+ ME_4DCC203E0199_ME_4AF32FBD00F5_over // DoCanClose
+ ME_4DCC20C10116_ME_4AF32FBD00F5_over // Execute
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DCC2AE00306 // THackWinControl
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4DC936320385 // nsSaveDialog Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4DD0E65702A4 // vcmBase
+ ME_4DD0F0F9033A // TeeRadioButton
+ ME_4DD0F35E0108 // TeeButton
+ ME_4DD115C300EE // l3Base
+ ME_4DD11AF003E4 // Consts
+ ME_4DD11B390145 // Forms
+ ME_4DD11BD2038B // Math
+ ME_4DD11BFE036D // l3String
+ ME_4DD11C330236 // StdRes
+ ME_4DD11E66023A // Windows
+ ME_4DD11FE8032B // SysUtils
+ ME_4DD1201C03DB // StdCtrls
+ ME_4DD1203A032D // Graphics
+ ME_4DD1205A00DA // ExtCtrls
+ ME_4DD1209B039E // Buttons
+ ME_4DD120D20267 // Dialogs
+ ME_4DD120F3021F // ComCtrls
+ ME_4DD124590336 // CommDlg
+ ME_4DD4E2BB0236 // TvcmStringID
+ ME_4DD65B940290 // TvtSaveDialog
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas'
+ UP extprop:rc:SelfName 'SaveDialog'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsSaveDialog'
+
+ENDME // ME_4AF32FBD00F5 TnsSaveDialog

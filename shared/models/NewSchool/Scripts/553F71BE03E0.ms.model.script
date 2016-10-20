@@ -1,0 +1,172 @@
+// Tl3ModalService 553F71BE03E0 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_553F71BE03E0
+%%Inner ME_553F71BE03E0
+
+FORWARD ME_553F71BE03E0
+
+FORWARD ME_5526316402F9
+
+ME ME_5526316E011A
+ MEPROP UID '5526316E011A'
+ MEPROP Name 'se_meUsual'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флаг обычного режима вызова MODAL.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5526316402F9 // TseModalExecute
+ ;
+
+ENDME // ME_5526316E011A se_meUsual
+
+ME ME_552631760238
+ MEPROP UID '552631760238'
+ MEPROP Name 'se_meInLoop'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флаг циклического вызова MODAL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5526316402F9 // TseModalExecute
+ ;
+
+ENDME // ME_552631760238 se_meInLoop
+
+ME ME_5526317E03E0
+ MEPROP UID '5526317E03E0'
+ MEPROP Name 'se_meAfterLoop'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флаг вызова после выхода из цикла (перед закрытием окна поиска).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5526316402F9 // TseModalExecute
+ ;
+
+ENDME // ME_5526317E03E0 se_meAfterLoop
+
+ME ME_5526316402F9
+ MEPROP UID '5526316402F9'
+ MEPROP Name 'TseModalExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'se_meUsual - это обычное поведение модальных диалогов. '#13#10' А остальные - заточка для диалогов поиска и проверки орфографии. Они не MODAL, а StayOnTop. И вызываются в цикле. Для каждого такого вызова используется флаг: se_meInLoop. Плюс после окончания проверки может быть вызов диалога, когда он вызывается с надписью, что все закончилось. Чтобы этот вызов отличить от вызова в цикле и добавлен флаг se_meAfterLoop. '#13#10' Разница есть на уровне скриптов:'#13#10'{code}'#13#10'PROCEDURE SpellNext BOOLEAN IN aLast'#13#10''#13#10';  '#13#10'{code}'#13#10'aLast - как раз и показывает, что диалог уже финальный.'#13#10'Примеры использования: {Requestlink:622826341}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553F71BE03E0 // Tl3ModalService
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5526316E011A // se_meUsual
+ HWL ME_552631760238 // se_meInLoop
+ HWL ME_5526317E03E0 // se_meAfterLoop
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5526316402F9 TseModalExecute
+
+FORWARD ME_553F84500218
+
+ME ME_553F7345032E
+ MEPROP UID '553F7345032E'
+ MEPROP Name 'HasModalWorker'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553F84500218 // Ml3ModalService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_553F7345032E HasModalWorker
+
+ME ME_553F8EB603A2
+ MEPROP Name 'aModalExecute'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5526316402F9 // TseModalExecute
+ ;
+ MEPROP Value 'se_meUsual'
+ MELINK ValueType HWL ME_5526316402F9 // TseModalExecute
+ ;
+ UP extprop:pas:Value 'se_meUsual'
+
+ENDME // ME_553F8EB603A2 aModalExecute
+
+ME ME_553F8EA30300
+ MEPROP UID '553F8EA30300'
+ MEPROP Name 'ExecuteCurrentModalWorker'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_553F84500218 // Ml3ModalService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_553F8EB603A2 // aModalExecute
+ )
+ ; // Parameters
+
+ENDME // ME_553F8EA30300 ExecuteCurrentModalWorker
+
+ME ME_553F84500218
+ MEPROP UID '553F84500218'
+ MEPROP Name 'Ml3ModalService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_553F71BE03E0 // Tl3ModalService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_553F7345032E // HasModalWorker
+ HWL ME_553F8EA30300 // ExecuteCurrentModalWorker
+ )
+ ; // Operations
+
+ENDME // ME_553F84500218 Ml3ModalService
+
+MEREF ME_49E7754802A9_ME_553F71BE03E0_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_553F71BE03E0_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_553F71BE03E0
+
+ME ME_553F71BE03E0
+ MEPROP UID '553F71BE03E0'
+ MEPROP Name 'Tl3ModalService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4E030FC801EB' // BatchServices
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_553F71BE03E0_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5526316402F9 // TseModalExecute
+ HWL ME_553F84500218 // Ml3ModalService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ModalService.pas'
+ UP extprop:rc:SelfName 'ModalService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ModalService'
+
+ENDME // ME_553F71BE03E0 Tl3ModalService

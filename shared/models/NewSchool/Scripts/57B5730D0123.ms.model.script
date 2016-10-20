@@ -28,6 +28,12 @@ ME ME_57B5681A00AE
 
 ENDME // ME_57B5681A00AE TmsmSignal
 
+MEREF ME_57B5681A00AE_ME_57B5682D00D1_G
+ MELINK Original HWL ME_57B5681A00AE // TmsmSignal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B5681A00AE_ME_57B5682D00D1_G TmsmSignal
+
 %%InheritedBy ME_57B5681A00AE ME_57B5682D00D1
 
 ME ME_57B5682D00D1
@@ -41,7 +47,7 @@ ME ME_57B5682D00D1
  MELINK Parent HWL ME_57B5730D0123 // msmEvents
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B5681A00AE // TmsmSignal
+   Seq: ( ME_57B5681A00AE_ME_57B5682D00D1_G // TmsmSignal
  )
  ; // Inherits
  UP extprop:rc:SelfName 'msmEvent'
@@ -80,7 +86,7 @@ ENDME // ME_57AD8E5E00E5 DoIt
 ME ME_57AD8E570241
  MEPROP UID '57AD8E570241'
  MEPROP Name 'HandleEvent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -148,7 +154,7 @@ ENDME // ME_57B422960170 DoIt
 ME ME_57B4228B001E
  MEPROP UID '57B4228B001E'
  MEPROP Name 'Subscribe'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -162,12 +168,18 @@ ME ME_57B4228B001E
 
 ENDME // ME_57B4228B001E Subscribe
 
+MEREF ME_57B4228B001E_ME_57B422AB0293_G
+ MELINK Original HWL ME_57B4228B001E // Subscribe
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B4228B001E_ME_57B422AB0293_G Subscribe
+
 %%InheritedBy ME_57B4228B001E ME_57B422AB0293
 
 ME ME_57B422AB0293
  MEPROP UID '57B422AB0293'
  MEPROP Name 'Unsubscribe'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -175,7 +187,7 @@ ME ME_57B422AB0293
  MELINK Parent HWL ME_57ADE3C3031B // MmsmEventsPublisher
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B4228B001E // Subscribe
+   Seq: ( ME_57B4228B001E_ME_57B422AB0293_G // Subscribe
  )
  ; // Inherits
 
@@ -204,12 +216,18 @@ ENDME // ME_57ADE3C3031B MmsmEventsPublisher
 
 FORWARD ME_57B4279900AD
 
+MEREF ME_57AD8E570241_ME_57ADE59000CB_G
+ MELINK Original HWL ME_57AD8E570241 // HandleEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57AD8E570241_ME_57ADE59000CB_G HandleEvent
+
 %%InheritedBy ME_57AD8E570241 ME_57ADE59000CB
 
 ME ME_57ADE59000CB
  MEPROP UID '57ADE59000CB'
  MEPROP Name 'Fire'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -217,7 +235,7 @@ ME ME_57ADE59000CB
  MELINK Parent HWL ME_57B4279900AD // MmsmEventFire
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AD8E570241 // HandleEvent
+   Seq: ( ME_57AD8E570241_ME_57ADE59000CB_G // HandleEvent
  )
  ; // Inherits
 
@@ -274,7 +292,7 @@ ENDME // ME_57B59F38000D DoIt
 ME ME_57B59F2B03A1
  MEPROP UID '57B59F2B03A1'
  MEPROP Name 'DisableEvent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -288,12 +306,18 @@ ME ME_57B59F2B03A1
 
 ENDME // ME_57B59F2B03A1 DisableEvent
 
+MEREF ME_57B59F2B03A1_ME_57CD7F790309_G
+ MELINK Original HWL ME_57B59F2B03A1 // DisableEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B59F2B03A1_ME_57CD7F790309_G DisableEvent
+
 %%InheritedBy ME_57B59F2B03A1 ME_57CD7F790309
 
 ME ME_57CD7F790309
  MEPROP UID '57CD7F790309'
  MEPROP Name 'EnableEvent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -301,7 +325,7 @@ ME ME_57CD7F790309
  MELINK Parent HWL ME_57B59EFD01DD // MmsmEventsManaging
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B59F2B03A1 // DisableEvent
+   Seq: ( ME_57B59F2B03A1_ME_57CD7F790309_G // DisableEvent
  )
  ; // Inherits
 
@@ -330,17 +354,23 @@ ENDME // ME_57B59EFD01DD MmsmEventsManaging
 
 FORWARD ME_57B6B9670157
 
-ME ME_57B4228B001E_ME_57B6B9670157
+MEREF ME_57B4228B001E_ME_57B6B9670157_impl
  MELINK Original HWL ME_57B4228B001E // Subscribe
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B4228B001E_ME_57B6B9670157 Subscribe
+ENDMEREF // ME_57B4228B001E_ME_57B6B9670157_impl Subscribe
 
-ME ME_57B422AB0293_ME_57B6B9670157
+MEREF ME_57B422AB0293_ME_57B6B9670157_impl
  MELINK Original HWL ME_57B422AB0293 // Unsubscribe
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B422AB0293_ME_57B6B9670157 Unsubscribe
+ENDMEREF // ME_57B422AB0293_ME_57B6B9670157_impl Unsubscribe
+
+MEREF ME_57ADE3C3031B_ME_57B6B9670157_R
+ MELINK Original HWL ME_57ADE3C3031B // MmsmEventsPublisher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57ADE3C3031B_ME_57B6B9670157_R MmsmEventsPublisher
 
 %%ImplementedBy ME_57ADE3C3031B ME_57B6B9670157
 
@@ -356,12 +386,12 @@ ME ME_57B6B9670157
  MELINK Parent HWL ME_57B5730D0123 // msmEvents
  ;
  MELIST Implements
-   Seq: ( HWL ME_57ADE3C3031B // MmsmEventsPublisher
+   Seq: ( ME_57ADE3C3031B_ME_57B6B9670157_R // MmsmEventsPublisher
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_57B4228B001E_ME_57B6B9670157 // Subscribe
- ME_57B422AB0293_ME_57B6B9670157 // Unsubscribe
+   Seq: ( ME_57B4228B001E_ME_57B6B9670157_impl // Subscribe
+ ME_57B422AB0293_ME_57B6B9670157_impl // Unsubscribe
  )
  ; // Implemented
  UP extprop:rc:SelfName 'msmEventsPublisher'

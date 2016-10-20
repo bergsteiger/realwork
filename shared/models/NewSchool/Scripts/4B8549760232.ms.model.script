@@ -1,0 +1,56 @@
+// NSRCtoMemoryTest 4B8549760232 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8549760232
+
+ME ME_4B8547F30147
+ MEPROP UID '4B8547F30147'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8549760232 // NSRCtoMemoryTest
+ ;
+
+ENDME // ME_4B8547F30147 DoIt
+
+MEREF ME_4B4F68EE006B_ME_4B8549760232_G
+ MELINK Original WL? 'ME_4B4F68EE006B' // TNSRCWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B4F68EE006B_ME_4B8549760232_G TNSRCWriterTest
+
+%%InheritedBy ME_4B4F68EE006B ME_4B8549760232
+
+ME ME_4B8549760232
+ MEPROP UID '4B8549760232'
+ MEPROP Name 'NSRCtoMemoryTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест чтения NSRC в память' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B4F68D4033F' // NSRCTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B4F68EE006B_ME_4B8549760232_G // TNSRCWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B8547F30147 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\NSRCtoMemoryTest.pas'
+ UP extprop:pas:TypeName 'TNSRCtoMemoryTest'
+ UP extprop:rc:SelfName 'NSRCtoMemoryTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B8549760232 NSRCtoMemoryTest

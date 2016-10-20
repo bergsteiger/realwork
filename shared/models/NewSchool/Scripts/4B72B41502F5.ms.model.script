@@ -16,7 +16,7 @@ ME ME_4B72BA810390
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ MELINK Target WL? 'ME_483E80FA0312' // TevdNativeReader
  ;
  UP "IsResult" false
 
@@ -181,7 +181,7 @@ ME ME_4B72BF5100FD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_47ECBAA30322' '47ECACA70141.ms.model.script' // TevHiddenFilter
+ MELINK Target WL? 'ME_47ECBAA30322' // TevHiddenFilter
  ;
 
 ENDME // ME_4B72BF5100FD 
@@ -191,7 +191,7 @@ ME ME_4B72BFCB0188
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_4B72BF9003D0' '47ECACA70141.ms.model.script' // TevNestedDocumentEliminator
+ MELINK Target WL? 'ME_4B72BF9003D0' // TevNestedDocumentEliminator
  ;
 
 ENDME // ME_4B72BFCB0188 
@@ -211,7 +211,7 @@ ME ME_4B72C40801D6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_47ECB8E402B4' '47ECB8BD00A8.ms.model.script' // TevdPageParamsFilter
+ MELINK Target WL? 'ME_47ECB8E402B4' // TevdPageParamsFilter
  ;
 
 ENDME // ME_4B72C40801D6 
@@ -231,7 +231,7 @@ ME ME_4D88C00D02B5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_4D88BFEA013A' '47ECACA70141.ms.model.script' // TevCommentDecorator
+ MELINK Target WL? 'ME_4D88BFEA013A' // TevCommentDecorator
  ;
 
 ENDME // ME_4D88C00D02B5 
@@ -241,7 +241,7 @@ ME ME_4D8B75BD0043
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_4A2CFFA30282' '47ECACA70141.ms.model.script' // TevdBlockNameAdder
+ MELINK Target WL? 'ME_4A2CFFA30282' // TevdBlockNameAdder
  ;
 
 ENDME // ME_4D8B75BD0043 
@@ -251,7 +251,7 @@ ME ME_4EFC4E7B0049
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_4E85A869034E' '47ECACA70141.ms.model.script' // TevStyleHeaderAdder
+ MELINK Target WL? 'ME_4E85A869034E' // TevStyleHeaderAdder
  ;
 
 ENDME // ME_4EFC4E7B0049 
@@ -261,17 +261,23 @@ ME ME_4F796D7B00A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
  ;
- MELINK Target WL 'ME_4F352A840264' '47ECACA70141.ms.model.script' // TevdScriptHyperlinkEliminator
+ MELINK Target WL? 'ME_4F352A840264' // TevdScriptHyperlinkEliminator
  ;
 
 ENDME // ME_4F796D7B00A2 
+
+MEREF ME_4E85A4EB02BD_ME_4B72B44A0392_R
+ MELINK Original WL 'ME_4E85A4EB02BD' '4E5CF70B01E2.ms.model.script' // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85A4EB02BD_ME_4B72B44A0392_R Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
 
 %%ImplementedBy ME_4E85A4EB02BD ME_4B72B44A0392
 
 ME ME_4B72B44A0392
  MEPROP UID '4B72B44A0392'
  MEPROP Name 'DoEVDtoRTF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -279,7 +285,7 @@ ME ME_4B72B44A0392
  MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4E85A4EB02BD' '4E5CF70B01E2.ms.model.script' // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+   Seq: ( ME_4E85A4EB02BD_ME_4B72B44A0392_R // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
  )
  ; // Implements
  MELIST Attributes
@@ -397,7 +403,7 @@ ENDME // ME_530C9B530138
 ME ME_530C8AA4024F
  MEPROP UID '530C8AA4024F'
  MEPROP Name 'EVDtoRTFWithoutCommentDecor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -497,7 +503,7 @@ ENDME // ME_530C9B5C02E8
 ME ME_530C9AB60327
  MEPROP UID '530C9AB60327'
  MEPROP Name 'EVDtoRTF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -567,7 +573,7 @@ ENDME // ME_53CD24DE01C9
 ME ME_53CD1F8A0194
  MEPROP UID '53CD1F8A0194'
  MEPROP Name 'SetStyleTable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

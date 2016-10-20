@@ -39,7 +39,7 @@ ENDME // ME_53AC03FE0362 DoIt
 ME ME_53AC03EE01FD
  MEPROP UID '53AC03EE01FD'
  MEPROP Name 'GetTaggedDataType'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -83,7 +83,7 @@ ENDME // ME_53BFF5780158 DoIt
 ME ME_53BFF56D0348
  MEPROP UID '53BFF56D0348'
  MEPROP Name 'SetTaggedData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -107,17 +107,23 @@ ME ME_53B24E5000AC
 
 ENDME // ME_53B24E5000AC 
 
-ME ME_52BC2B9401F3_ME_53B24E23037A
+MEREF ME_52BC2B9401F3_ME_53B24E23037A_over
  MELINK Original WL 'ME_52BC2B9401F3' '47913F4E02E0.ms.model.script' // AfterDestroyCalled
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_52BC2B9401F3_ME_53B24E23037A AfterDestroyCalled
+ENDMEREF // ME_52BC2B9401F3_ME_53B24E23037A_over AfterDestroyCalled
 
-ME ME_53AC02B602E3_ME_53B24E23037A
+MEREF ME_53AC02B602E3_ME_53B24E23037A_over
  MELINK Original WL 'ME_53AC02B602E3' '47913F4E02E0.ms.model.script' // InitAfterAlloc
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_53AC02B602E3_ME_53B24E23037A InitAfterAlloc
+ENDMEREF // ME_53AC02B602E3_ME_53B24E23037A_over InitAfterAlloc
+
+MEREF ME_4A5CB93700CF_ME_53B24E23037A_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_53B24E23037A_R Ml3Unknown
 
 %%ImplementedBy ME_4A5CB93700CF ME_53B24E23037A
 
@@ -133,7 +139,7 @@ ME ME_53B24E23037A
  MELINK Parent WL? 'ME_53B24DFD01FF' // TagHolder
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( ME_4A5CB93700CF_ME_53B24E23037A_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -146,8 +152,8 @@ ME ME_53B24E23037A
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_52BC2B9401F3_ME_53B24E23037A // AfterDestroyCalled
- ME_53AC02B602E3_ME_53B24E23037A // InitAfterAlloc
+   Seq: ( ME_52BC2B9401F3_ME_53B24E23037A_over // AfterDestroyCalled
+ ME_53AC02B602E3_ME_53B24E23037A_over // InitAfterAlloc
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,270 @@
+// TddAnnoKindSortItem 564C627A03D0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_564C627A03D0
+
+ME ME_564C643B0166
+ MEPROP UID '564C643B0166'
+ MEPROP Name 'f_Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_564C643B0166 f_Name
+
+ME ME_564C649801A0
+ MEPROP UID '564C649801A0'
+ MEPROP Name 'f_TopicList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
+ ;
+
+ENDME // ME_564C649801A0 f_TopicList
+
+ME ME_564DA0C80389
+ MEPROP UID '564DA0C80389'
+ MEPROP Name 'f_ID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_564DA0C80389 f_ID
+
+FORWARD ME_564C630F00A3
+
+ME ME_564C6339022B
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_564C6339022B aName
+
+ME ME_564DA0B5004D
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_564DA0B5004D aID
+
+ME ME_564C631F001B
+ MEPROP UID '564C631F001B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564C630F00A3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_564C6339022B // aName
+ ME_564DA0B5004D // aID
+ )
+ ; // Parameters
+
+ENDME // ME_564C631F001B DoIt
+
+ME ME_564C630F00A3
+ MEPROP UID '564C630F00A3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564C631F001B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_564C630F00A3 Create
+
+MEREF ME_564C630F00A3_ME_564C634801A5_G
+ MELINK Original HWL ME_564C630F00A3 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564C630F00A3_ME_564C634801A5_G Create
+
+MEREF ME_564C602B0373_ME_564C634801A5_R
+ MELINK Original WL 'ME_564C602B0373' '5603ED3D011B.ms.model.script' // IddAnnoKindSortItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564C602B0373_ME_564C634801A5_R IddAnnoKindSortItem
+
+%%ImplementedBy ME_564C602B0373 ME_564C634801A5
+
+%%InheritedBy ME_564C630F00A3 ME_564C634801A5
+
+ME ME_564C634801A5
+ MEPROP UID '564C634801A5'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELIST Inherits
+   Seq: ( ME_564C630F00A3_ME_564C634801A5_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_564C602B0373_ME_564C634801A5_R // IddAnnoKindSortItem
+ )
+ ; // Implements
+
+ENDME // ME_564C634801A5 Make
+
+ME ME_564D742A0266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_564D742A0266 
+
+ME ME_564D7447034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_564C627A03D0 // TddAnnoKindSortItem
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_564D7447034D 
+
+MEREF ME_564C606E003D_ME_564C627A03D0_impl
+ MELINK Original WL 'ME_564C606E003D' '5603ED3D011B.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_564C606E003D_ME_564C627A03D0_impl Name
+
+MEREF ME_564C60D40342_ME_564C627A03D0_impl
+ MELINK Original WL 'ME_564C60D40342' '5603ED3D011B.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_564C60D40342_ME_564C627A03D0_impl Add
+
+MEREF ME_564C611801BD_ME_564C627A03D0_impl
+ MELINK Original WL 'ME_564C611801BD' '5603ED3D011B.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_564C611801BD_ME_564C627A03D0_impl Count
+
+MEREF ME_564C61F80097_ME_564C627A03D0_impl
+ MELINK Original WL 'ME_564C61F80097' '5603ED3D011B.ms.model.script' // Topics
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_564C61F80097_ME_564C627A03D0_impl Topics
+
+MEREF ME_564DA034027A_ME_564C627A03D0_impl
+ MELINK Original WL 'ME_564DA034027A' '5603ED3D011B.ms.model.script' // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_564DA034027A_ME_564C627A03D0_impl ID
+
+MEREF ME_479731C50290_ME_564C627A03D0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_564C627A03D0_over Cleanup
+
+MEREF ME_49E7754802A9_ME_564C627A03D0_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_564C627A03D0_G Tl3ProtoObject
+
+MEREF ME_564C602B0373_ME_564C627A03D0_R
+ MELINK Original WL 'ME_564C602B0373' '5603ED3D011B.ms.model.script' // IddAnnoKindSortItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564C602B0373_ME_564C627A03D0_R IddAnnoKindSortItem
+
+%%ImplementedBy ME_564C602B0373 ME_564C627A03D0
+
+%%InheritedBy ME_49E7754802A9 ME_564C627A03D0
+
+ME ME_564C627A03D0
+ MEPROP UID '564C627A03D0'
+ MEPROP Name 'TddAnnoKindSortItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50598FD9019C' // PipeOut
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_564C627A03D0_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_564C602B0373_ME_564C627A03D0_R // IddAnnoKindSortItem
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_564C643B0166 // f_Name
+ HWL ME_564C649801A0 // f_TopicList
+ HWL ME_564DA0C80389 // f_ID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_564C630F00A3 // Create
+ HWL ME_564C634801A5 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_564C606E003D_ME_564C627A03D0_impl // Name
+ ME_564C60D40342_ME_564C627A03D0_impl // Add
+ ME_564C611801BD_ME_564C627A03D0_impl // Count
+ ME_564C61F80097_ME_564C627A03D0_impl // Topics
+ ME_564DA034027A_ME_564C627A03D0_impl // ID
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_564C627A03D0_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_564D742A0266 // l3Base
+ ME_564D7447034D // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddAnnoKindSortItem.pas'
+ UP extprop:rc:SelfName 'ddAnnoKindSortItem'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddAnnoKindSortItem'
+
+ENDME // ME_564C627A03D0 TddAnnoKindSortItem

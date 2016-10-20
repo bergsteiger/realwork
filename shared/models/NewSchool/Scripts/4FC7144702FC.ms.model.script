@@ -1,0 +1,166 @@
+// pop_editor_AlignCellsBoundary 4FC7144702FC ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FC7144702FC
+
+ME ME_4FC71F010317
+ MEPROP UID '4FC71F010317'
+ MEPROP Name 'f_OutputFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FC71F010317 f_OutputFileName
+
+ME ME_4FC720C5012E
+ MEPROP UID '4FC720C5012E'
+ MEPROP Name 'f_ScriptCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_4FC720C5012E f_ScriptCaller
+
+ME ME_4FC7149A0228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL 'ME_4FC712940276' '4F5755FB0362.ms.model.script' // evAlignCellsBoundary
+ ;
+
+ENDME // ME_4FC7149A0228 
+
+ME ME_4FC7237903CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL? 'ME_4FC701EC00C0' // TevCellWidthCorrecterSpy
+ ;
+
+ENDME // ME_4FC7237903CE 
+
+ME ME_4FC72DC801AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '47877EB202FB.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_4FC72DC801AF 
+
+ME ME_4FC72DEE029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL 'ME_4B853D8301E9' '483C378301CB.ms.model.script' // AnsiStartsStr
+ ;
+
+ENDME // ME_4FC72DEE029D 
+
+ME ME_4FC73247005B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7144702FC // pop_editor_AlignCellsBoundary
+ ;
+ MELINK Target WL? 'ME_4829D89703D2' // TevCustomEditor
+ ;
+
+ENDME // ME_4FC73247005B 
+
+MEREF ME_4F4CB81200CA_ME_4FC7144702FC_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4FC7144702FC_impl DoWithEditor
+
+MEREF ME_4FC707D40199_ME_4FC7144702FC_impl
+ MELINK Original WL 'ME_4FC707D40199' '4FC701EC00C0.ms.model.script' // OpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FC707D40199_ME_4FC7144702FC_impl OpenLog
+
+MEREF ME_4FC707E401BA_ME_4FC7144702FC_impl
+ MELINK Original WL 'ME_4FC707E401BA' '4FC701EC00C0.ms.model.script' // CloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4FC707E401BA_ME_4FC7144702FC_impl CloseLog
+
+MEREF ME_4F4CB625027A_ME_4FC7144702FC_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4FC7144702FC_G TkwEditorFromStackWord
+
+MEREF ME_4FC7028201D4_ME_4FC7144702FC_R
+ MELINK Original WL 'ME_4FC7028201D4' '4FC701EC00C0.ms.model.script' // IevCellsWidthCorrecterLogger
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FC7028201D4_ME_4FC7144702FC_R IevCellsWidthCorrecterLogger
+
+%%ImplementedBy ME_4FC7028201D4 ME_4FC7144702FC
+
+%%InheritedBy ME_4F4CB625027A ME_4FC7144702FC
+
+ME ME_4FC7144702FC
+ MEPROP UID '4FC7144702FC'
+ MEPROP Name 'pop_editor_AlignCellsBoundary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4FC7144702FC_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4FC7028201D4_ME_4FC7144702FC_R // IevCellsWidthCorrecterLogger
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FC71F010317 // f_OutputFileName
+ HWL ME_4FC720C5012E // f_ScriptCaller
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4FC7144702FC_impl // DoWithEditor
+ ME_4FC707D40199_ME_4FC7144702FC_impl // OpenLog
+ ME_4FC707E401BA_ME_4FC7144702FC_impl // CloseLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FC7149A0228 // evAlignCellsBoundary
+ ME_4FC7237903CE // TevCellWidthCorrecterSpy
+ ME_4FC72DC801AF // ChangeFileExt
+ ME_4FC72DEE029D // AnsiStartsStr
+ ME_4FC73247005B // TevCustomEditor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorAlignCellsBoundary.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorAlignCellsBoundary'
+ UP extprop:rc:SelfName 'PopEditorAlignCellsBoundary'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorAlignCellsBoundary'
+
+ENDME // ME_4FC7144702FC pop_editor_AlignCellsBoundary

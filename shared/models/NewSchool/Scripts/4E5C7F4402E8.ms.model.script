@@ -93,7 +93,7 @@ ME ME_4F740CC00044
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
- MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ MELINK Target WL? 'ME_4DAEEA9E0049' // TtfwScriptEngine
  ;
 
 ENDME // ME_4F740CC00044 
@@ -113,10 +113,16 @@ ME ME_55D34FC40339
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E5C7EA10197 // TarHyperLinkProcessor
  ;
- MELINK Target WL 'ME_55D34A7E0127' '55C481E00003.ms.model.script' // TtfwArchiHyperlinkScriptCaller
+ MELINK Target WL? 'ME_55D34A7E0127' // TtfwArchiHyperlinkScriptCaller
  ;
 
 ENDME // ME_55D34FC40339 
+
+MEREF ME_49E7754802A9_ME_4E5C7EA10197_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4E5C7EA10197_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_4E5C7EA10197
 
@@ -132,7 +138,7 @@ ME ME_4E5C7EA10197
  MELINK Parent HWL ME_4E5C7F4402E8 // arHyperLinkProcessor
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_4E5C7EA10197_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Operations
@@ -185,7 +191,7 @@ ENDME // ME_4E5C80ED00BC DoIt
 ME ME_4E5C7FB10117
  MEPROP UID '4E5C7FB10117'
  MEPROP Name 'arOpenHyperLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть ссылку' ;

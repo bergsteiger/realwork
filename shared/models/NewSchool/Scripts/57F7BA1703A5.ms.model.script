@@ -1,0 +1,101 @@
+// TmsmChangedElements 57F7BA1703A5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F7BA1703A5
+
+FORWARD ME_57E105510123
+
+ME ME_57E108A0017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E105510123 // Save
+ ;
+ MELINK Target WL? 'ME_4DB6CAC402B4' // TtfwWordRefList
+ ;
+
+ENDME // ME_57E108A0017A 
+
+ME ME_57E108CA0349
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E105510123 // Save
+ ;
+ MELINK Target WL? 'ME_55ED4D040017' // TtfwWordsIterator
+ ;
+
+ENDME // ME_57E108CA0349 
+
+ME ME_57E105510123
+ MEPROP UID '57E105510123'
+ MEPROP Name 'Save'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F7BA1703A5 // TmsmChangedElements
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57E108A0017A // TtfwWordRefList
+ ME_57E108CA0349 // TtfwWordsIterator
+ )
+ ; // Dependencies
+
+ENDME // ME_57E105510123 Save
+
+ME ME_57F7BE700202
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F7BA1703A5 // TmsmChangedElements
+ ;
+ MELINK Target WL? 'ME_57AA00BD022E' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57F7BE700202 
+
+MEREF ME_57E103E402B8_ME_57F7BA1703A5_G
+ MELINK Original WL? 'ME_57E103E402B8' // TmsmChangedElementsPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57E103E402B8_ME_57F7BA1703A5_G TmsmChangedElementsPrim
+
+%%InheritedBy ME_57E103E402B8 ME_57F7BA1703A5
+
+ME ME_57F7BA1703A5
+ MEPROP UID '57F7BA1703A5'
+ MEPROP Name 'TmsmChangedElements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57AB4243034B' // ScriptCalling
+ ;
+ MELIST Inherits
+   Seq: ( ME_57E103E402B8_ME_57F7BA1703A5_G // TmsmChangedElementsPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57E105510123 // Save
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57F7BE700202 // TmsmModelElementMethodCaller
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_57F7BE46016B' '57E323D500C6.ms.model.script' // msmChangedElementsPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmChangedElements.pas'
+ UP extprop:rc:SelfName 'msmChangedElements'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmChangedElements'
+
+ENDME // ME_57F7BA1703A5 TmsmChangedElements

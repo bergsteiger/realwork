@@ -1,0 +1,85 @@
+// TnevSectionBreakList 49180FCE035B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49180FCE035B
+
+ME ME_4919361700A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49180FCE035B // TnevSectionBreakList
+ ;
+ MELINK Target WL? 'ME_480CA9AD0198' // evSectionPara
+ ;
+
+ENDME // ME_4919361700A2 
+
+MEREF ME_491933680169_ME_49180FCE035B_impl
+ MELINK Original WL 'ME_491933680169' '47C5207602D1.ms.model.script' // GetSectionWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_491933680169_ME_49180FCE035B_impl GetSectionWidth
+
+MEREF ME_4C0CF53A01A4_ME_49180FCE035B_impl
+ MELINK Original WL 'ME_4C0CF53A01A4' '47C5207602D1.ms.model.script' // GetSectionBreak
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C0CF53A01A4_ME_49180FCE035B_impl GetSectionBreak
+
+MEREF ME_49192D0702C5_ME_49180FCE035B_G
+ MELINK Original WL? 'ME_49192D0702C5' // TnevSectionBreakListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49192D0702C5_ME_49180FCE035B_G TnevSectionBreakListPrim
+
+MEREF ME_491878B4013B_ME_49180FCE035B_R
+ MELINK Original WL 'ME_491878B4013B' '47C5207602D1.ms.model.script' // InevSectionBreaks
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491878B4013B_ME_49180FCE035B_R InevSectionBreaks
+
+%%ImplementedBy ME_491878B4013B ME_49180FCE035B
+
+%%InheritedBy ME_49192D0702C5 ME_49180FCE035B
+
+ME ME_49180FCE035B
+ MEPROP UID '49180FCE035B'
+ MEPROP Name 'TnevSectionBreakList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список разрывов разделов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_481DB8210016' // Document
+ ;
+ MELIST Inherits
+   Seq: ( ME_49192D0702C5_ME_49180FCE035B_G // TnevSectionBreakListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_491878B4013B_ME_49180FCE035B_R // InevSectionBreaks
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_491933680169_ME_49180FCE035B_impl // GetSectionWidth
+ ME_4C0CF53A01A4_ME_49180FCE035B_impl // GetSectionBreak
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4919361700A2 // evSectionPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.11.2008 13:27'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevSectionBreakList.pas'
+ UP extprop:rc:SelfName 'SectionBreakList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevSectionBreakList'
+
+ENDME // ME_49180FCE035B TnevSectionBreakList

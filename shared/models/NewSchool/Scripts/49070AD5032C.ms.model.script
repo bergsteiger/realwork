@@ -1,0 +1,58 @@
+// TnsMedicDictionTree 49070AD5032C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49070AD5032C
+
+ME ME_49070C2102D0
+ MEPROP UID '49070C2102D0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49070AD5032C // TnsMedicDictionTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49070C2102D0 Make
+
+MEREF ME_490707F10167_ME_49070AD5032C_G
+ MELINK Original WL? 'ME_490707F10167' // TnsMedicDictionTreeBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490707F10167_ME_49070AD5032C_G TnsMedicDictionTreeBase
+
+%%InheritedBy ME_490707F10167 ME_49070AD5032C
+
+ME ME_49070AD5032C
+ MEPROP UID '49070AD5032C'
+ MEPROP Name 'TnsMedicDictionTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов (синглетон)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4901F07D039B' // Medic$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_490707F10167_ME_49070AD5032C_G // TnsMedicDictionTreeBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_49070C2102D0 // Make
+ )
+ ; // Operations
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '2008/03/06 10:02:57'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTree.pas'
+ UP extprop:rc:SelfName 'MedicDictionTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsMedicDictionTree'
+
+ENDME // ME_49070AD5032C TnsMedicDictionTree

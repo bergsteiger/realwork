@@ -1,0 +1,454 @@
+// Tm3StorageHolder 542E5D79018F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_542E5D79018F
+
+ME ME_542E5DA401CB
+ MEPROP UID '542E5DA401CB'
+ MEPROP Name 'f_Storage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_4720937500A4' '4720862F0238.ms.model.script' // Im3IndexedStorage
+ ;
+
+ENDME // ME_542E5DA401CB f_Storage
+
+ME ME_542E5DD80163
+ MEPROP UID '542E5DD80163'
+ MEPROP Name 'f_StorageClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_5422B2A502EB' '542176490191.ms.model.script' // Rm3CommonStorage
+ ;
+
+ENDME // ME_542E5DD80163 f_StorageClass
+
+ME ME_542E66010214
+ MEPROP UID '542E66010214'
+ MEPROP Name 'Access'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_542E66010214 Access
+
+ME ME_542E82C10111
+ MEPROP UID '542E82C10111'
+ MEPROP Name 'FileName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_542E82C10111 FileName
+
+ME ME_542E875B02BA
+ MEPROP UID '542E875B02BA'
+ MEPROP Name 'SharedMode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_542E875B02BA SharedMode
+
+ME ME_543FBC830019
+ MEPROP UID '543FBC830019'
+ MEPROP Name 'f_RootStreamManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL? 'ME_543FBAC30068' // Tm3RootStreamManagerPrim
+ ;
+
+ENDME // ME_543FBC830019 f_RootStreamManager
+
+FORWARD ME_542E5E1A037B
+
+ME ME_542E5E8D02E9
+ MEPROP Name 'aStorageClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5422B2A502EB' '542176490191.ms.model.script' // Rm3CommonStorage
+ ;
+
+ENDME // ME_542E5E8D02E9 aStorageClass
+
+ME ME_542E5E8D031D
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_542E5E8D031D anAccess
+
+ME ME_542E5E8D034A
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_542E5E8D034A aStream
+
+ME ME_542E5E4200B5
+ MEPROP UID '542E5E4200B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E5E1A037B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_542E5E8D02E9 // aStorageClass
+ ME_542E5E8D031D // anAccess
+ ME_542E5E8D034A // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_542E5E4200B5 DoIt
+
+ME ME_542E5E1A037B
+ MEPROP UID '542E5E1A037B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542E5E4200B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542E5E1A037B Create
+
+MEREF ME_542E5E1A037B_ME_542E5E2F020B_G
+ MELINK Original HWL ME_542E5E1A037B // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542E5E1A037B_ME_542E5E2F020B_G Create
+
+MEREF ME_542E5D380067_ME_542E5E2F020B_R
+ MELINK Original WL 'ME_542E5D380067' '4720862F0238.ms.model.script' // Im3StorageHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542E5D380067_ME_542E5E2F020B_R Im3StorageHolder
+
+%%ImplementedBy ME_542E5D380067 ME_542E5E2F020B
+
+%%InheritedBy ME_542E5E1A037B ME_542E5E2F020B
+
+ME ME_542E5E2F020B
+ MEPROP UID '542E5E2F020B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELIST Inherits
+   Seq: ( ME_542E5E1A037B_ME_542E5E2F020B_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_542E5D380067_ME_542E5E2F020B_R // Im3StorageHolder
+ )
+ ; // Implements
+
+ENDME // ME_542E5E2F020B Make
+
+FORWARD ME_542E6E450028
+
+ME ME_542E6EC50125
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_542E6EC50125 aFileName
+
+ME ME_542E6EC5015B
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_542E6EC5015B anAccess
+
+ME ME_542E6EC50183
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5417FCC40029' '4720862F0238.ms.model.script' // Tm3StorageType
+ ;
+
+ENDME // ME_542E6EC50183 aType
+
+ME ME_542E6EC501C3
+ MEPROP Name 'aSharedMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_542E6EC501C3 aSharedMode
+
+ME ME_542E6EC5021F
+ MEPROP Name 'theStorage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4720937500A4' '4720862F0238.ms.model.script' // Im3IndexedStorage
+ ;
+
+ENDME // ME_542E6EC5021F theStorage
+
+ME ME_542E6E6E0151
+ MEPROP UID '542E6E6E0151'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E6E450028 // GetFromCache
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_542E6EC50125 // aFileName
+ ME_542E6EC5015B // anAccess
+ ME_542E6EC50183 // aType
+ ME_542E6EC501C3 // aSharedMode
+ ME_542E6EC5021F // theStorage
+ )
+ ; // Parameters
+
+ENDME // ME_542E6E6E0151 DoIt
+
+ME ME_542E6E450028
+ MEPROP UID '542E6E450028'
+ MEPROP Name 'GetFromCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542E6E6E0151 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542E6E450028 GetFromCache
+
+FORWARD ME_542E95A901B7
+
+ME ME_542E96860046
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_542E96860046 anAccess
+
+ME ME_542E966E00C9
+ MEPROP UID '542E966E00C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E95A901B7 // ReopenStorage
+ ;
+ MELINK Target WL 'ME_4720937500A4' '4720862F0238.ms.model.script' // Im3IndexedStorage
+ ;
+ MELIST Parameters
+   Seq: ( ME_542E96860046 // anAccess
+ )
+ ; // Parameters
+
+ENDME // ME_542E966E00C9 DoIt
+
+ME ME_542E95A901B7
+ MEPROP UID '542E95A901B7'
+ MEPROP Name 'ReopenStorage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542E966E00C9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_542E95A901B7 ReopenStorage
+
+ME ME_542E6587008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_542E6587008D 
+
+ME ME_542E7B040200
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL? 'ME_542E7AD00050' // Tm3StorageHolderList
+ ;
+
+ENDME // ME_542E7B040200 
+
+ME ME_542EA4AB000E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542E5D79018F // Tm3StorageHolder
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_542EA4AB000E 
+
+MEREF ME_542E5D4E01DD_ME_542E5D79018F_impl
+ MELINK Original WL 'ME_542E5D4E01DD' '4720862F0238.ms.model.script' // Storage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_542E5D4E01DD_ME_542E5D79018F_impl Storage
+
+MEREF ME_542E736E0204_ME_542E5D79018F_impl
+ MELINK Original WL 'ME_542E736E0204' '4720862F0238.ms.model.script' // StoreToCache
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542E736E0204_ME_542E5D79018F_impl StoreToCache
+
+MEREF ME_479731C50290_ME_542E5D79018F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_542E5D79018F_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_542E5D79018F_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_542E5D79018F_G Tl3CProtoObject
+
+MEREF ME_542E5D380067_ME_542E5D79018F_R
+ MELINK Original WL 'ME_542E5D380067' '4720862F0238.ms.model.script' // Im3StorageHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_542E5D380067_ME_542E5D79018F_R Im3StorageHolder
+
+%%ImplementedBy ME_542E5D380067 ME_542E5D79018F
+
+%%InheritedBy ME_4AE5CA2D0034 ME_542E5D79018F
+
+ME ME_542E5D79018F
+ MEPROP UID '542E5D79018F'
+ MEPROP Name 'Tm3StorageHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5486E32B0191' // StorageHolder
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_542E5D79018F_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_542E5D380067_ME_542E5D79018F_R // Im3StorageHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_542E5DA401CB // f_Storage
+ HWL ME_542E5DD80163 // f_StorageClass
+ HWL ME_542E66010214 // Access
+ HWL ME_542E82C10111 // FileName
+ HWL ME_542E875B02BA // SharedMode
+ HWL ME_543FBC830019 // f_RootStreamManager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_542E5E1A037B // Create
+ HWL ME_542E5E2F020B // Make
+ HWL ME_542E6E450028 // GetFromCache
+ HWL ME_542E95A901B7 // ReopenStorage
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_542E5D4E01DD_ME_542E5D79018F_impl // Storage
+ ME_542E736E0204_ME_542E5D79018F_impl // StoreToCache
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_542E5D79018F_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_542E6587008D // FreeAndNil
+ ME_542E7B040200 // Tm3StorageHolderList
+ ME_542EA4AB000E // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageHolder.pas'
+ UP extprop:rc:SelfName 'm3StorageHolder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3StorageHolder'
+
+ENDME // ME_542E5D79018F Tm3StorageHolder

@@ -1,0 +1,166 @@
+// TnsLeafParaNode 467FCDA10044 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_467FCDA10044
+
+FORWARD ME_4C722F3D02EE
+
+ME ME_4CEFA15F013A
+ MEPROP Name 'aProp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A522D130096' '47AC6F0B025E.ms.model.script' // Tk2Prop
+ ;
+
+ENDME // ME_4CEFA15F013A aProp
+
+ME ME_4CEFA15703E4
+ MEPROP UID '4CEFA15703E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C722F3D02EE // BuildSubs
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEFA15F013A // aProp
+ )
+ ; // Parameters
+
+ENDME // ME_4CEFA15703E4 DoIt
+
+ME ME_4C722F5300AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C722F3D02EE // BuildSubs
+ ;
+ MELINK Target WL? 'ME_4C722ECF0107' // Tf1AtomChecker
+ ;
+
+ENDME // ME_4C722F5300AA 
+
+ME ME_4CEFA1DC0391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C722F3D02EE // BuildSubs
+ ;
+ MELINK Target WL 'ME_4C6D1B070024' '4C6E92E9016E.ms.model.script' // TnsNodeState
+ ;
+
+ENDME // ME_4CEFA1DC0391 
+
+ME ME_4C722F3D02EE
+ MEPROP UID '4C722F3D02EE'
+ MEPROP Name 'BuildSubs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_467FCDA10044 // TnsLeafParaNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEFA15703E4 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C722F5300AA // Tf1AtomChecker
+ ME_4CEFA1DC0391 // TnsNodeState
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C722F3D02EE BuildSubs
+
+ME ME_4D14CB9201A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCDA10044 // TnsLeafParaNode
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D14CB9201A4 
+
+ME ME_53D755D5022A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_467FCDA10044 // TnsLeafParaNode
+ ;
+ MELINK Target WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+ ;
+
+ENDME // ME_53D755D5022A 
+
+MEREF ME_49A545D501F6_ME_467FCDA10044_over
+ MELINK Original WL 'ME_49A545D501F6' '53317D14019D.ms.model.script' // DoIterateProperties
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49A545D501F6_ME_467FCDA10044_over DoIterateProperties
+
+MEREF ME_4C6D1D450332_ME_467FCDA10044_over
+ MELINK Original WL 'ME_4C6D1D450332' '467FCCB101CF.ms.model.script' // DoGetSubAtom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C6D1D450332_ME_467FCDA10044_over DoGetSubAtom
+
+MEREF ME_4CEFA0BA0233_ME_467FCDA10044_over
+ MELINK Original WL 'ME_4CEFA0BA0233' '53317D14019D.ms.model.script' // DoDoLoad
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CEFA0BA0233_ME_467FCDA10044_over DoDoLoad
+
+MEREF ME_467FCD4401BD_ME_467FCDA10044_G
+ MELINK Original WL? 'ME_467FCD4401BD' // TnsParentedTagNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467FCD4401BD_ME_467FCDA10044_G TnsParentedTagNode
+
+%%InheritedBy ME_467FCD4401BD ME_467FCDA10044
+
+ME ME_467FCDA10044
+ MEPROP UID '467FCDA10044'
+ MEPROP Name 'TnsLeafParaNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Листьевой параграф' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_467FCD4401BD_ME_467FCDA10044_G // TnsParentedTagNode
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C722F3D02EE // BuildSubs
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49A545D501F6_ME_467FCDA10044_over // DoIterateProperties
+ ME_4C6D1D450332_ME_467FCDA10044_over // DoGetSubAtom
+ ME_4CEFA0BA0233_ME_467FCDA10044_over // DoDoLoad
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D14CB9201A4 // Tk2TagID
+ ME_53D755D5022A // ObjectSegment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '2005/06/23 16:38:20'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaNode.pas'
+ UP extprop:rc:SelfName 'LeafParaNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLeafParaNode'
+
+ENDME // ME_467FCDA10044 TnsLeafParaNode

@@ -1,0 +1,211 @@
+// Tk2DictionaryEx 535664EC03B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_535664EC03B3
+
+FORWARD ME_535664EC03B3
+
+FORWARD ME_49A6BDFE0177
+
+ME ME_49A6BE2C0216
+ MEPROP UID '49A6BE2C0216'
+ MEPROP Name 'rID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Идентификатор элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49A6BDFE0177 // TLastRec
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49A6BE2C0216 rID
+
+ME ME_49A6BE3E00EF
+ MEPROP UID '49A6BE3E00EF'
+ MEPROP Name 'rTag'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Собственно элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49A6BDFE0177 // TLastRec
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_49A6BE3E00EF rTag
+
+ME ME_49A6BDFE0177
+ MEPROP UID '49A6BDFE0177'
+ MEPROP Name 'TLastRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущий элемент, к которому обращались' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49A6BE2C0216 // rID
+ HWL ME_49A6BE3E00EF // rTag
+ )
+ ; // Attributes
+
+ENDME // ME_49A6BDFE0177 TLastRec
+
+ME ME_535665440242
+ MEPROP UID '535665440242'
+ MEPROP Name 'f_LastRec'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
+ ;
+ MELINK Target HWL ME_49A6BDFE0177 // TLastRec
+ ;
+
+ENDME // ME_535665440242 f_LastRec
+
+ME ME_5356656C03E2
+ MEPROP UID '5356656C03E2'
+ MEPROP Name 'AtomType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5356656C03E2 AtomType
+
+FORWARD ME_53565C580228
+
+ME ME_53565C690090
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53565C690090 aType
+
+ME ME_53565C60012F
+ MEPROP UID '53565C60012F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53565C580228 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53565C690090 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_53565C60012F DoIt
+
+ME ME_53565C580228
+ MEPROP UID '53565C580228'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53565C60012F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53565C580228 Create
+
+ME ME_5356658600E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_535664EC03B3 // Tk2DictionaryEx
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5356658600E0 
+
+MEREF ME_479731C50290_ME_535664EC03B3_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_535664EC03B3_over Cleanup
+
+MEREF ME_4B8BBA220048_ME_535664EC03B3_over
+ MELINK Original WL 'ME_4B8BBA220048' '4B8BB87A0089.ms.model.script' // DRByID
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_4B8BBA220048_ME_535664EC03B3_over DRByID
+
+MEREF ME_4860AF86034F_ME_535664EC03B3_G
+ MELINK Original WL? 'ME_4860AF86034F' // Tk2Dictionary
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4860AF86034F_ME_535664EC03B3_G Tk2Dictionary
+
+%%InheritedBy ME_4860AF86034F ME_535664EC03B3
+
+ME ME_535664EC03B3
+ MEPROP UID '535664EC03B3'
+ MEPROP Name 'Tk2DictionaryEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4860AF86034F_ME_535664EC03B3_G // Tk2Dictionary
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_535665440242 // f_LastRec
+ HWL ME_5356656C03E2 // AtomType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53565C580228 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_535664EC03B3_over // Cleanup
+ ME_4B8BBA220048_ME_535664EC03B3_over // DRByID
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49A6BDFE0177 // TLastRec
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5356658600E0 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2DictionaryEx.pas'
+ UP extprop:rc:SelfName 'DictionaryEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2DictionaryEx'
+
+ENDME // ME_535664EC03B3 Tk2DictionaryEx

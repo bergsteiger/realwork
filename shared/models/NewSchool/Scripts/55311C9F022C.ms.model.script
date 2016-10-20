@@ -1,0 +1,134 @@
+// TtfwInterfaceRegistrator 55311C9F022C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55311C9F022C
+
+FORWARD ME_55311CD00337
+
+ME ME_55311CE00227
+ MEPROP Name 'aTypeInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_55311CE00227 aTypeInfo
+
+ME ME_55311CDE02F5
+ MEPROP UID '55311CDE02F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55311CD00337 // RegisterInterface
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55311CE00227 // aTypeInfo
+ )
+ ; // Parameters
+
+ENDME // ME_55311CDE02F5 DoIt
+
+ME ME_55311CD00337
+ MEPROP UID '55311CD00337'
+ MEPROP Name 'RegisterInterface'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55311CDE02F5 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_55311CD00337 RegisterInterface
+
+ME ME_55311CBF01BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELINK Target WL? 'ME_55311B3903DC' // TtfwStringConstantRegistrator
+ ;
+
+ENDME // ME_55311CBF01BF 
+
+ME ME_553122160210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_553122160210 
+
+ME ME_553126E80045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELINK Target WL 'ME_4F4748B9023D' '4DAF19F600C5.ms.model.script' // TtfwCStringFactory
+ ;
+
+ENDME // ME_553126E80045 
+
+ME ME_553126FA0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_553126FA0014 
+
+ME ME_5571B0450324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55311C9F022C // TtfwInterfaceRegistrator
+ ;
+ MELINK Target WL? 'ME_5571AC8301BE' // TtfwTypeModifier
+ ;
+
+ENDME // ME_5571B0450324 
+
+ME ME_55311C9F022C
+ MEPROP UID '55311C9F022C'
+ MEPROP Name 'TtfwInterfaceRegistrator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5527F81C020E' // TypesRegistration
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55311CD00337 // RegisterInterface
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55311CBF01BF // TtfwStringConstantRegistrator
+ ME_553122160210 // l3String
+ ME_553126E80045 // TtfwCStringFactory
+ ME_553126FA0014 // SysUtils
+ ME_5571B0450324 // TtfwTypeModifier
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwInterfaceRegistrator.pas'
+ UP extprop:rc:SelfName 'InterfaceRegistrator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwInterfaceRegistrator'
+
+ENDME // ME_55311C9F022C TtfwInterfaceRegistrator

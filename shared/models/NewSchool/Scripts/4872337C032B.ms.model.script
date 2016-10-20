@@ -1,0 +1,475 @@
+// TctComboBoxStringsItemNode 4872337C032B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4872337C032B
+
+FORWARD ME_4872337C032B
+
+FORWARD ME_48723EB4025A
+
+ME ME_48723F5D006F
+ MEPROP UID '48723F5D006F'
+ MEPROP Name 'GetSelf'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48723EB4025A // IctNodeWrap
+ ;
+ MELINK Target HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+
+ENDME // ME_48723F5D006F GetSelf
+
+ME ME_48723EB4025A
+ MEPROP UID '48723EB4025A'
+ MEPROP GUID 'E3E8625D-6EC1-4C23-B489-A81FA82366C8'
+ MEPROP Name 'IctNodeWrap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ќбЄртка над нодой, позвол€юща€ получить реализацию.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48723F5D006F // GetSelf
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ctNodeWrap'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48723EB4025A IctNodeWrap
+
+ME ME_4872340E00FD
+ MEPROP UID '4872340E00FD'
+ MEPROP Name 'Strings'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_48721FA80370' // TComboBoxStrings
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4872340E00FD Strings
+
+ME ME_48723419028E
+ MEPROP UID '48723419028E'
+ MEPROP Name 'f_Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48723419028E f_Index
+
+ME ME_48723BDB030A
+ MEPROP UID '48723BDB030A'
+ MEPROP Name 'f_Flags'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48723BDB030A f_Flags
+
+ME ME_487233ED01A5
+ MEPROP Name 'aStrings'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_48721FA80370' // TComboBoxStrings
+ ;
+
+ENDME // ME_487233ED01A5 aStrings
+
+ME ME_487233ED01CB
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_487233ED01CB anIndex
+
+ME ME_487233D60341
+ MEPROP UID '487233D60341'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_487233ED01A5 // aStrings
+ ME_487233ED01CB // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_487233D60341 Create
+
+ME ME_487233FA0328
+ MEPROP Name 'aStrings'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_48721FA80370' // TComboBoxStrings
+ ;
+
+ENDME // ME_487233FA0328 aStrings
+
+ME ME_487233FA0352
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_487233FA0352 anIndex
+
+ME ME_487233F500AC
+ MEPROP UID '487233F500AC'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_487233FA0328 // aStrings
+ ME_487233FA0352 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_487233F500AC Make
+
+ME ME_48723644019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48723644019C 
+
+ME ME_4872367A0059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4872367A0059 
+
+ME ME_48723D9B03B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48723D9B03B1 
+
+ME ME_4872419E0350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_4872419E0350 
+
+ME ME_48724674036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4872337C032B // TctComboBoxStringsItemNode
+ ;
+ MELINK Target WL? 'ME_47F2612701D0' // l3Bits
+ ;
+
+ENDME // ME_48724674036A 
+
+MEREF ME_47723CDB00A4_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723CDB00A4' '4682595B0268.ms.model.script' // IsFirst
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723CDB00A4_ME_4872337C032B_impl IsFirst
+
+MEREF ME_47723CFF0148_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723CFF0148' '4682595B0268.ms.model.script' // IsLast
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723CFF0148_ME_4872337C032B_impl IsLast
+
+MEREF ME_47723D0F0392_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723D0F0392' '4682595B0268.ms.model.script' // HasChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723D0F0392_ME_4872337C032B_impl HasChild
+
+MEREF ME_47723D1D03D6_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723D1D03D6' '4682595B0268.ms.model.script' // MaybeChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723D1D03D6_ME_4872337C032B_impl MaybeChild
+
+MEREF ME_47723D2E0051_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723D2E0051' '4682595B0268.ms.model.script' // GetLevel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723D2E0051_ME_4872337C032B_impl GetLevel
+
+MEREF ME_47723D3B0058_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723D3B0058' '4682595B0268.ms.model.script' // GetLevelFor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723D3B0058_ME_4872337C032B_impl GetLevelFor
+
+MEREF ME_47723D4C0360_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723D4C0360' '4682595B0268.ms.model.script' // IsSame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723D4C0360_ME_4872337C032B_impl IsSame
+
+MEREF ME_47723DB901CA_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723DB901CA' '4682595B0268.ms.model.script' // IsDisappeared
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723DB901CA_ME_4872337C032B_impl IsDisappeared
+
+MEREF ME_47723DD1008F_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723DD1008F' '4682595B0268.ms.model.script' // BeginMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723DD1008F_ME_4872337C032B_impl BeginMove
+
+MEREF ME_47723DE0009F_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723DE0009F' '4682595B0268.ms.model.script' // EndMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723DE0009F_ME_4872337C032B_impl EndMove
+
+MEREF ME_47723DED006A_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723DED006A' '4682595B0268.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47723DED006A_ME_4872337C032B_impl Delete
+
+MEREF ME_47723E8C0086_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47723E8C0086' '4682595B0268.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47723E8C0086_ME_4872337C032B_impl Text
+
+MEREF ME_4772408A0361_ME_4872337C032B_impl
+ MELINK Original WL 'ME_4772408A0361' '4682595B0268.ms.model.script' // Parent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772408A0361_ME_4872337C032B_impl Parent
+
+MEREF ME_477240B10267_ME_4872337C032B_impl
+ MELINK Original WL 'ME_477240B10267' '4682595B0268.ms.model.script' // Child
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477240B10267_ME_4872337C032B_impl Child
+
+MEREF ME_477241AC00B9_ME_4872337C032B_impl
+ MELINK Original WL 'ME_477241AC00B9' '4682595B0268.ms.model.script' // Next
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477241AC00B9_ME_4872337C032B_impl Next
+
+MEREF ME_4772423302AF_ME_4872337C032B_impl
+ MELINK Original WL 'ME_4772423302AF' '4682595B0268.ms.model.script' // Flag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772423302AF_ME_4872337C032B_impl Flag
+
+MEREF ME_477242700004_ME_4872337C032B_impl
+ MELINK Original WL 'ME_477242700004' '4682595B0268.ms.model.script' // Flags
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477242700004_ME_4872337C032B_impl Flags
+
+MEREF ME_4772429202E4_ME_4872337C032B_impl
+ MELINK Original WL 'ME_4772429202E4' '4682595B0268.ms.model.script' // ThisChildrenCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772429202E4_ME_4872337C032B_impl ThisChildrenCount
+
+MEREF ME_477242A40219_ME_4872337C032B_impl
+ MELINK Original WL 'ME_477242A40219' '4682595B0268.ms.model.script' // IndexInParent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_477242A40219_ME_4872337C032B_impl IndexInParent
+
+MEREF ME_47A86F070101_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47A86F070101' '4682595B0268.ms.model.script' // CanAcceptData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47A86F070101_ME_4872337C032B_impl CanAcceptData
+
+MEREF ME_47A86F1C016B_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47A86F1C016B' '4682595B0268.ms.model.script' // DropData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47A86F1C016B_ME_4872337C032B_impl DropData
+
+MEREF ME_47ADA09C019B_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47ADA09C019B' '4682595B0268.ms.model.script' // CanMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47ADA09C019B_ME_4872337C032B_impl CanMove
+
+MEREF ME_47B5759A03C0_ME_4872337C032B_impl
+ MELINK Original WL 'ME_47B5759A03C0' '4682595B0268.ms.model.script' // Prev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47B5759A03C0_ME_4872337C032B_impl Prev
+
+MEREF ME_48723F5D006F_ME_4872337C032B_impl
+ MELINK Original HWL ME_48723F5D006F // GetSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48723F5D006F_ME_4872337C032B_impl GetSelf
+
+MEREF ME_479731C50290_ME_4872337C032B_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4872337C032B_over Cleanup
+
+MEREF ME_46780E690001_ME_4872337C032B_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_4872337C032B_G Tl3CacheableBase
+
+MEREF ME_468259900322_ME_4872337C032B_R
+ MELINK Original WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468259900322_ME_4872337C032B_R Il3SimpleNode
+
+MEREF ME_48723EB4025A_ME_4872337C032B_R
+ MELINK Original HWL ME_48723EB4025A // IctNodeWrap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48723EB4025A_ME_4872337C032B_R IctNodeWrap
+
+%%ImplementedBy ME_468259900322 ME_4872337C032B
+%%ImplementedBy ME_48723EB4025A ME_4872337C032B
+
+%%InheritedBy ME_46780E690001 ME_4872337C032B
+
+ME ME_4872337C032B
+ MEPROP UID '4872337C032B'
+ MEPROP Name 'TctComboBoxStringsItemNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48297E42011A' // ComboTree
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_4872337C032B_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_468259900322_ME_4872337C032B_R // Il3SimpleNode
+ ME_48723EB4025A_ME_4872337C032B_R // IctNodeWrap
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4872340E00FD // Strings
+ HWL ME_48723419028E // f_Index
+ HWL ME_48723BDB030A // f_Flags
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_487233D60341 // Create
+ HWL ME_487233F500AC // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47723CDB00A4_ME_4872337C032B_impl // IsFirst
+ ME_47723CFF0148_ME_4872337C032B_impl // IsLast
+ ME_47723D0F0392_ME_4872337C032B_impl // HasChild
+ ME_47723D1D03D6_ME_4872337C032B_impl // MaybeChild
+ ME_47723D2E0051_ME_4872337C032B_impl // GetLevel
+ ME_47723D3B0058_ME_4872337C032B_impl // GetLevelFor
+ ME_47723D4C0360_ME_4872337C032B_impl // IsSame
+ ME_47723DB901CA_ME_4872337C032B_impl // IsDisappeared
+ ME_47723DD1008F_ME_4872337C032B_impl // BeginMove
+ ME_47723DE0009F_ME_4872337C032B_impl // EndMove
+ ME_47723DED006A_ME_4872337C032B_impl // Delete
+ ME_47723E8C0086_ME_4872337C032B_impl // Text
+ ME_4772408A0361_ME_4872337C032B_impl // Parent
+ ME_477240B10267_ME_4872337C032B_impl // Child
+ ME_477241AC00B9_ME_4872337C032B_impl // Next
+ ME_4772423302AF_ME_4872337C032B_impl // Flag
+ ME_477242700004_ME_4872337C032B_impl // Flags
+ ME_4772429202E4_ME_4872337C032B_impl // ThisChildrenCount
+ ME_477242A40219_ME_4872337C032B_impl // IndexInParent
+ ME_47A86F070101_ME_4872337C032B_impl // CanAcceptData
+ ME_47A86F1C016B_ME_4872337C032B_impl // DropData
+ ME_47ADA09C019B_ME_4872337C032B_impl // CanMove
+ ME_47B5759A03C0_ME_4872337C032B_impl // Prev
+ ME_48723F5D006F_ME_4872337C032B_impl // GetSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4872337C032B_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48723EB4025A // IctNodeWrap
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48723644019C // SysUtils
+ ME_4872367A0059 // l3String
+ ME_48723D9B03B1 // l3Base
+ ME_4872419E0350 // l3InterfacesMisc
+ ME_48724674036A // l3Bits
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas'
+ UP extprop:rc:SelfName 'ctComboBoxStringsItemNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ctComboBoxStringsItemNode'
+
+ENDME // ME_4872337C032B TctComboBoxStringsItemNode

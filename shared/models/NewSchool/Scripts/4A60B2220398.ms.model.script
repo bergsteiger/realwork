@@ -59,12 +59,18 @@ ME ME_4B17E91B002A
 
 ENDME // ME_4B17E91B002A 
 
-ME ME_47A0AD3A01F7_ME_4A60B2220398
+MEREF ME_47A0AD3A01F7_ME_4A60B2220398_over
  MELINK Original WL 'ME_47A0AD3A01F7' '47A0ACE90008.ms.model.script' // QueryInterface
  ;
  MEPROP OpKind opkind_Overridden
  UP "calling conventions" 'stdcall'
-ENDME // ME_47A0AD3A01F7_ME_4A60B2220398 QueryInterface
+ENDMEREF // ME_47A0AD3A01F7_ME_4A60B2220398_over QueryInterface
+
+MEREF ME_4A60B2AB03CE_ME_4A60B2220398_R
+ MELINK Original WL 'ME_4A60B2AB03CE' '47BB24D30205.ms.model.script' // Ml3Castable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A60B2AB03CE_ME_4A60B2220398_R Ml3Castable
 
 %%ImplementedBy ME_4A60B2AB03CE ME_4A60B2220398
 
@@ -80,7 +86,7 @@ ME ME_4A60B2220398
  MELINK Parent WL? 'ME_47BB24D30205' // Стандартные примеси
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A60B2AB03CE' '47BB24D30205.ms.model.script' // Ml3Castable
+   Seq: ( ME_4A60B2AB03CE_ME_4A60B2220398_R // Ml3Castable
  )
  ; // Implements
  MELIST Operations
@@ -88,7 +94,7 @@ ME ME_4A60B2220398
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A0AD3A01F7_ME_4A60B2220398 // QueryInterface
+   Seq: ( ME_47A0AD3A01F7_ME_4A60B2220398_over // QueryInterface
  )
  ; // Overridden
  MELIST Dependencies

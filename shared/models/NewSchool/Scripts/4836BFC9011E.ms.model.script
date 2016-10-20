@@ -1,0 +1,55 @@
+// Tk2CustomFileGenerator 4836BFC9011E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836BFC9011E
+
+ME ME_483A6DE30208
+ MEPROP UID '483A6DE30208'
+ MEPROP Name 'OutEOL'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит конец строки.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836BFC9011E // Tk2CustomFileGenerator
+ ;
+
+ENDME // ME_483A6DE30208 OutEOL
+
+MEREF ME_4836BFF2026B_ME_4836BFC9011E_G
+ MELINK Original WL? 'ME_4836BFF2026B' // Tk2CustomStackGeneratorEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836BFF2026B_ME_4836BFC9011E_G Tk2CustomStackGeneratorEx
+
+%%InheritedBy ME_4836BFF2026B ME_4836BFC9011E
+
+ME ME_4836BFC9011E
+ MEPROP UID '4836BFC9011E'
+ MEPROP Name 'Tk2CustomFileGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый писатель тегов в файл.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECA80B000D' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4836BFF2026B_ME_4836BFC9011E_G // Tk2CustomStackGeneratorEx
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_483A6DE30208 // OutEOL
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '21.02.2005 18:55'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileGenerator.pas'
+ UP extprop:rc:SelfName 'FileGenerator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2CustomFileGenerator'
+
+ENDME // ME_4836BFC9011E Tk2CustomFileGenerator

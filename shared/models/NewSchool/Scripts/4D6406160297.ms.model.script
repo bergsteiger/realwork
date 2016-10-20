@@ -1,0 +1,73 @@
+// TevSelectingHotSpot 4D6406160297 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6406160297
+
+MEREF ME_48E263CD01BD_ME_4D6406160297_impl
+ MELINK Original WL 'ME_48E263CD01BD' '4A1FCBA0014C.ms.model.script' // MouseAction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48E263CD01BD_ME_4D6406160297_impl MouseAction
+
+MEREF ME_4ECCD6840014_ME_4D6406160297_impl
+ MELINK Original WL 'ME_4ECCD6840014' '4A1FCBA0014C.ms.model.script' // CanDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4ECCD6840014_ME_4D6406160297_impl CanDrag
+
+MEREF ME_480F4E9301DE_ME_4D6406160297_G
+ MELINK Original WL? 'ME_480F4E9301DE' // nevParaListTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_480F4E9301DE_ME_4D6406160297_G nevParaListTool
+
+MEREF ME_4A267FA903BA_ME_4D6406160297_G
+ MELINK Original WL? 'ME_4A267FA903BA' // TevHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A267FA903BA_ME_4D6406160297_G TevHotSpot
+
+MEREF ME_48E263B60071_ME_4D6406160297_R
+ MELINK Original WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E263B60071_ME_4D6406160297_R IevAdvancedHotSpot
+
+%%ImplementedBy ME_48E263B60071 ME_4D6406160297
+
+%%InheritedBy ME_480F4E9301DE ME_4D6406160297
+%%InheritedBy ME_4A267FA903BA ME_4D6406160297
+
+ME ME_4D6406160297
+ MEPROP UID '4D6406160297'
+ MEPROP Name 'TevSelectingHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_480F4E9301DE_ME_4D6406160297_G // nevParaListTool
+ ME_4A267FA903BA_ME_4D6406160297_G // TevHotSpot
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48E263B60071_ME_4D6406160297_R // IevAdvancedHotSpot
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_48E263CD01BD_ME_4D6406160297_impl // MouseAction
+ ME_4ECCD6840014_ME_4D6406160297_impl // CanDrag
+ )
+ ; // Implemented
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSelectingHotSpot.pas'
+ UP extprop:rc:SelfName 'SelectingHotSpot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSelectingHotSpot'
+
+ENDME // ME_4D6406160297 TevSelectingHotSpot

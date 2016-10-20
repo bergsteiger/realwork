@@ -88,7 +88,7 @@ ME ME_51F252E8038B
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_51F251C90183 // IddAutolinkArbitraryDocEntry
  ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
  UP "pm" false
 
@@ -262,7 +262,7 @@ ENDME // ME_4E8EE44001B0 DoIt
 ME ME_4E8EE40A00F2
  MEPROP UID '4E8EE40A00F2'
  MEPROP Name 'AddSource'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -305,7 +305,7 @@ ENDME // ME_4E8EE4750129 DoIt
 ME ME_4E8EE45F0201
  MEPROP UID '4E8EE45F0201'
  MEPROP Name 'DelSource'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -335,7 +335,7 @@ ENDME // ME_4E8EE4C101A4 DoIt
 ME ME_4E8EE4900220
  MEPROP UID '4E8EE4900220'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'очищает все данные' ;
@@ -368,7 +368,7 @@ ENDME // ME_4E8EF143015F DoIt
 ME ME_4E8EF11E0095
  MEPROP UID '4E8EF11E0095'
  MEPROP Name 'IsEmpty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY '≈сли нет никаких данных...' ;
@@ -414,7 +414,7 @@ ENDME // ME_4E940A610381 DoIt
 ME ME_4E940A4C004D
  MEPROP UID '4E940A4C004D'
  MEPROP Name 'IsSame'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -459,7 +459,7 @@ ENDME // ME_4E9596F201E9 DoIt
 ME ME_4E9596DB0242
  MEPROP UID '4E9596DB0242'
  MEPROP Name 'SourcesIdenticalTo'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -491,7 +491,7 @@ ENDME // ME_4E96BF8F01F4 DoIt
 ME ME_4E96BF820064
  MEPROP UID '4E96BF820064'
  MEPROP Name 'Clone'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -543,6 +543,12 @@ ME ME_4E8EAEAB0303
 
 ENDME // ME_4E8EAEAB0303 IddAutolinkDocEntry
 
+MEREF ME_578C90CD01EE_ME_578C91800012_G
+ MELINK Original HWL ME_578C90CD01EE // TddALDocRec
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_578C90CD01EE_ME_578C91800012_G TddALDocRec
+
 %%InheritedBy ME_578C90CD01EE ME_578C91800012
 
 ME ME_578C91800012
@@ -556,7 +562,7 @@ ME ME_578C91800012
  MELINK Parent HWL ME_4E8EAF5C020F // ddAutolinkInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_578C90CD01EE // TddALDocRec
+   Seq: ( ME_578C90CD01EE_ME_578C91800012_G // TddALDocRec
  )
  ; // Inherits
  UP "isPointer" true
@@ -591,7 +597,7 @@ ME ME_578C94B50201
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_578C91F30022 // ICodexDataHolder
  ;
- MELINK Target WL 'ME_4773DCE302FF' '47913B47006E.ms.model.script' // Tl3StringList
+ MELINK Target WL? 'ME_4773DCE302FF' // Tl3StringList
  ;
  UP "pm" false
 
@@ -693,7 +699,7 @@ ENDME // ME_57E5140702F2 DoIt
 ME ME_57E513F20358
  MEPROP UID '57E513F20358'
  MEPROP Name 'IsMatch'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

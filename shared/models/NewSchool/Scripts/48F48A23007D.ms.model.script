@@ -1,0 +1,129 @@
+// TevConstStringDataObject 48F48A23007D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F48A23007D
+
+ME ME_48F8CAA000F0
+ MEPROP UID '48F8CAA000F0'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL? 'ME_48F49EEA0008' // TevConstStringStorable
+ ;
+
+ENDME // ME_48F8CAA000F0 StorableClass
+
+ME ME_4CDD3EDD00F2
+ MEPROP UID '4CDD3EDD00F2'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+
+ENDME // ME_4CDD3EDD00F2 DataType
+
+ME ME_4CDD2E84001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4CDD2E84001D 
+
+ME ME_4CDD6CCE012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4CDD6CCE012E 
+
+ME ME_4CDD7D9602D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL? 'ME_4CDD7C01013F' // TevdTextToFirstParaAdder
+ ;
+
+ENDME // ME_4CDD7D9602D6 
+
+MEREF ME_48F4818300A5_ME_48F48A23007D_over
+ MELINK Original WL 'ME_48F4818300A5' '48F4732803C8.ms.model.script' // GetIsQuestionNeedBeforeFlush
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F4818300A5_ME_48F48A23007D_over GetIsQuestionNeedBeforeFlush
+
+MEREF ME_48F481B6035B_ME_48F48A23007D_over
+ MELINK Original WL 'ME_48F481B6035B' '48F4732803C8.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48F481B6035B_ME_48F48A23007D_over DoStore
+
+MEREF ME_48F8C3780325_ME_48F48A23007D_G
+ MELINK Original WL? 'ME_48F8C3780325' // evDataObjectFromStorable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F8C3780325_ME_48F48A23007D_G evDataObjectFromStorable
+
+%%InheritedBy ME_48F8C3780325 ME_48F48A23007D
+
+ME ME_48F48A23007D
+ MEPROP UID '48F48A23007D'
+ MEPROP Name 'TevConstStringDataObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4802FF41005C' // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48F8C3780325_ME_48F48A23007D_G // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8CAA000F0 // StorableClass
+ HWL ME_4CDD3EDD00F2 // DataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48F4818300A5_ME_48F48A23007D_over // GetIsQuestionNeedBeforeFlush
+ ME_48F481B6035B_ME_48F48A23007D_over // DoStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CDD2E84001D // l3String
+ ME_4CDD6CCE012E // Clipboard Formats
+ ME_4CDD7D9602D6 // TevdTextToFirstParaAdder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "started" '16.07.2007'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evConstStringDataObject.pas'
+ UP extprop:rc:SelfName 'ConstStringDataObject'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evConstStringDataObject'
+
+ENDME // ME_48F48A23007D TevConstStringDataObject

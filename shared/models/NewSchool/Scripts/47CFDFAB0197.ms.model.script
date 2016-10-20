@@ -1,0 +1,177 @@
+// TevCustomControlTool 47CFDFAB0197 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CFDFAB0197
+
+ME ME_47CFE08E039B
+ MEPROP UID '47CFE08E039B'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Параграф, связанный с объектом.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CFDFAB0197 // TevCustomControlTool
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_47CFE08E039B Para
+
+ME ME_47CFE07E0029
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_47CFE07E0029 aPara
+
+ME ME_47CFE07602FE
+ MEPROP UID '47CFE07602FE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CFDFAB0197 // TevCustomControlTool
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CFE07E0029 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_47CFE07602FE Create
+
+ME ME_47CFE3830123
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_47CFE3830123 Value
+
+ME ME_47CFE37202A1
+ MEPROP UID '47CFE37202A1'
+ MEPROP Name 'Set__Para'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CFDFAB0197 // TevCustomControlTool
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CFE3830123 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_47CFE37202A1 Set__Para
+
+ME ME_47CFE4C4032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFDFAB0197 // TevCustomControlTool
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_47CFE4C4032F 
+
+ME ME_47CFE851021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFDFAB0197 // TevCustomControlTool
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_47CFE851021C 
+
+MEREF ME_47CD5D46015B_ME_47CFDFAB0197_impl
+ MELINK Original WL 'ME_47CD5D46015B' '47CD5C7602CD.ms.model.script' // Para
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CD5D46015B_ME_47CFDFAB0197_impl Para
+
+MEREF ME_479731C50290_ME_47CFDFAB0197_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47CFDFAB0197_over Cleanup
+
+MEREF ME_47879856035F_ME_47CFDFAB0197_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_47CFDFAB0197_G Tl3_Base
+
+MEREF ME_47CD5D2C00F9_ME_47CFDFAB0197_R
+ MELINK Original WL 'ME_47CD5D2C00F9' '47CD5C7602CD.ms.model.script' // IevCustomParaTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CD5D2C00F9_ME_47CFDFAB0197_R IevCustomParaTool
+
+%%ImplementedBy ME_47CD5D2C00F9 ME_47CFDFAB0197
+
+%%InheritedBy ME_47879856035F ME_47CFDFAB0197
+
+ME ME_47CFDFAB0197
+ MEPROP UID '47CFDFAB0197'
+ MEPROP Name 'TevCustomControlTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс, содержащий ссылку на параграф.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_47CFDFAB0197_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47CD5D2C00F9_ME_47CFDFAB0197_R // IevCustomParaTool
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47CFE08E039B // Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CFE07602FE // Create
+ HWL ME_47CFE37202A1 // Set__Para
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47CD5D46015B_ME_47CFDFAB0197_impl // Para
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47CFDFAB0197_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47CFE4C4032F // Tk2TagID
+ ME_47CFE851021C // l3InterfacesMisc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP "started" '28.09.1999 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evCustomControlTool.pas'
+ UP extprop:rc:SelfName 'ControlTool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomControlTool'
+
+ENDME // ME_47CFDFAB0197 TevCustomControlTool

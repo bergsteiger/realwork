@@ -1,0 +1,106 @@
+// TarTextOfDocument 4E0072E100DB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E0072E100DB
+
+FORWARD ME_4E0072E100DB
+
+MEREF ME_4E0072E100DB_ME_4E007ECC01EC_G
+ MELINK Original HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E0072E100DB_ME_4E007ECC01EC_G TarTextOfDocument
+
+%%InheritedBy ME_4E0072E100DB ME_4E007ECC01EC
+
+ME ME_4E007ECC01EC
+ MEPROP UID '4E007ECC01EC'
+ MEPROP Name 'RarTextOfDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E0072E100DB_ME_4E007ECC01EC_G // TarTextOfDocument
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E007ECC01EC RarTextOfDocument
+
+ME ME_4E007D4A02E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELINK Target WL? 'ME_4E007C3803DC' // TarDocumentContainer
+ ;
+
+ENDME // ME_4E007D4A02E9 
+
+ME ME_57CFC1830125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELINK Target WL? 'ME_57CFC14E01DF' // TarRemoteSaveDocumentHelper
+ ;
+
+ENDME // ME_57CFC1830125 
+
+MEREF ME_482D9A030221_ME_4E0072E100DB_over
+ MELINK Original WL 'ME_482D9A030221' '482BFB7C00B6.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482D9A030221_ME_4E0072E100DB_over DoMakeDocumentContainer
+
+MEREF ME_482D98DE00A9_ME_4E0072E100DB_G
+ MELINK Original WL? 'ME_482D98DE00A9' // TevTextSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D98DE00A9_ME_4E0072E100DB_G TevTextSource
+
+%%InheritedBy ME_482D98DE00A9 ME_4E0072E100DB
+
+ME ME_4E0072E100DB
+ MEPROP UID '4E0072E100DB'
+ MEPROP Name 'TarTextOfDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E0072500208' // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( ME_482D98DE00A9_ME_4E0072E100DB_G // TevTextSource
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_482D9A030221_ME_4E0072E100DB_over // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E007ECC01EC // RarTextOfDocument
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E007D4A02E9 // TarDocumentContainer
+ ME_57CFC1830125 // TarRemoteSaveDocumentHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas'
+ UP extprop:rc:SelfName 'arTextOfDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arTextOfDocument'
+
+ENDME // ME_4E0072E100DB TarTextOfDocument

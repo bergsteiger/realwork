@@ -1,0 +1,256 @@
+// TtfwStoredValuesStack 4F49416600CB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F49416600CB
+
+ME ME_4F494230039E
+ MEPROP UID '4F494230039E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELINK Target WL 'ME_4F494729028E' '4DAF19F600C5.ms.model.script' // ItfwStoredValues
+ ;
+
+ENDME // ME_4F494230039E ItemType
+
+FORWARD ME_4F49438E0354
+
+ME ME_4F494399005B
+ MEPROP UID '4F494399005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F49438E0354 // Create
+ ;
+
+ENDME // ME_4F494399005B DoIt
+
+ME ME_4F49438E0354
+ MEPROP UID '4F49438E0354'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F494399005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F49438E0354 Create
+
+MEREF ME_4F49438E0354_ME_4F4943A902C5_G
+ MELINK Original HWL ME_4F49438E0354 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F49438E0354_ME_4F4943A902C5_G Create
+
+MEREF ME_4F4940D4029A_ME_4F4943A902C5_R
+ MELINK Original WL 'ME_4F4940D4029A' '4DAF19F600C5.ms.model.script' // ItfwStoredValuesStack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4940D4029A_ME_4F4943A902C5_R ItfwStoredValuesStack
+
+%%ImplementedBy ME_4F4940D4029A ME_4F4943A902C5
+
+%%InheritedBy ME_4F49438E0354 ME_4F4943A902C5
+
+ME ME_4F4943A902C5
+ MEPROP UID '4F4943A902C5'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F49438E0354_ME_4F4943A902C5_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F4940D4029A_ME_4F4943A902C5_R // ItfwStoredValuesStack
+ )
+ ; // Implements
+
+ENDME // ME_4F4943A902C5 Make
+
+ME ME_55A52B220169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELINK Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.ms.model.script' // TtfwKeyWord
+ ;
+
+ENDME // ME_55A52B220169 
+
+ME ME_55A52B4C02B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELINK Target WL? 'ME_4F49408A03C0' // TtfwStoredValues
+ ;
+
+ENDME // ME_55A52B4C02B8 
+
+ME ME_55A52B8A0352
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELINK Target WL 'ME_4F493FAE01C7' '4DAF19F600C5.ms.model.script' // TtfwStoredValue
+ ;
+
+ENDME // ME_55A52B8A0352 
+
+ME ME_55A530FF00F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F49416600CB // TtfwStoredValuesStack
+ ;
+ MELINK Target WL? 'ME_4DCC173A026C' // TtfwArray
+ ;
+
+ENDME // ME_55A530FF00F8 
+
+MEREF ME_47B07CF403D0_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4F49416600CB_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4F49416600CB_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4F49416600CB_impl CompareExistingItems
+
+MEREF ME_4BB08B8902F2_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4BB08B8902F2_ME_4F49416600CB_impl Count
+
+MEREF ME_4F494C2C0049_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_4F494C2C0049' '4DAF19F600C5.ms.model.script' // Restore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F494C2C0049_ME_4F49416600CB_impl Restore
+
+MEREF ME_55A52ACE0238_ME_4F49416600CB_impl
+ MELINK Original WL 'ME_55A52ACE0238' '4DAF19F600C5.ms.model.script' // StoreDictionary
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55A52ACE0238_ME_4F49416600CB_impl StoreDictionary
+
+MEREF ME_47A6FEE600FC_ME_4F49416600CB_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4F49416600CB_over IsCacheable
+
+MEREF ME_47B9AF6E0228_ME_4F49416600CB_G
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_4F49416600CB_G l3InterfaceRefListPrim
+
+MEREF ME_4A54DD4E036F_ME_4F49416600CB_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F49416600CB_G Tl3ProtoDataContainer
+
+MEREF ME_4F4940D4029A_ME_4F49416600CB_R
+ MELINK Original WL 'ME_4F4940D4029A' '4DAF19F600C5.ms.model.script' // ItfwStoredValuesStack
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4940D4029A_ME_4F49416600CB_R ItfwStoredValuesStack
+
+%%ImplementedBy ME_4F4940D4029A ME_4F49416600CB
+
+%%InheritedBy ME_47B9AF6E0228 ME_4F49416600CB
+%%InheritedBy ME_4A54DD4E036F ME_4F49416600CB
+
+ME ME_4F49416600CB
+ MEPROP UID '4F49416600CB'
+ MEPROP Name 'TtfwStoredValuesStack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F0A4A302FF' // Array
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9AF6E0228_ME_4F49416600CB_G // l3InterfaceRefListPrim
+ ME_4A54DD4E036F_ME_4F49416600CB_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4F4940D4029A_ME_4F49416600CB_R // ItfwStoredValuesStack
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F494230039E // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F49438E0354 // Create
+ HWL ME_4F4943A902C5 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4F49416600CB_impl // IsSameItems
+ ME_47B2C42A0163_ME_4F49416600CB_impl // AssignItem
+ ME_47B99D4503A2_ME_4F49416600CB_impl // CompareExistingItems
+ ME_4BB08B8902F2_ME_4F49416600CB_impl // Count
+ ME_4F494C2C0049_ME_4F49416600CB_impl // Restore
+ ME_55A52ACE0238_ME_4F49416600CB_impl // StoreDictionary
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4F49416600CB_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55A52B220169 // TtfwKeyWord
+ ME_55A52B4C02B8 // TtfwStoredValues
+ ME_55A52B8A0352 // TtfwStoredValue
+ ME_55A530FF00F8 // TtfwArray
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ UP extprop:rc:SelfName 'StoredValuesStack'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwStoredValuesStack'
+
+ENDME // ME_4F49416600CB TtfwStoredValuesStack

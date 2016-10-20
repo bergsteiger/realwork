@@ -1,0 +1,64 @@
+// pop_editor_SetStyle2Table 52B17C50008A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52B17C50008A
+
+ME ME_52B456470207
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B17C50008A // pop_editor_SetStyle2Table
+ ;
+ MELINK Target WL 'ME_52B44C960040' '4F5755FB0362.ms.model.script' // evSetTableStyle
+ ;
+
+ENDME // ME_52B456470207 
+
+MEREF ME_4F4CB81200CA_ME_52B17C50008A_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_52B17C50008A_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_52B17C50008A_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_52B17C50008A_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_52B17C50008A
+
+ME ME_52B17C50008A
+ MEPROP UID '52B17C50008A'
+ MEPROP Name 'pop_editor_SetStyle2Table'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{code}'#13#10'aStyle anEditor pop:editor:SetStyle2Table'#13#10'{code}'#13#10'aStyle -  номер стиля из таблицы стилей.'#13#10'anEditor - редактор, в котором производятся изменения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F5DA07B02CD' // EditorKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_52B17C50008A_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_52B17C50008A_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52B456470207 // evSetTableStyle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorSetStyle2Table'
+ UP extprop:rc:SelfName 'PopEditorSetStyle2Table'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorSetStyle2Table'
+
+ENDME // ME_52B17C50008A pop_editor_SetStyle2Table

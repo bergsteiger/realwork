@@ -1,0 +1,46 @@
+// vcm_op_Shortcut 523018BE02F9 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_523018BE02F9
+
+MEREF ME_5230185F0140_ME_523018BE02F9_impl
+ MELINK Original WL 'ME_5230185F0140' '5230182A02A3.ms.model.script' // DoParams
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5230185F0140_ME_523018BE02F9_impl DoParams
+
+MEREF ME_5230182A02A3_ME_523018BE02F9_G
+ MELINK Original WL? 'ME_5230182A02A3' // OperationParamWordPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5230182A02A3_ME_523018BE02F9_G OperationParamWordPrim
+
+%%InheritedBy ME_5230182A02A3 ME_523018BE02F9
+
+ME ME_523018BE02F9
+ MEPROP UID '523018BE02F9'
+ MEPROP Name 'vcm_op_Shortcut'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F69B9040391' // VCMWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_5230182A02A3_ME_523018BE02F9_G // OperationParamWordPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_5230185F0140_ME_523018BE02F9_impl // DoParams
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpShortcut.pas'
+ UP extprop:pas:TypeName 'TkwVcmOpShortcut'
+ UP extprop:rc:SelfName 'VcmOpShortcut'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwVcmOpShortcut'
+
+ENDME // ME_523018BE02F9 vcm_op_Shortcut

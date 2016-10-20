@@ -1,0 +1,81 @@
+// TevParaListHotSpotTester 4A27B7300174 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A27B7300174
+
+ME ME_4E14240E017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_4A27B7300174 // TevParaListHotSpotTester
+ ;
+ MELINK Target WL 'ME_48579E4A003C' '48492FC0029D.ms.model.script' // ParaList
+ ;
+
+ENDME // ME_4E14240E017A 
+
+ME ME_53D78060021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A27B7300174 // TevParaListHotSpotTester
+ ;
+ MELINK Target WL? 'ME_48579EA1011D' // TevParaList
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D78060021A 
+
+ME ME_53D7807A009A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4A27B7300174 // TevParaListHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53D7807A009A 
+
+MEREF ME_4E6E373A03A3_ME_4A27B7300174_G
+ MELINK Original WL? 'ME_4E6E373A03A3' // TevParaListHotSpotTesterPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6E373A03A3_ME_4A27B7300174_G TevParaListHotSpotTesterPrim
+
+%%InjectedBy ME_48579EA1011D ME_4A27B7300174
+
+%%InheritedBy ME_4E6E373A03A3 ME_4A27B7300174
+
+ME ME_4A27B7300174
+ MEPROP UID '4A27B7300174'
+ MEPROP Name 'TevParaListHotSpotTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A267EE3017B' // HotSpots
+ ;
+ MELIST Inherits
+   Seq: ( ME_4E6E373A03A3_ME_4A27B7300174_G // TevParaListHotSpotTesterPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E14240E017A // ParaList
+ ME_53D78060021A // TevParaList
+ ME_53D7807A009A // InevHotSpotTester2
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '2005/06/02 12:33:08'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaListHotSpotTester.pas'
+ UP extprop:rc:SelfName 'ParaListHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evParaListHotSpotTester'
+
+ENDME // ME_4A27B7300174 TevParaListHotSpotTester

@@ -1,0 +1,125 @@
+// TnevConfirm 47FE40A503CD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47FE40A503CD
+
+ME ME_47FE41B803DA
+ MEPROP UID '47FE41B803DA'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47FE40A503CD // TnevConfirm
+ ;
+ MELINK Target WL 'ME_47C69AE001F4' '47C5207602D1.ms.model.script' // InevConfirm
+ ;
+
+ENDME // ME_47FE41B803DA Make
+
+ME ME_47FE43650180
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47FE40A503CD // TnevConfirm
+ ;
+ MELINK Target WL 'ME_47FE430F0088' '47E11FC3021E.ms.model.script' // TModalResult
+ ;
+
+ENDME // ME_47FE43650180 
+
+MEREF ME_47C6CA4103BA_ME_47FE40A503CD_impl
+ MELINK Original WL 'ME_47C6CA4103BA' '47C5207602D1.ms.model.script' // ReplaceConfirm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6CA4103BA_ME_47FE40A503CD_impl ReplaceConfirm
+
+MEREF ME_47C6CA560350_ME_47FE40A503CD_impl
+ MELINK Original WL 'ME_47C6CA560350' '47C5207602D1.ms.model.script' // DeleteFoundRgn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6CA560350_ME_47FE40A503CD_impl DeleteFoundRgn
+
+MEREF ME_47C6CA5D033F_ME_47FE40A503CD_impl
+ MELINK Original WL 'ME_47C6CA5D033F' '47C5207602D1.ms.model.script' // Update
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6CA5D033F_ME_47FE40A503CD_impl Update
+
+MEREF ME_47DA7D8D02C3_ME_47FE40A503CD_impl
+ MELINK Original WL 'ME_47DA7D8D02C3' '47C5207602D1.ms.model.script' // Progress
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47DA7D8D02C3_ME_47FE40A503CD_impl Progress
+
+MEREF ME_47FE414200D2_ME_47FE40A503CD_impl
+ MELINK Original WL 'ME_47FE414200D2' '47C5207602D1.ms.model.script' // View
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47FE414200D2_ME_47FE40A503CD_impl View
+
+MEREF ME_49E7754802A9_ME_47FE40A503CD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_47FE40A503CD_G Tl3ProtoObject
+
+MEREF ME_47C69AE001F4_ME_47FE40A503CD_R
+ MELINK Original WL 'ME_47C69AE001F4' '47C5207602D1.ms.model.script' // InevConfirm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C69AE001F4_ME_47FE40A503CD_R InevConfirm
+
+%%ImplementedBy ME_47C69AE001F4 ME_47FE40A503CD
+
+%%InheritedBy ME_49E7754802A9 ME_47FE40A503CD
+
+ME ME_47FE40A503CD
+ MEPROP UID '47FE40A503CD'
+ MEPROP Name 'TnevConfirm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47C52679006D' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_47FE40A503CD_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C69AE001F4_ME_47FE40A503CD_R // InevConfirm
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_47FE41B803DA // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C6CA4103BA_ME_47FE40A503CD_impl // ReplaceConfirm
+ ME_47C6CA560350_ME_47FE40A503CD_impl // DeleteFoundRgn
+ ME_47C6CA5D033F_ME_47FE40A503CD_impl // Update
+ ME_47DA7D8D02C3_ME_47FE40A503CD_impl // Progress
+ ME_47FE414200D2_ME_47FE40A503CD_impl // View
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_47FE43650180 // TModalResult
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '10.04.2008 20:30'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevConfirm.pas'
+ UP extprop:rc:SelfName 'Confirm'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevConfirm'
+
+ENDME // ME_47FE40A503CD TnevConfirm

@@ -14,10 +14,16 @@ ME ME_475416990003
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_475410380119 // TOvcBase
  ;
- MELINK Target WL 'ME_475415C50224' '4754101B004F.ms.model.script' // TOvcController
+ MELINK Target WL? 'ME_475415C50224' // TOvcController
  ;
 
 ENDME // ME_475416990003 Controller
+
+MEREF ME_47E1388A03A7_ME_475410380119_G
+ MELINK Original WL 'ME_47E1388A03A7' '47E11FC3021E.ms.model.script' // TCustomControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1388A03A7_ME_475410380119_G TCustomControl
 
 %%InheritedBy ME_47E1388A03A7 ME_475410380119
 
@@ -34,7 +40,7 @@ ME ME_475410380119
  MELINK Parent WL? 'ME_4754101B004F' // OvcBase
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47E1388A03A7' '47E11FC3021E.ms.model.script' // TCustomControl
+   Seq: ( ME_47E1388A03A7_ME_475410380119_G // TCustomControl
  )
  ; // Inherits
  MELIST Attributes

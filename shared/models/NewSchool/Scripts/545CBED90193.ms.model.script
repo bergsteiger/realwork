@@ -1,0 +1,147 @@
+// TncsServerTransporterPool 545CBED90193 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545CBED90193
+
+ME ME_545CBF0E0186
+ MEPROP UID '545CBF0E0186'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545CBED90193 // TncsServerTransporterPool
+ ;
+ MELINK Target WL? 'ME_545CBE61008B' // TncsServerTransporterList
+ ;
+
+ENDME // ME_545CBF0E0186 f_Data
+
+ME ME_545CBF9100D6
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_545CBF9100D6 aTransporter
+
+ME ME_545CBF760027
+ MEPROP UID '545CBF760027'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBED90193 // TncsServerTransporterPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_545CBF9100D6 // aTransporter
+ )
+ ; // Parameters
+
+ENDME // ME_545CBF760027 Register
+
+ME ME_545CBF9B00D6
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_545CBF9B00D6 aTransporter
+
+ME ME_545CBF9602E1
+ MEPROP UID '545CBF9602E1'
+ MEPROP Name 'UnRegister'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBED90193 // TncsServerTransporterPool
+ ;
+ MELIST Parameters
+   Seq: ( ME_545CBF9B00D6 // aTransporter
+ )
+ ; // Parameters
+
+ENDME // ME_545CBF9602E1 UnRegister
+
+ME ME_545CBFA2006D
+ MEPROP UID '545CBFA2006D'
+ MEPROP Name 'TerminateAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBED90193 // TncsServerTransporterPool
+ ;
+
+ENDME // ME_545CBFA2006D TerminateAll
+
+MEREF ME_479731C50290_ME_545CBED90193_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_545CBED90193_over Cleanup
+
+MEREF ME_47A042E100E2_ME_545CBED90193_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_545CBED90193_over InitFields
+
+MEREF ME_49E7754802A9_ME_545CBED90193_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_545CBED90193_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_545CBED90193_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_545CBED90193_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_545CBED90193
+
+%%InheritedBy ME_49E7754802A9 ME_545CBED90193
+
+ME ME_545CBED90193
+ MEPROP UID '545CBED90193'
+ MEPROP Name 'TncsServerTransporterPool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_545CBED90193_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53A03846011C_ME_545CBED90193_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_545CBF0E0186 // f_Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_545CBF760027 // Register
+ HWL ME_545CBF9602E1 // UnRegister
+ HWL ME_545CBFA2006D // TerminateAll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_545CBED90193_over // Cleanup
+ ME_47A042E100E2_ME_545CBED90193_over // InitFields
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPool.pas'
+ UP extprop:rc:SelfName 'ncsServerTransporterPool'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsServerTransporterPool'
+
+ENDME // ME_545CBED90193 TncsServerTransporterPool

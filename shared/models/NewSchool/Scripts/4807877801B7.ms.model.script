@@ -1,0 +1,164 @@
+// TatNotifier 4807877801B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4807877801B7
+
+ME ME_480787B100DC
+ MEPROP UID '480787B100DC'
+ MEPROP Name 'f_Listeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807877801B7 // TatNotifier
+ ;
+ MELINK Target WL 'ME_4807825A006E' '478CF30500C1.ms.model.script' // TInterfaceList
+ ;
+
+ENDME // ME_480787B100DC f_Listeners
+
+ME ME_480787BA0376
+ MEPROP UID '480787BA0376'
+ MEPROP Name 'f_MREWS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807877801B7 // TatNotifier
+ ;
+ MELINK Target WL 'ME_4807861D0118' '47877EB202FB.ms.model.script' // TMultiReadExclusiveWriteSynchronizer
+ ;
+
+ENDME // ME_480787BA0376 f_MREWS
+
+ME ME_480787D001F7
+ MEPROP Name 'listener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077F320256' '48077E620315.ms.model.script' // IatListener
+ ;
+
+ENDME // ME_480787D001F7 listener
+
+ME ME_480787C7033C
+ MEPROP UID '480787C7033C'
+ MEPROP Name 'IsNotify'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807877801B7 // TatNotifier
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_480787D001F7 // listener
+ )
+ ; // Parameters
+
+ENDME // ME_480787C7033C IsNotify
+
+ME ME_480787E20035
+ MEPROP UID '480787E20035'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807877801B7 // TatNotifier
+ ;
+
+ENDME // ME_480787E20035 Create
+
+MEREF ME_48077F83039B_ME_4807877801B7_impl
+ MELINK Original WL 'ME_48077F83039B' '48077E620315.ms.model.script' // StartNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F83039B_ME_4807877801B7_impl StartNotify
+
+MEREF ME_48077F8E00B6_ME_4807877801B7_impl
+ MELINK Original WL 'ME_48077F8E00B6' '48077E620315.ms.model.script' // StopNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F8E00B6_ME_4807877801B7_impl StopNotify
+
+MEREF ME_48077F9601A1_ME_4807877801B7_impl
+ MELINK Original WL 'ME_48077F9601A1' '48077E620315.ms.model.script' // StopNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F9601A1_ME_4807877801B7_impl StopNotify
+
+MEREF ME_48077FA2038C_ME_4807877801B7_impl
+ MELINK Original WL 'ME_48077FA2038C' '48077E620315.ms.model.script' // Trigger
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077FA2038C_ME_4807877801B7_impl Trigger
+
+MEREF ME_48077504027E_ME_4807877801B7_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4807877801B7_over Destroy
+
+MEREF ME_48077FF80141_ME_4807877801B7_G
+ MELINK Original WL 'ME_48077FF80141' '4807744200AA.ms.model.script' // TInterfacedObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077FF80141_ME_4807877801B7_G TInterfacedObject
+
+MEREF ME_48077F750303_ME_4807877801B7_R
+ MELINK Original WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077F750303_ME_4807877801B7_R IatNotifier
+
+%%ImplementedBy ME_48077F750303 ME_4807877801B7
+
+%%InheritedBy ME_48077FF80141 ME_4807877801B7
+
+ME ME_4807877801B7
+ MEPROP UID '4807877801B7'
+ MEPROP Name 'TatNotifier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48077FF80141_ME_4807877801B7_G // TInterfacedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48077F750303_ME_4807877801B7_R // IatNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_480787B100DC // f_Listeners
+ HWL ME_480787BA0376 // f_MREWS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480787C7033C // IsNotify
+ HWL ME_480787E20035 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48077F83039B_ME_4807877801B7_impl // StartNotify
+ ME_48077F8E00B6_ME_4807877801B7_impl // StopNotify
+ ME_48077F9601A1_ME_4807877801B7_impl // StopNotify
+ ME_48077FA2038C_ME_4807877801B7_impl // Trigger
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4807877801B7_over // Destroy
+ )
+ ; // Overridden
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atNotifier.pas'
+ UP extprop:rc:SelfName 'atNotifier'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atNotifier'
+
+ENDME // ME_4807877801B7 TatNotifier

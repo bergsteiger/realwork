@@ -28,6 +28,18 @@ USES
  DiagramExt.ms.dict
 ;
 
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ MEPrefix.ms.dict
+;
+
+USES
+ DiagramsSuffix.ms.dict
+;
+
 TtfwWord FUNCTION LoadWord
   STRING IN aWordName
   STRING IN aDictName
@@ -111,17 +123,20 @@ TtfwWord FUNCTION LoadWord
    begin
     if ( DiagramExt aDictName EndsText ! ) then
     begin
-     if ( '_diagrams' aWordName EndsText ! ) then
+     if ( DiagramsSuffix aWordName EndsText ! ) then
      begin
       Log: [ 'ѕытаемс€ тут загрузить слово ' aWordName ' поиском по всем файлам модели' ' вместо: ' aDictName ]
-     end // ( '_diagrams' aWordName EndsText ! )
+     end // ( DiagramsSuffix aWordName EndsText ! )
      ModelRootIn .ProcessModelFiles: ( 
        STRING IN aFileName
-      if ( aDictName aFileName SameText ! ) then
+      if ( aDictName sysutils:ExtractFileName aFileName sysutils:ExtractFileName SameText ! ) then
       begin
        if ( [ 'ME ' aWordName ] strings:Cat aFileName FindInFile ) then
        begin 
-        aWordName aFileName call.me >>> Result
+        if ( [ 'MEPROP UID ' cQuote aWordName MEPrefix .CutPrefix cQuote ] strings:Cat aFileName FindInFile ) then
+        begin
+         aWordName aFileName call.me >>> Result
+        end
        end // ( [ 'ME ' aWordName ] strings:Cat aFileName FindInFile )
       end // ( aDictName aFileName SameText ! )
      ) // ModelRootIn .ProcessModelFiles:
@@ -180,10 +195,6 @@ USES
 
 USES
  ModelScriptExt.ms.dict
-;
-
-USES
- MEPrefix.ms.dict
 ;
 
 TtfwWord FUNCTION WL?

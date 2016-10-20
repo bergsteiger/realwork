@@ -1,0 +1,214 @@
+// TafwAString 4F6C79B10165 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6C79B10165
+
+ME ME_4F6C79F400AE
+ MEPROP UID '4F6C79F400AE'
+ MEPROP Name 'f_String'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C79F400AE f_String
+
+ME ME_4F6C7C5B035A
+ MEPROP UID '4F6C7C5B035A'
+ MEPROP Name 'f_Tmp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F6C7C5B035A f_Tmp
+
+FORWARD ME_4F6C7A060311
+
+ME ME_4F6C7A1900B4
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F6C7A1900B4 aString
+
+ME ME_4F6C7A0C035E
+ MEPROP UID '4F6C7A0C035E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C7A060311 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6C7A1900B4 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C7A0C035E DoIt
+
+ME ME_4F6C7A060311
+ MEPROP UID '4F6C7A060311'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7A0C035E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C7A060311 Create
+
+MEREF ME_4F6C7A060311_ME_4F6C7A1F020E_G
+ MELINK Original HWL ME_4F6C7A060311 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6C7A060311_ME_4F6C7A1F020E_G Create
+
+MEREF ME_46A45CF00005_ME_4F6C7A1F020E_R
+ MELINK Original WL 'ME_46A45CF00005' '4677FBA70343.ms.model.script' // Il3AString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A45CF00005_ME_4F6C7A1F020E_R Il3AString
+
+%%ImplementedBy ME_46A45CF00005 ME_4F6C7A1F020E
+
+%%InheritedBy ME_4F6C7A060311 ME_4F6C7A1F020E
+
+ME ME_4F6C7A1F020E
+ MEPROP UID '4F6C7A1F020E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F6C7A060311_ME_4F6C7A1F020E_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A45CF00005_ME_4F6C7A1F020E_R // Il3AString
+ )
+ ; // Implements
+
+ENDME // ME_4F6C7A1F020E Make
+
+ME ME_4F6C7A3B0229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4F6C7A3B0229 
+
+ME ME_4F6C7C780240
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6C79B10165 // TafwAString
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_4F6C7C780240 
+
+MEREF ME_46A45D0A02A1_ME_4F6C79B10165_impl
+ MELINK Original WL 'ME_46A45D0A02A1' '4677FBA70343.ms.model.script' // S
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A45D0A02A1_ME_4F6C79B10165_impl S
+
+MEREF ME_47A6FEE600FC_ME_4F6C79B10165_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4F6C79B10165_over IsCacheable
+
+MEREF ME_49E7754802A9_ME_4F6C79B10165_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4F6C79B10165_G Tl3ProtoObject
+
+MEREF ME_46A45CF00005_ME_4F6C79B10165_R
+ MELINK Original WL 'ME_46A45CF00005' '4677FBA70343.ms.model.script' // Il3AString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A45CF00005_ME_4F6C79B10165_R Il3AString
+
+%%ImplementedBy ME_46A45CF00005 ME_4F6C79B10165
+
+%%InheritedBy ME_49E7754802A9 ME_4F6C79B10165
+
+ME ME_4F6C79B10165
+ MEPROP UID '4F6C79B10165'
+ MEPROP Name 'TafwAString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6C5511015F' // afwSettings
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4F6C79B10165_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A45CF00005_ME_4F6C79B10165_R // Il3AString
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C79F400AE // f_String
+ HWL ME_4F6C7C5B035A // f_Tmp
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F6C7A060311 // Create
+ HWL ME_4F6C7A1F020E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A45D0A02A1_ME_4F6C79B10165_impl // S
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4F6C79B10165_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F6C7A3B0229 // l3String
+ ME_4F6C7C780240 // Code Pages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwAString.pas'
+ UP extprop:rc:SelfName 'afwAString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwAString'
+
+ENDME // ME_4F6C79B10165 TafwAString

@@ -1,0 +1,100 @@
+// TarEditorControl 4DE643F100CB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE643F100CB
+
+ME ME_4DE7427102C5
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DE7427102C5 aCtx
+
+ME ME_4DE7427102F2
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_4829D92A037B' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4DE7427102F2 anEditor
+
+ME ME_4DE7421F03DF
+ MEPROP UID '4DE7421F03DF'
+ MEPROP Name 'DoWithEditor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DE643F100CB // TarEditorControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DE7427102C5 // aCtx
+ ME_4DE7427102F2 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4DE7421F03DF DoWithEditor
+
+ME ME_4DE644A5007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DE643F100CB // TarEditorControl
+ ;
+ MELINK Target WL 'ME_4DE608E101E0' '4DE60853015A.ms.model.script' // arGetDocumentEditor
+ ;
+
+ENDME // ME_4DE644A5007E 
+
+MEREF ME_4DAEEDE10285_ME_4DE643F100CB_impl
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4DAEEDE10285_ME_4DE643F100CB_impl DoDoIt
+
+MEREF ME_53EDC0E701BC_ME_4DE643F100CB_G
+ MELINK Original WL? 'ME_53EDC0E701BC' // TtfwRegisterableWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53EDC0E701BC_ME_4DE643F100CB_G TtfwRegisterableWord
+
+%%InheritedBy ME_53EDC0E701BC ME_4DE643F100CB
+
+ME ME_4DE643F100CB
+ MEPROP UID '4DE643F100CB'
+ MEPROP Name 'TarEditorControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( ME_53EDC0E701BC_ME_4DE643F100CB_G // TtfwRegisterableWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DE7421F03DF // DoWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DE643F100CB_impl // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DE644A5007E // arGetDocumentEditor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorControl.pas'
+ UP extprop:rc:SelfName 'arEditorControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arEditorControl'
+
+ENDME // ME_4DE643F100CB TarEditorControl

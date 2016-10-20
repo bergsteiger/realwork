@@ -1,0 +1,24 @@
+UNIT tinyMetaModel.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ MDProcess_ForDelphi.tpi.script
+;
+
+BOOLEAN elem_func IsArray
+ Self .IsStereotype st_Vector
+ >>> Result
+; // IsArray
+
+BOOLEAN elem_func IsOpenArray
+ Self .IsArray
+ AND ( Self .GetUP "array type" 'open' == )
+ >>> Result
+; // IsOpenArray

@@ -1,0 +1,66 @@
+// TncsExecutorFactoryList 54609BB100BB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54609BB100BB
+
+ME ME_54609BE1031F
+ MEPROP UID '54609BE1031F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54609BB100BB // TncsExecutorFactoryList
+ ;
+ MELINK Target WL 'ME_5460829B0384' '5460A4DB018A.ms.model.script' // IncsMessageExecutorFactory
+ ;
+
+ENDME // ME_54609BE1031F ItemType
+
+MEREF ME_4A54DD4E036F_ME_54609BB100BB_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54609BB100BB_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_54609BB100BB_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_54609BB100BB_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_54609BB100BB
+
+%%InheritedBy ME_4A54DD4E036F ME_54609BB100BB
+
+ME ME_54609BB100BB
+ MEPROP UID '54609BB100BB'
+ MEPROP Name 'TncsExecutorFactoryList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_54609BB100BB_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D630029_ME_54609BB100BB_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54609BE1031F // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas'
+ UP extprop:rc:SelfName 'ncsExecutorFactoryList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsExecutorFactoryList'
+
+ENDME // ME_54609BB100BB TncsExecutorFactoryList

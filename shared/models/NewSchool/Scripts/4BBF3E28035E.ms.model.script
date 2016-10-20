@@ -1,0 +1,120 @@
+// TevUsialParagraph 4BBF3E28035E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BBF3E28035E
+
+MEREF ME_4BBF40C603BD_ME_4BBF410202A1_G
+ MELINK Original WL 'ME_4BBF40C603BD' '4BBF3D8B00CD.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF40C603BD_ME_4BBF410202A1_G Create
+
+MEREF ME_4BBC8A230393_ME_4BBF410202A1_R
+ MELINK Original WL 'ME_4BBC8A230393' '48E3836D00C8.ms.model.script' // IedParagraph
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBC8A230393_ME_4BBF410202A1_R IedParagraph
+
+%%ImplementedBy ME_4BBC8A230393 ME_4BBF410202A1
+
+%%InheritedBy ME_4BBF40C603BD ME_4BBF410202A1
+
+ME ME_4BBF410202A1
+ MEPROP UID '4BBF410202A1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BBF3E28035E // TevUsialParagraph
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BBF40C603BD_ME_4BBF410202A1_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBC8A230393_ME_4BBF410202A1_R // IedParagraph
+ )
+ ; // Implements
+
+ENDME // ME_4BBF410202A1 Make
+
+ME ME_4BBF3EA9000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BBF3E28035E // TevUsialParagraph
+ ;
+ MELINK Target WL 'ME_4BBF3E7D006C' '4BBF3E6F006D.ms.model.script' // TevUsialParaFrame
+ ;
+
+ENDME // ME_4BBF3EA9000A 
+
+MEREF ME_4BBC89F8009C_ME_4BBF3E28035E_impl
+ MELINK Original WL 'ME_4BBC89F8009C' '48E3836D00C8.ms.model.script' // Frame
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4BBC89F8009C_ME_4BBF3E28035E_impl Frame
+
+MEREF ME_4BBF3D8B00CD_ME_4BBF3E28035E_G
+ MELINK Original WL? 'ME_4BBF3D8B00CD' // Tk2ProcessorTagTool
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBF3D8B00CD_ME_4BBF3E28035E_G Tk2ProcessorTagTool
+
+MEREF ME_4BBC8A230393_ME_4BBF3E28035E_R
+ MELINK Original WL 'ME_4BBC8A230393' '48E3836D00C8.ms.model.script' // IedParagraph
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BBC8A230393_ME_4BBF3E28035E_R IedParagraph
+
+%%ImplementedBy ME_4BBC8A230393 ME_4BBF3E28035E
+
+%%InheritedBy ME_4BBF3D8B00CD ME_4BBF3E28035E
+
+ME ME_4BBF3E28035E
+ MEPROP UID '4BBF3E28035E'
+ MEPROP Name 'TevUsialParagraph'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация IedParagraph для обычного параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F1F38601A3' // ParaUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BBF3D8B00CD_ME_4BBF3E28035E_G // Tk2ProcessorTagTool
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BBC8A230393_ME_4BBF3E28035E_R // IedParagraph
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4BBF410202A1 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BBC89F8009C_ME_4BBF3E28035E_impl // Frame
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4BBF3EA9000A // TevUsialParaFrame
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '09.04.2010 18:49'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evUsialParagraph.pas'
+ UP extprop:rc:SelfName 'UsialParagraph'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evUsialParagraph'
+
+ENDME // ME_4BBF3E28035E TevUsialParagraph

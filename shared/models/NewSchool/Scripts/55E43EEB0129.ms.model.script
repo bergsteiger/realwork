@@ -4,65 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_55E43EEB0129
 
-FORWARD ME_55E43EEB0129
-
-FORWARD ME_55E43F0500A2
-
-ME ME_55E4440E032D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55E43F0500A2 // K605362960
- ;
- MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
- ;
-
-ENDME // ME_55E4440E032D 
-
-ME ME_4C4FE56300FB_ME_55E43F0500A2
- MELINK Original WL 'ME_4C4FE56300FB' '4C9210B70244.ms.model.script' // Navigate
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4C4FE56300FB_ME_55E43F0500A2 Navigate
-
-ME ME_4DF781CB0217_ME_55E43F0500A2
- MELINK Original WL 'ME_4DF781CB0217' '4C4FDBF703DB.ms.model.script' // CharCount
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4DF781CB0217_ME_55E43F0500A2 CharCount
-
-%%InheritedBy ME_4CA30546032E ME_55E43F0500A2
-
-ME ME_55E43F0500A2
- MEPROP UID '55E43F0500A2'
- MEPROP Name 'K605362960'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:605362960}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E43EEB0129 // Unicode
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4CA30546032E' '4C4FDBF703DB.ms.model.script' // TDeleteCharTest
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4C4FE56300FB_ME_55E43F0500A2 // Navigate
- ME_4DF781CB0217_ME_55E43F0500A2 // CharCount
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_55E4440E032D // Operations
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\K605362960.pas'
- UP extprop:pas:TypeName 'TK605362960'
- UP extprop:rc:SelfName 'K605362960'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55E43F0500A2 K605362960
-
 ME ME_55E43EEB0129
  MEPROP UID '55E43EEB0129'
  MEPROP Name 'Unicode'
@@ -74,7 +15,7 @@ ME ME_55E43EEB0129
  MELINK Parent WL? 'ME_4B2A15810261' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_55E43F0500A2 // K605362960
+   Seq: ( WL? 'ME_55E43F0500A2' // K605362960
  )
  ; // Children
  MELIST Depends

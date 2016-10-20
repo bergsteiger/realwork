@@ -1,0 +1,112 @@
+// TeeDocumentContainerPrim 4D9357060196 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D9357060196
+
+ME ME_4D9357A90354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9357060196 // TeeDocumentContainerPrim
+ ;
+ MELINK Target WL? 'ME_4B13C45500E8' // TeeProcessor
+ ;
+
+ENDME // ME_4D9357A90354 
+
+ME ME_4D93585201BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9357060196 // TeeDocumentContainerPrim
+ ;
+ MELINK Target WL? 'ME_47F35FBA0208' // TevDefaultContext
+ ;
+
+ENDME // ME_4D93585201BB 
+
+ME ME_4D9358B50084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9357060196 // TeeDocumentContainerPrim
+ ;
+ MELINK Target WL? 'ME_4D93589403E2' // TeeDocumentPartGenerator
+ ;
+
+ENDME // ME_4D9358B50084 
+
+ME ME_4D93613B01E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D9357060196 // TeeDocumentContainerPrim
+ ;
+ MELINK Target WL? 'ME_46834DC80065' // TeeSubExport
+ ;
+
+ENDME // ME_4D93613B01E1 
+
+MEREF ME_47F27721012A_ME_4D9357060196_over
+ MELINK Original WL 'ME_47F27721012A' '47F0870E0034.ms.model.script' // DoGetSubEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27721012A_ME_4D9357060196_over DoGetSubEx
+
+MEREF ME_47F35245009A_ME_4D9357060196_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_4D9357060196_over MakeProcessor
+
+MEREF ME_48033300004D_ME_4D9357060196_over
+ MELINK Original WL 'ME_48033300004D' '47F0870E0034.ms.model.script' // PartGeneratorClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48033300004D_ME_4D9357060196_over PartGeneratorClass
+
+MEREF ME_47F34F00021C_ME_4D9357060196_G
+ MELINK Original WL? 'ME_47F34F00021C' // TnevPrintableDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F34F00021C_ME_4D9357060196_G TnevPrintableDocumentContainer
+
+%%InheritedBy ME_47F34F00021C ME_4D9357060196
+
+ME ME_4D9357060196
+ MEPROP UID '4D9357060196'
+ MEPROP Name 'TeeDocumentContainerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4680E826036D' // eeDocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F34F00021C_ME_4D9357060196_G // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F27721012A_ME_4D9357060196_over // DoGetSubEx
+ ME_47F35245009A_ME_4D9357060196_over // MakeProcessor
+ ME_48033300004D_ME_4D9357060196_over // PartGeneratorClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D9357A90354 // TeeProcessor
+ ME_4D93585201BB // TevDefaultContext
+ ME_4D9358B50084 // TeeDocumentPartGenerator
+ ME_4D93613B01E1 // TeeSubExport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '30.03.2011 20:15'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentContainerPrim.pas'
+ UP extprop:rc:SelfName 'eeDocumentContainerPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeDocumentContainerPrim'
+
+ENDME // ME_4D9357060196 TeeDocumentContainerPrim

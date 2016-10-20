@@ -1,0 +1,102 @@
+// TevSBSPainter 48C9390D0155 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48C9390D0155
+
+ME ME_53D0D8400038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_48C9390D0155 // TevSBSPainter
+ ;
+ MELINK Target WL? 'ME_4857E36301AD' // TevSBS
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0D8400038 
+
+ME ME_53D0D88801FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_48C9390D0155 // TevSBSPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D0D88801FF 
+
+MEREF ME_48C9339E0013_ME_48C9390D0155_over
+ MELINK Original WL 'ME_48C9339E0013' '48C9300A02EF.ms.model.script' // GetColorArray
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48C9339E0013_ME_48C9390D0155_over GetColorArray
+
+MEREF ME_4CAF3D530327_ME_48C9390D0155_over
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CAF3D530327_ME_48C9390D0155_over NeedsHackK235870994
+
+MEREF ME_4D0203AA016F_ME_48C9390D0155_over
+ MELINK Original WL 'ME_4D0203AA016F' '48C9300A02EF.ms.model.script' // NeedLog
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'nsTest'
+ENDMEREF // ME_4D0203AA016F_ME_48C9390D0155_over NeedLog
+
+MEREF ME_51B96E5A0285_ME_48C9390D0155_over
+ MELINK Original WL 'ME_51B96E5A0285' '48C9300A02EF.ms.model.script' // GetFameObjectBehaviur
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51B96E5A0285_ME_48C9390D0155_over GetFameObjectBehaviur
+
+MEREF ME_48C9377502A0_ME_48C9390D0155_G
+ MELINK Original WL? 'ME_48C9377502A0' // TevTablePainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C9377502A0_ME_48C9390D0155_G TevTablePainter
+
+%%InjectedBy ME_4857E36301AD ME_48C9390D0155
+
+%%InheritedBy ME_48C9377502A0 ME_48C9390D0155
+
+ME ME_48C9390D0155
+ MEPROP UID '48C9390D0155'
+ MEPROP Name 'TevSBSPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Инструмент для рисования параграфа Side By Side' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_48C9377502A0_ME_48C9390D0155_G // TevTablePainter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_48C9339E0013_ME_48C9390D0155_over // GetColorArray
+ ME_4CAF3D530327_ME_48C9390D0155_over // NeedsHackK235870994
+ ME_4D0203AA016F_ME_48C9390D0155_over // NeedLog
+ ME_51B96E5A0285_ME_48C9390D0155_over // GetFameObjectBehaviur
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D0D8400038 // TevSBS
+ ME_53D0D88801FF // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.07.2001 14:48'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSBSPainter.pas'
+ UP extprop:rc:SelfName 'SBSPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSBSPainter'
+
+ENDME // ME_48C9390D0155 TevSBSPainter

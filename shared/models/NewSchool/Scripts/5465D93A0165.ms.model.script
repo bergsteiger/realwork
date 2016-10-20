@@ -1,0 +1,181 @@
+// TalcuGetReadyToDeliveryTasksExecutor 5465D93A0165 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5465D93A0165
+
+MEREF ME_5465DA0F0245_ME_5465DA310356_G
+ MELINK Original WL 'ME_5465DA0F0245' '54748D2A0111.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5465DA0F0245_ME_5465DA310356_G Create
+
+MEREF ME_5460731E025E_ME_5465DA310356_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_5465DA310356_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_5465DA310356
+
+%%InheritedBy ME_5465DA0F0245 ME_5465DA310356
+
+ME ME_5465DA310356
+ MEPROP UID '5465DA310356'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELIST Inherits
+   Seq: ( ME_5465DA0F0245_ME_5465DA310356_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460731E025E_ME_5465DA310356_R // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_5465DA310356 Make
+
+ME ME_5465D9F4005E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL? 'ME_54645DEC03E4' // TncsGetReadyToDeliveryTasks
+ ;
+
+ENDME // ME_5465D9F4005E 
+
+ME ME_5465D9FA0276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL? 'ME_54645E0D0246' // TncsGetReadyToDeliveryTasksReply
+ ;
+
+ENDME // ME_5465D9FA0276 
+
+ME ME_5465EAF403A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
+ ;
+
+ENDME // ME_5465EAF403A7 
+
+ME ME_5465EB150363
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_5465EB150363 
+
+ME ME_5465EB5B0001
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5465EB5B0001 
+
+ME ME_5465EBED012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL? 'ME_53A051A703D1' // alcuTaskListBase
+ ;
+
+ENDME // ME_5465EBED012C 
+
+ME ME_5465F0E702EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465D93A0165 // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+ MELINK Target WL 'ME_532047060349' '532046D302C2.ms.model.script' // TcsTaskStatus
+ ;
+
+ENDME // ME_5465F0E702EF 
+
+MEREF ME_54607DDC0159_ME_5465D93A0165_impl
+ MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54607DDC0159_ME_5465D93A0165_impl Execute
+
+MEREF ME_54748D2A0111_ME_5465D93A0165_G
+ MELINK Original WL? 'ME_54748D2A0111' // TalcuExecutorWithTaskList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54748D2A0111_ME_5465D93A0165_G TalcuExecutorWithTaskList
+
+MEREF ME_5460731E025E_ME_5465D93A0165_R
+ MELINK Original WL 'ME_5460731E025E' '5460A4DB018A.ms.model.script' // IncsExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460731E025E_ME_5465D93A0165_R IncsExecutor
+
+%%ImplementedBy ME_5460731E025E ME_5465D93A0165
+
+%%InheritedBy ME_54748D2A0111 ME_5465D93A0165
+
+ME ME_5465D93A0165
+ MEPROP UID '5465D93A0165'
+ MEPROP Name 'TalcuGetReadyToDeliveryTasksExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5465E6BB0264' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( ME_54748D2A0111_ME_5465D93A0165_G // TalcuExecutorWithTaskList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5460731E025E_ME_5465D93A0165_R // IncsExecutor
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5465DA310356 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54607DDC0159_ME_5465D93A0165_impl // Execute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5465D9F4005E // TncsGetReadyToDeliveryTasks
+ ME_5465D9FA0276 // TncsGetReadyToDeliveryTasksReply
+ ME_5465EAF403A7 // TCsClientId
+ ME_5465EB150363 // TddProcessTask
+ ME_5465EB5B0001 // FreeAndNil
+ ME_5465EBED012C // alcuTaskListBase
+ ME_5465F0E702EF // TcsTaskStatus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuGetReadyToDeliveryTasksExecutor.pas'
+ UP extprop:rc:SelfName 'alcuGetReadyToDeliveryTasksExecutor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuGetReadyToDeliveryTasksExecutor'
+
+ENDME // ME_5465D93A0165 TalcuGetReadyToDeliveryTasksExecutor

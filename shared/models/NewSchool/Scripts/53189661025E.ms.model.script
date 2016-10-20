@@ -1,0 +1,89 @@
+// Tk2FontNameList 53189661025E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53189661025E
+
+ME ME_5318971501A5
+ MEPROP UID '5318971501A5'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53189661025E // Tk2FontNameList
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_5318971501A5 FindDataType
+
+ME ME_5318973A02E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53189661025E // Tk2FontNameList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_5318973A02E4 
+
+MEREF ME_47B9BAFD01F4_ME_53189661025E_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_53189661025E_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_53189661025E_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_53189661025E_G l3Searcher
+
+MEREF ME_531895BF02B6_ME_53189661025E_G
+ MELINK Original WL? 'ME_531895BF02B6' // Tk2FontNameListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_531895BF02B6_ME_53189661025E_G Tk2FontNameListPrim
+
+%%InheritedBy ME_47B47E230134 ME_53189661025E
+%%InheritedBy ME_531895BF02B6 ME_53189661025E
+
+ME ME_53189661025E
+ MEPROP UID '53189661025E'
+ MEPROP Name 'Tk2FontNameList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_53189661025E_G // l3Searcher
+ ME_531895BF02B6_ME_53189661025E_G // Tk2FontNameListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5318971501A5 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_53189661025E_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5318973A02E4 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2FontNameList.pas'
+ UP extprop:rc:SelfName 'FontNameList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2FontNameList'
+
+ENDME // ME_53189661025E Tk2FontNameList

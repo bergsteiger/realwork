@@ -1,0 +1,208 @@
+// Tm4WordList 4AB37F2003B6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB37F2003B6
+
+ME ME_4AB38F380358
+ MEPROP UID '4AB38F380358'
+ MEPROP Name 'f_NextID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
+ ;
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
+ ;
+
+ENDME // ME_4AB38F380358 f_NextID
+
+FORWARD ME_4AB38FE40091
+
+ME ME_4AB38FFD027D
+ MEPROP UID '4AB38FFD027D'
+ MEPROP Name 'Item'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB38FE40091 // AddWord
+ ;
+ MELINK Target WL? 'ME_4AB37F0D0301' // Tm4Word
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AB38FFD027D Item
+
+ME ME_4AB390A10104
+ MEPROP UID '4AB390A10104'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AB38FE40091 // AddWord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4AB390A10104 Index
+
+ME ME_4AB38FF400C3
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4AB38FF400C3 aStr
+
+ME ME_4AB38FEE0208
+ MEPROP UID '4AB38FEE0208'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB38FE40091 // AddWord
+ ;
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AB38FF400C3 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4AB38FEE0208 DoIt
+
+ME ME_4AB392A300D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AB38FE40091 // AddWord
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4AB392A300D3 
+
+ME ME_4AB38FE40091
+ MEPROP UID '4AB38FE40091'
+ MEPROP Name 'AddWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AB38FFD027D // Item
+ HWL ME_4AB390A10104 // Index
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AB38FEE0208 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AB392A300D3 // SysUtils
+ )
+ ; // Dependencies
+
+ENDME // ME_4AB38FE40091 AddWord
+
+ME ME_4AB38F9800B8
+ MEPROP UID '4AB38F9800B8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
+ ;
+
+ENDME // ME_4AB38F9800B8 Create
+
+ME ME_4AB38F850355
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
+ ;
+ MELINK Target WL? 'ME_4AB37F0D0301' // Tm4Word
+ ;
+
+ENDME // ME_4AB38F850355 
+
+ME ME_4AB73FA7010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_4AB73FA7010F 
+
+MEREF ME_47A042E100E2_ME_4AB37F2003B6_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_4AB37F2003B6_over InitFields
+
+MEREF ME_4773DCE302FF_ME_4AB37F2003B6_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_4AB37F2003B6_G Tl3StringList
+
+%%InheritedBy ME_4773DCE302FF ME_4AB37F2003B6
+
+ME ME_4AB37F2003B6
+ MEPROP UID '4AB37F2003B6'
+ MEPROP Name 'Tm4WordList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список слов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB37BE502EA' // Dict
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DCE302FF_ME_4AB37F2003B6_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AB38F380358 // f_NextID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AB38FE40091 // AddWord
+ HWL ME_4AB38F9800B8 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4AB37F2003B6_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4AB38F850355 // Tm4Word
+ ME_4AB73FA7010F // Tl3SortIndex
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.09.2009 12:57'
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\m4WordList.pas'
+ UP extprop:rc:SelfName 'm4WordList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm4WordList'
+
+ENDME // ME_4AB37F2003B6 Tm4WordList

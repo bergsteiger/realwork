@@ -1,0 +1,60 @@
+// SessionHelper 47711DA00052 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47711DA00052
+
+ME ME_47711DCF03A0
+ MEPROP UID '47711DCF03A0'
+ MEPROP Name 'is_session_active'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47711DA00052 // SessionHelper
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" true
+
+ENDME // ME_47711DCF03A0 is_session_active
+
+ME ME_477129B00039
+ MEPROP UID '477129B00039'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47711DA00052 // SessionHelper
+ ;
+
+ENDME // ME_477129B00039 make
+
+ME ME_47711DA00052
+ MEPROP UID '47711DA00052'
+ MEPROP Name 'SessionHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_460BAAA30119' // ApplicationHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47711DCF03A0 // is_session_active
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_477129B00039 // make
+ )
+ ; // Operations
+ UP "singleton" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SessionHelper.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47711DA00052 SessionHelper

@@ -1,0 +1,283 @@
+// TncsReplyWaiter 5461D9EE0244 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5461D9EE0244
+
+ME ME_5461DA210250
+ MEPROP UID '5461DA210250'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELINK Target WL? 'ME_5461D6FC00F7' // TncsReplyDecsriptionList
+ ;
+
+ENDME // ME_5461DA210250 f_List
+
+FORWARD ME_54633EAE039A
+
+ME ME_54633ECE02CA
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54633ECE02CA aMessage
+
+ME ME_54633EB6031C
+ MEPROP UID '54633EB6031C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54633EAE039A // FindDesc
+ ;
+ MELINK Target WL? 'ME_5461D6C30025' // TncsReplyDescription
+ ;
+ MELIST Parameters
+   Seq: ( ME_54633ECE02CA // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_54633EB6031C DoIt
+
+ME ME_54633EAE039A
+ MEPROP UID '54633EAE039A'
+ MEPROP Name 'FindDesc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54633EB6031C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54633EAE039A FindDesc
+
+ME ME_54630A360321
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54630A360321 aMessage
+
+ME ME_54630A1F0046
+ MEPROP UID '54630A1F0046'
+ MEPROP Name 'SubmitReply'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELIST Parameters
+   Seq: ( ME_54630A360321 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_54630A1F0046 SubmitReply
+
+ME ME_54630A4F0322
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54630A4F0322 aMessage
+
+ME ME_54630A3E001D
+ MEPROP UID '54630A3E001D'
+ MEPROP Name 'SubmitMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELIST Parameters
+   Seq: ( ME_54630A4F0322 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_54630A3E001D SubmitMessage
+
+ME ME_54630A7102CD
+ MEPROP UID '54630A7102CD'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+
+ENDME // ME_54630A7102CD Clear
+
+ME ME_547C4DD20008
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_547C4DD20008 aMessage
+
+ME ME_547C4DD20037
+ MEPROP Name 'theReply'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_547C4DD20037 theReply
+
+ME ME_547C4DD20056
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
+ ;
+ MEPROP Value 'INFINITE'
+ MELINK ValueType WL 'ME_483C21B0003E' '48A41FF10094.ms.model.script' // Timeouts
+ ;
+ UP extprop:pas:Value 'INFINITE'
+
+ENDME // ME_547C4DD20056 aTimeOut
+
+ME ME_54630A80027D
+ MEPROP UID '54630A80027D'
+ MEPROP Name 'WaitForReply'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_547C4DD20008 // aMessage
+ ME_547C4DD20037 // theReply
+ ME_547C4DD20056 // aTimeOut
+ )
+ ; // Parameters
+
+ENDME // ME_54630A80027D WaitForReply
+
+ME ME_5461FC9C0368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5461FC9C0368 
+
+ME ME_5463131A0008
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELINK Target WL? 'ME_5461D6C30025' // TncsReplyDescription
+ ;
+
+ENDME // ME_5463131A0008 
+
+ME ME_54634144025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5461D9EE0244 // TncsReplyWaiter
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_54634144025A 
+
+MEREF ME_479731C50290_ME_5461D9EE0244_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5461D9EE0244_over Cleanup
+
+MEREF ME_47A042E100E2_ME_5461D9EE0244_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5461D9EE0244_over InitFields
+
+MEREF ME_49E7754802A9_ME_5461D9EE0244_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5461D9EE0244_G Tl3ProtoObject
+
+MEREF ME_53A03846011C_ME_5461D9EE0244_R
+ MELINK Original WL? 'ME_53A03846011C' // l3CriticalSectionHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53A03846011C_ME_5461D9EE0244_R l3CriticalSectionHolder
+
+%%ImplementedBy ME_53A03846011C ME_5461D9EE0244
+
+%%InheritedBy ME_49E7754802A9 ME_5461D9EE0244
+
+ME ME_5461D9EE0244
+ MEPROP UID '5461D9EE0244'
+ MEPROP Name 'TncsReplyWaiter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5461D9EE0244_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53A03846011C_ME_5461D9EE0244_R // l3CriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5461DA210250 // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54633EAE039A // FindDesc
+ HWL ME_54630A1F0046 // SubmitReply
+ HWL ME_54630A3E001D // SubmitMessage
+ HWL ME_54630A7102CD // Clear
+ HWL ME_54630A80027D // WaitForReply
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5461D9EE0244_over // Cleanup
+ ME_47A042E100E2_ME_5461D9EE0244_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5461FC9C0368 // FreeAndNil
+ ME_5463131A0008 // TncsReplyDescription
+ ME_54634144025A // l3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsReplyWaiter.pas'
+ UP extprop:rc:SelfName 'ncsReplyWaiter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsReplyWaiter'
+
+ENDME // ME_5461D9EE0244 TncsReplyWaiter

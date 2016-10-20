@@ -87,17 +87,23 @@ ME ME_5425578502BE
 
 ENDME // ME_5425578502BE SkipLockDialog
 
-ME ME_47A042E100E2_ME_5425548D01DD
+MEREF ME_47A042E100E2_ME_5425548D01DD_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_5425548D01DD InitFields
+ENDMEREF // ME_47A042E100E2_ME_5425548D01DD_over InitFields
 
-ME ME_5000565C019C_ME_5425548D01DD
+MEREF ME_5000565C019C_ME_5425548D01DD_over
  MELINK Original WL 'ME_5000565C019C' '47913F4E02E0.ms.model.script' // ClearFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_5000565C019C_ME_5425548D01DD ClearFields
+ENDMEREF // ME_5000565C019C_ME_5425548D01DD_over ClearFields
+
+MEREF ME_49E7754802A9_ME_5425548D01DD_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5425548D01DD_G Tl3ProtoObject
 
 %%InheritedBy ME_49E7754802A9 ME_5425548D01DD
 
@@ -113,7 +119,7 @@ ME ME_5425548D01DD
  MELINK Parent HWL ME_4DE60853015A // arArchiTestsAdapter
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( ME_49E7754802A9_ME_5425548D01DD_G // Tl3ProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -121,8 +127,8 @@ ME ME_5425548D01DD
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_5425548D01DD // InitFields
- ME_5000565C019C_ME_5425548D01DD // ClearFields
+   Seq: ( ME_47A042E100E2_ME_5425548D01DD_over // InitFields
+ ME_5000565C019C_ME_5425548D01DD_over // ClearFields
  )
  ; // Overridden
  MELIST Children
@@ -189,7 +195,7 @@ ENDME // ME_4DE609950227 DoIt
 ME ME_4DE608AF027D
  MEPROP UID '4DE608AF027D'
  MEPROP Name 'arOpenDocumentByNumber'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть документ по номеру.' ;
@@ -232,7 +238,7 @@ ENDME // ME_4E0AE0970029
 ME ME_4DE608E101E0
  MEPROP UID '4DE608E101E0'
  MEPROP Name 'arGetDocumentEditor'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Получить редактор для текста документа.' ;
@@ -302,7 +308,7 @@ ENDME // ME_4E0AE1220391
 ME ME_4DE62CD4032D
  MEPROP UID '4DE62CD4032D'
  MEPROP Name 'arOpenByNumberAsString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Открыть документ по номеру' ;
@@ -339,7 +345,7 @@ ENDME // ME_4DE633340002 DoIt
 ME ME_4DE6331E00DA
  MEPROP UID '4DE6331E00DA'
  MEPROP Name 'arCloseActiveDocument'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -382,7 +388,7 @@ ENDME // ME_4DFB4F490039 DoIt
 ME ME_4DFB4F0401D6
  MEPROP UID '4DFB4F0401D6'
  MEPROP Name 'arSubNameEdit'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Редакторование саба.' ;
@@ -427,7 +433,7 @@ ENDME // ME_4E01AD8B003B DoIt
 ME ME_4E01AD6F0280
  MEPROP UID '4E01AD6F0280'
  MEPROP Name 'arDeleteSub'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -470,7 +476,7 @@ ENDME // ME_4E0AD0D402C7 DoIt
 ME ME_4E0AD0AD00CD
  MEPROP UID '4E0AD0AD00CD'
  MEPROP Name 'arCreateNewDocument'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -523,7 +529,7 @@ ENDME // ME_4E0AE1C602DE DoIt
 ME ME_4E0AE1A90285
  MEPROP UID '4E0AE1A90285'
  MEPROP Name 'arCreateNewDocumentByFileName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -583,7 +589,7 @@ ENDME // ME_4E25325603CB
 ME ME_4E2447BF0259
  MEPROP UID '4E2447BF0259'
  MEPROP Name 'acOpenInsDWin'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -634,7 +640,7 @@ ME ME_5445024D0058
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E4B5CDC03DF // acDeInitDB
  ;
- MELINK Target WL 'ME_542E7AD00050' '5486E32B0191.ms.model.script' // Tm3StorageHolderList
+ MELINK Target WL? 'ME_542E7AD00050' // Tm3StorageHolderList
  ;
 
 ENDME // ME_5445024D0058 
@@ -642,7 +648,7 @@ ENDME // ME_5445024D0058
 ME ME_4E4B5CDC03DF
  MEPROP UID '4E4B5CDC03DF'
  MEPROP Name 'acDeInitDB'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -700,7 +706,7 @@ ENDME // ME_5450D0A902E6
 ME ME_4E4B5D350252
  MEPROP UID '4E4B5D350252'
  MEPROP Name 'acInitDB'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -738,7 +744,7 @@ ENDME // ME_4EA94FDE01A3 DoIt
 ME ME_4EA94FCA02CD
  MEPROP UID '4EA94FCA02CD'
  MEPROP Name 'arAddBlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -781,7 +787,7 @@ ENDME // ME_4EAFC7DD0182 DoIt
 ME ME_4EAFC7CC0065
  MEPROP UID '4EAFC7CC0065'
  MEPROP Name 'acSetActivePage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -821,7 +827,7 @@ ENDME // ME_4ECB5B3A020B
 ME ME_4ECB5AFB0277
  MEPROP UID '4ECB5AFB0277'
  MEPROP Name 'acCreateStructure'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -878,7 +884,7 @@ ENDME // ME_4ECB5F8A0016
 ME ME_4ECB5F560065
  MEPROP UID '4ECB5F560065'
  MEPROP Name 'arSetContentsSub'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -925,7 +931,7 @@ ENDME // ME_4EEF087100F9 DoIt
 ME ME_4EEF085B0345
  MEPROP UID '4EEF085B0345'
  MEPROP Name 'arGotoSub'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

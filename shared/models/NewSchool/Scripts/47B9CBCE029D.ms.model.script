@@ -1,0 +1,96 @@
+// Tl3StringList2 47B9CBCE029D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47B9CBCE029D
+
+ME ME_47B9D24C00E9
+ MEPROP UID '47B9D24C00E9'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47B9CBCE029D // Tl3StringList2
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_47B9D24C00E9 FindDataType
+
+ME ME_47B9D10F03BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B9CBCE029D // Tl3StringList2
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_47B9D10F03BE 
+
+MEREF ME_47B9BAFD01F4_ME_47B9CBCE029D_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47B9CBCE029D_over CompareItemWithData
+
+MEREF ME_47B9CBAA037F_ME_47B9CBCE029D_G
+ MELINK Original WL? 'ME_47B9CBAA037F' // Tl3StringList1
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9CBAA037F_ME_47B9CBCE029D_G Tl3StringList1
+
+MEREF ME_47B47E230134_ME_47B9CBCE029D_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47B9CBCE029D_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_47B9CBCE029D
+
+%%InheritedBy ME_47B9CBAA037F ME_47B9CBCE029D
+
+ME ME_47B9CBCE029D
+ MEPROP UID '47B9CBCE029D'
+ MEPROP Name 'Tl3StringList2'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9CBAA037F_ME_47B9CBCE029D_G // Tl3StringList1
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_47B9CBCE029D_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47B9D24C00E9 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47B9CBCE029D_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47B9D10F03BE // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '18.02.2008 21:18'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StringList2.pas'
+ UP extprop:rc:SelfName 'StringList2'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3StringList2'
+
+ENDME // ME_47B9CBCE029D Tl3StringList2

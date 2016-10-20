@@ -1,0 +1,247 @@
+// TChromeLikeDrawingContext 5507C7FA00EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5507C7FA00EE
+
+ME ME_5507EF6602B7
+ MEPROP UID '5507EF6602B7'
+ MEPROP Name 'f_Graphics'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL 'ME_5507E26602B3' '5507E0E20026.ms.model.script' // TGPGraphics
+ ;
+
+ENDME // ME_5507EF6602B7 f_Graphics
+
+ME ME_5507EFE800E7
+ MEPROP UID '5507EFE800E7'
+ MEPROP Name 'f_Canvas'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL 'ME_515581580039' '47D15712022D.ms.model.script' // TCanvas
+ ;
+
+ENDME // ME_5507EFE800E7 f_Canvas
+
+FORWARD ME_5507E6C202EE
+
+ME ME_5507E6D50102
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_515581580039' '47D15712022D.ms.model.script' // TCanvas
+ ;
+
+ENDME // ME_5507E6D50102 aCanvas
+
+ME ME_5507E6CC01CC
+ MEPROP UID '5507E6CC01CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507E6C202EE // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5507E6D50102 // aCanvas
+ )
+ ; // Parameters
+
+ENDME // ME_5507E6CC01CC DoIt
+
+ME ME_5507E6C202EE
+ MEPROP UID '5507E6C202EE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5507E6CC01CC // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+
+ENDME // ME_5507E6C202EE Create
+
+MEREF ME_5507E6C202EE_ME_5507E6DA0097_G
+ MELINK Original HWL ME_5507E6C202EE // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5507E6C202EE_ME_5507E6DA0097_G Create
+
+MEREF ME_5506A72B034B_ME_5507E6DA0097_R
+ MELINK Original WL 'ME_5506A72B034B' '5506A5EE013A.ms.model.script' // IChromeLkeTabSetDrawingContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5506A72B034B_ME_5507E6DA0097_R IChromeLkeTabSetDrawingContext
+
+%%ImplementedBy ME_5506A72B034B ME_5507E6DA0097
+
+%%InheritedBy ME_5507E6C202EE ME_5507E6DA0097
+
+ME ME_5507E6DA0097
+ MEPROP UID '5507E6DA0097'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELIST Inherits
+   Seq: ( ME_5507E6C202EE_ME_5507E6DA0097_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5506A72B034B_ME_5507E6DA0097_R // IChromeLkeTabSetDrawingContext
+ )
+ ; // Implements
+
+ENDME // ME_5507E6DA0097 Make
+
+ME ME_5507DFE50117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL? 'ME_5507DFA9031E' // ChromeLikeTabSetUtils
+ ;
+
+ENDME // ME_5507DFE50117 
+
+ME ME_5507E747013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL? 'ME_47D15712022D' // Graphics
+ ;
+
+ENDME // ME_5507E747013F 
+
+ME ME_5507E74B0207
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL? 'ME_5507E0E20026' // GDIPOBJ
+ ;
+
+ENDME // ME_5507E74B0207 
+
+ME ME_5507E74F014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507C7FA00EE // TChromeLikeDrawingContext
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_5507E74F014F 
+
+MEREF ME_5507DFFF038B_ME_5507C7FA00EE_impl
+ MELINK Original WL 'ME_5507DFFF038B' '5506A5EE013A.ms.model.script' // Canvas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_5507DFFF038B_ME_5507C7FA00EE_impl Canvas
+
+MEREF ME_5507E011038E_ME_5507C7FA00EE_impl
+ MELINK Original WL 'ME_5507E011038E' '5506A5EE013A.ms.model.script' // Graphics
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_5507E011038E_ME_5507C7FA00EE_impl Graphics
+
+MEREF ME_479731C50290_ME_5507C7FA00EE_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5507C7FA00EE_over Cleanup
+
+MEREF ME_49E7754802A9_ME_5507C7FA00EE_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5507C7FA00EE_G Tl3ProtoObject
+
+MEREF ME_5506A72B034B_ME_5507C7FA00EE_R
+ MELINK Original WL 'ME_5506A72B034B' '5506A5EE013A.ms.model.script' // IChromeLkeTabSetDrawingContext
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5506A72B034B_ME_5507C7FA00EE_R IChromeLkeTabSetDrawingContext
+
+%%ImplementedBy ME_5506A72B034B ME_5507C7FA00EE
+
+%%InheritedBy ME_49E7754802A9 ME_5507C7FA00EE
+
+ME ME_5507C7FA00EE
+ MEPROP UID '5507C7FA00EE'
+ MEPROP Name 'TChromeLikeDrawingContext'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_533E6F73014E' // ChromeLikeTabSet
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5507C7FA00EE_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5506A72B034B_ME_5507C7FA00EE_R // IChromeLkeTabSetDrawingContext
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5507EF6602B7 // f_Graphics
+ HWL ME_5507EFE800E7 // f_Canvas
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5507E6C202EE // Create
+ HWL ME_5507E6DA0097 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5507DFFF038B_ME_5507C7FA00EE_impl // Canvas
+ ME_5507E011038E_ME_5507C7FA00EE_impl // Graphics
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5507C7FA00EE_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5507DFE50117 // ChromeLikeTabSetUtils
+ ME_5507E747013F // Graphics
+ ME_5507E74B0207 // GDIPOBJ
+ ME_5507E74F014F // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas'
+ UP extprop:rc:SelfName 'ChromeLikeDrawingContext'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ChromeLikeDrawingContext'
+
+ENDME // ME_5507C7FA00EE TChromeLikeDrawingContext

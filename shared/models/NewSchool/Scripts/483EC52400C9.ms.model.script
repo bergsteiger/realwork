@@ -1,0 +1,283 @@
+// TatXMLScenarioGenerator 483EC52400C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_483EC52400C9
+
+FORWARD ME_483EC52400C9
+
+MEREF ME_4787A405013D_ME_483EDDC102A6_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_483EDDC102A6_G Exception
+
+%%InheritedBy ME_4787A405013D ME_483EDDC102A6
+
+ME ME_483EDDC102A6
+ MEPROP UID '483EDDC102A6'
+ MEPROP Name 'EInvalidXMLScenario'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELIST Inherits
+   Seq: ( ME_4787A405013D_ME_483EDDC102A6_G // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_483EDDC102A6 EInvalidXMLScenario
+
+ME ME_483EC55302CC
+ MEPROP UID '483EC55302CC'
+ MEPROP Name 'f_Scenario'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL? 'ME_4808A3EC021F' // TatScenario
+ ;
+
+ENDME // ME_483EC55302CC f_Scenario
+
+ME ME_483ECFE00068
+ MEPROP Name 'aScenario'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4808A3EC021F' // TatScenario
+ ;
+
+ENDME // ME_483ECFE00068 aScenario
+
+ME ME_483ECFE000D6
+ MEPROP Name 'aXmlFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_483ECFE000D6 aXmlFileName
+
+ME ME_483ECFCA023D
+ MEPROP UID '483ECFCA023D'
+ MEPROP Name 'FillScenario'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_483ECFE00068 // aScenario
+ ME_483ECFE000D6 // aXmlFileName
+ )
+ ; // Parameters
+
+ENDME // ME_483ECFCA023D FillScenario
+
+ME ME_483ED06F01F3
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+
+ENDME // ME_483ED06F01F3 anOperation
+
+ME ME_483ED06F0280
+ MEPROP Name 'anAttributes'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483E976B0393' '483E97460331.ms.model.script' // IXMLNodeList
+ ;
+
+ENDME // ME_483ED06F0280 anAttributes
+
+ME ME_483ECFFD02CA
+ MEPROP UID '483ECFFD02CA'
+ MEPROP Name 'FillOperationParameters'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_483ED06F01F3 // anOperation
+ ME_483ED06F0280 // anAttributes
+ )
+ ; // Parameters
+
+ENDME // ME_483ECFFD02CA FillOperationParameters
+
+ME ME_483ED097036A
+ MEPROP Name 'aXmlDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483E978A0380' '483E97460331.ms.model.script' // IXMLDocument
+ ;
+
+ENDME // ME_483ED097036A aXmlDoc
+
+ME ME_483ED078005D
+ MEPROP UID '483ED078005D'
+ MEPROP Name 'ParseXMLDoc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_483ED097036A // aXmlDoc
+ )
+ ; // Parameters
+
+ENDME // ME_483ED078005D ParseXMLDoc
+
+ME ME_483ED0B20222
+ MEPROP Name 'aXmlNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483E97620058' '483E97460331.ms.model.script' // IXMLNode
+ ;
+
+ENDME // ME_483ED0B20222 aXmlNode
+
+ME ME_483ED0B202AF
+ MEPROP Name 'aParentOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+
+ENDME // ME_483ED0B202AF aParentOp
+
+ME ME_483ED09F0138
+ MEPROP UID '483ED09F0138'
+ MEPROP Name 'ParseOperationNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_483ED0B20222 // aXmlNode
+ ME_483ED0B202AF // aParentOp
+ )
+ ; // Parameters
+
+ENDME // ME_483ED09F0138 ParseOperationNode
+
+ME ME_483ED5320262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL 'ME_483E978A0380' '483E97460331.ms.model.script' // IXMLDocument
+ ;
+
+ENDME // ME_483ED5320262 
+
+ME ME_483ED53A030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL 'ME_483E97620058' '483E97460331.ms.model.script' // IXMLNode
+ ;
+
+ENDME // ME_483ED53A030E 
+
+ME ME_483ED53E0262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL 'ME_483E976B0393' '483E97460331.ms.model.script' // IXMLNodeList
+ ;
+
+ENDME // ME_483ED53E0262 
+
+ME ME_483ED5910158
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_483ED5910158 
+
+ME ME_483ED5DD0010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL? 'ME_4808A9F301D4' // atOperationFactory
+ ;
+
+ENDME // ME_483ED5DD0010 
+
+ME ME_483EDBB30073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483EC52400C9 // TatXMLScenarioGenerator
+ ;
+ MELINK Target WL? 'ME_483E9810029D' // XMLDoc
+ ;
+
+ENDME // ME_483EDBB30073 
+
+ME ME_483EC52400C9
+ MEPROP UID '483EC52400C9'
+ MEPROP Name 'TatXMLScenarioGenerator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_483EC55302CC // f_Scenario
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_483ECFCA023D // FillScenario
+ HWL ME_483ECFFD02CA // FillOperationParameters
+ HWL ME_483ED078005D // ParseXMLDoc
+ HWL ME_483ED09F0138 // ParseOperationNode
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_483EDDC102A6 // EInvalidXMLScenario
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_483ED5320262 // IXMLDocument
+ ME_483ED53A030E // IXMLNode
+ ME_483ED53E0262 // IXMLNodeList
+ ME_483ED5910158 // atLogger
+ ME_483ED5DD0010 // atOperationFactory
+ ME_483EDBB30073 // XMLDoc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atXMLScenarioGenerator.pas'
+ UP extprop:rc:SelfName 'atXMLScenarioGenerator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atXMLScenarioGenerator'
+
+ENDME // ME_483EC52400C9 TatXMLScenarioGenerator

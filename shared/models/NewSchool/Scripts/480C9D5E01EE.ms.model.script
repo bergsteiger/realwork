@@ -1,0 +1,258 @@
+// TevPageBreakPainter 480C9D5E01EE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480C9D5E01EE
+
+FORWARD ME_4B8BF1F90349
+
+ME ME_4B8BF20A031D
+ MEPROP UID '4B8BF20A031D'
+ MEPROP Name 'PageBegin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8BF1F90349 // Local
+ ;
+ MEPROP Value ''' Начало страницы. '''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value ''' Начало страницы. '''
+
+ENDME // ME_4B8BF20A031D PageBegin
+
+ME ME_4B8BF1F90349
+ MEPROP UID '4B8BF1F90349'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B8BF20A031D // PageBegin
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'nevmm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'nevmm'
+
+ENDME // ME_4B8BF1F90349 Local
+
+ME ME_480C9DC4032F
+ MEPROP UID '480C9DC4032F'
+ MEPROP Name 'GetString'
+ MEPROP Class class_Operation
+ %SUMMARY 'вернуть строчку для отображения.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_480C9DC4032F GetString
+
+ME ME_480C9DDD01B0
+ MEPROP UID '480C9DDD01B0'
+ MEPROP Name 'NewPage'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается перед началом новой страницы.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+
+ENDME // ME_480C9DDD01B0 NewPage
+
+ME ME_480C9E0003A9
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_480C9E0003A9 A
+
+ME ME_480C9E010000
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_480C9E010000 B
+
+ME ME_480C9DEF0099
+ MEPROP UID '480C9DEF0099'
+ MEPROP Name 'DrawLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'нарисовать линию разрыва.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_480C9E0003A9 // A
+ ME_480C9E010000 // B
+ )
+ ; // Parameters
+
+ENDME // ME_480C9DEF0099 DrawLine
+
+ME ME_480CA0A1008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_480CA0A1008C 
+
+ME ME_480CA0F0036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target HWL ME_4B8BF1F90349 // Local
+ ;
+
+ENDME // ME_480CA0F0036A 
+
+ME ME_480CA369012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_480CA369012A 
+
+ME ME_480CA4040065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_47C7F2FA0277' '4678209200A6.ms.model.script' // Constants
+ ;
+
+ENDME // ME_480CA4040065 
+
+ME ME_480CA43101A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_4804ABA703CA' '47D15712022D.ms.model.script' // Colors$1
+ ;
+
+ENDME // ME_480CA43101A5 
+
+ME ME_480CA47C01E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_480CA47C01E2 
+
+ME ME_4DD67C0A0292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL? 'ME_48567BA50307' // TevPageBreak
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67C0A0292 
+
+ME ME_53D0AFF00071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_480C9D5E01EE // TevPageBreakPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D0AFF00071 
+
+MEREF ME_4804C81000B9_ME_480C9D5E01EE_over
+ MELINK Original WL 'ME_4804C81000B9' '4804C7B60375.ms.model.script' // DrawLeaf
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804C81000B9_ME_480C9D5E01EE_over DrawLeaf
+
+MEREF ME_49DB53330394_ME_480C9D5E01EE_G
+ MELINK Original WL? 'ME_49DB53330394' // TevLeafParaPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DB53330394_ME_480C9D5E01EE_G TevLeafParaPainter
+
+%%InjectedBy ME_48567BA50307 ME_480C9D5E01EE
+
+%%InheritedBy ME_49DB53330394 ME_480C9D5E01EE
+
+ME ME_480C9D5E01EE
+ MEPROP UID '480C9D5E01EE'
+ MEPROP Name 'TevPageBreakPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация инструмента рисования для разрыва страниц.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4804A24003C1' // LeafPara Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DB53330394_ME_480C9D5E01EE_G // TevLeafParaPainter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_480C9DC4032F // GetString
+ HWL ME_480C9DDD01B0 // NewPage
+ HWL ME_480C9DEF0099 // DrawLine
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4804C81000B9_ME_480C9D5E01EE_over // DrawLeaf
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4B8BF1F90349 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_480CA0A1008C // Tk2TagID
+ ME_480CA0F0036A // Local
+ ME_480CA369012A // L3 Core Consts
+ ME_480CA4040065 // Constants
+ ME_480CA43101A5 // Colors$1
+ ME_480CA47C01E2 // l3String
+ ME_4DD67C0A0292 // TevPageBreak
+ ME_53D0AFF00071 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.10.2000 16:03'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPageBreakPainter.pas'
+ UP extprop:rc:SelfName 'PageBreakPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evPageBreakPainter'
+
+ENDME // ME_480C9D5E01EE TevPageBreakPainter

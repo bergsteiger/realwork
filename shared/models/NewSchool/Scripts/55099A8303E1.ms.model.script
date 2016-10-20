@@ -1,0 +1,95 @@
+// Tl3KeyboardLayoutService 55099A8303E1 Service Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55099A8303E1
+
+FORWARD ME_55099A8303E1
+
+FORWARD ME_58FA1B19298C
+
+FORWARD ME_55099AAA0207
+
+ME ME_747558CBA739
+ MEPROP UID '747558CBA739'
+ MEPROP Name 'TryActivateKeyboardLayout'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_58FA1B19298C // Ml3KeyboardLayoutService
+ ;
+ UPLINK Speller HWL ME_55099AAA0207 // TryActivateKeyboardLayout
+ ;
+
+ENDME // ME_747558CBA739 TryActivateKeyboardLayout
+
+ME ME_58FA1B19298C
+ MEPROP UID '58FA1B19298C'
+ MEPROP Name 'Ml3KeyboardLayoutService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3KeyboardLayoutService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_747558CBA739 // TryActivateKeyboardLayout
+ )
+ ; // Operations
+
+ENDME // ME_58FA1B19298C Ml3KeyboardLayoutService
+
+ME ME_55099AAA0207
+ MEPROP UID '55099AAA0207'
+ MEPROP Name 'TryActivateKeyboardLayout'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55099A8303E1 // Tl3KeyboardLayoutService
+ ;
+
+ENDME // ME_55099AAA0207 TryActivateKeyboardLayout
+
+MEREF ME_49E7754802A9_ME_55099A8303E1_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55099A8303E1_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_55099A8303E1
+
+ME ME_55099A8303E1
+ MEPROP UID '55099A8303E1'
+ MEPROP Name 'Tl3KeyboardLayoutService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_5506D079035B' // AFWServices
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55099A8303E1_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55099AAA0207 // TryActivateKeyboardLayout
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_58FA1B19298C // Ml3KeyboardLayoutService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas'
+ UP extprop:rc:SelfName 'KeyboardLayoutService'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3KeyboardLayoutService'
+
+ENDME // ME_55099A8303E1 Tl3KeyboardLayoutService

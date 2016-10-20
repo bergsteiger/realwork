@@ -50,7 +50,7 @@ ME ME_536AC39500C3
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_536A57190399 // TvgRemindersLine
  ;
- MELINK Target WL 'ME_532973740186' '53288DFA03A7.ms.model.script' // TvgReminder
+ MELINK Target WL 'ME_532973740186' '532322D901A3.ms.model.script' // TvgReminder
  ;
  MELIST Attributes
    Seq: ( HWL ME_536AC39C034B // Index
@@ -58,6 +58,12 @@ ME ME_536AC39500C3
  ; // Attributes
 
 ENDME // ME_536AC39500C3 Reminder
+
+MEREF ME_532322D901A3_ME_536A57190399_G
+ MELINK Original WL? 'ME_532322D901A3' // TvgRemindersLine
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532322D901A3_ME_536A57190399_G TvgRemindersLine
 
 %%InheritedBy ME_532322D901A3 ME_536A57190399
 
@@ -72,7 +78,7 @@ ME ME_536A57190399
  MELINK Parent HWL ME_536A56A6004E // NewReminders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.ms.model.script' // TvgRemindersLine
+   Seq: ( ME_532322D901A3_ME_536A57190399_G // TvgRemindersLine
  )
  ; // Inherits
  MELIST Attributes
@@ -148,6 +154,12 @@ ME ME_536B5E2E033B
 
 ENDME // ME_536B5E2E033B vgImage
 
+MEREF ME_532973740186_ME_536B5D600367_G
+ MELINK Original WL 'ME_532973740186' '532322D901A3.ms.model.script' // TvgReminder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_532973740186_ME_536B5D600367_G TvgReminder
+
 %%InheritedBy ME_532973740186 ME_536B5D600367
 
 ME ME_536B5D600367
@@ -161,7 +173,7 @@ ME ME_536B5D600367
  MELINK Parent HWL ME_536A56A6004E // NewReminders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_532973740186' '53288DFA03A7.ms.model.script' // TvgReminder
+   Seq: ( ME_532973740186_ME_536B5D600367_G // TvgReminder
  )
  ; // Inherits
  MELIST Attributes

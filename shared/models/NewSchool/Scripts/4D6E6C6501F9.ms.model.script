@@ -1,0 +1,79 @@
+// TnevAutoreferatDocumentAnchor 4D6E6C6501F9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6E6C6501F9
+
+ME ME_53CE2B1B0220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4D6E6C6501F9 // TnevAutoreferatDocumentAnchor
+ ;
+ MELINK Target WL? 'ME_4D6E6BA90279' // TevAutoreferatDocument
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53CE2B1B0220 
+
+ME ME_53CE2B4103C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_4D6E6C6501F9 // TnevAutoreferatDocumentAnchor
+ ;
+ MELINK Target WL 'ME_47C5B5BE009D' '47C5207602D1.ms.model.script' // InevAnchor
+ ;
+
+ENDME // ME_53CE2B4103C8 
+
+MEREF ME_4B1D18650208_ME_4D6E6C6501F9_over
+ MELINK Original WL 'ME_4B1D18650208' '4B1CFCBA0170.ms.model.script' // DoIncLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1D18650208_ME_4D6E6C6501F9_over DoIncLine
+
+MEREF ME_4A3F457A0129_ME_4D6E6C6501F9_G
+ MELINK Original WL? 'ME_4A3F457A0129' // TnevParaListAnchor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3F457A0129_ME_4D6E6C6501F9_G TnevParaListAnchor
+
+%%InjectedBy ME_4D6E6BA90279 ME_4D6E6C6501F9
+
+%%InheritedBy ME_4A3F457A0129 ME_4D6E6C6501F9
+
+ME ME_4D6E6C6501F9
+ MEPROP UID '4D6E6C6501F9'
+ MEPROP Name 'TnevAutoreferatDocumentAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3B771101D5' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3F457A0129_ME_4D6E6C6501F9_G // TnevParaListAnchor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4B1D18650208_ME_4D6E6C6501F9_over // DoIncLine
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53CE2B1B0220 // TevAutoreferatDocument
+ ME_53CE2B4103C8 // InevAnchor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '02.03.2011 19:13'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAutoreferatDocumentAnchor.pas'
+ UP extprop:rc:SelfName 'AutoreferatDocumentAnchor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevAutoreferatDocumentAnchor'
+
+ENDME // ME_4D6E6C6501F9 TnevAutoreferatDocumentAnchor

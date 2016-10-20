@@ -1,0 +1,253 @@
+// TdaLogicCondition 5640598000F0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5640598000F0
+
+ME ME_56405A73021E
+ MEPROP UID '56405A73021E'
+ MEPROP Name 'f_Left'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELINK Target WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+
+ENDME // ME_56405A73021E f_Left
+
+ME ME_56405A7B026F
+ MEPROP UID '56405A7B026F'
+ MEPROP Name 'f_Right'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELINK Target WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+
+ENDME // ME_56405A7B026F f_Right
+
+ME ME_56405A83010B
+ MEPROP UID '56405A83010B'
+ MEPROP Name 'f_Operation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELINK Target WL 'ME_56405001019D' '5432448401BC.ms.model.script' // TdaLogicOperation
+ ;
+
+ENDME // ME_56405A83010B f_Operation
+
+FORWARD ME_564059E50042
+
+ME ME_56405A2B032B
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+
+ENDME // ME_56405A2B032B aLeft
+
+ME ME_56405A2B033B
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56405001019D' '5432448401BC.ms.model.script' // TdaLogicOperation
+ ;
+
+ENDME // ME_56405A2B033B anOperation
+
+ME ME_56405A2B035A
+ MEPROP Name 'aRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+
+ENDME // ME_56405A2B035A aRight
+
+ME ME_564059EC03AC
+ MEPROP UID '564059EC03AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564059E50042 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56405A2B032B // aLeft
+ ME_56405A2B033B // anOperation
+ ME_56405A2B035A // aRight
+ )
+ ; // Parameters
+
+ENDME // ME_564059EC03AC DoIt
+
+ME ME_564059E50042
+ MEPROP UID '564059E50042'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564059EC03AC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_564059E50042 Create
+
+MEREF ME_564059E50042_ME_56405A3D0253_G
+ MELINK Original HWL ME_564059E50042 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564059E50042_ME_56405A3D0253_G Create
+
+MEREF ME_5551DC5C020D_ME_56405A3D0253_R
+ MELINK Original WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551DC5C020D_ME_56405A3D0253_R IdaCondition
+
+%%ImplementedBy ME_5551DC5C020D ME_56405A3D0253
+
+%%InheritedBy ME_564059E50042 ME_56405A3D0253
+
+ME ME_56405A3D0253
+ MEPROP UID '56405A3D0253'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELIST Inherits
+   Seq: ( ME_564059E50042_ME_56405A3D0253_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5551DC5C020D_ME_56405A3D0253_R // IdaCondition
+ )
+ ; // Implements
+
+ENDME // ME_56405A3D0253 Make
+
+MEREF ME_564089E3039B_ME_56F3A69D0089_G
+ MELINK Original WL 'ME_564089E3039B' '5432518A0316.ms.model.script' // Iterate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564089E3039B_ME_56F3A69D0089_G Iterate
+
+%%InheritedBy ME_564089E3039B ME_56F3A69D0089
+
+ME ME_56F3A69D0089
+ MEPROP UID '56F3A69D0089'
+ MEPROP Name 'IterateX'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Iterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELIST Inherits
+   Seq: ( ME_564089E3039B_ME_56F3A69D0089_G // Iterate
+ )
+ ; // Inherits
+ UP "needs index" true
+ UP "needs result" true
+
+ENDME // ME_56F3A69D0089 IterateX
+
+ME ME_56407C4D02E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5640598000F0 // TdaLogicCondition
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_56407C4D02E4 
+
+MEREF ME_56408E7F01A1_ME_5640598000F0_impl
+ MELINK Original WL 'ME_56408E7F01A1' '56408DB303B7.ms.model.script' // DoBuildSQL
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_56408E7F01A1_ME_5640598000F0_impl DoBuildSQL
+
+MEREF ME_479731C50290_ME_5640598000F0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5640598000F0_over Cleanup
+
+MEREF ME_56408DB303B7_ME_5640598000F0_G
+ MELINK Original WL? 'ME_56408DB303B7' // TdaCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56408DB303B7_ME_5640598000F0_G TdaCondition
+
+%%InheritedBy ME_56408DB303B7 ME_5640598000F0
+
+ME ME_5640598000F0
+ MEPROP UID '5640598000F0'
+ MEPROP Name 'TdaLogicCondition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_56408DB303B7_ME_5640598000F0_G // TdaCondition
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56405A73021E // f_Left
+ HWL ME_56405A7B026F // f_Right
+ HWL ME_56405A83010B // f_Operation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_564059E50042 // Create
+ HWL ME_56405A3D0253 // Make
+ HWL ME_56F3A69D0089 // IterateX
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_56408E7F01A1_ME_5640598000F0_impl // DoBuildSQL
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5640598000F0_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56407C4D02E4 // Format
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daLogicCondition.pas'
+ UP extprop:rc:SelfName 'daLogicCondition'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daLogicCondition'
+
+ENDME // ME_5640598000F0 TdaLogicCondition

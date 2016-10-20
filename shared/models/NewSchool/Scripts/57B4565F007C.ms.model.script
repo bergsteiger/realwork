@@ -1,0 +1,55 @@
+// TmsmTreeView 57B4565F007C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B4565F007C
+
+MEREF ME_46A5AA4B003C_ME_57B4565F007C_impl
+ MELINK Original WL 'ME_46A5AA4B003C' '4677FBA70343.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A5AA4B003C_ME_57B4565F007C_impl Invalidate
+
+MEREF ME_47D1602000C6_ME_57B4565F007C_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_57B4565F007C_over Create
+
+MEREF ME_4B97E8130272_ME_57B4565F007C_G
+ MELINK Original WL? 'ME_4B97E8130272' // TvtOutlinerWithDragDrop
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B97E8130272_ME_57B4565F007C_G TvtOutlinerWithDragDrop
+
+%%InheritedBy ME_4B97E8130272 ME_57B4565F007C
+
+ME ME_57B4565F007C
+ MEPROP UID '57B4565F007C'
+ MEPROP Name 'TmsmTreeView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B42D1A0044' // DefaultUsedControls
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B97E8130272_ME_57B4565F007C_G // TvtOutlinerWithDragDrop
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46A5AA4B003C_ME_57B4565F007C_impl // Invalidate
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_57B4565F007C_over // Create
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmTreeView.pas'
+ UP extprop:rc:SelfName 'msmTreeView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmTreeView'
+
+ENDME // ME_57B4565F007C TmsmTreeView

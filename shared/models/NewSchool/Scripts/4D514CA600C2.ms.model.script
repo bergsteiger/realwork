@@ -11,17 +11,23 @@ ME ME_5549BC8500CC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F35353B00EE // GetWriter
  ;
- MELINK Target WL 'ME_53FEE940022B' '47EA968D0155.ms.model.script' // TevPDFWriter
+ MELINK Target WL? 'ME_53FEE940022B' // TevPDFWriter
  ;
 
 ENDME // ME_5549BC8500CC 
+
+MEREF ME_4F352A3B036A_ME_4F35353B00EE_R
+ MELINK Original WL 'ME_4F352A3B036A' '4E5CF70B01E2.ms.model.script' // В RTF не должны экспортироваться скриптовые ссылки
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F352A3B036A_ME_4F35353B00EE_R В RTF не должны экспортироваться скриптовые ссылки
 
 %%ImplementedBy ME_4F352A3B036A ME_4F35353B00EE
 
 ME ME_4F35353B00EE
  MEPROP UID '4F35353B00EE'
  MEPROP Name 'GetWriter'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PrivateAccess
@@ -29,7 +35,7 @@ ME ME_4F35353B00EE
  MELINK Parent HWL ME_4D514CA600C2 // evExtFormat
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4F352A3B036A' '4E5CF70B01E2.ms.model.script' // В RTF не должны экспортироваться скриптовые ссылки
+   Seq: ( ME_4F352A3B036A_ME_4F35353B00EE_R // В RTF не должны экспортироваться скриптовые ссылки
  )
  ; // Implements
  MELIST Dependencies
@@ -47,7 +53,7 @@ ME ME_4F352B670298
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D514CA600C2 // evExtFormat
  ;
- MELINK Target WL 'ME_4F352A840264' '47ECACA70141.ms.model.script' // TevdScriptHyperlinkEliminator
+ MELINK Target WL? 'ME_4F352A840264' // TevdScriptHyperlinkEliminator
  ;
 
 ENDME // ME_4F352B670298 

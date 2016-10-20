@@ -35,11 +35,23 @@ ME ME_57A355B20136
 
 ENDME // ME_57A355B20136 
 
-ME ME_49803F5503AA_ME_4AA518EB039C
- MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+MEREF ME_49803F5503AA_ME_4AA518EB039C_over
+ MELINK Original WL 'ME_49803F5503AA' '49525B34022A.ms.model.script' // DoInit
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49803F5503AA_ME_4AA518EB039C DoInit
+ENDMEREF // ME_49803F5503AA_ME_4AA518EB039C_over DoInit
+
+MEREF ME_4C8A210E018C_ME_4AA518EB039C_G
+ MELINK Original WL? 'ME_4C8A210E018C' // PrimMainOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C8A210E018C_ME_4AA518EB039C_G PrimMainOptions
+
+MEREF ME_4F7C1E96000A_ME_4AA518EB039C_R
+ MELINK Original WL? 'ME_4F7C1E96000A' // AdminAndMonitoringsMainForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F7C1E96000A_ME_4AA518EB039C_R AdminAndMonitoringsMainForm
 
 %%ImplementedBy ME_4F7C1E96000A ME_4AA518EB039C
 
@@ -57,15 +69,15 @@ ME ME_4AA518EB039C
  MELINK Parent WL? 'ME_4AA517B5037A' // AdminApp
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C8A210E018C' // PrimMainOptions
+   Seq: ( ME_4C8A210E018C_ME_4AA518EB039C_G // PrimMainOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_4F7C1E96000A' // AdminAndMonitoringsMainForm
+   Seq: ( ME_4F7C1E96000A_ME_4AA518EB039C_R // AdminAndMonitoringsMainForm
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_49803F5503AA_ME_4AA518EB039C // DoInit
+   Seq: ( ME_49803F5503AA_ME_4AA518EB039C_over // DoInit
  )
  ; // Overridden
  MELIST Children

@@ -1,0 +1,112 @@
+// Tm3StorageTableOfContentsStream 544924BF0331 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_544924BF0331
+
+FORWARD ME_544924E100B6
+
+ME ME_54492512032B
+ MEPROP Name 'anAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_54492512032B anAccess
+
+ME ME_54492512034F
+ MEPROP Name 'aHeader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_5411C42800B8' // Tm3StoreHeader
+ ;
+
+ENDME // ME_54492512034F aHeader
+
+ME ME_544924E9021B
+ MEPROP UID '544924E9021B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_544924E100B6 // Make
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_54492512032B // anAccess
+ ME_54492512034F // aHeader
+ )
+ ; // Parameters
+
+ENDME // ME_544924E9021B DoIt
+
+ME ME_54492523014C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_544924E100B6 // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54492523014C 
+
+ME ME_544924E100B6
+ MEPROP UID '544924E100B6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_544924BF0331 // Tm3StorageTableOfContentsStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_544924E9021B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54492523014C // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_544924E100B6 Make
+
+MEREF ME_54182F58013B_ME_544924BF0331_G
+ MELINK Original WL? 'ME_54182F58013B' // Tm3NewStorageStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54182F58013B_ME_544924BF0331_G Tm3NewStorageStream
+
+%%InheritedBy ME_54182F58013B ME_544924BF0331
+
+ME ME_544924BF0331
+ MEPROP UID '544924BF0331'
+ MEPROP Name 'Tm3StorageTableOfContentsStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_54182F58013B_ME_544924BF0331_G // Tm3NewStorageStream
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_544924E100B6 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3StorageTableOfContentsStream.pas'
+ UP extprop:rc:SelfName 'm3StorageTableOfContentsStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3StorageTableOfContentsStream'
+
+ENDME // ME_544924BF0331 Tm3StorageTableOfContentsStream

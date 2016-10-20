@@ -1,0 +1,72 @@
+// TevTextParaPainterPrim 49DA2BF5016E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DA2BF5016E
+
+ME ME_49DB52F7020B
+ MEPROP UID '49DB52F7020B'
+ MEPROP Name 'X'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49DA2BF5016E // TevTextParaPainterPrim
+ ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+
+ENDME // ME_49DB52F7020B X
+
+ME ME_4E31744801A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DA2BF5016E // TevTextParaPainterPrim
+ ;
+ MELINK Target WL? 'ME_4E31743D01F8' // TevDefaultStylesFontSizes
+ ;
+
+ENDME // ME_4E31744801A1 
+
+MEREF ME_4804CB1B0328_ME_49DA2BF5016E_G
+ MELINK Original WL? 'ME_4804CB1B0328' // evLeafParaPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4804CB1B0328_ME_49DA2BF5016E_G evLeafParaPainter
+
+%%InheritedBy ME_4804CB1B0328 ME_49DA2BF5016E
+
+ME ME_49DA2BF5016E
+ MEPROP UID '49DA2BF5016E'
+ MEPROP Name 'TevTextParaPainterPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Промежуточный класс, чтобы другие классы было проще на модель переносить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4804A24003C1' // LeafPara Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_4804CB1B0328_ME_49DA2BF5016E_G // evLeafParaPainter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49DB52F7020B // X
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_4E31744801A1 // TevDefaultStylesFontSizes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '06.04.2009 20:21'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaPainterPrim.pas'
+ UP extprop:rc:SelfName 'TextParaPainterPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTextParaPainterPrim'
+
+ENDME // ME_49DA2BF5016E TevTextParaPainterPrim

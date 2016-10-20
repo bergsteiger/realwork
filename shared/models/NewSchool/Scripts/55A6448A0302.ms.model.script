@@ -1,0 +1,177 @@
+// TvcmFormSetFactoryFacade 55A6448A0302 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A6448A0302
+
+ME ME_55A64555018B
+ MEPROP UID '55A64555018B'
+ MEPROP Name 'f_FactoryClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55A6448A0302 // TvcmFormSetFactoryFacade
+ ;
+ MELINK Target WL 'ME_4AB250E60392' '47B97312006D.ms.model.script' // RvcmFormSetFactory
+ ;
+
+ENDME // ME_55A64555018B f_FactoryClass
+
+FORWARD ME_55A6455F016C
+
+ME ME_55A64577003E
+ MEPROP Name 'aFactoryClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AB250E60392' '47B97312006D.ms.model.script' // RvcmFormSetFactory
+ ;
+
+ENDME // ME_55A64577003E aFactoryClass
+
+ME ME_55A6456A0273
+ MEPROP UID '55A6456A0273'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A6455F016C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A64577003E // aFactoryClass
+ )
+ ; // Parameters
+
+ENDME // ME_55A6456A0273 DoIt
+
+ME ME_55A6455F016C
+ MEPROP UID '55A6455F016C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A6448A0302 // TvcmFormSetFactoryFacade
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A6456A0273 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A6455F016C Create
+
+MEREF ME_55A6455F016C_ME_55A64581012A_G
+ MELINK Original HWL ME_55A6455F016C // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A6455F016C_ME_55A64581012A_G Create
+
+MEREF ME_55A643FF008A_ME_55A64581012A_R
+ MELINK Original WL 'ME_55A643FF008A' '4683F37902CF.ms.model.script' // IvcmFormSetSimpleFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A643FF008A_ME_55A64581012A_R IvcmFormSetSimpleFactory
+
+%%ImplementedBy ME_55A643FF008A ME_55A64581012A
+
+%%InheritedBy ME_55A6455F016C ME_55A64581012A
+
+ME ME_55A64581012A
+ MEPROP UID '55A64581012A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A6448A0302 // TvcmFormSetFactoryFacade
+ ;
+ MELIST Inherits
+   Seq: ( ME_55A6455F016C_ME_55A64581012A_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55A643FF008A_ME_55A64581012A_R // IvcmFormSetSimpleFactory
+ )
+ ; // Implements
+
+ENDME // ME_55A64581012A Make
+
+ME ME_55A644BD025E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A6448A0302 // TvcmFormSetFactoryFacade
+ ;
+ MELINK Target WL? 'ME_47B97312006D' // TvcmFormSetFactory
+ ;
+
+ENDME // ME_55A644BD025E 
+
+MEREF ME_55A6442E0050_ME_55A6448A0302_impl
+ MELINK Original WL 'ME_55A6442E0050' '4683F37902CF.ms.model.script' // MakeFormset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55A6442E0050_ME_55A6448A0302_impl MakeFormset
+
+MEREF ME_49E7754802A9_ME_55A6448A0302_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_55A6448A0302_G Tl3ProtoObject
+
+MEREF ME_55A643FF008A_ME_55A6448A0302_R
+ MELINK Original WL 'ME_55A643FF008A' '4683F37902CF.ms.model.script' // IvcmFormSetSimpleFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55A643FF008A_ME_55A6448A0302_R IvcmFormSetSimpleFactory
+
+%%ImplementedBy ME_55A643FF008A ME_55A6448A0302
+
+%%InheritedBy ME_49E7754802A9 ME_55A6448A0302
+
+ME ME_55A6448A0302
+ MEPROP UID '55A6448A0302'
+ MEPROP Name 'TvcmFormSetFactoryFacade'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47B9727603BE' // FormSets
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_55A6448A0302_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55A643FF008A_ME_55A6448A0302_R // IvcmFormSetSimpleFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55A64555018B // f_FactoryClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55A6455F016C // Create
+ HWL ME_55A64581012A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_55A6442E0050_ME_55A6448A0302_impl // MakeFormset
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55A644BD025E // TvcmFormSetFactory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryFacade.pas'
+ UP extprop:rc:SelfName 'FormSetFactoryFacade'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmFormSetFactoryFacade'
+
+ENDME // ME_55A6448A0302 TvcmFormSetFactoryFacade

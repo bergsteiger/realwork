@@ -1,0 +1,70 @@
+// TmsmCaptionToListLikeBinding 57EA870501EC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57EA870501EC
+
+ME ME_57EA87260114
+ MEPROP UID '57EA87260114'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA870501EC // TmsmCaptionToListLikeBinding
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57EA87260114 ModelToListen
+
+ME ME_57EA8740023C
+ MEPROP UID '57EA8740023C'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA870501EC // TmsmCaptionToListLikeBinding
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57EA8740023C ModelToFire
+
+MEREF ME_57B2B8FA0333_ME_57EA870501EC_G
+ MELINK Original WL? 'ME_57B2B8FA0333' // msmModelToModelBinding
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2B8FA0333_ME_57EA870501EC_G msmModelToModelBinding
+
+%%InheritedBy ME_57B2B8FA0333 ME_57EA870501EC
+
+ME ME_57EA870501EC
+ MEPROP UID '57EA870501EC'
+ MEPROP Name 'TmsmCaptionToListLikeBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_57D263FC0311' // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( ME_57B2B8FA0333_ME_57EA870501EC_G // msmModelToModelBinding
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EA87260114 // ModelToListen
+ HWL ME_57EA8740023C // ModelToFire
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmCaptionToListLikeBinding.pas'
+ UP extprop:rc:SelfName 'msmCaptionToListLikeBinding'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmCaptionToListLikeBinding'
+
+ENDME // ME_57EA870501EC TmsmCaptionToListLikeBinding

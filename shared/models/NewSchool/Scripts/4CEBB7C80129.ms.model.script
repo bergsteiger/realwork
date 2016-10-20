@@ -1,0 +1,199 @@
+// Tf1ChildMaker 4CEBB7C80129 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEBB7C80129
+
+ME ME_4CEBB8250364
+ MEPROP UID '4CEBB8250364'
+ MEPROP Name 'f_Tag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CEBB7C80129 // Tf1ChildMaker
+ ;
+ MELINK Target WL? 'ME_467FCE2703D6' // TnsParaListNode
+ ;
+
+ENDME // ME_4CEBB8250364 f_Tag
+
+FORWARD ME_4CEBB84401C9
+
+ME ME_4CEBB85201C7
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_467FCE2703D6' // TnsParaListNode
+ ;
+
+ENDME // ME_4CEBB85201C7 aTag
+
+ME ME_4CEBB84B038D
+ MEPROP UID '4CEBB84B038D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEBB84401C9 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CEBB85201C7 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4CEBB84B038D DoIt
+
+ME ME_4CEBB84401C9
+ MEPROP UID '4CEBB84401C9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEBB7C80129 // Tf1ChildMaker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CEBB84B038D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CEBB84401C9 Create
+
+MEREF ME_4CEBB84401C9_ME_4CEBB85A01E1_G
+ MELINK Original HWL ME_4CEBB84401C9 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEBB84401C9_ME_4CEBB85A01E1_G Create
+
+MEREF ME_4CEBB7550046_ME_4CEBB85A01E1_R
+ MELINK Original WL 'ME_4CEBB7550046' '4C6E92E9016E.ms.model.script' // If1ChildMaker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEBB7550046_ME_4CEBB85A01E1_R If1ChildMaker
+
+%%ImplementedBy ME_4CEBB7550046 ME_4CEBB85A01E1
+
+%%InheritedBy ME_4CEBB84401C9 ME_4CEBB85A01E1
+
+ME ME_4CEBB85A01E1
+ MEPROP UID '4CEBB85A01E1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEBB7C80129 // Tf1ChildMaker
+ ;
+ MELIST Inherits
+   Seq: ( ME_4CEBB84401C9_ME_4CEBB85A01E1_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CEBB7550046_ME_4CEBB85A01E1_R // If1ChildMaker
+ )
+ ; // Implements
+
+ENDME // ME_4CEBB85A01E1 Make
+
+ME ME_4CEBB8AC00B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEBB7C80129 // Tf1ChildMaker
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEBB8AC00B7 
+
+ME ME_4CEBB8EE024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEBB7C80129 // Tf1ChildMaker
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4CEBB8EE024D 
+
+MEREF ME_4CEBB765029D_ME_4CEBB7C80129_impl
+ MELINK Original WL 'ME_4CEBB765029D' '4C6E92E9016E.ms.model.script' // MakeChildTag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4CEBB765029D_ME_4CEBB7C80129_impl MakeChildTag
+
+MEREF ME_4CEBCD9B00D2_ME_4CEBB7C80129_impl
+ MELINK Original WL 'ME_4CEBCD9B00D2' '4C6E92E9016E.ms.model.script' // Tag
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4CEBCD9B00D2_ME_4CEBB7C80129_impl Tag
+
+MEREF ME_4AE5CA2D0034_ME_4CEBB7C80129_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_4CEBB7C80129_G Tl3CProtoObject
+
+MEREF ME_4CEBB7550046_ME_4CEBB7C80129_R
+ MELINK Original WL 'ME_4CEBB7550046' '4C6E92E9016E.ms.model.script' // If1ChildMaker
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CEBB7550046_ME_4CEBB7C80129_R If1ChildMaker
+
+%%ImplementedBy ME_4CEBB7550046 ME_4CEBB7C80129
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4CEBB7C80129
+
+ME ME_4CEBB7C80129
+ MEPROP UID '4CEBB7C80129'
+ MEPROP Name 'Tf1ChildMaker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_4CEBB7C80129_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CEBB7550046_ME_4CEBB7C80129_R // If1ChildMaker
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CEBB8250364 // f_Tag
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CEBB84401C9 // Create
+ HWL ME_4CEBB85A01E1 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CEBB765029D_ME_4CEBB7C80129_impl // MakeChildTag
+ ME_4CEBCD9B00D2_ME_4CEBB7C80129_impl // Tag
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CEBB8AC00B7 // Supports
+ ME_4CEBB8EE024D // NodeBase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '23.11.2010 15:47'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1ChildMaker.pas'
+ UP extprop:rc:SelfName 'f1ChildMaker'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'f1ChildMaker'
+
+ENDME // ME_4CEBB7C80129 Tf1ChildMaker

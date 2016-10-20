@@ -1,0 +1,84 @@
+// TDailyAutoTest 4E297BC401BE SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E297BC401BE
+
+ME ME_4E36909200B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E297BC401BE // TDailyAutoTest
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4E36909200B9 
+
+MEREF ME_4C937013031D_ME_4E297BC401BE_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4E297BC401BE_over GetFolder
+
+MEREF ME_4DB03121022B_ME_4E297BC401BE_over
+ MELINK Original WL 'ME_4DB03121022B' '4DAEEA2B029A.ms.model.script' // ResolveScriptFilePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB03121022B_ME_4E297BC401BE_over ResolveScriptFilePath
+
+MEREF ME_4DC395670274_ME_4E297BC401BE_over
+ MELINK Original WL 'ME_4DC395670274' '4B2A0DCE03A9.ms.model.script' // IsScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC395670274_ME_4E297BC401BE_over IsScript
+
+MEREF ME_4DC399CA00BC_ME_4E297BC401BE_over
+ MELINK Original WL 'ME_4DC399CA00BC' '4B2A0DCE03A9.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC399CA00BC_ME_4E297BC401BE_over Create
+
+MEREF ME_4DC247C80356_ME_4E297BC401BE_G
+ MELINK Original WL? 'ME_4DC247C80356' // TAutoTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC247C80356_ME_4E297BC401BE_G TAutoTest
+
+%%InheritedBy ME_4DC247C80356 ME_4E297BC401BE
+
+ME ME_4E297BC401BE
+ MEPROP UID '4E297BC401BE'
+ MEPROP Name 'TDailyAutoTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автотест с поддержкой создаваемых форм.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_5130776E01BE' // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DC247C80356_ME_4E297BC401BE_G // TAutoTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4E297BC401BE_over // GetFolder
+ ME_4DB03121022B_ME_4E297BC401BE_over // ResolveScriptFilePath
+ ME_4DC395670274_ME_4E297BC401BE_over // IsScript
+ ME_4DC399CA00BC_ME_4E297BC401BE_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E36909200B9 // ExtractFilePath
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas'
+ UP extprop:rc:SelfName 'DailyAutoTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'DailyAutoTest'
+
+ENDME // ME_4E297BC401BE TDailyAutoTest

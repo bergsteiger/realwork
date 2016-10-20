@@ -25,7 +25,7 @@ ENDME // ME_55BB1FD1003E DoIt
 ME ME_55BB1FC300A2
  MEPROP UID '55BB1FC300A2'
  MEPROP Name 'DoStartBlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -55,7 +55,7 @@ ENDME // ME_55BB201C0252 DoIt
 ME ME_55BB200700A0
  MEPROP UID '55BB200700A0'
  MEPROP Name 'DoCloseBlock'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -108,7 +108,7 @@ ENDME // ME_55BB2C4D02E2 DoIt
 ME ME_55BB2C2E01BD
  MEPROP UID '55BB2C2E01BD'
  MEPROP Name 'Apply2Sub'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -138,7 +138,7 @@ ENDME // ME_55BB395C00FA DoIt
 ME ME_55BB394E0074
  MEPROP UID '55BB394E0074'
  MEPROP Name 'DoStartDocument'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -170,7 +170,7 @@ ENDME // ME_55BB5AE503D0 DoIt
 ME ME_55BB59B0034D
  MEPROP UID '55BB59B0034D'
  MEPROP Name 'NeedWritePara'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Ручки "наружу" для Writer''а. Писать или не писать параграф в зависимости от стиля.' ;
@@ -203,7 +203,7 @@ ENDME // ME_55BB59190294 DoIt
 ME ME_55BB58F60134
  MEPROP UID '55BB58F60134'
  MEPROP Name 'BlockIndent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Ручки "наружу" для Writer''а. Отступ для дочернего параграфа.' ;
@@ -236,7 +236,7 @@ ENDME // ME_55C092DB03CF DoIt
 ME ME_55C092BD009D
  MEPROP UID '55C092BD009D'
  MEPROP Name 'IgnoreLeftIndent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -279,7 +279,7 @@ ENDME // ME_55E97B54012C DoIt
 ME ME_55E97B4602E4
  MEPROP UID '55E97B4602E4'
  MEPROP Name 'CheckFilterPara'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -292,6 +292,12 @@ ME ME_55E97B4602E4
  ; // Operations
 
 ENDME // ME_55E97B4602E4 CheckFilterPara
+
+MEREF ME_4836BFC9011E_ME_4F683DA30260_G
+ MELINK Original WL? 'ME_4836BFC9011E' // Tk2CustomFileGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4836BFC9011E_ME_4F683DA30260_G Tk2CustomFileGenerator
 
 %%InheritedBy ME_4836BFC9011E ME_4F683DA30260
 
@@ -306,7 +312,7 @@ ME ME_4F683DA30260
  MELINK Parent HWL ME_4E1C271501E5 // ddDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4836BFC9011E' '47ECA80B000D.ms.model.script' // Tk2CustomFileGenerator
+   Seq: ( ME_4836BFC9011E_ME_4F683DA30260_G // Tk2CustomFileGenerator
  )
  ; // Inherits
  MELIST Operations
@@ -329,6 +335,12 @@ ME ME_4F683DA30260
 
 ENDME // ME_4F683DA30260 TddDocumentGenerator
 
+MEREF ME_47879856035F_ME_4FACDE8A00C0_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_4FACDE8A00C0_G Tl3_Base
+
 %%InheritedBy ME_47879856035F ME_4FACDE8A00C0
 
 ME ME_4FACDE8A00C0
@@ -342,7 +354,7 @@ ME ME_4FACDE8A00C0
  MELINK Parent HWL ME_4E1C271501E5 // ddDocument
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+   Seq: ( ME_47879856035F_ME_4FACDE8A00C0_G // Tl3_Base
  )
  ; // Inherits
  UP "finished" false
@@ -356,7 +368,7 @@ ME ME_4E1C27CE0200
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E1C271501E5 // ddDocument
  ;
- MELINK Target WL 'ME_4E1C278402E2' '47ECB8BD00A8.ms.model.script' // TevdAllParaEliminator
+ MELINK Target WL? 'ME_4E1C278402E2' // TevdAllParaEliminator
  ;
 
 ENDME // ME_4E1C27CE0200 

@@ -32,11 +32,17 @@ ME ME_48BBD6AB0328
 
 ENDME // ME_48BBD6AB0328 Paint
 
-ME ME_48BBD37B034F_ME_48BBD6550261
+MEREF ME_48BBD37B034F_ME_48BBD6550261_impl
  MELINK Original WL 'ME_48BBD37B034F' '48BBD3480266.ms.model.script' // DoPaint
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_48BBD37B034F_ME_48BBD6550261 DoPaint
+ENDMEREF // ME_48BBD37B034F_ME_48BBD6550261_impl DoPaint
+
+MEREF ME_48BBD3480266_ME_48BBD6550261_G
+ MELINK Original WL? 'ME_48BBD3480266' // TafwCustomCommonTextControlPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48BBD3480266_ME_48BBD6550261_G TafwCustomCommonTextControlPrim
 
 %%InheritedBy ME_48BBD3480266 ME_48BBD6550261
 
@@ -52,7 +58,7 @@ ME ME_48BBD6550261
  MELINK Parent WL? 'ME_467BA8C8017E' // afwControl
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_48BBD3480266' // TafwCustomCommonTextControlPrim
+   Seq: ( ME_48BBD3480266_ME_48BBD6550261_G // TafwCustomCommonTextControlPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -64,7 +70,7 @@ ME ME_48BBD6550261
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_48BBD37B034F_ME_48BBD6550261 // DoPaint
+   Seq: ( ME_48BBD37B034F_ME_48BBD6550261_impl // DoPaint
  )
  ; // Implemented
  UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControl.pas'

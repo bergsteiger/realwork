@@ -1,0 +1,731 @@
+// TbsDocumentContextSearcher 495137C70135 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495137C70135
+
+ME ME_49526CBF029F
+ MEPROP UID '49526CBF029F'
+ MEPROP Name 'f_Editor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4952687202A0' '495268900201.ms.model.script' // TeeCustomEditor
+ ;
+
+ENDME // ME_49526CBF029F f_Editor
+
+ME ME_49526CF20312
+ MEPROP UID '49526CF20312'
+ MEPROP Name 'f_Found'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_45EEC282029F' '457450470167.ms.model.script' // FindIterator
+ ;
+
+ENDME // ME_49526CF20312 f_Found
+
+ME ME_49526D0E0253
+ MEPROP UID '49526D0E0253'
+ MEPROP Name 'f_Context'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_49526D0E0253 f_Context
+
+ME ME_49526D2200BD
+ MEPROP UID '49526D2200BD'
+ MEPROP Name 'f_WasFound'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49526D2200BD f_WasFound
+
+ME ME_49526D3A0398
+ MEPROP UID '49526D3A0398'
+ MEPROP Name 'f_CaretPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_49526D3A0398 f_CaretPoint
+
+FORWARD ME_4A1FEB0D01AF
+
+ME ME_4A1FFA0E01DA
+ MEPROP UID '4A1FFA0E01DA'
+ MEPROP Name 'Lock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1FEB0D01AF // DoContextFound
+ ;
+ MELINK Target WL 'ME_467C0F5201EB' '4677FBA70343.ms.model.script' // Il3Lock
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A1FFA0E01DA Lock
+
+ME ME_4A1FF9E10170
+ MEPROP UID '4A1FF9E10170'
+ MEPROP Name 'Start'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1FEB0D01AF // DoContextFound
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A1FF9E10170 Start
+
+ME ME_4A1FF9F102EE
+ MEPROP UID '4A1FF9F102EE'
+ MEPROP Name 'Finish'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1FEB0D01AF // DoContextFound
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A1FF9F102EE Finish
+
+ME ME_4A1FEB2202AB
+ MEPROP Name 'aFoundBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4A1FEB2202AB aFoundBlock
+
+ME ME_4A1FEB2202CA
+ MEPROP Name 'aResult'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_495139650302' '4A9F98B901A5.ms.model.script' // TbsBaseSearchResult
+ ;
+
+ENDME // ME_4A1FEB2202CA aResult
+
+ME ME_4A1FEB1B027E
+ MEPROP UID '4A1FEB1B027E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A1FEB0D01AF // DoContextFound
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A1FEB2202AB // aFoundBlock
+ ME_4A1FEB2202CA // aResult
+ )
+ ; // Parameters
+
+ENDME // ME_4A1FEB1B027E DoIt
+
+ME ME_4A1FEB0D01AF
+ MEPROP UID '4A1FEB0D01AF'
+ MEPROP Name 'DoContextFound'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A1FFA0E01DA // Lock
+ HWL ME_4A1FF9E10170 // Start
+ HWL ME_4A1FF9F102EE // Finish
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A1FEB1B027E // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4A1FEB0D01AF DoContextFound
+
+FORWARD ME_4A1FEB3F01DB
+
+ME ME_4A1FFA4F0119
+ MEPROP UID '4A1FFA4F0119'
+ MEPROP Name 'HasEntries'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1FEB3F01DB // DoSearchFinished
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4A1FFA4F0119 HasEntries
+
+ME ME_4A1FEB55033F
+ MEPROP Name 'aPrevFoundBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4A1FEB55033F aPrevFoundBlock
+
+ME ME_4A1FEB550361
+ MEPROP Name 'SearchDown'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A1FEB550361 SearchDown
+
+ME ME_4A1FEB550382
+ MEPROP Name 'aResult'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_495139650302' '4A9F98B901A5.ms.model.script' // TbsBaseSearchResult
+ ;
+
+ENDME // ME_4A1FEB550382 aResult
+
+ME ME_4A1FEB4E036C
+ MEPROP UID '4A1FEB4E036C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A1FEB3F01DB // DoSearchFinished
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A1FEB55033F // aPrevFoundBlock
+ ME_4A1FEB550361 // SearchDown
+ ME_4A1FEB550382 // aResult
+ )
+ ; // Parameters
+
+ENDME // ME_4A1FEB4E036C DoIt
+
+ME ME_4A1FEB3F01DB
+ MEPROP UID '4A1FEB3F01DB'
+ MEPROP Name 'DoSearchFinished'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A1FFA4F0119 // HasEntries
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A1FEB4E036C // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4A1FEB3F01DB DoSearchFinished
+
+FORWARD ME_4C9C8EA2016A
+
+ME ME_4C9C8EAE0097
+ MEPROP Name 'aEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952687202A0' '495268900201.ms.model.script' // TeeCustomEditor
+ ;
+
+ENDME // ME_4C9C8EAE0097 aEditor
+
+ME ME_4C9C8EAA016F
+ MEPROP UID '4C9C8EAA016F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9C8EA2016A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9C8EAE0097 // aEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4C9C8EAA016F DoIt
+
+ME ME_4C9C8EA2016A
+ MEPROP UID '4C9C8EA2016A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C9C8EAA016F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C9C8EA2016A Create
+
+MEREF ME_4C9C8EA2016A_ME_4C9C8EB501D5_G
+ MELINK Original HWL ME_4C9C8EA2016A // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9C8EA2016A_ME_4C9C8EB501D5_G Create
+
+MEREF ME_49512F660180_ME_4C9C8EB501D5_R
+ MELINK Original WL 'ME_49512F660180' '4A9F98B901A5.ms.model.script' // IbsBaseDocumentContextSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49512F660180_ME_4C9C8EB501D5_R IbsBaseDocumentContextSearcher
+
+%%ImplementedBy ME_49512F660180 ME_4C9C8EB501D5
+
+%%InheritedBy ME_4C9C8EA2016A ME_4C9C8EB501D5
+
+ME ME_4C9C8EB501D5
+ MEPROP UID '4C9C8EB501D5'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C9C8EA2016A_ME_4C9C8EB501D5_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49512F660180_ME_4C9C8EB501D5_R // IbsBaseDocumentContextSearcher
+ )
+ ; // Implements
+
+ENDME // ME_4C9C8EB501D5 Make
+
+ME ME_49526F2200C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_49526F2200C4 
+
+ME ME_4952705A028D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_490865BF02D0' // nsTagNodeTools
+ ;
+
+ENDME // ME_4952705A028D 
+
+ME ME_495270E303B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_495270E303B5 
+
+ME ME_4C9CA65502C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4C9CA65502C6 
+
+ME ME_4C9CA66E00B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '4A6854C70390.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4C9CA66E00B9 
+
+ME ME_4C9CA6C201A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C9CA6C201A9 
+
+ME ME_4C9CB67E0010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4C9CB668006D' '4926B67202CC.ms.model.script' // nsMakeContextSearchFilterList
+ ;
+
+ENDME // ME_4C9CB67E0010 
+
+ME ME_4CE6B04402E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4CE6B04402E7 
+
+ME ME_4CF91C6D034F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4CF91C6D034F 
+
+ME ME_4CF91ECF033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4CF91ECF033F 
+
+ME ME_4D18DA050339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_4C9C918102BC' // TnsFindIteratorNew
+ ;
+
+ENDME // ME_4D18DA050339 
+
+ME ME_4D18DA150120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_4CE6B3E90338' // TnsFindIteratorNewForAutoreferat
+ ;
+
+ENDME // ME_4D18DA150120 
+
+ME ME_4D18DA1F0194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_4D00EA5A02CF' // TnsFindIteratorNewForDiction
+ ;
+
+ENDME // ME_4D18DA1F0194 
+
+ME ME_4D18E4A90351
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+
+ENDME // ME_4D18E4A90351 
+
+ME ME_4D8A1C9D01E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_4D8A1C9D01E5 
+
+ME ME_4D8A1D04010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_4D53D9B70153' '47F1F94201F6.ms.model.script' // TevBMTextSearcher
+ ;
+
+ENDME // ME_4D8A1D04010A 
+
+ME ME_4D8A1DB30161
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_4D8A1D6700A0' // TnsContextListForSearchViaEverestOwnSearcher
+ ;
+
+ENDME // ME_4D8A1DB30161 
+
+ME ME_4D8A2C4C03AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL? 'ME_4D8A2C1700FD' // TnsFoundRangeCollector
+ ;
+
+ENDME // ME_4D8A2C4C03AD 
+
+ME ME_4D8A2D230060
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_47C6CB380359' '47C695A10172.ms.model.script' // TevSearchOption
+ ;
+
+ENDME // ME_4D8A2D230060 
+
+ME ME_4D8A2D5A024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4D8A2D5A024B 
+
+ME ME_53F7039E0372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_495137C70135 // TbsDocumentContextSearcher
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53F7039E0372 
+
+MEREF ME_4952664C03BC_ME_495137C70135_impl
+ MELINK Original WL 'ME_4952664C03BC' '4A9F98B901A5.ms.model.script' // Find
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4952664C03BC_ME_495137C70135_impl Find
+
+MEREF ME_4952665F0298_ME_495137C70135_impl
+ MELINK Original WL 'ME_4952665F0298' '4A9F98B901A5.ms.model.script' // ContextChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4952665F0298_ME_495137C70135_impl ContextChanged
+
+MEREF ME_4952667C0385_ME_495137C70135_impl
+ MELINK Original WL 'ME_4952667C0385' '4A9F98B901A5.ms.model.script' // CanContinue
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4952667C0385_ME_495137C70135_impl CanContinue
+
+MEREF ME_495266A500B0_ME_495137C70135_impl
+ MELINK Original WL 'ME_495266A500B0' '4A9F98B901A5.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_495266A500B0_ME_495137C70135_impl Context
+
+MEREF ME_49FEAD670382_ME_495137C70135_impl
+ MELINK Original WL 'ME_49FEAD670382' '4A9F98B901A5.ms.model.script' // FindBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_49FEAD670382_ME_495137C70135_impl FindBack
+
+MEREF ME_49FEB49800A8_ME_495137C70135_impl
+ MELINK Original WL 'ME_49FEB49800A8' '4A9F98B901A5.ms.model.script' // CanFindBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49FEB49800A8_ME_495137C70135_impl CanFindBack
+
+MEREF ME_49FFE06200FA_ME_495137C70135_impl
+ MELINK Original WL 'ME_49FFE06200FA' '4A9F98B901A5.ms.model.script' // FragmentsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_49FFE06200FA_ME_495137C70135_impl FragmentsCount
+
+MEREF ME_479731C50290_ME_495137C70135_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_495137C70135_over Cleanup
+
+MEREF ME_49E7754802A9_ME_495137C70135_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_495137C70135_G Tl3ProtoObject
+
+MEREF ME_49512F660180_ME_495137C70135_R
+ MELINK Original WL 'ME_49512F660180' '4A9F98B901A5.ms.model.script' // IbsBaseDocumentContextSearcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49512F660180_ME_495137C70135_R IbsBaseDocumentContextSearcher
+
+MEREF ME_4E85E21A018D_ME_495137C70135_R
+ MELINK Original WL 'ME_4E85E21A018D' '484900780017.ms.model.script' // Контекстный поиск в документе
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85E21A018D_ME_495137C70135_R Контекстный поиск в документе
+
+MEREF ME_4E85E2A00308_ME_495137C70135_R
+ MELINK Original WL 'ME_4E85E2A00308' '484900780017.ms.model.script' // При поиске в неиндексированных документах должны исключаться спецсимволы звёздочка, восклицательный знак и двойная кавычка
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E85E2A00308_ME_495137C70135_R При поиске в неиндексированных документах должны исключаться спецсимволы звёздочка, восклицательный знак и двойная кавычка
+
+%%ImplementedBy ME_49512F660180 ME_495137C70135
+%%ImplementedBy ME_4E85E21A018D ME_495137C70135
+%%ImplementedBy ME_4E85E2A00308 ME_495137C70135
+
+%%InheritedBy ME_49E7754802A9 ME_495137C70135
+
+ME ME_495137C70135
+ MEPROP UID '495137C70135'
+ MEPROP Name 'TbsDocumentContextSearcher'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект предназначенный для контекстного поиска в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D8A25430335' // ContextSearchInEVDDocument
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_495137C70135_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49512F660180_ME_495137C70135_R // IbsBaseDocumentContextSearcher
+ ME_4E85E21A018D_ME_495137C70135_R // Контекстный поиск в документе
+ ME_4E85E2A00308_ME_495137C70135_R // При поиске в неиндексированных документах должны исключаться спецсимволы звёздочка, восклицательный знак и двойная кавычка
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49526CBF029F // f_Editor
+ HWL ME_49526CF20312 // f_Found
+ HWL ME_49526D0E0253 // f_Context
+ HWL ME_49526D2200BD // f_WasFound
+ HWL ME_49526D3A0398 // f_CaretPoint
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A1FEB0D01AF // DoContextFound
+ HWL ME_4A1FEB3F01DB // DoSearchFinished
+ HWL ME_4C9C8EA2016A // Create
+ HWL ME_4C9C8EB501D5 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4952664C03BC_ME_495137C70135_impl // Find
+ ME_4952665F0298_ME_495137C70135_impl // ContextChanged
+ ME_4952667C0385_ME_495137C70135_impl // CanContinue
+ ME_495266A500B0_ME_495137C70135_impl // Context
+ ME_49FEAD670382_ME_495137C70135_impl // FindBack
+ ME_49FEB49800A8_ME_495137C70135_impl // CanFindBack
+ ME_49FFE06200FA_ME_495137C70135_impl // FragmentsCount
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_495137C70135_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49526F2200C4 // l3String
+ ME_4952705A028D // nsTagNodeTools
+ ME_495270E303B5 // SysUtils
+ ME_4C9CA65502C6 // DefDataAdapter
+ ME_4C9CA66E00B9 // nsAStr
+ ME_4C9CA6C201A9 // Tk2TagID
+ ME_4C9CB67E0010 // nsMakeContextSearchFilterList
+ ME_4CE6B04402E7 // Document
+ ME_4CF91C6D034F // Block
+ ME_4CF91ECF033F // CanNotFindData
+ ME_4D18DA050339 // TnsFindIteratorNew
+ ME_4D18DA150120 // TnsFindIteratorNewForAutoreferat
+ ME_4D18DA1F0194 // TnsFindIteratorNewForDiction
+ ME_4D18E4A90351 // DocumentTextProvider
+ ME_4D8A1C9D01E5 // evParaTools
+ ME_4D8A1D04010A // TevBMTextSearcher
+ ME_4D8A1DB30161 // TnsContextListForSearchViaEverestOwnSearcher
+ ME_4D8A2C4C03AD // TnsFoundRangeCollector
+ ME_4D8A2D230060 // TevSearchOption
+ ME_4D8A2D5A024B // InevPara
+ ME_53F7039E0372 // Tl3Variant
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'М. Морозов.'
+ UP "no hands" true
+ UP "started" '01.06.2006'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas'
+ UP extprop:rc:SelfName 'bsDocumentContextSearcher'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'bsDocumentContextSearcher'
+
+ENDME // ME_495137C70135 TbsDocumentContextSearcher

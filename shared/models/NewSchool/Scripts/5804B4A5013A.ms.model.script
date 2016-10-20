@@ -1,0 +1,128 @@
+// TalcuMultiChangeHyperLinksExecutor 5804B4A5013A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5804B4A5013A
+
+ME ME_5804B4FF0260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_5804B4FF0260 
+
+ME ME_5804B50400F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_5804B50400F1 
+
+ME ME_5804B50800BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_5804B50800BB 
+
+ME ME_5804B50B0336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5804B50B0336 
+
+ME ME_5804B51F0028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL? 'ME_5800BD960017' // TcsMultiChangeHyperLinks
+ ;
+
+ENDME // ME_5804B51F0028 
+
+ME ME_5804B522033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL? 'ME_5800BD8000B6' // TcsMultiChangeHyperLinksReply
+ ;
+
+ENDME // ME_5804B522033F 
+
+ME ME_5804C1D40012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5804B4A5013A // TalcuMultiChangeHyperLinksExecutor
+ ;
+ MELINK Target WL? 'ME_5804C11A02A3' // TalcuMultiChangeHyperLinksRequest
+ ;
+
+ENDME // ME_5804C1D40012 
+
+MEREF ME_57D2A771002F_ME_5804B4A5013A_impl
+ MELINK Original WL 'ME_57D2A771002F' '57D2A6A70025.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57D2A771002F_ME_5804B4A5013A_impl DoExecute
+
+MEREF ME_57D2A6A70025_ME_5804B4A5013A_G
+ MELINK Original WL? 'ME_57D2A6A70025' // TalcuDocTransferRequestExecutor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57D2A6A70025_ME_5804B4A5013A_G TalcuDocTransferRequestExecutor
+
+%%InheritedBy ME_57D2A6A70025 ME_5804B4A5013A
+
+ME ME_5804B4A5013A
+ MEPROP UID '5804B4A5013A'
+ MEPROP Name 'TalcuMultiChangeHyperLinksExecutor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57C00B6201B3' // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_57D2A6A70025_ME_5804B4A5013A_G // TalcuDocTransferRequestExecutor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57D2A771002F_ME_5804B4A5013A_impl // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5804B4FF0260 // Tl3StopWatch
+ ME_5804B50400F1 // l3System
+ ME_5804B50800BB // Logging Levels
+ ME_5804B50B0336 // FreeAndNil
+ ME_5804B51F0028 // TcsMultiChangeHyperLinks
+ ME_5804B522033F // TcsMultiChangeHyperLinksReply
+ ME_5804C1D40012 // TalcuMultiChangeHyperLinksRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuMultiChangeHyperLinksExecutor.pas'
+ UP extprop:rc:SelfName 'alcuMultiChangeHyperLinksExecutor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuMultiChangeHyperLinksExecutor'
+
+ENDME // ME_5804B4A5013A TalcuMultiChangeHyperLinksExecutor

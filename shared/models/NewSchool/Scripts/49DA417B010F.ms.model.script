@@ -1,0 +1,150 @@
+// TevDocumentPainter 49DA417B010F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DA417B010F
+
+ME ME_5098F71901D0
+ MEPROP UID '5098F71901D0'
+ MEPROP Name 'f_ArrowWasDrawn'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5098F71901D0 f_ArrowWasDrawn
+
+ME ME_4DD67B9502B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL? 'ME_4857B637007C' // TevDocument
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67B9502B0 
+
+ME ME_4E6E12B80383
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL 'ME_4E1C67860321' '4678209200A6.ms.model.script' // TnevDecorType
+ ;
+
+ENDME // ME_4E6E12B80383 
+
+ME ME_4E6F53940255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4E6F53940255 
+
+ME ME_5098EB5501BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_5098EB5501BF 
+
+ME ME_53D26E190193
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D26E190193 
+
+MEREF ME_4804BC2401C2_ME_49DA417B010F_over
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804BC2401C2_ME_49DA417B010F_over DoDraw
+
+MEREF ME_4804C35B00B2_ME_49DA417B010F_over
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804C35B00B2_ME_49DA417B010F_over DoDrawFrameText
+
+MEREF ME_49DB5FEF01D8_ME_49DA417B010F_G
+ MELINK Original WL? 'ME_49DB5FEF01D8' // TevParaListPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DB5FEF01D8_ME_49DA417B010F_G TevParaListPainter
+
+MEREF ME_4E6A1C160365_ME_49DA417B010F_R
+ MELINK Original WL 'ME_4E6A1C160365' '4E5CF70B01E2.ms.model.script' // Отображение шапки документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E6A1C160365_ME_49DA417B010F_R Отображение шапки документа
+
+%%InjectedBy ME_4857B637007C ME_49DA417B010F
+
+%%ImplementedBy ME_4E6A1C160365 ME_49DA417B010F
+
+%%InheritedBy ME_49DB5FEF01D8 ME_49DA417B010F
+
+ME ME_49DA417B010F
+ MEPROP UID '49DA417B010F'
+ MEPROP Name 'TevDocumentPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"рисователь" документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DB5FEF01D8_ME_49DA417B010F_G // TevParaListPainter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4E6A1C160365_ME_49DA417B010F_R // Отображение шапки документа
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5098F71901D0 // f_ArrowWasDrawn
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4804BC2401C2_ME_49DA417B010F_over // DoDraw
+ ME_4804C35B00B2_ME_49DA417B010F_over // DoDrawFrameText
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD67B9502B0 // TevDocument
+ ME_4E6E12B80383 // TnevDecorType
+ ME_4E6F53940255 // Tl3Point
+ ME_5098EB5501BF // L3 Core Consts
+ ME_53D26E190193 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.11.97 12:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPainter.pas'
+ UP extprop:rc:SelfName 'DocumentPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentPainter'
+
+ENDME // ME_49DA417B010F TevDocumentPainter

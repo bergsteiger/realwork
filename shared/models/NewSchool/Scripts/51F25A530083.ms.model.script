@@ -1,0 +1,89 @@
+// TddAutolinkArbitraryDocList 51F25A530083 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51F25A530083
+
+ME ME_51F25AB6003E
+ MEPROP UID '51F25AB6003E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51F25A530083 // TddAutolinkArbitraryDocList
+ ;
+ MELINK Target WL 'ME_51F251C90183' '4E8EAF5C020F.ms.model.script' // IddAutolinkArbitraryDocEntry
+ ;
+
+ENDME // ME_51F25AB6003E ItemType
+
+MEREF ME_47B07CF403D0_ME_51F25A530083_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_51F25A530083_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_51F25A530083_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_51F25A530083_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_51F25A530083_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_51F25A530083_impl CompareExistingItems
+
+MEREF ME_47B9AF6E0228_ME_51F25A530083_G
+ MELINK Original WL? 'ME_47B9AF6E0228' // l3InterfaceRefListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B9AF6E0228_ME_51F25A530083_G l3InterfaceRefListPrim
+
+MEREF ME_4A54DD4E036F_ME_51F25A530083_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_51F25A530083_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B9AF6E0228 ME_51F25A530083
+%%InheritedBy ME_4A54DD4E036F ME_51F25A530083
+
+ME ME_51F25A530083
+ MEPROP UID '51F25A530083'
+ MEPROP Name 'TddAutolinkArbitraryDocList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E8EAE5901A0' // Autolink
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B9AF6E0228_ME_51F25A530083_G // l3InterfaceRefListPrim
+ ME_4A54DD4E036F_ME_51F25A530083_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51F25AB6003E // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_51F25A530083_impl // IsSameItems
+ ME_47B2C42A0163_ME_51F25A530083_impl // AssignItem
+ ME_47B99D4503A2_ME_51F25A530083_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAutolinkArbitraryDocList.pas'
+ UP extprop:rc:SelfName 'ddAutolinkArbitraryDocList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddAutolinkArbitraryDocList'
+
+ENDME // ME_51F25A530083 TddAutolinkArbitraryDocList

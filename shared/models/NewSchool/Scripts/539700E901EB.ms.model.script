@@ -1,0 +1,55 @@
+// TatListNodeTypeConverter 539700E901EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_539700E901EB
+
+ME ME_5397013F0343
+ MEPROP UID '5397013F0343'
+ MEPROP Name 'EnumType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_539700E901EB // TatListNodeTypeConverter
+ ;
+ MELINK Target WL 'ME_45EEDB5602C3' '456EA56002BF.ms.model.script' // ListNodeType
+ ;
+
+ENDME // ME_5397013F0343 EnumType
+
+MEREF ME_50005E6B0318_ME_539700E901EB_G
+ MELINK Original WL? 'ME_50005E6B0318' // atEnumConverter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50005E6B0318_ME_539700E901EB_G atEnumConverter
+
+%%InheritedBy ME_50005E6B0318 ME_539700E901EB
+
+ME ME_539700E901EB
+ MEPROP UID '539700E901EB'
+ MEPROP Name 'TatListNodeTypeConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_50005E6B0318_ME_539700E901EB_G // atEnumConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5397013F0343 // EnumType
+ )
+ ; // Attributes
+ UP "singleton" true
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atListNodeTypeConverter.pas'
+ UP extprop:rc:SelfName 'atListNodeTypeConverter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atListNodeTypeConverter'
+
+ENDME // ME_539700E901EB TatListNodeTypeConverter

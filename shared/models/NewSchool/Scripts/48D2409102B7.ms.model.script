@@ -1,0 +1,551 @@
+// TevEditControl 48D2409102B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D2409102B7
+
+ME ME_48D240C4019F
+ MEPROP UID '48D240C4019F'
+ MEPROP Name 'f_ChildList'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список дочерних виджетов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL? 'ME_47CEBD65037B' // TevEditorControlList
+ ;
+
+ENDME // ME_48D240C4019F f_ChildList
+
+ME ME_48D240D50345
+ MEPROP UID '48D240D50345'
+ MEPROP Name 'f_ErrorColor'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Цвет ошибочного кода' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D240D50345 f_ErrorColor
+
+ME ME_5016868B0399
+ MEPROP UID '5016868B0399'
+ MEPROP Name 'f_IsOtherFieldInited'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5016868B0399 f_IsOtherFieldInited
+
+FORWARD ME_4E93093B00C1
+
+ME ME_4E93094E0116
+ MEPROP UID '4E93094E0116'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E93093B00C1 // DoSynchronizeSelectedValueWithText
+ ;
+
+ENDME // ME_4E93094E0116 DoIt
+
+ME ME_4E93093B00C1
+ MEPROP UID '4E93093B00C1'
+ MEPROP Name 'DoSynchronizeSelectedValueWithText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E93094E0116 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E93093B00C1 DoSynchronizeSelectedValueWithText
+
+FORWARD ME_501686490090
+
+ME ME_5016866D0028
+ MEPROP UID '5016866D0028'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_501686490090 // GetHasOtherField
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5016866D0028 DoIt
+
+ME ME_501686490090
+ MEPROP UID '501686490090'
+ MEPROP Name 'GetHasOtherField'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5016866D0028 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_501686490090 GetHasOtherField
+
+ME ME_48D247CA00AA
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48D247CA00AA Value
+
+ME ME_48D247CA0077
+ MEPROP UID '48D247CA0077'
+ MEPROP Name 'AfterSetText'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D247CA00AA // Value
+ )
+ ; // Parameters
+
+ENDME // ME_48D247CA0077 AfterSetText
+
+ME ME_48D249F00054
+ MEPROP UID '48D249F00054'
+ MEPROP Name 'GetSelectAllOnFocus'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D249F00054 GetSelectAllOnFocus
+
+ME ME_48D24A66039B
+ MEPROP UID '48D24A66039B'
+ MEPROP Name 'GetIsClear'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D24A66039B GetIsClear
+
+ME ME_48D24AB500F2
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+
+ENDME // ME_48D24AB500F2 aValue
+
+ME ME_48D24AB50147
+ MEPROP Name 'aIsStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D24AB50147 aIsStart
+
+ME ME_48D24AA202D1
+ MEPROP UID '48D24AA202D1'
+ MEPROP Name 'DoInitOtherField'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D24AB500F2 // aValue
+ ME_48D24AB50147 // aIsStart
+ )
+ ; // Parameters
+
+ENDME // ME_48D24AA202D1 DoInitOtherField
+
+ME ME_48D24C9F02F5
+ MEPROP UID '48D24C9F02F5'
+ MEPROP Name 'DoClearText'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+
+ENDME // ME_48D24C9F02F5 DoClearText
+
+ME ME_48D24F2302F2
+ MEPROP UID '48D24F2302F2'
+ MEPROP Name 'DoCheckDataText'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+
+ENDME // ME_48D24F2302F2 DoCheckDataText
+
+ME ME_48D250CF0152
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48D250CF0152 aValue
+
+ME ME_48D250CF01B0
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D250CF01B0 aPos
+
+ME ME_48D250CF0215
+ MEPROP Name 'aRslt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48D250CF0215 aRslt
+
+ME ME_48D24F5F02BF
+ MEPROP UID '48D24F5F02BF'
+ MEPROP Name 'DoAnalyzeString'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D250CF0152 // aValue
+ ME_48D250CF01B0 // aPos
+ ME_48D250CF0215 // aRslt
+ )
+ ; // Parameters
+
+ENDME // ME_48D24F5F02BF DoAnalyzeString
+
+ME ME_48D24FA901F4
+ MEPROP UID '48D24FA901F4'
+ MEPROP Name 'GetIsFieldEmpty'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D24FA901F4 GetIsFieldEmpty
+
+ME ME_48D24140025C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48D24140025C 
+
+ME ME_48D2414B02C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_48D2414B02C3 
+
+ME ME_48D241660091
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48D241660091 
+
+ME ME_48D2445C032B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_48D2445C032B 
+
+ME ME_48D2446D0267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D2409102B7 // TevEditControl
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48D2446D0267 
+
+MEREF ME_47CD7AC60335_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7AC60335' '47CD5C7602CD.ms.model.script' // CheckDataText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7AC60335_ME_48D2409102B7_impl CheckDataText
+
+MEREF ME_47CD7AD60335_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7AD60335' '47CD5C7602CD.ms.model.script' // AnalyzeString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7AD60335_ME_48D2409102B7_impl AnalyzeString
+
+MEREF ME_47CD7AFA0334_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7AFA0334' '47CD5C7602CD.ms.model.script' // IsClear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7AFA0334_ME_48D2409102B7_impl IsClear
+
+MEREF ME_47CD7B0F0260_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B0F0260' '47CD5C7602CD.ms.model.script' // InitOtherField
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7B0F0260_ME_48D2409102B7_impl InitOtherField
+
+MEREF ME_47CD7B23002F_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B23002F' '47CD5C7602CD.ms.model.script' // IsFieldEmpty
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7B23002F_ME_48D2409102B7_impl IsFieldEmpty
+
+MEREF ME_47CD7B3301BA_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B3301BA' '47CD5C7602CD.ms.model.script' // FindButton
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7B3301BA_ME_48D2409102B7_impl FindButton
+
+MEREF ME_47CD7B46001C_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B46001C' '47CD5C7602CD.ms.model.script' // ClearText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7B46001C_ME_48D2409102B7_impl ClearText
+
+MEREF ME_47CD7B5401A4_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B5401A4' '47CD5C7602CD.ms.model.script' // SelectAllOnFocus
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7B5401A4_ME_48D2409102B7_impl SelectAllOnFocus
+
+MEREF ME_47CD7B6E0380_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7B6E0380' '47CD5C7602CD.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CD7B6E0380_ME_48D2409102B7_impl Text
+
+MEREF ME_47CD7C1F03E3_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7C1F03E3' '47CD5C7602CD.ms.model.script' // ErrorColor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CD7C1F03E3_ME_48D2409102B7_impl ErrorColor
+
+MEREF ME_47CD7C2E00E2_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CD7C2E00E2' '47CD5C7602CD.ms.model.script' // Valid
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CD7C2E00E2_ME_48D2409102B7_impl Valid
+
+MEREF ME_47CEBBC50272_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_47CEBBC50272' '47CD5C7602CD.ms.model.script' // ChildList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CEBBC50272_ME_48D2409102B7_impl ChildList
+
+MEREF ME_48D1461101C6_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_48D1461101C6' '48D13B8D03A3.ms.model.script' // DoLMouseBtnUp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48D1461101C6_ME_48D2409102B7_impl DoLMouseBtnUp
+
+MEREF ME_48D1464501E8_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_48D1464501E8' '48D13B8D03A3.ms.model.script' // DoLMouseBtnDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48D1464501E8_ME_48D2409102B7_impl DoLMouseBtnDown
+
+MEREF ME_4E9308B7007B_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_4E9308B7007B' '47CD5C7602CD.ms.model.script' // SynchronizeSelectedValueWithText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4E9308B7007B_ME_48D2409102B7_impl SynchronizeSelectedValueWithText
+
+MEREF ME_501685F70342_ME_48D2409102B7_impl
+ MELINK Original WL 'ME_501685F70342' '47CD5C7602CD.ms.model.script' // HasOtherField
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_501685F70342_ME_48D2409102B7_impl HasOtherField
+
+MEREF ME_479731C50290_ME_48D2409102B7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48D2409102B7_over Cleanup
+
+MEREF ME_47CFE07602FE_ME_48D2409102B7_over
+ MELINK Original WL 'ME_47CFE07602FE' '47CFDFAB0197.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47CFE07602FE_ME_48D2409102B7_over Create
+
+MEREF ME_48D148F7020F_ME_48D2409102B7_over
+ MELINK Original WL 'ME_48D148F7020F' '48D13B8D03A3.ms.model.script' // SetText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D148F7020F_ME_48D2409102B7_over SetText
+
+MEREF ME_48D14C0E023E_ME_48D2409102B7_over
+ MELINK Original WL 'ME_48D14C0E023E' '48D13B8D03A3.ms.model.script' // DoTextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D14C0E023E_ME_48D2409102B7_over DoTextChange
+
+MEREF ME_48D13B8D03A3_ME_48D2409102B7_G
+ MELINK Original WL? 'ME_48D13B8D03A3' // TevControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D13B8D03A3_ME_48D2409102B7_G TevControl
+
+MEREF ME_47CD608201FA_ME_48D2409102B7_R
+ MELINK Original WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CD608201FA_ME_48D2409102B7_R IevEditorControlField
+
+%%ImplementedBy ME_47CD608201FA ME_48D2409102B7
+
+%%InheritedBy ME_48D13B8D03A3 ME_48D2409102B7
+
+ME ME_48D2409102B7
+ MEPROP UID '48D2409102B7'
+ MEPROP Name 'TevEditControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс поля редактора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_48D13B8D03A3_ME_48D2409102B7_G // TevControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47CD608201FA_ME_48D2409102B7_R // IevEditorControlField
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48D240C4019F // f_ChildList
+ HWL ME_48D240D50345 // f_ErrorColor
+ HWL ME_5016868B0399 // f_IsOtherFieldInited
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E93093B00C1 // DoSynchronizeSelectedValueWithText
+ HWL ME_501686490090 // GetHasOtherField
+ HWL ME_48D247CA0077 // AfterSetText
+ HWL ME_48D249F00054 // GetSelectAllOnFocus
+ HWL ME_48D24A66039B // GetIsClear
+ HWL ME_48D24AA202D1 // DoInitOtherField
+ HWL ME_48D24C9F02F5 // DoClearText
+ HWL ME_48D24F2302F2 // DoCheckDataText
+ HWL ME_48D24F5F02BF // DoAnalyzeString
+ HWL ME_48D24FA901F4 // GetIsFieldEmpty
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47CD7AC60335_ME_48D2409102B7_impl // CheckDataText
+ ME_47CD7AD60335_ME_48D2409102B7_impl // AnalyzeString
+ ME_47CD7AFA0334_ME_48D2409102B7_impl // IsClear
+ ME_47CD7B0F0260_ME_48D2409102B7_impl // InitOtherField
+ ME_47CD7B23002F_ME_48D2409102B7_impl // IsFieldEmpty
+ ME_47CD7B3301BA_ME_48D2409102B7_impl // FindButton
+ ME_47CD7B46001C_ME_48D2409102B7_impl // ClearText
+ ME_47CD7B5401A4_ME_48D2409102B7_impl // SelectAllOnFocus
+ ME_47CD7B6E0380_ME_48D2409102B7_impl // Text
+ ME_47CD7C1F03E3_ME_48D2409102B7_impl // ErrorColor
+ ME_47CD7C2E00E2_ME_48D2409102B7_impl // Valid
+ ME_47CEBBC50272_ME_48D2409102B7_impl // ChildList
+ ME_48D1461101C6_ME_48D2409102B7_impl // DoLMouseBtnUp
+ ME_48D1464501E8_ME_48D2409102B7_impl // DoLMouseBtnDown
+ ME_4E9308B7007B_ME_48D2409102B7_impl // SynchronizeSelectedValueWithText
+ ME_501685F70342_ME_48D2409102B7_impl // HasOtherField
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48D2409102B7_over // Cleanup
+ ME_47CFE07602FE_ME_48D2409102B7_over // Create
+ ME_48D148F7020F_ME_48D2409102B7_over // SetText
+ ME_48D14C0E023E_ME_48D2409102B7_over // DoTextChange
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48D24140025C // l3Base
+ ME_48D2414B02C3 // l3String
+ ME_48D241660091 // Tk2TagID
+ ME_48D2445C032B // Ext Chars
+ ME_48D2446D0267 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evEditControl.pas'
+ UP extprop:rc:SelfName 'EditControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evEditControl'
+
+ENDME // ME_48D2409102B7 TevEditControl

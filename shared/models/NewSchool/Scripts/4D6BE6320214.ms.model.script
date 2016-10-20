@@ -1,0 +1,116 @@
+// WikiReaderTest 4D6BE6320214 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6BE6320214
+
+FORWARD ME_4D6BE67102D4
+
+ME ME_4D6BE69002F2
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D6BE69002F2 aFileName
+
+ME ME_4D6BE68C0324
+ MEPROP UID '4D6BE68C0324'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6BE67102D4 // WikiToEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6BE69002F2 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4D6BE68C0324 DoIt
+
+ME ME_4D6BE6CD0206
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6BE67102D4 // WikiToEVD
+ ;
+ MELINK Target WL? 'ME_4D6BE6AF0322' // TevWikiReader
+ ;
+
+ENDME // ME_4D6BE6CD0206 
+
+ME ME_4D6BEB11014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6BE67102D4 // WikiToEVD
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D6BEB11014F 
+
+ME ME_4D6BE67102D4
+ MEPROP UID '4D6BE67102D4'
+ MEPROP Name 'WikiToEVD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6BE6320214 // WikiReaderTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6BE68C0324 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D6BE6CD0206 // TevWikiReader
+ ME_4D6BEB11014F // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4D6BE67102D4 WikiToEVD
+
+MEREF ME_4BACDDB500CE_ME_4D6BE6320214_G
+ MELINK Original WL? 'ME_4BACDDB500CE' // WriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BACDDB500CE_ME_4D6BE6320214_G WriterTest
+
+%%InheritedBy ME_4BACDDB500CE ME_4D6BE6320214
+
+ME ME_4D6BE6320214
+ MEPROP UID '4D6BE6320214'
+ MEPROP Name 'WikiReaderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D6BE6160152' // Wiki
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BACDDB500CE_ME_4D6BE6320214_G // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D6BE67102D4 // WikiToEVD
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '28.02.2011 21:15'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\WikiReaderTest.pas'
+ UP extprop:pas:TypeName 'TWikiReaderTest'
+ UP extprop:rc:SelfName 'WikiReaderTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D6BE6320214 WikiReaderTest

@@ -1,0 +1,31 @@
+UNIT largeMetaModel.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ MDProcess_Templates.tpi.script
+;
+
+USES
+ MDProcess_ForDelphi.tpi.script
+;
+
+BOOLEAN elem_func IsUses
+ RULES
+  ( Self .IsStereotype st_uses::Dependency )
+   true
+  ( Self .IsStereotype st_consume::Dependency )
+   true
+  ( Self .IsStereotype st_ContextMenuWeight::Dependency )
+   true
+  DEFAULT
+   false
+ ; // RULES   
+ >>> Result
+; // IsUses

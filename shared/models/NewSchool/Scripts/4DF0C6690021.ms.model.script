@@ -1,0 +1,96 @@
+// Tk2CustomTagView 4DF0C6690021 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DF0C6690021
+
+FORWARD ME_4DF0C6690021
+
+ME ME_4DF0C70902FE
+ MEPROP UID '4DF0C70902FE'
+ MEPROP Name 'l3ViewListIsTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ UP extprop:rc:SelfName 'ViewListIsTag'
+
+ENDME // ME_4DF0C70902FE l3ViewListIsTag
+
+ME ME_4DF0C68D0254
+ MEPROP UID '4DF0C68D0254'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4DF0C68D0254 ListType
+
+ME ME_4DF0C6A0026B
+ MEPROP UID '4DF0C6A0026B'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4DF0C6A0026B ItemType
+
+MEREF ME_4DEFC3B90061_ME_4DF0C6690021_G
+ MELINK Original WL? 'ME_4DEFC3B90061' // l3OtherTypedListView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DEFC3B90061_ME_4DF0C6690021_G l3OtherTypedListView
+
+%%InheritedBy ME_4DEFC3B90061 ME_4DF0C6690021
+
+ME ME_4DF0C6690021
+ MEPROP UID '4DF0C6690021'
+ MEPROP Name 'Tk2CustomTagView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4DF0C61901BE' // TagViews
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DEFC3B90061_ME_4DF0C6690021_G // l3OtherTypedListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DF0C68D0254 // ListType
+ HWL ME_4DF0C6A0026B // ItemType
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4DF0C70902FE // l3ViewListIsTag
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '09.06.2011 17:11'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2CustomTagView.pas'
+ UP extprop:rc:SelfName 'TagView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2CustomTagView'
+
+ENDME // ME_4DF0C6690021 Tk2CustomTagView

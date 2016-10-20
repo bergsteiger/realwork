@@ -1,0 +1,80 @@
+// TStringStackTest 5155CA6F0058 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5155CA6F0058
+
+ME ME_5155CA990036
+ MEPROP UID '5155CA990036'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5155CA6F0058 // TStringStackTest
+ ;
+
+ENDME // ME_5155CA990036 DoIt
+
+ME ME_5155CA7D0234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5155CA6F0058 // TStringStackTest
+ ;
+ MELINK Target WL? 'ME_51545E400179' // TStringStack
+ ;
+
+ENDME // ME_5155CA7D0234 
+
+ME ME_5155CC370340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5155CA6F0058 // TStringStackTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5155CC370340 
+
+MEREF ME_4B2A0DDE028B_ME_5155CA6F0058_G
+ MELINK Original WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A0DDE028B_ME_5155CA6F0058_G TTestCase
+
+%%InheritedBy ME_4B2A0DDE028B ME_5155CA6F0058
+
+ME ME_5155CA6F0058
+ MEPROP UID '5155CA6F0058'
+ MEPROP Name 'TStringStackTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5155CA0E009F' // ContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A0DDE028B_ME_5155CA6F0058_G // TTestCase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5155CA990036 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5155CA7D0234 // TStringStack
+ ME_5155CC370340 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\SandBox\StringStackTest.pas'
+ UP extprop:rc:SelfName 'StringStackTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StringStackTest'
+
+ENDME // ME_5155CA6F0058 TStringStackTest

@@ -1,0 +1,144 @@
+// TnevStringItemPara 48D1184C02B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D1184C02B9
+
+ME ME_48D11888028E
+ MEPROP UID '48D11888028E'
+ MEPROP Name 'f_StrID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ссылка на номер строки в списке' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D1184C02B9 // TnevStringItemPara
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D11888028E f_StrID
+
+ME ME_48D118C50309
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48D118C50309 aTag
+
+ME ME_48D118C50332
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D118C50332 anIndex
+
+ME ME_48D118B5038A
+ MEPROP UID '48D118B5038A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D1184C02B9 // TnevStringItemPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D118C50309 // aTag
+ ME_48D118C50332 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48D118B5038A Create
+
+ME ME_48D118DB02DA
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48D118DB02DA aTag
+
+ME ME_48D118DB0303
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48D118DB0303 anIndex
+
+ME ME_48D118CE03CD
+ MEPROP UID '48D118CE03CD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D1184C02B9 // TnevStringItemPara
+ ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D118DB02DA // aTag
+ ME_48D118DB0303 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48D118CE03CD Make
+
+MEREF ME_48CFB61F01FA_ME_48D1184C02B9_over
+ MELINK Original WL 'ME_48CFB61F01FA' '48CE0A490377.ms.model.script' // GetPID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48CFB61F01FA_ME_48D1184C02B9_over GetPID
+
+MEREF ME_48D100920185_ME_48D1184C02B9_G
+ MELINK Original WL? 'ME_48D100920185' // TnevTextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D100920185_ME_48D1184C02B9_G TnevTextPara
+
+%%InheritedBy ME_48D100920185 ME_48D1184C02B9
+
+ME ME_48D1184C02B9
+ MEPROP UID '48D1184C02B9'
+ MEPROP Name 'TnevStringItemPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48CE0A0A03B4' // ParagraphsImplementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_48D100920185_ME_48D1184C02B9_G // TnevTextPara
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48D11888028E // f_StrID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48D118B5038A // Create
+ HWL ME_48D118CE03CD // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48CFB61F01FA_ME_48D1184C02B9_over // GetPID
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '25.09.2001 17:21'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevStringItemPara.pas'
+ UP extprop:rc:SelfName 'StringItemPara'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevStringItemPara'
+
+ENDME // ME_48D1184C02B9 TnevStringItemPara

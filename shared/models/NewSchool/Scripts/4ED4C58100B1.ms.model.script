@@ -1,0 +1,76 @@
+// TevSBSRowCursor 4ED4C58100B1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ED4C58100B1
+
+ME ME_4ED4C73900F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C58100B1 // TevSBSRowCursor
+ ;
+ MELINK Target WL? 'ME_4ED4A64C01E3' // TevSBSColumnBorderMarker
+ ;
+
+ENDME // ME_4ED4C73900F4 
+
+ME ME_53D0FC460257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4ED4C58100B1 // TevSBSRowCursor
+ ;
+ MELINK Target WL? 'ME_4857D3F1028D' // TevSBSRow
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D0FC460257 
+
+MEREF ME_4ED4C5C40177_ME_4ED4C58100B1_over
+ MELINK Original WL 'ME_4ED4C5C40177' '4ED4C5640359.ms.model.script' // GetColumnMarkerClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ED4C5C40177_ME_4ED4C58100B1_over GetColumnMarkerClass
+
+MEREF ME_4ED4C5640359_ME_4ED4C58100B1_G
+ MELINK Original WL? 'ME_4ED4C5640359' // TevTableRowCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ED4C5640359_ME_4ED4C58100B1_G TevTableRowCursor
+
+%%InjectedBy ME_4857D3F1028D ME_4ED4C58100B1
+
+%%InheritedBy ME_4ED4C5640359 ME_4ED4C58100B1
+
+ME ME_4ED4C58100B1
+ MEPROP UID '4ED4C58100B1'
+ MEPROP Name 'TevSBSRowCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4ED4C5640359_ME_4ED4C58100B1_G // TevTableRowCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ED4C5C40177_ME_4ED4C58100B1_over // GetColumnMarkerClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED4C73900F4 // TevSBSColumnBorderMarker
+ ME_53D0FC460257 // TevSBSRow
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSBSRowCursor.pas'
+ UP extprop:rc:SelfName 'SBSRowCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evSBSRowCursor'
+
+ENDME // ME_4ED4C58100B1 TevSBSRowCursor

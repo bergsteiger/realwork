@@ -1,0 +1,120 @@
+// ThtDataProviderParams 54F9AF6B00DD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F9AF6B00DD
+
+ME ME_55114DCA0351
+ MEPROP UID '55114DCA0351'
+ MEPROP Name 'MakePathRec'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F9AF6B00DD // ThtDataProviderParams
+ ;
+ MELINK Target WL 'ME_55114E8701D6' '47BC51FE018B.ms.model.script' // TPathRec
+ ;
+
+ENDME // ME_55114DCA0351 MakePathRec
+
+ME ME_551175D903A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F9AF6B00DD // ThtDataProviderParams
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_551175D903A3 
+
+ME ME_5511762B039F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F9AF6B00DD // ThtDataProviderParams
+ ;
+ MELINK Target WL 'ME_5511287702D5' '5214B1470139.ms.model.script' // GetWindowsTempFolder
+ ;
+
+ENDME // ME_5511762B039F 
+
+ME ME_551958420072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F9AF6B00DD // ThtDataProviderParams
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_551958420072 
+
+MEREF ME_55195AE803E0_ME_54F9AF6B00DD_over
+ MELINK Original WL 'ME_55195AE803E0' '54F9A60200A8.ms.model.script' // ChangeBasePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55195AE803E0_ME_54F9AF6B00DD_over ChangeBasePath
+
+MEREF ME_553A37E902C9_ME_54F9AF6B00DD_over
+ MELINK Original WL 'ME_553A37E902C9' '54F9A60200A8.ms.model.script' // AssignParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_553A37E902C9_ME_54F9AF6B00DD_over AssignParams
+
+MEREF ME_54F9A60200A8_ME_54F9AF6B00DD_G
+ MELINK Original WL? 'ME_54F9A60200A8' // TdaDataProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F9A60200A8_ME_54F9AF6B00DD_G TdaDataProviderParams
+
+MEREF ME_5432829E0143_ME_54F9AF6B00DD_R
+ MELINK Original WL 'ME_5432829E0143' '484A470100DD.ms.model.script' // HyTechProviderParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5432829E0143_ME_54F9AF6B00DD_R HyTechProviderParams
+
+%%ImplementedBy ME_5432829E0143 ME_54F9AF6B00DD
+
+%%InheritedBy ME_54F9A60200A8 ME_54F9AF6B00DD
+
+ME ME_54F9AF6B00DD
+ MEPROP UID '54F9AF6B00DD'
+ MEPROP Name 'ThtDataProviderParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F9AF550087' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_54F9A60200A8_ME_54F9AF6B00DD_G // TdaDataProviderParams
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5432829E0143_ME_54F9AF6B00DD_R // HyTechProviderParams
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55114DCA0351 // MakePathRec
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_55195AE803E0_ME_54F9AF6B00DD_over // ChangeBasePath
+ ME_553A37E902C9_ME_54F9AF6B00DD_over // AssignParams
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_551175D903A3 // ConcatDirName
+ ME_5511762B039F // GetWindowsTempFolder
+ ME_551958420072 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\HT\htDataProviderParams.pas'
+ UP extprop:rc:SelfName 'htDataProviderParams'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'htDataProviderParams'
+
+ENDME // ME_54F9AF6B00DD ThtDataProviderParams

@@ -1,0 +1,81 @@
+// K517772970_TcsExport 53214BA801AC TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53214BA801AC
+
+ME ME_53214BE40136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214BA801AC // K517772970_TcsExport
+ ;
+ MELINK Target WL? 'ME_530355040385' // csExport
+ ;
+
+ENDME // ME_53214BE40136 
+
+ME ME_5321633901AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53214BA801AC // K517772970_TcsExport
+ ;
+ MELINK Target WL 'ME_532162A4001A' '47BC51FE018B.ms.model.script' // TDiapType
+ ;
+
+ENDME // ME_5321633901AD 
+
+MEREF ME_5320088202FB_ME_53214BA801AC_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53214BA801AC_over TaskClass
+
+MEREF ME_532008D203BA_ME_53214BA801AC_over
+ MELINK Original WL 'ME_532008D203BA' '532008240001.ms.model.script' // InitTask
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532008D203BA_ME_53214BA801AC_over InitTask
+
+MEREF ME_53200B5D0155_ME_53214BA801AC_G
+ MELINK Original WL? 'ME_53200B5D0155' // K517772970_TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200B5D0155_ME_53214BA801AC_G K517772970_TddProcessTask
+
+%%InheritedBy ME_53200B5D0155 ME_53214BA801AC
+
+ME ME_53214BA801AC
+ MEPROP UID '53214BA801AC'
+ MEPROP Name 'K517772970_TcsExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( ME_53200B5D0155_ME_53214BA801AC_G // K517772970_TddProcessTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53214BA801AC_over // TaskClass
+ ME_532008D203BA_ME_53214BA801AC_over // InitTask
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53214BE40136 // csExport
+ ME_5321633901AD // TDiapType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsExport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsExport'
+ UP extprop:rc:SelfName 'K517772970_TcsExport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53214BA801AC K517772970_TcsExport

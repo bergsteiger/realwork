@@ -1,0 +1,123 @@
+// TnsSearchInDocumentDoneEvent 5280813401EA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5280813401EA
+
+ME ME_528085A8017D
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_528085A8017D aDoc
+
+ME ME_528085A801A0
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_528085A801A0 aContext
+
+ME ME_528085A801C5
+ MEPROP Name 'aFoundCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_528085A801C5 aFoundCount
+
+ME ME_528081740164
+ MEPROP UID '528081740164'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5280813401EA // TnsSearchInDocumentDoneEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_528085A8017D // aDoc
+ ME_528085A801A0 // aContext
+ ME_528085A801C5 // aFoundCount
+ )
+ ; // Parameters
+
+ENDME // ME_528081740164 Log
+
+ME ME_528081BB00EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5280813401EA // TnsSearchInDocumentDoneEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_528081BB00EB 
+
+ME ME_528081F602CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5280813401EA // TnsSearchInDocumentDoneEvent
+ ;
+ MELINK Target WL 'ME_45ED59730069' '45ED58CF03E6.ms.model.script' // LogEventData
+ ;
+
+ENDME // ME_528081F602CB 
+
+ME ME_528081FC00FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5280813401EA // TnsSearchInDocumentDoneEvent
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '4A6854C70390.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_528081FC00FB 
+
+MEREF ME_4B0A6109010C_ME_5280813401EA_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_5280813401EA_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_5280813401EA
+
+ME ME_5280813401EA
+ MEPROP UID '5280813401EA'
+ MEPROP Name 'TnsSearchInDocumentDoneEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_5280813401EA_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_528081740164 // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_528081BB00EB // LogEvent
+ ME_528081F602CB // LogEventData
+ ME_528081FC00FB // nsAStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsSearchInDocumentDoneEvent.pas'
+ UP extprop:rc:SelfName 'SearchInDocumentDoneEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsSearchInDocumentDoneEvent'
+
+ENDME // ME_5280813401EA TnsSearchInDocumentDoneEvent

@@ -1,0 +1,109 @@
+// TevParaListPainter 49DB5FEF01D8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49DB5FEF01D8
+
+FORWARD ME_49DB5FEF01D8
+
+ME ME_4D496E920367
+ MEPROP UID '4D496E920367'
+ MEPROP Name 'ParaPainter_IsParaListPainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рисователь параграфа является рисователем списка параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
+ ;
+
+ENDME // ME_4D496E920367 ParaPainter_IsParaListPainter
+
+ME ME_49DB52D102F5
+ MEPROP UID '49DB52D102F5'
+ MEPROP Name 'X'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_49DB52D102F5 X
+
+ME ME_4DD67B0802E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
+ ;
+ MELINK Target WL? 'ME_48579EA1011D' // TevParaList
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67B0802E0 
+
+ME ME_53D780420372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_49DB5FEF01D8 // TevParaListPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D780420372 
+
+MEREF ME_481D6C300084_ME_49DB5FEF01D8_G
+ MELINK Original WL? 'ME_481D6C300084' // evParaListPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_481D6C300084_ME_49DB5FEF01D8_G evParaListPainter
+
+%%InjectedBy ME_48579EA1011D ME_49DB5FEF01D8
+
+%%InheritedBy ME_481D6C300084 ME_49DB5FEF01D8
+
+ME ME_49DB5FEF01D8
+ MEPROP UID '49DB5FEF01D8'
+ MEPROP Name 'TevParaListPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рисователь списка параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_481D6C300084_ME_49DB5FEF01D8_G // evParaListPainter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49DB52D102F5 // X
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4D496E920367 // ParaPainter_IsParaListPainter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DD67B0802E0 // TevParaList
+ ME_53D780420372 // IevPainter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '07.04.2009 18:15'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaListPainter.pas'
+ UP extprop:rc:SelfName 'ParaListPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evParaListPainter'
+
+ENDME // ME_49DB5FEF01D8 TevParaListPainter

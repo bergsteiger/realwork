@@ -1,0 +1,63 @@
+// TIUnknownPtrList 51E80A6D00AA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E80A6D00AA
+
+ME ME_51E80ACD0355
+ MEPROP UID '51E80ACD0355'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E80A6D00AA // TIUnknownPtrList
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_51E80ACD0355 ItemType
+
+MEREF ME_516137AD0362_ME_51E80A6D00AA_G
+ MELINK Original WL? 'ME_516137AD0362' // TRefcounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516137AD0362_ME_51E80A6D00AA_G TRefcounted
+
+MEREF ME_51E8098001DC_ME_51E80A6D00AA_G
+ MELINK Original WL? 'ME_51E8098001DC' // InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E8098001DC_ME_51E80A6D00AA_G InterfacePtrList
+
+%%InheritedBy ME_516137AD0362 ME_51E80A6D00AA
+%%InheritedBy ME_51E8098001DC ME_51E80A6D00AA
+
+ME ME_51E80A6D00AA
+ MEPROP UID '51E80A6D00AA'
+ MEPROP Name 'TIUnknownPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '—ÔËÒÓÍ ” ¿«¿“≈À≈… Ì‡ IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB22001AC' // FinalContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_516137AD0362_ME_51E80A6D00AA_G // TRefcounted
+ ME_51E8098001DC_ME_51E80A6D00AA_G // InterfacePtrList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E80ACD0355 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\SandBox\IUnknownPtrList.pas'
+ UP extprop:rc:SelfName 'IUnknownPtrList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IUnknownPtrList'
+
+ENDME // ME_51E80A6D00AA TIUnknownPtrList

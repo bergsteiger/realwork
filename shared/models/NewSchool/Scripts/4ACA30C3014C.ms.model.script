@@ -1,0 +1,49 @@
+// TnscFixedHeightControlCell 4ACA30C3014C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACA30C3014C
+
+MEREF ME_4ACA31830369_ME_4ACA30C3014C_over
+ MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ACA31830369_ME_4ACA30C3014C_over Create
+
+MEREF ME_4ACA309200D3_ME_4ACA30C3014C_G
+ MELINK Original WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ACA309200D3_ME_4ACA30C3014C_G TagControlCell
+
+%%InheritedBy ME_4ACA309200D3 ME_4ACA30C3014C
+
+ME ME_4ACA30C3014C
+ MEPROP UID '4ACA30C3014C'
+ MEPROP Name 'TnscFixedHeightControlCell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC9B14A02E3' // Grid
+ ;
+ MELIST Inherits
+   Seq: ( ME_4ACA309200D3_ME_4ACA30C3014C_G // TagControlCell
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ACA31830369_ME_4ACA30C3014C_over // Create
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.10.2009 21:45'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas'
+ UP extprop:rc:SelfName 'FixedHeightControlCell'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscFixedHeightControlCell'
+
+ENDME // ME_4ACA30C3014C TnscFixedHeightControlCell

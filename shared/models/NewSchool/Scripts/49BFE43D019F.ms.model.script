@@ -1,0 +1,51 @@
+// Tm3NewVersionStream 49BFE43D019F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49BFE43D019F
+
+MEREF ME_49BFE6600304_ME_49BFE43D019F_over
+ MELINK Original WL 'ME_49BFE6600304' '49BFC520008A.ms.model.script' // IsNewVersion
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" false
+ UP "pm" true
+ENDMEREF // ME_49BFE6600304_ME_49BFE43D019F_over IsNewVersion
+
+MEREF ME_49BFC520008A_ME_49BFE43D019F_G
+ MELINK Original WL? 'ME_49BFC520008A' // Tm3DBProxyWriteStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49BFC520008A_ME_49BFE43D019F_G Tm3DBProxyWriteStream
+
+%%InheritedBy ME_49BFC520008A ME_49BFE43D019F
+
+ME ME_49BFE43D019F
+ MEPROP UID '49BFE43D019F'
+ MEPROP Name 'Tm3NewVersionStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток, создавший новую версию документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4742C9DB033A' // m3DB
+ ;
+ MELIST Inherits
+   Seq: ( ME_49BFC520008A_ME_49BFE43D019F_G // Tm3DBProxyWriteStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49BFE6600304_ME_49BFE43D019F_over // IsNewVersion
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '17.03.2009 20:57'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3NewVersionStream.pas'
+ UP extprop:rc:SelfName 'm3NewVersionStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3NewVersionStream'
+
+ENDME // ME_49BFE43D019F Tm3NewVersionStream

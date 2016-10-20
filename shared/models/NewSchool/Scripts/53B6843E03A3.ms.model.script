@@ -1,0 +1,45 @@
+// TddServerStatusRequestPrim 53B6843E03A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52FA4AD90122_ME_53B6843E03A3_G
+ MELINK Original WL 'ME_52FA4AD90122' '52FA4ACA0020.ms.model.script' // TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA4AD90122_ME_53B6843E03A3_G TddRequestTask
+
+MEREF ME_53B680D000EA_ME_53B6843E03A3_R
+ MELINK Original WL 'ME_53B680D000EA' '484A470100DD.ms.model.script' // ServerStatusRequest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B680D000EA_ME_53B6843E03A3_R ServerStatusRequest
+
+%%ImplementedBy ME_53B680D000EA ME_53B6843E03A3
+
+%%InheritedBy ME_52FA4AD90122 ME_53B6843E03A3
+
+ME ME_53B6843E03A3
+ MEPROP UID '53B6843E03A3'
+ MEPROP Name 'TddServerStatusRequestPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA4AD90122_ME_53B6843E03A3_G // TddRequestTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B680D000EA_ME_53B6843E03A3_R // ServerStatusRequest
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddServerStatusRequestPrim.pas'
+ UP extprop:rc:SelfName 'ddServerStatusRequestPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddServerStatusRequestPrim'
+
+ENDME // ME_53B6843E03A3 TddServerStatusRequestPrim

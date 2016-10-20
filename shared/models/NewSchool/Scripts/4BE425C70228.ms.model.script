@@ -1,0 +1,115 @@
+// TTextEditorVisitor 4BE425C70228 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BE425C70228
+
+ME ME_4BE131BC038E
+ MEPROP UID '4BE131BC038E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Собственно тело теста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BE425C70228 // TTextEditorVisitor
+ ;
+
+ENDME // ME_4BE131BC038E DoIt
+
+ME ME_4C07AC6F036D
+ MEPROP UID '4C07AC6F036D'
+ MEPROP Name 'GetNormalFontSize'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE425C70228 // TTextEditorVisitor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C07AC6F036D GetNormalFontSize
+
+ME ME_4C0E56F000A4
+ MEPROP UID '4C0E56F000A4'
+ MEPROP Name 'MaxHeight'
+ MEPROP Class class_Operation
+ %SUMMARY 'Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BE425C70228 // TTextEditorVisitor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C0E56F000A4 MaxHeight
+
+ME ME_4C07AB4A022B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE425C70228 // TTextEditorVisitor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C07AB4A022B 
+
+ME ME_4C07AB4D0347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BE425C70228 // TTextEditorVisitor
+ ;
+ MELINK Target WL? 'ME_480DB927035A' // TevStyleInterface
+ ;
+
+ENDME // ME_4C07AB4D0347 
+
+MEREF ME_4BE418BB001F_ME_4BE425C70228_G
+ MELINK Original WL? 'ME_4BE418BB001F' // TTextEditorVisitorPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE418BB001F_ME_4BE425C70228_G TTextEditorVisitorPrim
+
+%%InheritedBy ME_4BE418BB001F ME_4BE425C70228
+
+ME ME_4BE425C70228
+ MEPROP UID '4BE425C70228'
+ MEPROP Name 'TTextEditorVisitor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест, работающий с текстом документа через редактор, но не изменяющий его' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE418BB001F_ME_4BE425C70228_G // TTextEditorVisitorPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BE131BC038E // DoIt
+ HWL ME_4C07AC6F036D // GetNormalFontSize
+ HWL ME_4C0E56F000A4 // MaxHeight
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C07AB4A022B // FreeAndNil
+ ME_4C07AB4D0347 // TevStyleInterface
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '07.05.2010 18:55'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\TextEditorVisitor.pas'
+ UP extprop:rc:SelfName 'TextEditorVisitor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TextEditorVisitor'
+
+ENDME // ME_4BE425C70228 TTextEditorVisitor

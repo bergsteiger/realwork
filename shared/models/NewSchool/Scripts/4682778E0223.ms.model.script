@@ -1,0 +1,154 @@
+// TnsComplectInfoNode 4682778E0223 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4682778E0223
+
+ME ME_490981EE009B
+ MEPROP UID '490981EE009B'
+ MEPROP Name 'fValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_490981EE009B fValue
+
+ME ME_49098292000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49098292000F 
+
+ME ME_490982A5030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL 'ME_4574514C030D' '45744F4302BF.ms.model.script' // ComplectInfoNode
+ ;
+
+ENDME // ME_490982A5030D 
+
+ME ME_49098311009F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_49098311009F 
+
+ME ME_49098337021D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '4A6854C70390.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_49098337021D 
+
+ME ME_4909854A0182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4682778E0223 // TnsComplectInfoNode
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4909854A0182 
+
+MEREF ME_46A6199402FB_ME_4682778E0223_impl
+ MELINK Original WL 'ME_46A6199402FB' '4677FBA70343.ms.model.script' // GetTextPart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_46A6199402FB_ME_4682778E0223_impl GetTextPart
+
+MEREF ME_479731C50290_ME_4682778E0223_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4682778E0223_over Cleanup
+
+MEREF ME_490982310145_ME_4682778E0223_over
+ MELINK Original WL 'ME_490982310145' '4682732A02F9.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_490982310145_ME_4682778E0223_over Create
+
+MEREF ME_4682732A02F9_ME_4682778E0223_G
+ MELINK Original WL? 'ME_4682732A02F9' // TnsINodeWrapBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4682732A02F9_ME_4682778E0223_G TnsINodeWrapBase
+
+MEREF ME_468277FE0383_ME_4682778E0223_R
+ MELINK Original WL 'ME_468277FE0383' '4677FBA70343.ms.model.script' // Il3MultipartText
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468277FE0383_ME_4682778E0223_R Il3MultipartText
+
+%%ImplementedBy ME_468277FE0383 ME_4682778E0223
+
+%%InheritedBy ME_4682732A02F9 ME_4682778E0223
+
+ME ME_4682778E0223
+ MEPROP UID '4682778E0223'
+ MEPROP Name 'TnsComplectInfoNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Узел дерева с информацией о комплекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_490873CD01B9' // ComplectInfo
+ ;
+ MELIST Inherits
+   Seq: ( ME_4682732A02F9_ME_4682778E0223_G // TnsINodeWrapBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_468277FE0383_ME_4682778E0223_R // Il3MultipartText
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_490981EE009B // fValue
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A6199402FB_ME_4682778E0223_impl // GetTextPart
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4682778E0223_over // Cleanup
+ ME_490982310145_ME_4682778E0223_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49098292000F // SysUtils
+ ME_490982A5030D // ComplectInfoNode
+ ME_49098311009F // l3String
+ ME_49098337021D // StringRoutines
+ ME_4909854A0182 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoNode.pas'
+ UP extprop:rc:SelfName 'ComplectInfoNode'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsComplectInfoNode'
+
+ENDME // ME_4682778E0223 TnsComplectInfoNode

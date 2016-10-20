@@ -29,19 +29,25 @@ ME ME_4B8900D6035D
 
 ENDME // ME_4B8900D6035D 
 
-ME ME_47B2C42A0163_ME_4B88F8D6025A
+MEREF ME_47B2C42A0163_ME_4B88F8D6025A_impl
  MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
  UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4B88F8D6025A AssignItem
+ENDMEREF // ME_47B2C42A0163_ME_4B88F8D6025A_impl AssignItem
 
-ME ME_47B99D4503A2_ME_4B88F8D6025A
+MEREF ME_47B99D4503A2_ME_4B88F8D6025A_impl
  MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4B88F8D6025A CompareExistingItems
+ENDMEREF // ME_47B99D4503A2_ME_4B88F8D6025A_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_4B88F8D6025A_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_4B88F8D6025A_G l3UncomparabeObjectRefList
 
 %%InheritedBy ME_47B99E920196 ME_4B88F8D6025A
 
@@ -57,7 +63,7 @@ ME ME_4B88F8D6025A
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+   Seq: ( ME_47B99E920196_ME_4B88F8D6025A_G // l3UncomparabeObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -65,8 +71,8 @@ ME ME_4B88F8D6025A
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_4B88F8D6025A // AssignItem
- ME_47B99D4503A2_ME_4B88F8D6025A // CompareExistingItems
+   Seq: ( ME_47B2C42A0163_ME_4B88F8D6025A_impl // AssignItem
+ ME_47B99D4503A2_ME_4B88F8D6025A_impl // CompareExistingItems
  )
  ; // Implemented
  MELIST Dependencies

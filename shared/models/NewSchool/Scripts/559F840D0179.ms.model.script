@@ -1,0 +1,72 @@
+// TtfwWordInfoList 559F840D0179 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559F840D0179
+
+ME ME_559F84A9017C
+ MEPROP UID '559F84A9017C'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559F840D0179 // TtfwWordInfoList
+ ;
+ MELINK Target WL 'ME_52C15D690329' '55BA28CE0290.ms.model.script' // TtfwWordInfoRec
+ ;
+
+ENDME // ME_559F84A9017C FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_559F840D0179_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_559F840D0179_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_559F840D0179_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_559F840D0179_G l3Searcher
+
+MEREF ME_559F8232010B_ME_559F840D0179_G
+ MELINK Original WL? 'ME_559F8232010B' // TtfwWordInfoListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559F8232010B_ME_559F840D0179_G TtfwWordInfoListPrim
+
+%%InheritedBy ME_47B47E230134 ME_559F840D0179
+%%InheritedBy ME_559F8232010B ME_559F840D0179
+
+ME ME_559F840D0179
+ MEPROP UID '559F840D0179'
+ MEPROP Name 'TtfwWordInfoList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_559F81FE0232' // WordInfoCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_559F840D0179_G // l3Searcher
+ ME_559F8232010B_ME_559F840D0179_G // TtfwWordInfoListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559F84A9017C // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_559F840D0179_over // CompareItemWithData
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordInfoList.pas'
+ UP extprop:rc:SelfName 'WordInfoList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwWordInfoList'
+
+ENDME // ME_559F840D0179 TtfwWordInfoList

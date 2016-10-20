@@ -1,0 +1,66 @@
+// TvcmLockListenerList 55F96D940088 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55F96D940088
+
+ME ME_55F96DA9004C
+ MEPROP UID '55F96DA9004C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55F96D940088 // TvcmLockListenerList
+ ;
+ MELINK Target WL 'ME_4995561A03D2' '4683F37902CF.ms.model.script' // IvcmLockListener
+ ;
+
+ENDME // ME_55F96DA9004C ItemType
+
+MEREF ME_4A54DD4E036F_ME_55F96D940088_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55F96D940088_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_55F96D940088_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_55F96D940088_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_55F96D940088
+
+%%InheritedBy ME_4A54DD4E036F ME_55F96D940088
+
+ME ME_55F96D940088
+ MEPROP UID '55F96D940088'
+ MEPROP Name 'TvcmLockListenerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47DF70170311' // vcmCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_55F96D940088_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D630029_ME_55F96D940088_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55F96DA9004C // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmLockListenerList.pas'
+ UP extprop:rc:SelfName 'LockListenerList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmLockListenerList'
+
+ENDME // ME_55F96D940088 TvcmLockListenerList

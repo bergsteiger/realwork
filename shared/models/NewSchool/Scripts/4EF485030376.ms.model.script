@@ -19,16 +19,22 @@ ME ME_4EF4862A013F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4EF485030376 // TdsCRWarning
  ;
- MELINK Target WL 'ME_4EDCFD4D037C' '4DC1708D032D.ms.model.script' // TnsListWarningGenerator
+ MELINK Target WL? 'ME_4EDCFD4D037C' // TnsListWarningGenerator
  ;
 
 ENDME // ME_4EF4862A013F 
 
-ME ME_4EF4849D01C9_ME_4EF485030376
+MEREF ME_4EF4849D01C9_ME_4EF485030376_over
  MELINK Original WL 'ME_4EF4849D01C9' '492189D90209.ms.model.script' // DoGenerateWarning
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4EF4849D01C9_ME_4EF485030376 DoGenerateWarning
+ENDMEREF // ME_4EF4849D01C9_ME_4EF485030376_over DoGenerateWarning
+
+MEREF ME_492189D90209_ME_4EF485030376_G
+ MELINK Original WL? 'ME_492189D90209' // TdsWarning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492189D90209_ME_4EF485030376_G TdsWarning
 
 %%InheritedBy ME_492189D90209 ME_4EF485030376
 
@@ -44,11 +50,11 @@ ME ME_4EF485030376
  MELINK Parent WL? 'ME_4A9F83AD0235' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492189D90209' // TdsWarning
+   Seq: ( ME_492189D90209_ME_4EF485030376_G // TdsWarning
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4EF4849D01C9_ME_4EF485030376 // DoGenerateWarning
+   Seq: ( ME_4EF4849D01C9_ME_4EF485030376_over // DoGenerateWarning
  )
  ; // Overridden
  MELIST Dependencies

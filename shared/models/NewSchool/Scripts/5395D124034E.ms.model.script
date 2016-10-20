@@ -1,0 +1,55 @@
+// TarchiExportActionTest 5395D124034E TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5395D124034E
+
+ME ME_5395D1AB0313
+ MEPROP UID '5395D1AB0313'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5395D124034E // TarchiExportActionTest
+ ;
+
+ENDME // ME_5395D1AB0313 DoIt
+
+MEREF ME_4B2A11BC0255_ME_5395D124034E_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_5395D124034E_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_5395D124034E
+
+ME ME_5395D124034E
+ MEPROP UID '5395D124034E'
+ MEPROP Name 'TarchiExportActionTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5395D0F601A6' // Tasked Actions
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_5395D124034E_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5395D1AB0313 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas'
+ UP extprop:rc:SelfName 'archiExportActionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'archiExportActionTest'
+
+ENDME // ME_5395D124034E TarchiExportActionTest

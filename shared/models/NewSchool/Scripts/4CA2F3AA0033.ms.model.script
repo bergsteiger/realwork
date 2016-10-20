@@ -1,0 +1,178 @@
+// TCommentInTableAndScrollTest 4CA2F3AA0033 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA2F3AA0033
+
+FORWARD ME_4CA983690025
+
+ME ME_4CA990A3021D
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_4CA990A3021D aView
+
+ME ME_4CA983AD019E
+ MEPROP UID '4CA983AD019E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA983690025 // IsUserComment
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CA990A3021D // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4CA983AD019E DoIt
+
+ME ME_4CA983690025
+ MEPROP UID '4CA983690025'
+ MEPROP Name 'IsUserComment'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет указывает ли якорь на пользовательский комментарий.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA983AD019E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA983690025 IsUserComment
+
+ME ME_4CA2F78B0186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4CA2F78B0186 
+
+ME ME_4CA2FA40017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4CA2FA40017D 
+
+ME ME_4CA2FD0B01D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELINK Target WL 'ME_4857D15D029B' '48492FC0029D.ms.model.script' // SBSCell
+ ;
+
+ENDME // ME_4CA2FD0B01D9 
+
+ME ME_4CA992F400C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4CA992F400C0 
+
+ME ME_53F2082201C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA2F3AA0033 // TCommentInTableAndScrollTest
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53F2082201C6 
+
+MEREF ME_4C1F0A260192_ME_4CA2F3AA0033_over
+ MELINK Original WL 'ME_4C1F0A260192' '4BE047320379.ms.model.script' // CheckTopAnchor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C1F0A260192_ME_4CA2F3AA0033_over CheckTopAnchor
+
+MEREF ME_4CA2F33F01E5_ME_4CA2F3AA0033_over
+ MELINK Original WL 'ME_4CA2F33F01E5' '4C9CA365006C.ms.model.script' // MoveCursor4Insert
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA2F33F01E5_ME_4CA2F3AA0033_over MoveCursor4Insert
+
+MEREF ME_4CA982110056_ME_4CA2F3AA0033_over
+ MELINK Original WL 'ME_4CA982110056' '4C9CA365006C.ms.model.script' // GetUserComment
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA982110056_ME_4CA2F3AA0033_over GetUserComment
+
+MEREF ME_4CA982800281_ME_4CA2F3AA0033_over
+ MELINK Original WL 'ME_4CA982800281' '4C9CA365006C.ms.model.script' // DoScroll
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA982800281_ME_4CA2F3AA0033_over DoScroll
+
+MEREF ME_4C9CA365006C_ME_4CA2F3AA0033_G
+ MELINK Original WL? 'ME_4C9CA365006C' // TCommentAndScrollTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C9CA365006C_ME_4CA2F3AA0033_G TCommentAndScrollTest
+
+%%InheritedBy ME_4C9CA365006C ME_4CA2F3AA0033
+
+ME ME_4CA2F3AA0033
+ MEPROP UID '4CA2F3AA0033'
+ MEPROP Name 'TCommentInTableAndScrollTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест вставки комметария в таблицу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C9CA365006C_ME_4CA2F3AA0033_G // TCommentAndScrollTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CA983690025 // IsUserComment
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C1F0A260192_ME_4CA2F3AA0033_over // CheckTopAnchor
+ ME_4CA2F33F01E5_ME_4CA2F3AA0033_over // MoveCursor4Insert
+ ME_4CA982110056_ME_4CA2F3AA0033_over // GetUserComment
+ ME_4CA982800281_ME_4CA2F3AA0033_over // DoScroll
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CA2F78B0186 // Operations
+ ME_4CA2FA40017D // TableCell
+ ME_4CA2FD0B01D9 // SBSCell
+ ME_4CA992F400C0 // CommentPara
+ ME_53F2082201C6 // Tl3Tag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\CommentInTableAndScrollTest.pas'
+ UP extprop:rc:SelfName 'CommentInTableAndScrollTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CommentInTableAndScrollTest'
+
+ENDME // ME_4CA2F3AA0033 TCommentInTableAndScrollTest

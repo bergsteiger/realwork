@@ -1,0 +1,81 @@
+// TvcmFormSetFormsCollectionPrimPrim 4FFC55AD02B3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFC55AD02B3
+
+ME ME_4FFEC231035F
+ MEPROP UID '4FFEC231035F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFC55AD02B3 // TvcmFormSetFormsCollectionPrimPrim
+ ;
+ MELINK Target WL? 'ME_4FFC337003AF' // TvcmFormSetFormsCollectionItemPrim
+ ;
+
+ENDME // ME_4FFEC231035F ItemType
+
+MEREF ME_47B2C42A0163_ME_4FFC55AD02B3_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4FFC55AD02B3_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4FFC55AD02B3_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4FFC55AD02B3_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_4FFC55AD02B3_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_4FFC55AD02B3_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_4FFC55AD02B3_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4FFC55AD02B3_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_4FFC55AD02B3
+%%InheritedBy ME_4A54DD4E036F ME_4FFC55AD02B3
+
+ME ME_4FFC55AD02B3
+ MEPROP UID '4FFC55AD02B3'
+ MEPROP Name 'TvcmFormSetFormsCollectionPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47B9727603BE' // FormSets
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_4FFC55AD02B3_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_4FFC55AD02B3_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FFEC231035F // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4FFC55AD02B3_impl // AssignItem
+ ME_47B99D4503A2_ME_4FFC55AD02B3_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionPrimPrim.pas'
+ UP extprop:rc:SelfName 'FormSetFormsCollectionPrimPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmFormSetFormsCollectionPrimPrim'
+
+ENDME // ME_4FFC55AD02B3 TvcmFormSetFormsCollectionPrimPrim

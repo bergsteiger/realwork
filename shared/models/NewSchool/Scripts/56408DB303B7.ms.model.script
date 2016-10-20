@@ -1,0 +1,118 @@
+// TdaCondition 56408DB303B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56408DB303B7
+
+FORWARD ME_56408E7F01A1
+
+ME ME_56408EA1034F
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5608FDE00371' '5432518A0316.ms.model.script' // IdaParamListHelper
+ ;
+
+ENDME // ME_56408EA1034F aHelper
+
+ME ME_56408E8F00BD
+ MEPROP UID '56408E8F00BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56408E7F01A1 // DoBuildSQL
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_56408EA1034F // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_56408E8F00BD DoIt
+
+ME ME_56408E7F01A1
+ MEPROP UID '56408E7F01A1'
+ MEPROP Name 'DoBuildSQL'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56408DB303B7 // TdaCondition
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56408E8F00BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56408E7F01A1 DoBuildSQL
+
+MEREF ME_5608E5FE0355_ME_56408DB303B7_impl
+ MELINK Original WL 'ME_5608E5FE0355' '5432518A0316.ms.model.script' // BuildSQLValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5608E5FE0355_ME_56408DB303B7_impl BuildSQLValue
+
+MEREF ME_564089E3039B_ME_56408DB303B7_impl
+ MELINK Original WL 'ME_564089E3039B' '5432518A0316.ms.model.script' // Iterate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDMEREF // ME_564089E3039B_ME_56408DB303B7_impl Iterate
+
+MEREF ME_49E7754802A9_ME_56408DB303B7_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_56408DB303B7_G Tl3ProtoObject
+
+MEREF ME_5551DC5C020D_ME_56408DB303B7_R
+ MELINK Original WL 'ME_5551DC5C020D' '5432518A0316.ms.model.script' // IdaCondition
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5551DC5C020D_ME_56408DB303B7_R IdaCondition
+
+%%ImplementedBy ME_5551DC5C020D ME_56408DB303B7
+
+%%InheritedBy ME_49E7754802A9 ME_56408DB303B7
+
+ME ME_56408DB303B7
+ MEPROP UID '56408DB303B7'
+ MEPROP Name 'TdaCondition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_56408DB303B7_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5551DC5C020D_ME_56408DB303B7_R // IdaCondition
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_56408E7F01A1 // DoBuildSQL
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5608E5FE0355_ME_56408DB303B7_impl // BuildSQLValue
+ ME_564089E3039B_ME_56408DB303B7_impl // Iterate
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daCondition.pas'
+ UP extprop:rc:SelfName 'daCondition'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daCondition'
+
+ENDME // ME_56408DB303B7 TdaCondition

@@ -24,6 +24,12 @@ ME ME_4C93316D02C8
 
 ENDME // ME_4C93316D02C8 pstNone
 
+MEREF ME_4AC608E40294_ME_4AC608FA0372_G
+ MELINK Original WL? 'ME_4AC608E40294' // TvtGroupBox
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC608E40294_ME_4AC608FA0372_G TvtGroupBox
+
 %%InheritedBy ME_4AC608E40294 ME_4AC608FA0372
 
 ME ME_4AC608FA0372
@@ -37,7 +43,7 @@ ME ME_4AC608FA0372
  MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AC608E40294' // TvtGroupBox
+   Seq: ( ME_4AC608E40294_ME_4AC608FA0372_G // TvtGroupBox
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -45,6 +51,12 @@ ME ME_4AC608FA0372
  UP "put to dfm" true
 
 ENDME // ME_4AC608FA0372 PreviewGroupBox
+
+MEREF ME_4AC60C4B00AA_ME_4AC60C6B023A_G
+ MELINK Original WL? 'ME_4AC60C4B00AA' // TnscPageControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC60C4B00AA_ME_4AC60C6B023A_G TnscPageControl
 
 %%InheritedBy ME_4AC60C4B00AA ME_4AC60C6B023A
 
@@ -59,7 +71,7 @@ ME ME_4AC60C6B023A
  MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AC60C4B00AA' // TnscPageControl
+   Seq: ( ME_4AC60C4B00AA_ME_4AC60C6B023A_G // TnscPageControl
  )
  ; // Inherits
  UP "ControlClass" 'none'
@@ -186,16 +198,22 @@ ME ME_4AC609690346
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AAF8637036A // PrimPageSetup
  ;
- MELINK Target WL 'ME_4ABB686202B1' '4ABB68530117.ms.model.script' // TnsPageSetup
+ MELINK Target WL? 'ME_4ABB686202B1' // TnsPageSetup
  ;
 
 ENDME // ME_4AC609690346 
 
-ME ME_479731C50290_ME_4AAF8637036A
+MEREF ME_479731C50290_ME_4AAF8637036A_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4AAF8637036A Cleanup
+ENDMEREF // ME_479731C50290_ME_4AAF8637036A_over Cleanup
+
+MEREF ME_49525B34022A_ME_4AAF8637036A_G
+ MELINK Original WL? 'ME_49525B34022A' // TvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525B34022A_ME_4AAF8637036A_G TvcmEntityForm
 
 %%InheritedBy ME_49525B34022A ME_4AAF8637036A
 
@@ -212,7 +230,7 @@ ME ME_4AAF8637036A
  MELINK Parent WL? 'ME_4958E382019E' // Search$Presentation for F1 and Monitorings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+   Seq: ( ME_49525B34022A_ME_4AAF8637036A_G // TvcmEntityForm
  )
  ; // Inherits
  MELIST Attributes
@@ -231,7 +249,7 @@ ME ME_4AAF8637036A
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4AAF8637036A // Cleanup
+   Seq: ( ME_479731C50290_ME_4AAF8637036A_over // Cleanup
  )
  ; // Overridden
  MELIST Children

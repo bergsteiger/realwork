@@ -1,0 +1,45 @@
+// TncsGetReadyToDeliveryTasksReply 54645E0D0246 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_547831BD02E5_ME_54645E0D0246_G
+ MELINK Original WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_547831BD02E5_ME_54645E0D0246_G TncsReply
+
+MEREF ME_5464592501C4_ME_54645E0D0246_R
+ MELINK Original WL 'ME_5464592501C4' '484A470100DD.ms.model.script' // csGetReadyToDeliveryTasksReply
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5464592501C4_ME_54645E0D0246_R csGetReadyToDeliveryTasksReply
+
+%%ImplementedBy ME_5464592501C4 ME_54645E0D0246
+
+%%InheritedBy ME_547831BD02E5 ME_54645E0D0246
+
+ME ME_54645E0D0246
+ MEPROP UID '54645E0D0246'
+ MEPROP Name 'TncsGetReadyToDeliveryTasksReply'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( ME_547831BD02E5_ME_54645E0D0246_G // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5464592501C4_ME_54645E0D0246_R // csGetReadyToDeliveryTasksReply
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas'
+ UP extprop:rc:SelfName 'ncsGetReadyToDeliveryTasksReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsGetReadyToDeliveryTasksReply'
+
+ENDME // ME_54645E0D0246 TncsGetReadyToDeliveryTasksReply

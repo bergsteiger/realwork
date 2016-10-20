@@ -1,0 +1,138 @@
+// TatAddLastQueryToJournalOperation 500D895D02A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500D895D02A3
+
+ME ME_500D8F5201DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL? 'ME_4D0A033202D2' // TatUserJournalHelper
+ ;
+
+ENDME // ME_500D8F5201DB 
+
+ME ME_500D8F790239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_500D8F790239 
+
+ME ME_500D8F9D00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_500D8F9D00F6 
+
+ME ME_500D9A28016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL? 'ME_4A549C190378' // TatQuery
+ ;
+
+ENDME // ME_500D9A28016B 
+
+ME ME_500D9A2C0136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL? 'ME_50045BDB00CA' // TatQueryTypeConverter
+ ;
+
+ENDME // ME_500D9A2C0136 
+
+ME ME_500DA1B20028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL 'ME_4807688A0144' '4807687301D4.ms.model.script' // TObjectList
+ ;
+
+ENDME // ME_500DA1B20028 
+
+ME ME_500DA2720369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_500D895D02A3 // TatAddLastQueryToJournalOperation
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_500DA2720369 
+
+MEREF ME_48089F460352_ME_500D895D02A3_impl
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48089F460352_ME_500D895D02A3_impl ExecuteSelf
+
+MEREF ME_48089F3701B4_ME_500D895D02A3_over
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48089F3701B4_ME_500D895D02A3_over InitParamList
+
+MEREF ME_48076E9D013E_ME_500D895D02A3_G
+ MELINK Original WL 'ME_48076E9D013E' '48089D120398.ms.model.script' // TatOperationBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48076E9D013E_ME_500D895D02A3_G TatOperationBase
+
+%%InheritedBy ME_48076E9D013E ME_500D895D02A3
+
+ME ME_500D895D02A3
+ MEPROP UID '500D895D02A3'
+ MEPROP Name 'TatAddLastQueryToJournalOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_48076E9D013E_ME_500D895D02A3_G // TatOperationBase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_500D895D02A3_impl // ExecuteSelf
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_500D895D02A3_over // InitParamList
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_500D8F5201DB // TatUserJournalHelper
+ ME_500D8F790239 // Query
+ ME_500D8F9D00F6 // atLogger
+ ME_500D9A28016B // TatQuery
+ ME_500D9A2C0136 // TatQueryTypeConverter
+ ME_500DA1B20028 // TObjectList
+ ME_500DA2720369 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atAddLastQueryToJournalOperation.pas'
+ UP extprop:rc:SelfName 'atAddLastQueryToJournalOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atAddLastQueryToJournalOperation'
+
+ENDME // ME_500D895D02A3 TatAddLastQueryToJournalOperation

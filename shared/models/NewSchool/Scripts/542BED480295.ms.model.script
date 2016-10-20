@@ -1,0 +1,458 @@
+// TnsNotificationManager 542BED480295 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_542BED480295
+%%Inner ME_542BED480295
+%%Inner ME_542BED480295
+%%Inner ME_542BED480295
+
+FORWARD ME_542BED480295
+
+FORWARD ME_542BF0670382
+
+ME ME_542BF0770199
+ MEPROP UID '542BF0770199'
+ MEPROP Name 'ntMonitoringUpdate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542BF0670382 // TnsNotificationType
+ ;
+
+ENDME // ME_542BF0770199 ntMonitoringUpdate
+
+ME ME_5446313701B9
+ MEPROP UID '5446313701B9'
+ MEPROP Name 'ntMainFormBecomeTopmostAtStartup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542BF0670382 // TnsNotificationType
+ ;
+
+ENDME // ME_5446313701B9 ntMainFormBecomeTopmostAtStartup
+
+ME ME_542BF0670382
+ MEPROP UID '542BF0670382'
+ MEPROP Name 'TnsNotificationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_542BF0770199 // ntMonitoringUpdate
+ HWL ME_5446313701B9 // ntMainFormBecomeTopmostAtStartup
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542BF0670382 TnsNotificationType
+
+FORWARD ME_542BEEB003E1
+
+ME ME_542BF1420315
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_542BF0670382 // TnsNotificationType
+ ;
+
+ENDME // ME_542BF1420315 aType
+
+ME ME_542BF11D00B6
+ MEPROP UID '542BF11D00B6'
+ MEPROP Name 'nsNotification'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_542BEEB003E1 // InsNotificationListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BF1420315 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_542BF11D00B6 nsNotification
+
+ME ME_542BEEB003E1
+ MEPROP UID '542BEEB003E1'
+ MEPROP GUID '096F1967-6628-4FD8-92E6-FF2CFD3B8325'
+ MEPROP Name 'InsNotificationListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BF11D00B6 // nsNotification
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'NotificationListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542BEEB003E1 InsNotificationListener
+
+FORWARD ME_542BEF1C0042
+
+ME ME_542BEF8700E1
+ MEPROP UID '542BEF8700E1'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542BEF1C0042 // TnsNotificationListenersList
+ ;
+ MELINK Target HWL ME_542BEEB003E1 // InsNotificationListener
+ ;
+
+ENDME // ME_542BEF8700E1 ItemType
+
+MEREF ME_47B57D630029_ME_542BEF1C0042_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_542BEF1C0042_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_542BEF1C0042_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_542BEF1C0042_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_542BEF1C0042
+%%InheritedBy ME_4A54DD4E036F ME_542BEF1C0042
+
+ME ME_542BEF1C0042
+ MEPROP UID '542BEF1C0042'
+ MEPROP Name 'TnsNotificationListenersList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D630029_ME_542BEF1C0042_G // l3InterfacePtrList
+ ME_4A54DD4E036F_ME_542BEF1C0042_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_542BEF8700E1 // ItemType
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'NotificationListenersList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542BEF1C0042 TnsNotificationListenersList
+
+FORWARD ME_542D0141013E
+
+ME ME_542BEFCA00C5
+ MEPROP UID '542BEFCA00C5'
+ MEPROP Name 'Listeners'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_542D0141013E // TnsNotificationManagerPrim
+ ;
+ MELINK Target HWL ME_542BEF1C0042 // TnsNotificationListenersList
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_542BEFCA00C5 Listeners
+
+FORWARD ME_542D13A40269
+
+ME ME_542D13AF0106
+ MEPROP UID '542D13AF0106'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542D13A40269 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_542D13AF0106 DoIt
+
+ME ME_542D13A40269
+ MEPROP UID '542D13A40269'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542D0141013E // TnsNotificationManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542D13AF0106 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542D13A40269 Exists
+
+MEREF ME_479731C50290_ME_542D0141013E_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_542D0141013E_over Cleanup
+
+MEREF ME_49E7754802A9_ME_542D0141013E_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_542D0141013E_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_542D0141013E
+
+ME ME_542D0141013E
+ MEPROP UID '542D0141013E'
+ MEPROP Name 'TnsNotificationManagerPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_542D0141013E_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_542BEFCA00C5 // Listeners
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_542D13A40269 // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_542D0141013E_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP extprop:rc:SelfName 'NotificationManagerPrim'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542D0141013E TnsNotificationManagerPrim
+
+FORWARD ME_542BF00B0238
+
+ME ME_542BF02C004B
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_542BEEB003E1 // InsNotificationListener
+ ;
+
+ENDME // ME_542BF02C004B aListener
+
+ME ME_542BF0250155
+ MEPROP UID '542BF0250155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BF00B0238 // AddListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BF02C004B // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_542BF0250155 DoIt
+
+ME ME_542BF00B0238
+ MEPROP UID '542BF00B0238'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BF0250155 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542BF00B0238 AddListener
+
+FORWARD ME_542BF0310050
+
+ME ME_542BF041024F
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_542BEEB003E1 // InsNotificationListener
+ ;
+
+ENDME // ME_542BF041024F aListener
+
+ME ME_542BF03F01F9
+ MEPROP UID '542BF03F01F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BF0310050 // RemoveListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BF041024F // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_542BF03F01F9 DoIt
+
+ME ME_542BF0310050
+ MEPROP UID '542BF0310050'
+ MEPROP Name 'RemoveListener'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BF03F01F9 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542BF0310050 RemoveListener
+
+FORWARD ME_542BF0AD02E8
+
+ME ME_542BF0C40358
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_542BF0670382 // TnsNotificationType
+ ;
+
+ENDME // ME_542BF0C40358 aType
+
+ME ME_542BF0BE03AC
+ MEPROP UID '542BF0BE03AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BF0AD02E8 // NotifyListeners
+ ;
+ MELIST Parameters
+   Seq: ( ME_542BF0C40358 // aType
+ )
+ ; // Parameters
+
+ENDME // ME_542BF0BE03AC DoIt
+
+ME ME_542BF0AD02E8
+ MEPROP UID '542BF0AD02E8'
+ MEPROP Name 'NotifyListeners'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BF0BE03AC // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542BF0AD02E8 NotifyListeners
+
+FORWARD ME_542D008601C9
+
+ME ME_542D00980183
+ MEPROP UID '542D00980183'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542D008601C9 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_542D00980183 DoIt
+
+ME ME_542D008601C9
+ MEPROP UID '542D008601C9'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_542BED480295 // TnsNotificationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542D00980183 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_542D008601C9 Exists
+
+ME ME_542BED480295
+ MEPROP UID '542BED480295'
+ MEPROP Name 'TnsNotificationManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48F747EC0073' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542BF00B0238 // AddListener
+ HWL ME_542BF0310050 // RemoveListener
+ HWL ME_542BF0AD02E8 // NotifyListeners
+ HWL ME_542D008601C9 // Exists
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_542BF0670382 // TnsNotificationType
+ HWL ME_542BEEB003E1 // InsNotificationListener
+ HWL ME_542BEF1C0042 // TnsNotificationListenersList
+ HWL ME_542D0141013E // TnsNotificationManagerPrim
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\nsNotificationManager.pas'
+ UP extprop:rc:SelfName 'NotificationManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNotificationManager'
+
+ENDME // ME_542BED480295 TnsNotificationManager

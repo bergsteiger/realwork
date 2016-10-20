@@ -1,0 +1,46 @@
+// TtfwCachedTokens 52F1221701EB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F1221701EB
+
+MEREF ME_47A6FEE600FC_ME_52F1221701EB_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_52F1221701EB_over IsCacheable
+
+MEREF ME_4F473F370158_ME_52F1221701EB_G
+ MELINK Original WL? 'ME_4F473F370158' // TtfwCStringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F473F370158_ME_52F1221701EB_G TtfwCStringList
+
+%%InheritedBy ME_4F473F370158 ME_52F1221701EB
+
+ME ME_52F1221701EB
+ MEPROP UID '52F1221701EB'
+ MEPROP Name 'TtfwCachedTokens'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4734A40270' // Parser
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F473F370158_ME_52F1221701EB_G // TtfwCStringList
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_52F1221701EB_over // IsCacheable
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
+ UP extprop:rc:SelfName 'CachedTokens'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwCachedTokens'
+
+ENDME // ME_52F1221701EB TtfwCachedTokens

@@ -1,0 +1,63 @@
+// TeeDocument 54BE51580257 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE51580257
+
+MEREF ME_4D63D26D033F_ME_54BE51580257_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_54BE51580257_over QueryTool
+
+MEREF ME_4857B637007C_ME_54BE51580257_G
+ MELINK Original WL? 'ME_4857B637007C' // TevDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857B637007C_ME_54BE51580257_G TevDocument
+
+MEREF ME_54BE5365004B_ME_54BE51580257_R
+ MELINK Original WL 'ME_54BE5365004B' '4AB112DF005B.ms.model.script' // Document
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54BE5365004B_ME_54BE51580257_R Document
+
+%%ImplementedBy ME_54BE5365004B ME_54BE51580257
+
+%%InheritedBy ME_4857B637007C ME_54BE51580257
+
+ME ME_54BE51580257
+ MEPROP UID '54BE51580257'
+ MEPROP Name 'TeeDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB112DF005B' // EVD
+ ;
+ MELIST Inherits
+   Seq: ( ME_4857B637007C_ME_54BE51580257_G // TevDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_54BE5365004B_ME_54BE51580257_R // Document
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_54BE51580257_over // QueryTool
+ )
+ ; // Overridden
+ MELIST Injected
+   Seq: ( WL 'ME_54BE5277018F' '54BE50B902CB.ms.model.script' // TeeDocumentCursor
+ WL 'ME_54BE52830056' '54BE50DC0032.ms.model.script' // TeeDocumentCursorPair
+ )
+ ; // Injected
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocument_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TeeDocumentInterfaceFactory'
+ UP extprop:rc:SelfName 'eeDocumentInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeDocument_InterfaceFactory'
+
+ENDME // ME_54BE51580257 TeeDocument

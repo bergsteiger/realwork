@@ -1,0 +1,119 @@
+// K293280527 4E982F1802E7 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E982F1802E7
+
+FORWARD ME_4E982F43023D
+
+ME ME_4E982F6202D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E982F43023D // DoIt
+ ;
+ MELINK Target WL? 'ME_4773DC580043' // Tl3InterfaceList
+ ;
+
+ENDME // ME_4E982F6202D1 
+
+ME ME_4E982F930385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E982F43023D // DoIt
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4E982F930385 
+
+ME ME_4E982F9B027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E982F43023D // DoIt
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4E982F9B027D 
+
+ME ME_4E982FB7000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E982F43023D // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4E982FB7000B 
+
+ME ME_4E9831CE00F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E982F43023D // DoIt
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E9831CE00F4 
+
+ME ME_4E982F43023D
+ MEPROP UID '4E982F43023D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E982F1802E7 // K293280527
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4E982F6202D1 // Tl3InterfaceList
+ ME_4E982F930385 // l3CStr
+ ME_4E982F9B027D // l3String
+ ME_4E982FB7000B // FreeAndNil
+ ME_4E9831CE00F4 // Il3CString
+ )
+ ; // Dependencies
+
+ENDME // ME_4E982F43023D DoIt
+
+MEREF ME_4B2A11BC0255_ME_4E982F1802E7_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4E982F1802E7_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4E982F1802E7
+
+ME ME_4E982F1802E7
+ MEPROP UID '4E982F1802E7'
+ MEPROP Name 'K293280527'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:293280527}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D6BE7850038' // 7.7 Lulin
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4E982F1802E7_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E982F43023D // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '14.10.2011 16:46'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K293280527.pas'
+ UP extprop:pas:TypeName 'TK293280527'
+ UP extprop:rc:SelfName 'K293280527'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E982F1802E7 K293280527

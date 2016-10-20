@@ -1,0 +1,66 @@
+// TncsServerTransporterPtrList 5492D7AC0214 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5492D7AC0214
+
+ME ME_5492D7DE03B9
+ MEPROP UID '5492D7DE03B9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5492D7AC0214 // TncsServerTransporterPtrList
+ ;
+ MELINK Target WL 'ME_5465A5AB0324' '5460A4DB018A.ms.model.script' // IncsServerTransporter
+ ;
+
+ENDME // ME_5492D7DE03B9 ItemType
+
+MEREF ME_4A54DD4E036F_ME_5492D7AC0214_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5492D7AC0214_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D630029_ME_5492D7AC0214_R
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_5492D7AC0214_R l3InterfacePtrList
+
+%%ImplementedBy ME_47B57D630029 ME_5492D7AC0214
+
+%%InheritedBy ME_4A54DD4E036F ME_5492D7AC0214
+
+ME ME_5492D7AC0214
+ MEPROP UID '5492D7AC0214'
+ MEPROP Name 'TncsServerTransporterPtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_5492D7AC0214_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D630029_ME_5492D7AC0214_R // l3InterfacePtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5492D7DE03B9 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServerTransporterPtrList.pas'
+ UP extprop:rc:SelfName 'ncsServerTransporterPtrList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsServerTransporterPtrList'
+
+ENDME // ME_5492D7AC0214 TncsServerTransporterPtrList

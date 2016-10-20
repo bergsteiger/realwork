@@ -1,0 +1,74 @@
+// TvcmFormDataSource 491B1EC400E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491B1EC400E2
+
+ME ME_491B1F0E0194
+ MEPROP UID '491B1F0E0194'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B1EC400E2 // TvcmFormDataSource
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_491B1F0E0194 InitDataType
+
+ME ME_491C1E7D0040
+ MEPROP UID '491C1E7D0040'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B1EC400E2 // TvcmFormDataSource
+ ;
+ MELINK Target WL 'ME_497841510139' '4982BE090383.ms.model.script' // IvcmViewAreaController
+ ;
+
+ENDME // ME_491C1E7D0040 FormDataSourceType
+
+MEREF ME_492ACB4100B2_ME_491B1EC400E2_G
+ MELINK Original WL? 'ME_492ACB4100B2' // vcmFormDataSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ACB4100B2_ME_491B1EC400E2_G vcmFormDataSource
+
+%%InheritedBy ME_492ACB4100B2 ME_491B1EC400E2
+
+ME ME_491B1EC400E2
+ MEPROP UID '491B1EC400E2'
+ MEPROP Name 'TvcmFormDataSource'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Бизнес объект формы". Для поддержки старого нетипизированного подхода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_492ACB4100B2_ME_491B1EC400E2_G // vcmFormDataSource
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491B1F0E0194 // InitDataType
+ HWL ME_491C1E7D0040 // FormDataSourceType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.11.2008 21:30'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDataSource.pas'
+ UP extprop:rc:SelfName 'FormDataSource'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmFormDataSource'
+
+ENDME // ME_491B1EC400E2 TvcmFormDataSource

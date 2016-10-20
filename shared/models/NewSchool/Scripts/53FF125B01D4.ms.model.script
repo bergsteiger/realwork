@@ -1,0 +1,105 @@
+// Tm3LinkedStream 53FF125B01D4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FF125B01D4
+
+ME ME_53FF132801AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF125B01D4 // Tm3LinkedStream
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_53FF132801AF 
+
+ME ME_53FF132B0216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF125B01D4 // Tm3LinkedStream
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_53FF132B0216 
+
+ME ME_53FF191B027C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF125B01D4 // Tm3LinkedStream
+ ;
+ MELINK Target WL 'ME_53FDFAAE0115' '46A0E6C5023A.ms.model.script' // TCLSID
+ ;
+
+ENDME // ME_53FF191B027C 
+
+MEREF ME_4FA27CF501C4_ME_53FF125B01D4_over
+ MELINK Original WL 'ME_4FA27CF501C4' '5481CCCF0319.ms.model.script' // DoRead
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27CF501C4_ME_53FF125B01D4_over DoRead
+
+MEREF ME_4FA27D310344_ME_53FF125B01D4_over
+ MELINK Original WL 'ME_4FA27D310344' '5481CCCF0319.ms.model.script' // DoWrite
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA27D310344_ME_53FF125B01D4_over DoWrite
+
+MEREF ME_4FA2805002E3_ME_53FF125B01D4_over
+ MELINK Original WL 'ME_4FA2805002E3' '4FA276650046.ms.model.script' // DoGetLocksSupported
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FA2805002E3_ME_53FF125B01D4_over DoGetLocksSupported
+
+MEREF ME_5412FB880320_ME_53FF125B01D4_over
+ MELINK Original WL 'ME_5412FB880320' '4FA276650046.ms.model.script' // DoGetName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5412FB880320_ME_53FF125B01D4_over DoGetName
+
+MEREF ME_53FDCE880154_ME_53FF125B01D4_G
+ MELINK Original WL? 'ME_53FDCE880154' // Tm3CustomStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53FDCE880154_ME_53FF125B01D4_G Tm3CustomStream
+
+%%InheritedBy ME_53FDCE880154 ME_53FF125B01D4
+
+ME ME_53FF125B01D4
+ MEPROP UID '53FF125B01D4'
+ MEPROP Name 'Tm3LinkedStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( ME_53FDCE880154_ME_53FF125B01D4_G // Tm3CustomStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4FA27CF501C4_ME_53FF125B01D4_over // DoRead
+ ME_4FA27D310344_ME_53FF125B01D4_over // DoWrite
+ ME_4FA2805002E3_ME_53FF125B01D4_over // DoGetLocksSupported
+ ME_5412FB880320_ME_53FF125B01D4_over // DoGetName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53FF132801AF // ComObj
+ ME_53FF132B0216 // m2COMLib
+ ME_53FF191B027C // TCLSID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3LinkedStream.pas'
+ UP extprop:rc:SelfName 'm3LinkedStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3LinkedStream'
+
+ENDME // ME_53FF125B01D4 Tm3LinkedStream

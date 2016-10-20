@@ -1,0 +1,69 @@
+// TevdTaskFolderEliminator 53C3AC15027D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53C3AC15027D
+
+ME ME_53C3AC7902DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53C3AC15027D // TevdTaskFolderEliminator
+ ;
+ MELINK Target WL 'ME_537DFEF702E1' '484A470100DD.ms.model.script' // Task
+ ;
+
+ENDME // ME_53C3AC7902DF 
+
+MEREF ME_49E488070386_ME_53C3AC15027D_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_53C3AC15027D_over ParaTypeForFiltering
+
+MEREF ME_49E4883E0176_ME_53C3AC15027D_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_53C3AC15027D_over DoWritePara
+
+MEREF ME_49E487650342_ME_53C3AC15027D_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_53C3AC15027D_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_53C3AC15027D
+
+ME ME_53C3AC15027D
+ MEPROP UID '53C3AC15027D'
+ MEPROP Name 'TevdTaskFolderEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_53C3AC15027D_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_53C3AC15027D_over // ParaTypeForFiltering
+ ME_49E4883E0176_ME_53C3AC15027D_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53C3AC7902DF // Task
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdTaskFolderEliminator.pas'
+ UP extprop:rc:SelfName 'dTaskFolderEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdTaskFolderEliminator'
+
+ENDME // ME_53C3AC15027D TevdTaskFolderEliminator

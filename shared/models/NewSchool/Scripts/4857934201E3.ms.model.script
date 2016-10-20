@@ -1,0 +1,158 @@
+// TevFormula 4857934201E3 InterfaceFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4857934201E3
+
+ME ME_5ECA636B8176
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_5ECA636B8176 
+
+ME ME_E0D565D49F5D
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+
+ENDME // ME_E0D565D49F5D 
+
+ME ME_E10E1D33518B
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+
+ENDME // ME_E10E1D33518B 
+
+ME ME_A1BAE7DD4A82
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_A1BAE7DD4A82 
+
+ME ME_563CC531FD8D
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_563CC531FD8D 
+
+ME ME_491B5F0E6ED7
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_47C6A7FF02C1' '47C5207602D1.ms.model.script' // InevLeafPara
+ ;
+
+ENDME // ME_491B5F0E6ED7 
+
+ME ME_F77BA85C28BC
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857934201E3 // TevFormula
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_F77BA85C28BC 
+
+MEREF ME_4D63D26D033F_ME_4857934201E3_over
+ MELINK Original WL 'ME_4D63D26D033F' '4D63C2420229.ms.model.script' // QueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4D63D26D033F_ME_4857934201E3_over QueryTool
+
+MEREF ME_53CCBDA5026D_ME_4857934201E3_over
+ MELINK Original WL 'ME_53CCBDA5026D' '4D63C2420229.ms.model.script' // COMQueryTool
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53CCBDA5026D_ME_4857934201E3_over COMQueryTool
+
+MEREF ME_48577C150116_ME_4857934201E3_G
+ MELINK Original WL? 'ME_48577C150116' // TevTextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48577C150116_ME_4857934201E3_G TevTextPara
+
+MEREF ME_4857926501CB_ME_4857934201E3_R
+ MELINK Original WL 'ME_4857926501CB' '48492FC0029D.ms.model.script' // Formula
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4857926501CB_ME_4857934201E3_R Formula
+
+%%ImplementedBy ME_4857926501CB ME_4857934201E3
+
+%%InheritedBy ME_48577C150116 ME_4857934201E3
+
+ME ME_4857934201E3
+ MEPROP UID '4857934201E3'
+ MEPROP Name 'TevFormula'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_InterfaceFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53D258F1004F' // InterfaceFactories
+ ;
+ MELIST Inherits
+   Seq: ( ME_48577C150116_ME_4857934201E3_G // TevTextPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4857926501CB_ME_4857934201E3_R // Formula
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4D63D26D033F_ME_4857934201E3_over // QueryTool
+ ME_53CCBDA5026D_ME_4857934201E3_over // COMQueryTool
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5ECA636B8176 // IevPainter
+ ME_E0D565D49F5D // InevTextPara
+ ME_E10E1D33518B // InevDrawingShape
+ ME_A1BAE7DD4A82 // InevPara
+ ME_563CC531FD8D // InevObject
+ ME_491B5F0E6ED7 // InevLeafPara
+ ME_F77BA85C28BC // InevObjectPrim
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_4DD67BEC00A2' '4804CC63006C.ms.model.script' // TevFormulaPainter
+ WL 'ME_4DDFB65C028F' '4D5A9CA80141.ms.model.script' // TnevFormulaPara
+ WL 'ME_53D0F7390059' '53D0F71C02D0.ms.model.script' // TevFormulaCursor
+ )
+ ; // Injected
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evFormula_InterfaceFactory.pas'
+ UP extprop:pas:TypeName 'TevFormulaInterfaceFactory'
+ UP extprop:rc:SelfName 'FormulaInterfaceFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evFormula_InterfaceFactory'
+
+ENDME // ME_4857934201E3 TevFormula

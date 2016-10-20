@@ -1,0 +1,140 @@
+// TvgSortableObjectList 4D552B230161 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D552B230161
+
+ME ME_4D552B9F0084
+ MEPROP UID '4D552B9F0084'
+ MEPROP Name 'f_CurrentComparer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELINK Target WL 'ME_4D5529D60358' '4D552A2E00A3.ms.model.script' // TvgObjectSortCompare
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4D552B9F0084 f_CurrentComparer
+
+ME ME_4D5EA0D20199
+ MEPROP UID '4D5EA0D20199'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELINK Target WL? 'ME_4D542078016E' // TvgCustomObject
+ ;
+
+ENDME // ME_4D5EA0D20199 ItemType
+
+ME ME_4D552BC1002B
+ MEPROP Name 'aComparer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D5529D60358' '4D552A2E00A3.ms.model.script' // TvgObjectSortCompare
+ ;
+
+ENDME // ME_4D552BC1002B aComparer
+
+ME ME_4D552BB90144
+ MEPROP UID '4D552BB90144'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D552B230161 // TvgSortableObjectList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D552BC1002B // aComparer
+ )
+ ; // Parameters
+
+ENDME // ME_4D552BB90144 Sort
+
+MEREF ME_47B07CF403D0_ME_4D552B230161_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4D552B230161_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4D552B230161_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4D552B230161_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4D552B230161_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4D552B230161_impl CompareExistingItems
+
+MEREF ME_47B5782902DA_ME_4D552B230161_G
+ MELINK Original WL? 'ME_47B5782902DA' // l3PtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B5782902DA_ME_4D552B230161_G l3PtrList
+
+MEREF ME_4A54DD4E036F_ME_4D552B230161_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4D552B230161_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B5782902DA ME_4D552B230161
+%%InheritedBy ME_4A54DD4E036F ME_4D552B230161
+
+ME ME_4D552B230161
+ MEPROP UID '4D552B230161'
+ MEPROP Name 'TvgSortableObjectList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B5782902DA_ME_4D552B230161_G // l3PtrList
+ ME_4A54DD4E036F_ME_4D552B230161_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D552B9F0084 // f_CurrentComparer
+ HWL ME_4D5EA0D20199 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D552BB90144 // Sort
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D552B230161_impl // IsSameItems
+ ME_47B2C42A0163_ME_4D552B230161_impl // AssignItem
+ ME_47B99D4503A2_ME_4D552B230161_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '11.02.2011 15:27'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgSortableObjectList.pas'
+ UP extprop:rc:SelfName 'SortableObjectList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgSortableObjectList'
+
+ENDME // ME_4D552B230161 TvgSortableObjectList

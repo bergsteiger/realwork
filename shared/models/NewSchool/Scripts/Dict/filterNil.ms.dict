@@ -1,0 +1,29 @@
+UNIT filterNil.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ IsDeletedElement.ms.dict
+;
+
+ARRAY FUNCTION .filterNil>
+  ARRAY IN anArray
+ anArray
+ .filter> .IsNotNil
+ .filter> (
+   IN anElement
+  RULES 
+   ( anElement IsString )
+    true 
+   ( anElement IsArray )
+    true 
+   ( anElement .IsDeletedElement )
+    false
+   DEFAULT
+    true 
+  ; // RULES 
+ ) // .filter>
+ >>> Result
+; // .filterNil>

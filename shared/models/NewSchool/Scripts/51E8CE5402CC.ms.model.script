@@ -1,0 +1,172 @@
+// TddTab 51E8CE5402CC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E8CE5402CC
+
+ME ME_52CFE20A02CF
+ MEPROP UID '52CFE20A02CF'
+ MEPROP Name 'Kind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_52CFE034005A' '52CFA9D5031E.ms.model.script' // TTabKind
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFE20A02CF Kind
+
+ME ME_52CFE22401F4
+ MEPROP UID '52CFE22401F4'
+ MEPROP Name 'TabLead'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_52CFE07C0317' '52CFA9D5031E.ms.model.script' // TTabLead
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFE22401F4 TabLead
+
+ME ME_52CFE2620351
+ MEPROP UID '52CFE2620351'
+ MEPROP Name 'TabBar'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFE2620351 TabBar
+
+ME ME_52CFE28F032F
+ MEPROP UID '52CFE28F032F'
+ MEPROP Name 'TabPos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFE28F032F TabPos
+
+ME ME_54DCA3E90014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_468A69990133' '4677FBA70343.ms.model.script' // Tl3TabStopStyle
+ ;
+
+ENDME // ME_54DCA3E90014 
+
+ME ME_54DCA41D027F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E8CE5402CC // TddTab
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_54DCA41D027F 
+
+MEREF ME_54DC9795018B_ME_51E8CE5402CC_impl
+ MELINK Original WL 'ME_54DC9795018B' '52BACF040379.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54DC9795018B_ME_51E8CE5402CC_impl Write2Generator
+
+MEREF ME_52BACF8A01A9_ME_51E8CE5402CC_over
+ MELINK Original WL 'ME_52BACF8A01A9' '52BACF040379.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BACF8A01A9_ME_51E8CE5402CC_over Assign
+
+MEREF ME_52BACFBE00D9_ME_51E8CE5402CC_over
+ MELINK Original WL 'ME_52BACFBE00D9' '52BACF040379.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52BACFBE00D9_ME_51E8CE5402CC_over Create
+
+MEREF ME_52BACF040379_ME_51E8CE5402CC_G
+ MELINK Original WL? 'ME_52BACF040379' // TddBaseObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52BACF040379_ME_51E8CE5402CC_G TddBaseObject
+
+%%InheritedBy ME_52BACF040379 ME_51E8CE5402CC
+
+ME ME_51E8CE5402CC
+ MEPROP UID '51E8CE5402CC'
+ MEPROP Name 'TddTab'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_52BACF040379_ME_51E8CE5402CC_G // TddBaseObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52CFE20A02CF // Kind
+ HWL ME_52CFE22401F4 // TabLead
+ HWL ME_52CFE2620351 // TabBar
+ HWL ME_52CFE28F032F // TabPos
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_54DC9795018B_ME_51E8CE5402CC_impl // Write2Generator
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_52BACF8A01A9_ME_51E8CE5402CC_over // Assign
+ ME_52BACFBE00D9_ME_51E8CE5402CC_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54DCA3E90014 // Tl3TabStopStyle
+ ME_54DCA41D027F // Ext Chars
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTab.pas'
+ UP extprop:rc:SelfName 'ddTab'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddTab'
+
+ENDME // ME_51E8CE5402CC TddTab

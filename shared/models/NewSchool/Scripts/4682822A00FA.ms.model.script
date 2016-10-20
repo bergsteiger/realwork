@@ -1,0 +1,65 @@
+// TnsContentsRoot 4682822A00FA SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4682822A00FA
+
+MEREF ME_4772433F0008_ME_4682822A00FA_impl
+ MELINK Original WL 'ME_4772433F0008' '4682595B0268.ms.model.script' // CanExpandCollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772433F0008_ME_4682822A00FA_impl CanExpandCollapseAll
+
+MEREF ME_47724349030A_ME_4682822A00FA_impl
+ MELINK Original WL 'ME_47724349030A' '4682595B0268.ms.model.script' // ExpandCollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724349030A_ME_4682822A00FA_impl ExpandCollapseAll
+
+MEREF ME_46827E69026A_ME_4682822A00FA_G
+ MELINK Original WL? 'ME_46827E69026A' // TnsContentsNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46827E69026A_ME_4682822A00FA_G TnsContentsNode
+
+MEREF ME_468274930190_ME_4682822A00FA_R
+ MELINK Original WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_468274930190_ME_4682822A00FA_R Il3SimpleRootNode
+
+%%ImplementedBy ME_468274930190 ME_4682822A00FA
+
+%%InheritedBy ME_46827E69026A ME_4682822A00FA
+
+ME ME_4682822A00FA
+ MEPROP UID '4682822A00FA'
+ MEPROP Name 'TnsContentsRoot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корень оглавления.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC9F80281' // DocumentTagNodes
+ ;
+ MELIST Inherits
+   Seq: ( ME_46827E69026A_ME_4682822A00FA_G // TnsContentsNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_468274930190_ME_4682822A00FA_R // Il3SimpleRootNode
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4772433F0008_ME_4682822A00FA_impl // CanExpandCollapseAll
+ ME_47724349030A_ME_4682822A00FA_impl // ExpandCollapseAll
+ )
+ ; // Implemented
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsContentsRoot.pas'
+ UP extprop:rc:SelfName 'ContentsRoot'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsContentsRoot'
+
+ENDME // ME_4682822A00FA TnsContentsRoot

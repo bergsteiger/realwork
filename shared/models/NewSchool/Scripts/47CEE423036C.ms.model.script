@@ -1,0 +1,65 @@
+// TevDescriptionReqList 47CEE423036C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CEE423036C
+
+ME ME_47CEE44C039E
+ MEPROP UID '47CEE44C039E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEE423036C // TevDescriptionReqList
+ ;
+ MELINK Target WL 'ME_47CD5DC20075' '47CD5C7602CD.ms.model.script' // IevDescriptionReq
+ ;
+
+ENDME // ME_47CEE44C039E ItemType
+
+MEREF ME_47B57D830369_ME_47CEE423036C_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47CEE423036C_G l3InterfaceRefList
+
+MEREF ME_4A54DD4E036F_ME_47CEE423036C_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_47CEE423036C_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47CEE423036C
+%%InheritedBy ME_4A54DD4E036F ME_47CEE423036C
+
+ME ME_47CEE423036C
+ MEPROP UID '47CEE423036C'
+ MEPROP Name 'TevDescriptionReqList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47CEE423036C_G // l3InterfaceRefList
+ ME_4A54DD4E036F_ME_47CEE423036C_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47CEE44C039E // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '05.03.2008 21:19'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evDescriptionReqList.pas'
+ UP extprop:rc:SelfName 'DescriptionReqList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDescriptionReqList'
+
+ENDME // ME_47CEE423036C TevDescriptionReqList

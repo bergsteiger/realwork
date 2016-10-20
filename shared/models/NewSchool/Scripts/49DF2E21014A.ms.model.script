@@ -1,0 +1,105 @@
+// GroupsTree 49DF2E21014A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DF2E21014A
+
+ME ME_49DF2E3C0115
+ MEPROP UID '49DF2E3C0115'
+ MEPROP Name 'NodeType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49DF2E21014A // GroupsTree
+ ;
+
+ENDME // ME_49DF2E3C0115 NodeType_
+
+ME ME_49DF30EE0211
+ MEPROP UID '49DF30EE0211'
+ MEPROP Name 'NodeDelegateType_'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_template::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49DF2E21014A // GroupsTree
+ ;
+
+ENDME // ME_49DF30EE0211 NodeDelegateType_
+
+ME ME_49DF2E7900FD
+ MEPROP Name 'stree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_49DF2E7900FD stree
+
+ME ME_49DF2E710165
+ MEPROP UID '49DF2E710165'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DF2E21014A // GroupsTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DF2E7900FD // stree
+ )
+ ; // Parameters
+
+ENDME // ME_49DF2E710165 make
+
+ME ME_49DF2E880234
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DF2E21014A // GroupsTree
+ ;
+
+ENDME // ME_49DF2E880234 
+
+MEREF ME_45F585F802AF_ME_49DF2E21014A_R
+ MELINK Original WL? 'ME_45F585F802AF' // Tree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F585F802AF_ME_49DF2E21014A_R Tree
+
+%%ImplementedBy ME_45F585F802AF ME_49DF2E21014A
+
+ME ME_49DF2E21014A
+ MEPROP UID '49DF2E21014A'
+ MEPROP Name 'GroupsTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_45EEAA5A012C' // Security_i
+ ;
+ MELIST Implements
+   Seq: ( ME_45F585F802AF_ME_49DF2E21014A_R // Tree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49DF2E3C0115 // NodeType_
+ HWL ME_49DF30EE0211 // NodeDelegateType_
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49DF2E710165 // make
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49DF2E880234 // GroupsNode
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Security_i\GroupsTree.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Security_i\GroupsTree.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\GroupsTree.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49DF2E21014A GroupsTree

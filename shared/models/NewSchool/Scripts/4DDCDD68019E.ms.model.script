@@ -91,7 +91,7 @@ ME ME_4DDD0DAA01D8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
  ;
- MELINK Target WL 'ME_4DDD0D92039C' '4DDCD7B600D5.ms.model.script' // TnsChangesBetweenEditionsDocumentContainer
+ MELINK Target WL? 'ME_4DDD0D92039C' // TnsChangesBetweenEditionsDocumentContainer
  ;
 
 ENDME // ME_4DDD0DAA01D8 
@@ -101,7 +101,7 @@ ME ME_4F62F823034F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
  ;
- MELINK Target WL 'ME_4954878B03CF' '47EA968D0155.ms.model.script' // TevFormatHAFMacroReplacer
+ MELINK Target WL? 'ME_4954878B03CF' // TevFormatHAFMacroReplacer
  ;
 
 ENDME // ME_4F62F823034F 
@@ -111,7 +111,7 @@ ME ME_4F62FB5A03B2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDCDD68019E // TdsChangesBetweenEditions
  ;
- MELINK Target WL 'ME_4958968201A7' '47EA50050263.ms.model.script' // TnsDocInfoHAFMacroReplacer
+ MELINK Target WL? 'ME_4958968201A7' // TnsDocInfoHAFMacroReplacer
  ;
 
 ENDME // ME_4F62FB5A03B2 
@@ -156,38 +156,68 @@ ME ME_4F6336BB00F3
 
 ENDME // ME_4F6336BB00F3 
 
-ME ME_4AE56DE80093_ME_4DDCDD68019E
+MEREF ME_4AE56DE80093_ME_4DDCDD68019E_impl
  MELINK Original WL 'ME_4AE56DE80093' '491B305A0096.ms.model.script' // MakeHAFMacroReplacer
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4AE56DE80093_ME_4DDCDD68019E MakeHAFMacroReplacer
+ENDMEREF // ME_4AE56DE80093_ME_4DDCDD68019E_impl MakeHAFMacroReplacer
 
-ME ME_4DDCE9110130_ME_4DDCDD68019E
+MEREF ME_4DDCE9110130_ME_4DDCDD68019E_impl
  MELINK Original WL 'ME_4DDCE9110130' '4DDCD71E027C.ms.model.script' // RightEdition
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4DDCE9110130_ME_4DDCDD68019E RightEdition
+ENDMEREF // ME_4DDCE9110130_ME_4DDCDD68019E_impl RightEdition
 
-ME ME_4DDD0C170344_ME_4DDCDD68019E
+MEREF ME_4DDD0C170344_ME_4DDCDD68019E_impl
  MELINK Original WL 'ME_4DDD0C170344' '4DDCD71E027C.ms.model.script' // DocumentContainer
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4DDD0C170344_ME_4DDCDD68019E DocumentContainer
+ENDMEREF // ME_4DDD0C170344_ME_4DDCDD68019E_impl DocumentContainer
 
-ME ME_4F2BF187026F_ME_4DDCDD68019E
+MEREF ME_4F2BF187026F_ME_4DDCDD68019E_impl
  MELINK Original WL 'ME_4F2BF187026F' '4DDCD71E027C.ms.model.script' // LeftEdition
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4F2BF187026F_ME_4DDCDD68019E LeftEdition
+ENDMEREF // ME_4F2BF187026F_ME_4DDCDD68019E_impl LeftEdition
 
-ME ME_4F548A0D0096_ME_4DDCDD68019E
+MEREF ME_4F548A0D0096_ME_4DDCDD68019E_impl
  MELINK Original WL 'ME_4F548A0D0096' '4F54899502EA.ms.model.script' // DocumentForDocInfoProvider
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F548A0D0096_ME_4DDCDD68019E DocumentForDocInfoProvider
+ENDMEREF // ME_4F548A0D0096_ME_4DDCDD68019E_impl DocumentForDocInfoProvider
+
+MEREF ME_492ACB4100B2_ME_4DDCDD68019E_G
+ MELINK Original WL? 'ME_492ACB4100B2' // vcmFormDataSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492ACB4100B2_ME_4DDCDD68019E_G vcmFormDataSource
+
+MEREF ME_4F54899502EA_ME_4DDCDD68019E_G
+ MELINK Original WL? 'ME_4F54899502EA' // deDocInfoProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F54899502EA_ME_4DDCDD68019E_G deDocInfoProvider
+
+MEREF ME_4AE56DB003D5_ME_4DDCDD68019E_R
+ MELINK Original WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE56DB003D5_ME_4DDCDD68019E_R IucpHAFMacroReplacerFactory
+
+MEREF ME_4DDCD7420084_ME_4DDCDD68019E_R
+ MELINK Original WL 'ME_4DDCD7420084' '4DDCD71E027C.ms.model.script' // IdsChangesBetweenEditions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCD7420084_ME_4DDCDD68019E_R IdsChangesBetweenEditions
+
+MEREF ME_4F633C0803B4_ME_4DDCDD68019E_R
+ MELINK Original WL 'ME_4F633C0803B4' '48200CF8039E.ms.model.script' // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F633C0803B4_ME_4DDCDD68019E_R В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
 
 %%ImplementedBy ME_4AE56DB003D5 ME_4DDCDD68019E
 %%ImplementedBy ME_4DDCD7420084 ME_4DDCDD68019E
@@ -208,14 +238,14 @@ ME ME_4DDCDD68019E
  MELINK Parent WL? 'ME_4DDCD7B600D5' // ChangesBetweenEditionsImplementation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492ACB4100B2' // vcmFormDataSource
- WL? 'ME_4F54899502EA' // deDocInfoProvider
+   Seq: ( ME_492ACB4100B2_ME_4DDCDD68019E_G // vcmFormDataSource
+ ME_4F54899502EA_ME_4DDCDD68019E_G // deDocInfoProvider
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AE56DB003D5' '491B305A0096.ms.model.script' // IucpHAFMacroReplacerFactory
- WL 'ME_4DDCD7420084' '4DDCD71E027C.ms.model.script' // IdsChangesBetweenEditions
- WL 'ME_4F633C0803B4' '48200CF8039E.ms.model.script' // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
+   Seq: ( ME_4AE56DB003D5_ME_4DDCDD68019E_R // IucpHAFMacroReplacerFactory
+ ME_4DDCD7420084_ME_4DDCDD68019E_R // IdsChangesBetweenEditions
+ ME_4F633C0803B4_ME_4DDCDD68019E_R // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
  )
  ; // Implements
  MELIST Attributes
@@ -225,11 +255,11 @@ ME ME_4DDCDD68019E
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4AE56DE80093_ME_4DDCDD68019E // MakeHAFMacroReplacer
- ME_4DDCE9110130_ME_4DDCDD68019E // RightEdition
- ME_4DDD0C170344_ME_4DDCDD68019E // DocumentContainer
- ME_4F2BF187026F_ME_4DDCDD68019E // LeftEdition
- ME_4F548A0D0096_ME_4DDCDD68019E // DocumentForDocInfoProvider
+   Seq: ( ME_4AE56DE80093_ME_4DDCDD68019E_impl // MakeHAFMacroReplacer
+ ME_4DDCE9110130_ME_4DDCDD68019E_impl // RightEdition
+ ME_4DDD0C170344_ME_4DDCDD68019E_impl // DocumentContainer
+ ME_4F2BF187026F_ME_4DDCDD68019E_impl // LeftEdition
+ ME_4F548A0D0096_ME_4DDCDD68019E_impl // DocumentForDocInfoProvider
  )
  ; // Implemented
  MELIST Constants

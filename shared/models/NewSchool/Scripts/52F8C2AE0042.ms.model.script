@@ -21,7 +21,7 @@ ME ME_53E0D9150023
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
  ;
- MELINK Target WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ MELINK Target WL? 'ME_53E0D4F50178' // TcsTaskResult
  ;
  UP "pm" true
  UP "reads field" true
@@ -34,7 +34,7 @@ ME ME_53CCC66602D6
  MEPROP Name 'aContext'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_53CCC56502C7' '52F8C298005C.ms.model.script' // TddRunContext
+ MELINK Target WL 'ME_53CCC56502C7' '53AC09FE03C7.ms.model.script' // TddRunContext
  ;
 
 ENDME // ME_53CCC66602D6 aContext
@@ -57,7 +57,7 @@ ENDME // ME_53A2EEFA00F8 DoIt
 ME ME_53A2EEE90097
  MEPROP UID '53A2EEE90097'
  MEPROP Name 'DoRun'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -74,7 +74,7 @@ ENDME // ME_53A2EEE90097 DoRun
 ME ME_53CF5FC303D9
  MEPROP UID '53CF5FC303D9'
  MEPROP Name 'RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -87,7 +87,7 @@ ENDME // ME_53CF5FC303D9 RegisterAbortProcessor (const aProcessor : IcsExternalT
 ME ME_53CF5FE40219
  MEPROP UID '53CF5FE40219'
  MEPROP Name 'UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -115,7 +115,7 @@ ENDME // ME_5FE36F963C36 DoIt
 ME ME_53E1CB0C03C9
  MEPROP UID '53E1CB0C03C9'
  MEPROP Name 'GetTaskResultClass : TcsClassResultClass'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -147,7 +147,7 @@ ENDME // ME_57F603D302BD DoIt
 ME ME_57F603C6018A
  MEPROP UID '57F603C6018A'
  MEPROP Name 'RequireDelivery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -179,7 +179,7 @@ ENDME // ME_57F603F30317 DoIt
 ME ME_57F603E20074
  MEPROP UID '57F603E20074'
  MEPROP Name 'DeliverySourceFolder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -211,7 +211,7 @@ ENDME // ME_57F604240134 DoIt
 ME ME_57F6040302FE
  MEPROP UID '57F6040302FE'
  MEPROP Name 'DeliveryTargetFolder'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -243,7 +243,7 @@ ENDME // ME_57F639D3009A DoIt
 ME ME_57F639C2025B
  MEPROP UID '57F639C2025B'
  MEPROP Name 'GetDescription'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -268,11 +268,17 @@ ME ME_57C4135700F7
 
 ENDME // ME_57C4135700F7 DoAbort
 
-ME ME_479731C50290_ME_52F8C2BF0110
+MEREF ME_479731C50290_ME_52F8C2BF0110_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_52F8C2BF0110 Cleanup
+ENDMEREF // ME_479731C50290_ME_52F8C2BF0110_over Cleanup
+
+MEREF ME_53AC09FE03C7_ME_52F8C2BF0110_G
+ MELINK Original WL? 'ME_53AC09FE03C7' // TddProcessTaskPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC09FE03C7_ME_52F8C2BF0110_G TddProcessTaskPrim
 
 %%InheritedBy ME_53AC09FE03C7 ME_52F8C2BF0110
 
@@ -287,7 +293,7 @@ ME ME_52F8C2BF0110
  MELINK Parent HWL ME_52F8C2AE0042 // csProcessTask
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_53AC09FE03C7' '52F8C298005C.ms.model.script' // TddProcessTaskPrim
+   Seq: ( ME_53AC09FE03C7_ME_52F8C2BF0110_G // TddProcessTaskPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -307,7 +313,7 @@ ME ME_52F8C2BF0110
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_52F8C2BF0110 // Cleanup
+   Seq: ( ME_479731C50290_ME_52F8C2BF0110_over // Cleanup
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

@@ -1,0 +1,92 @@
+// TvgSceneList 4D5511DB011D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5511DB011D
+
+ME ME_4D55121700BA
+ MEPROP UID '4D55121700BA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D5511DB011D // TvgSceneList
+ ;
+ MELINK Target WL 'ME_4D550C5B0341' '4D550C220363.ms.model.script' // IvgScene
+ ;
+
+ENDME // ME_4D55121700BA ItemType
+
+MEREF ME_47B07CF403D0_ME_4D5511DB011D_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_4D5511DB011D_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_4D5511DB011D_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_4D5511DB011D_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_4D5511DB011D_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_4D5511DB011D_impl CompareExistingItems
+
+MEREF ME_4A54DD4E036F_ME_4D5511DB011D_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4D5511DB011D_G Tl3ProtoDataContainer
+
+MEREF ME_4A6FFCC00354_ME_4D5511DB011D_G
+ MELINK Original WL? 'ME_4A6FFCC00354' // l3InterfacePtrListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A6FFCC00354_ME_4D5511DB011D_G l3InterfacePtrListPrim
+
+%%InheritedBy ME_4A54DD4E036F ME_4D5511DB011D
+%%InheritedBy ME_4A6FFCC00354 ME_4D5511DB011D
+
+ME ME_4D5511DB011D
+ MEPROP UID '4D5511DB011D'
+ MEPROP Name 'TvgSceneList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D551198021D' // lulin1
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_4D5511DB011D_G // Tl3ProtoDataContainer
+ ME_4A6FFCC00354_ME_4D5511DB011D_G // l3InterfacePtrListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D55121700BA // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4D5511DB011D_impl // IsSameItems
+ ME_47B2C42A0163_ME_4D5511DB011D_impl // AssignItem
+ ME_47B99D4503A2_ME_4D5511DB011D_impl // CompareExistingItems
+ )
+ ; // Implemented
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '11.02.2011 13:39'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgSceneList.pas'
+ UP extprop:rc:SelfName 'SceneList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgSceneList'
+
+ENDME // ME_4D5511DB011D TvgSceneList

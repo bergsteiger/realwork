@@ -1,0 +1,218 @@
+// Tk2TypeTableCreatedListeners 53C7D8AB0282 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53C7D8AB0282
+
+FORWARD ME_53C7D8AB0282
+
+ME ME_53C7E5D50233
+ MEPROP UID '53C7E5D50233'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_53C7E5D50233 l3Items_NoSort
+
+ME ME_53C7D98D02EC
+ MEPROP UID '53C7D98D02EC'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+
+ENDME // ME_53C7D98D02EC ItemType
+
+FORWARD ME_53C7D9E60110
+
+ME ME_53C7DA0903C3
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+
+ENDME // ME_53C7DA0903C3 aListener
+
+ME ME_53C7D9FC0155
+ MEPROP UID '53C7D9FC0155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7D9E60110 // AddListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C7DA0903C3 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_53C7D9FC0155 DoIt
+
+ME ME_53C7D9E60110
+ MEPROP UID '53C7D9E60110'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C7D9FC0155 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C7D9E60110 AddListener
+
+FORWARD ME_53C7DA8400D6
+
+ME ME_53C7DD14009E
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_53C7DD14009E aSender
+
+ME ME_53C7DA940208
+ MEPROP UID '53C7DA940208'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7DA8400D6 // NotifyListeners
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C7DD14009E // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_53C7DA940208 DoIt
+
+ME ME_53C7DA8400D6
+ MEPROP UID '53C7DA8400D6'
+ MEPROP Name 'NotifyListeners'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C7DA940208 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C7DA8400D6 NotifyListeners
+
+MEREF ME_47B07CF403D0_ME_53C7D8AB0282_impl
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDMEREF // ME_47B07CF403D0_ME_53C7D8AB0282_impl IsSameItems
+
+MEREF ME_47B2C42A0163_ME_53C7D8AB0282_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_53C7D8AB0282_impl AssignItem
+
+MEREF ME_47B935AF0066_ME_53C7D8AB0282_impl
+ MELINK Original WL 'ME_47B935AF0066' '47B45152003F.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B935AF0066_ME_53C7D8AB0282_impl FillItem
+
+MEREF ME_47B94A5C006E_ME_53C7D8AB0282_impl
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B94A5C006E_ME_53C7D8AB0282_impl FreeItem
+
+MEREF ME_47B99D4503A2_ME_53C7D8AB0282_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_53C7D8AB0282_impl CompareExistingItems
+
+MEREF ME_47B594B50330_ME_53C7D8AB0282_G
+ MELINK Original WL? 'ME_47B594B50330' // l3StandardTypedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B594B50330_ME_53C7D8AB0282_G l3StandardTypedList
+
+MEREF ME_4A54DD4E036F_ME_53C7D8AB0282_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53C7D8AB0282_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B594B50330 ME_53C7D8AB0282
+%%InheritedBy ME_4A54DD4E036F ME_53C7D8AB0282
+
+ME ME_53C7D8AB0282
+ MEPROP UID '53C7D8AB0282'
+ MEPROP Name 'Tk2TypeTableCreatedListeners'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A4DE16302A2' // k2Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B594B50330_ME_53C7D8AB0282_G // l3StandardTypedList
+ ME_4A54DD4E036F_ME_53C7D8AB0282_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53C7D98D02EC // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53C7D9E60110 // AddListener
+ HWL ME_53C7DA8400D6 // NotifyListeners
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_53C7D8AB0282_impl // IsSameItems
+ ME_47B2C42A0163_ME_53C7D8AB0282_impl // AssignItem
+ ME_47B935AF0066_ME_53C7D8AB0282_impl // FillItem
+ ME_47B94A5C006E_ME_53C7D8AB0282_impl // FreeItem
+ ME_47B99D4503A2_ME_53C7D8AB0282_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_53C7E5D50233 // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TypeTableCreatedListeners.pas'
+ UP extprop:rc:SelfName 'TypeTableCreatedListeners'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2TypeTableCreatedListeners'
+
+ENDME // ME_53C7D8AB0282 Tk2TypeTableCreatedListeners

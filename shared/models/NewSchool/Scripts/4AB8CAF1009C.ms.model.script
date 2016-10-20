@@ -50,6 +50,18 @@ ME ME_29734A60170A
 
 ENDME // ME_29734A60170A DefineSearchDate$Def
 
+MEREF ME_4AC6324502DA_ME_4AB8CAF1009C_G
+ MELINK Original WL? 'ME_4AC6324502DA' // PrimDefineSearchDate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AC6324502DA_ME_4AB8CAF1009C_G PrimDefineSearchDate
+
+MEREF ME_29734A60170A_ME_4AB8CAF1009C_R
+ MELINK Original HWL ME_29734A60170A // DefineSearchDate$Def
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_29734A60170A_ME_4AB8CAF1009C_R DefineSearchDate$Def
+
 %%ImplementedBy ME_29734A60170A ME_4AB8CAF1009C
 
 %%InheritedBy ME_4AC6324502DA ME_4AB8CAF1009C
@@ -67,11 +79,11 @@ ME ME_4AB8CAF1009C
  MELINK Parent WL? 'ME_4AA641A3036C' // Search
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4AC6324502DA' // PrimDefineSearchDate
+   Seq: ( ME_4AC6324502DA_ME_4AB8CAF1009C_G // PrimDefineSearchDate
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_29734A60170A // DefineSearchDate$Def
+   Seq: ( ME_29734A60170A_ME_4AB8CAF1009C_R // DefineSearchDate$Def
  )
  ; // Implements
  MELIST Children

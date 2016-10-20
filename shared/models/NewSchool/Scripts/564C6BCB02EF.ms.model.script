@@ -1,0 +1,108 @@
+// TddAnnoKindStatisticList 564C6BCB02EF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_564C6BCB02EF
+
+ME ME_564DA07E01F5
+ MEPROP UID '564DA07E01F5'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564C6BCB02EF // TddAnnoKindStatisticList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_564DA07E01F5 FindDataType
+
+FORWARD ME_564DB1D30274
+
+ME ME_564DB1D30274
+ MEPROP Name 'T'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target ME_564DB1D30274 // T
+ ;
+
+ENDME // ME_564DB1D30274 T
+
+ME ME_564D712B0334
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_564C6BCB02EF // TddAnnoKindStatisticList
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_564D712B0334 
+
+MEREF ME_47B9BAFD01F4_ME_564C6BCB02EF_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_564C6BCB02EF_over CompareItemWithData
+
+MEREF ME_564C65EC0136_ME_564C6BCB02EF_G
+ MELINK Original WL? 'ME_564C65EC0136' // TddAnnoKindStatisticListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564C65EC0136_ME_564C6BCB02EF_G TddAnnoKindStatisticListPrim
+
+MEREF ME_47B47E230134_ME_564C6BCB02EF_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_564C6BCB02EF_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_564C6BCB02EF
+
+%%InheritedBy ME_564C65EC0136 ME_564C6BCB02EF
+
+ME ME_564C6BCB02EF
+ MEPROP UID '564C6BCB02EF'
+ MEPROP Name 'TddAnnoKindStatisticList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_50598FD9019C' // PipeOut
+ ;
+ MELIST Inherits
+   Seq: ( ME_564C65EC0136_ME_564C6BCB02EF_G // TddAnnoKindStatisticListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_564C6BCB02EF_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_564DA07E01F5 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_564C6BCB02EF_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Parameters
+   Seq: ( ME_564DB1D30274 // T
+ )
+ ; // Parameters
+ MELIST Dependencies
+   Seq: ( ME_564D712B0334 // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticList.pas'
+ UP extprop:rc:SelfName 'ddAnnoKindStatisticList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddAnnoKindStatisticList'
+
+ENDME // ME_564C6BCB02EF TddAnnoKindStatisticList

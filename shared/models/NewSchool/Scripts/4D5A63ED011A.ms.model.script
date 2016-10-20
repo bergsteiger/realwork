@@ -1,0 +1,116 @@
+// TSplitCellTest 4D5A63ED011A TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5A63ED011A
+
+ME ME_4D5A6EE600D3
+ MEPROP UID '4D5A6EE600D3'
+ MEPROP Name 'GetLineCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A63ED011A // TSplitCellTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A6EE600D3 GetLineCount
+
+ME ME_4D5A6F4802CB
+ MEPROP UID '4D5A6F4802CB'
+ MEPROP Name 'GetTabCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A63ED011A // TSplitCellTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A6F4802CB GetTabCount
+
+MEREF ME_4C345B580083_ME_4D5A63ED011A_impl
+ MELINK Original WL 'ME_4C345B580083' '4CE38AD60265.ms.model.script' // ApplyTools
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C345B580083_ME_4D5A63ED011A_impl ApplyTools
+
+MEREF ME_4BE419AF0217_ME_4D5A63ED011A_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4D5A63ED011A_over DoVisit
+
+MEREF ME_4C937013031D_ME_4D5A63ED011A_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4D5A63ED011A_over GetFolder
+
+MEREF ME_4CC8189D02DF_ME_4D5A63ED011A_over
+ MELINK Original WL 'ME_4CC8189D02DF' '4CC815A00031.ms.model.script' // NeedSelection
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC8189D02DF_ME_4D5A63ED011A_over NeedSelection
+
+MEREF ME_4C345A91014E_ME_4D5A63ED011A_G
+ MELINK Original WL? 'ME_4C345A91014E' // TTableToolsTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C345A91014E_ME_4D5A63ED011A_G TTableToolsTest
+
+MEREF ME_4C500D6101D8_ME_4D5A63ED011A_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4D5A63ED011A_R CursorMover
+
+%%ImplementedBy ME_4C500D6101D8 ME_4D5A63ED011A
+
+%%InheritedBy ME_4C345A91014E ME_4D5A63ED011A
+
+ME ME_4D5A63ED011A
+ MEPROP UID '4D5A63ED011A'
+ MEPROP Name 'TSplitCellTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест разделения ячеек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4C4FDBF703DB' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C345A91014E_ME_4D5A63ED011A_G // TTableToolsTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C500D6101D8_ME_4D5A63ED011A_R // CursorMover
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D5A6EE600D3 // GetLineCount
+ HWL ME_4D5A6F4802CB // GetTabCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C345B580083_ME_4D5A63ED011A_impl // ApplyTools
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4D5A63ED011A_over // DoVisit
+ ME_4C937013031D_ME_4D5A63ED011A_over // GetFolder
+ ME_4CC8189D02DF_ME_4D5A63ED011A_over // NeedSelection
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SplitCellTest.pas'
+ UP extprop:rc:SelfName 'SplitCellTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'SplitCellTest'
+
+ENDME // ME_4D5A63ED011A TSplitCellTest

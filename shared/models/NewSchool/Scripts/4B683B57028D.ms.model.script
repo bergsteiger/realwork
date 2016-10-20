@@ -1,0 +1,1151 @@
+// TatChatWorker 4B683B57028D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B683B57028D
+%%Inner ME_4B683B57028D
+%%Inner ME_4B683B57028D
+%%Inner ME_4B683B57028D
+
+FORWARD ME_4B683B57028D
+
+FORWARD ME_4B683B6501EB
+
+ME ME_4B683C0003CE
+ MEPROP UID '4B683C0003CE'
+ MEPROP Name 'UserID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B683C0003CE UserID
+
+ME ME_4B69544F0333
+ MEPROP UID '4B69544F0333'
+ MEPROP Name 'MessagesReceived'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B69544F0333 MessagesReceived
+
+ME ME_4B6954A70098
+ MEPROP UID '4B6954A70098'
+ MEPROP Name 'MessagesSent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B6954A70098 MessagesSent
+
+ME ME_4B755B7B0198
+ MEPROP UID '4B755B7B0198'
+ MEPROP Name 'f_HasNewMessages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B755B7B0198 f_HasNewMessages
+
+ME ME_4B6925B700A7
+ MEPROP UID '4B6925B700A7'
+ MEPROP Name 'MessagesManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_4A409DC300BF' '4A40991F003F.ms.model.script' // MessagesManager
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B6925B700A7 MessagesManager
+
+ME ME_4B72D9640123
+ MEPROP UID '4B72D9640123'
+ MEPROP Name 'f_ReadSendCS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_4B72D9640123 f_ReadSendCS
+
+ME ME_4B7560DA00CE
+ MEPROP UID '4B7560DA00CE'
+ MEPROP Name 'f_NewMessageCS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_4B7560DA00CE f_NewMessageCS
+
+ME ME_4B683C3501C7
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B683C3501C7 aMessage
+
+ME ME_4B683C2B037C
+ MEPROP UID '4B683C2B037C'
+ MEPROP Name 'SendMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B683C3501C7 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4B683C2B037C SendMessage
+
+ME ME_4B683C7A01FC
+ MEPROP UID '4B683C7A01FC'
+ MEPROP Name 'OnNewMessageReceived'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+
+ENDME // ME_4B683C7A01FC OnNewMessageReceived
+
+ME ME_4B696AF50044
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B696AF50044 anUserID
+
+ME ME_4B6942E5032E
+ MEPROP UID '4B6942E5032E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B696AF50044 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4B6942E5032E Create
+
+ME ME_4B697BCC00A4
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A409DE402DE' '4A40991F003F.ms.model.script' // Message
+ ;
+
+ENDME // ME_4B697BCC00A4 aMessage
+
+ME ME_4B697BBC006C
+ MEPROP UID '4B697BBC006C'
+ MEPROP Name 'ReadMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B697BCC00A4 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4B697BBC006C ReadMessage
+
+ME ME_4B698159014B
+ MEPROP Name 'aMessages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A40A5670265' '4A40991F003F.ms.model.script' // Messages
+ ;
+
+ENDME // ME_4B698159014B aMessages
+
+ME ME_4B69814903D2
+ MEPROP UID '4B69814903D2'
+ MEPROP Name 'ReadMessages'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B698159014B // aMessages
+ )
+ ; // Parameters
+
+ENDME // ME_4B69814903D2 ReadMessages
+
+ME ME_4B755B9800FD
+ MEPROP UID '4B755B9800FD'
+ MEPROP Name 'ProcessNewMessages'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+
+ENDME // ME_4B755B9800FD ProcessNewMessages
+
+ME ME_4B6AFB8F0090
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL? 'ME_4B6AE9CB00C2' // TatChatMessage
+ ;
+
+ENDME // ME_4B6AFB8F0090 
+
+ME ME_4B6AFB98012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_48400B7E0236' '4B6AE7650002.ms.model.script' // IatUserComment
+ ;
+
+ENDME // ME_4B6AFB98012D 
+
+ME ME_4B6BF28F0079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4B6BF28F0079 
+
+MEREF ME_479731C50290_ME_4B683B6501EB_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B683B6501EB_over Cleanup
+
+MEREF ME_47879856035F_ME_4B683B6501EB_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_4B683B6501EB_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_4B683B6501EB
+
+ME ME_4B683B6501EB
+ MEPROP UID '4B683B6501EB'
+ MEPROP Name 'TatChatConversation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_4B683B6501EB_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B683C0003CE // UserID
+ HWL ME_4B69544F0333 // MessagesReceived
+ HWL ME_4B6954A70098 // MessagesSent
+ HWL ME_4B755B7B0198 // f_HasNewMessages
+ HWL ME_4B6925B700A7 // MessagesManager
+ HWL ME_4B72D9640123 // f_ReadSendCS
+ HWL ME_4B7560DA00CE // f_NewMessageCS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B683C2B037C // SendMessage
+ HWL ME_4B683C7A01FC // OnNewMessageReceived
+ HWL ME_4B6942E5032E // Create
+ HWL ME_4B697BBC006C // ReadMessage
+ HWL ME_4B69814903D2 // ReadMessages
+ HWL ME_4B755B9800FD // ProcessNewMessages
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B683B6501EB_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B6AFB8F0090 // TatChatMessage
+ ME_4B6AFB98012D // IatUserComment
+ ME_4B6BF28F0079 // IStream
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'atChatConversation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B683B6501EB TatChatConversation
+
+FORWARD ME_4B69375C01D9
+
+ME ME_4B6937880042
+ MEPROP Name 'aNotification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDEA001A4' '45EEA85502B4.ms.model.script' // Notification
+ ;
+
+ENDME // ME_4B6937880042 aNotification
+
+ME ME_4B69377703A8
+ MEPROP UID '4B69377703A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B69375C01D9 // TatChatListenerFireFunction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6937880042 // aNotification
+ )
+ ; // Parameters
+
+ENDME // ME_4B69377703A8 DoIt
+
+ME ME_4B69375C01D9
+ MEPROP UID '4B69375C01D9'
+ MEPROP Name 'TatChatListenerFireFunction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B69377703A8 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_4B69375C01D9 TatChatListenerFireFunction
+
+FORWARD ME_4B6936A0011F
+
+ME ME_4B6937B0011A
+ MEPROP Name 'aFunction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B69375C01D9 // TatChatListenerFireFunction
+ ;
+
+ENDME // ME_4B6937B0011A aFunction
+
+ME ME_4B69379E0046
+ MEPROP UID '4B69379E0046'
+ MEPROP Name 'Attach'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B6936A0011F // IatChatListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B6937B0011A // aFunction
+ )
+ ; // Parameters
+
+ENDME // ME_4B69379E0046 Attach
+
+ME ME_4B6937B701C3
+ MEPROP UID '4B6937B701C3'
+ MEPROP Name 'Detach'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B6936A0011F // IatChatListener
+ ;
+
+ENDME // ME_4B6937B701C3 Detach
+
+MEREF ME_45EEDE9D01C5_ME_4B6936A0011F_impl
+ MELINK Original WL 'ME_45EEDE9D01C5' '45EEA85502B4.ms.model.script' // fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEDE9D01C5_ME_4B6936A0011F_impl fire
+
+MEREF ME_45EEDE9D01C4_ME_4B6936A0011F_G
+ MELINK Original WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEDE9D01C4_ME_4B6936A0011F_G Listener
+
+%%InheritedBy ME_45EEDE9D01C4 ME_4B6936A0011F
+
+ME ME_4B6936A0011F
+ MEPROP UID '4B6936A0011F'
+ MEPROP GUID '5E6FDA1E-7A85-47AA-BA86-52ADA5B0BC69'
+ MEPROP Name 'IatChatListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Inherits
+   Seq: ( ME_45EEDE9D01C4_ME_4B6936A0011F_G // Listener
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B69379E0046 // Attach
+ HWL ME_4B6937B701C3 // Detach
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEDE9D01C5_ME_4B6936A0011F_impl // fire
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'atChatListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B6936A0011F IatChatListener
+
+FORWARD ME_4B6937C20205
+
+ME ME_4B6937D7027F
+ MEPROP UID '4B6937D7027F'
+ MEPROP Name 'f_Func'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6937C20205 // TatChatListener
+ ;
+ MELINK Target HWL ME_4B69375C01D9 // TatChatListenerFireFunction
+ ;
+
+ENDME // ME_4B6937D7027F f_Func
+
+ME ME_4B74127D02FD
+ MEPROP UID '4B74127D02FD'
+ MEPROP Name 'f_MREWS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6937C20205 // TatChatListener
+ ;
+ MELINK Target WL 'ME_4807861D0118' '47877EB202FB.ms.model.script' // TMultiReadExclusiveWriteSynchronizer
+ ;
+
+ENDME // ME_4B74127D02FD f_MREWS
+
+ME ME_4B69383C02D6
+ MEPROP UID '4B69383C02D6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6937C20205 // TatChatListener
+ ;
+ MELINK Target HWL ME_4B6936A0011F // IatChatListener
+ ;
+
+ENDME // ME_4B69383C02D6 Make
+
+ME ME_4B69384701C8
+ MEPROP UID '4B69384701C8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6937C20205 // TatChatListener
+ ;
+
+ENDME // ME_4B69384701C8 Create
+
+MEREF ME_45EEDE9D01C5_ME_4B6937C20205_impl
+ MELINK Original WL 'ME_45EEDE9D01C5' '45EEA85502B4.ms.model.script' // fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_45EEDE9D01C5_ME_4B6937C20205_impl fire
+
+MEREF ME_4B69379E0046_ME_4B6937C20205_impl
+ MELINK Original HWL ME_4B69379E0046 // Attach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B69379E0046_ME_4B6937C20205_impl Attach
+
+MEREF ME_4B6937B701C3_ME_4B6937C20205_impl
+ MELINK Original HWL ME_4B6937B701C3 // Detach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B6937B701C3_ME_4B6937C20205_impl Detach
+
+MEREF ME_479731C50290_ME_4B6937C20205_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B6937C20205_over Cleanup
+
+MEREF ME_47879856035F_ME_4B6937C20205_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_4B6937C20205_G Tl3_Base
+
+MEREF ME_4B6936A0011F_ME_4B6937C20205_R
+ MELINK Original HWL ME_4B6936A0011F // IatChatListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B6936A0011F_ME_4B6937C20205_R IatChatListener
+
+%%ImplementedBy ME_4B6936A0011F ME_4B6937C20205
+
+%%InheritedBy ME_47879856035F ME_4B6937C20205
+
+ME ME_4B6937C20205
+ MEPROP UID '4B6937C20205'
+ MEPROP Name 'TatChatListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_4B6937C20205_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B6936A0011F_ME_4B6937C20205_R // IatChatListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B6937D7027F // f_Func
+ HWL ME_4B74127D02FD // f_MREWS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B69383C02D6 // Make
+ HWL ME_4B69384701C8 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEDE9D01C5_ME_4B6937C20205_impl // fire
+ ME_4B69379E0046_ME_4B6937C20205_impl // Attach
+ ME_4B6937B701C3_ME_4B6937C20205_impl // Detach
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B6937C20205_over // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'atChatListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B6937C20205 TatChatListener
+
+ME ME_4B6864970085
+ MEPROP UID '4B6864970085'
+ MEPROP Name 'ConversationsCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4B6864970085 ConversationsCount
+
+ME ME_4B6BF44100E3
+ MEPROP UID '4B6BF44100E3'
+ MEPROP Name 'UIDsWithUnreadedMessages'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4B6BFA9E030A' '4B6C27F50058.ms.model.script' // TatArrayOfUID
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4B6BF44100E3 UIDsWithUnreadedMessages
+
+ME ME_4B68653F0016
+ MEPROP UID '4B68653F0016'
+ MEPROP Name 'ChatManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4A4099A302A3' '4A40991F003F.ms.model.script' // ChatManager
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B68653F0016 ChatManager
+
+FORWARD ME_4B68676F0357
+
+ME ME_4B6867720102
+ MEPROP UID '4B6867720102'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B68676F0357 // ConversationByIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B6867720102 anIndex
+
+ME ME_4B68676F0357
+ MEPROP UID '4B68676F0357'
+ MEPROP Name 'ConversationByIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B6867720102 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4B68676F0357 ConversationByIndex
+
+ME ME_4B686B8202C5
+ MEPROP UID '4B686B8202C5'
+ MEPROP Name 'f_Conversations'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_4B686B8202C5 f_Conversations
+
+ME ME_4B6938B302F0
+ MEPROP UID '4B6938B302F0'
+ MEPROP Name 'f_ChatListener'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target HWL ME_4B6936A0011F // IatChatListener
+ ;
+
+ENDME // ME_4B6938B302F0 f_ChatListener
+
+FORWARD ME_4B6951380027
+
+ME ME_4B69514300D1
+ MEPROP UID '4B69514300D1'
+ MEPROP Name 'anUID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6951380027 // ConversationByUID
+ ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B69514300D1 anUID
+
+ME ME_4B6951380027
+ MEPROP UID '4B6951380027'
+ MEPROP Name 'ConversationByUID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target HWL ME_4B683B6501EB // TatChatConversation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B69514300D1 // anUID
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4B6951380027 ConversationByUID
+
+ME ME_4B6BFB11036F
+ MEPROP UID '4B6BFB11036F'
+ MEPROP Name 'f_UidsWithUnreadedMessages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4807756101FE' '478CF30500C1.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_4B6BFB11036F f_UidsWithUnreadedMessages
+
+ME ME_4B7293B40189
+ MEPROP UID '4B7293B40189'
+ MEPROP Name 'f_UWUMCS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_4B7293B40189 f_UWUMCS
+
+ME ME_4B7412BA02AA
+ MEPROP UID '4B7412BA02AA'
+ MEPROP Name 'f_NotifyCS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_4B7412BA02AA f_NotifyCS
+
+ME ME_4B6925110286
+ MEPROP UID '4B6925110286'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+
+ENDME // ME_4B6925110286 Create
+
+ME ME_4B69364D037F
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B69364D037F anUserID
+
+ME ME_4B69364B0327
+ MEPROP UID '4B69364B0327'
+ MEPROP Name 'StartConversation'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B69364D037F // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4B69364B0327 StartConversation
+
+ME ME_4B69365A03C4
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B69365A03C4 anUserID
+
+ME ME_4B6936590279
+ MEPROP UID '4B6936590279'
+ MEPROP Name 'FinishConversation'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B69365A03C4 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4B6936590279 FinishConversation
+
+ME ME_4B69389301BC
+ MEPROP Name 'aNotification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDEA001A4' '45EEA85502B4.ms.model.script' // Notification
+ ;
+
+ENDME // ME_4B69389301BC aNotification
+
+ME ME_4B6938860170
+ MEPROP UID '4B6938860170'
+ MEPROP Name 'OnChatNotification'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B69389301BC // aNotification
+ )
+ ; // Parameters
+
+ENDME // ME_4B6938860170 OnChatNotification
+
+ME ME_4B7021CE006D
+ MEPROP Name 'isActiveOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4B7021CE006D isActiveOnly
+
+ME ME_4B72B9C201BD
+ MEPROP Name 'isAdapterTestsOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_4B72B9C201BD isAdapterTestsOnly
+
+ME ME_4B7021A30255
+ MEPROP UID '4B7021A30255'
+ MEPROP Name 'GetContactListUIDs'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_4B6BFA9E030A' '4B6C27F50058.ms.model.script' // TatArrayOfUID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7021CE006D // isActiveOnly
+ ME_4B72B9C201BD // isAdapterTestsOnly
+ )
+ ; // Parameters
+
+ENDME // ME_4B7021A30255 GetContactListUIDs
+
+ME ME_4B7023C102F4
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B7023C102F4 anUserID
+
+ME ME_4B7023B703C5
+ MEPROP UID '4B7023B703C5'
+ MEPROP Name 'AddUser'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7023C102F4 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4B7023B703C5 AddUser
+
+ME ME_4B7023D202B6
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC72D80235' '456EA56002BF.ms.model.script' // Uid
+ ;
+
+ENDME // ME_4B7023D202B6 anUserID
+
+ME ME_4B7023C7019B
+ MEPROP UID '4B7023C7019B'
+ MEPROP Name 'DeleteUser'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7023D202B6 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_4B7023C7019B DeleteUser
+
+ME ME_4B68692A03D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL? 'ME_4808B6A20344' // atLogger
+ ;
+
+ENDME // ME_4B68692A03D8 
+
+ME ME_4B6924D702BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL? 'ME_483C0AEA0186' // atGblAdapterWorker
+ ;
+
+ENDME // ME_4B6924D702BA 
+
+ME ME_4B6924FC007C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4B6924FC007C 
+
+ME ME_4B6972730169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_456ED2D701D4' '456EA56002BF.ms.model.script' // Variant
+ ;
+
+ENDME // ME_4B6972730169 
+
+ME ME_4B6C3F570372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL? 'ME_4B6C27F50058' // TatUserListHelper
+ ;
+
+ENDME // ME_4B6C3F570372 
+
+ME ME_4B6C41630287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4B6C41630287 
+
+ME ME_4B701B3A009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL 'ME_45EED47801AA' '45EEAA96039C.ms.model.script' // UserFilterFlags
+ ;
+
+ENDME // ME_4B701B3A009C 
+
+ME ME_4B70257B0021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B683B57028D // TatChatWorker
+ ;
+ MELINK Target WL? 'ME_48B5671301C7' // TatStringHelper
+ ;
+
+ENDME // ME_4B70257B0021 
+
+MEREF ME_479731C50290_ME_4B683B57028D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4B683B57028D_over Cleanup
+
+MEREF ME_47879856035F_ME_4B683B57028D_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_4B683B57028D_G Tl3_Base
+
+%%InheritedBy ME_47879856035F ME_4B683B57028D
+
+ME ME_4B683B57028D
+ MEPROP UID '4B683B57028D'
+ MEPROP Name 'TatChatWorker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48078CC202EC' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_47879856035F_ME_4B683B57028D_G // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B6864970085 // ConversationsCount
+ HWL ME_4B6BF44100E3 // UIDsWithUnreadedMessages
+ HWL ME_4B68653F0016 // ChatManager
+ HWL ME_4B68676F0357 // ConversationByIndex
+ HWL ME_4B686B8202C5 // f_Conversations
+ HWL ME_4B6938B302F0 // f_ChatListener
+ HWL ME_4B6951380027 // ConversationByUID
+ HWL ME_4B6BFB11036F // f_UidsWithUnreadedMessages
+ HWL ME_4B7293B40189 // f_UWUMCS
+ HWL ME_4B7412BA02AA // f_NotifyCS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B6925110286 // Create
+ HWL ME_4B69364B0327 // StartConversation
+ HWL ME_4B6936590279 // FinishConversation
+ HWL ME_4B6938860170 // OnChatNotification
+ HWL ME_4B7021A30255 // GetContactListUIDs
+ HWL ME_4B7023B703C5 // AddUser
+ HWL ME_4B7023C7019B // DeleteUser
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B683B57028D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B683B6501EB // TatChatConversation
+ HWL ME_4B69375C01D9 // TatChatListenerFireFunction
+ HWL ME_4B6936A0011F // IatChatListener
+ HWL ME_4B6937C20205 // TatChatListener
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B68692A03D8 // atLogger
+ ME_4B6924D702BA // atGblAdapterWorker
+ ME_4B6924FC007C // SysUtils
+ ME_4B6972730169 // Variant
+ ME_4B6C3F570372 // TatUserListHelper
+ ME_4B6C41630287 // NodeBase
+ ME_4B701B3A009C // UserFilterFlags
+ ME_4B70257B0021 // TatStringHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atChatWorker.pas'
+ UP extprop:rc:SelfName 'atChatWorker'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atChatWorker'
+
+ENDME // ME_4B683B57028D TatChatWorker

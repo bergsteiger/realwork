@@ -6,6 +6,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_48BBF1470238
 
+MEREF ME_48BBF59C024E_ME_48BBF5D90196_G
+ MELINK Original WL 'ME_48BBF59C024E' '47E11FC3021E.ms.model.script' // TControlActionLink
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48BBF59C024E_ME_48BBF5D90196_G TControlActionLink
+
 %%InheritedBy ME_48BBF59C024E ME_48BBF5D90196
 
 ME ME_48BBF5D90196
@@ -19,7 +25,7 @@ ME ME_48BBF5D90196
  MELINK Parent HWL ME_48BBF1470238 // TafwTextControl
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48BBF59C024E' '47E11FC3021E.ms.model.script' // TControlActionLink
+   Seq: ( ME_48BBF59C024E_ME_48BBF5D90196_G // TControlActionLink
  )
  ; // Inherits
  UP extprop:rc:SelfName 'HackLink'
@@ -50,12 +56,24 @@ ME ME_48BBF6A802F6
 
 ENDME // ME_48BBF6A802F6 
 
-ME ME_473DAC05025F_ME_48BBF1470238
+MEREF ME_473DAC05025F_ME_48BBF1470238_impl
  MELINK Original WL 'ME_473DAC05025F' '467823B7002C.ms.model.script' // CCaption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_473DAC05025F_ME_48BBF1470238 CCaption
+ENDMEREF // ME_473DAC05025F_ME_48BBF1470238_impl CCaption
+
+MEREF ME_48BBD30803C5_ME_48BBF1470238_G
+ MELINK Original WL? 'ME_48BBD30803C5' // TafwTextControlPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48BBD30803C5_ME_48BBF1470238_G TafwTextControlPrim
+
+MEREF ME_473DABFA029F_ME_48BBF1470238_R
+ MELINK Original WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473DABFA029F_ME_48BBF1470238_R IafwTextControl
 
 %%ImplementedBy ME_473DABFA029F ME_48BBF1470238
 
@@ -73,11 +91,11 @@ ME ME_48BBF1470238
  MELINK Parent WL? 'ME_467BA8C8017E' // afwControl
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_48BBD30803C5' // TafwTextControlPrim
+   Seq: ( ME_48BBD30803C5_ME_48BBF1470238_G // TafwTextControlPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+   Seq: ( ME_473DABFA029F_ME_48BBF1470238_R // IafwTextControl
  )
  ; // Implements
  MELIST Operations
@@ -85,7 +103,7 @@ ME ME_48BBF1470238
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_473DAC05025F_ME_48BBF1470238 // CCaption
+   Seq: ( ME_473DAC05025F_ME_48BBF1470238_impl // CCaption
  )
  ; // Implemented
  MELIST Children

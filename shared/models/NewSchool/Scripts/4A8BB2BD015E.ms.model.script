@@ -1,0 +1,80 @@
+// TnscCustomChatMemoContainer 4A8BB2BD015E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8BB2BD015E
+
+ME ME_4A8BB388017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8BB2BD015E // TnscCustomChatMemoContainer
+ ;
+ MELINK Target WL? 'ME_4A8BB357000F' // TnscCustomChatMemoDocumentPartGenerator
+ ;
+
+ENDME // ME_4A8BB388017D 
+
+ME ME_4A8C141A01D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8BB2BD015E // TnscCustomChatMemoContainer
+ ;
+ MELINK Target WL? 'ME_4A8C13FD0044' // TnscCustomChatMemoProcessor
+ ;
+
+ENDME // ME_4A8C141A01D3 
+
+MEREF ME_47F35245009A_ME_4A8BB2BD015E_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_4A8BB2BD015E_over MakeProcessor
+
+MEREF ME_48033300004D_ME_4A8BB2BD015E_over
+ MELINK Original WL 'ME_48033300004D' '47F0870E0034.ms.model.script' // PartGeneratorClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48033300004D_ME_4A8BB2BD015E_over PartGeneratorClass
+
+MEREF ME_482D888D039E_ME_4A8BB2BD015E_G
+ MELINK Original WL? 'ME_482D888D039E' // TevCustomMemoContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D888D039E_ME_4A8BB2BD015E_G TevCustomMemoContainer
+
+%%InheritedBy ME_482D888D039E ME_4A8BB2BD015E
+
+ME ME_4A8BB2BD015E
+ MEPROP UID '4A8BB2BD015E'
+ MEPROP Name 'TnscCustomChatMemoContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A8A86C301BE' // Memos
+ ;
+ MELIST Inherits
+   Seq: ( ME_482D888D039E_ME_4A8BB2BD015E_G // TevCustomMemoContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F35245009A_ME_4A8BB2BD015E_over // MakeProcessor
+ ME_48033300004D_ME_4A8BB2BD015E_over // PartGeneratorClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A8BB388017D // TnscCustomChatMemoDocumentPartGenerator
+ ME_4A8C141A01D3 // TnscCustomChatMemoProcessor
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '19.08.2009 12:08'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemoContainer.pas'
+ UP extprop:rc:SelfName 'ChatMemoContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscCustomChatMemoContainer'
+
+ENDME // ME_4A8BB2BD015E TnscCustomChatMemoContainer

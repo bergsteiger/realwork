@@ -1,0 +1,133 @@
+// TdestListLevel 51DD4CAB0089 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DD4CAB0089
+
+ME ME_51DD4D43031F
+ MEPROP UID '51DD4D43031F'
+ MEPROP Name 'Level'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DD4CAB0089 // TdestListLevel
+ ;
+ MELINK Target WL 'ME_51DD4C7600E0' '51DD4C5301CD.ms.model.script' // TrtfListLevel
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_51DD4D43031F Level
+
+ME ME_51DD5691012B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DD4CAB0089 // TdestListLevel
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51DD5691012B 
+
+ME ME_54E31BD70142
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DD4CAB0089 // TdestListLevel
+ ;
+ MELINK Target WL? 'ME_51DD4CCF004F' // TdestList
+ ;
+
+ENDME // ME_54E31BD70142 
+
+MEREF ME_5461BEC2017D_ME_51DD4CAB0089_impl
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5461BEC2017D_ME_51DD4CAB0089_impl Close
+
+MEREF ME_54E1F08400F9_ME_51DD4CAB0089_impl
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54E1F08400F9_ME_51DD4CAB0089_impl WriteText$1
+
+MEREF ME_479731C50290_ME_51DD4CAB0089_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_51DD4CAB0089_over Cleanup
+
+MEREF ME_51D27A48038E_ME_51DD4CAB0089_over
+ MELINK Original WL 'ME_51D27A48038E' '5190A37F0134.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27A48038E_ME_51DD4CAB0089_over Clear
+
+MEREF ME_51D27EC50388_ME_51DD4CAB0089_over
+ MELINK Original WL 'ME_51D27EC50388' '5190A37F0134.ms.model.script' // ApplyProperty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51D27EC50388_ME_51DD4CAB0089_over ApplyProperty
+
+MEREF ME_51E7C9DB0213_ME_51DD4CAB0089_over
+ MELINK Original WL 'ME_51E7C9DB0213' '5190A37F0134.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_51E7C9DB0213_ME_51DD4CAB0089_over Create
+
+MEREF ME_51D276C40106_ME_51DD4CAB0089_G
+ MELINK Original WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51D276C40106_ME_51DD4CAB0089_G TddRTFDestination
+
+%%InheritedBy ME_51D276C40106 ME_51DD4CAB0089
+
+ME ME_51DD4CAB0089
+ MEPROP UID '51DD4CAB0089'
+ MEPROP Name 'TdestListLevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5190A3470397' // RTFSupport
+ ;
+ MELIST Inherits
+   Seq: ( ME_51D276C40106_ME_51DD4CAB0089_G // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51DD4D43031F // Level
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_51DD4CAB0089_impl // Close
+ ME_54E1F08400F9_ME_51DD4CAB0089_impl // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51DD4CAB0089_over // Cleanup
+ ME_51D27A48038E_ME_51DD4CAB0089_over // Clear
+ ME_51D27EC50388_ME_51DD4CAB0089_over // ApplyProperty
+ ME_51E7C9DB0213_ME_51DD4CAB0089_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51DD5691012B // FreeAndNil
+ ME_54E31BD70142 // TdestList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destListLevel.pas'
+ UP extprop:rc:SelfName 'destListLevel'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'destListLevel'
+
+ENDME // ME_51DD4CAB0089 TdestListLevel

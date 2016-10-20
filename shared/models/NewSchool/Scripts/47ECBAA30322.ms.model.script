@@ -1,0 +1,398 @@
+// TevHiddenFilter 47ECBAA30322 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ECBAA30322
+
+ME ME_4D6CD46803D7
+ MEPROP UID '4D6CD46803D7'
+ MEPROP Name 'HiddenStyles'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4D6CD46803D7 HiddenStyles
+
+ME ME_4D6CD47E0284
+ MEPROP UID '4D6CD47E0284'
+ MEPROP Name 'f_TreatCollapsedAsHidden'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6CD47E0284 f_TreatCollapsedAsHidden
+
+FORWARD ME_4D6CD4C70259
+
+ME ME_4D6CD4F50392
+ MEPROP Name 'aHiddenStyles'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_4D6CD4F50392 aHiddenStyles
+
+ME ME_4D6CD4F503BC
+ MEPROP Name 'aTreatCollapsedAsHidden'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6CD4F503BC aTreatCollapsedAsHidden
+
+ME ME_4D6CD4F6005F
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_4D6CD4F6005F theGenerator
+
+ME ME_4D6CD4DF0258
+ MEPROP UID '4D6CD4DF0258'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CD4C70259 // SetTo
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6CD4F50392 // aHiddenStyles
+ ME_4D6CD4F503BC // aTreatCollapsedAsHidden
+ ME_4D6CD4F6005F // theGenerator
+ )
+ ; // Parameters
+
+ENDME // ME_4D6CD4DF0258 DoIt
+
+ME ME_4D6CD4C70259
+ MEPROP UID '4D6CD4C70259'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6CD4DF0258 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4D6CD4C70259 SetTo
+
+FORWARD ME_4D6CD5270101
+
+ME ME_4D6CD53202D2
+ MEPROP Name 'aHiddenStyles'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_4D6CD53202D2 aHiddenStyles
+
+ME ME_4D6CD5320305
+ MEPROP Name 'aTreatCollapsedAsHidden'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6CD5320305 aTreatCollapsedAsHidden
+
+ME ME_4D6CD52D0206
+ MEPROP UID '4D6CD52D0206'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CD5270101 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6CD53202D2 // aHiddenStyles
+ ME_4D6CD5320305 // aTreatCollapsedAsHidden
+ )
+ ; // Parameters
+
+ENDME // ME_4D6CD52D0206 DoIt
+
+ME ME_4D6CD5270101
+ MEPROP UID '4D6CD5270101'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6CD52D0206 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6CD5270101 Create
+
+MEREF ME_4D6CD5270101_ME_4D6CD53A0371_G
+ MELINK Original HWL ME_4D6CD5270101 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D6CD5270101_ME_4D6CD53A0371_G Create
+
+MEREF ME_4678160E01BE_ME_4D6CD53A0371_R
+ MELINK Original WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4678160E01BE_ME_4D6CD53A0371_R Ik2TagGenerator
+
+%%ImplementedBy ME_4678160E01BE ME_4D6CD53A0371
+
+%%InheritedBy ME_4D6CD5270101 ME_4D6CD53A0371
+
+ME ME_4D6CD53A0371
+ MEPROP UID '4D6CD53A0371'
+ MEPROP Name 'MakePrim'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D6CD5270101_ME_4D6CD53A0371_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4678160E01BE_ME_4D6CD53A0371_R // Ik2TagGenerator
+ )
+ ; // Implements
+
+ENDME // ME_4D6CD53A0371 MakePrim
+
+MEREF ME_4D6CD53A0371_ME_4D6CDD9601FB_G
+ MELINK Original HWL ME_4D6CD53A0371 // MakePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D6CD53A0371_ME_4D6CDD9601FB_G MakePrim
+
+%%InheritedBy ME_4D6CD53A0371 ME_4D6CDD9601FB
+
+ME ME_4D6CDD9601FB
+ MEPROP UID '4D6CDD9601FB'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D6CD53A0371_ME_4D6CDD9601FB_G // MakePrim
+ )
+ ; // Inherits
+ UP "is static" true
+
+ENDME // ME_4D6CDD9601FB Make
+
+ME ME_4D6CD57500D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_48567D1900F6' '48492FC0029D.ms.model.script' // StyledLeafPara
+ ;
+
+ENDME // ME_4D6CD57500D3 
+
+ME ME_4D6CD57F0033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4D6CD57F0033 
+
+ME ME_4D6CD5AD0150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL? 'ME_481F174D01BF' // TnevTextParaRenderInfo
+ ;
+
+ENDME // ME_4D6CD5AD0150 
+
+ME ME_4D6CD5B00146
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL? 'ME_481F0442026B' // TnevLeafRenderInfo
+ ;
+
+ENDME // ME_4D6CD5B00146 
+
+ME ME_4D6CD5E501D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4D6CD5E501D0 
+
+ME ME_4D6CD60603B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D6CD60603B1 
+
+ME ME_4D6CD6A900C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_4D6CD6890200' '4D6CD66C0391.ms.model.script' // TevFullCommentsEliminator
+ ;
+
+ENDME // ME_4D6CD6A900C8 
+
+ME ME_4D6CE2E30071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL? 'ME_4810DFE100B4' // TnevFormatInfo
+ ;
+
+ENDME // ME_4D6CE2E30071 
+
+ME ME_4E16F7AB0367
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL? 'ME_4E16E263024F' // TnevFormatInfoFactory
+ ;
+
+ENDME // ME_4E16F7AB0367 
+
+ME ME_4E70C73502FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECBAA30322 // TevHiddenFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E70C73502FE 
+
+MEREF ME_49E488070386_ME_47ECBAA30322_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_47ECBAA30322_over ParaTypeForFiltering
+
+MEREF ME_49E48829016F_ME_47ECBAA30322_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_47ECBAA30322_over NeedWritePara
+
+MEREF ME_49E487650342_ME_47ECBAA30322_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_47ECBAA30322_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_47ECBAA30322
+
+ME ME_47ECBAA30322
+ MEPROP UID '47ECBAA30322'
+ MEPROP Name 'TevHiddenFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_47ECBAA30322_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D6CD46803D7 // HiddenStyles
+ HWL ME_4D6CD47E0284 // f_TreatCollapsedAsHidden
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D6CD4C70259 // SetTo
+ HWL ME_4D6CD5270101 // Create
+ HWL ME_4D6CD53A0371 // MakePrim
+ HWL ME_4D6CDD9601FB // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_47ECBAA30322_over // ParaTypeForFiltering
+ ME_49E48829016F_ME_47ECBAA30322_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D6CD57500D3 // StyledLeafPara
+ ME_4D6CD57F0033 // TextPara
+ ME_4D6CD5AD0150 // TnevTextParaRenderInfo
+ ME_4D6CD5B00146 // TnevLeafRenderInfo
+ ME_4D6CD5E501D0 // InevPara
+ ME_4D6CD60603B1 // FreeAndNil
+ ME_4D6CD6A900C8 // TevFullCommentsEliminator
+ ME_4D6CE2E30071 // TnevFormatInfo
+ ME_4E16F7AB0367 // TnevFormatInfoFactory
+ ME_4E70C73502FE // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '10.12.2004 17:50'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHiddenFilter.pas'
+ UP extprop:rc:SelfName 'HiddenFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evHiddenFilter'
+
+ENDME // ME_47ECBAA30322 TevHiddenFilter

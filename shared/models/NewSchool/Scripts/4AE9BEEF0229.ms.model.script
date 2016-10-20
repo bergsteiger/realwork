@@ -28,6 +28,12 @@ ENDME // ME_4C7E8E76029A utFoldersInfoContainer
 
 FORWARD ME_4C7E8BF702A1
 
+MEREF ME_4C7E8BF702A1_ME_528239480348_G
+ MELINK Original HWL ME_4C7E8BF702A1 // ChildZone
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C7E8BF702A1_ME_528239480348_G ChildZone
+
 %%InheritedBy ME_4C7E8BF702A1 ME_528239480348
 
 ME ME_528239480348
@@ -41,7 +47,7 @@ ME ME_528239480348
  MELINK Parent HWL ME_4AE9BEEF0229 // PrimFoldersInfo
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4C7E8BF702A1 // ChildZone
+   Seq: ( ME_4C7E8BF702A1_ME_528239480348_G // ChildZone
  )
  ; // Inherits
  UP "MergeBottomTollbarWithContainer" false
@@ -90,7 +96,7 @@ ME ME_4AE9C0AB0261
 
 ENDME // ME_4AE9C0AB0261 
 
-ME ME_4AE9BF890271_ME_4AE9BEEF0229
+MEREF ME_4AE9BF890271_ME_4AE9BEEF0229_impl
  MELINK Original WL 'ME_4AE9BF890271' '4A96A8C10357.ms.model.script' // Close
  ;
  MEPROP OpKind opkind_Implemented
@@ -102,9 +108,9 @@ ME ME_4AE9BF890271_ME_4AE9BEEF0229
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AE9BF890271_ME_4AE9BEEF0229 Close
+ENDMEREF // ME_4AE9BF890271_ME_4AE9BEEF0229_impl Close
 
-ME ME_4AE9C01201BA_ME_4AE9BEEF0229
+MEREF ME_4AE9C01201BA_ME_4AE9BEEF0229_impl
  MELINK Original WL 'ME_4AE9C01201BA' '4A96A8C10357.ms.model.script' // SetState
  ;
  MEPROP OpKind opkind_Implemented
@@ -116,13 +122,31 @@ ME ME_4AE9C01201BA_ME_4AE9BEEF0229
  UP "is FormActivate" false
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4AE9C01201BA_ME_4AE9BEEF0229 SetState
+ENDMEREF // ME_4AE9C01201BA_ME_4AE9BEEF0229_impl SetState
 
-ME ME_4A8E8F2E0195_ME_4AE9BEEF0229
+MEREF ME_4A8E8F2E0195_ME_4AE9BEEF0229_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4AE9BEEF0229 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4AE9BEEF0229_over InitControls
+
+MEREF ME_49525C240170_ME_4AE9BEEF0229_G
+ MELINK Original WL? 'ME_49525C240170' // TvcmContainerForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525C240170_ME_4AE9BEEF0229_G TvcmContainerForm
+
+MEREF ME_4AE9BF190048_ME_4AE9BEEF0229_R
+ MELINK Original WL 'ME_4AE9BF190048' '4A96A8C10357.ms.model.script' // AdditionInfo$ForFoldersInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE9BF190048_ME_4AE9BEEF0229_R AdditionInfo$ForFoldersInfo
+
+MEREF ME_4AE9BFEA0177_ME_4AE9BEEF0229_R
+ MELINK Original WL 'ME_4AE9BFEA0177' '4A96A8C10357.ms.model.script' // FolderElement$ForFoldersInfo
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE9BFEA0177_ME_4AE9BEEF0229_R FolderElement$ForFoldersInfo
 
 %%ImplementedBy ME_4AE9BF190048 ME_4AE9BEEF0229
 %%ImplementedBy ME_4AE9BFEA0177 ME_4AE9BEEF0229
@@ -141,12 +165,12 @@ ME ME_4AE9BEEF0229
  MELINK Parent WL? 'ME_497DCBF8017B' // Folders
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+   Seq: ( ME_49525C240170_ME_4AE9BEEF0229_G // TvcmContainerForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4AE9BF190048' '4A96A8C10357.ms.model.script' // AdditionInfo$ForFoldersInfo
- WL 'ME_4AE9BFEA0177' '4A96A8C10357.ms.model.script' // FolderElement$ForFoldersInfo
+   Seq: ( ME_4AE9BF190048_ME_4AE9BEEF0229_R // AdditionInfo$ForFoldersInfo
+ ME_4AE9BFEA0177_ME_4AE9BEEF0229_R // FolderElement$ForFoldersInfo
  )
  ; // Implements
  MELIST Attributes
@@ -154,12 +178,12 @@ ME ME_4AE9BEEF0229
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_4AE9BF890271_ME_4AE9BEEF0229 // Close
- ME_4AE9C01201BA_ME_4AE9BEEF0229 // SetState
+   Seq: ( ME_4AE9BF890271_ME_4AE9BEEF0229_impl // Close
+ ME_4AE9C01201BA_ME_4AE9BEEF0229_impl // SetState
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4AE9BEEF0229 // InitControls
+   Seq: ( ME_4A8E8F2E0195_ME_4AE9BEEF0229_over // InitControls
  )
  ; // Overridden
  MELIST Children

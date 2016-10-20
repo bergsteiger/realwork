@@ -1,0 +1,112 @@
+// THotSpotSelectionTest 4CED106503D0 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CED106503D0
+
+ME ME_4CED14330258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED106503D0 // THotSpotSelectionTest
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4CED14330258 
+
+ME ME_4CED265203D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CED106503D0 // THotSpotSelectionTest
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_4CED265203D2 
+
+MEREF ME_4BE13147032C_ME_4CED106503D0_impl
+ MELINK Original WL 'ME_4BE13147032C' '4BE111D30229.ms.model.script' // Process
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE13147032C_ME_4CED106503D0_impl Process
+
+MEREF ME_4C937013031D_ME_4CED106503D0_over
+ MELINK Original WL 'ME_4C937013031D' '4B2A0DCE03A9.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C937013031D_ME_4CED106503D0_over GetFolder
+
+MEREF ME_4BE111D30229_ME_4CED106503D0_G
+ MELINK Original WL? 'ME_4BE111D30229' // TTextViaEditorProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE111D30229_ME_4CED106503D0_G TTextViaEditorProcessor
+
+MEREF ME_4CE1344403AC_ME_4CED106503D0_R
+ MELINK Original WL? 'ME_4CE1344403AC' // ClipboardOperations
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CE1344403AC_ME_4CED106503D0_R ClipboardOperations
+
+MEREF ME_4CED0194038A_ME_4CED106503D0_R
+ MELINK Original WL? 'ME_4CED0194038A' // Para2Point
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CED0194038A_ME_4CED106503D0_R Para2Point
+
+MEREF ME_4D53D342026E_ME_4CED106503D0_R
+ MELINK Original WL? 'ME_4D53D342026E' // HotSpotTools
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D53D342026E_ME_4CED106503D0_R HotSpotTools
+
+%%ImplementedBy ME_4CE1344403AC ME_4CED106503D0
+%%ImplementedBy ME_4CED0194038A ME_4CED106503D0
+%%ImplementedBy ME_4D53D342026E ME_4CED106503D0
+
+%%InheritedBy ME_4BE111D30229 ME_4CED106503D0
+
+ME ME_4CED106503D0
+ MEPROP UID '4CED106503D0'
+ MEPROP Name 'THotSpotSelectionTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест выделения с помощью хотспота.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE111D30229_ME_4CED106503D0_G // TTextViaEditorProcessor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4CE1344403AC_ME_4CED106503D0_R // ClipboardOperations
+ ME_4CED0194038A_ME_4CED106503D0_R // Para2Point
+ ME_4D53D342026E_ME_4CED106503D0_R // HotSpotTools
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4BE13147032C_ME_4CED106503D0_impl // Process
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4CED106503D0_over // GetFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CED14330258 // IevHotSpot
+ ME_4CED265203D2 // TPoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\HotSpotSelectionTest.pas'
+ UP extprop:rc:SelfName 'HotSpotSelectionTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'HotSpotSelectionTest'
+
+ENDME // ME_4CED106503D0 THotSpotSelectionTest

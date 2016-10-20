@@ -1,0 +1,172 @@
+// TncsCompatibilityClientTransporter 547708500384 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_547708500384
+
+ME ME_5481A0B20013
+ MEPROP UID '5481A0B20013'
+ MEPROP Name 'f_QueryID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
+ ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_5481A0B20013 f_QueryID
+
+FORWARD ME_5481A0E30063
+
+ME ME_5481A10903D0
+ MEPROP Name 'aQueryID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_5481A10903D0 aQueryID
+
+ME ME_5481A0F10108
+ MEPROP UID '5481A0F10108'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481A0E30063 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5481A10903D0 // aQueryID
+ )
+ ; // Parameters
+
+ENDME // ME_5481A0F10108 DoIt
+
+ME ME_5481A0E30063
+ MEPROP UID '5481A0E30063'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5481A0F10108 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5481A0E30063 Create
+
+MEREF ME_5481A0E30063_ME_5481A13200D2_G
+ MELINK Original HWL ME_5481A0E30063 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5481A0E30063_ME_5481A13200D2_G Create
+
+MEREF ME_5465A598039E_ME_5481A13200D2_R
+ MELINK Original WL 'ME_5465A598039E' '5460A4DB018A.ms.model.script' // IncsClientTransporter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5465A598039E_ME_5481A13200D2_R IncsClientTransporter
+
+%%ImplementedBy ME_5465A598039E ME_5481A13200D2
+
+%%InheritedBy ME_5481A0E30063 ME_5481A13200D2
+
+ME ME_5481A13200D2
+ MEPROP UID '5481A13200D2'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
+ ;
+ MELIST Inherits
+   Seq: ( ME_5481A0E30063_ME_5481A13200D2_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5465A598039E_ME_5481A13200D2_R // IncsClientTransporter
+ )
+ ; // Implements
+
+ENDME // ME_5481A13200D2 Make
+
+ME ME_547708AE00EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_547708500384 // TncsCompatibilityClientTransporter
+ ;
+ MELINK Target WL 'ME_545C9ADE01F3' '538DA49902A4.ms.model.script' // cProtocolVersion
+ ;
+
+ENDME // ME_547708AE00EC 
+
+MEREF ME_549279980264_ME_547708500384_over
+ MELINK Original WL 'ME_549279980264' '544A0A0D0239.ms.model.script' // BeforeSendHandshake
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_549279980264_ME_547708500384_over BeforeSendHandshake
+
+MEREF ME_549279B300D5_ME_547708500384_over
+ MELINK Original WL 'ME_549279B300D5' '544A0A0D0239.ms.model.script' // BeforeReceiveHandshake
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_549279B300D5_ME_547708500384_over BeforeReceiveHandshake
+
+MEREF ME_544A0A0D0239_ME_547708500384_G
+ MELINK Original WL? 'ME_544A0A0D0239' // TncsClientTransporter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_544A0A0D0239_ME_547708500384_G TncsClientTransporter
+
+%%InheritedBy ME_544A0A0D0239 ME_547708500384
+
+ME ME_547708500384
+ MEPROP UID '547708500384'
+ MEPROP Name 'TncsCompatibilityClientTransporter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_544A0A0D0239_ME_547708500384_G // TncsClientTransporter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5481A0B20013 // f_QueryID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5481A0E30063 // Create
+ HWL ME_5481A13200D2 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_549279980264_ME_547708500384_over // BeforeSendHandshake
+ ME_549279B300D5_ME_547708500384_over // BeforeReceiveHandshake
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_547708AE00EC // cProtocolVersion
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsCompatibilityClientTransporter.pas'
+ UP extprop:rc:SelfName 'ncsCompatibilityClientTransporter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsCompatibilityClientTransporter'
+
+ENDME // ME_547708500384 TncsCompatibilityClientTransporter

@@ -43,7 +43,7 @@ ENDME // ME_4F212C5B0201 DoControl
 ME ME_4F212C3A015A
  MEPROP UID '4F212C3A015A'
  MEPROP Name 'DoControl'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -57,11 +57,17 @@ ME ME_4F212C3A015A
 
 ENDME // ME_4F212C3A015A DoControl
 
-ME ME_4F21485E0184_ME_4F212C120371
- MELINK Original WL 'ME_4F21485E0184' '54DB92D203C9.ms.model.script' // DoComponent
+MEREF ME_4F21485E0184_ME_4F212C120371_impl
+ MELINK Original WL 'ME_4F21485E0184' '4F2148300318.ms.model.script' // DoComponent
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4F21485E0184_ME_4F212C120371 DoComponent
+ENDMEREF // ME_4F21485E0184_ME_4F212C120371_impl DoComponent
+
+MEREF ME_4F2148300318_ME_4F212C120371_G
+ MELINK Original WL? 'ME_4F2148300318' // TkwComponentFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F2148300318_ME_4F212C120371_G TkwComponentFromStackWord
 
 %%InheritedBy ME_4F2148300318 ME_4F212C120371
 
@@ -77,7 +83,7 @@ ME ME_4F212C120371
  MELINK Parent WL? 'ME_54DB92D203C9' // VCL bindings
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F2148300318' '54DB92D203C9.ms.model.script' // TkwComponentFromStackWord
+   Seq: ( ME_4F2148300318_ME_4F212C120371_G // TkwComponentFromStackWord
  )
  ; // Inherits
  MELIST Operations
@@ -85,7 +91,7 @@ ME ME_4F212C120371
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4F21485E0184_ME_4F212C120371 // DoComponent
+   Seq: ( ME_4F21485E0184_ME_4F212C120371_impl // DoComponent
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames

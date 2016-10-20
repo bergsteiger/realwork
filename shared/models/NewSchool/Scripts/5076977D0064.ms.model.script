@@ -5,45 +5,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5076977D0064
 %%Inner ME_5076977D0064
 
-FORWARD ME_5076977D0064
-
-FORWARD ME_53E0FC5E0100
-
-ME ME_53E489E90215
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53E0FC5E0100 // pop_class_Inherits
- ;
- MELINK Target WL 'ME_4BCED67800F1' '47877EB202FB.ms.model.script' // ANSISameText
- ;
-
-ENDME // ME_53E489E90215 
-
-ME ME_53E0FC5E0100
- MEPROP UID '53E0FC5E0100'
- MEPROP Name 'pop_class_Inherits'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5076977D0064 // Object Info
- ;
- MELIST Dependencies
-   Seq: ( ME_53E489E90215 // ANSISameText
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
- UP extprop:pas:TypeName 'TkwPopClassInherits'
- UP extprop:rc:SelfName 'PopClassInherits'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'kwPopClassInherits'
-
-ENDME // ME_53E0FC5E0100 pop_class_Inherits
-
 ME ME_5076977D0064
  MEPROP UID '5076977D0064'
  MEPROP Name 'Object Info'
@@ -56,7 +17,7 @@ ME ME_5076977D0064
  ;
  MELIST Children
    Seq: ( WL? 'ME_507698410297' // ObjectFromstackWords
- HWL ME_53E0FC5E0100 // pop_class_Inherits
+ WL? 'ME_53E0FC5E0100' // pop_class_Inherits
  )
  ; // Children
  MELIST Depends

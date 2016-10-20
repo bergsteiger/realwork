@@ -1,0 +1,47 @@
+// Tl3NCString 47BC50F5038E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BC50F5038E
+
+MEREF ME_47A6FEE600FC_ME_47BC50F5038E_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_47BC50F5038E_over IsCacheable
+
+MEREF ME_4773DED9004C_ME_47BC50F5038E_G
+ MELINK Original WL? 'ME_4773DED9004C' // Tl3_String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DED9004C_ME_47BC50F5038E_G Tl3_String
+
+%%InheritedBy ME_4773DED9004C ME_47BC50F5038E
+
+ME ME_47BC50F5038E
+ MEPROP UID '47BC50F5038E'
+ MEPROP Name 'Tl3NCString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Гарантированно некешируемая строка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DED9004C_ME_47BC50F5038E_G // Tl3_String
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_47BC50F5038E_over // IsCacheable
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3NCString.pas'
+ UP extprop:rc:SelfName 'NCString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3NCString'
+
+ENDME // ME_47BC50F5038E Tl3NCString

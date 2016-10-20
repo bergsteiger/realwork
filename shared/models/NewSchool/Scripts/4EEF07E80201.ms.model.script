@@ -1,0 +1,42 @@
+// TkwGotoSub 4EEF07E80201 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EEF07E80201
+
+ME ME_4EEF08D50168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EEF07E80201 // TkwGotoSub
+ ;
+ MELINK Target WL 'ME_4EEF085B0345' '4DE60853015A.ms.model.script' // arGotoSub
+ ;
+
+ENDME // ME_4EEF08D50168 
+
+ME ME_4EEF07E80201
+ MEPROP UID '4EEF07E80201'
+ MEPROP Name 'TkwGotoSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'окно_редактора:перейти_к_метке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DE629810132' // Scripting
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4EEF08D50168 // arGotoSub
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'окно_редактора:перейти_к_метке'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwGotoSub.pas'
+ UP extprop:rc:SelfName 'GotoSub'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwGotoSub'
+
+ENDME // ME_4EEF07E80201 TkwGotoSub

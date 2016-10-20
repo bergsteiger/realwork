@@ -1,0 +1,134 @@
+// TddTextParaString 4FB10AA701B8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FB10AA701B8
+
+ME ME_4FB10B9C03DB
+ MEPROP UID '4FB10B9C03DB'
+ MEPROP Name 'f_TextPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FB10AA701B8 // TddTextParaString
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_4FB10B9C03DB f_TextPara
+
+FORWARD ME_4FB10BB001E3
+
+ME ME_4FB10BC2037B
+ MEPROP Name 'aTextPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_4FB10BC2037B aTextPara
+
+ME ME_4FB10BB702B8
+ MEPROP UID '4FB10BB702B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FB10BB001E3 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FB10BC2037B // aTextPara
+ )
+ ; // Parameters
+
+ENDME // ME_4FB10BB702B8 DoIt
+
+ME ME_4FB10BB001E3
+ MEPROP UID '4FB10BB001E3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FB10AA701B8 // TddTextParaString
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FB10BB702B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FB10BB001E3 Create
+
+ME ME_561E1DA40276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FB10AA701B8 // TddTextParaString
+ ;
+ MELINK Target WL? 'ME_5111FC5402AA' // TddTextSegment
+ ;
+
+ENDME // ME_561E1DA40276 
+
+MEREF ME_479731C50290_ME_4FB10AA701B8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FB10AA701B8_over Cleanup
+
+MEREF ME_4FB10B1D016B_ME_4FB10AA701B8_over
+ MELINK Original WL 'ME_4FB10B1D016B' '4773DED9004C.ms.model.script' // NotifyDeletion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FB10B1D016B_ME_4FB10AA701B8_over NotifyDeletion
+
+MEREF ME_4773DF5703C9_ME_4FB10AA701B8_G
+ MELINK Original WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DF5703C9_ME_4FB10AA701B8_G Tl3String
+
+%%InheritedBy ME_4773DF5703C9 ME_4FB10AA701B8
+
+ME ME_4FB10AA701B8
+ MEPROP UID '4FB10AA701B8'
+ MEPROP Name 'TddTextParaString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DF5703C9_ME_4FB10AA701B8_G // Tl3String
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FB10B9C03DB // f_TextPara
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FB10BB001E3 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FB10AA701B8_over // Cleanup
+ ME_4FB10B1D016B_ME_4FB10AA701B8_over // NotifyDeletion
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561E1DA40276 // TddTextSegment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddTextParaString.pas'
+ UP extprop:rc:SelfName 'ddTextParaString'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddTextParaString'
+
+ENDME // ME_4FB10AA701B8 TddTextParaString

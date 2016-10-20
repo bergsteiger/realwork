@@ -153,7 +153,7 @@ ENDME // ME_57B2BA260029 DoIt
 ME ME_57B2BA1B039B
  MEPROP UID '57B2BA1B039B'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -167,6 +167,18 @@ ME ME_57B2BA1B039B
 
 ENDME // ME_57B2BA1B039B Create
 
+MEREF ME_57B2BA1B039B_ME_57B2BA090040_G
+ MELINK Original HWL ME_57B2BA1B039B // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2BA1B039B_ME_57B2BA090040_G Create
+
+MEREF ME_57B1E89F02AE_ME_57B2BA090040_R
+ MELINK Original WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B1E89F02AE_ME_57B2BA090040_R ImsmController
+
 %%ImplementedBy ME_57B1E89F02AE ME_57B2BA090040
 
 %%InheritedBy ME_57B2BA1B039B ME_57B2BA090040
@@ -174,7 +186,7 @@ ENDME // ME_57B2BA1B039B Create
 ME ME_57B2BA090040
  MEPROP UID '57B2BA090040'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -182,15 +194,21 @@ ME ME_57B2BA090040
  MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B2BA1B039B // Create
+   Seq: ( ME_57B2BA1B039B_ME_57B2BA090040_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+   Seq: ( ME_57B1E89F02AE_ME_57B2BA090040_R // ImsmController
  )
  ; // Implements
 
 ENDME // ME_57B2BA090040 Make
+
+MEREF ME_57B2B7FF03E4_ME_57B2B8FA0333_G
+ MELINK Original WL? 'ME_57B2B7FF03E4' // msmConcreteModelController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2B7FF03E4_ME_57B2B8FA0333_G msmConcreteModelController
 
 %%InheritedBy ME_57B2B7FF03E4 ME_57B2B8FA0333
 
@@ -206,7 +224,7 @@ ME ME_57B2B8FA0333
  MELINK Parent WL? 'ME_57AAE90E02B6' // Controllers
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57B2B7FF03E4' // msmConcreteModelController
+   Seq: ( ME_57B2B7FF03E4_ME_57B2B8FA0333_G // msmConcreteModelController
  )
  ; // Inherits
  MELIST Attributes

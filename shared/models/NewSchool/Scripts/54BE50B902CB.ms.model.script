@@ -1,0 +1,52 @@
+// TeeDocumentCursor 54BE50B902CB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE50B902CB
+
+ME ME_54BE5277018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_54BE50B902CB // TeeDocumentCursor
+ ;
+ MELINK Target WL? 'ME_54BE51580257' // TeeDocument
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_54BE5277018F 
+
+MEREF ME_4A4C8EC4019F_ME_54BE50B902CB_G
+ MELINK Original WL? 'ME_4A4C8EC4019F' // TevDocumentCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A4C8EC4019F_ME_54BE50B902CB_G TevDocumentCursor
+
+%%InjectedBy ME_54BE51580257 ME_54BE50B902CB
+
+%%InheritedBy ME_4A4C8EC4019F ME_54BE50B902CB
+
+ME ME_54BE50B902CB
+ MEPROP UID '54BE50B902CB'
+ MEPROP Name 'TeeDocumentCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54BE4A3A005B' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A4C8EC4019F_ME_54BE50B902CB_G // TevDocumentCursor
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_54BE5277018F // TeeDocument
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeDocumentCursor.pas'
+ UP extprop:rc:SelfName 'eeDocumentCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeDocumentCursor'
+
+ENDME // ME_54BE50B902CB TeeDocumentCursor

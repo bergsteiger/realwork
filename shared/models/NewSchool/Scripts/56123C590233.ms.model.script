@@ -1,0 +1,70 @@
+// TevReqRowImplementation 56123C590233 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56123C590233
+
+ME ME_561252E50109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56123C590233 // TevReqRowImplementation
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_561252E50109 
+
+MEREF ME_5612461701A2_ME_56123C590233_over
+ MELINK Original WL 'ME_5612461701A2' '48D3D038036A.ms.model.script' // DoCloneSegments
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5612461701A2_ME_56123C590233_over DoCloneSegments
+
+MEREF ME_5612464E01AC_ME_56123C590233_over
+ MELINK Original WL 'ME_5612464E01AC' '48D3D038036A.ms.model.script' // GetClearMode4Clone
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5612464E01AC_ME_56123C590233_over GetClearMode4Clone
+
+MEREF ME_48D3D038036A_ME_56123C590233_G
+ MELINK Original WL? 'ME_48D3D038036A' // TevTableImplementation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D3D038036A_ME_56123C590233_G TevTableImplementation
+
+%%InheritedBy ME_48D3D038036A ME_56123C590233
+
+ME ME_56123C590233
+ MEPROP UID '56123C590233'
+ MEPROP Name 'TevReqRowImplementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Специализированная обработка добавления строк в КЗ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_47F1F38601A3' // ParaUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_48D3D038036A_ME_56123C590233_G // TevTableImplementation
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5612461701A2_ME_56123C590233_over // DoCloneSegments
+ ME_5612464E01AC_ME_56123C590233_over // GetClearMode4Clone
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_561252E50109 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqRowImplementation.pas'
+ UP extprop:rc:SelfName 'ReqRowImplementation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqRowImplementation'
+
+ENDME // ME_56123C590233 TevReqRowImplementation

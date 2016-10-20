@@ -4,57 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_4F5F53C903CB
 
-FORWARD ME_4F5F53C903CB
-
-FORWARD ME_4F5F53F900AB
-
-ME ME_4B7AB0B6016E_ME_4F5F53F900AB
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7AB0B6016E_ME_4F5F53F900AB CommandLineKey
-
-ME ME_4B7C0B43005B_ME_4F5F53F900AB
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B43005B_ME_4F5F53F900AB TimesPage
-
-ME ME_4B7C0B670215_ME_4F5F53F900AB
- MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4B7C0B670215_ME_4F5F53F900AB ResultsPage
-
-%%InheritedBy ME_4B7AAC7A031D ME_4F5F53F900AB
-
-ME ME_4F5F53F900AB
- MEPROP UID '4F5F53F900AB'
- MEPROP Name 'ItsLAW'
- MEPROP Class class_Class
- MELINK Stereotype st_TestResults ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F5F53C903CB // NewGen
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4B7AB0B6016E_ME_4F5F53F900AB // CommandLineKey
- ME_4B7C0B43005B_ME_4F5F53F900AB // TimesPage
- ME_4B7C0B670215_ME_4F5F53F900AB // ResultsPage
- )
- ; // Implemented
- UP intf.pas:Path 'MDProcess\NewGenTest\ItsLAW.pas'
- UP extprop:pas:TypeName 'TItsLAW'
- UP extprop:rc:SelfName 'ItsLAW'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F5F53F900AB ItsLAW
-
 ME ME_4F5F53C903CB
  MEPROP UID '4F5F53C903CB'
  MEPROP Name 'NewGen'
@@ -67,7 +16,7 @@ ME ME_4F5F53C903CB
  MELINK Parent WL? 'ME_4F5F65870086' // MDProcess$NewGen
  ;
  MELIST Children
-   Seq: ( HWL ME_4F5F53F900AB // ItsLAW
+   Seq: ( WL? 'ME_4F5F53F900AB' // ItsLAW
  )
  ; // Children
  MELIST Depends
@@ -83,6 +32,6 @@ ME ME_4F5F53C903CB
  UP intf.pas:Path 'MDProcess\NewGenTest\NewGenTest.dpr'
  UP intf.pas:PathOnly '\MDProcess\NewGenTest'
  UP extprop:pas:UnitName 'NewGenTest'
- UP Version 0
+ UP Version 1
 
 ENDME // ME_4F5F53C903CB NewGen

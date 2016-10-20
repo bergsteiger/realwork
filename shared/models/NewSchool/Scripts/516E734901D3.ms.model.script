@@ -1,0 +1,55 @@
+// EVDtoHTMLTest 516E734901D3 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516E734901D3
+
+ME ME_516E73710182
+ MEPROP UID '516E73710182'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516E734901D3 // EVDtoHTMLTest
+ ;
+
+ENDME // ME_516E73710182 DoIt
+
+MEREF ME_516E72CA0386_ME_516E734901D3_G
+ MELINK Original WL? 'ME_516E72CA0386' // EVDtoHTMLWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516E72CA0386_ME_516E734901D3_G EVDtoHTMLWriterTest
+
+%%InheritedBy ME_516E72CA0386 ME_516E734901D3
+
+ME ME_516E734901D3
+ MEPROP UID '516E734901D3'
+ MEPROP Name 'EVDtoHTMLTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4E847D6D002B' // HTML
+ ;
+ MELIST Inherits
+   Seq: ( ME_516E72CA0386_ME_516E734901D3_G // EVDtoHTMLWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_516E73710182 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoHTMLTest.pas'
+ UP extprop:pas:TypeName 'TEVDtoHTMLTest'
+ UP extprop:rc:SelfName 'EVDtoHTMLTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_516E734901D3 EVDtoHTMLTest

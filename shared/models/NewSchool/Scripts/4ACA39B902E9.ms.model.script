@@ -1,0 +1,49 @@
+// TnscFixedWidthControlCell 4ACA39B902E9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACA39B902E9
+
+MEREF ME_4ACA31830369_ME_4ACA39B902E9_over
+ MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4ACA31830369_ME_4ACA39B902E9_over Create
+
+MEREF ME_4ACA309200D3_ME_4ACA39B902E9_G
+ MELINK Original WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ACA309200D3_ME_4ACA39B902E9_G TagControlCell
+
+%%InheritedBy ME_4ACA309200D3 ME_4ACA39B902E9
+
+ME ME_4ACA39B902E9
+ MEPROP UID '4ACA39B902E9'
+ MEPROP Name 'TnscFixedWidthControlCell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AC9B14A02E3' // Grid
+ ;
+ MELIST Inherits
+   Seq: ( ME_4ACA309200D3_ME_4ACA39B902E9_G // TagControlCell
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ACA31830369_ME_4ACA39B902E9_over // Create
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.10.2009 22:24'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFixedWidthControlCell.pas'
+ UP extprop:rc:SelfName 'FixedWidthControlCell'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nscFixedWidthControlCell'
+
+ENDME // ME_4ACA39B902E9 TnscFixedWidthControlCell

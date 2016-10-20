@@ -1,0 +1,173 @@
+// TatChatMessage 4B6AE9CB00C2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B6AE9CB00C2
+
+FORWARD ME_4B6AE9CB00C2
+
+FORWARD ME_4B6AE9DB0325
+
+ME ME_4B6AEA0B018F
+ MEPROP UID '4B6AEA0B018F'
+ MEPROP Name 'ChatMessage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4B6AE9DB0325 // IatChatMessage
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "pm" false
+
+ENDME // ME_4B6AEA0B018F ChatMessage
+
+ME ME_4B6AE9DB0325
+ MEPROP UID '4B6AE9DB0325'
+ MEPROP GUID '3CB60B5E-38D0-4476-80FB-C4338CE4D13E'
+ MEPROP Name 'IatChatMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B6AEA0B018F // ChatMessage
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'atChatMessage'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B6AE9DB0325 IatChatMessage
+
+ME ME_4B6AE9ED0068
+ MEPROP UID '4B6AE9ED0068'
+ MEPROP Name 'f_ChatMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B6AE9ED0068 f_ChatMessage
+
+ME ME_4B7A9896024C
+ MEPROP UID '4B7A9896024C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
+ ;
+ MELINK Target HWL ME_4B6AE9DB0325 // IatChatMessage
+ ;
+
+ENDME // ME_4B7A9896024C Make
+
+ME ME_4B6AFCB6035D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4B6AFCB6035D 
+
+ME ME_4B6AFCDB01CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6AE9CB00C2 // TatChatMessage
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4B6AFCDB01CA 
+
+MEREF ME_4B6AE81E0267_ME_4B6AE9CB00C2_impl
+ MELINK Original WL 'ME_4B6AE81E0267' '48400B220217.ms.model.script' // DoGenerate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B6AE81E0267_ME_4B6AE9CB00C2_impl DoGenerate
+
+MEREF ME_4B6AEA0B018F_ME_4B6AE9CB00C2_impl
+ MELINK Original HWL ME_4B6AEA0B018F // ChatMessage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4B6AEA0B018F_ME_4B6AE9CB00C2_impl ChatMessage
+
+MEREF ME_48400B220217_ME_4B6AE9CB00C2_G
+ MELINK Original WL? 'ME_48400B220217' // TatBaseEvdHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48400B220217_ME_4B6AE9CB00C2_G TatBaseEvdHelper
+
+MEREF ME_4B6AE9DB0325_ME_4B6AE9CB00C2_R
+ MELINK Original HWL ME_4B6AE9DB0325 // IatChatMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B6AE9DB0325_ME_4B6AE9CB00C2_R IatChatMessage
+
+%%ImplementedBy ME_4B6AE9DB0325 ME_4B6AE9CB00C2
+
+%%InheritedBy ME_48400B220217 ME_4B6AE9CB00C2
+
+ME ME_4B6AE9CB00C2
+ MEPROP UID '4B6AE9CB00C2'
+ MEPROP Name 'TatChatMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B6AE61900F5' // EvdHelpers
+ ;
+ MELIST Inherits
+   Seq: ( ME_48400B220217_ME_4B6AE9CB00C2_G // TatBaseEvdHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B6AE9DB0325_ME_4B6AE9CB00C2_R // IatChatMessage
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B6AE9ED0068 // f_ChatMessage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7A9896024C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B6AE81E0267_ME_4B6AE9CB00C2_impl // DoGenerate
+ ME_4B6AEA0B018F_ME_4B6AE9CB00C2_impl // ChatMessage
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4B6AE9DB0325 // IatChatMessage
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B6AFCB6035D // TextPara
+ ME_4B6AFCDB01CA // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\EvdHelpers\atChatMessage.pas'
+ UP extprop:rc:SelfName 'atChatMessage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atChatMessage'
+
+ENDME // ME_4B6AE9CB00C2 TatChatMessage

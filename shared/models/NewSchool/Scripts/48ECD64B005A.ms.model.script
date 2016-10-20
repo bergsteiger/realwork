@@ -1,0 +1,135 @@
+// TevLeafParaMultiSelectionBlock 48ECD64B005A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48ECD64B005A
+
+MEREF ME_4BA8DE8C03D8_ME_4BAA60370285_G
+ MELINK Original WL 'ME_4BA8DE8C03D8' '47C5207602D1.ms.model.script' // Iterate
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BA8DE8C03D8_ME_4BAA60370285_G Iterate
+
+%%InheritedBy ME_4BA8DE8C03D8 ME_4BAA60370285
+
+ME ME_4BAA60370285
+ MEPROP UID '4BAA60370285'
+ MEPROP Name 'IterateX'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Iterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48ECD64B005A // TevLeafParaMultiSelectionBlock
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BA8DE8C03D8_ME_4BAA60370285_G // Iterate
+ )
+ ; // Inherits
+ UP "needs index" true
+ UP "needs result" true
+
+ENDME // ME_4BAA60370285 IterateX
+
+ME ME_48ECEF2C0348
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48ECEF2C0348 aTagWrap
+
+ME ME_48ECEF2C039E
+ MEPROP Name 'aBlocks'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_47E26A16008E' // TnevRangeList
+ ;
+
+ENDME // ME_48ECEF2C039E aBlocks
+
+ME ME_48ECEF150028
+ MEPROP UID '48ECEF150028'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48ECD64B005A // TevLeafParaMultiSelectionBlock
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_48ECEF2C0348 // aTagWrap
+ ME_48ECEF2C039E // aBlocks
+ )
+ ; // Parameters
+
+ENDME // ME_48ECEF150028 Make
+
+ME ME_48ECF10600D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48ECD64B005A // TevLeafParaMultiSelectionBlock
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48ECF10600D4 
+
+MEREF ME_48ECE4420180_ME_48ECD64B005A_over
+ MELINK Original WL 'ME_48ECE4420180' '48E3B83B0187.ms.model.script' // DoStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48ECE4420180_ME_48ECD64B005A_over DoStore
+
+MEREF ME_48E3B83B0187_ME_48ECD64B005A_G
+ MELINK Original WL? 'ME_48E3B83B0187' // TevMultiSelectionBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48E3B83B0187_ME_48ECD64B005A_G TevMultiSelectionBlock
+
+%%InheritedBy ME_48E3B83B0187 ME_48ECD64B005A
+
+ME ME_48ECD64B005A
+ MEPROP UID '48ECD64B005A'
+ MEPROP Name 'TevLeafParaMultiSelectionBlock'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_48E3B83B0187_ME_48ECD64B005A_G // TevMultiSelectionBlock
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4BAA60370285 // IterateX
+ HWL ME_48ECEF150028 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48ECE4420180_ME_48ECD64B005A_over // DoStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48ECF10600D4 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '08.10.2008 18:47'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas'
+ UP extprop:rc:SelfName 'LeafParaMultiSelectionBlock'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evLeafParaMultiSelectionBlock'
+
+ENDME // ME_48ECD64B005A TevLeafParaMultiSelectionBlock

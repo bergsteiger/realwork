@@ -119,6 +119,12 @@ ME ME_4C74ED51025F
 
 ENDME // ME_4C74ED51025F Tl3FileStream
 
+MEREF ME_48F4748E0192_ME_53078F2001B2_G
+ MELINK Original WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48F4748E0192_ME_53078F2001B2_G Tl3Stream
+
 %%InheritedBy ME_48F4748E0192 ME_53078F2001B2
 
 ME ME_53078F2001B2
@@ -132,13 +138,19 @@ ME ME_53078F2001B2
  MELINK Parent HWL ME_47A080670100 // l3Stream
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+   Seq: ( ME_48F4748E0192_ME_53078F2001B2_G // Tl3Stream
  )
  ; // Inherits
  UP extprop:rc:SelfName 'HandleStream'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_53078F2001B2 Tl3HandleStream
+
+MEREF ME_53078F2001B2_ME_53078F0D032A_G
+ MELINK Original HWL ME_53078F2001B2 // Tl3HandleStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53078F2001B2_ME_53078F0D032A_G Tl3HandleStream
 
 %%InheritedBy ME_53078F2001B2 ME_53078F0D032A
 
@@ -153,7 +165,7 @@ ME ME_53078F0D032A
  MELINK Parent HWL ME_47A080670100 // l3Stream
  ;
  MELIST Inherits
-   Seq: ( HWL ME_53078F2001B2 // Tl3HandleStream
+   Seq: ( ME_53078F2001B2_ME_53078F0D032A_G // Tl3HandleStream
  )
  ; // Inherits
  UP extprop:rc:SelfName 'TempFileStream'
@@ -176,6 +188,12 @@ ME ME_53733E060113
 
 ENDME // ME_53733E060113 Tl3NamedFileStream
 
+MEREF ME_499D47A502DE_ME_55795D8E03BA_G
+ MELINK Original WL 'ME_499D47A502DE' '47AB1FDE03E4.ms.model.script' // Tl3ConstMemoryStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_499D47A502DE_ME_55795D8E03BA_G Tl3ConstMemoryStream
+
 %%InheritedBy ME_499D47A502DE ME_55795D8E03BA
 
 ME ME_55795D8E03BA
@@ -189,7 +207,7 @@ ME ME_55795D8E03BA
  MELINK Parent HWL ME_47A080670100 // l3Stream
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_499D47A502DE' '47AB1FDE03E4.ms.model.script' // Tl3ConstMemoryStream
+   Seq: ( ME_499D47A502DE_ME_55795D8E03BA_G // Tl3ConstMemoryStream
  )
  ; // Inherits
  UP extprop:rc:SelfName 'ResourceStream'
@@ -200,7 +218,7 @@ ENDME // ME_55795D8E03BA Tl3ResourceStream
 ME ME_4B2FC528001C
  MEPROP UID '4B2FC528001C'
  MEPROP Name 'l3CompareFiles'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

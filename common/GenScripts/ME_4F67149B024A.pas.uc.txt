@@ -37,22 +37,25 @@ var
   Exit;
  end;
 
- if Code = HC_ACTION then
+ if (Tl3ListenersManager.Instance.WndProcListeners <> nil) then
  begin
-  l_Result.Handled := False;
-  l_Result.Result := 0;
-  l_Index := 0;
-  while l_Index < Tl3ListenersManager.Instance.WndProcListeners.Count do
+  if Code = HC_ACTION then
   begin
-   Tl3ListenersManager.Instance.WndProcListeners[l_Index].WndProcListenerNotify(Msg, l_Result);
-   if l_Result.Handled then
+   l_Result.Handled := False;
+   l_Result.Result := 0;
+   l_Index := 0;
+   while l_Index < Tl3ListenersManager.Instance.WndProcListeners.Count do
    begin
-    Result := l_Result.Result;
-    Exit; 
-   end;
-   Inc(l_Index);
-  end; // while l_Index < Tl3ListenersManager.Instance.WndProcListeners.Count do
- end;//if Code = HC_ACTION then
+    Tl3ListenersManager.Instance.WndProcListeners[l_Index].WndProcListenerNotify(Msg, l_Result);
+    if l_Result.Handled then
+    begin
+     Result := l_Result.Result;
+     Exit;
+    end;
+    Inc(l_Index);
+   end; // while l_Index < Tl3ListenersManager.Instance.WndProcListeners.Count do
+  end;//if Code = HC_ACTION then
+ end;//Tl3ListenersManager.Instance.WndProcListeners
  Result := CallNextHookEx(Tl3ListenersManager.Instance.WndProcHook, Code, WParam, Longint(Msg));
 //#UC END# *4F67157402EF_4F67149B024A_impl*
 //#UC START# *4F67157402EF_4F67149B024A_var*
@@ -86,17 +89,20 @@ var
  end
  else
  begin
-  l_Index := 0;
-  while l_Index < Tl3ListenersManager.Instance.GetMessageListeners.Count do
+  if (Tl3ListenersManager.Instance.GetMessageListeners <> nil) then
   begin
-   Tl3ListenersManager.Instance.GetMessageListeners[l_Index].GetMessageListenerNotify(Code, WParam, Msg, l_Result);
-   if l_Result.Handled then
+   l_Index := 0;
+   while l_Index < Tl3ListenersManager.Instance.GetMessageListeners.Count do
    begin
-    Result := l_Result.Result;
-    Exit;
-   end;
-   Inc(l_Index);
-  end; // while l_Index < Tl3ListenersManager.Instance.GetMessageListeners.Count do
+    Tl3ListenersManager.Instance.GetMessageListeners[l_Index].GetMessageListenerNotify(Code, WParam, Msg, l_Result);
+    if l_Result.Handled then
+    begin
+     Result := l_Result.Result;
+     Exit;
+    end;
+    Inc(l_Index);
+   end; // while l_Index < Tl3ListenersManager.Instance.GetMessageListeners.Count do
+  end;//Tl3ListenersManager.Instance.GetMessageListeners <> nil
  end;
  Result := CallNextHookEx(Tl3ListenersManager.Instance.GetMessageHook, Code, WParam, Longint(Msg));
 //#UC END# *4F6715D20141_4F67149B024A_impl*

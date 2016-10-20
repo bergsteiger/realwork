@@ -39,7 +39,7 @@ ENDME // ME_4CDAC58A006B DoIt
 ME ME_4CDAC581005C
  MEPROP UID '4CDAC581005C'
  MEPROP Name 'CanPrint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -71,7 +71,7 @@ ENDME // ME_4CDAC59D00E4 DoIt
 ME ME_4CDAC59301AC
  MEPROP UID '4CDAC59301AC'
  MEPROP Name 'GetCanPrint'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -114,7 +114,7 @@ ENDME // ME_51A4550A0356 DoIt
 ME ME_51A45199015E
  MEPROP UID '51A45199015E'
  MEPROP Name 'DoPrintExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -157,7 +157,7 @@ ENDME // ME_51A45528009E DoIt
 ME ME_51A451E20376
  MEPROP UID '51A451E20376'
  MEPROP Name 'DoPreviewExecute'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -201,7 +201,7 @@ ME ME_57A30BCF023D
 
 ENDME // ME_57A30BCF023D 
 
-ME ME_49521D8E0295_ME_4CDABAD0032E
+MEREF ME_49521D8E0295_ME_4CDABAD0032E_impl
  MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
  ;
  MEPROP OpKind opkind_Implemented
@@ -214,9 +214,9 @@ ME ME_49521D8E0295_ME_4CDABAD0032E
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_49521D8E0295_ME_4CDABAD0032E Print
+ENDMEREF // ME_49521D8E0295_ME_4CDABAD0032E_impl Print
 
-ME ME_495220DE0298_ME_4CDABAD0032E
+MEREF ME_495220DE0298_ME_4CDABAD0032E_impl
  MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
  ;
  MEPROP OpKind opkind_Implemented
@@ -229,9 +229,9 @@ ME ME_495220DE0298_ME_4CDABAD0032E
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_495220DE0298_ME_4CDABAD0032E PrintDialog
+ENDMEREF // ME_495220DE0298_ME_4CDABAD0032E_impl PrintDialog
 
-ME ME_495220F2033A_ME_4CDABAD0032E
+MEREF ME_495220F2033A_ME_4CDABAD0032E_impl
  MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
  ;
  MEPROP OpKind opkind_Implemented
@@ -244,7 +244,19 @@ ME ME_495220F2033A_ME_4CDABAD0032E
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_495220F2033A_ME_4CDABAD0032E PrintPreview
+ENDMEREF // ME_495220F2033A_ME_4CDABAD0032E_impl PrintPreview
+
+MEREF ME_49521D8203A0_ME_4CDABAD0032E_R
+ MELINK Original WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49521D8203A0_ME_4CDABAD0032E_R File
+
+MEREF ME_4A5CB93700CF_ME_4CDABAD0032E_R
+ MELINK Original WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CB93700CF_ME_4CDABAD0032E_R Ml3Unknown
 
 %%ImplementedBy ME_49521D8203A0 ME_4CDABAD0032E
 %%ImplementedBy ME_4A5CB93700CF ME_4CDABAD0032E
@@ -262,8 +274,8 @@ ME ME_4CDABAD0032E
  MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Implements
-   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
- WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+   Seq: ( ME_49521D8203A0_ME_4CDABAD0032E_R // File
+ ME_4A5CB93700CF_ME_4CDABAD0032E_R // Ml3Unknown
  )
  ; // Implements
  MELIST Attributes
@@ -278,9 +290,9 @@ ME ME_4CDABAD0032E
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_49521D8E0295_ME_4CDABAD0032E // Print
- ME_495220DE0298_ME_4CDABAD0032E // PrintDialog
- ME_495220F2033A_ME_4CDABAD0032E // PrintPreview
+   Seq: ( ME_49521D8E0295_ME_4CDABAD0032E_impl // Print
+ ME_495220DE0298_ME_4CDABAD0032E_impl // PrintDialog
+ ME_495220F2033A_ME_4CDABAD0032E_impl // PrintPreview
  )
  ; // Implemented
  MELIST Dependencies

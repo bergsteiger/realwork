@@ -1,0 +1,59 @@
+// ToK 511B4CD501E9 TestResults Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_511B4CD501E9
+
+MEREF ME_4B7AB0B6016E_ME_511B4CD501E9_impl
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7AB0B6016E_ME_511B4CD501E9_impl CommandLineKey
+
+MEREF ME_4B7C0B43005B_ME_511B4CD501E9_impl
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B43005B_ME_511B4CD501E9_impl TimesPage
+
+MEREF ME_4B7C0B670215_ME_511B4CD501E9_impl
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4B7C0B670215_ME_511B4CD501E9_impl ResultsPage
+
+MEREF ME_4B7AAC7A031D_ME_511B4CD501E9_G
+ MELINK Original WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B7AAC7A031D_ME_511B4CD501E9_G TTestResultsPlace
+
+%%InheritedBy ME_4B7AAC7A031D ME_511B4CD501E9
+
+ME ME_511B4CD501E9
+ MEPROP UID '511B4CD501E9'
+ MEPROP Name 'ToK'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_511B4CA100B2' // Search
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B7AAC7A031D_ME_511B4CD501E9_G // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_511B4CD501E9_impl // CommandLineKey
+ ME_4B7C0B43005B_ME_511B4CD501E9_impl // TimesPage
+ ME_4B7C0B670215_ME_511B4CD501E9_impl // ResultsPage
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\SearchTest\ToK.pas'
+ UP extprop:pas:TypeName 'TToK'
+ UP extprop:rc:SelfName 'ToK'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_511B4CD501E9 ToK

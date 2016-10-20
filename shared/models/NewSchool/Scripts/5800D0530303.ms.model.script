@@ -1,0 +1,267 @@
+// TarDirectMultiChangeHyperLinksHelper 5800D0530303 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5800D0530303
+
+ME ME_5800D1620296
+ MEPROP UID '5800D1620296'
+ MEPROP Name 'f_FamilyID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_5800D1620296 f_FamilyID
+
+ME ME_5800D16C02A5
+ MEPROP UID '5800D16C02A5'
+ MEPROP Name 'f_OldDocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5800D16C02A5 f_OldDocID
+
+ME ME_5800D1760064
+ MEPROP UID '5800D1760064'
+ MEPROP Name 'f_NewDocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5800D1760064 f_NewDocID
+
+ME ME_5800D17E0354
+ MEPROP UID '5800D17E0354'
+ MEPROP Name 'f_DOcumentIDList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_5800D17E0354 f_DOcumentIDList
+
+FORWARD ME_5800D1A400DD
+
+ME ME_5800D1C801ED
+ MEPROP Name 'aFamilyID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_5800D1C801ED aFamilyID
+
+ME ME_5800D1C801FD
+ MEPROP Name 'anOldDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5800D1C801FD anOldDocID
+
+ME ME_5800D1C8020C
+ MEPROP Name 'aNewDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
+ ;
+
+ENDME // ME_5800D1C8020C aNewDocID
+
+ME ME_5800D1C8022C
+ MEPROP Name 'aDocsList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_5800D1C8022C aDocsList
+
+ME ME_5800D1AB0287
+ MEPROP UID '5800D1AB0287'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5800D1A400DD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5800D1C801ED // aFamilyID
+ ME_5800D1C801FD // anOldDocID
+ ME_5800D1C8020C // aNewDocID
+ ME_5800D1C8022C // aDocsList
+ )
+ ; // Parameters
+
+ENDME // ME_5800D1AB0287 DoIt
+
+ME ME_5800D1A400DD
+ MEPROP UID '5800D1A400DD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5800D1AB0287 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5800D1A400DD Create
+
+ME ME_58047C950177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_52E8BA5101A7' '519B79940228.ms.model.script' // LinkServer
+ ;
+
+ENDME // ME_58047C950177 
+
+ME ME_58047D290080
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL? 'ME_51B6CE6100D8' // dt_Doc
+ ;
+
+ENDME // ME_58047D290080 
+
+ME ME_58047DD401D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_4787B1960023' '4787B0A8007B.ms.model.script' // El3NoLoggedException
+ ;
+
+ENDME // ME_58047DD401D1 
+
+ME ME_580482BB0258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_580482760266' '4E255287019F.ms.model.script' // StrShop
+ ;
+
+ENDME // ME_580482BB0258 
+
+ME ME_5804832E029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL? 'ME_519A10DD036F' // dt_Const
+ ;
+
+ENDME // ME_5804832E029F 
+
+ME ME_580485EF03D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5800D0530303 // TarDirectMultiChangeHyperLinksHelper
+ ;
+ MELINK Target WL 'ME_57EA5C3C015C' '47BC51FE018B.ms.model.script' // TLogActionType
+ ;
+
+ENDME // ME_580485EF03D7 
+
+MEREF ME_5800CDDF0090_ME_5800D0530303_impl
+ MELINK Original WL 'ME_5800CDDF0090' '5800CDB10211.ms.model.script' // ModifyDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5800CDDF0090_ME_5800D0530303_impl ModifyDocs
+
+MEREF ME_479731C50290_ME_5800D0530303_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5800D0530303_over Cleanup
+
+MEREF ME_5800CDB10211_ME_5800D0530303_G
+ MELINK Original WL? 'ME_5800CDB10211' // TarCustomMultiChangeHyperLinksHelper
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5800CDB10211_ME_5800D0530303_G TarCustomMultiChangeHyperLinksHelper
+
+%%InheritedBy ME_5800CDB10211 ME_5800D0530303
+
+ME ME_5800D0530303
+ MEPROP UID '5800D0530303'
+ MEPROP Name 'TarDirectMultiChangeHyperLinksHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57E2336703B0' // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( ME_5800CDB10211_ME_5800D0530303_G // TarCustomMultiChangeHyperLinksHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5800D1620296 // f_FamilyID
+ HWL ME_5800D16C02A5 // f_OldDocID
+ HWL ME_5800D1760064 // f_NewDocID
+ HWL ME_5800D17E0354 // f_DOcumentIDList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5800D1A400DD // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5800CDDF0090_ME_5800D0530303_impl // ModifyDocs
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5800D0530303_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_58047C950177 // LinkServer
+ ME_58047D290080 // dt_Doc
+ ME_58047DD401D1 // El3NoLoggedException
+ ME_580482BB0258 // StrShop
+ ME_5804832E029F // dt_Const
+ ME_580485EF03D7 // TLogActionType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arDirectMultiChangeHyperLinksHelper.pas'
+ UP extprop:rc:SelfName 'arDirectMultiChangeHyperLinksHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arDirectMultiChangeHyperLinksHelper'
+
+ENDME // ME_5800D0530303 TarDirectMultiChangeHyperLinksHelper

@@ -1,0 +1,165 @@
+// Tl3TreeFilters 48FF4EC501F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FF4EC501F6
+
+ME ME_48FF4F1D0246
+ MEPROP UID '48FF4F1D0246'
+ MEPROP Name 'f_Context'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF4EC501F6 // Tl3TreeFilters
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48FF4F1D0246 f_Context
+
+ME ME_48FF4F520078
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+
+ENDME // ME_48FF4F520078 aSource
+
+ME ME_48FF4F47010F
+ MEPROP UID '48FF4F47010F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FF4EC501F6 // Tl3TreeFilters
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FF4F520078 // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_48FF4F47010F Create
+
+ME ME_48FF4F61034C
+ MEPROP Name 'aSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48FF4F61034C aSource
+
+ME ME_48FF4F5A035F
+ MEPROP UID '48FF4F5A035F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FF4EC501F6 // Tl3TreeFilters
+ ;
+ MELINK Target WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FF4F61034C // aSource
+ )
+ ; // Parameters
+
+ENDME // ME_48FF4F5A035F Make
+
+MEREF ME_47724B790382_ME_48FF4EC501F6_impl
+ MELINK Original WL 'ME_47724B790382' '4682595B0268.ms.model.script' // SetContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724B790382_ME_48FF4EC501F6_impl SetContext
+
+MEREF ME_47724B87036B_ME_48FF4EC501F6_impl
+ MELINK Original WL 'ME_47724B87036B' '4682595B0268.ms.model.script' // Clone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724B87036B_ME_48FF4EC501F6_impl Clone
+
+MEREF ME_47724B9402ED_ME_48FF4EC501F6_impl
+ MELINK Original WL 'ME_47724B9402ED' '4682595B0268.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_47724B9402ED_ME_48FF4EC501F6_impl Context
+
+MEREF ME_479731C50290_ME_48FF4EC501F6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48FF4EC501F6_over Cleanup
+
+MEREF ME_46780E690001_ME_48FF4EC501F6_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_48FF4EC501F6_G Tl3CacheableBase
+
+MEREF ME_47724B6500F6_ME_48FF4EC501F6_R
+ MELINK Original WL 'ME_47724B6500F6' '4682595B0268.ms.model.script' // Il3TreeFilters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47724B6500F6_ME_48FF4EC501F6_R Il3TreeFilters
+
+%%ImplementedBy ME_47724B6500F6 ME_48FF4EC501F6
+
+%%InheritedBy ME_46780E690001 ME_48FF4EC501F6
+
+ME ME_48FF4EC501F6
+ MEPROP UID '48FF4EC501F6'
+ MEPROP Name 'Tl3TreeFilters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Содержит фильтры дерева. [$96481887]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E246C90144' // l3Trees
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_48FF4EC501F6_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47724B6500F6_ME_48FF4EC501F6_R // Il3TreeFilters
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48FF4F1D0246 // f_Context
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FF4F47010F // Create
+ HWL ME_48FF4F5A035F // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47724B790382_ME_48FF4EC501F6_impl // SetContext
+ ME_47724B87036B_ME_48FF4EC501F6_impl // Clone
+ ME_47724B9402ED_ME_48FF4EC501F6_impl // Context
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48FF4EC501F6_over // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Р. Лукьянец'
+ UP "no hands" true
+ UP "started" '2007/03/13 10:03:58'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3TreeFilters.pas'
+ UP extprop:rc:SelfName 'TreeFilters'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3TreeFilters'
+
+ENDME // ME_48FF4EC501F6 Tl3TreeFilters

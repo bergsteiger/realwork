@@ -1,0 +1,45 @@
+// TArchiStorageTestWithRename 4FBB6C0D0366 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FBB6C0D0366
+
+MEREF ME_4FBB73390387_ME_4FBB6C0D0366_over
+ MELINK Original WL 'ME_4FBB73390387' '4FA137DD03E4.ms.model.script' // NeedTestRenaming
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4FBB73390387_ME_4FBB6C0D0366_over NeedTestRenaming
+
+MEREF ME_4FA137DD03E4_ME_4FBB6C0D0366_G
+ MELINK Original WL? 'ME_4FA137DD03E4' // TArchiStorageTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA137DD03E4_ME_4FBB6C0D0366_G TArchiStorageTest
+
+%%InheritedBy ME_4FA137DD03E4 ME_4FBB6C0D0366
+
+ME ME_4FBB6C0D0366
+ MEPROP UID '4FBB6C0D0366'
+ MEPROP Name 'TArchiStorageTestWithRename'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4FA137BA02D4' // Storage
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FA137DD03E4_ME_4FBB6C0D0366_G // TArchiStorageTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4FBB73390387_ME_4FBB6C0D0366_over // NeedTestRenaming
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTestWithRename.pas'
+ UP extprop:rc:SelfName 'ArchiStorageTestWithRename'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ArchiStorageTestWithRename'
+
+ENDME // ME_4FBB6C0D0366 TArchiStorageTestWithRename

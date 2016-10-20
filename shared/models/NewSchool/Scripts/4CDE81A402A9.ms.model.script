@@ -4,7 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4CDE81A402A9
 
-ME ME_4CDE7C2C0258_ME_4CDE81A402A9
+MEREF ME_4CDE7C2C0258_ME_4CDE81A402A9_over
  MELINK Original WL 'ME_4CDE7C2C0258' '4CDD18640278.ms.model.script' // MakeHyperlinkToDocument
  ;
  MEPROP OpKind opkind_Overridden
@@ -17,7 +17,13 @@ ME ME_4CDE7C2C0258_ME_4CDE81A402A9
  UP "is FormActivate" true
  UP "is query" true
  UP "no prefix" false
-ENDME // ME_4CDE7C2C0258_ME_4CDE81A402A9 MakeHyperlinkToDocument
+ENDMEREF // ME_4CDE7C2C0258_ME_4CDE81A402A9_over MakeHyperlinkToDocument
+
+MEREF ME_4986C5B30130_ME_4CDE81A402A9_G
+ MELINK Original WL? 'ME_4986C5B30130' // CommonForTextAndFlash
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4986C5B30130_ME_4CDE81A402A9_G CommonForTextAndFlash
 
 %%InheritedBy ME_4986C5B30130 ME_4CDE81A402A9
 
@@ -33,11 +39,11 @@ ME ME_4CDE81A402A9
  MELINK Parent WL? 'ME_4D384F3B0095' // CommonForDocumentAndFlash
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4986C5B30130' // CommonForTextAndFlash
+   Seq: ( ME_4986C5B30130_ME_4CDE81A402A9_G // CommonForTextAndFlash
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_4CDE7C2C0258_ME_4CDE81A402A9 // MakeHyperlinkToDocument
+   Seq: ( ME_4CDE7C2C0258_ME_4CDE81A402A9_over // MakeHyperlinkToDocument
  )
  ; // Overridden
  UP "NeedsHackRef" true

@@ -115,7 +115,7 @@ ME ME_4935483300E8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F075CD00DC // sdsBaseDrugDocument
  ;
- MELINK Target WL 'ME_47F33E9E03C8' '491DCA2C00A9.ms.model.script' // TdeList
+ MELINK Target WL? 'ME_47F33E9E03C8' // TdeList
  ;
 
 ENDME // ME_4935483300E8 
@@ -130,44 +130,56 @@ ME ME_49354872032A
 
 ENDME // ME_49354872032A 
 
-ME ME_0D45C46989F3_ME_47F075CD00DC
+MEREF ME_0D45C46989F3_ME_47F075CD00DC_impl
  MELINK Original WL 'ME_0D45C46989F3' '491D7C9603B2.ms.model.script' // HasDrugInternationalNameSynonims
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_0D45C46989F3_ME_47F075CD00DC HasDrugInternationalNameSynonims
+ENDMEREF // ME_0D45C46989F3_ME_47F075CD00DC_impl HasDrugInternationalNameSynonims
 
-ME ME_500D3CBB01DF_ME_47F075CD00DC
+MEREF ME_500D3CBB01DF_ME_47F075CD00DC_impl
  MELINK Original WL 'ME_500D3CBB01DF' '491D7C9603B2.ms.model.script' // dsDrugInternationalNameSynonims
  ;
  MEPROP OpKind opkind_Implemented
  UP "is reference" true
  UP "pm" true
-ENDME // ME_500D3CBB01DF_ME_47F075CD00DC dsDrugInternationalNameSynonims
+ENDMEREF // ME_500D3CBB01DF_ME_47F075CD00DC_impl dsDrugInternationalNameSynonims
 
-ME ME_47F37DF001FE_ME_47F075CD00DC
+MEREF ME_47F37DF001FE_ME_47F075CD00DC_over
  MELINK Original WL 'ME_47F37DF001FE' '47F37723017A.ms.model.script' // DataExchange
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47F37DF001FE_ME_47F075CD00DC DataExchange
+ENDMEREF // ME_47F37DF001FE_ME_47F075CD00DC_over DataExchange
 
-ME ME_4925B7F00156_ME_47F075CD00DC
+MEREF ME_4925B7F00156_ME_47F075CD00DC_over
  MELINK Original WL 'ME_4925B7F00156' '47EA106D035E.ms.model.script' // ClearAllDS
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4925B7F00156_ME_47F075CD00DC ClearAllDS
+ENDMEREF // ME_4925B7F00156_ME_47F075CD00DC_over ClearAllDS
 
-ME ME_4925B9370022_ME_47F075CD00DC
+MEREF ME_4925B9370022_ME_47F075CD00DC_over
  MELINK Original WL 'ME_4925B9370022' '47EA106D035E.ms.model.script' // DoChangeDocument
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4925B9370022_ME_47F075CD00DC DoChangeDocument
+ENDMEREF // ME_4925B9370022_ME_47F075CD00DC_over DoChangeDocument
 
-ME ME_49352CEF0222_ME_47F075CD00DC
+MEREF ME_49352CEF0222_ME_47F075CD00DC_over
  MELINK Original WL 'ME_49352CEF0222' '47F0849400D0.ms.model.script' // GetHasAttributes
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49352CEF0222_ME_47F075CD00DC GetHasAttributes
+ENDMEREF // ME_49352CEF0222_ME_47F075CD00DC_over GetHasAttributes
+
+MEREF ME_47F0849400D0_ME_47F075CD00DC_G
+ MELINK Original WL? 'ME_47F0849400D0' // sdsBaseDocumentWithAttributes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F0849400D0_ME_47F075CD00DC_G sdsBaseDocumentWithAttributes
+
+MEREF ME_47F0761B0046_ME_47F075CD00DC_R
+ MELINK Original WL 'ME_47F0761B0046' '491D7C9603B2.ms.model.script' // IsdsBaseDrugDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F0761B0046_ME_47F075CD00DC_R IsdsBaseDrugDocument
 
 %%ImplementedBy ME_47F0761B0046 ME_47F075CD00DC
 
@@ -186,11 +198,11 @@ ME ME_47F075CD00DC
  MELINK Parent WL? 'ME_47F075910035' // sdsDrugDocument
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_47F0849400D0' // sdsBaseDocumentWithAttributes
+   Seq: ( ME_47F0849400D0_ME_47F075CD00DC_G // sdsBaseDocumentWithAttributes
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47F0761B0046' '491D7C9603B2.ms.model.script' // IsdsBaseDrugDocument
+   Seq: ( ME_47F0761B0046_ME_47F075CD00DC_R // IsdsBaseDrugDocument
  )
  ; // Implements
  MELIST Operations
@@ -199,15 +211,15 @@ ME ME_47F075CD00DC
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_0D45C46989F3_ME_47F075CD00DC // HasDrugInternationalNameSynonims
- ME_500D3CBB01DF_ME_47F075CD00DC // dsDrugInternationalNameSynonims
+   Seq: ( ME_0D45C46989F3_ME_47F075CD00DC_impl // HasDrugInternationalNameSynonims
+ ME_500D3CBB01DF_ME_47F075CD00DC_impl // dsDrugInternationalNameSynonims
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47F37DF001FE_ME_47F075CD00DC // DataExchange
- ME_4925B7F00156_ME_47F075CD00DC // ClearAllDS
- ME_4925B9370022_ME_47F075CD00DC // DoChangeDocument
- ME_49352CEF0222_ME_47F075CD00DC // GetHasAttributes
+   Seq: ( ME_47F37DF001FE_ME_47F075CD00DC_over // DataExchange
+ ME_4925B7F00156_ME_47F075CD00DC_over // ClearAllDS
+ ME_4925B9370022_ME_47F075CD00DC_over // DoChangeDocument
+ ME_49352CEF0222_ME_47F075CD00DC_over // GetHasAttributes
  )
  ; // Overridden
  MELIST Dependencies

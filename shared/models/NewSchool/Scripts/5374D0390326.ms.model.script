@@ -4,90 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_5374D0390326
 
-FORWARD ME_5374D0390326
-
-FORWARD ME_53170DE90011
-
-FORWARD ME_53170E4100CF
-
-ME ME_53170E53008F
- MEPROP UID '53170E53008F'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53170E4100CF // GetTaskClass
- ;
- MELINK Target WL 'ME_53170EB30071' '52FA49C7022C.ms.model.script' // TddTaskClass
- ;
-
-ENDME // ME_53170E53008F DoIt
-
-ME ME_53170E4100CF
- MEPROP UID '53170E4100CF'
- MEPROP Name 'GetTaskClass'
- MEPROP Class class_Class
- MELINK Stereotype st_abstractmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_53170DE90011 // K517772970_TCheckSaveToStreamDefault
- ;
- MELIST Operations
-   Seq: ( HWL ME_53170E53008F // DoIt
- )
- ; // Operations
-
-ENDME // ME_53170E4100CF GetTaskClass
-
-ME ME_5320088202FB_ME_53170DE90011
- MELINK Original WL 'ME_5320088202FB' '531FF6280311.ms.model.script' // TaskClass
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_5320088202FB_ME_53170DE90011 TaskClass
-
-ME ME_532008D203BA_ME_53170DE90011
- MELINK Original WL 'ME_532008D203BA' '531FF6280311.ms.model.script' // InitTask
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_532008D203BA_ME_53170DE90011 InitTask
-
-%%InheritedBy ME_532008240001 ME_53170DE90011
-
-ME ME_53170DE90011
- MEPROP UID '53170DE90011'
- MEPROP Name 'K517772970_TCheckSaveToStreamDefault'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- %SUMMARY '{RequestLink:517772970}' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_5374D0390326 // AbstractTasksSaveLoadWithDefault
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_532008240001' '531FF6280311.ms.model.script' // K517772970_TCheckSaveToStream
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_53170E4100CF // GetTaskClass
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_5320088202FB_ME_53170DE90011 // TaskClass
- ME_532008D203BA_ME_53170DE90011 // InitTask
- )
- ; // Implemented
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas'
- UP extprop:pas:TypeName 'TK517772970_TCheckSaveToStreamDefault'
- UP extprop:rc:SelfName 'K517772970_TCheckSaveToStreamDefault'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_53170DE90011 K517772970_TCheckSaveToStreamDefault
-
 ME ME_5374D0390326
  MEPROP UID '5374D0390326'
  MEPROP Name 'AbstractTasksSaveLoadWithDefault'
@@ -99,7 +15,7 @@ ME ME_5374D0390326
  MELINK Parent WL? 'ME_52F275D40238' // Low Level Tests
  ;
  MELIST Children
-   Seq: ( HWL ME_53170DE90011 // K517772970_TCheckSaveToStreamDefault
+   Seq: ( WL? 'ME_53170DE90011' // K517772970_TCheckSaveToStreamDefault
  )
  ; // Children
  MELIST Depends

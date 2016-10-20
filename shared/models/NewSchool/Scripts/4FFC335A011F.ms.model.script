@@ -1,0 +1,130 @@
+// TvcmPrimCollectionItem 4FFC335A011F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FFC335A011F
+%%Inner ME_4FFC335A011F
+
+FORWARD ME_4FFC335A011F
+
+ME ME_55CCAAE80308
+ MEPROP UID '55CCAAE80308'
+ MEPROP Name '_UnknownNeedsQI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC335A011F // TvcmPrimCollectionItem
+ ;
+
+ENDME // ME_55CCAAE80308 _UnknownNeedsQI
+
+ME ME_55CCAAF30043
+ MEPROP UID '55CCAAF30043'
+ MEPROP Name '_UnknownNotNeedL3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC335A011F // TvcmPrimCollectionItem
+ ;
+ UP "ifndef" 'vcmNeedL3'
+
+ENDME // ME_55CCAAF30043 _UnknownNotNeedL3
+
+ME ME_55CCAB2C0353
+ MEPROP UID '55CCAB2C0353'
+ MEPROP Name 'Dispatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFC335A011F // TvcmPrimCollectionItem
+ ;
+ MELINK Target WL 'ME_499307A40098' '4683F37902CF.ms.model.script' // IvcmDispatcher
+ ;
+ UP "pm" true
+
+ENDME // ME_55CCAB2C0353 Dispatcher
+
+ME ME_55CCAB7D0392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFC335A011F // TvcmPrimCollectionItem
+ ;
+ MELINK Target WL? 'ME_47F25BC801DB' // vcmBase
+ ;
+
+ENDME // ME_55CCAB7D0392 
+
+MEREF ME_47A6FEE600FC_ME_4FFC335A011F_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4FFC335A011F_over IsCacheable
+
+MEREF ME_4D555B5B01E8_ME_4FFC335A011F_G
+ MELINK Original WL 'ME_4D555B5B01E8' '478CF30500C1.ms.model.script' // TCollectionItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D555B5B01E8_ME_4FFC335A011F_G TCollectionItem
+
+MEREF ME_47913F970159_ME_4FFC335A011F_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4FFC335A011F_R l3Unknown
+
+%%ImplementedBy ME_47913F970159 ME_4FFC335A011F
+
+%%InheritedBy ME_4D555B5B01E8 ME_4FFC335A011F
+
+ME ME_4FFC335A011F
+ MEPROP UID '4FFC335A011F'
+ MEPROP Name 'TvcmPrimCollectionItem'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4FFC33380166' // Collections
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D555B5B01E8_ME_4FFC335A011F_G // TCollectionItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47913F970159_ME_4FFC335A011F_R // l3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55CCAB2C0353 // Dispatcher
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4FFC335A011F_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_55CCAAE80308 // _UnknownNeedsQI
+ HWL ME_55CCAAF30043 // _UnknownNotNeedL3
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55CCAB7D0392 // vcmBase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmPrimCollectionItem.pas'
+ UP extprop:rc:SelfName 'PrimCollectionItem'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmPrimCollectionItem'
+
+ENDME // ME_4FFC335A011F TvcmPrimCollectionItem

@@ -1,0 +1,76 @@
+// TevReqCellCursor 53D0BFE802C7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D0BFE802C7
+
+ME ME_53D0C05E00DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53D0BFE802C7 // TevReqCellCursor
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_53D0C05E00DB 
+
+ME ME_53D0C08900B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0BFE802C7 // TevReqCellCursor
+ ;
+ MELINK Target WL? 'ME_4857EA320141' // TevReqCell
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D0C08900B3 
+
+MEREF ME_49E31657038E_ME_53D0BFE802C7_over
+ MELINK Original WL 'ME_49E31657038E' '49DE2726027E.ms.model.script' // DoMovePrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E31657038E_ME_53D0BFE802C7_over DoMovePrim
+
+MEREF ME_50DACE1F0334_ME_53D0BFE802C7_G
+ MELINK Original WL? 'ME_50DACE1F0334' // TevTableCellCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50DACE1F0334_ME_53D0BFE802C7_G TevTableCellCursor
+
+%%InjectedBy ME_4857EA320141 ME_53D0BFE802C7
+
+%%InheritedBy ME_50DACE1F0334 ME_53D0BFE802C7
+
+ME ME_53D0BFE802C7
+ MEPROP UID '53D0BFE802C7'
+ MEPROP Name 'TevReqCellCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_50DACE1F0334_ME_53D0BFE802C7_G // TevTableCellCursor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E31657038E_ME_53D0BFE802C7_over // DoMovePrim
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53D0C05E00DB // Operations
+ ME_53D0C08900B3 // TevReqCell
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReqCellCursor.pas'
+ UP extprop:rc:SelfName 'ReqCellCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evReqCellCursor'
+
+ENDME // ME_53D0BFE802C7 TevReqCellCursor

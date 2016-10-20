@@ -1,0 +1,58 @@
+// TvcmFormSetDataSource 494141D20217 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_494141D20217
+
+ME ME_49476E160141
+ MEPROP UID '49476E160141'
+ MEPROP Name 'SetType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494141D20217 // TvcmFormSetDataSource
+ ;
+ MELINK Target WL 'ME_47F252870299' '4683F37902CF.ms.model.script' // IvcmFormSetDataSource
+ ;
+
+ENDME // ME_49476E160141 SetType
+
+MEREF ME_494778CD004F_ME_494141D20217_G
+ MELINK Original WL? 'ME_494778CD004F' // vcmTinyUseCaseController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_494778CD004F_ME_494141D20217_G vcmTinyUseCaseController
+
+%%InheritedBy ME_494778CD004F ME_494141D20217
+
+ME ME_494141D20217
+ MEPROP UID '494141D20217'
+ MEPROP Name 'TvcmFormSetDataSource'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Временная реализация абстрактного прецедента для TvcmFormSetFactory.MakeFormSet' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_494778CD004F_ME_494141D20217_G // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49476E160141 // SetType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.12.2008 19:38'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.pas'
+ UP extprop:rc:SelfName 'FormSetDataSource'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmFormSetDataSource'
+
+ENDME // ME_494141D20217 TvcmFormSetDataSource

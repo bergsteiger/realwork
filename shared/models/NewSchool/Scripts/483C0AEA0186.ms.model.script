@@ -52,11 +52,23 @@ ME ME_4AC2018D006C
 
 ENDME // ME_4AC2018D006C Create
 
-ME ME_45EEDE9D01C5_ME_4AC200650301
+MEREF ME_45EEDE9D01C5_ME_4AC200650301_impl
  MELINK Original WL 'ME_45EEDE9D01C5' '45EEA85502B4.ms.model.script' // fire
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_45EEDE9D01C5_ME_4AC200650301 fire
+ENDMEREF // ME_45EEDE9D01C5_ME_4AC200650301_impl fire
+
+MEREF ME_4807877801B7_ME_4AC200650301_G
+ MELINK Original WL? 'ME_4807877801B7' // TatNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807877801B7_ME_4AC200650301_G TatNotifier
+
+MEREF ME_45EEDE9D01C4_ME_4AC200650301_R
+ MELINK Original WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45EEDE9D01C4_ME_4AC200650301_R Listener
 
 %%ImplementedBy ME_45EEDE9D01C4 ME_4AC200650301
 
@@ -73,11 +85,11 @@ ME ME_4AC200650301
  MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4807877801B7' '48076E7F0260.ms.model.script' // TatNotifier
+   Seq: ( ME_4807877801B7_ME_4AC200650301_G // TatNotifier
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+   Seq: ( ME_45EEDE9D01C4_ME_4AC200650301_R // Listener
  )
  ; // Implements
  MELIST Attributes
@@ -89,7 +101,7 @@ ME ME_4AC200650301
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_45EEDE9D01C5_ME_4AC200650301 // fire
+   Seq: ( ME_45EEDE9D01C5_ME_4AC200650301_impl // fire
  )
  ; // Implemented
  UP extprop:rc:SelfName 'atFromShellNotifier'
@@ -578,7 +590,7 @@ ME ME_4B693C680284
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
  ;
- MELINK Target WL 'ME_4B683B57028D' '48078CC202EC.ms.model.script' // TatChatWorker
+ MELINK Target WL? 'ME_4B683B57028D' // TatChatWorker
  ;
  UP "needs field" true
  UP "pm" true
@@ -773,7 +785,7 @@ ME ME_4AC21FCA02C4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
  ;
- MELINK Target WL 'ME_480864400141' '48078CC202EC.ms.model.script' // TatFoldersHelper
+ MELINK Target WL? 'ME_480864400141' // TatFoldersHelper
  ;
 
 ENDME // ME_4AC21FCA02C4 
@@ -813,7 +825,7 @@ ME ME_4AC222570259
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
  ;
- MELINK Target WL 'ME_480781120349' '48076E7F0260.ms.model.script' // TatNotification
+ MELINK Target WL? 'ME_480781120349' // TatNotification
  ;
 
 ENDME // ME_4AC222570259 
@@ -835,16 +847,22 @@ ME ME_4D0A32E3012A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
  ;
- MELINK Target WL 'ME_4D0A033202D2' '48078CC202EC.ms.model.script' // TatUserJournalHelper
+ MELINK Target WL? 'ME_4D0A033202D2' // TatUserJournalHelper
  ;
 
 ENDME // ME_4D0A32E3012A 
 
-ME ME_48077504027E_ME_483C0B6B0167
+MEREF ME_48077504027E_ME_483C0B6B0167_over
  MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48077504027E_ME_483C0B6B0167 Destroy
+ENDMEREF // ME_48077504027E_ME_483C0B6B0167_over Destroy
+
+MEREF ME_4807745602C8_ME_483C0B6B0167_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_483C0B6B0167_G TObject
 
 %%InheritedBy ME_4807745602C8 ME_483C0B6B0167
 
@@ -859,7 +877,7 @@ ME ME_483C0B6B0167
  MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+   Seq: ( ME_4807745602C8_ME_483C0B6B0167_G // TObject
  )
  ; // Inherits
  MELIST Attributes
@@ -893,7 +911,7 @@ ME ME_483C0B6B0167
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_48077504027E_ME_483C0B6B0167 // Destroy
+   Seq: ( ME_48077504027E_ME_483C0B6B0167_over // Destroy
  )
  ; // Overridden
  MELIST Dependencies
@@ -963,11 +981,23 @@ ME ME_504FB80302CD
 
 ENDME // ME_504FB80302CD Make
 
-ME ME_45F118D40054_ME_504FB0DC0131
+MEREF ME_45F118D40054_ME_504FB0DC0131_impl
  MELINK Original WL 'ME_45F118D40054' '45EEAA800226.ms.model.script' // fire
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_45F118D40054_ME_504FB0DC0131 fire
+ENDMEREF // ME_45F118D40054_ME_504FB0DC0131_impl fire
+
+MEREF ME_47879856035F_ME_504FB0DC0131_G
+ MELINK Original WL? 'ME_47879856035F' // Tl3_Base
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47879856035F_ME_504FB0DC0131_G Tl3_Base
+
+MEREF ME_45F118D40053_ME_504FB0DC0131_R
+ MELINK Original WL 'ME_45F118D40053' '45EEAA800226.ms.model.script' // ControlledChangeNotifier
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_45F118D40053_ME_504FB0DC0131_R ControlledChangeNotifier
 
 %%ImplementedBy ME_45F118D40053 ME_504FB0DC0131
 
@@ -984,11 +1014,11 @@ ME ME_504FB0DC0131
  MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+   Seq: ( ME_47879856035F_ME_504FB0DC0131_G // Tl3_Base
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_45F118D40053' '45EEAA800226.ms.model.script' // ControlledChangeNotifier
+   Seq: ( ME_45F118D40053_ME_504FB0DC0131_R // ControlledChangeNotifier
  )
  ; // Implements
  MELIST Operations
@@ -996,7 +1026,7 @@ ME ME_504FB0DC0131
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_45F118D40054_ME_504FB0DC0131 // fire
+   Seq: ( ME_45F118D40054_ME_504FB0DC0131_impl // fire
  )
  ; // Implemented
  UP extprop:rc:SelfName 'atControlledChangeNotifier'

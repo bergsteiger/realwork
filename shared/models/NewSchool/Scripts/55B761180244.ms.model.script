@@ -1,0 +1,150 @@
+// TnsLogManager 55B761180244 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B761180244
+
+ME ME_55B761D70223
+ MEPROP UID '55B761D70223'
+ MEPROP Name 'LogManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B761180244 // TnsLogManager
+ ;
+ MELINK Target WL 'ME_45ED59950191' '45ED58CF03E6.ms.model.script' // LogManager
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_55B761D70223 LogManager
+
+ME ME_566AED53005B
+ MEPROP UID '566AED53005B'
+ MEPROP Name 'f_LoggingTestService'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55B761180244 // TnsLogManager
+ ;
+ MELINK Target WL 'ME_566AEC770091' '55B75E6E034C.ms.model.script' // InsLoggingTestService
+ ;
+
+ENDME // ME_566AED53005B f_LoggingTestService
+
+ME ME_55B763090209
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B761180244 // TnsLogManager
+ ;
+ MELINK Target WL? 'ME_48FF556602BA' // DataAdapter
+ ;
+
+ENDME // ME_55B763090209 
+
+ME ME_55BA028801C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B761180244 // TnsLogManager
+ ;
+ MELINK Target WL? 'ME_55B9FFCB020F' // TnsLoggingTestService
+ ;
+
+ENDME // ME_55BA028801C2 
+
+ME ME_55BA64D602DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B761180244 // TnsLogManager
+ ;
+ MELINK Target WL 'ME_4767749802D1' '4767743E00E5.ms.model.script' // PTypeInfo
+ ;
+
+ENDME // ME_55BA64D602DC 
+
+MEREF ME_55B760550256_ME_55B761180244_impl
+ MELINK Original WL 'ME_55B760550256' '55B75E6E034C.ms.model.script' // AddEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_55B760550256_ME_55B761180244_impl AddEvent
+
+MEREF ME_479731C50290_ME_55B761180244_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_55B761180244_over Cleanup
+
+MEREF ME_47A042E100E2_ME_55B761180244_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_55B761180244_over InitFields
+
+MEREF ME_47BC391D0259_ME_55B761180244_G
+ MELINK Original WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC391D0259_ME_55B761180244_G Tl3SimpleObject
+
+MEREF ME_55B75FED02BC_ME_55B761180244_R
+ MELINK Original WL 'ME_55B75FED02BC' '55B75E6E034C.ms.model.script' // InsLogManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55B75FED02BC_ME_55B761180244_R InsLogManager
+
+%%ImplementedBy ME_55B75FED02BC ME_55B761180244
+
+%%InheritedBy ME_47BC391D0259 ME_55B761180244
+
+ME ME_55B761180244
+ MEPROP UID '55B761180244'
+ MEPROP Name 'TnsLogManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_55B760A803D5' // LoggingWrapper
+ ;
+ MELIST Inherits
+   Seq: ( ME_47BC391D0259_ME_55B761180244_G // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_55B75FED02BC_ME_55B761180244_R // InsLogManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55B761D70223 // LogManager
+ HWL ME_566AED53005B // f_LoggingTestService
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_55B760550256_ME_55B761180244_impl // AddEvent
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55B761180244_over // Cleanup
+ ME_47A042E100E2_ME_55B761180244_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55B763090209 // DataAdapter
+ ME_55BA028801C2 // TnsLoggingTestService
+ ME_55BA64D602DC // PTypeInfo
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas'
+ UP extprop:rc:SelfName 'LogManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLogManager'
+
+ENDME // ME_55B761180244 TnsLogManager

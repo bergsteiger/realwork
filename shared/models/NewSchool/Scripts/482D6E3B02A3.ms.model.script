@@ -1,0 +1,134 @@
+// TevCustomTxtReader 482D6E3B02A3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D6E3B02A3
+
+FORWARD ME_4D6BB62C01C8
+
+ME ME_4D6BB6460233
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4D6BB6460233 aText
+
+ME ME_4D6BB64202F5
+ MEPROP UID '4D6BB64202F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6BB62C01C8 // DoText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D6BB6460233 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4D6BB64202F5 DoIt
+
+ME ME_4D6BB62C01C8
+ MEPROP UID '4D6BB62C01C8'
+ MEPROP Name 'DoText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482D6E3B02A3 // TevCustomTxtReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6BB64202F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6BB62C01C8 DoText
+
+FORWARD ME_4E0B6520020B
+
+ME ME_4E0B654200D6
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4E0B654200D6 aText
+
+ME ME_4E0B653A00D6
+ MEPROP UID '4E0B653A00D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0B6520020B // NeedOpenDefaultChild
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0B654200D6 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4E0B653A00D6 DoIt
+
+ME ME_4E0B6520020B
+ MEPROP UID '4E0B6520020B'
+ MEPROP Name 'NeedOpenDefaultChild'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482D6E3B02A3 // TevCustomTxtReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0B653A00D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E0B6520020B NeedOpenDefaultChild
+
+MEREF ME_482D6EB4003A_ME_482D6E3B02A3_G
+ MELINK Original WL? 'ME_482D6EB4003A' // Tk2CustomFileReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D6EB4003A_ME_482D6E3B02A3_G Tk2CustomFileReader
+
+%%InheritedBy ME_482D6EB4003A ME_482D6E3B02A3
+
+ME ME_482D6E3B02A3
+ MEPROP UID '482D6E3B02A3'
+ MEPROP Name 'TevCustomTxtReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_482D6E13011F' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( ME_482D6EB4003A_ME_482D6E3B02A3_G // Tk2CustomFileReader
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D6BB62C01C8 // DoText
+ HWL ME_4E0B6520020B // NeedOpenDefaultChild
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '05.10.1999 17:44'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTxtReader.pas'
+ UP extprop:rc:SelfName 'TxtReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomTxtReader'
+
+ENDME // ME_482D6E3B02A3 TevCustomTxtReader

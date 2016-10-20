@@ -1,0 +1,96 @@
+// TdMedicFirmDocument 4B2217FA02BD SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2217FA02BD
+
+ME ME_4B22183B0194
+ MEPROP UID '4B22183B0194'
+ MEPROP Name 'IvcmRealData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2217FA02BD // TdMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+ ;
+
+ENDME // ME_4B22183B0194 IvcmRealData
+
+FORWARD ME_4B1929E60359
+
+ME ME_4B1929EC0209
+ MEPROP UID '4B1929EC0209'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1929E60359 // Make
+ ;
+ MELINK Target WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+ ;
+
+ENDME // ME_4B1929EC0209 DoIt
+
+ME ME_4B1929E60359
+ MEPROP UID '4B1929E60359'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2217FA02BD // TdMedicFirmDocument
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1929EC0209 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B1929E60359 Make
+
+MEREF ME_493965B600E9_ME_4B2217FA02BD_G
+ MELINK Original WL? 'ME_493965B600E9' // dMedicFirmDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493965B600E9_ME_4B2217FA02BD_G dMedicFirmDocument
+
+%%InheritedBy ME_493965B600E9 ME_4B2217FA02BD
+
+ME ME_4B2217FA02BD
+ MEPROP UID '4B2217FA02BD'
+ MEPROP Name 'TdMedicFirmDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D7CDC0221' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( ME_493965B600E9_ME_4B2217FA02BD_G // dMedicFirmDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B22183B0194 // IvcmRealData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1929E60359 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '11.12.2009 12:59'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.pas'
+ UP extprop:rc:SelfName 'dMedicFirmDocument'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dMedicFirmDocument'
+
+ENDME // ME_4B2217FA02BD TdMedicFirmDocument

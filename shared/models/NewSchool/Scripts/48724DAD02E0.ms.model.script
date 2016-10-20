@@ -1,0 +1,495 @@
+// Tl3SimpleTree 48724DAD02E0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48724DAD02E0
+
+ME ME_487257A90066
+ MEPROP UID '487257A90066'
+ MEPROP Name 'f_ShowRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_487257A90066 f_ShowRoot
+
+ME ME_48724FA903A1
+ MEPROP UID '48724FA903A1'
+ MEPROP Name 'f_Root'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Корень дерева' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_48724FA903A1 f_Root
+
+ME ME_48724FF0025B
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_48724FF0025B aRoot
+
+ME ME_48724FD5009D
+ MEPROP UID '48724FD5009D'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_48724FF0025B // aRoot
+ )
+ ; // Parameters
+
+ENDME // ME_48724FD5009D Create
+
+ME ME_48724FF9005E
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_48724FF9005E aRoot
+
+ME ME_48724FF40314
+ MEPROP UID '48724FF40314'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_48724FF9005E // aRoot
+ )
+ ; // Parameters
+
+ENDME // ME_48724FF40314 Make
+
+ME ME_4872520F032B
+ MEPROP Name 'aOld'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_4872520F032B aOld
+
+ME ME_4872520F036F
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468274930190' '4682595B0268.ms.model.script' // Il3SimpleRootNode
+ ;
+
+ENDME // ME_4872520F036F aNew
+
+ME ME_487252020055
+ MEPROP UID '487252020055'
+ MEPROP Name 'RootChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_4872520F032B // aOld
+ ME_4872520F036F // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_487252020055 RootChanged
+
+ME ME_487256FC008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL? 'ME_47CFE7F00221' // l3InterfacesMisc
+ ;
+
+ENDME // ME_487256FC008A 
+
+ME ME_487257270021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL? 'ME_47F2612701D0' // l3Bits
+ ;
+
+ENDME // ME_487257270021 
+
+ME ME_487257780186
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL 'ME_4872576702D1' '4678193C009C.ms.model.script' // EDoChangedAlreadyDone
+ ;
+
+ENDME // ME_487257780186 
+
+ME ME_48725D9500B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48724DAD02E0 // Tl3SimpleTree
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48725D9500B4 
+
+MEREF ME_46825CAA0125_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_46825CAA0125' '4682595B0268.ms.model.script' // RootNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_46825CAA0125_ME_48724DAD02E0_impl RootNode
+
+MEREF ME_4772448C01D2_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772448C01D2' '4682595B0268.ms.model.script' // CursorTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772448C01D2_ME_48724DAD02E0_impl CursorTop
+
+MEREF ME_4772449B00A1_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772449B00A1' '4682595B0268.ms.model.script' // GetIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772449B00A1_ME_48724DAD02E0_impl GetIndex
+
+MEREF ME_477244BA0074_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477244BA0074' '4682595B0268.ms.model.script' // GetLevel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477244BA0074_ME_48724DAD02E0_impl GetLevel
+
+MEREF ME_477244CE02AE_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477244CE02AE' '4682595B0268.ms.model.script' // SelectAllNodes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477244CE02AE_ME_48724DAD02E0_impl SelectAllNodes
+
+MEREF ME_477244DD0292_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477244DD0292' '4682595B0268.ms.model.script' // SelectInterval
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477244DD0292_ME_48724DAD02E0_impl SelectInterval
+
+MEREF ME_47724512002D_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_47724512002D' '4682595B0268.ms.model.script' // ChangeExpand
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47724512002D_ME_48724DAD02E0_impl ChangeExpand
+
+MEREF ME_4772452E002D_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772452E002D' '4682595B0268.ms.model.script' // ExpandSubDir
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772452E002D_ME_48724DAD02E0_impl ExpandSubDir
+
+MEREF ME_477245520298_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245520298' '4682595B0268.ms.model.script' // SetBranchFlag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245520298_ME_48724DAD02E0_impl SetBranchFlag
+
+MEREF ME_4772457D032A_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772457D032A' '4682595B0268.ms.model.script' // CountViewItemsInSubDir
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772457D032A_ME_48724DAD02E0_impl CountViewItemsInSubDir
+
+MEREF ME_477245A20228_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245A20228' '4682595B0268.ms.model.script' // IsRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245A20228_ME_48724DAD02E0_impl IsRoot
+
+MEREF ME_477245B301DE_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245B301DE' '4682595B0268.ms.model.script' // IsExpanded
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245B301DE_ME_48724DAD02E0_impl IsExpanded
+
+MEREF ME_477245C40171_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245C40171' '4682595B0268.ms.model.script' // IsFirstVis
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245C40171_ME_48724DAD02E0_impl IsFirstVis
+
+MEREF ME_477245D9031B_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245D9031B' '4682595B0268.ms.model.script' // IsLastVis
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245D9031B_ME_48724DAD02E0_impl IsLastVis
+
+MEREF ME_477245F301AE_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477245F301AE' '4682595B0268.ms.model.script' // HasVisibleChildren
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477245F301AE_ME_48724DAD02E0_impl HasVisibleChildren
+
+MEREF ME_477246040221_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246040221' '4682595B0268.ms.model.script' // GetLines
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246040221_ME_48724DAD02E0_impl GetLines
+
+MEREF ME_4772461601C6_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772461601C6' '4682595B0268.ms.model.script' // Wake
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772461601C6_ME_48724DAD02E0_impl Wake
+
+MEREF ME_477246270133_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246270133' '4682595B0268.ms.model.script' // MoveNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246270133_ME_48724DAD02E0_impl MoveNode
+
+MEREF ME_477246440037_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246440037' '4682595B0268.ms.model.script' // SearchNameBegin
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246440037_ME_48724DAD02E0_impl SearchNameBegin
+
+MEREF ME_4772465F0276_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772465F0276' '4682595B0268.ms.model.script' // SearchNameOccur
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772465F0276_ME_48724DAD02E0_impl SearchNameOccur
+
+MEREF ME_477246860169_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246860169' '4682595B0268.ms.model.script' // MakeNodeVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246860169_ME_48724DAD02E0_impl MakeNodeVisible
+
+MEREF ME_477246A40174_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246A40174' '4682595B0268.ms.model.script' // GetPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246A40174_ME_48724DAD02E0_impl GetPrev
+
+MEREF ME_477246C70141_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246C70141' '4682595B0268.ms.model.script' // SimpleIterateF
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246C70141_ME_48724DAD02E0_impl SimpleIterateF
+
+MEREF ME_477246E802B1_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246E802B1' '4682595B0268.ms.model.script' // IsChanging
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246E802B1_ME_48724DAD02E0_impl IsChanging
+
+MEREF ME_477246F7039B_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477246F7039B' '4682595B0268.ms.model.script' // Changing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_477246F7039B_ME_48724DAD02E0_impl Changing
+
+MEREF ME_4772470100BC_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772470100BC' '4682595B0268.ms.model.script' // Changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4772470100BC_ME_48724DAD02E0_impl Changed
+
+MEREF ME_477248FE005A_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477248FE005A' '4682595B0268.ms.model.script' // ShowRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477248FE005A_ME_48724DAD02E0_impl ShowRoot
+
+MEREF ME_4772490E02F7_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772490E02F7' '4682595B0268.ms.model.script' // CountView
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772490E02F7_ME_48724DAD02E0_impl CountView
+
+MEREF ME_4772491C01C5_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772491C01C5' '4682595B0268.ms.model.script' // SelectCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772491C01C5_ME_48724DAD02E0_impl SelectCount
+
+MEREF ME_4772495902EE_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_4772495902EE' '4682595B0268.ms.model.script' // Flags
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4772495902EE_ME_48724DAD02E0_impl Flags
+
+MEREF ME_477249AB0057_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477249AB0057' '4682595B0268.ms.model.script' // Select
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477249AB0057_ME_48724DAD02E0_impl Select
+
+MEREF ME_477249EB02D9_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_477249EB02D9' '4682595B0268.ms.model.script' // Nodes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_477249EB02D9_ME_48724DAD02E0_impl Nodes
+
+MEREF ME_47A86EA80292_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_47A86EA80292' '4682595B0268.ms.model.script' // MakeDataObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47A86EA80292_ME_48724DAD02E0_impl MakeDataObject
+
+MEREF ME_47BAD3080349_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_47BAD3080349' '4682595B0268.ms.model.script' // CanAcceptData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47BAD3080349_ME_48724DAD02E0_impl CanAcceptData
+
+MEREF ME_47BAD32501E2_ME_48724DAD02E0_impl
+ MELINK Original WL 'ME_47BAD32501E2' '4682595B0268.ms.model.script' // DropData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47BAD32501E2_ME_48724DAD02E0_impl DropData
+
+MEREF ME_479731C50290_ME_48724DAD02E0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48724DAD02E0_over Cleanup
+
+MEREF ME_46780E690001_ME_48724DAD02E0_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_48724DAD02E0_G Tl3CacheableBase
+
+MEREF ME_47F07AE10156_ME_48724DAD02E0_G
+ MELINK Original WL? 'ME_47F07AE10156' // l3NotifierBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F07AE10156_ME_48724DAD02E0_G l3NotifierBase
+
+MEREF ME_46825CC00249_ME_48724DAD02E0_R
+ MELINK Original WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46825CC00249_ME_48724DAD02E0_R Il3SimpleTree
+
+%%ImplementedBy ME_46825CC00249 ME_48724DAD02E0
+
+%%InheritedBy ME_46780E690001 ME_48724DAD02E0
+%%InheritedBy ME_47F07AE10156 ME_48724DAD02E0
+
+ME ME_48724DAD02E0
+ MEPROP UID '48724DAD02E0'
+ MEPROP Name 'Tl3SimpleTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Простое" дерево.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E246C90144' // l3Trees
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_48724DAD02E0_G // Tl3CacheableBase
+ ME_47F07AE10156_ME_48724DAD02E0_G // l3NotifierBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46825CC00249_ME_48724DAD02E0_R // Il3SimpleTree
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_487257A90066 // f_ShowRoot
+ HWL ME_48724FA903A1 // f_Root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48724FD5009D // Create
+ HWL ME_48724FF40314 // Make
+ HWL ME_487252020055 // RootChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46825CAA0125_ME_48724DAD02E0_impl // RootNode
+ ME_4772448C01D2_ME_48724DAD02E0_impl // CursorTop
+ ME_4772449B00A1_ME_48724DAD02E0_impl // GetIndex
+ ME_477244BA0074_ME_48724DAD02E0_impl // GetLevel
+ ME_477244CE02AE_ME_48724DAD02E0_impl // SelectAllNodes
+ ME_477244DD0292_ME_48724DAD02E0_impl // SelectInterval
+ ME_47724512002D_ME_48724DAD02E0_impl // ChangeExpand
+ ME_4772452E002D_ME_48724DAD02E0_impl // ExpandSubDir
+ ME_477245520298_ME_48724DAD02E0_impl // SetBranchFlag
+ ME_4772457D032A_ME_48724DAD02E0_impl // CountViewItemsInSubDir
+ ME_477245A20228_ME_48724DAD02E0_impl // IsRoot
+ ME_477245B301DE_ME_48724DAD02E0_impl // IsExpanded
+ ME_477245C40171_ME_48724DAD02E0_impl // IsFirstVis
+ ME_477245D9031B_ME_48724DAD02E0_impl // IsLastVis
+ ME_477245F301AE_ME_48724DAD02E0_impl // HasVisibleChildren
+ ME_477246040221_ME_48724DAD02E0_impl // GetLines
+ ME_4772461601C6_ME_48724DAD02E0_impl // Wake
+ ME_477246270133_ME_48724DAD02E0_impl // MoveNode
+ ME_477246440037_ME_48724DAD02E0_impl // SearchNameBegin
+ ME_4772465F0276_ME_48724DAD02E0_impl // SearchNameOccur
+ ME_477246860169_ME_48724DAD02E0_impl // MakeNodeVisible
+ ME_477246A40174_ME_48724DAD02E0_impl // GetPrev
+ ME_477246C70141_ME_48724DAD02E0_impl // SimpleIterateF
+ ME_477246E802B1_ME_48724DAD02E0_impl // IsChanging
+ ME_477246F7039B_ME_48724DAD02E0_impl // Changing
+ ME_4772470100BC_ME_48724DAD02E0_impl // Changed
+ ME_477248FE005A_ME_48724DAD02E0_impl // ShowRoot
+ ME_4772490E02F7_ME_48724DAD02E0_impl // CountView
+ ME_4772491C01C5_ME_48724DAD02E0_impl // SelectCount
+ ME_4772495902EE_ME_48724DAD02E0_impl // Flags
+ ME_477249AB0057_ME_48724DAD02E0_impl // Select
+ ME_477249EB02D9_ME_48724DAD02E0_impl // Nodes
+ ME_47A86EA80292_ME_48724DAD02E0_impl // MakeDataObject
+ ME_47BAD3080349_ME_48724DAD02E0_impl // CanAcceptData
+ ME_47BAD32501E2_ME_48724DAD02E0_impl // DropData
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48724DAD02E0_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_487256FC008A // l3InterfacesMisc
+ ME_487257270021 // l3Bits
+ ME_487257780186 // EDoChangedAlreadyDone
+ ME_48725D9500B4 // l3Base
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "started" '07.07.2008 21:07'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SimpleTree.pas'
+ UP extprop:rc:SelfName 'Tree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3SimpleTree'
+
+ENDME // ME_48724DAD02E0 Tl3SimpleTree

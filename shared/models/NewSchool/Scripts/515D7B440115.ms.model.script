@@ -4,89 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_515D7B440115
 
-FORWARD ME_515D7B440115
-
-FORWARD ME_515D7BB10393
-
-ME ME_515D7BE60141
- MEPROP UID '515D7BE60141'
- MEPROP Name 'DoIt'
- MEPROP Class class_Class
- MELINK Stereotype st_Test ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
- ;
-
-ENDME // ME_515D7BE60141 DoIt
-
-ME ME_515D7BC3013B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
- ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
- ;
-
-ENDME // ME_515D7BC3013B 
-
-ME ME_515D7BDB018B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_515D7BDB018B 
-
-ME ME_515D7C0201EB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
- ;
- MELINK Target WL? 'ME_4773D64E036C' // l3Base
- ;
-
-ENDME // ME_515D7C0201EB 
-
-%%InheritedBy ME_4B2A11BC0255 ME_515D7BB10393
-
-ME ME_515D7BB10393
- MEPROP UID '515D7BB10393'
- MEPROP Name 'TLongintListTest'
- MEPROP Class class_Class
- MELINK Stereotype st_TestCase ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_515D7B440115 // Lists
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_515D7BE60141 // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_515D7BC3013B // Tl3LongintList
- ME_515D7BDB018B // FreeAndNil
- ME_515D7C0201EB // l3Base
- )
- ; // Dependencies
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\rtl\Garant\Containers\LongintListTest.pas'
- UP extprop:rc:SelfName 'LongintListTest'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'LongintListTest'
-
-ENDME // ME_515D7BB10393 TLongintListTest
-
 ME ME_515D7B440115
  MEPROP UID '515D7B440115'
  MEPROP Name 'Lists'
@@ -98,7 +15,7 @@ ME ME_515D7B440115
  MELINK Parent WL? 'ME_515D7B0B006F' // Containers
  ;
  MELIST Children
-   Seq: ( HWL ME_515D7BB10393 // TLongintListTest
+   Seq: ( WL? 'ME_515D7BB10393' // TLongintListTest
  )
  ; // Children
  MELIST Depends

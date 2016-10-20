@@ -1,0 +1,73 @@
+// TdtDictItems 47BC55C00240 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BC55C00240
+
+ME ME_47BC55F90059
+ MEPROP UID '47BC55F90059'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_47BC55C00240 // TdtDictItems
+ ;
+ MELINK Target WL 'ME_47BC52180382' '47BC51FE018B.ms.model.script' // TDictID
+ ;
+
+ENDME // ME_47BC55F90059 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_47BC55C00240_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_47BC55C00240_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_47BC55C00240_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_47BC55C00240_G l3Searcher
+
+MEREF ME_47BC53EE023A_ME_47BC55C00240_G
+ MELINK Original WL? 'ME_47BC53EE023A' // TdtDictItemsPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC53EE023A_ME_47BC55C00240_G TdtDictItemsPrim
+
+%%InheritedBy ME_47B47E230134 ME_47BC55C00240
+%%InheritedBy ME_47BC53EE023A ME_47BC55C00240
+
+ME ME_47BC55C00240
+ MEPROP UID '47BC55C00240'
+ MEPROP Name 'TdtDictItems'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список элементов словаря.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47BC50280350' // Dictionary
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_47BC55C00240_G // l3Searcher
+ ME_47BC53EE023A_ME_47BC55C00240_G // TdtDictItemsPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47BC55F90059 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_47BC55C00240_over // CompareItemWithData
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\dtDictItems.pas'
+ UP extprop:rc:SelfName 'dtDictItems'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'dtDictItems'
+
+ENDME // ME_47BC55C00240 TdtDictItems

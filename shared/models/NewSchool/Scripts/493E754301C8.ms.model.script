@@ -4,11 +4,23 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_493E754301C8
 
-ME ME_496F437400A6_ME_493E754301C8
+MEREF ME_496F437400A6_ME_493E754301C8_over
  MELINK Original WL 'ME_496F437400A6' '493E5C580280.ms.model.script' // DoCanRunBaseSearch
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_496F437400A6_ME_493E754301C8 DoCanRunBaseSearch
+ENDMEREF // ME_496F437400A6_ME_493E754301C8_over DoCanRunBaseSearch
+
+MEREF ME_493E5C580280_ME_493E754301C8_G
+ MELINK Original WL? 'ME_493E5C580280' // sdsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493E5C580280_ME_493E754301C8_G sdsDocument
+
+MEREF ME_4937DA84024B_ME_493E754301C8_R
+ MELINK Original WL 'ME_4937DA84024B' '4D1B548F00EE.ms.model.script' // IsdsDocumentWithFlash
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4937DA84024B_ME_493E754301C8_R IsdsDocumentWithFlash
 
 %%ImplementedBy ME_4937DA84024B ME_493E754301C8
 
@@ -27,15 +39,15 @@ ME ME_493E754301C8
  MELINK Parent WL? 'ME_4A9F83AD0235' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_493E5C580280' // sdsDocument
+   Seq: ( ME_493E5C580280_ME_493E754301C8_G // sdsDocument
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4937DA84024B' '4D1B548F00EE.ms.model.script' // IsdsDocumentWithFlash
+   Seq: ( ME_4937DA84024B_ME_493E754301C8_R // IsdsDocumentWithFlash
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_496F437400A6_ME_493E754301C8 // DoCanRunBaseSearch
+   Seq: ( ME_496F437400A6_ME_493E754301C8_over // DoCanRunBaseSearch
  )
  ; // Overridden
  UP "author" 'Морозов М.А.'

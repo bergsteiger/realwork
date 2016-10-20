@@ -51,12 +51,18 @@ FORWARD ME_5432518A0316
 
 FORWARD ME_5524D08D0097
 
+MEREF ME_5524D04900F4_ME_5524D0B60304_G
+ MELINK Original WL 'ME_5524D04900F4' '5432448401BC.ms.model.script' // TdaOnLongProcessEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5524D04900F4_ME_5524D0B60304_G TdaOnLongProcessEvent
+
 %%InheritedBy ME_5524D04900F4 ME_5524D0B60304
 
 ME ME_5524D0B60304
  MEPROP UID '5524D0B60304'
  MEPROP Name 'DoLongProcessNotify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -64,7 +70,7 @@ ME ME_5524D0B60304
  MELINK Parent HWL ME_5524D08D0097 // IdaLongProcessSubscriber
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5524D04900F4' '5432448401BC.ms.model.script' // TdaOnLongProcessEvent
+   Seq: ( ME_5524D04900F4_ME_5524D0B60304_G // TdaOnLongProcessEvent
  )
  ; // Inherits
 
@@ -632,12 +638,18 @@ ENDME // ME_55229480008E UserConsts
 
 FORWARD ME_5525141A025A
 
+MEREF ME_4F1922630272_ME_552514570311_G
+ MELINK Original WL 'ME_4F1922630272' '4678193C009C.ms.model.script' // Tl3ProgressProc
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F1922630272_ME_552514570311_G Tl3ProgressProc
+
 %%InheritedBy ME_4F1922630272 ME_552514570311
 
 ME ME_552514570311
  MEPROP UID '552514570311'
  MEPROP Name 'DoProgressNotify'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -645,7 +657,7 @@ ME ME_552514570311
  MELINK Parent HWL ME_5525141A025A // IdaProgressSubscriber
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F1922630272' '4678193C009C.ms.model.script' // Tl3ProgressProc
+   Seq: ( ME_4F1922630272_ME_552514570311_G // Tl3ProgressProc
  )
  ; // Inherits
 
@@ -697,7 +709,7 @@ ENDME // ME_55C8606000B4
 ME ME_55C860390259
  MEPROP UID '55C860390259'
  MEPROP Name 'IterateFieldsF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -981,13 +993,19 @@ ME ME_569F6ADC0330
 
 ENDME // ME_569F6ADC0330 FieldByIndex
 
-ME ME_55C860390259_ME_552FADE50173
+MEREF ME_55C860390259_ME_552FADE50173_impl
  MELINK Original HWL ME_55C860390259 // IterateFieldsF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_55C860390259_ME_552FADE50173 IterateFieldsF
+ENDMEREF // ME_55C860390259_ME_552FADE50173_impl IterateFieldsF
+
+MEREF ME_55C85FDE026E_ME_552FADE50173_R
+ MELINK Original HWL ME_55C85FDE026E // daTableDescriptionIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C85FDE026E_ME_552FADE50173_R daTableDescriptionIterator
 
 %%ImplementedBy ME_55C85FDE026E ME_552FADE50173
 
@@ -1003,7 +1021,7 @@ ME ME_552FADE50173
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_55C85FDE026E // daTableDescriptionIterator
+   Seq: ( ME_55C85FDE026E_ME_552FADE50173_R // daTableDescriptionIterator
  )
  ; // Implements
  MELIST Attributes
@@ -1026,7 +1044,7 @@ ME ME_552FADE50173
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_55C860390259_ME_552FADE50173 // IterateFieldsF
+   Seq: ( ME_55C860390259_ME_552FADE50173_impl // IterateFieldsF
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daTableDescription'
@@ -2077,7 +2095,7 @@ ENDME // ME_5756ACA602CD
 ME ME_5756AC9B0213
  MEPROP UID '5756AC9B0213'
  MEPROP Name 'IterateTables'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2843,7 +2861,7 @@ ENDME // ME_564089EC0301
 ME ME_564089E3039B
  MEPROP UID '564089E3039B'
  MEPROP Name 'Iterate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2909,13 +2927,19 @@ ME ME_5608E5FE0355
 
 ENDME // ME_5608E5FE0355 BuildSQLValue
 
-ME ME_564089E3039B_ME_5551DC5C020D
+MEREF ME_564089E3039B_ME_5551DC5C020D_impl
  MELINK Original HWL ME_564089E3039B // Iterate
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_564089E3039B_ME_5551DC5C020D Iterate
+ENDMEREF // ME_564089E3039B_ME_5551DC5C020D_impl Iterate
+
+MEREF ME_564085CE0183_ME_5551DC5C020D_R
+ MELINK Original HWL ME_564085CE0183 // daConditionIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_564085CE0183_ME_5551DC5C020D_R daConditionIterator
 
 %%ImplementedBy ME_564085CE0183 ME_5551DC5C020D
 
@@ -2931,7 +2955,7 @@ ME ME_5551DC5C020D
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_564085CE0183 // daConditionIterator
+   Seq: ( ME_564085CE0183_ME_5551DC5C020D_R // daConditionIterator
  )
  ; // Implements
  MELIST Operations
@@ -2939,7 +2963,7 @@ ME ME_5551DC5C020D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_564089E3039B_ME_5551DC5C020D // Iterate
+   Seq: ( ME_564089E3039B_ME_5551DC5C020D_impl // Iterate
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daCondition'
@@ -3535,13 +3559,19 @@ ME ME_5608E5A4025F
 
 ENDME // ME_5608E5A4025F BuildSQLValue
 
-ME ME_5756AC9B0213_ME_5551DC0F012D
+MEREF ME_5756AC9B0213_ME_5551DC0F012D_impl
  MELINK Original HWL ME_5756AC9B0213 // IterateTables
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_5756AC9B0213_ME_5551DC0F012D IterateTables
+ENDMEREF // ME_5756AC9B0213_ME_5551DC0F012D_impl IterateTables
+
+MEREF ME_5756AC490332_ME_5551DC0F012D_R
+ MELINK Original HWL ME_5756AC490332 // daSelectFieldIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5756AC490332_ME_5551DC0F012D_R daSelectFieldIterator
 
 %%ImplementedBy ME_5756AC490332 ME_5551DC0F012D
 
@@ -3557,7 +3587,7 @@ ME ME_5551DC0F012D
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_5756AC490332 // daSelectFieldIterator
+   Seq: ( ME_5756AC490332_ME_5551DC0F012D_R // daSelectFieldIterator
  )
  ; // Implements
  MELIST Attributes
@@ -3569,7 +3599,7 @@ ME ME_5551DC0F012D
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_5756AC9B0213_ME_5551DC0F012D // IterateTables
+   Seq: ( ME_5756AC9B0213_ME_5551DC0F012D_impl // IterateTables
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daSelectField'
@@ -3784,6 +3814,12 @@ ME ME_5652D1F60348
 
 ENDME // ME_5652D1F60348 UndefinedIDs
 
+MEREF ME_5524D08D0097_ME_565EB00B0038_G
+ MELINK Original HWL ME_5524D08D0097 // IdaLongProcessSubscriber
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5524D08D0097_ME_565EB00B0038_G IdaLongProcessSubscriber
+
 %%InheritedBy ME_5524D08D0097 ME_565EB00B0038
 
 ME ME_565EB00B0038
@@ -3797,7 +3833,7 @@ ME ME_565EB00B0038
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5524D08D0097 // IdaLongProcessSubscriber
+   Seq: ( ME_5524D08D0097_ME_565EB00B0038_G // IdaLongProcessSubscriber
  )
  ; // Inherits
  UP "isPointer" true
@@ -3826,7 +3862,7 @@ ENDME // ME_574443B4033A
 ME ME_574443A401BE
  MEPROP UID '574443A401BE'
  MEPROP Name 'IterateTablesF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3861,7 +3897,7 @@ ENDME // ME_5748241001A5
 ME ME_574824090133
  MEPROP UID '574824090133'
  MEPROP Name 'IterateRelationConditionsF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -3927,36 +3963,42 @@ ME ME_5666D0EB0129
 
 ENDME // ME_5666D0EB0129 Execute
 
-ME ME_5549C42400DA_ME_5666D0D8031A
+MEREF ME_5549C42400DA_ME_5666D0D8031A_impl
  MELINK Original HWL ME_5549C42400DA // OpenResultSet
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5549C42400DA_ME_5666D0D8031A OpenResultSet
+ENDMEREF // ME_5549C42400DA_ME_5666D0D8031A_impl OpenResultSet
 
-ME ME_5551BB340256_ME_5666D0D8031A
+MEREF ME_5551BB340256_ME_5666D0D8031A_impl
  MELINK Original HWL ME_5551BB340256 // Prepare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5551BB340256_ME_5666D0D8031A Prepare
+ENDMEREF // ME_5551BB340256_ME_5666D0D8031A_impl Prepare
 
-ME ME_5551BEA500AE_ME_5666D0D8031A
+MEREF ME_5551BEA500AE_ME_5666D0D8031A_impl
  MELINK Original HWL ME_5551BEA500AE // Param
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_5551BEA500AE_ME_5666D0D8031A Param
+ENDMEREF // ME_5551BEA500AE_ME_5666D0D8031A_impl Param
 
-ME ME_555334DD023B_ME_5666D0D8031A
+MEREF ME_555334DD023B_ME_5666D0D8031A_impl
  MELINK Original HWL ME_555334DD023B // UnPrepare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_555334DD023B_ME_5666D0D8031A UnPrepare
+ENDMEREF // ME_555334DD023B_ME_5666D0D8031A_impl UnPrepare
 
-ME ME_564318160268_ME_5666D0D8031A
+MEREF ME_564318160268_ME_5666D0D8031A_impl
  MELINK Original HWL ME_564318160268 // BuildSQLValue
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_564318160268_ME_5666D0D8031A BuildSQLValue
+ENDMEREF // ME_564318160268_ME_5666D0D8031A_impl BuildSQLValue
+
+MEREF ME_5666C55000A5_ME_5666D0D8031A_G
+ MELINK Original HWL ME_5666C55000A5 // IdaQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5666C55000A5_ME_5666D0D8031A_G IdaQuery
 
 %%InheritedBy ME_5666C55000A5 ME_5666D0D8031A
 
@@ -3972,7 +4014,7 @@ ME ME_5666D0D8031A
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5666C55000A5 // IdaQuery
+   Seq: ( ME_5666C55000A5_ME_5666D0D8031A_G // IdaQuery
  )
  ; // Inherits
  MELIST Attributes
@@ -3984,11 +4026,11 @@ ME ME_5666D0D8031A
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_5549C42400DA_ME_5666D0D8031A // OpenResultSet
- ME_5551BB340256_ME_5666D0D8031A // Prepare
- ME_5551BEA500AE_ME_5666D0D8031A // Param
- ME_555334DD023B_ME_5666D0D8031A // UnPrepare
- ME_564318160268_ME_5666D0D8031A // BuildSQLValue
+   Seq: ( ME_5549C42400DA_ME_5666D0D8031A_impl // OpenResultSet
+ ME_5551BB340256_ME_5666D0D8031A_impl // Prepare
+ ME_5551BEA500AE_ME_5666D0D8031A_impl // Param
+ ME_555334DD023B_ME_5666D0D8031A_impl // UnPrepare
+ ME_564318160268_ME_5666D0D8031A_impl // BuildSQLValue
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daFunction'
@@ -4017,7 +4059,7 @@ ENDME // ME_5729DDA700F3
 ME ME_5729DD530330
  MEPROP UID '5729DD530330'
  MEPROP Name 'IterateArchiUsersF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4052,7 +4094,7 @@ ENDME // ME_5757DA0E0378
 ME ME_5757D9BB0116
  MEPROP UID '5757D9BB0116'
  MEPROP Name 'IterateUserGroupsF'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetiterator ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -4801,21 +4843,27 @@ ME ME_57480BE20140
 
 ENDME // ME_57480BE20140 IsRelationsConditionsValid
 
-ME ME_574443A401BE_ME_57442A09018B
+MEREF ME_574443A401BE_ME_57442A09018B_impl
  MELINK Original HWL ME_574443A401BE // IterateTablesF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_574443A401BE_ME_57442A09018B IterateTablesF
+ENDMEREF // ME_574443A401BE_ME_57442A09018B_impl IterateTablesF
 
-ME ME_574824090133_ME_57442A09018B
+MEREF ME_574824090133_ME_57442A09018B_impl
  MELINK Original HWL ME_574824090133 // IterateRelationConditionsF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_574824090133_ME_57442A09018B IterateRelationConditionsF
+ENDMEREF // ME_574824090133_ME_57442A09018B_impl IterateRelationConditionsF
+
+MEREF ME_57444341018A_ME_57442A09018B_R
+ MELINK Original HWL ME_57444341018A // daFromClauseIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57444341018A_ME_57442A09018B_R daFromClauseIterator
 
 %%ImplementedBy ME_57444341018A ME_57442A09018B
 
@@ -4831,7 +4879,7 @@ ME ME_57442A09018B
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_57444341018A // daFromClauseIterator
+   Seq: ( ME_57444341018A_ME_57442A09018B_R // daFromClauseIterator
  )
  ; // Implements
  MELIST Operations
@@ -4843,8 +4891,8 @@ ME ME_57442A09018B
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_574443A401BE_ME_57442A09018B // IterateTablesF
- ME_574824090133_ME_57442A09018B // IterateRelationConditionsF
+   Seq: ( ME_574443A401BE_ME_57442A09018B_impl // IterateTablesF
+ ME_574824090133_ME_57442A09018B_impl // IterateRelationConditionsF
  )
  ; // Implemented
  MELIST Forwarded
@@ -5065,36 +5113,42 @@ ME ME_56F3D89F01C8
 
 ENDME // ME_56F3D89F01C8 SelectFieldByName
 
-ME ME_5549C42400DA_ME_5549C4060117
+MEREF ME_5549C42400DA_ME_5549C4060117_impl
  MELINK Original HWL ME_5549C42400DA // OpenResultSet
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5549C42400DA_ME_5549C4060117 OpenResultSet
+ENDMEREF // ME_5549C42400DA_ME_5549C4060117_impl OpenResultSet
 
-ME ME_5551BB340256_ME_5549C4060117
+MEREF ME_5551BB340256_ME_5549C4060117_impl
  MELINK Original HWL ME_5551BB340256 // Prepare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5551BB340256_ME_5549C4060117 Prepare
+ENDMEREF // ME_5551BB340256_ME_5549C4060117_impl Prepare
 
-ME ME_5551BEA500AE_ME_5549C4060117
+MEREF ME_5551BEA500AE_ME_5549C4060117_impl
  MELINK Original HWL ME_5551BEA500AE // Param
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_5551BEA500AE_ME_5549C4060117 Param
+ENDMEREF // ME_5551BEA500AE_ME_5549C4060117_impl Param
 
-ME ME_555334DD023B_ME_5549C4060117
+MEREF ME_555334DD023B_ME_5549C4060117_impl
  MELINK Original HWL ME_555334DD023B // UnPrepare
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_555334DD023B_ME_5549C4060117 UnPrepare
+ENDMEREF // ME_555334DD023B_ME_5549C4060117_impl UnPrepare
 
-ME ME_564318160268_ME_5549C4060117
+MEREF ME_564318160268_ME_5549C4060117_impl
  MELINK Original HWL ME_564318160268 // BuildSQLValue
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_564318160268_ME_5549C4060117 BuildSQLValue
+ENDMEREF // ME_564318160268_ME_5549C4060117_impl BuildSQLValue
+
+MEREF ME_5666C55000A5_ME_5549C4060117_G
+ MELINK Original HWL ME_5666C55000A5 // IdaQuery
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5666C55000A5_ME_5549C4060117_G IdaQuery
 
 %%InheritedBy ME_5666C55000A5 ME_5549C4060117
 
@@ -5110,7 +5164,7 @@ ME ME_5549C4060117
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5666C55000A5 // IdaQuery
+   Seq: ( ME_5666C55000A5_ME_5549C4060117_G // IdaQuery
  )
  ; // Inherits
  MELIST Attributes
@@ -5124,11 +5178,11 @@ ME ME_5549C4060117
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_5549C42400DA_ME_5549C4060117 // OpenResultSet
- ME_5551BB340256_ME_5549C4060117 // Prepare
- ME_5551BEA500AE_ME_5549C4060117 // Param
- ME_555334DD023B_ME_5549C4060117 // UnPrepare
- ME_564318160268_ME_5549C4060117 // BuildSQLValue
+   Seq: ( ME_5549C42400DA_ME_5549C4060117_impl // OpenResultSet
+ ME_5551BB340256_ME_5549C4060117_impl // Prepare
+ ME_5551BEA500AE_ME_5549C4060117_impl // Param
+ ME_555334DD023B_ME_5549C4060117_impl // UnPrepare
+ ME_564318160268_ME_5549C4060117_impl // BuildSQLValue
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daTabledQuery'
@@ -5818,7 +5872,7 @@ ME ME_57628AC5018B
  MEPROP Name 'aList'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ MELINK Target WL? 'ME_47BB29D40117' // Tl3LongintList
  ;
 
 ENDME // ME_57628AC5018B aList
@@ -6549,21 +6603,27 @@ ME ME_57AC289F0257
 
 ENDME // ME_57AC289F0257 PutDocGroupData
 
-ME ME_5729DD530330_ME_5628D14000F6
+MEREF ME_5729DD530330_ME_5628D14000F6_impl
  MELINK Original HWL ME_5729DD530330 // IterateArchiUsersF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" false
  UP "needs result" false
-ENDME // ME_5729DD530330_ME_5628D14000F6 IterateArchiUsersF
+ENDMEREF // ME_5729DD530330_ME_5628D14000F6_impl IterateArchiUsersF
 
-ME ME_5757D9BB0116_ME_5628D14000F6
+MEREF ME_5757D9BB0116_ME_5628D14000F6_impl
  MELINK Original HWL ME_5757D9BB0116 // IterateUserGroupsF
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs index" true
  UP "needs result" false
-ENDME // ME_5757D9BB0116_ME_5628D14000F6 IterateUserGroupsF
+ENDMEREF // ME_5757D9BB0116_ME_5628D14000F6_impl IterateUserGroupsF
+
+MEREF ME_5729DD09013E_ME_5628D14000F6_R
+ MELINK Original HWL ME_5729DD09013E // ArchiUsersIterator
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5729DD09013E_ME_5628D14000F6_R ArchiUsersIterator
 
 %%ImplementedBy ME_5729DD09013E ME_5628D14000F6
 
@@ -6579,7 +6639,7 @@ ME ME_5628D14000F6
  MELINK Parent HWL ME_5432518A0316 // daInterfaces
  ;
  MELIST Implements
-   Seq: ( HWL ME_5729DD09013E // ArchiUsersIterator
+   Seq: ( ME_5729DD09013E_ME_5628D14000F6_R // ArchiUsersIterator
  )
  ; // Implements
  MELIST Attributes
@@ -6630,8 +6690,8 @@ ME ME_5628D14000F6
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_5729DD530330_ME_5628D14000F6 // IterateArchiUsersF
- ME_5757D9BB0116_ME_5628D14000F6 // IterateUserGroupsF
+   Seq: ( ME_5729DD530330_ME_5628D14000F6_impl // IterateArchiUsersF
+ ME_5757D9BB0116_ME_5628D14000F6_impl // IterateUserGroupsF
  )
  ; // Implemented
  UP extprop:rc:SelfName 'daUserManager'
@@ -7604,7 +7664,7 @@ ENDME // ME_551D25DA0034 DoIt
 ME ME_551D25D00024
  MEPROP UID '551D25D00024'
  MEPROP Name 'InitRegionFromIni'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7649,7 +7709,7 @@ ENDME // ME_551D2C420072 DoIt
 ME ME_551D2C300060
  MEPROP UID '551D2C300060'
  MEPROP Name 'IsRegionExists'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7694,7 +7754,7 @@ ENDME // ME_551D2C58008E DoIt
 ME ME_551D2C3603E0
  MEPROP UID '551D2C3603E0'
  MEPROP Name 'GetRegionName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7747,7 +7807,7 @@ ENDME // ME_551D35170315 DoIt
 ME ME_551D35040362
  MEPROP UID '551D35040362'
  MEPROP Name 'FillRegionDataList'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7764,7 +7824,7 @@ ENDME // ME_551D35040362 FillRegionDataList
 ME ME_5526537A00CE
  MEPROP UID '5526537A00CE'
  MEPROP Name 'Start'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -7777,7 +7837,7 @@ ENDME // ME_5526537A00CE Start
 ME ME_5526538202A5
  MEPROP UID '5526538202A5'
  MEPROP Name 'Stop'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess

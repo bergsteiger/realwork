@@ -1,0 +1,62 @@
+// TdaUserStatusChangedSubscriberList 573983CB019E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_573983CB019E
+
+ME ME_573983E20189
+ MEPROP UID '573983E20189'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573983CB019E // TdaUserStatusChangedSubscriberList
+ ;
+ MELINK Target WL 'ME_573982D4024B' '5432518A0316.ms.model.script' // IdaUserStatusChangedSubscriber
+ ;
+
+ENDME // ME_573983E20189 ItemType
+
+MEREF ME_47B57D630029_ME_573983CB019E_G
+ MELINK Original WL? 'ME_47B57D630029' // l3InterfacePtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D630029_ME_573983CB019E_G l3InterfacePtrList
+
+MEREF ME_4A54DD4E036F_ME_573983CB019E_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_573983CB019E_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57D630029 ME_573983CB019E
+%%InheritedBy ME_4A54DD4E036F ME_573983CB019E
+
+ME ME_573983CB019E
+ MEPROP UID '573983CB019E'
+ MEPROP Name 'TdaUserStatusChangedSubscriberList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57234C1A014C' // Users
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D630029_ME_573983CB019E_G // l3InterfacePtrList
+ ME_4A54DD4E036F_ME_573983CB019E_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_573983E20189 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daUserStatusChangedSubscriberList.pas'
+ UP extprop:rc:SelfName 'daUserStatusChangedSubscriberList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daUserStatusChangedSubscriberList'
+
+ENDME // ME_573983CB019E TdaUserStatusChangedSubscriberList

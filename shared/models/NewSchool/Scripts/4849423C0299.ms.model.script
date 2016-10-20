@@ -1,0 +1,110 @@
+// WLong 4849423C0299 Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4849423C0299
+
+ME ME_49C8F86A03B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849423C0299 // WLong
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_49C8F86A03B5 
+
+ME ME_49C8F8840210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849423C0299 // WLong
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49C8F8840210 
+
+ME ME_49C8F90D0309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849423C0299 // WLong
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+
+ENDME // ME_49C8F90D0309 
+
+ME ME_49C8FC46018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4849423C0299 // WLong
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_49C8FC46018F 
+
+MEREF ME_484CCE970073_ME_4849423C0299_over
+ MELINK Original WL 'ME_484CCE970073' '47AC6F0B025E.ms.model.script' // AsString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_484CCE970073_ME_4849423C0299_over AsString
+
+MEREF ME_484CCCFF00D7_ME_4849423C0299_G
+ MELINK Original WL 'ME_484CCCFF00D7' '47AC6F0B025E.ms.model.script' // Wk2Atom
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484CCCFF00D7_ME_4849423C0299_G Wk2Atom
+
+MEREF ME_48492A0C00ED_ME_4849423C0299_R
+ MELINK Original WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48492A0C00ED_ME_4849423C0299_R Long
+
+%%ImplementedBy ME_48492A0C00ED ME_4849423C0299
+
+%%InheritedBy ME_484CCCFF00D7 ME_4849423C0299
+
+ME ME_4849423C0299
+ MEPROP UID '4849423C0299'
+ MEPROP Name 'WLong'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'WLong' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4849284D0067' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_484CCCFF00D7_ME_4849423C0299_G // Wk2Atom
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48492A0C00ED_ME_4849423C0299_R // Long
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_484CCE970073_ME_4849423C0299_over // AsString
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49C8F86A03B5 // k2Base
+ ME_49C8F8840210 // SysUtils
+ ME_49C8F90D0309 // Tl3PrimString
+ ME_49C8FC46018F // L3 Core Consts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '07.09.1998 12:46'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\Long_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'Long_Wrap'
+
+ENDME // ME_4849423C0299 WLong

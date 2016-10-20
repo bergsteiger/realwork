@@ -20,6 +20,24 @@ ME ME_2BDD2E5A8C6B
 
 ENDME // ME_2BDD2E5A8C6B Ini_FormFactory_QueryCard
 
+MEREF ME_4C87C62302CF_ME_4AA9393C0164_G
+ MELINK Original WL? 'ME_4C87C62302CF' // PrimQueryCardOptions
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C87C62302CF_ME_4AA9393C0164_G PrimQueryCardOptions
+
+MEREF ME_4BD97FFF0005_ME_4AA9393C0164_R
+ MELINK Original WL 'ME_4BD97FFF0005' '4BD97FDB031A.ms.model.script' // QueryCard
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD97FFF0005_ME_4AA9393C0164_R QueryCard
+
+MEREF ME_4E9860E7038E_ME_4AA9393C0164_R
+ MELINK Original WL 'ME_4E9860E7038E' '484407720166.ms.model.script' // Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E9860E7038E_ME_4AA9393C0164_R Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+
 %%ImplementedBy ME_4BD97FFF0005 ME_4AA9393C0164
 %%ImplementedBy ME_4E9860E7038E ME_4AA9393C0164
 
@@ -38,12 +56,12 @@ ME ME_4AA9393C0164
  MELINK Parent WL? 'ME_4AA931390118' // CommonSearch
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4C87C62302CF' // PrimQueryCardOptions
+   Seq: ( ME_4C87C62302CF_ME_4AA9393C0164_G // PrimQueryCardOptions
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4BD97FFF0005' '4BD97FDB031A.ms.model.script' // QueryCard
- WL 'ME_4E9860E7038E' '484407720166.ms.model.script' // Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
+   Seq: ( ME_4BD97FFF0005_ME_4AA9393C0164_R // QueryCard
+ ME_4E9860E7038E_ME_4AA9393C0164_R // Ссылка на справку Правового календаря должна вести в page-man-search-req-fields.htm law_calendar
  )
  ; // Implements
  MELIST Operations

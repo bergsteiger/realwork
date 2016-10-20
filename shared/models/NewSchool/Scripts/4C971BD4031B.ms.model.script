@@ -1,0 +1,99 @@
+// TddRTFReader 4C971BD4031B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C971BD4031B
+
+FORWARD ME_56BB204702E6
+
+ME ME_56BB20610303
+ MEPROP UID '56BB20610303'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56BB204702E6 // GetdestNormClass
+ ;
+ MELINK Target WL 'ME_56BB200D01EE' '51D278280093.ms.model.script' // RdestNorm
+ ;
+
+ENDME // ME_56BB20610303 DoIt
+
+ME ME_56BB204702E6
+ MEPROP UID '56BB204702E6'
+ MEPROP Name 'GetdestNormClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C971BD4031B // TddRTFReader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56BB20610303 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56BB204702E6 GetdestNormClass
+
+MEREF ME_534F8F4D0317_ME_4C971BD4031B_impl
+ MELINK Original WL 'ME_534F8F4D0317' '51E7BF4200C0.ms.model.script' // BeforeClosePara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_534F8F4D0317_ME_4C971BD4031B_impl BeforeClosePara
+
+MEREF ME_5624D5E80387_ME_4C971BD4031B_impl
+ MELINK Original WL 'ME_5624D5E80387' '51E7BF4200C0.ms.model.script' // AddFooterHyperlink
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5624D5E80387_ME_4C971BD4031B_impl AddFooterHyperlink
+
+MEREF ME_562616AD01DF_ME_4C971BD4031B_impl
+ MELINK Original WL 'ME_562616AD01DF' '51E7BF4200C0.ms.model.script' // FootNoteSymbol
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_562616AD01DF_ME_4C971BD4031B_impl FootNoteSymbol
+
+MEREF ME_51E7BF4200C0_ME_4C971BD4031B_G
+ MELINK Original WL? 'ME_51E7BF4200C0' // TddCustomRTFReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E7BF4200C0_ME_4C971BD4031B_G TddCustomRTFReader
+
+%%InheritedBy ME_51E7BF4200C0 ME_4C971BD4031B
+
+ME ME_4C971BD4031B
+ MEPROP UID '4C971BD4031B'
+ MEPROP Name 'TddRTFReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48EA3D1F0232' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( ME_51E7BF4200C0_ME_4C971BD4031B_G // TddCustomRTFReader
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_56BB204702E6 // GetdestNormClass
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_534F8F4D0317_ME_4C971BD4031B_impl // BeforeClosePara
+ ME_5624D5E80387_ME_4C971BD4031B_impl // AddFooterHyperlink
+ ME_562616AD01DF_ME_4C971BD4031B_impl // FootNoteSymbol
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFReader.pas'
+ UP extprop:rc:SelfName 'ddRTFReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddRTFReader'
+
+ENDME // ME_4C971BD4031B TddRTFReader

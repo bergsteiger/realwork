@@ -1,0 +1,185 @@
+// TevTableRowCursor 4ED4C5640359 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ED4C5640359
+
+FORWARD ME_4ED4C5C40177
+
+ME ME_4ED4C6CE0301
+ MEPROP UID '4ED4C6CE0301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ED4C5C40177 // GetColumnMarkerClass
+ ;
+ MELINK Target WL 'ME_4ED4C68E0116' '4E3A539401D7.ms.model.script' // RevColumnMarkerClass
+ ;
+
+ENDME // ME_4ED4C6CE0301 DoIt
+
+ME ME_4ED4C71901E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5C40177 // GetColumnMarkerClass
+ ;
+ MELINK Target WL? 'ME_4E3A539401D7' // TevColumnBorderMarker
+ ;
+
+ENDME // ME_4ED4C71901E8 
+
+ME ME_4ED4C5C40177
+ MEPROP UID '4ED4C5C40177'
+ MEPROP Name 'GetColumnMarkerClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ED4C6CE0301 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ED4C71901E8 // TevColumnBorderMarker
+ )
+ ; // Dependencies
+
+ENDME // ME_4ED4C5C40177 GetColumnMarkerClass
+
+ME ME_4ED4CD670341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL 'ME_47CD397402BE' '4B8BA52200D8.ms.model.script' // TnevMarkerHint
+ ;
+
+ENDME // ME_4ED4CD670341 
+
+ME ME_4ED4CE44005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4ED4CE44005D 
+
+ME ME_4ED4CEA003D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4ED4CEA003D8 
+
+ME ME_4ED4CEB00301
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ED4CEB00301 
+
+ME ME_5346A440034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5346A440034B 
+
+ME ME_53D67560029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4ED4C5640359 // TevTableRowCursor
+ ;
+ MELINK Target WL? 'ME_4857D32B011E' // TevTableRow
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D67560029F 
+
+MEREF ME_4A38AA5C019F_ME_4ED4C5640359_over
+ MELINK Original WL 'ME_4A38AA5C019F' '49DE22650362.ms.model.script' // DoGetMarkers
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'evNeedMarkers'
+ENDMEREF // ME_4A38AA5C019F_ME_4ED4C5640359_over DoGetMarkers
+
+MEREF ME_4AA785540310_ME_4ED4C5640359_over
+ MELINK Original WL 'ME_4AA785540310' '49DF54E500B3.ms.model.script' // DoDiff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4AA785540310_ME_4ED4C5640359_over DoDiff
+
+MEREF ME_4BBB10FB015B_ME_4ED4C5640359_over
+ MELINK Original WL 'ME_4BBB10FB015B' '49DF54E500B3.ms.model.script' // DoPartiallyVisible
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BBB10FB015B_ME_4ED4C5640359_over DoPartiallyVisible
+
+MEREF ME_4A3A444900B3_ME_4ED4C5640359_G
+ MELINK Original WL? 'ME_4A3A444900B3' // TevParaListCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3A444900B3_ME_4ED4C5640359_G TevParaListCursor
+
+%%InjectedBy ME_4857D32B011E ME_4ED4C5640359
+
+%%InheritedBy ME_4A3A444900B3 ME_4ED4C5640359
+
+ME ME_4ED4C5640359
+ MEPROP UID '4ED4C5640359'
+ MEPROP Name 'TevTableRowCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3A444900B3_ME_4ED4C5640359_G // TevParaListCursor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4ED4C5C40177 // GetColumnMarkerClass
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A38AA5C019F_ME_4ED4C5640359_over // DoGetMarkers
+ ME_4AA785540310_ME_4ED4C5640359_over // DoDiff
+ ME_4BBB10FB015B_ME_4ED4C5640359_over // DoPartiallyVisible
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED4CD670341 // TnevMarkerHint
+ ME_4ED4CE44005D // l3Free
+ ME_4ED4CEA003D8 // MergeStatus
+ ME_4ED4CEB00301 // Tk2TagID
+ ME_5346A440034B // Tl3Variant
+ ME_53D67560029F // TevTableRow
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableRowCursor.pas'
+ UP extprop:rc:SelfName 'TableRowCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTableRowCursor'
+
+ENDME // ME_4ED4C5640359 TevTableRowCursor

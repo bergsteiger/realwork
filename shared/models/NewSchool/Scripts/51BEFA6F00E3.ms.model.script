@@ -1,0 +1,86 @@
+// TnsSaveQueryEvent 51BEFA6F00E3 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51BEFA6F00E3
+
+FORWARD ME_51BEFAF401A3
+
+ME ME_51BEFB0C001D
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_51BEFB0C001D aQuery
+
+ME ME_51BEFB07031B
+ MEPROP UID '51BEFB07031B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BEFAF401A3 // Log
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BEFB0C001D // aQuery
+ )
+ ; // Parameters
+
+ENDME // ME_51BEFB07031B DoIt
+
+ME ME_51BEFAF401A3
+ MEPROP UID '51BEFAF401A3'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BEFA6F00E3 // TnsSaveQueryEvent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BEFB07031B // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_51BEFAF401A3 Log
+
+MEREF ME_4B0A6109010C_ME_51BEFA6F00E3_G
+ MELINK Original WL? 'ME_4B0A6109010C' // TnsLogEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B0A6109010C_ME_51BEFA6F00E3_G TnsLogEvent
+
+%%InheritedBy ME_4B0A6109010C ME_51BEFA6F00E3
+
+ME ME_51BEFA6F00E3
+ MEPROP UID '51BEFA6F00E3'
+ MEPROP Name 'TnsSaveQueryEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_497DCBF8017B' // Folders
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B0A6109010C_ME_51BEFA6F00E3_G // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51BEFAF401A3 // Log
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveQueryEvent.pas'
+ UP extprop:rc:SelfName 'SaveQueryEvent'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsSaveQueryEvent'
+
+ENDME // ME_51BEFA6F00E3 TnsSaveQueryEvent

@@ -1,0 +1,88 @@
+// K219122895 4C28D831004B TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C28D831004B
+
+ME ME_4C28D919003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C28D831004B // K219122895
+ ;
+ MELINK Target WL 'ME_4C28D90B0318' '4C28D8F90020.ms.model.script' // TddMisspellCorrectFilter
+ ;
+
+ENDME // ME_4C28D919003F 
+
+ME ME_4C28DA3E01B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C28D831004B // K219122895
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C28DA3E01B2 
+
+ME ME_4ECB73C601FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C28D831004B // K219122895
+ ;
+ MELINK Target WL 'ME_4ADEE4F301E2' '47878E0E0191.ms.model.script' // l3PCharLen
+ ;
+
+ENDME // ME_4ECB73C601FE 
+
+MEREF ME_4C07BCBE01F2_ME_4C28D831004B_over
+ MELINK Original WL 'ME_4C07BCBE01F2' '4BACDDB500CE.ms.model.script' // SetFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4C07BCBE01F2_ME_4C28D831004B_over SetFilters
+
+MEREF ME_4C07B5E300F2_ME_4C28D831004B_G
+ MELINK Original WL? 'ME_4C07B5E300F2' // EVDtoEVDWriterTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C07B5E300F2_ME_4C28D831004B_G EVDtoEVDWriterTest
+
+%%InheritedBy ME_4C07B5E300F2 ME_4C28D831004B
+
+ME ME_4C28D831004B
+ MEPROP UID '4C28D831004B'
+ MEPROP Name 'K219122895'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:219122895}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C288F1202F8' // 7.6
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C07B5E300F2_ME_4C28D831004B_G // EVDtoEVDWriterTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C07BCBE01F2_ME_4C28D831004B_over // SetFilters
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C28D919003F // TddMisspellCorrectFilter
+ ME_4C28DA3E01B2 // FreeAndNil
+ ME_4ECB73C601FE // l3PCharLen
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '28.06.2010 21:13'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K219122895.pas'
+ UP extprop:pas:TypeName 'TK219122895'
+ UP extprop:rc:SelfName 'K219122895'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C28D831004B K219122895

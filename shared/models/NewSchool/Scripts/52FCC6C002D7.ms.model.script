@@ -1,0 +1,107 @@
+// Tl3ProtoPersistentWithHandle 52FCC6C002D7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FCC6C002D7
+
+ME ME_52FCC6CE00E2
+ MEPROP UID '52FCC6CE00E2'
+ MEPROP Name 'Handle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+ MELINK Target WL 'ME_476F9C3C02F4' '4678193C009C.ms.model.script' // Tl3Handle
+ ;
+ UP "pm" true
+
+ENDME // ME_52FCC6CE00E2 Handle
+
+FORWARD ME_52FCC73E00CC
+
+ME ME_52FCC75C0201
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+
+ENDME // ME_52FCC75C0201 anOther
+
+ME ME_52FCC7500277
+ MEPROP UID '52FCC7500277'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FCC73E00CC // CompareWith
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52FCC75C0201 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_52FCC7500277 DoIt
+
+ME ME_52FCC73E00CC
+ MEPROP UID '52FCC73E00CC'
+ MEPROP Name 'CompareWith'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52FCC6C002D7 // Tl3ProtoPersistentWithHandle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52FCC7500277 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52FCC73E00CC CompareWith
+
+MEREF ME_49E7725102DA_ME_52FCC6C002D7_G
+ MELINK Original WL? 'ME_49E7725102DA' // Tl3ProtoPersistent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7725102DA_ME_52FCC6C002D7_G Tl3ProtoPersistent
+
+%%InheritedBy ME_49E7725102DA ME_52FCC6C002D7
+
+ME ME_52FCC6C002D7
+ MEPROP UID '52FCC6C002D7'
+ MEPROP Name 'Tl3ProtoPersistentWithHandle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B8931DC0339' // Garbage
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7725102DA_ME_52FCC6C002D7_G // Tl3ProtoPersistent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52FCC6CE00E2 // Handle
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52FCC73E00CC // CompareWith
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoPersistentWithHandle.pas'
+ UP extprop:rc:SelfName 'ProtoPersistentWithHandle'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ProtoPersistentWithHandle'
+
+ENDME // ME_52FCC6C002D7 Tl3ProtoPersistentWithHandle

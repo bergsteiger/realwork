@@ -1,0 +1,62 @@
+// TnevVirtualView 4811FD87039D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4811FD87039D
+
+ME ME_4811FDFD01A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4811FD87039D // TnevVirtualView
+ ;
+ MELINK Target WL? 'ME_473C4F1E01A1' // Tl3VirtualCanvas
+ ;
+
+ENDME // ME_4811FDFD01A9 
+
+MEREF ME_4811F0AC0140_ME_4811FD87039D_over
+ MELINK Original WL 'ME_4811F0AC0140' '4811E4BA020A.ms.model.script' // GetCanvas
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4811F0AC0140_ME_4811FD87039D_over GetCanvas
+
+MEREF ME_4811E4BA020A_ME_4811FD87039D_G
+ MELINK Original WL? 'ME_4811E4BA020A' // TnevBaseDrawView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4811E4BA020A_ME_4811FD87039D_G TnevBaseDrawView
+
+%%InheritedBy ME_4811E4BA020A ME_4811FD87039D
+
+ME ME_4811FD87039D
+ MEPROP UID '4811FD87039D'
+ MEPROP Name 'TnevVirtualView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Виртуальная область вывода.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_4811E4BA020A_ME_4811FD87039D_G // TnevBaseDrawView
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4811F0AC0140_ME_4811FD87039D_over // GetCanvas
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4811FDFD01A9 // Tl3VirtualCanvas
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "started" '17.02.2006 21:23'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVirtualView.pas'
+ UP extprop:rc:SelfName 'VirtualView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevVirtualView'
+
+ENDME // ME_4811FD87039D TnevVirtualView

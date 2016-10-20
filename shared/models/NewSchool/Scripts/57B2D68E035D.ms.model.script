@@ -193,12 +193,47 @@ ME ME_57FF6B330005
 
 ENDME // ME_57FF6B330005 msm_RegetViewedLists
 
+ME ME_580764120306
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_580764120306 aWord
+
+ME ME_580764120353
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_580764120353 aName
+
+ME ME_5807640300C8
+ MEPROP UID '5807640300C8'
+ MEPROP Name 'msm_DeleteWordCachedValue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_580764120306 // aWord
+ ME_580764120353 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5807640300C8 msm_DeleteWordCachedValue
+
 ME ME_57B2D6AF0088
  MEPROP Class class_Dependency
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
  ;
- MELINK Target WL 'ME_57A9D663008F' '57AB4243034B.ms.model.script' // TmsmScriptCaller
+ MELINK Target WL? 'ME_57A9D663008F' // TmsmScriptCaller
  ;
 
 ENDME // ME_57B2D6AF0088 
@@ -208,7 +243,7 @@ ME ME_57B2D8DD0075
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
  ;
- MELINK Target WL 'ME_57B2D8C90390' '57B2D67D038F.ms.model.script' // TmsmWordsCache
+ MELINK Target WL? 'ME_57B2D8C90390' // TmsmWordsCache
  ;
 
 ENDME // ME_57B2D8DD0075 
@@ -218,7 +253,7 @@ ME ME_57BAD6FA0176
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
  ;
- MELINK Target WL 'ME_57B2E6B90102' '57AB4243034B.ms.model.script' // TmsmModelElementMethodValueCache
+ MELINK Target WL? 'ME_57B2E6B90102' // TmsmModelElementMethodValueCache
  ;
 
 ENDME // ME_57BAD6FA0176 
@@ -228,7 +263,7 @@ ME ME_57F642D200A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
  ;
- MELINK Target WL 'ME_57F642A60339' '57B2D67D038F.ms.model.script' // TmsmLostWords
+ MELINK Target WL? 'ME_57F642A60339' // TmsmLostWords
  ;
 
 ENDME // ME_57F642D200A0 
@@ -238,7 +273,7 @@ ME ME_57FE4DC50106
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
  ;
- MELINK Target WL 'ME_57FE4DA6014A' '57AB4243034B.ms.model.script' // TmsmElementListsService
+ MELINK Target WL? 'ME_57FE4DA6014A' // TmsmElementListsService
  ;
 
 ENDME // ME_57FE4DC50106 
@@ -263,6 +298,7 @@ ME ME_57B2D68E035D
  HWL ME_57F67D3000FE // msm_DeleteWordCachedValues
  HWL ME_57FC1BA5030E // msm_ClearCachedValues
  HWL ME_57FF6B330005 // msm_RegetViewedLists
+ HWL ME_5807640300C8 // msm_DeleteWordCachedValue
  )
  ; // Operations
  MELIST Dependencies

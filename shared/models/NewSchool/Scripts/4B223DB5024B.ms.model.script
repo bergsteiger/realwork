@@ -4,12 +4,18 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4B223DB5024B
 
-ME ME_47B07CF403D0_ME_4B223DB5024B
+MEREF ME_47B07CF403D0_ME_4B223DB5024B_impl
  MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_4B223DB5024B IsSameItems
+ENDMEREF // ME_47B07CF403D0_ME_4B223DB5024B_impl IsSameItems
+
+MEREF ME_4B223ADC02BF_ME_4B223DB5024B_G
+ MELINK Original WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B223ADC02BF_ME_4B223DB5024B_G l3RecordListPrim
 
 %%InheritedBy ME_4B223ADC02BF ME_4B223DB5024B
 
@@ -26,11 +32,11 @@ ME ME_4B223DB5024B
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B223ADC02BF' // l3RecordListPrim
+   Seq: ( ME_4B223ADC02BF_ME_4B223DB5024B_G // l3RecordListPrim
  )
  ; // Inherits
  MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_4B223DB5024B // IsSameItems
+   Seq: ( ME_47B07CF403D0_ME_4B223DB5024B_impl // IsSameItems
  )
  ; // Implemented
  UP "author" 'Ëþëèí À.Â.'

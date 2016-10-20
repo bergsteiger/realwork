@@ -1,0 +1,66 @@
+// TncsFileDesc 546C52C001ED SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_546C52C001ED
+
+MEREF ME_53AC03EE01FD_ME_546C52C001ED_impl
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" true
+ENDMEREF // ME_53AC03EE01FD_ME_546C52C001ED_impl GetTaggedDataType
+
+MEREF ME_534572370056_ME_546C52C001ED_G
+ MELINK Original WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534572370056_ME_546C52C001ED_G Tl3Tag
+
+MEREF ME_53AC01CD0335_ME_546C52C001ED_R
+ MELINK Original WL? 'ME_53AC01CD0335' // evdTagHolder
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53AC01CD0335_ME_546C52C001ED_R evdTagHolder
+
+MEREF ME_546C4EED0383_ME_546C52C001ED_R
+ MELINK Original WL 'ME_546C4EED0383' '484A470100DD.ms.model.script' // FileDesc
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_546C4EED0383_ME_546C52C001ED_R FileDesc
+
+%%ImplementedBy ME_53AC01CD0335 ME_546C52C001ED
+%%ImplementedBy ME_546C4EED0383 ME_546C52C001ED
+
+%%InheritedBy ME_534572370056 ME_546C52C001ED
+
+ME ME_546C52C001ED
+ MEPROP UID '546C52C001ED'
+ MEPROP Name 'TncsFileDesc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_546457E203C0' // ResultDelivery
+ ;
+ MELIST Inherits
+   Seq: ( ME_534572370056_ME_546C52C001ED_G // Tl3Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53AC01CD0335_ME_546C52C001ED_R // evdTagHolder
+ ME_546C4EED0383_ME_546C52C001ED_R // FileDesc
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53AC03EE01FD_ME_546C52C001ED_impl // GetTaggedDataType
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileDesc.pas'
+ UP extprop:rc:SelfName 'ncsFileDesc'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsFileDesc'
+
+ENDME // ME_546C52C001ED TncsFileDesc

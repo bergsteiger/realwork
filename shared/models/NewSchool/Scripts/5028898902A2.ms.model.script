@@ -6,116 +6,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_5028898902A2
 %%Inner ME_5028898902A2
 
-FORWARD ME_5028898902A2
-
-%%InheritedBy ME_48BBE37E00A2 ME_50288ABF02F4
-
-ME ME_50288ABF02F4
- MEPROP UID '50288ABF02F4'
- MEPROP Name 'Ttb97Control'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5028898902A2 // tb97utils
- ;
- MELIST Inherits
-   Seq: ( WL? 'ME_48BBE37E00A2' // TafwCustomCommonControl
- )
- ; // Inherits
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP intf.pas:Path 'common\components\rtl\external\tb97\tb97Control.pas'
- UP extprop:rc:SelfName 'tb97Control'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'tb97Control'
-
-ENDME // ME_50288ABF02F4 Ttb97Control
-
-FORWARD ME_502CD8FA02E1
-
-%%ImplementedBy ME_47913F970159 ME_502CD936004A
-
-%%InheritedBy ME_4F2A5AA1012C ME_502CD936004A
-
-ME ME_502CD936004A
- MEPROP UID '502CD936004A'
- MEPROP Name 'Ttb97CustomGraphicControl'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_502CD8FA02E1 // Ttb97GraphicControl
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4F2A5AA1012C' '47E11FC3021E.ms.model.script' // TGraphicControl
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_47913F970159' // l3Unknown
- )
- ; // Implements
- UP extprop:rc:SelfName 'tb97CustomGraphicControl'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_502CD936004A Ttb97CustomGraphicControl
-
-%%InheritedBy ME_502CD8FA02E1 ME_502CD89E0200
-
-ME ME_502CD89E0200
- MEPROP UID '502CD89E0200'
- MEPROP Name 'Ttb97GraphicTextControl'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_502CD8FA02E1 // Ttb97GraphicControl
- ;
- MELIST Inherits
-   Seq: ( HWL ME_502CD8FA02E1 // Ttb97GraphicControl
- )
- ; // Inherits
- UP extprop:rc:SelfName 'tb97GraphicTextControl'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_502CD89E0200 Ttb97GraphicTextControl
-
-%%InheritedBy ME_502CD936004A ME_502CD8FA02E1
-
-ME ME_502CD8FA02E1
- MEPROP UID '502CD8FA02E1'
- MEPROP Name 'Ttb97GraphicControl'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5028898902A2 // tb97utils
- ;
- MELIST Inherits
-   Seq: ( HWL ME_502CD936004A // Ttb97CustomGraphicControl
- )
- ; // Inherits
- MELIST Children
-   Seq: ( HWL ME_502CD936004A // Ttb97CustomGraphicControl
- HWL ME_502CD89E0200 // Ttb97GraphicTextControl
- )
- ; // Children
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_tb97GraphicControl.pas'
- UP extprop:rc:SelfName 'tb97GraphicControl'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'tb97GraphicControl'
-
-ENDME // ME_502CD8FA02E1 Ttb97GraphicControl
-
 ME ME_5028898902A2
  MEPROP UID '5028898902A2'
  MEPROP Name 'tb97utils'
@@ -127,9 +17,9 @@ ME ME_5028898902A2
  MELINK Parent WL? 'ME_4C43E84F0304' // tb97
  ;
  MELIST Children
-   Seq: ( HWL ME_50288ABF02F4 // Ttb97Control
+   Seq: ( WL? 'ME_50288ABF02F4' // Ttb97Control
  WL? 'ME_502889FF0054' // TB97
- HWL ME_502CD8FA02E1 // Ttb97GraphicControl
+ WL? 'ME_502CD8FA02E1' // Ttb97GraphicControl
  )
  ; // Children
  MELIST Depends

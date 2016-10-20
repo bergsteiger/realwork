@@ -1,0 +1,658 @@
+// TevDocumentPartPainter 49DB1B70013F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DB1B70013F
+
+FORWARD ME_4EB9310D007D
+
+ME ME_4EB931610087
+ MEPROP UID '4EB931610087'
+ MEPROP Name 'cPlusFrameWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB9310D007D // PlusPictureConsts
+ ;
+ MEPROP Value 1
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_4EB931610087 cPlusFrameWidth
+
+ME ME_4EB931830150
+ MEPROP UID '4EB931830150'
+ MEPROP Name 'cPlusSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB9310D007D // PlusPictureConsts
+ ;
+ MEPROP Value 10
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 10
+
+ENDME // ME_4EB931830150 cPlusSize
+
+ME ME_4EB93198007D
+ MEPROP UID '4EB93198007D'
+ MEPROP Name 'cHalfPlusSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB9310D007D // PlusPictureConsts
+ ;
+ MEPROP Value 5
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 5
+
+ENDME // ME_4EB93198007D cHalfPlusSize
+
+ME ME_4EB931AC00A2
+ MEPROP UID '4EB931AC00A2'
+ MEPROP Name 'cDeltaPlus'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Смещение для начала рисования плюса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB9310D007D // PlusPictureConsts
+ ;
+ MEPROP Value 'cHalfPlusSize + cPlusFrameWidth'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'cHalfPlusSize + cPlusFrameWidth'
+
+ENDME // ME_4EB931AC00A2 cDeltaPlus
+
+ME ME_4EB931D801F7
+ MEPROP UID '4EB931D801F7'
+ MEPROP Name 'cDeltaText'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Смещение текста после него (иначе получается некрасиво).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EB9310D007D // PlusPictureConsts
+ ;
+ MEPROP Value 'cPlusSize + cPlusFrameWidth'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'cPlusSize + cPlusFrameWidth'
+
+ENDME // ME_4EB931D801F7 cDeltaText
+
+ME ME_4EB9310D007D
+ MEPROP UID '4EB9310D007D'
+ MEPROP Name 'PlusPictureConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы для рисования плюсика (минусика) в пикселах.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4EB931610087 // cPlusFrameWidth
+ HWL ME_4EB931830150 // cPlusSize
+ HWL ME_4EB93198007D // cHalfPlusSize
+ HWL ME_4EB931AC00A2 // cDeltaPlus
+ HWL ME_4EB931D801F7 // cDeltaText
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4EB9310D007D PlusPictureConsts
+
+FORWARD ME_4EB92D5A0249
+
+ME ME_4EB92D680190
+ MEPROP UID '4EB92D680190'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EB92D5A0249 // CorrectFrameBounds
+ ;
+
+ENDME // ME_4EB92D680190 DoIt
+
+ME ME_4EB92D5A0249
+ MEPROP UID '4EB92D5A0249'
+ MEPROP Name 'CorrectFrameBounds'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EB92D680190 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EB92D5A0249 CorrectFrameBounds
+
+FORWARD ME_4EB92D990307
+
+ME ME_4EB92E2E0126
+ MEPROP Name 'aDrawText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EB92E2E0126 aDrawText
+
+ME ME_4EB92E1403E5
+ MEPROP UID '4EB92E1403E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EB92D990307 // DoWithFrameName
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EB92E2E0126 // aDrawText
+ )
+ ; // Parameters
+
+ENDME // ME_4EB92E1403E5 DoIt
+
+ME ME_4EB92D990307
+ MEPROP UID '4EB92D990307'
+ MEPROP Name 'DoWithFrameName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EB92E1403E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EB92D990307 DoWithFrameName
+
+FORWARD ME_55150D6300DE
+
+ME ME_55150DD1025F
+ MEPROP UID '55150DD1025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55150D6300DE // FirstParaAsHeader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55150DD1025F DoIt
+
+ME ME_55150D6300DE
+ MEPROP UID '55150D6300DE'
+ MEPROP Name 'FirstParaAsHeader'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55150DD1025F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55150D6300DE FirstParaAsHeader
+
+FORWARD ME_5617929E0312
+
+ME ME_561792BB00F1
+ MEPROP UID '561792BB00F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5617929E0312 // CheckColor4ExpandedText
+ ;
+
+ENDME // ME_561792BB00F1 DoIt
+
+ME ME_5617929E0312
+ MEPROP UID '5617929E0312'
+ MEPROP Name 'CheckColor4ExpandedText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_561792BB00F1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5617929E0312 CheckColor4ExpandedText
+
+ME ME_49DB1B9E0191
+ MEPROP UID '49DB1B9E0191'
+ MEPROP Name 'DrawFrameName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Рисует имя блока в области рамки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+
+ENDME // ME_49DB1B9E0191 DrawFrameName
+
+ME ME_49DB1BF30312
+ MEPROP UID '49DB1BF30312'
+ MEPROP Name 'NeedDrawPlus'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужно ли рисовать плюс/минус для открытия/сворачивания блока' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49DB1BF30312 NeedDrawPlus
+
+ME ME_49DB1D6600D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL? 'ME_4857B15A000E' // evDocumentPart
+ ;
+
+ENDME // ME_49DB1D6600D6 
+
+ME ME_49DB1D8B02A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_4799ECBF00D6' '4799ED060093.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_49DB1D8B02A0 
+
+ME ME_49DB1DA501BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
+ ;
+
+ENDME // ME_49DB1DA501BC 
+
+ME ME_49DB1DB50214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_49DB1DB50214 
+
+ME ME_49DB1DD803A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_49DB1DD803A6 
+
+ME ME_49DB1E1A0129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+
+ENDME // ME_49DB1E1A0129 
+
+ME ME_49DB21470163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_49DB21470163 
+
+ME ME_49DB22440173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_49DB22440173 
+
+ME ME_49E61A910393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47C7F2FA0277' '4678209200A6.ms.model.script' // Constants
+ ;
+
+ENDME // ME_49E61A910393 
+
+ME ME_4DD67AED00FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL? 'ME_4857AA550220' // TevBlock
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_4DD67AED00FD 
+
+ME ME_4EB935280176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_4EB935280176 
+
+ME ME_4FBCCF250245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4FBCCF250245 
+
+ME ME_4FBCD22E0370
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_4FBCD22E0370 
+
+ME ME_4FBCD252032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_4FBCD252032E 
+
+ME ME_4FBCD2D80329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4FBCD2D80329 
+
+ME ME_4FBCD32100DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL? 'ME_47E0C36201C7' // l3Math
+ ;
+
+ENDME // ME_4FBCD32100DB 
+
+ME ME_4FBDF1E001E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_4FBDEF6A019B' '47F1F3BC0330.ms.model.script' // evHasOwnStyle
+ ;
+
+ENDME // ME_4FBDF1E001E6 
+
+ME ME_53D669F7023D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_53D669F7023D 
+
+ME ME_54B4ED3601F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_54B4D869005D' '467C0CAA02AB.ms.model.script' // TspBlockType
+ ;
+
+ENDME // ME_54B4ED3601F5 
+
+ME ME_551512CD02D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_5513C4FD0239' '48492FC0029D.ms.model.script' // ExpandedText
+ ;
+
+ENDME // ME_551512CD02D4 
+
+ME ME_5617927F00A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5617927F00A5 
+
+MEREF ME_5062C0650076_ME_49DB1B70013F_impl
+ MELINK Original WL 'ME_5062C0650076' '5062BFDB025E.ms.model.script' // NeedCalcSpace
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5062C0650076_ME_49DB1B70013F_impl NeedCalcSpace
+
+MEREF ME_51FF6BC10266_ME_49DB1B70013F_impl
+ MELINK Original WL 'ME_51FF6BC10266' '5062BFDB025E.ms.model.script' // HeaderOwnSpace
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_51FF6BC10266_ME_49DB1B70013F_impl HeaderOwnSpace
+
+MEREF ME_5208B63400C1_ME_49DB1B70013F_impl
+ MELINK Original WL 'ME_5208B63400C1' '5062BFDB025E.ms.model.script' // GetSpaceTop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5208B63400C1_ME_49DB1B70013F_impl GetSpaceTop
+
+MEREF ME_4804B5FC02A3_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4804B5FC02A3' '4804A2C101A5.ms.model.script' // DoInitAlignObjects
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B5FC02A3_ME_49DB1B70013F_over DoInitAlignObjects
+
+MEREF ME_4804B76803D5_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4804B76803D5' '4804A2C101A5.ms.model.script' // DrawFrame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B76803D5_ME_49DB1B70013F_over DrawFrame
+
+MEREF ME_4804B78B0397_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4804B78B0397' '4804A2C101A5.ms.model.script' // InfiniteFrame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B78B0397_ME_49DB1B70013F_over InfiniteFrame
+
+MEREF ME_4804B9BB0383_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804B9BB0383_ME_49DB1B70013F_over GetFramePartPrim
+
+MEREF ME_4804C35B00B2_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4804C35B00B2_ME_49DB1B70013F_over DoDrawFrameText
+
+MEREF ME_481D6C56033A_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_481D6C56033A' '481D6C300084.ms.model.script' // BeforeDrawChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_481D6C56033A_ME_49DB1B70013F_over BeforeDrawChild
+
+MEREF ME_4E2702FE01EA_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_4E2702FE01EA' '4804A2C101A5.ms.model.script' // FillUnfilled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4E2702FE01EA_ME_49DB1B70013F_over FillUnfilled
+
+MEREF ME_5062C3470289_ME_49DB1B70013F_over
+ MELINK Original WL 'ME_5062C3470289' '5062BFDB025E.ms.model.script' // CorrectByTextHeight
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5062C3470289_ME_49DB1B70013F_over CorrectByTextHeight
+
+MEREF ME_49DB5FEF01D8_ME_49DB1B70013F_G
+ MELINK Original WL? 'ME_49DB5FEF01D8' // TevParaListPainter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DB5FEF01D8_ME_49DB1B70013F_G TevParaListPainter
+
+MEREF ME_5062BFDB025E_ME_49DB1B70013F_G
+ MELINK Original WL? 'ME_5062BFDB025E' // AACSpaceDrawing
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5062BFDB025E_ME_49DB1B70013F_G AACSpaceDrawing
+
+%%InjectedBy ME_4857AA550220 ME_49DB1B70013F
+
+%%InheritedBy ME_49DB5FEF01D8 ME_49DB1B70013F
+%%InheritedBy ME_5062BFDB025E ME_49DB1B70013F
+
+ME ME_49DB1B70013F
+ MEPROP UID '49DB1B70013F'
+ MEPROP Name 'TevDocumentPartPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интерфейса IevPainter для блока параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_49DCC860038B' // ParaList Painters
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DB5FEF01D8_ME_49DB1B70013F_G // TevParaListPainter
+ ME_5062BFDB025E_ME_49DB1B70013F_G // AACSpaceDrawing
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4EB92D5A0249 // CorrectFrameBounds
+ HWL ME_4EB92D990307 // DoWithFrameName
+ HWL ME_55150D6300DE // FirstParaAsHeader
+ HWL ME_5617929E0312 // CheckColor4ExpandedText
+ HWL ME_49DB1B9E0191 // DrawFrameName
+ HWL ME_49DB1BF30312 // NeedDrawPlus
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5062C0650076_ME_49DB1B70013F_impl // NeedCalcSpace
+ ME_51FF6BC10266_ME_49DB1B70013F_impl // HeaderOwnSpace
+ ME_5208B63400C1_ME_49DB1B70013F_impl // GetSpaceTop
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4804B5FC02A3_ME_49DB1B70013F_over // DoInitAlignObjects
+ ME_4804B76803D5_ME_49DB1B70013F_over // DrawFrame
+ ME_4804B78B0397_ME_49DB1B70013F_over // InfiniteFrame
+ ME_4804B9BB0383_ME_49DB1B70013F_over // GetFramePartPrim
+ ME_4804C35B00B2_ME_49DB1B70013F_over // DoDrawFrameText
+ ME_481D6C56033A_ME_49DB1B70013F_over // BeforeDrawChild
+ ME_4E2702FE01EA_ME_49DB1B70013F_over // FillUnfilled
+ ME_5062C3470289_ME_49DB1B70013F_over // CorrectByTextHeight
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4EB9310D007D // PlusPictureConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_49DB1D6600D6 // evDocumentPart
+ ME_49DB1D8B02A0 // Defaults
+ ME_49DB1DA501BC // Colors
+ ME_49DB1DB50214 // Tk2TagID
+ ME_49DB1DD803A6 // Defaults
+ ME_49DB1E1A0129 // Tl3CustomString
+ ME_49DB21470163 // Tl3Point
+ ME_49DB22440173 // evL3CoreConsts
+ ME_49E61A910393 // Constants
+ ME_4DD67AED00FD // TevBlock
+ ME_4EB935280176 // l3MinMax
+ ME_4FBCCF250245 // L3 Core Consts
+ ME_4FBCD22E0370 // Tl3PCharLen
+ ME_4FBCD252032E // l3IsNil
+ ME_4FBCD2D80329 // Ext Chars
+ ME_4FBCD32100DB // l3Math
+ ME_4FBDF1E001E6 // evHasOwnStyle
+ ME_53D669F7023D // IevPainter
+ ME_54B4ED3601F5 // TspBlockType
+ ME_551512CD02D4 // ExpandedText
+ ME_5617927F00A5 // InevPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '15.12.96 01:55'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPartPainter.pas'
+ UP extprop:rc:SelfName 'DocumentPartPainter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentPartPainter'
+
+ENDME // ME_49DB1B70013F TevDocumentPartPainter

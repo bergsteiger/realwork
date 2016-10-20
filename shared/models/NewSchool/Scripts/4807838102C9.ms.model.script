@@ -1,0 +1,213 @@
+// TatListener 4807838102C9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4807838102C9
+
+ME ME_480783CE00BB
+ MEPROP UID '480783CE00BB'
+ MEPROP Name 'f_Notifiers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+ MELINK Target WL 'ME_4807825A006E' '478CF30500C1.ms.model.script' // TInterfaceList
+ ;
+
+ENDME // ME_480783CE00BB f_Notifiers
+
+ME ME_480783D900C4
+ MEPROP UID '480783D900C4'
+ MEPROP Name 'f_CS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+
+ENDME // ME_480783D900C4 f_CS
+
+ME ME_480783E80373
+ MEPROP Name 'notifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_480783E80373 notifier
+
+ME ME_480783E2019D
+ MEPROP UID '480783E2019D'
+ MEPROP Name 'IsListen'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_480783E80373 // notifier
+ )
+ ; // Parameters
+
+ENDME // ME_480783E2019D IsListen
+
+ME ME_480783FD009B
+ MEPROP UID '480783FD009B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+
+ENDME // ME_480783FD009B Create
+
+ME ME_480784D10164
+ MEPROP Name 'sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_480784D10164 sender
+
+ME ME_480784D10185
+ MEPROP Name 'notification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48077E810317' '48077E620315.ms.model.script' // IatNotification
+ ;
+
+ENDME // ME_480784D10185 notification
+
+ME ME_480784C30322
+ MEPROP UID '480784C30322'
+ MEPROP Name 'DoFire'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_480784D10164 // sender
+ ME_480784D10185 // notification
+ )
+ ; // Parameters
+
+ENDME // ME_480784C30322 DoFire
+
+ME ME_4807856F0120
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4807838102C9 // TatListener
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_4807856F0120 
+
+MEREF ME_48077F3F01F9_ME_4807838102C9_impl
+ MELINK Original WL 'ME_48077F3F01F9' '48077E620315.ms.model.script' // StartListen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F3F01F9_ME_4807838102C9_impl StartListen
+
+MEREF ME_48077F4B02E8_ME_4807838102C9_impl
+ MELINK Original WL 'ME_48077F4B02E8' '48077E620315.ms.model.script' // StopListen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F4B02E8_ME_4807838102C9_impl StopListen
+
+MEREF ME_48077F540156_ME_4807838102C9_impl
+ MELINK Original WL 'ME_48077F540156' '48077E620315.ms.model.script' // StopListen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F540156_ME_4807838102C9_impl StopListen
+
+MEREF ME_48077F6101B4_ME_4807838102C9_impl
+ MELINK Original WL 'ME_48077F6101B4' '48077E620315.ms.model.script' // Fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48077F6101B4_ME_4807838102C9_impl Fire
+
+MEREF ME_48077504027E_ME_4807838102C9_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_4807838102C9_over Destroy
+
+MEREF ME_48077FF80141_ME_4807838102C9_G
+ MELINK Original WL 'ME_48077FF80141' '4807744200AA.ms.model.script' // TInterfacedObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077FF80141_ME_4807838102C9_G TInterfacedObject
+
+MEREF ME_48077F320256_ME_4807838102C9_R
+ MELINK Original WL 'ME_48077F320256' '48077E620315.ms.model.script' // IatListener
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48077F320256_ME_4807838102C9_R IatListener
+
+%%ImplementedBy ME_48077F320256 ME_4807838102C9
+
+%%InheritedBy ME_48077FF80141 ME_4807838102C9
+
+ME ME_4807838102C9
+ MEPROP UID '4807838102C9'
+ MEPROP Name 'TatListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_48077FF80141_ME_4807838102C9_G // TInterfacedObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_48077F320256_ME_4807838102C9_R // IatListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_480783CE00BB // f_Notifiers
+ HWL ME_480783D900C4 // f_CS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_480783E2019D // IsListen
+ HWL ME_480783FD009B // Create
+ HWL ME_480784C30322 // DoFire
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48077F3F01F9_ME_4807838102C9_impl // StartListen
+ ME_48077F4B02E8_ME_4807838102C9_impl // StopListen
+ ME_48077F540156_ME_4807838102C9_impl // StopListen
+ ME_48077F6101B4_ME_4807838102C9_impl // Fire
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4807838102C9_over // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4807856F0120 // SysUtils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atListener.pas'
+ UP extprop:rc:SelfName 'atListener'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atListener'
+
+ENDME // ME_4807838102C9 TatListener

@@ -1,0 +1,74 @@
+// TddClientMessagePrim 53B24355031B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B24355031B
+
+ME ME_53B4118D0325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B24355031B // TddClientMessagePrim
+ ;
+ MELINK Target WL 'ME_53A9542401D9' '53A953FD016B.ms.model.script' // TcsTaskType
+ ;
+
+ENDME // ME_53B4118D0325 
+
+MEREF ME_53B3D8A8011F_ME_53B24355031B_over
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53B3D8A8011F_ME_53B24355031B_over Create
+
+MEREF ME_52FA4AD90122_ME_53B24355031B_G
+ MELINK Original WL 'ME_52FA4AD90122' '52FA4ACA0020.ms.model.script' // TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52FA4AD90122_ME_53B24355031B_G TddRequestTask
+
+MEREF ME_53B243A00171_ME_53B24355031B_R
+ MELINK Original WL 'ME_53B243A00171' '484A470100DD.ms.model.script' // ClientMessage
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B243A00171_ME_53B24355031B_R ClientMessage
+
+%%ImplementedBy ME_53B243A00171 ME_53B24355031B
+
+%%InheritedBy ME_52FA4AD90122 ME_53B24355031B
+
+ME ME_53B24355031B
+ MEPROP UID '53B24355031B'
+ MEPROP Name 'TddClientMessagePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52FA4AD90122_ME_53B24355031B_G // TddRequestTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B243A00171_ME_53B24355031B_R // ClientMessage
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_53B24355031B_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B4118D0325 // TcsTaskType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ddClientMessagePrim.pas'
+ UP extprop:rc:SelfName 'ddClientMessagePrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddClientMessagePrim'
+
+ENDME // ME_53B24355031B TddClientMessagePrim

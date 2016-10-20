@@ -1,0 +1,94 @@
+// TddFormulaParagraph 54F834440140 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F834440140
+
+ME ME_54F835210066
+ MEPROP UID '54F835210066'
+ MEPROP Name 'FormulaText'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F834440140 // TddFormulaParagraph
+ ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54F835210066 FormulaText
+
+ME ME_54F8476100DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F834440140 // TddFormulaParagraph
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_54F8476100DD 
+
+ME ME_54F8479F0089
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F834440140 // TddFormulaParagraph
+ ;
+ MELINK Target WL 'ME_54F847840086' '521B05D60264.ms.model.script' // StartFormulaPara
+ ;
+
+ENDME // ME_54F8479F0089 
+
+MEREF ME_518A504F00F5_ME_54F834440140_over
+ MELINK Original WL 'ME_518A504F00F5' '4FACE0E4032F.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_518A504F00F5_ME_54F834440140_over Write2Generator
+
+MEREF ME_4FACE14F0231_ME_54F834440140_G
+ MELINK Original WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FACE14F0231_ME_54F834440140_G TddTextParagraph
+
+%%InheritedBy ME_4FACE14F0231 ME_54F834440140
+
+ME ME_54F834440140
+ MEPROP UID '54F834440140'
+ MEPROP Name 'TddFormulaParagraph'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FACE14F0231_ME_54F834440140_G // TddTextParagraph
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54F835210066 // FormulaText
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_518A504F00F5_ME_54F834440140_over // Write2Generator
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54F8476100DD // Tk2TagID
+ ME_54F8479F0089 // StartFormulaPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddFormulaParagraph.pas'
+ UP extprop:rc:SelfName 'ddFormulaParagraph'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddFormulaParagraph'
+
+ENDME // ME_54F834440140 TddFormulaParagraph

@@ -1,0 +1,57 @@
+// pop_editor_HasComment 4DD0F87600ED ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD0F87600ED
+
+MEREF ME_50BA0CC800CA_ME_4DD0F87600ED_impl
+ MELINK Original WL 'ME_50BA0CC800CA' '50BA0C4E001B.ms.model.script' // DoNextPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50BA0CC800CA_ME_4DD0F87600ED_impl DoNextPara
+
+MEREF ME_4DB0614603C8_ME_4DD0F87600ED_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DD0F87600ED_over GetWordNameForRegister
+
+MEREF ME_50BA0C4E001B_ME_4DD0F87600ED_G
+ MELINK Original WL? 'ME_50BA0C4E001B' // TkwEditorFromStackNextParaWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50BA0C4E001B_ME_4DD0F87600ED_G TkwEditorFromStackNextParaWord
+
+%%InheritedBy ME_50BA0C4E001B ME_4DD0F87600ED
+
+ME ME_4DD0F87600ED
+ MEPROP UID '4DD0F87600ED'
+ MEPROP Name 'pop_editor_HasComment'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_50BA0C4E001B_ME_4DD0F87600ED_G // TkwEditorFromStackNextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0CC800CA_ME_4DD0F87600ED_impl // DoNextPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD0F87600ED_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorHasComment'
+ UP extprop:rc:SelfName 'PopEditorHasComment'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorHasComment'
+
+ENDME // ME_4DD0F87600ED pop_editor_HasComment

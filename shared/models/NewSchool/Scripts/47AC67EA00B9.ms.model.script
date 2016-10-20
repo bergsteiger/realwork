@@ -1,0 +1,131 @@
+// Tk2TagListPrim 47AC67EA00B9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47AC67EA00B9
+%%Inner ME_47AC67EA00B9
+
+FORWARD ME_47AC67EA00B9
+
+ME ME_4DF0E9A60121
+ MEPROP UID '4DF0E9A60121'
+ MEPROP Name 'l3Items_HasCustomSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_HasCustomSort'
+
+ENDME // ME_4DF0E9A60121 l3Items_HasCustomSort
+
+ME ME_5305DFBC01C9
+ MEPROP UID '5305DFBC01C9'
+ MEPROP Name 'l3Items_NeedsAssignItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsAssignItem'
+
+ENDME // ME_5305DFBC01C9 l3Items_NeedsAssignItem
+
+ME ME_49B792AB033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC67EA00B9 // Tk2TagListPrim
+ ;
+ MELINK Target WL 'ME_469F7CE1016C' '49A6646B0044.ms.model.script' // k2_amAll
+ ;
+
+ENDME // ME_49B792AB033D 
+
+MEREF ME_47B2C42A0163_ME_47AC67EA00B9_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_47AC67EA00B9_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_47AC67EA00B9_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_47AC67EA00B9_impl CompareExistingItems
+
+MEREF ME_47A6FEE600FC_ME_47AC67EA00B9_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_47AC67EA00B9_over IsCacheable
+
+MEREF ME_5320814702B4_ME_47AC67EA00B9_G
+ MELINK Original WL? 'ME_5320814702B4' // Tk2ListTag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5320814702B4_ME_47AC67EA00B9_G Tk2ListTag
+
+MEREF ME_534515CD039A_ME_47AC67EA00B9_G
+ MELINK Original WL? 'ME_534515CD039A' // l3VariantListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_534515CD039A_ME_47AC67EA00B9_G l3VariantListPrim
+
+%%InheritedBy ME_5320814702B4 ME_47AC67EA00B9
+%%InheritedBy ME_534515CD039A ME_47AC67EA00B9
+
+ME ME_47AC67EA00B9
+ MEPROP UID '47AC67EA00B9'
+ MEPROP Name 'Tk2TagListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_5320814702B4_ME_47AC67EA00B9_G // Tk2ListTag
+ ME_534515CD039A_ME_47AC67EA00B9_G // l3VariantListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_47AC67EA00B9_impl // AssignItem
+ ME_47B99D4503A2_ME_47AC67EA00B9_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_47AC67EA00B9_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DF0E9A60121 // l3Items_HasCustomSort
+ HWL ME_5305DFBC01C9 // l3Items_NeedsAssignItem
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_49B792AB033D // k2_amAll
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '08.02.2008 17:32'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TagListPrim.pas'
+ UP extprop:rc:SelfName 'TagListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2TagListPrim'
+
+ENDME // ME_47AC67EA00B9 Tk2TagListPrim

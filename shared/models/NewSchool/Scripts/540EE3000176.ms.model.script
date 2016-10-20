@@ -1,0 +1,219 @@
+// Tl3Logger 540EE3000176 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540EE3000176
+
+ME ME_540EE34B032A
+ MEPROP UID '540EE34B032A'
+ MEPROP Name 'f_Log'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELINK Target WL? 'ME_540EE27400BE' // Tl3ExceptionsLogEx
+ ;
+
+ENDME // ME_540EE34B032A f_Log
+
+ME ME_540EF7BB038E
+ MEPROP UID '540EF7BB038E'
+ MEPROP Name 'f_EXEName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_540EF7BB038E f_EXEName
+
+FORWARD ME_540EE374018F
+
+ME ME_540EE3860125
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_540EE3860125 aFileName
+
+ME ME_540EE37D01F5
+ MEPROP UID '540EE37D01F5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EE374018F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_540EE3860125 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_540EE37D01F5 DoIt
+
+ME ME_540EE374018F
+ MEPROP UID '540EE374018F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_540EE37D01F5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_540EE374018F Create
+
+FORWARD ME_540EF28B00BE
+
+ME ME_540EF29F0250
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_540EF29F0250 aString
+
+ME ME_540EF298011B
+ MEPROP UID '540EF298011B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EF28B00BE // ToLog
+ ;
+ MELIST Parameters
+   Seq: ( ME_540EF29F0250 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_540EF298011B DoIt
+
+ME ME_540EF28B00BE
+ MEPROP UID '540EF28B00BE'
+ MEPROP Name 'ToLog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_540EF298011B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_540EF28B00BE ToLog
+
+ME ME_540EE36A01FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_540EE36A01FA 
+
+ME ME_540EF81700FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540EE3000176 // Tl3Logger
+ ;
+ MELINK Target WL? 'ME_540EE24702BC' // Tl3ExceptionsLog
+ ;
+
+ENDME // ME_540EF81700FE 
+
+MEREF ME_479731C50290_ME_540EE3000176_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_540EE3000176_over Cleanup
+
+MEREF ME_479F2AFB0397_ME_540EE3000176_over
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2AFB0397_ME_540EE3000176_over Release
+
+MEREF ME_479F2B3302C1_ME_540EE3000176_over
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2B3302C1_ME_540EE3000176_over BeforeAddToCache
+
+MEREF ME_47A6FEE600FC_ME_540EE3000176_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_540EE3000176_over IsCacheable
+
+MEREF ME_49E7754802A9_ME_540EE3000176_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_540EE3000176_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_540EE3000176
+
+ME ME_540EE3000176
+ MEPROP UID '540EE3000176'
+ MEPROP Name 'Tl3Logger'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_540EE3000176_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_540EE34B032A // f_Log
+ HWL ME_540EF7BB038E // f_EXEName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_540EE374018F // Create
+ HWL ME_540EF28B00BE // ToLog
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_540EE3000176_over // Cleanup
+ ME_479F2AFB0397_ME_540EE3000176_over // Release
+ ME_479F2B3302C1_ME_540EE3000176_over // BeforeAddToCache
+ ME_47A6FEE600FC_ME_540EE3000176_over // IsCacheable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_540EE36A01FA // FreeAndNil
+ ME_540EF81700FE // Tl3ExceptionsLog
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Logger.pas'
+ UP extprop:rc:SelfName 'Logger'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3Logger'
+
+ENDME // ME_540EE3000176 Tl3Logger

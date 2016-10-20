@@ -1,0 +1,275 @@
+// TafwComplexDocumentPreviewFactory 47DF8C5E01AB SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47DF8C5E01AB
+
+FORWARD ME_47DF8C5E01AB
+
+FORWARD ME_47DF8FEF0327
+
+ME ME_47DF902B0299
+ MEPROP UID '47DF902B0299'
+ MEPROP Name 'f_Factory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ ;
+ MELINK Target HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF902B0299 f_Factory
+
+ME ME_47DF906401C5
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF906401C5 aFactory
+
+ME ME_47DF90540311
+ MEPROP UID '47DF90540311'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_47DF906401C5 // aFactory
+ )
+ ; // Parameters
+
+ENDME // ME_47DF90540311 Create
+
+MEREF ME_479731C50290_ME_47DF8FEF0327_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47DF8FEF0327_over Cleanup
+
+MEREF ME_47DF8F0402F7_ME_47DF8FEF0327_G
+ MELINK Original WL? 'ME_47DF8F0402F7' // TafwComplexDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47DF8F0402F7_ME_47DF8FEF0327_G TafwComplexDocumentPreview
+
+%%InheritedBy ME_47DF8F0402F7 ME_47DF8FEF0327
+
+ME ME_47DF8FEF0327
+ MEPROP UID '47DF8FEF0327'
+ MEPROP Name 'TafwCachedComplexDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELIST Inherits
+   Seq: ( ME_47DF8F0402F7_ME_47DF8FEF0327_G // TafwComplexDocumentPreview
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47DF902B0299 // f_Factory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DF90540311 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47DF8FEF0327_over // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'afwCachedComplexDocumentPreview'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47DF8FEF0327 TafwCachedComplexDocumentPreview
+
+ME ME_47DF8CCD0197
+ MEPROP UID '47DF8CCD0197'
+ MEPROP Name 'f_Previews'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL? 'ME_4773DBBD000D' // Tl3ObjectList
+ ;
+
+ENDME // ME_47DF8CCD0197 f_Previews
+
+ME ME_47DF8CDC0015
+ MEPROP UID '47DF8CDC0015'
+ MEPROP Name 'f_Printer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_47750D8F0051' '467823B7002C.ms.model.script' // IafwPrinter
+ ;
+
+ENDME // ME_47DF8CDC0015 f_Printer
+
+ME ME_47DF8D220142
+ MEPROP UID '47DF8D220142'
+ MEPROP Name 'MakeI'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_473D8E9D026D' '467823B7002C.ms.model.script' // IafwComplexDocumentPreviewFactory
+ ;
+
+ENDME // ME_47DF8D220142 MakeI
+
+ME ME_47DF976600CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_4799D40F0004' '4799D83F0260.ms.model.script' // Tl3Printer
+ ;
+
+ENDME // ME_47DF976600CE 
+
+ME ME_47DF993B03B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_47DF993B03B6 
+
+ME ME_47DF9AC002A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47DF8C5E01AB // TafwComplexDocumentPreviewFactory
+ ;
+ MELINK Target WL 'ME_479F1E0803A0' '479F1DEA0057.ms.model.script' // Errors
+ ;
+
+ENDME // ME_47DF9AC002A8 
+
+MEREF ME_473D8EAF022D_ME_47DF8C5E01AB_impl
+ MELINK Original WL 'ME_473D8EAF022D' '467823B7002C.ms.model.script' // Make
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8EAF022D_ME_47DF8C5E01AB_impl Make
+
+MEREF ME_473D8EBB0035_ME_47DF8C5E01AB_impl
+ MELINK Original WL 'ME_473D8EBB0035' '467823B7002C.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8EBB0035_ME_47DF8C5E01AB_impl Count
+
+MEREF ME_473D8ECB001A_ME_47DF8C5E01AB_impl
+ MELINK Original WL 'ME_473D8ECB001A' '467823B7002C.ms.model.script' // ResetCache
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_473D8ECB001A_ME_47DF8C5E01AB_impl ResetCache
+
+MEREF ME_473D8ED80268_ME_47DF8C5E01AB_impl
+ MELINK Original WL 'ME_473D8ED80268' '467823B7002C.ms.model.script' // Item
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_473D8ED80268_ME_47DF8C5E01AB_impl Item
+
+MEREF ME_479731C50290_ME_47DF8C5E01AB_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47DF8C5E01AB_over Cleanup
+
+MEREF ME_46780E690001_ME_47DF8C5E01AB_G
+ MELINK Original WL? 'ME_46780E690001' // Tl3CacheableBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46780E690001_ME_47DF8C5E01AB_G Tl3CacheableBase
+
+MEREF ME_473D8E9D026D_ME_47DF8C5E01AB_R
+ MELINK Original WL 'ME_473D8E9D026D' '467823B7002C.ms.model.script' // IafwComplexDocumentPreviewFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_473D8E9D026D_ME_47DF8C5E01AB_R IafwComplexDocumentPreviewFactory
+
+%%ImplementedBy ME_473D8E9D026D ME_47DF8C5E01AB
+
+%%InheritedBy ME_46780E690001 ME_47DF8C5E01AB
+
+ME ME_47DF8C5E01AB
+ MEPROP UID '47DF8C5E01AB'
+ MEPROP Name 'TafwComplexDocumentPreviewFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика Предварительный просмотр печати с кэшем.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_474144E20301' // Draw
+ ;
+ MELIST Inherits
+   Seq: ( ME_46780E690001_ME_47DF8C5E01AB_G // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_473D8E9D026D_ME_47DF8C5E01AB_R // IafwComplexDocumentPreviewFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47DF8CCD0197 // f_Previews
+ HWL ME_47DF8CDC0015 // f_Printer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47DF8D220142 // MakeI
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473D8EAF022D_ME_47DF8C5E01AB_impl // Make
+ ME_473D8EBB0035_ME_47DF8C5E01AB_impl // Count
+ ME_473D8ECB001A_ME_47DF8C5E01AB_impl // ResetCache
+ ME_473D8ED80268_ME_47DF8C5E01AB_impl // Item
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47DF8C5E01AB_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47DF8FEF0327 // TafwCachedComplexDocumentPreview
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47DF976600CE // Tl3Printer
+ ME_47DF993B03B6 // SysUtils
+ ME_47DF9AC002A8 // Errors
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" true
+ UP "started" '07.12.2006 13:10'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas'
+ UP extprop:rc:SelfName 'afwComplexDocumentPreviewFactory'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'afwComplexDocumentPreviewFactory'
+
+ENDME // ME_47DF8C5E01AB TafwComplexDocumentPreviewFactory

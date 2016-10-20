@@ -1,0 +1,52 @@
+// TtfwRevertedArrayView 52E271D60114 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E271D60114
+
+MEREF ME_52E666E80335_ME_52E271D60114_over
+ MELINK Original WL 'ME_52E666E80335' '52E270AE02EA.ms.model.script' // DoForEach
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52E666E80335_ME_52E271D60114_over DoForEach
+
+MEREF ME_52E666F6036E_ME_52E271D60114_over
+ MELINK Original WL 'ME_52E666F6036E' '52E270AE02EA.ms.model.script' // DoForEachBack
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_52E666F6036E_ME_52E271D60114_over DoForEachBack
+
+MEREF ME_52E270AE02EA_ME_52E271D60114_G
+ MELINK Original WL? 'ME_52E270AE02EA' // TtfwArrayView
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52E270AE02EA_ME_52E271D60114_G TtfwArrayView
+
+%%InheritedBy ME_52E270AE02EA ME_52E271D60114
+
+ME ME_52E271D60114
+ MEPROP UID '52E271D60114'
+ MEPROP Name 'TtfwRevertedArrayView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F50310E03D7' // ArrayProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_52E270AE02EA_ME_52E271D60114_G // TtfwArrayView
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_52E666E80335_ME_52E271D60114_over // DoForEach
+ ME_52E666F6036E_ME_52E271D60114_over // DoForEachBack
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
+ UP extprop:rc:SelfName 'RevertedArrayView'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwRevertedArrayView'
+
+ENDME // ME_52E271D60114 TtfwRevertedArrayView

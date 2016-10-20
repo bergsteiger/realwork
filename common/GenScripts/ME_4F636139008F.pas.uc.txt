@@ -124,6 +124,7 @@ w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
  procedure DoCBT;
  begin
   if Assigned(f_CBTListeners) then
+  begin
    if (f_CBTListeners.Count > 0) and (f_CBThook = 0) then
     f_CBTHook := SetWindowsHookEx(WH_CBT, @CBTHookFunc, 0, GetCurrentThreadId)
    else
@@ -132,24 +133,32 @@ w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
     UnhookWindowsHookEx(f_CBTHook);
     f_CBTHook := 0;
    end;
+  end;//Assigned(f_CBTListeners)                                           
  end; //DoCBT;
 
  procedure DoGetMessage;
  begin
-  if Assigned(f_GetMessageListeners) then
-   if (f_GetMessageListeners.Count > 0) and (f_GetMessageHook = 0) then
+  //if Assigned(f_GetMessageListeners) OR Assigned(f_MouseWheelListeners) then
+  begin
+   if ((f_GetMessageListeners <> nil) AND (f_GetMessageListeners.Count > 0))
+      OR ((f_MouseWheelListeners <> nil) AND (f_MouseWheelListeners.Count > 0)) and
+      (f_GetMessageHook = 0) then
     f_GetMessageHook := SetWindowsHookEx(WH_GETMESSAGE, @GetMessageHookFunc, 0, GetCurrentThreadId)
    else
-   if (f_GetMessageListeners.Count = 0) and (f_GetMessageHook <> 0) then
+   if ((f_GetMessageListeners = nil) OR (f_GetMessageListeners.Count = 0))
+     and ((f_MouseWheelListeners = nil) OR (f_MouseWheelListeners.Count = 0))
+     and (f_GetMessageHook <> 0) then
    begin
     UnhookWindowsHookEx(f_GetMessageHook);
     f_GetMessageHook := 0;
    end;
+  end;//Assigned(f_GetMessageListeners)
  end; //DoGetMessage;
 
  procedure DoWndProc;
  begin
   if Assigned(f_WndProcListeners) or Assigned(f_MouseWheelListeners) then
+  begin
    if ((Assigned(f_WndProcListeners) and (f_WndProcListeners.Count > 0)) or
        (Assigned(f_MouseWheelListeners) and (f_MouseWheelListeners.Count > 0))) and
       (f_WndProcHook = 0) then
@@ -162,11 +171,13 @@ w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
     UnhookWindowsHookEx(f_WndProcHook);
     f_WndProcHook := 0;
    end;
+  end;//Assigned(f_WndProcListeners) or Assigned(f_MouseWheelListeners)
  end; //DoWndProc;
 
  procedure DoWndProcRet;
  begin
   if Assigned(f_WndProcRetListeners) then
+  begin
    if (f_WndProcRetListeners.Count > 0) and (f_WndProcRetHook = 0) then
     f_WndProcRetHook := SetWindowsHookEx(WH_CALLWNDPROCRET, @CallWndProcRetHookFunc, 0, GetCurrentThreadID)
    else
@@ -175,11 +186,13 @@ w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
     UnhookWindowsHookEx(f_WndProcRetHook);
     f_WndProcRetHook := 0;
    end;
+  end;//Assigned(f_WndProcRetListeners)
  end; //DoWndProcRet;
 
  procedure DoMouse;
  begin
   if Assigned(f_MouseListeners) then
+  begin
    if (f_MouseListeners.Count > 0) and (f_MouseHook = 0) then
     f_MouseHook := SetWindowsHookEx(WH_MOUSE, @MouseHookFunc, 0, GetCurrentThreadID)
    else
@@ -188,6 +201,7 @@ w:\common\components\rtl\Garant\L3\l3ListenersManager.pas
     UnhookWindowsHookEx(f_MouseHook);
     f_MouseHook := 0;
    end;
+  end;//Assigned(f_MouseListeners)
  end; //DoMouse;
 
 //#UC END# *4F670A190240_4F636139008F_var*

@@ -1,0 +1,163 @@
+// TevdDocumentBufferedFilter 56387286026A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56387286026A
+
+FORWARD ME_5638731901C2
+
+ME ME_5638734F00FE
+ MEPROP UID '5638734F00FE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5638731901C2 // Create
+ ;
+
+ENDME // ME_5638734F00FE DoIt
+
+ME ME_5638731901C2
+ MEPROP UID '5638731901C2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56387286026A // TevdDocumentBufferedFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5638734F00FE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5638731901C2 Create
+
+FORWARD ME_563874A00314
+
+ME ME_563874E70156
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_563874E70156 theGenerator
+
+ME ME_563874D802E8
+ MEPROP UID '563874D802E8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563874A00314 // SetTo
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_563874E70156 // theGenerator
+ )
+ ; // Parameters
+
+ENDME // ME_563874D802E8 DoIt
+
+ME ME_56387E6B02B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_563874A00314 // SetTo
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_56387E6B02B8 
+
+ME ME_56387E6F0288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_563874A00314 // SetTo
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_56387E6F0288 
+
+ME ME_563874A00314
+ MEPROP UID '563874A00314'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56387286026A // TevdDocumentBufferedFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_563874D802E8 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56387E6B02B8 // l3Set
+ ME_56387E6F0288 // l3Free
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "force overload" true
+ UP "is static" true
+
+ENDME // ME_563874A00314 SetTo
+
+ME ME_563888840364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56387286026A // TevdDocumentBufferedFilter
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_563888840364 
+
+MEREF ME_4D53D8A100AE_ME_56387286026A_G
+ MELINK Original WL 'ME_4D53D8A100AE' '49E496880120.ms.model.script' // TevdChildBufferedFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D53D8A100AE_ME_56387286026A_G TevdChildBufferedFilter
+
+%%InheritedBy ME_4D53D8A100AE ME_56387286026A
+
+ME ME_56387286026A
+ MEPROP UID '56387286026A'
+ MEPROP Name 'TevdDocumentBufferedFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр для фильтрации документа целиком. По умолчанию просто заглатывает документ в буфер и прокидывает его потом дальше.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D53D8A100AE_ME_56387286026A_G // TevdChildBufferedFilter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5638731901C2 // Create
+ HWL ME_563874A00314 // SetTo
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_563888840364 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evdDocumentBufferedFilter.pas'
+ UP extprop:rc:SelfName 'dDocumentBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdDocumentBufferedFilter'
+
+ENDME // ME_56387286026A TevdDocumentBufferedFilter

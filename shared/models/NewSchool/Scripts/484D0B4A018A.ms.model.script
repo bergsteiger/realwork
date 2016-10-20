@@ -1,0 +1,66 @@
+// TatDeleteFoldersOperation 484D0B4A018A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484D0B4A018A
+
+ME ME_484FAF560280
+ MEPROP UID '484FAF560280'
+ MEPROP Name 'FoldersNodeMatcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484D0B4A018A // TatDeleteFoldersOperation
+ ;
+ MELINK Target WL 'ME_484D2643016E' '480864400141.ms.model.script' // TatFolderMatcher
+ ;
+
+ENDME // ME_484FAF560280 FoldersNodeMatcher
+
+MEREF ME_484FA0FD0223_ME_484D0B4A018A_G
+ MELINK Original WL? 'ME_484FA0FD0223' // atProcessNamedFoldersObjectOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FA0FD0223_ME_484D0B4A018A_G atProcessNamedFoldersObjectOperation
+
+MEREF ME_4FCF9DCF00E8_ME_484D0B4A018A_R
+ MELINK Original WL? 'ME_4FCF9DCF00E8' // atDeleteFoldersObjectAddon
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FCF9DCF00E8_ME_484D0B4A018A_R atDeleteFoldersObjectAddon
+
+%%ImplementedBy ME_4FCF9DCF00E8 ME_484D0B4A018A
+
+%%InheritedBy ME_484FA0FD0223 ME_484D0B4A018A
+
+ME ME_484D0B4A018A
+ MEPROP UID '484D0B4A018A'
+ MEPROP Name 'TatDeleteFoldersOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4808ADB9014E' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_484FA0FD0223_ME_484D0B4A018A_G // atProcessNamedFoldersObjectOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4FCF9DCF00E8_ME_484D0B4A018A_R // atDeleteFoldersObjectAddon
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_484FAF560280 // FoldersNodeMatcher
+ )
+ ; // Attributes
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersOperation.pas'
+ UP extprop:rc:SelfName 'atDeleteFoldersOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atDeleteFoldersOperation'
+
+ENDME // ME_484D0B4A018A TatDeleteFoldersOperation

@@ -1,0 +1,333 @@
+// TevRowAndTableTypeSupport 5112379700A6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5112379700A6
+
+ME ME_511238650353
+ MEPROP UID '511238650353'
+ MEPROP Name 'TableStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Стиль таблицы. Устанавливается в процессе анализа таблицы. В зависимости от него изменяется алгоритм выравнивания границ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELINK Target WL 'ME_5076AAD90277' '48E3836D00C8.ms.model.script' // TedTabelType
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_511238650353 TableStyle
+
+ME ME_51123FF703D5
+ MEPROP UID '51123FF703D5'
+ MEPROP Name 'CurrentRowType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Тип текущей строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELINK Target WL 'ME_4FC5C77503C7' '572305620264.ms.model.script' // TedRowType
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_51123FF703D5 CurrentRowType
+
+FORWARD ME_5076B24B0038
+
+ME ME_5076B27F0382
+ MEPROP UID '5076B27F0382'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5076B24B0038 // AnalizeTableStyle
+ ;
+
+ENDME // ME_5076B27F0382 DoIt
+
+ME ME_5076B24B0038
+ MEPROP UID '5076B24B0038'
+ MEPROP Name 'AnalizeTableStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5076B27F0382 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5076B24B0038 AnalizeTableStyle
+
+FORWARD ME_511240880262
+
+ME ME_511240CA0361
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_511240CA0361 aRow
+
+ME ME_511240BA0167
+ MEPROP UID '511240BA0167'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_511240880262 // AnalizeRowType
+ ;
+ MELIST Parameters
+   Seq: ( ME_511240CA0361 // aRow
+ )
+ ; // Parameters
+
+ENDME // ME_511240BA0167 DoIt
+
+ME ME_511240880262
+ MEPROP UID '511240880262'
+ MEPROP Name 'AnalizeRowType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_511240BA0167 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_511240880262 AnalizeRowType
+
+FORWARD ME_51124284008E
+
+ME ME_5114D22F001D
+ MEPROP Name 'aPairList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL? 'ME_4F2F6F750263' // TevCellsOffsetsPair
+ ;
+
+ENDME // ME_5114D22F001D aPairList
+
+ME ME_5112428F0378
+ MEPROP UID '5112428F0378'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51124284008E // SaveRowType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5114D22F001D // aPairList
+ )
+ ; // Parameters
+
+ENDME // ME_5112428F0378 DoIt
+
+ME ME_51124284008E
+ MEPROP UID '51124284008E'
+ MEPROP Name 'SaveRowType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5112428F0378 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51124284008E SaveRowType
+
+FORWARD ME_5114D749037C
+
+ME ME_5114D7700235
+ MEPROP UID '5114D7700235'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5114D749037C // GetPrevRowType
+ ;
+ MELINK Target WL 'ME_4FC5C77503C7' '572305620264.ms.model.script' // TedRowType
+ ;
+
+ENDME // ME_5114D7700235 DoIt
+
+ME ME_5114D749037C
+ MEPROP UID '5114D749037C'
+ MEPROP Name 'GetPrevRowType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5114D7700235 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5114D749037C GetPrevRowType
+
+FORWARD ME_5152CEDE0255
+
+ME ME_5152D3960307
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_5152D3960307 aRow
+
+ME ME_5152CF1602EB
+ MEPROP UID '5152CF1602EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительная проверка получившегося типа строки.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5152CEDE0255 // CheckRowType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5152D3960307 // aRow
+ )
+ ; // Parameters
+
+ENDME // ME_5152CF1602EB DoIt
+
+ME ME_5152CEDE0255
+ MEPROP UID '5152CEDE0255'
+ MEPROP Name 'CheckRowType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5152CF1602EB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5152CEDE0255 CheckRowType
+
+FORWARD ME_5152D812036E
+
+ME ME_5152D8E3025F
+ MEPROP UID '5152D8E3025F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5152D812036E // GetCellsCountInPreviousRow
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5152D8E3025F DoIt
+
+ME ME_5152D812036E
+ MEPROP UID '5152D812036E'
+ MEPROP Name 'GetCellsCountInPreviousRow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает число ячеек в последней выравненной строке' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5112379700A6 // TevRowAndTableTypeSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5152D8E3025F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5152D812036E GetCellsCountInPreviousRow
+
+MEREF ME_479731C50290_ME_5112379700A6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5112379700A6_over Cleanup
+
+MEREF ME_47A042E100E2_ME_5112379700A6_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_5112379700A6_over InitFields
+
+MEREF ME_49E7754802A9_ME_5112379700A6_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5112379700A6_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5112379700A6
+
+ME ME_5112379700A6
+ MEPROP UID '5112379700A6'
+ MEPROP Name 'TevRowAndTableTypeSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь для классификации таблиц и строк' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E451815031E' // CellUtils
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5112379700A6_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_511238650353 // TableStyle
+ HWL ME_51123FF703D5 // CurrentRowType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5076B24B0038 // AnalizeTableStyle
+ HWL ME_511240880262 // AnalizeRowType
+ HWL ME_51124284008E // SaveRowType
+ HWL ME_5114D749037C // GetPrevRowType
+ HWL ME_5152CEDE0255 // CheckRowType
+ HWL ME_5152D812036E // GetCellsCountInPreviousRow
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5112379700A6_over // Cleanup
+ ME_47A042E100E2_ME_5112379700A6_over // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
+ UP extprop:rc:SelfName 'RowAndTableTypeSupport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evRowAndTableTypeSupport'
+
+ENDME // ME_5112379700A6 TevRowAndTableTypeSupport

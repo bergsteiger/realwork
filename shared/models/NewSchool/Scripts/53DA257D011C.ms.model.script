@@ -1,0 +1,166 @@
+// TkwMainCodeController 53DA257D011C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53DA257D011C
+
+ME ME_53DA26030089
+ MEPROP UID '53DA26030089'
+ MEPROP Name 'f_Lambda'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_53DA26030089 f_Lambda
+
+ME ME_53DA472201B5
+ MEPROP UID '53DA472201B5'
+ MEPROP Name 'f_OuterContext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.ms.model.script' // PtfwContext
+ ;
+
+ENDME // ME_53DA472201B5 f_OuterContext
+
+FORWARD ME_53DA263600C7
+
+ME ME_53DA264A01A2
+ MEPROP Name 'aLambda'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_53DA264A01A2 aLambda
+
+ME ME_53DA473A0293
+ MEPROP Name 'aOuterContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.ms.model.script' // PtfwContext
+ ;
+
+ENDME // ME_53DA473A0293 aOuterContext
+
+ME ME_53DA263D0225
+ MEPROP UID '53DA263D0225'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA263600C7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53DA264A01A2 // aLambda
+ ME_53DA473A0293 // aOuterContext
+ )
+ ; // Parameters
+
+ENDME // ME_53DA263D0225 DoIt
+
+ME ME_53DA263600C7
+ MEPROP UID '53DA263600C7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53DA263D0225 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53DA263600C7 Create
+
+ME ME_53DA25E702CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA257D011C // TkwMainCodeController
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53DA25E702CA 
+
+MEREF ME_479731C50290_ME_53DA257D011C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53DA257D011C_over Cleanup
+
+MEREF ME_4DC90A79006D_ME_53DA257D011C_over
+ MELINK Original WL 'ME_4DC90A79006D' '4F733A0701F0.ms.model.script' // RunCompiled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC90A79006D_ME_53DA257D011C_over RunCompiled
+
+MEREF ME_55AF8A9D03A2_ME_53DA257D011C_over
+ MELINK Original WL 'ME_55AF8A9D03A2' '4F733A0701F0.ms.model.script' // CacheDict
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55AF8A9D03A2_ME_53DA257D011C_over CacheDict
+
+MEREF ME_4DC90A1E03C2_ME_53DA257D011C_G
+ MELINK Original WL? 'ME_4DC90A1E03C2' // TkwMain
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC90A1E03C2_ME_53DA257D011C_G TkwMain
+
+%%InheritedBy ME_4DC90A1E03C2 ME_53DA257D011C
+
+ME ME_53DA257D011C
+ MEPROP UID '53DA257D011C'
+ MEPROP Name 'TkwMainCodeController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53DA23750089' // ScriptsCompilingAndProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DC90A1E03C2_ME_53DA257D011C_G // TkwMain
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53DA26030089 // f_Lambda
+ HWL ME_53DA472201B5 // f_OuterContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53DA263600C7 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53DA257D011C_over // Cleanup
+ ME_4DC90A79006D_ME_53DA257D011C_over // RunCompiled
+ ME_55AF8A9D03A2_ME_53DA257D011C_over // CacheDict
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53DA25E702CA // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas'
+ UP extprop:rc:SelfName 'MainCodeController'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwMainCodeController'
+
+ENDME // ME_53DA257D011C TkwMainCodeController

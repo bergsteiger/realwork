@@ -1,0 +1,359 @@
+// TnevPrintableDocumentContainer 47F34F00021C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F34F00021C
+%%Inner ME_47F34F00021C
+
+FORWARD ME_47F34F00021C
+
+MEREF ME_49CBD11A02CF_ME_47F34F680030_G
+ MELINK Original WL? 'ME_49CBD11A02CF' // TevDocumentPreview
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49CBD11A02CF_ME_47F34F680030_G TevDocumentPreview
+
+%%InheritedBy ME_49CBD11A02CF ME_47F34F680030
+
+ME ME_47F34F680030
+ MEPROP UID '47F34F680030'
+ MEPROP Name 'RevDocumentPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_49CBD11A02CF_ME_47F34F680030_G // TevDocumentPreview
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F34F680030 RevDocumentPreview
+
+MEREF ME_47F352A30004_ME_47F35C6302FC_G
+ MELINK Original WL 'ME_47F352A30004' '4C22137E025C.ms.model.script' // TevHAFPainterEx
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F352A30004_ME_47F35C6302FC_G TevHAFPainterEx
+
+%%InheritedBy ME_47F352A30004 ME_47F35C6302FC
+
+ME ME_47F35C6302FC
+ MEPROP UID '47F35C6302FC'
+ MEPROP Name 'RevHAFPainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F352A30004_ME_47F35C6302FC_G // TevHAFPainterEx
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F35C6302FC RevHAFPainter
+
+ME ME_47F34F7E03A8
+ MEPROP UID '47F34F7E03A8'
+ MEPROP Name 'DocumentForPreview'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_4CB57C920381' '47C5207602D1.ms.model.script' // InevDocumentProvider
+ ;
+
+ENDME // ME_47F34F7E03A8 DocumentForPreview
+
+ME ME_4954A6490275
+ MEPROP Name 'aMacroReplacer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4954A76E0274' '467823B7002C.ms.model.script' // IafwHAFMacroReplacer
+ ;
+
+ENDME // ME_4954A6490275 aMacroReplacer
+
+ME ME_47F35C8503C4
+ MEPROP UID '47F35C8503C4'
+ MEPROP Name 'MakeHAFPainter'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_47EA99B10005' '467823B7002C.ms.model.script' // IafwHAFPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4954A6490275 // aMacroReplacer
+ )
+ ; // Parameters
+
+ENDME // ME_47F35C8503C4 MakeHAFPainter
+
+ME ME_47F35CAC00E4
+ MEPROP UID '47F35CAC00E4'
+ MEPROP Name 'HAFPainterClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target HWL ME_47F35C6302FC // RevHAFPainter
+ ;
+
+ENDME // ME_47F35CAC00E4 HAFPainterClass
+
+ME ME_47F35CBA00C1
+ MEPROP UID '47F35CBA00C1'
+ MEPROP Name 'DocumentPreviewClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target HWL ME_47F34F680030 // RevDocumentPreview
+ ;
+
+ENDME // ME_47F35CBA00C1 DocumentPreviewClass
+
+ME ME_47F35CD9002F
+ MEPROP UID '47F35CD9002F'
+ MEPROP Name 'Info'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+
+ENDME // ME_47F35CD9002F Info
+
+ME ME_47F35EC901AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_47F35EA70305' // TevEditorWindowProcessor
+ ;
+
+ENDME // ME_47F35EC901AC 
+
+ME ME_47F35FEB0089
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_47F35FBA0208' // TevDefaultContext
+ ;
+
+ENDME // ME_47F35FEB0089 
+
+ME ME_47F360C7020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_47CD3486030A' '4B8BA52200D8.ms.model.script' // TnevMiscMessages
+ ;
+
+ENDME // ME_47F360C7020C 
+
+ME ME_47F360E302F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_47F360E302F5 
+
+ME ME_47F36125031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_47F36125031A 
+
+ME ME_495488200199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4954878B03CF' // TevFormatHAFMacroReplacer
+ ;
+
+ENDME // ME_495488200199 
+
+ME ME_4C220ACF027C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_4C220ACF027C 
+
+ME ME_4C220ED8018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4C220ECF0284' // TevFixedHAFMacroReplacer
+ ;
+
+ENDME // ME_4C220ED8018B 
+
+ME ME_4C220F6A03CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4C220F6A03CB 
+
+ME ME_4CB586B001F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4CB586140150' // TnevDocumentProviderEx
+ ;
+
+ENDME // ME_4CB586B001F5 
+
+ME ME_4CB586F70029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL? 'ME_4CB57E560195' // TnevDocumentProvider
+ ;
+
+ENDME // ME_4CB586F70029 
+
+ME ME_5355234E004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_5355234E004D 
+
+ME ME_5506CEAA03A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F34F00021C // TnevPrintableDocumentContainer
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+
+ENDME // ME_5506CEAA03A4 
+
+MEREF ME_47F1112A0183_ME_47F34F00021C_over
+ MELINK Original WL 'ME_47F1112A0183' '47F0870E0034.ms.model.script' // MakeDocumentPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F1112A0183_ME_47F34F00021C_over MakeDocumentPreview
+
+MEREF ME_47F111500241_ME_47F34F00021C_over
+ MELINK Original WL 'ME_47F111500241' '47F0870E0034.ms.model.script' // MakeInfoPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F111500241_ME_47F34F00021C_over MakeInfoPreview
+
+MEREF ME_47F35245009A_ME_47F34F00021C_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_47F34F00021C_over MakeProcessor
+
+MEREF ME_47F351160396_ME_47F34F00021C_G
+ MELINK Original WL 'ME_47F351160396' '483E6CFE02DC.ms.model.script' // TnevPersistentDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F351160396_ME_47F34F00021C_G TnevPersistentDocumentContainer
+
+%%InheritedBy ME_47F351160396 ME_47F34F00021C
+
+ME ME_47F34F00021C
+ MEPROP UID '47F34F00021C'
+ MEPROP Name 'TnevPrintableDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F086170200' // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F351160396_ME_47F34F00021C_G // TnevPersistentDocumentContainer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47F34F7E03A8 // DocumentForPreview
+ HWL ME_47F35C8503C4 // MakeHAFPainter
+ HWL ME_47F35CAC00E4 // HAFPainterClass
+ HWL ME_47F35CBA00C1 // DocumentPreviewClass
+ HWL ME_47F35CD9002F // Info
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47F1112A0183_ME_47F34F00021C_over // MakeDocumentPreview
+ ME_47F111500241_ME_47F34F00021C_over // MakeInfoPreview
+ ME_47F35245009A_ME_47F34F00021C_over // MakeProcessor
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47F34F680030 // RevDocumentPreview
+ HWL ME_47F35C6302FC // RevHAFPainter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47F35EC901AC // TevEditorWindowProcessor
+ ME_47F35FEB0089 // TevDefaultContext
+ ME_47F360C7020C // TnevMiscMessages
+ ME_47F360E302F5 // l3String
+ ME_47F36125031A // Ext Chars
+ ME_495488200199 // TevFormatHAFMacroReplacer
+ ME_4C220ACF027C // l3Base
+ ME_4C220ED8018B // TevFixedHAFMacroReplacer
+ ME_4C220F6A03CB // Tk2TagID
+ ME_4CB586B001F5 // TnevDocumentProviderEx
+ ME_4CB586F70029 // TnevDocumentProvider
+ ME_5355234E004D // Tl3Tag
+ ME_5506CEAA03A4 // Pl3StringIDEx
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '21.07.2005 08:49'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas'
+ UP extprop:rc:SelfName 'PrintableDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevPrintableDocumentContainer'
+
+ENDME // ME_47F34F00021C TnevPrintableDocumentContainer

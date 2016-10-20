@@ -1,0 +1,131 @@
+// TnsLayeredTreeFilters 49020B54001A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49020B54001A
+
+ME ME_49020C190138
+ MEPROP UID '49020C190138'
+ MEPROP Name 'f_Layer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ MELINK Target WL 'ME_4902077602BA' '47ECAAF901F8.ms.model.script' // InsLayerFilter
+ ;
+
+ENDME // ME_49020C190138 f_Layer
+
+ME ME_49020BE9025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_49020BE9025B 
+
+ME ME_49020C070058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49020B54001A // TnsLayeredTreeFilters
+ ;
+ MELINK Target WL? 'ME_49020B8C03BE' // TnsLayerFilter
+ ;
+
+ENDME // ME_49020C070058 
+
+MEREF ME_4902079D02D4_ME_49020B54001A_impl
+ MELINK Original WL 'ME_4902079D02D4' '47ECAAF901F8.ms.model.script' // Layer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4902079D02D4_ME_49020B54001A_impl Layer
+
+MEREF ME_490207AB002D_ME_49020B54001A_impl
+ MELINK Original WL 'ME_490207AB002D' '47ECAAF901F8.ms.model.script' // SetLayer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_490207AB002D_ME_49020B54001A_impl SetLayer
+
+MEREF ME_479731C50290_ME_49020B54001A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_49020B54001A_over Cleanup
+
+MEREF ME_48FF4F47010F_ME_49020B54001A_over
+ MELINK Original WL 'ME_48FF4F47010F' '48FF4EC501F6.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48FF4F47010F_ME_49020B54001A_over Create
+
+MEREF ME_48FF4EC501F6_ME_49020B54001A_G
+ MELINK Original WL? 'ME_48FF4EC501F6' // Tl3TreeFilters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48FF4EC501F6_ME_49020B54001A_G Tl3TreeFilters
+
+MEREF ME_490207910151_ME_49020B54001A_R
+ MELINK Original WL 'ME_490207910151' '47ECAAF901F8.ms.model.script' // InsLayeredTreeFilters
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_490207910151_ME_49020B54001A_R InsLayeredTreeFilters
+
+%%ImplementedBy ME_490207910151 ME_49020B54001A
+
+%%InheritedBy ME_48FF4EC501F6 ME_49020B54001A
+
+ME ME_49020B54001A
+ MEPROP UID '49020B54001A'
+ MEPROP Name 'TnsLayeredTreeFilters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4902090401E7' // Diction$Unit
+ ;
+ MELIST Inherits
+   Seq: ( ME_48FF4EC501F6_ME_49020B54001A_G // Tl3TreeFilters
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_490207910151_ME_49020B54001A_R // InsLayeredTreeFilters
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49020C190138 // f_Layer
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4902079D02D4_ME_49020B54001A_impl // Layer
+ ME_490207AB002D_ME_49020B54001A_impl // SetLayer
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49020B54001A_over // Cleanup
+ ME_48FF4F47010F_ME_49020B54001A_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49020BE9025B // SysUtils
+ ME_49020C070058 // TnsLayerFilter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" true
+ UP "started" '2007/03/23 14:18:10'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\nsLayeredTreeFilters.pas'
+ UP extprop:rc:SelfName 'LayeredTreeFilters'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsLayeredTreeFilters'
+
+ENDME // ME_49020B54001A TnsLayeredTreeFilters

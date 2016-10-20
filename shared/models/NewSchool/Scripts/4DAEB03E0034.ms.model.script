@@ -1,0 +1,421 @@
+// TnevVScrollerSpy 4DAEB03E0034 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DAEB03E0034
+
+FORWARD ME_4DAEB03E0034
+
+FORWARD ME_4DAEB0CB0134
+
+ME ME_4DAEB0DE00D1
+ MEPROP UID '4DAEB0DE00D1'
+ MEPROP Name 'OpenLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAEB0DE00D1 OpenLog
+
+ME ME_4DAEB0FD03C5
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAEB0FD03C5 aLogName
+
+ME ME_4DAEB0F30186
+ MEPROP UID '4DAEB0F30186'
+ MEPROP Name 'CloseLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEB0FD03C5 // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEB0F30186 CloseLog
+
+ME ME_4DAEB0CB0134
+ MEPROP UID '4DAEB0CB0134'
+ MEPROP GUID '118E1374-07D5-47D3-B4EF-C921BCC2BA51'
+ MEPROP Name 'InevVScrollerPosLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEB0DE00D1 // OpenLog
+ HWL ME_4DAEB0F30186 // CloseLog
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'VScrollerPosLogger'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DAEB0CB0134 InevVScrollerPosLogger
+
+ME ME_4DAEC2B701FD
+ MEPROP UID '4DAEC2B701FD'
+ MEPROP Name 'f_LogName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAEC2B701FD f_LogName
+
+ME ME_4DAEB1D50288
+ MEPROP UID '4DAEB1D50288'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELINK Target HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ ;
+
+ENDME // ME_4DAEB1D50288 f_Logger
+
+ME ME_4DAEB2040024
+ MEPROP UID '4DAEB2040024'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4DAEB2040024 f_Filer
+
+FORWARD ME_4DAEBD9D0238
+
+ME ME_4DAEBDE8037E
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ ;
+
+ENDME // ME_4DAEBDE8037E aLogger
+
+ME ME_4DAEBDAD014F
+ MEPROP UID '4DAEBDAD014F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEBD9D0238 // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEBDE8037E // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEBDAD014F DoIt
+
+ME ME_4DAEBD9D0238
+ MEPROP UID '4DAEBD9D0238'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBDAD014F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEBD9D0238 SetLogger
+
+FORWARD ME_4DAEBDF20386
+
+ME ME_4DAEBE1101DD
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ ;
+
+ENDME // ME_4DAEBE1101DD aLogger
+
+ME ME_4DAEBE0101D1
+ MEPROP UID '4DAEBE0101D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEBDF20386 // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEBE1101DD // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEBE0101D1 DoIt
+
+ME ME_4DAEBDF20386
+ MEPROP UID '4DAEBDF20386'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBE0101D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEBDF20386 RemoveLogger
+
+FORWARD ME_4DAEBE61037F
+
+ME ME_4DAEBE7803B2
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DAEBE7803B2 aPos
+
+ME ME_4DAEBE700058
+ MEPROP UID '4DAEBE700058'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEBE61037F // LogPos
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEBE7803B2 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEBE700058 DoIt
+
+ME ME_4DAEBE61037F
+ MEPROP UID '4DAEBE61037F'
+ MEPROP Name 'LogPos'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBE700058 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEBE61037F LogPos
+
+FORWARD ME_4DAEBE840395
+
+ME ME_4DAEBEB000D3
+ MEPROP UID '4DAEBEB000D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEBE840395 // StartLog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DAEBEB000D3 DoIt
+
+ME ME_4DAEBE840395
+ MEPROP UID '4DAEBE840395'
+ MEPROP Name 'StartLog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBEB000D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEBE840395 StartLog
+
+FORWARD ME_4DAEBEBC016B
+
+ME ME_4DAEBEC800E3
+ MEPROP UID '4DAEBEC800E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEBEBC016B // FinishLog
+ ;
+
+ENDME // ME_4DAEBEC800E3 DoIt
+
+ME ME_4DAEBEBC016B
+ MEPROP UID '4DAEBEBC016B'
+ MEPROP Name 'FinishLog'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBEC800E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEBEBC016B FinishLog
+
+FORWARD ME_4DAECA8C027C
+
+ME ME_4DAECAAE0107
+ MEPROP UID '4DAECAAE0107'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAECA8C027C // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DAECAAE0107 DoIt
+
+ME ME_4DAECA8C027C
+ MEPROP UID '4DAECA8C027C'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAECAAE0107 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DAECA8C027C Exists
+
+ME ME_4DAEB2720250
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DAEB2720250 
+
+ME ME_4DAEC7500387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEB03E0034 // TnevVScrollerSpy
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4DAEC7500387 
+
+MEREF ME_479731C50290_ME_4DAEB03E0034_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4DAEB03E0034_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4DAEB03E0034_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4DAEB03E0034_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4DAEB03E0034
+
+ME ME_4DAEB03E0034
+ MEPROP UID '4DAEB03E0034'
+ MEPROP Name 'TnevVScrollerSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4811D4EC0237' // Views
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4DAEB03E0034_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DAEC2B701FD // f_LogName
+ HWL ME_4DAEB1D50288 // f_Logger
+ HWL ME_4DAEB2040024 // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DAEBD9D0238 // SetLogger
+ HWL ME_4DAEBDF20386 // RemoveLogger
+ HWL ME_4DAEBE61037F // LogPos
+ HWL ME_4DAEBE840395 // StartLog
+ HWL ME_4DAEBEBC016B // FinishLog
+ HWL ME_4DAECA8C027C // Exists
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DAEB03E0034_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DAEB0CB0134 // InevVScrollerPosLogger
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DAEB2720250 // FreeAndNil
+ ME_4DAEC7500387 // Tl3FileMode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevVScrollerSpy.pas'
+ UP extprop:rc:SelfName 'VScrollerSpy'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevVScrollerSpy'
+
+ENDME // ME_4DAEB03E0034 TnevVScrollerSpy

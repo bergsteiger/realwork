@@ -1,0 +1,45 @@
+// TddExtObjectDataStream 5798D19702A1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5798D19702A1
+
+MEREF ME_5798CBD10051_ME_5798D19702A1_over
+ MELINK Original WL 'ME_5798CBD10051' '530B3FE100E2.ms.model.script' // GetIsModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5798CBD10051_ME_5798D19702A1_over GetIsModified
+
+MEREF ME_530B3FE100E2_ME_5798D19702A1_G
+ MELINK Original WL? 'ME_530B3FE100E2' // Tk2MemoryStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530B3FE100E2_ME_5798D19702A1_G Tk2MemoryStream
+
+%%InheritedBy ME_530B3FE100E2 ME_5798D19702A1
+
+ME ME_5798D19702A1
+ MEPROP UID '5798D19702A1'
+ MEPROP Name 'TddExtObjectDataStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57989E5700D4' // ExternalObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_530B3FE100E2_ME_5798D19702A1_G // Tk2MemoryStream
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5798CBD10051_ME_5798D19702A1_over // GetIsModified
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjectDataStream.pas'
+ UP extprop:rc:SelfName 'ddExtObjectDataStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddExtObjectDataStream'
+
+ENDME // ME_5798D19702A1 TddExtObjectDataStream

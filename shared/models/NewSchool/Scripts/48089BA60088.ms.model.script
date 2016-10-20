@@ -1,0 +1,62 @@
+// TatOperationParametersList 48089BA60088 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48089BA60088
+
+ME ME_48089BCD02A7
+ MEPROP UID '48089BCD02A7'
+ MEPROP Name 'NamedParameter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48089BA60088 // TatOperationParametersList
+ ;
+ MELINK Target WL? 'ME_48089A46022D' // TatOperationParameter
+ ;
+
+ENDME // ME_48089BCD02A7 NamedParameter
+
+MEREF ME_4807745602C8_ME_48089BA60088_G
+ MELINK Original WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807745602C8_ME_48089BA60088_G TObject
+
+MEREF ME_4807779F01CA_ME_48089BA60088_G
+ MELINK Original WL? 'ME_4807779F01CA' // atNamedParametersList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4807779F01CA_ME_48089BA60088_G atNamedParametersList
+
+%%InheritedBy ME_4807745602C8 ME_48089BA60088
+%%InheritedBy ME_4807779F01CA ME_48089BA60088
+
+ME ME_48089BA60088
+ MEPROP UID '48089BA60088'
+ MEPROP Name 'TatOperationParametersList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_480865840083' // OperationsFramework
+ ;
+ MELIST Inherits
+   Seq: ( ME_4807745602C8_ME_48089BA60088_G // TObject
+ ME_4807779F01CA_ME_48089BA60088_G // atNamedParametersList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48089BCD02A7 // NamedParameter
+ )
+ ; // Attributes
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParametersList.pas'
+ UP extprop:rc:SelfName 'atOperationParametersList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atOperationParametersList'
+
+ENDME // ME_48089BA60088 TatOperationParametersList

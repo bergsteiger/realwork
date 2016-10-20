@@ -1,0 +1,169 @@
+// K515862135 52F2763F0320 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F2763F0320
+
+ME ME_52F2765601BE
+ MEPROP UID '52F2765601BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+
+ENDME // ME_52F2765601BE DoIt
+
+ME ME_52F8BAB80171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL? 'ME_4B990EF000AA' // ddAppConfig
+ ;
+
+ENDME // ME_52F8BAB80171 
+
+ME ME_52F8BB010238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52F8BB010238 
+
+ME ME_52F8BB1B00EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL? 'ME_52E8DF0A03BA' // TAutoPipeServerForm
+ ;
+
+ENDME // ME_52F8BB1B00EF 
+
+ME ME_52F8BDD70293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_52F8BDD70293 
+
+ME ME_52F8BE48022A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL? 'ME_52F8BE3100F5' // alcuTaskManager
+ ;
+
+ENDME // ME_52F8BE48022A 
+
+ME ME_52F8C2DF01B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_52F8C2DF01B1 
+
+ME ME_52F8CA22022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL? 'ME_52F8C9E00037' // TalcuServer
+ ;
+
+ENDME // ME_52F8CA22022D 
+
+ME ME_52F8E8C40225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL? 'ME_52F8E8A101EC' // TddServerTaskManagerForTests
+ ;
+
+ENDME // ME_52F8E8C40225 
+
+ME ME_52FB8C230261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_52FB8C230261 
+
+ME ME_52FB8C500029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_52FB8C500029 
+
+MEREF ME_4B2A11BC0255_ME_52F2763F0320_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_52F2763F0320_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_52F2763F0320
+
+ME ME_52F2763F0320
+ MEPROP UID '52F2763F0320'
+ MEPROP Name 'K515862135'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:515862135}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F27605004A' // TasksProcessing
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_52F2763F0320_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52F2765601BE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52F8BAB80171 // ddAppConfig
+ ME_52F8BB010238 // FreeAndNil
+ ME_52F8BB1B00EF // TAutoPipeServerForm
+ ME_52F8BDD70293 // ConcatDirName
+ ME_52F8BE48022A // alcuTaskManager
+ ME_52F8C2DF01B1 // TddProcessTask
+ ME_52F8CA22022D // TalcuServer
+ ME_52F8E8C40225 // TddServerTaskManagerForTests
+ ME_52FB8C230261 // Tl3FileStream
+ ME_52FB8C500029 // Tl3FileMode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K515862135.pas'
+ UP extprop:pas:TypeName 'TK515862135'
+ UP extprop:rc:SelfName 'K515862135'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52F2763F0320 K515862135

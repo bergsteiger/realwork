@@ -1,0 +1,96 @@
+// TevUnicodeConvertFilter 52EB5D3401B7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52EB5D3401B7
+
+ME ME_52EB5DA6019B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52EB5D3401B7 // TevUnicodeConvertFilter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52EB5DA6019B 
+
+ME ME_52EB5DFD00F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52EB5D3401B7 // TevUnicodeConvertFilter
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_52EB5DFD00F7 
+
+ME ME_52EB5EC602AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52EB5D3401B7 // TevUnicodeConvertFilter
+ ;
+ MELINK Target WL 'ME_51E8F2620130' '51E8F24303CC.ms.model.script' // Tl3Str
+ ;
+
+ENDME // ME_52EB5EC602AF 
+
+ME ME_52EB62BC0212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52EB5D3401B7 // TevUnicodeConvertFilter
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_52EB62BC0212 
+
+MEREF ME_4836D52400D9_ME_52EB5D3401B7_over
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4836D52400D9_ME_52EB5D3401B7_over AddAtomEx
+
+MEREF ME_49E487A70144_ME_52EB5D3401B7_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_52EB5D3401B7_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_52EB5D3401B7
+
+ME ME_52EB5D3401B7
+ MEPROP UID '52EB5D3401B7'
+ MEPROP Name 'TevUnicodeConvertFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, преобразующий Unicode в кодировку по умолчанию.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487A70144_ME_52EB5D3401B7_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4836D52400D9_ME_52EB5D3401B7_over // AddAtomEx
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52EB5DA6019B // Tk2TagID
+ ME_52EB5DFD00F7 // l3Free
+ ME_52EB5EC602AF // Tl3Str
+ ME_52EB62BC0212 // Tl3WString
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evUnicodeConvertFilter.pas'
+ UP extprop:rc:SelfName 'UnicodeConvertFilter'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evUnicodeConvertFilter'
+
+ENDME // ME_52EB5D3401B7 TevUnicodeConvertFilter

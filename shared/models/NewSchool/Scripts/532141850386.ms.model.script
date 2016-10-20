@@ -1,0 +1,63 @@
+// K517772970_TcsLineRequest 532141850386 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532141850386
+
+ME ME_532142020151
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532141850386 // K517772970_TcsLineRequest
+ ;
+ MELINK Target WL? 'ME_5317098403B4' // csLineRequest
+ ;
+
+ENDME // ME_532142020151 
+
+MEREF ME_5320088202FB_ME_532141850386_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_532141850386_over TaskClass
+
+MEREF ME_53200AD70286_ME_532141850386_G
+ MELINK Original WL? 'ME_53200AD70286' // K517772970_TddRequestTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53200AD70286_ME_532141850386_G K517772970_TddRequestTask
+
+%%InheritedBy ME_53200AD70286 ME_532141850386
+
+ME ME_532141850386
+ MEPROP UID '532141850386'
+ MEPROP Name 'K517772970_TcsLineRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( ME_53200AD70286_ME_532141850386_G // K517772970_TddRequestTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_532141850386_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_532142020151 // csLineRequest
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsLineRequest.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsLineRequest'
+ UP extprop:rc:SelfName 'K517772970_TcsLineRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532141850386 K517772970_TcsLineRequest

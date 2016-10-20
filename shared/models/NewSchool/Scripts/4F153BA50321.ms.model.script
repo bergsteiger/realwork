@@ -1,0 +1,179 @@
+// TnsWarningDocumentContainer 4F153BA50321 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F153BA50321
+
+ME ME_4F153C290341
+ MEPROP UID '4F153C290341'
+ MEPROP Name 'f_ViewArea'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F153BA50321 // TnsWarningDocumentContainer
+ ;
+ MELINK Target WL 'ME_4921869901CF' '491B305A0096.ms.model.script' // IdsWarning
+ ;
+
+ENDME // ME_4F153C290341 f_ViewArea
+
+ME ME_4F153C9A01BB
+ MEPROP UID '4F153C9A01BB'
+ MEPROP Name 'f_UserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F153BA50321 // TnsWarningDocumentContainer
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_4F153C9A01BB f_UserType
+
+FORWARD ME_4F153CE400E6
+
+ME ME_4F153D030245
+ MEPROP Name 'aViewArea'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4921869901CF' '491B305A0096.ms.model.script' // IdsWarning
+ ;
+
+ENDME // ME_4F153D030245 aViewArea
+
+ME ME_4F153D030293
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_4F153D030293 aUserType
+
+ME ME_4F153CEA0321
+ MEPROP UID '4F153CEA0321'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F153CE400E6 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F153D030245 // aViewArea
+ ME_4F153D030293 // aUserType
+ )
+ ; // Parameters
+
+ENDME // ME_4F153CEA0321 DoIt
+
+ME ME_4F153CE400E6
+ MEPROP UID '4F153CE400E6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F153BA50321 // TnsWarningDocumentContainer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F153CEA0321 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F153CE400E6 Create
+
+MEREF ME_4F153CE400E6_ME_4F153D1F0229_G
+ MELINK Original HWL ME_4F153CE400E6 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F153CE400E6_ME_4F153D1F0229_G Create
+
+MEREF ME_47C6A603009D_ME_4F153D1F0229_R
+ MELINK Original WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C6A603009D_ME_4F153D1F0229_R InevDocumentContainer
+
+%%ImplementedBy ME_47C6A603009D ME_4F153D1F0229
+
+%%InheritedBy ME_4F153CE400E6 ME_4F153D1F0229
+
+ME ME_4F153D1F0229
+ MEPROP UID '4F153D1F0229'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F153BA50321 // TnsWarningDocumentContainer
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F153CE400E6_ME_4F153D1F0229_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C6A603009D_ME_4F153D1F0229_R // InevDocumentContainer
+ )
+ ; // Implements
+
+ENDME // ME_4F153D1F0229 Make
+
+MEREF ME_47F27DA80172_ME_4F153BA50321_over
+ MELINK Original WL 'ME_47F27DA80172' '47F0870E0034.ms.model.script' // GetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F27DA80172_ME_4F153BA50321_over GetDocument
+
+MEREF ME_4680E83D00C8_ME_4F153BA50321_G
+ MELINK Original WL? 'ME_4680E83D00C8' // TeeDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680E83D00C8_ME_4F153BA50321_G TeeDocumentContainer
+
+%%InheritedBy ME_4680E83D00C8 ME_4F153BA50321
+
+ME ME_4F153BA50321
+ MEPROP UID '4F153BA50321'
+ MEPROP Name 'TnsWarningDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D396FDD0344' // Warning
+ ;
+ MELIST Inherits
+   Seq: ( ME_4680E83D00C8_ME_4F153BA50321_G // TeeDocumentContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F153C290341 // f_ViewArea
+ HWL ME_4F153C9A01BB // f_UserType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F153CE400E6 // Create
+ HWL ME_4F153D1F0229 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47F27DA80172_ME_4F153BA50321_over // GetDocument
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '17.01.2012 13:13'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsWarningDocumentContainer.pas'
+ UP extprop:rc:SelfName 'WarningDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsWarningDocumentContainer'
+
+ENDME // ME_4F153BA50321 TnsWarningDocumentContainer

@@ -1,0 +1,279 @@
+// TevQueryDocumentContainer 48DB9DC1035C SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48DB9DC1035C
+
+ME ME_48DB9E7B0253
+ MEPROP UID '48DB9E7B0253'
+ MEPROP Name 'f_ModelNotify'
+ MEPROP Class class_Attribute
+ %SUMMARY 'InevControlListener' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_48DB9E7B0253 f_ModelNotify
+
+ME ME_48DBA7D503B8
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48DBA7D503B8 aDocument
+
+ME ME_48DBA7B3013A
+ MEPROP UID '48DBA7B3013A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DBA7D503B8 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_48DBA7B3013A Make
+
+ME ME_48DBA7EE03D7
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DBA7EE03D7 aDocument
+
+ME ME_48DBA7E101F6
+ MEPROP UID '48DBA7E101F6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DBA7EE03D7 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_48DBA7E101F6 Create
+
+ME ME_48DBA2560152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL 'ME_48D3AE7703DD' '47CD5C7602CD.ms.model.script' // IevQueryCardEditor
+ ;
+
+ENDME // ME_48DBA2560152 
+
+ME ME_48DBA7540386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL? 'ME_48DBA722010B' // TevQueryCardProcessor
+ ;
+
+ENDME // ME_48DBA7540386 
+
+ME ME_48DBA82503E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL? 'ME_48DBA80F01C8' // TevControlGenerator
+ ;
+
+ENDME // ME_48DBA82503E7 
+
+ME ME_48DBAB90039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL? 'ME_47F35FBA0208' // TevDefaultContext
+ ;
+
+ENDME // ME_48DBAB90039A 
+
+ME ME_5346BC5703A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48DB9DC1035C // TevQueryDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C5BCED01F8' '4678209200A6.ms.model.script' // TevUpdateWindowFlag
+ ;
+
+ENDME // ME_5346BC5703A0 
+
+MEREF ME_47C6BA30033F_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA30033F' '47C5207602D1.ms.model.script' // GetCurrPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA30033F_ME_48DB9DC1035C_impl GetCurrPara
+
+MEREF ME_47C6BA4200E7_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA4200E7' '47C5207602D1.ms.model.script' // SetCursorToPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA4200E7_ME_48DB9DC1035C_impl SetCursorToPara
+
+MEREF ME_47C6BA6300ED_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA6300ED' '47C5207602D1.ms.model.script' // ClearCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA6300ED_ME_48DB9DC1035C_impl ClearCard
+
+MEREF ME_47C6BA6E01D2_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA6E01D2' '47C5207602D1.ms.model.script' // AfterCollapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA6E01D2_ME_48DB9DC1035C_impl AfterCollapsed
+
+MEREF ME_47C6BA7402A6_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA7402A6' '47C5207602D1.ms.model.script' // ReleaseListeners
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA7402A6_ME_48DB9DC1035C_impl ReleaseListeners
+
+MEREF ME_47C6BA81030D_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA81030D' '47C5207602D1.ms.model.script' // LinkListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA81030D_ME_48DB9DC1035C_impl LinkListener
+
+MEREF ME_47C6BA8D0081_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA8D0081' '47C5207602D1.ms.model.script' // UnlinkListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47C6BA8D0081_ME_48DB9DC1035C_impl UnlinkListener
+
+MEREF ME_47C6BA9902AB_ME_48DB9DC1035C_impl
+ MELINK Original WL 'ME_47C6BA9902AB' '47C5207602D1.ms.model.script' // ModelNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47C6BA9902AB_ME_48DB9DC1035C_impl ModelNotify
+
+MEREF ME_479731C50290_ME_48DB9DC1035C_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48DB9DC1035C_over Cleanup
+
+MEREF ME_47F35245009A_ME_48DB9DC1035C_over
+ MELINK Original WL 'ME_47F35245009A' '47F3513A017F.ms.model.script' // MakeProcessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47F35245009A_ME_48DB9DC1035C_over MakeProcessor
+
+MEREF ME_48033300004D_ME_48DB9DC1035C_over
+ MELINK Original WL 'ME_48033300004D' '47F0870E0034.ms.model.script' // PartGeneratorClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48033300004D_ME_48DB9DC1035C_over PartGeneratorClass
+
+MEREF ME_4A485B710126_ME_48DB9DC1035C_over
+ MELINK Original WL 'ME_4A485B710126' '4A485B0D0223.ms.model.script' // DoStyleTableChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A485B710126_ME_48DB9DC1035C_over DoStyleTableChanged
+
+MEREF ME_47F34F00021C_ME_48DB9DC1035C_G
+ MELINK Original WL? 'ME_47F34F00021C' // TnevPrintableDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47F34F00021C_ME_48DB9DC1035C_G TnevPrintableDocumentContainer
+
+MEREF ME_47C6BA1C0055_ME_48DB9DC1035C_R
+ MELINK Original WL 'ME_47C6BA1C0055' '47C5207602D1.ms.model.script' // InevQueryDocumentContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47C6BA1C0055_ME_48DB9DC1035C_R InevQueryDocumentContainer
+
+%%ImplementedBy ME_47C6BA1C0055 ME_48DB9DC1035C
+
+%%InheritedBy ME_47F34F00021C ME_48DB9DC1035C
+
+ME ME_48DB9DC1035C
+ MEPROP UID '48DB9DC1035C'
+ MEPROP Name 'TevQueryDocumentContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_47F34F00021C_ME_48DB9DC1035C_G // TnevPrintableDocumentContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47C6BA1C0055_ME_48DB9DC1035C_R // InevQueryDocumentContainer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48DB9E7B0253 // f_ModelNotify
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48DBA7B3013A // Make
+ HWL ME_48DBA7E101F6 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C6BA30033F_ME_48DB9DC1035C_impl // GetCurrPara
+ ME_47C6BA4200E7_ME_48DB9DC1035C_impl // SetCursorToPara
+ ME_47C6BA6300ED_ME_48DB9DC1035C_impl // ClearCard
+ ME_47C6BA6E01D2_ME_48DB9DC1035C_impl // AfterCollapsed
+ ME_47C6BA7402A6_ME_48DB9DC1035C_impl // ReleaseListeners
+ ME_47C6BA81030D_ME_48DB9DC1035C_impl // LinkListener
+ ME_47C6BA8D0081_ME_48DB9DC1035C_impl // UnlinkListener
+ ME_47C6BA9902AB_ME_48DB9DC1035C_impl // ModelNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48DB9DC1035C_over // Cleanup
+ ME_47F35245009A_ME_48DB9DC1035C_over // MakeProcessor
+ ME_48033300004D_ME_48DB9DC1035C_over // PartGeneratorClass
+ ME_4A485B710126_ME_48DB9DC1035C_over // DoStyleTableChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48DBA2560152 // IevQueryCardEditor
+ ME_48DBA7540386 // TevQueryCardProcessor
+ ME_48DBA82503E7 // TevControlGenerator
+ ME_48DBAB90039A // TevDefaultContext
+ ME_5346BC5703A0 // TevUpdateWindowFlag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryDocumentContainer.pas'
+ UP extprop:rc:SelfName 'QueryDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evQueryDocumentContainer'
+
+ENDME // ME_48DB9DC1035C TevQueryDocumentContainer

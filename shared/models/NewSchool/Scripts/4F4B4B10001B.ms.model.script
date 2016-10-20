@@ -34,11 +34,23 @@ ME ME_4F4B680A01CD
 
 ENDME // ME_4F4B680A01CD 
 
-ME ME_4F33E3A20056_ME_4F4B4B10001B
+MEREF ME_4F33E3A20056_ME_4F4B4B10001B_over
  MELINK Original WL 'ME_4F33E3A20056' '4F33E5FD009E.ms.model.script' // GetAllowsThisDecor
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4F33E3A20056_ME_4F4B4B10001B GetAllowsThisDecor
+ENDMEREF // ME_4F33E3A20056_ME_4F4B4B10001B_over GetAllowsThisDecor
+
+MEREF ME_4F33E7CF0393_ME_4F4B4B10001B_G
+ MELINK Original WL? 'ME_4F33E7CF0393' // nsEditionsDecorationRules
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F33E7CF0393_ME_4F4B4B10001B_G nsEditionsDecorationRules
+
+MEREF ME_4F4B4800034D_ME_4F4B4B10001B_R
+ MELINK Original WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' // Ќе должны печататьс€ декоративные элементы баллонов про изменени€ документа
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4B4800034D_ME_4F4B4B10001B_R Ќе должны печататьс€ декоративные элементы баллонов про изменени€ документа
 
 %%ImplementedBy ME_4F4B4800034D ME_4F4B4B10001B
 
@@ -57,15 +69,15 @@ ME ME_4F4B4B10001B
  MELINK Parent WL? 'ME_4F4B48E5029E' // Aspects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4F33E7CF0393' // nsEditionsDecorationRules
+   Seq: ( ME_4F33E7CF0393_ME_4F4B4B10001B_G // nsEditionsDecorationRules
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' // Ќе должны печататьс€ декоративные элементы баллонов про изменени€ документа
+   Seq: ( ME_4F4B4800034D_ME_4F4B4B10001B_R // Ќе должны печататьс€ декоративные элементы баллонов про изменени€ документа
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_4F33E3A20056_ME_4F4B4B10001B // GetAllowsThisDecor
+   Seq: ( ME_4F33E3A20056_ME_4F4B4B10001B_over // GetAllowsThisDecor
  )
  ; // Overridden
  MELIST Dependencies

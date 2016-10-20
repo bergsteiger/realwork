@@ -1,0 +1,161 @@
+// TevControlsBlockCursor 4A40E3070396 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A40E3070396
+
+FORWARD ME_4A40E33E0315
+
+ME ME_4A40E35C03BB
+ MEPROP UID '4A40E35C03BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A40E33E0315 // GetControl
+ ;
+ MELINK Target WL 'ME_47CD6F2902DC' '47CD5C7602CD.ms.model.script' // IevQueryGroup
+ ;
+
+ENDME // ME_4A40E35C03BB DoIt
+
+ME ME_4A40E33E0315
+ MEPROP UID '4A40E33E0315'
+ MEPROP Name 'GetControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получить контрол по ссылке' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A40E35C03BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4A40E33E0315 GetControl
+
+ME ME_4A40E4FF013D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELINK Target WL 'ME_4A3FAF1F00EC' '4A3FAF1003DA.ms.model.script' // Command Tables
+ ;
+
+ENDME // ME_4A40E4FF013D 
+
+ME ME_4A40E50D003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELINK Target WL 'ME_48D2191902CB' '48D21909003A.ms.model.script' // ActionCodes
+ ;
+
+ENDME // ME_4A40E50D003F 
+
+ME ME_4A40E51E01D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A40E51E01D7 
+
+ME ME_4A40E5600154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELINK Target WL 'ME_47D00B7F0171' '48A41FF10094.ms.model.script' // Key Codes
+ ;
+
+ENDME // ME_4A40E5600154 
+
+ME ME_53D0E1040268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A40E3070396 // TevControlsBlockCursor
+ ;
+ MELINK Target WL? 'ME_485807480091' // TevControlsBlock
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D0E1040268 
+
+MEREF ME_49E343F60057_ME_4A40E3070396_over
+ MELINK Original WL 'ME_49E343F60057' '49DE2726027E.ms.model.script' // DoProcessMessage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E343F60057_ME_4A40E3070396_over DoProcessMessage
+
+MEREF ME_4A3FA3EB01D5_ME_4A40E3070396_over
+ MELINK Original WL 'ME_4A3FA3EB01D5' '4A3FA3290296.ms.model.script' // AfterCollapsed
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3FA3EB01D5_ME_4A40E3070396_over AfterCollapsed
+
+MEREF ME_4A3FA3FA0033_ME_4A40E3070396_over
+ MELINK Original WL 'ME_4A3FA3FA0033' '4A3FA3290296.ms.model.script' // IsShowingDocumentParts
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3FA3FA0033_ME_4A40E3070396_over IsShowingDocumentParts
+
+MEREF ME_4A3FA3290296_ME_4A40E3070396_G
+ MELINK Original WL? 'ME_4A3FA3290296' // TevDocumentPartCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A3FA3290296_ME_4A40E3070396_G TevDocumentPartCursor
+
+%%InjectedBy ME_485807480091 ME_4A40E3070396
+
+%%InheritedBy ME_4A3FA3290296 ME_4A40E3070396
+
+ME ME_4A40E3070396
+ MEPROP UID '4A40E3070396'
+ MEPROP Name 'TevControlsBlockCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A3A233900C9' // ParaList Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A3FA3290296_ME_4A40E3070396_G // TevDocumentPartCursor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A40E33E0315 // GetControl
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49E343F60057_ME_4A40E3070396_over // DoProcessMessage
+ ME_4A3FA3EB01D5_ME_4A40E3070396_over // AfterCollapsed
+ ME_4A3FA3FA0033_ME_4A40E3070396_over // IsShowingDocumentParts
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A40E4FF013D // Command Tables
+ ME_4A40E50D003F // ActionCodes
+ ME_4A40E51E01D7 // Tk2TagID
+ ME_4A40E5600154 // Key Codes
+ ME_53D0E1040268 // TevControlsBlock
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockCursor.pas'
+ UP extprop:rc:SelfName 'ControlsBlockCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evControlsBlockCursor'
+
+ENDME // ME_4A40E3070396 TevControlsBlockCursor

@@ -1,0 +1,267 @@
+// Tm3NewRootStreamManager 5411A4410076 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5411A4410076
+
+ME ME_5411ACF403E2
+ MEPROP UID '5411ACF403E2'
+ MEPROP Name 'f_StoreHeaderDataClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL 'ME_54072E5E01CC' '54084CDE023E.ms.model.script' // Rm3StoreHeaderDataPrim
+ ;
+
+ENDME // ME_5411ACF403E2 f_StoreHeaderDataClass
+
+FORWARD ME_5411B27E014C
+
+ME ME_5411B29C03C8
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_5411B29C03C8 aStream
+
+ME ME_5411B28A00D2
+ MEPROP UID '5411B28A00D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411B27E014C // Make
+ ;
+ MELINK Target HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_5411B29C03C8 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_5411B28A00D2 DoIt
+
+ME ME_5411B2AD0018
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411B27E014C // Make
+ ;
+ MELINK Target WL? 'ME_4981AC0701C1' // ComObj
+ ;
+
+ENDME // ME_5411B2AD0018 
+
+ME ME_5411B2D60287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411B27E014C // Make
+ ;
+ MELINK Target WL? 'ME_49B952CD03A6' // m2COMLib
+ ;
+
+ENDME // ME_5411B2D60287 
+
+ME ME_5411B93B0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411B27E014C // Make
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5411B93B0014 
+
+ME ME_5411B9470134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411B27E014C // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5411B9470134 
+
+ME ME_5411B27E014C
+ MEPROP UID '5411B27E014C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5411B28A00D2 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5411B2AD0018 // ComObj
+ ME_5411B2D60287 // m2COMLib
+ ME_5411B93B0014 // Windows
+ ME_5411B9470134 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_5411B27E014C Make
+
+ME ME_5411AD07033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL? 'ME_54071860020E' // Tm3StoreHeaderData
+ ;
+
+ENDME // ME_5411AD07033D 
+
+ME ME_5411AD170272
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL? 'ME_540854CA0131' // Tm3StoreHeaderDataNew
+ ;
+
+ENDME // ME_5411AD170272 
+
+ME ME_5411AD3C00D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL? 'ME_53FDE7290320' // Tm3RootStream
+ ;
+
+ENDME // ME_5411AD3C00D2 
+
+ME ME_5411AD4600B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL? 'ME_54086C1B011D' // Tm3RootStreamNew
+ ;
+
+ENDME // ME_5411AD4600B1 
+
+ME ME_544526030328
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5411A4410076 // Tm3NewRootStreamManager
+ ;
+ MELINK Target WL 'ME_5411C58501E2' '5411C54C0194.ms.model.script' // Tm3StorageBlock
+ ;
+
+ENDME // ME_544526030328 
+
+MEREF ME_54103217000D_ME_5411A4410076_impl
+ MELINK Original WL 'ME_54103217000D' '540EE8E40271.ms.model.script' // DoAllocNewFATElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54103217000D_ME_5411A4410076_impl DoAllocNewFATElement
+
+MEREF ME_5411A48C0040_ME_5411A4410076_impl
+ MELINK Original WL 'ME_5411A48C0040' '543FBAC30068.ms.model.script' // StoreHeaderDataClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5411A48C0040_ME_5411A4410076_impl StoreHeaderDataClass
+
+MEREF ME_5411B9D601CC_ME_5411A4410076_impl
+ MELINK Original WL 'ME_5411B9D601CC' '540EE8E40271.ms.model.script' // DoRemoveFATElementAtPos
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5411B9D601CC_ME_5411A4410076_impl DoRemoveFATElementAtPos
+
+MEREF ME_5411C6960184_ME_5411A4410076_impl
+ MELINK Original WL 'ME_5411C6960184' '543F7EF202C6.ms.model.script' // RemoveTOCBuffData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5411C6960184_ME_5411A4410076_impl RemoveTOCBuffData
+
+MEREF ME_542400C501D3_ME_5411A4410076_impl
+ MELINK Original WL 'ME_542400C501D3' '540EE8E40271.ms.model.script' // DoClearFATElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_542400C501D3_ME_5411A4410076_impl DoClearFATElement
+
+MEREF ME_54253CB801D8_ME_5411A4410076_impl
+ MELINK Original WL 'ME_54253CB801D8' '543F7EF202C6.ms.model.script' // ClusterHeaderSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" false
+ENDMEREF // ME_54253CB801D8_ME_5411A4410076_impl ClusterHeaderSize
+
+MEREF ME_540EED370362_ME_5411A4410076_over
+ MELINK Original WL 'ME_540EED370362' '540EE8E40271.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_540EED370362_ME_5411A4410076_over Create
+
+MEREF ME_540EE8E40271_ME_5411A4410076_G
+ MELINK Original WL? 'ME_540EE8E40271' // Tm3RootStreamManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_540EE8E40271_ME_5411A4410076_G Tm3RootStreamManager
+
+%%InheritedBy ME_540EE8E40271 ME_5411A4410076
+
+ME ME_5411A4410076
+ MEPROP UID '5411A4410076'
+ MEPROP Name 'Tm3NewRootStreamManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48294AA903A6' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_540EE8E40271_ME_5411A4410076_G // Tm3RootStreamManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5411ACF403E2 // f_StoreHeaderDataClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5411B27E014C // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54103217000D_ME_5411A4410076_impl // DoAllocNewFATElement
+ ME_5411A48C0040_ME_5411A4410076_impl // StoreHeaderDataClass
+ ME_5411B9D601CC_ME_5411A4410076_impl // DoRemoveFATElementAtPos
+ ME_5411C6960184_ME_5411A4410076_impl // RemoveTOCBuffData
+ ME_542400C501D3_ME_5411A4410076_impl // DoClearFATElement
+ ME_54253CB801D8_ME_5411A4410076_impl // ClusterHeaderSize
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_540EED370362_ME_5411A4410076_over // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5411AD07033D // Tm3StoreHeaderData
+ ME_5411AD170272 // Tm3StoreHeaderDataNew
+ ME_5411AD3C00D2 // Tm3RootStream
+ ME_5411AD4600B1 // Tm3RootStreamNew
+ ME_544526030328 // Tm3StorageBlock
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3NewRootStreamManager.pas'
+ UP extprop:rc:SelfName 'm3NewRootStreamManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3NewRootStreamManager'
+
+ENDME // ME_5411A4410076 Tm3NewRootStreamManager

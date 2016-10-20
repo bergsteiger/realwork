@@ -164,7 +164,7 @@ ENDME // ME_5450E39B01D2 DoIt
 ME ME_5450E3910297
  MEPROP UID '5450E3910297'
  MEPROP Name 'C'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -203,6 +203,12 @@ ME ME_5450E35203B6
 
 ENDME // ME_5450E35203B6 Tm3LockedRegion
 
+MEREF ME_5411C58501E2_ME_5446596801F4_G
+ MELINK Original HWL ME_5411C58501E2 // Tm3StorageBlock
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5411C58501E2_ME_5446596801F4_G Tm3StorageBlock
+
 %%InheritedBy ME_5411C58501E2 ME_5446596801F4
 
 ME ME_5446596801F4
@@ -216,7 +222,7 @@ ME ME_5446596801F4
  MELINK Parent HWL ME_5411C58501E2 // Tm3StorageBlock
  ;
  MELIST Inherits
-   Seq: ( HWL ME_5411C58501E2 // Tm3StorageBlock
+   Seq: ( ME_5411C58501E2_ME_5446596801F4_G // Tm3StorageBlock
  )
  ; // Inherits
  UP "isClassRef" true
@@ -307,7 +313,7 @@ ME ME_5444F8B60202
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5411C58501E2 // Tm3StorageBlock
  ;
- MELINK Target WL 'ME_543F7EF202C6' '48294AA903A6.ms.model.script' // Tm3RootStreamManagerPrimPrim
+ MELINK Target WL? 'ME_543F7EF202C6' // Tm3RootStreamManagerPrimPrim
  ;
 
 ENDME // ME_5444F8B60202 f_Manager
@@ -322,7 +328,7 @@ ME ME_5444FFA90064
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5411C58501E2 // Tm3StorageBlock
  ;
- MELINK Target WL 'ME_4773DED9004C' '47913B47006E.ms.model.script' // Tl3_String
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
  ;
  UP "pm" true
  UP "reads field" true
@@ -338,7 +344,7 @@ ME ME_54451D8F014F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5411C58501E2 // Tm3StorageBlock
  ;
- MELINK Target WL 'ME_54084CDE023E' '48294AA903A6.ms.model.script' // Tm3StoreHeaderDataPrim
+ MELINK Target WL? 'ME_54084CDE023E' // Tm3StoreHeaderDataPrim
  ;
 
 ENDME // ME_54451D8F014F f_HeaderData
@@ -438,7 +444,7 @@ ME ME_54451DB60016
  MEPROP Name 'aHeaderData'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_54084CDE023E' '48294AA903A6.ms.model.script' // Tm3StoreHeaderDataPrim
+ MELINK Target WL? 'ME_54084CDE023E' // Tm3StoreHeaderDataPrim
  ;
 
 ENDME // ME_54451DB60016 aHeaderData
@@ -461,7 +467,7 @@ ENDME // ME_5413163C0391 DoIt
 ME ME_5413163101BA
  MEPROP UID '5413163101BA'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -501,7 +507,7 @@ ENDME // ME_5444F8EE01C2
 ME ME_5444F8D6030E
  MEPROP UID '5444F8D6030E'
  MEPROP Name 'Save'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -547,7 +553,7 @@ ENDME // ME_544512C60141
 ME ME_54450FC60393
  MEPROP UID '54450FC60393'
  MEPROP Name 'Modified'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -581,7 +587,7 @@ ENDME // ME_54464CE7018A DoIt
 ME ME_54464CDE02A7
  MEPROP UID '54464CDE02A7'
  MEPROP Name 'Load'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -636,7 +642,7 @@ ENDME // ME_544775690367
 ME ME_544775240322
  MEPROP UID '544775240322'
  MEPROP Name 'LockData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -693,7 +699,7 @@ ENDME // ME_544775710037
 ME ME_544775440281
  MEPROP UID '544775440281'
  MEPROP Name 'UnlockData'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -729,7 +735,7 @@ ENDME // ME_544787A90097 DoIt
 ME ME_5447879403DD
  MEPROP UID '5447879403DD'
  MEPROP Name 'CreatePrev'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -761,7 +767,7 @@ ENDME // ME_544A153000A7 DoIt
 ME ME_544A1524017E
  MEPROP UID '544A1524017E'
  MEPROP Name 'CheckBody'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -793,7 +799,7 @@ ENDME // ME_544A6E5E0264 DoIt
 ME ME_544A6E4A021A
  MEPROP UID '544A6E4A021A'
  MEPROP Name 'HeaderModified'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -848,7 +854,7 @@ ENDME // ME_544F499B0162 DoIt
 ME ME_544F498B01DC
  MEPROP UID '544F498B01DC'
  MEPROP Name 'Read'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -903,7 +909,7 @@ ENDME // ME_544F49DB037D DoIt
 ME ME_544F49CF014E
  MEPROP UID '544F49CF014E'
  MEPROP Name 'Write'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -935,7 +941,7 @@ ENDME // ME_544F52030126 DoIt
 ME ME_544F51F9003F
  MEPROP UID '544F51F9003F'
  MEPROP Name 'IsFull'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -967,7 +973,7 @@ ENDME // ME_5446554402AB DoIt
 ME ME_54465535030A
  MEPROP UID '54465535030A'
  MEPROP Name 'CreateNext'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -987,7 +993,7 @@ ME ME_544655D703E1
  MEPROP Name 'aManager'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_543F7EF202C6' '48294AA903A6.ms.model.script' // Tm3RootStreamManagerPrimPrim
+ MELINK Target WL? 'ME_543F7EF202C6' // Tm3RootStreamManagerPrimPrim
  ;
 
 ENDME // ME_544655D703E1 aManager
@@ -996,7 +1002,7 @@ ME ME_544655D80021
  MEPROP Name 'aName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DED9004C' '47913B47006E.ms.model.script' // Tl3_String
+ MELINK Target WL? 'ME_4773DED9004C' // Tl3_String
  ;
 
 ENDME // ME_544655D80021 aName
@@ -1060,7 +1066,7 @@ ENDME // ME_5446559E01DC DoIt
 ME ME_5446556801C7
  MEPROP UID '5446556801C7'
  MEPROP Name 'CreatePrim'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1103,7 +1109,7 @@ ENDME // ME_5450F5CC000F DoIt
 ME ME_5450F5B9010F
  MEPROP UID '5450F5B9010F'
  MEPROP Name 'SetPositionInStream'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1189,11 +1195,17 @@ ME ME_544A1A450185
 
 ENDME // ME_544A1A450185 
 
-ME ME_479731C50290_ME_5411C58501E2
+MEREF ME_479731C50290_ME_5411C58501E2_over
  MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_5411C58501E2 Cleanup
+ENDMEREF // ME_479731C50290_ME_5411C58501E2_over Cleanup
+
+MEREF ME_4AE5CA2D0034_ME_5411C58501E2_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_5411C58501E2_G Tl3CProtoObject
 
 %%InheritedBy ME_4AE5CA2D0034 ME_5411C58501E2
 
@@ -1208,7 +1220,7 @@ ME ME_5411C58501E2
  MELINK Parent HWL ME_5411C54C0194 // m3StorageBlock
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+   Seq: ( ME_4AE5CA2D0034_ME_5411C58501E2_G // Tl3CProtoObject
  )
  ; // Inherits
  MELIST Attributes
@@ -1248,7 +1260,7 @@ ME ME_5411C58501E2
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_5411C58501E2 // Cleanup
+   Seq: ( ME_479731C50290_ME_5411C58501E2_over // Cleanup
  )
  ; // Overridden
  MELIST Children

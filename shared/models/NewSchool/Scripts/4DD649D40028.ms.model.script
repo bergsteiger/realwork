@@ -1,0 +1,87 @@
+// pop_editor_CurrentText 4DD649D40028 ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD649D40028
+
+ME ME_4DD64CC103E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD649D40028 // pop_editor_CurrentText
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4DD64CC103E2 
+
+ME ME_4DD64D0E0182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD649D40028 // pop_editor_CurrentText
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4DD64D0E0182 
+
+MEREF ME_50BA0BBD01BF_ME_4DD649D40028_impl
+ MELINK Original WL 'ME_50BA0BBD01BF' '50BA0B820089.ms.model.script' // DoPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_50BA0BBD01BF_ME_4DD649D40028_impl DoPara
+
+MEREF ME_4DB0614603C8_ME_4DD649D40028_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4DD649D40028_over GetWordNameForRegister
+
+MEREF ME_50BA0B820089_ME_4DD649D40028_G
+ MELINK Original WL? 'ME_50BA0B820089' // TkwEditorFromStackTextParaWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50BA0B820089_ME_4DD649D40028_G TkwEditorFromStackTextParaWord
+
+%%InheritedBy ME_50BA0B820089 ME_4DD649D40028
+
+ME ME_4DD649D40028
+ MEPROP UID '4DD649D40028'
+ MEPROP Name 'pop_editor_CurrentText'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_50BA0B820089_ME_4DD649D40028_G // TkwEditorFromStackTextParaWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_50BA0BBD01BF_ME_4DD649D40028_impl // DoPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DD649D40028_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DD64CC103E2 // Tk2TagID
+ ME_4DD64D0E0182 // l3CStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '20.05.2011 15:01'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorCurrentText'
+ UP extprop:rc:SelfName 'PopEditorCurrentText'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorCurrentText'
+
+ENDME // ME_4DD649D40028 pop_editor_CurrentText

@@ -1,0 +1,379 @@
+// TevDropCalendarControl 48D38BEE00F6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D38BEE00F6
+
+ME ME_48D38C1E01AF
+ MEPROP UID '48D38C1E01AF'
+ MEPROP Name 'f_OtherField'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ссылка на другое поле даты' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_48D38C1E01AF f_OtherField
+
+ME ME_48D38C3401B7
+ MEPROP UID '48D38C3401B7'
+ MEPROP Name 'f_IsStart'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак того, что дата задает начало интервала' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48D38C3401B7 f_IsStart
+
+ME ME_48D38C40026E
+ MEPROP UID '48D38C40026E'
+ MEPROP Name 'f_Date'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дата в формате TDateTime, чтобы не делать лишние преобразования' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_48D38C40026E f_Date
+
+ME ME_48D38C500359
+ MEPROP UID '48D38C500359'
+ MEPROP Name 'f_MaskText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48D38C500359 f_MaskText
+
+ME ME_48D3930F00AB
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48D3930F00AB Value
+
+ME ME_48D393020203
+ MEPROP UID '48D393020203'
+ MEPROP Name 'CheckText'
+ MEPROP Class class_Operation
+ %SUMMARY 'Аналог _TextChange, но для произвольной строки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D3930F00AB // Value
+ )
+ ; // Parameters
+
+ENDME // ME_48D393020203 CheckText
+
+ME ME_48D38DFC020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_48D38DFC020A 
+
+ME ME_48D38E6D0098
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_47D02918035D' // l3Date
+ ;
+
+ENDME // ME_48D38E6D0098 
+
+ME ME_48D3910A02D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48D3910A02D4 
+
+ME ME_48D3918D0300
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_48D3918D0300 
+
+ME ME_48D391F301E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_48D391C60190' // DateUtils
+ ;
+
+ENDME // ME_48D391F301E0 
+
+ME ME_48D392D2034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48D38BEE00F6 // TevDropCalendarControl
+ ;
+ MELINK Target WL? 'ME_47CFFEDE0215' // evControlParaTools
+ ;
+
+ENDME // ME_48D392D2034D 
+
+MEREF ME_47CD7E9202C3_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CD7E9202C3' '47CD5C7602CD.ms.model.script' // AnalyzeText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7E9202C3_ME_48D38BEE00F6_impl AnalyzeText
+
+MEREF ME_47CD7EA10137_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CD7EA10137' '47CD5C7602CD.ms.model.script' // IsBlank
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7EA10137_ME_48D38BEE00F6_impl IsBlank
+
+MEREF ME_47CD7EB10267_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CD7EB10267' '47CD5C7602CD.ms.model.script' // ClearField
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7EB10267_ME_48D38BEE00F6_impl ClearField
+
+MEREF ME_47CD7EBD03AD_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CD7EBD03AD' '47CD5C7602CD.ms.model.script' // IsStart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7EBD03AD_ME_48D38BEE00F6_impl IsStart
+
+MEREF ME_47CD7ECC0365_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CD7ECC0365' '47CD5C7602CD.ms.model.script' // GetOtherField
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CD7ECC0365_ME_48D38BEE00F6_impl GetOtherField
+
+MEREF ME_47CEA11502B7_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CEA11502B7' '47CE9D27036D.ms.model.script' // ApplyDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CEA11502B7_ME_48D38BEE00F6_impl ApplyDate
+
+MEREF ME_47CEA18C01CD_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CEA18C01CD' '47CE9D27036D.ms.model.script' // ChooseDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CEA18C01CD_ME_48D38BEE00F6_impl ChooseDate
+
+MEREF ME_47CEA19600DE_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CEA19600DE' '47CE9D27036D.ms.model.script' // CancelDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47CEA19600DE_ME_48D38BEE00F6_impl CancelDate
+
+MEREF ME_47CEA19F031D_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_47CEA19F031D' '47CE9D27036D.ms.model.script' // aDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_47CEA19F031D_ME_48D38BEE00F6_impl aDate
+
+MEREF ME_48D37D66029A_ME_48D38BEE00F6_impl
+ MELINK Original WL 'ME_48D37D66029A' '48D367B20014.ms.model.script' // DoDrop
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_48D37D66029A_ME_48D38BEE00F6_impl DoDrop
+
+MEREF ME_479731C50290_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48D38BEE00F6_over Cleanup
+
+MEREF ME_47CFE07602FE_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_47CFE07602FE' '47CFDFAB0197.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47CFE07602FE_ME_48D38BEE00F6_over Create
+
+MEREF ME_48D14C0E023E_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D14C0E023E' '48D13B8D03A3.ms.model.script' // DoTextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D14C0E023E_ME_48D38BEE00F6_over DoTextChange
+
+MEREF ME_48D247CA0077_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D247CA0077' '48D2409102B7.ms.model.script' // AfterSetText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D247CA0077_ME_48D38BEE00F6_over AfterSetText
+
+MEREF ME_48D249F00054_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D249F00054' '48D2409102B7.ms.model.script' // GetSelectAllOnFocus
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D249F00054_ME_48D38BEE00F6_over GetSelectAllOnFocus
+
+MEREF ME_48D24A66039B_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24A66039B' '48D2409102B7.ms.model.script' // GetIsClear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24A66039B_ME_48D38BEE00F6_over GetIsClear
+
+MEREF ME_48D24AA202D1_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24AA202D1' '48D2409102B7.ms.model.script' // DoInitOtherField
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24AA202D1_ME_48D38BEE00F6_over DoInitOtherField
+
+MEREF ME_48D24C9F02F5_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24C9F02F5' '48D2409102B7.ms.model.script' // DoClearText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24C9F02F5_ME_48D38BEE00F6_over DoClearText
+
+MEREF ME_48D24F2302F2_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24F2302F2' '48D2409102B7.ms.model.script' // DoCheckDataText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24F2302F2_ME_48D38BEE00F6_over DoCheckDataText
+
+MEREF ME_48D24F5F02BF_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24F5F02BF' '48D2409102B7.ms.model.script' // DoAnalyzeString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24F5F02BF_ME_48D38BEE00F6_over DoAnalyzeString
+
+MEREF ME_48D24FA901F4_ME_48D38BEE00F6_over
+ MELINK Original WL 'ME_48D24FA901F4' '48D2409102B7.ms.model.script' // GetIsFieldEmpty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48D24FA901F4_ME_48D38BEE00F6_over GetIsFieldEmpty
+
+MEREF ME_48D367B20014_ME_48D38BEE00F6_G
+ MELINK Original WL? 'ME_48D367B20014' // TevDropControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48D367B20014_ME_48D38BEE00F6_G TevDropControl
+
+MEREF ME_47CD7D2A013E_ME_48D38BEE00F6_R
+ MELINK Original WL 'ME_47CD7D2A013E' '47CD5C7602CD.ms.model.script' // IevEditorCalendarField
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CD7D2A013E_ME_48D38BEE00F6_R IevEditorCalendarField
+
+MEREF ME_47CEA10A0216_ME_48D38BEE00F6_R
+ MELINK Original WL 'ME_47CEA10A0216' '47CE9D27036D.ms.model.script' // IevDropCalendar
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CEA10A0216_ME_48D38BEE00F6_R IevDropCalendar
+
+%%ImplementedBy ME_47CD7D2A013E ME_48D38BEE00F6
+%%ImplementedBy ME_47CEA10A0216 ME_48D38BEE00F6
+
+%%InheritedBy ME_48D367B20014 ME_48D38BEE00F6
+
+ME ME_48D38BEE00F6
+ MEPROP UID '48D38BEE00F6'
+ MEPROP Name 'TevDropCalendarControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CEBC900123' // qf
+ ;
+ MELIST Inherits
+   Seq: ( ME_48D367B20014_ME_48D38BEE00F6_G // TevDropControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47CD7D2A013E_ME_48D38BEE00F6_R // IevEditorCalendarField
+ ME_47CEA10A0216_ME_48D38BEE00F6_R // IevDropCalendar
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48D38C1E01AF // f_OtherField
+ HWL ME_48D38C3401B7 // f_IsStart
+ HWL ME_48D38C40026E // f_Date
+ HWL ME_48D38C500359 // f_MaskText
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48D393020203 // CheckText
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47CD7E9202C3_ME_48D38BEE00F6_impl // AnalyzeText
+ ME_47CD7EA10137_ME_48D38BEE00F6_impl // IsBlank
+ ME_47CD7EB10267_ME_48D38BEE00F6_impl // ClearField
+ ME_47CD7EBD03AD_ME_48D38BEE00F6_impl // IsStart
+ ME_47CD7ECC0365_ME_48D38BEE00F6_impl // GetOtherField
+ ME_47CEA11502B7_ME_48D38BEE00F6_impl // ApplyDate
+ ME_47CEA18C01CD_ME_48D38BEE00F6_impl // ChooseDate
+ ME_47CEA19600DE_ME_48D38BEE00F6_impl // CancelDate
+ ME_47CEA19F031D_ME_48D38BEE00F6_impl // aDate
+ ME_48D37D66029A_ME_48D38BEE00F6_impl // DoDrop
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48D38BEE00F6_over // Cleanup
+ ME_47CFE07602FE_ME_48D38BEE00F6_over // Create
+ ME_48D14C0E023E_ME_48D38BEE00F6_over // DoTextChange
+ ME_48D247CA0077_ME_48D38BEE00F6_over // AfterSetText
+ ME_48D249F00054_ME_48D38BEE00F6_over // GetSelectAllOnFocus
+ ME_48D24A66039B_ME_48D38BEE00F6_over // GetIsClear
+ ME_48D24AA202D1_ME_48D38BEE00F6_over // DoInitOtherField
+ ME_48D24C9F02F5_ME_48D38BEE00F6_over // DoClearText
+ ME_48D24F2302F2_ME_48D38BEE00F6_over // DoCheckDataText
+ ME_48D24F5F02BF_ME_48D38BEE00F6_over // DoAnalyzeString
+ ME_48D24FA901F4_ME_48D38BEE00F6_over // GetIsFieldEmpty
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48D38DFC020A // l3String
+ ME_48D38E6D0098 // l3Date
+ ME_48D3910A02D4 // l3Base
+ ME_48D3918D0300 // SysUtils
+ ME_48D391F301E0 // DateUtils
+ ME_48D392D2034D // evControlParaTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP "started" '25.01.2005 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evDropCalendarControl.pas'
+ UP extprop:rc:SelfName 'DropCalendarControl'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDropCalendarControl'
+
+ENDME // ME_48D38BEE00F6 TevDropCalendarControl

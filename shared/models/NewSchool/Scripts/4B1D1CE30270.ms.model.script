@@ -4,17 +4,23 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4B1D1CE30270
 
-ME ME_4B1CFD7B0332_ME_4B1D1CE30270
+MEREF ME_4B1CFD7B0332_ME_4B1D1CE30270_impl
  MELINK Original WL 'ME_4B1CFD7B0332' '4B1CFB8E0090.ms.model.script' // DoBottom
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B1CFD7B0332_ME_4B1D1CE30270 DoBottom
+ENDMEREF // ME_4B1CFD7B0332_ME_4B1D1CE30270_impl DoBottom
 
-ME ME_4B1CFD9401A2_ME_4B1D1CE30270
+MEREF ME_4B1CFD9401A2_ME_4B1D1CE30270_impl
  MELINK Original WL 'ME_4B1CFD9401A2' '4B1CFB8E0090.ms.model.script' // DoIncLinePrim
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4B1CFD9401A2_ME_4B1D1CE30270 DoIncLinePrim
+ENDMEREF // ME_4B1CFD9401A2_ME_4B1D1CE30270_impl DoIncLinePrim
+
+MEREF ME_4B1CFC5502D8_ME_4B1D1CE30270_R
+ MELINK Original WL 'ME_4B1CFC5502D8' '47E3DF460095.ms.model.script' // MnevAnchorModifyPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1CFC5502D8_ME_4B1D1CE30270_R MnevAnchorModifyPrim
 
 %%ImplementedBy ME_4B1CFC5502D8 ME_4B1D1CE30270
 
@@ -30,12 +36,12 @@ ME ME_4B1D1CE30270
  MELINK Parent WL? 'ME_47E3DF460095' // Cursors
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4B1CFC5502D8' '47E3DF460095.ms.model.script' // MnevAnchorModifyPrim
+   Seq: ( ME_4B1CFC5502D8_ME_4B1D1CE30270_R // MnevAnchorModifyPrim
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4B1CFD7B0332_ME_4B1D1CE30270 // DoBottom
- ME_4B1CFD9401A2_ME_4B1D1CE30270 // DoIncLinePrim
+   Seq: ( ME_4B1CFD7B0332_ME_4B1D1CE30270_impl // DoBottom
+ ME_4B1CFD9401A2_ME_4B1D1CE30270_impl // DoIncLinePrim
  )
  ; // Implemented
  UP intf.pas:Path 'common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas'

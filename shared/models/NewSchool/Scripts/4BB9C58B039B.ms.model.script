@@ -1,0 +1,136 @@
+// Tl3ConstStrings1 4BB9C58B039B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BB9C58B039B
+
+ME ME_4BB9D65B02CC
+ MEPROP UID '4BB9D65B02CC'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB9C58B039B // Tl3ConstStrings1
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4BB9D65B02CC FindDataType
+
+ME ME_4BB9D26A00A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BB9C58B039B // Tl3ConstStrings1
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4BB9D26A00A0 
+
+ME ME_4BB9D819015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BB9C58B039B // Tl3ConstStrings1
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_4BB9D819015B 
+
+ME ME_4BB9E11501BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BB9C58B039B // Tl3ConstStrings1
+ ;
+ MELINK Target WL 'ME_4B2F575E03BA' '47877EB202FB.ms.model.script' // CompareStr
+ ;
+
+ENDME // ME_4BB9E11501BC 
+
+MEREF ME_4BB9C06901AE_ME_4BB9C58B039B_impl
+ MELINK Original WL 'ME_4BB9C06901AE' '4677FBA70343.ms.model.script' // Define
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BB9C06901AE_ME_4BB9C58B039B_impl Define
+
+MEREF ME_47B9BAFD01F4_ME_4BB9C58B039B_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_4BB9C58B039B_over CompareItemWithData
+
+MEREF ME_47B47E230134_ME_4BB9C58B039B_G
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_4BB9C58B039B_G l3Searcher
+
+MEREF ME_4BA223D801B3_ME_4BB9C58B039B_G
+ MELINK Original WL 'ME_4BA223D801B3' '4B3B36EC03B2.ms.model.script' // Tl3ConstStringsPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BA223D801B3_ME_4BB9C58B039B_G Tl3ConstStringsPrim
+
+MEREF ME_4BB9BFED0089_ME_4BB9C58B039B_R
+ MELINK Original WL 'ME_4BB9BFED0089' '4677FBA70343.ms.model.script' // Il3ApplicationL10NStrings
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BB9BFED0089_ME_4BB9C58B039B_R Il3ApplicationL10NStrings
+
+%%ImplementedBy ME_4BB9BFED0089 ME_4BB9C58B039B
+
+%%InheritedBy ME_47B47E230134 ME_4BB9C58B039B
+%%InheritedBy ME_4BA223D801B3 ME_4BB9C58B039B
+
+ME ME_4BB9C58B039B
+ MEPROP UID '4BB9C58B039B'
+ MEPROP Name 'Tl3ConstStrings1'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F9BDEEE01BC' // Поддержка локализованных сообщений
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B47E230134_ME_4BB9C58B039B_G // l3Searcher
+ ME_4BA223D801B3_ME_4BB9C58B039B_G // Tl3ConstStringsPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BB9BFED0089_ME_4BB9C58B039B_R // Il3ApplicationL10NStrings
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BB9D65B02CC // FindDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4BB9C06901AE_ME_4BB9C58B039B_impl // Define
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_4BB9C58B039B_over // CompareItemWithData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4BB9D26A00A0 // l3String
+ ME_4BB9D819015B // Indexes
+ ME_4BB9E11501BC // CompareStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '05.04.2010 15:12'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ UP extprop:rc:SelfName 'ConstStrings1'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ConstStrings1'
+
+ENDME // ME_4BB9C58B039B Tl3ConstStrings1

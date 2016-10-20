@@ -49,6 +49,7 @@ w:\archi\source\projects\Archi\Processing\arOneTaskDeliverer.pas
      end;
     finally
      f_ReceiveTime := f_ReceiveTime + l_Deliverer.ReceiveTime;
+     f_WriteTime := f_WriteTime + l_Deliverer.WriteTime;
      FreeAndNil(l_Deliverer);
     end;
    end;
@@ -83,6 +84,7 @@ const
  f_Progressor.AllowProgressDecrement := True;
  f_Progressor.OnUpdate := ProgressUpdate;
  f_ReceiveTime := 0;
+ f_WriteTime := 0;
 //#UC END# *546AFEF1001C_546AFE0D01CB_impl*
 //#UC START# *546AFEF1001C_546AFE0D01CB_var*
 //#UC END# *546AFEF1001C_546AFE0D01CB_var*

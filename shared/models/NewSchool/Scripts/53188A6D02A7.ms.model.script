@@ -1,0 +1,243 @@
+// Tk2FontName 53188A6D02A7 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53188A6D02A7
+%%Inner ME_53188A6D02A7
+
+FORWARD ME_53188A6D02A7
+
+ME ME_53188A9501AF
+ MEPROP UID '53188A9501AF'
+ MEPROP Name 'k2TagIsString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ UP extprop:rc:SelfName 'TagIsString'
+
+ENDME // ME_53188A9501AF k2TagIsString
+
+ME ME_53578D71034F
+ MEPROP UID '53578D71034F'
+ MEPROP Name 'k2Tag_No_f_TagType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ UP extprop:rc:SelfName 'Tag_No_f_TagType'
+
+ENDME // ME_53578D71034F k2Tag_No_f_TagType
+
+ME ME_53188B5F0382
+ MEPROP UID '53188B5F0382'
+ MEPROP Name 'LogFont'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53188B5F0382 LogFont
+
+FORWARD ME_53189606008A
+
+ME ME_5318961B02AF
+ MEPROP Name 'aLogFont'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_5318961B02AF aLogFont
+
+ME ME_5318960E033F
+ MEPROP UID '5318960E033F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53189606008A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5318961B02AF // aLogFont
+ )
+ ; // Parameters
+
+ENDME // ME_5318960E033F DoIt
+
+ME ME_53189606008A
+ MEPROP UID '53189606008A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5318960E033F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53189606008A Create
+
+ME ME_53188B02012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ MELINK Target WL 'ME_484CE9CE0107' '52669BFC024E.ms.model.script' // FontName
+ ;
+
+ENDME // ME_53188B02012A 
+
+ME ME_53188BC403E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53188A6D02A7 // Tk2FontName
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53188BC403E1 
+
+MEREF ME_49A545580241_ME_53188A6D02A7_impl
+ MELINK Original WL 'ME_49A545580241' '53280B9801E7.ms.model.script' // SetAtomPrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'k2TagIsAtomic'
+ENDMEREF // ME_49A545580241_ME_53188A6D02A7_impl SetAtomPrim
+
+MEREF ME_479731C50290_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53188A6D02A7_over Cleanup
+
+MEREF ME_47A042E100E2_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_53188A6D02A7_over InitFields
+
+MEREF ME_47A869BB02DE_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_47A869BB02DE' '53317D14019D.ms.model.script' // GetAsPCharLen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A869BB02DE_ME_53188A6D02A7_over GetAsPCharLen
+
+MEREF ME_532AE8F2009A_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_532AE8F2009A' '53317D14019D.ms.model.script' // GetIsOrd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_532AE8F2009A_ME_53188A6D02A7_over GetIsOrd
+
+MEREF ME_533121AF0203_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_533121AF0203' '53317D14019D.ms.model.script' // GetTagType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_533121AF0203_ME_53188A6D02A7_over GetTagType
+
+MEREF ME_53568FCA01E8_ME_53188A6D02A7_over
+ MELINK Original WL 'ME_53568FCA01E8' '53317D14019D.ms.model.script' // GetAsRef
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53568FCA01E8_ME_53188A6D02A7_over GetAsRef
+
+MEREF ME_47A8693601A1_ME_53188A6D02A7_G
+ MELINK Original WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47A8693601A1_ME_53188A6D02A7_G Tl3PrimString
+
+MEREF ME_47AC5591007B_ME_53188A6D02A7_G
+ MELINK Original WL? 'ME_47AC5591007B' // k2Tag
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47AC5591007B_ME_53188A6D02A7_G k2Tag
+
+MEREF ME_5346BD53015A_ME_53188A6D02A7_R
+ MELINK Original WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5346BD53015A_ME_53188A6D02A7_R Il3TagRef
+
+%%ImplementedBy ME_5346BD53015A ME_53188A6D02A7
+
+%%InheritedBy ME_47A8693601A1 ME_53188A6D02A7
+%%InheritedBy ME_47AC5591007B ME_53188A6D02A7
+
+ME ME_53188A6D02A7
+ MEPROP UID '53188A6D02A7'
+ MEPROP Name 'Tk2FontName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_467FC43F01F9' // k2CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_47A8693601A1_ME_53188A6D02A7_G // Tl3PrimString
+ ME_47AC5591007B_ME_53188A6D02A7_G // k2Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5346BD53015A_ME_53188A6D02A7_R // Il3TagRef
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53188B5F0382 // LogFont
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53189606008A // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49A545580241_ME_53188A6D02A7_impl // SetAtomPrim
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53188A6D02A7_over // Cleanup
+ ME_47A042E100E2_ME_53188A6D02A7_over // InitFields
+ ME_47A869BB02DE_ME_53188A6D02A7_over // GetAsPCharLen
+ ME_532AE8F2009A_ME_53188A6D02A7_over // GetIsOrd
+ ME_533121AF0203_ME_53188A6D02A7_over // GetTagType
+ ME_53568FCA01E8_ME_53188A6D02A7_over // GetAsRef
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53188A9501AF // k2TagIsString
+ HWL ME_53578D71034F // k2Tag_No_f_TagType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53188B02012A // FontName
+ ME_53188BC403E1 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2FontName.pas'
+ UP extprop:rc:SelfName 'FontName'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'k2FontName'
+
+ENDME // ME_53188A6D02A7 Tk2FontName

@@ -1,0 +1,245 @@
+// TTestFilerReadLn 4B2A51EA00EB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B2A51EA00EB
+
+FORWARD ME_4B2A52480392
+
+FORWARD ME_4B2A57F40332
+
+ME ME_4B2F8E9002DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A52480392 // ReadViaDelphi
+ ;
+ MELINK Target HWL ME_4B2A57F40332 // ReadViaDelphiPrim
+ ;
+
+ENDME // ME_4B2F8E9002DE 
+
+ME ME_4B2A52480392
+ MEPROP UID '4B2A52480392'
+ MEPROP Name 'ReadViaDelphi'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B2F8E9002DE // ReadViaDelphiPrim
+ )
+ ; // Dependencies
+
+ENDME // ME_4B2A52480392 ReadViaDelphi
+
+FORWARD ME_4B2A5250025B
+
+ME ME_4B2A527B02C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A5250025B // DoIt
+ ;
+ MELINK Target WL? 'ME_47A0686803A5' // l3Filer
+ ;
+
+ENDME // ME_4B2A527B02C2 
+
+ME ME_4B2A5353015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A5250025B // DoIt
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B2A5353015C 
+
+ME ME_4B2F8E9600DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A5250025B // DoIt
+ ;
+ MELINK Target HWL ME_4B2A57F40332 // ReadViaDelphiPrim
+ ;
+
+ENDME // ME_4B2F8E9600DA 
+
+ME ME_4B2A5250025B
+ MEPROP UID '4B2A5250025B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B2A527B02C2 // l3Filer
+ ME_4B2A5353015C // FreeAndNil
+ ME_4B2F8E9600DA // ReadViaDelphiPrim
+ )
+ ; // Dependencies
+
+ENDME // ME_4B2A5250025B DoIt
+
+ME ME_4B59C8E800B8
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B59C8E800B8 aName
+
+ME ME_4B2A580000F4
+ MEPROP UID '4B2A580000F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A57F40332 // ReadViaDelphiPrim
+ ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B59C8E800B8 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4B2A580000F4 DoIt
+
+ME ME_4B2A57F40332
+ MEPROP UID '4B2A57F40332'
+ MEPROP Name 'ReadViaDelphiPrim'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2A580000F4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B2A57F40332 ReadViaDelphiPrim
+
+FORWARD ME_4B336B0B0247
+
+ME ME_4B33796000B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B336B0B0247 // ReadLnBadText
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4B33796000B2 
+
+ME ME_4B336B0B0247
+ MEPROP UID '4B336B0B0247'
+ MEPROP Name 'ReadLnBadText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для {RequestLink:175540286}.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B33796000B2 // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_4B336B0B0247 ReadLnBadText
+
+FORWARD ME_4B336DFB0051
+
+ME ME_4B33796400BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B336DFB0051 // ReadLnBadUnicodeText
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4B33796400BC 
+
+ME ME_4B336DFB0051
+ MEPROP UID '4B336DFB0051'
+ MEPROP Name 'ReadLnBadUnicodeText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест для {RequestLink:175540286}.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4B33796400BC // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_4B336DFB0051 ReadLnBadUnicodeText
+
+ME ME_4B2A51F60192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A51EA00EB // TTestFilerReadLn
+ ;
+ MELINK Target WL? 'ME_4B2A50570311' // TestGlobals
+ ;
+
+ENDME // ME_4B2A51F60192 
+
+MEREF ME_4B2A11BC0255_ME_4B2A51EA00EB_G
+ MELINK Original WL? 'ME_4B2A11BC0255' // TBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B2A11BC0255_ME_4B2A51EA00EB_G TBaseTest
+
+%%InheritedBy ME_4B2A11BC0255 ME_4B2A51EA00EB
+
+ME ME_4B2A51EA00EB
+ MEPROP UID '4B2A51EA00EB'
+ MEPROP Name 'TTestFilerReadLn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A15A00031' // Core
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B2A11BC0255_ME_4B2A51EA00EB_G // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B2A52480392 // ReadViaDelphi
+ HWL ME_4B2A5250025B // DoIt
+ HWL ME_4B2A57F40332 // ReadViaDelphiPrim
+ HWL ME_4B336B0B0247 // ReadLnBadText
+ HWL ME_4B336DFB0051 // ReadLnBadUnicodeText
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2A51F60192 // TestGlobals
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\TestFilerReadLn.pas'
+ UP extprop:rc:SelfName 'TestFilerReadLn'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TestFilerReadLn'
+
+ENDME // ME_4B2A51EA00EB TTestFilerReadLn

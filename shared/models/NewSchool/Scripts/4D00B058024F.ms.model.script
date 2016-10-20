@@ -1,0 +1,468 @@
+// Tl3FrameLinesSpy 4D00B058024F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D00B058024F
+
+FORWARD ME_4D00B058024F
+
+FORWARD ME_4D00C63C03E2
+
+ME ME_4D00F6D10360
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_4D00F6D10360 aCanvas
+
+ME ME_4D00F6D10388
+ MEPROP Name 'aObjID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D00F6D10388 aObjID
+
+ME ME_4D00C91B03B2
+ MEPROP UID '4D00C91B03B2'
+ MEPROP Name 'OpenLinesLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D00F6D10360 // aCanvas
+ ME_4D00F6D10388 // aObjID
+ )
+ ; // Parameters
+
+ENDME // ME_4D00C91B03B2 OpenLinesLog
+
+ME ME_4D00C94603B2
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D00C94603B2 aLogName
+
+ME ME_4D00C9410153
+ MEPROP UID '4D00C9410153'
+ MEPROP Name 'CloseLinesLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D00C94603B2 // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4D00C9410153 CloseLinesLog
+
+ME ME_4FA3D5A500A9
+ MEPROP UID '4FA3D5A500A9'
+ MEPROP Name 'GetPrecision'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA3D5A500A9 GetPrecision
+
+ME ME_4D00C63C03E2
+ MEPROP UID '4D00C63C03E2'
+ MEPROP GUID 'E5FD726A-30C8-4738-830E-D410AAE40FCA'
+ MEPROP Name 'Il3FrameLinesLogger'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D00C91B03B2 // OpenLinesLog
+ HWL ME_4D00C9410153 // CloseLinesLog
+ HWL ME_4FA3D5A500A9 // GetPrecision
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FrameLinesLogger'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D00C63C03E2 Il3FrameLinesLogger
+
+ME ME_4D00C79803BB
+ MEPROP UID '4D00C79803BB'
+ MEPROP Name 'f_Logger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+
+ENDME // ME_4D00C79803BB f_Logger
+
+ME ME_4D00C7FC0159
+ MEPROP UID '4D00C7FC0159'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4D00C7FC0159 f_Filer
+
+ME ME_51B6F72203A6
+ MEPROP UID '51B6F72203A6'
+ MEPROP Name 'f_Printing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51B6F72203A6 f_Printing
+
+ME ME_5270A1060242
+ MEPROP UID '5270A1060242'
+ MEPROP Name 'NeedClear'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_5270A1060242 NeedClear
+
+FORWARD ME_4D00B6A50143
+
+ME ME_4D00B6F00280
+ MEPROP UID '4D00B6F00280'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00B6A50143 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D00B6F00280 DoIt
+
+ME ME_4D00B6A50143
+ MEPROP UID '4D00B6A50143'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D00B6F00280 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4D00B6A50143 Exists
+
+FORWARD ME_4D00BAD501C9
+
+ME ME_4D01F35901F4
+ MEPROP Name 'aLines'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_48CA64150378' // Tl3FrameObject
+ ;
+
+ENDME // ME_4D01F35901F4 aLines
+
+ME ME_4D01F3590211
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_4D01F3590211 aCanvas
+
+ME ME_4D01F3590230
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D01F3590230 anIndex
+
+ME ME_4D00BB2A019B
+ MEPROP UID '4D00BB2A019B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00BAD501C9 // LogLines
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D01F35901F4 // aLines
+ ME_4D01F3590211 // aCanvas
+ ME_4D01F3590230 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4D00BB2A019B DoIt
+
+ME ME_4D00BAD501C9
+ MEPROP UID '4D00BAD501C9'
+ MEPROP Name 'LogLines'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D00BB2A019B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D00BAD501C9 LogLines
+
+FORWARD ME_4D00CCAB029E
+
+ME ME_51B6F5E9005F
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+
+ENDME // ME_51B6F5E9005F aLogger
+
+ME ME_51B6F5E90073
+ MEPROP Name 'aPrinting'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51B6F5E90073 aPrinting
+
+ME ME_4D00CCBC011E
+ MEPROP UID '4D00CCBC011E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00CCAB029E // SetLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B6F5E9005F // aLogger
+ ME_51B6F5E90073 // aPrinting
+ )
+ ; // Parameters
+
+ENDME // ME_4D00CCBC011E DoIt
+
+ME ME_4D00CCAB029E
+ MEPROP UID '4D00CCAB029E'
+ MEPROP Name 'SetLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D00CCBC011E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D00CCAB029E SetLogger
+
+FORWARD ME_4D00CCF000BC
+
+ME ME_4D00CD2901BD
+ MEPROP Name 'aLogger'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ ;
+
+ENDME // ME_4D00CD2901BD aLogger
+
+ME ME_4D00CD0E0273
+ MEPROP UID '4D00CD0E0273'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00CCF000BC // RemoveLogger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D00CD2901BD // aLogger
+ )
+ ; // Parameters
+
+ENDME // ME_4D00CD0E0273 DoIt
+
+ME ME_4D00CCF000BC
+ MEPROP UID '4D00CCF000BC'
+ MEPROP Name 'RemoveLogger'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D00CD0E0273 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D00CCF000BC RemoveLogger
+
+ME ME_4D00BFE20327
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_48CA54A000F7' '48CA546C01B0.ms.model.script' // Tl3FrameLine
+ ;
+
+ENDME // ME_4D00BFE20327 
+
+ME ME_4D00C33B009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_48AC2BDA0309' '4678193C009C.ms.model.script' // PObject
+ ;
+
+ENDME // ME_4D00C33B009D 
+
+ME ME_4D00CBB5035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4D00CBB5035E 
+
+ME ME_4D00CF9803D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D00B058024F // Tl3FrameLinesSpy
+ ;
+ MELINK Target WL 'ME_475E594F0257' '4677FBA70343.ms.model.script' // Tl3LinePartDrawType
+ ;
+
+ENDME // ME_4D00CF9803D8 
+
+MEREF ME_479731C50290_ME_4D00B058024F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4D00B058024F_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4D00B058024F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4D00B058024F_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_4D00B058024F
+
+ME ME_4D00B058024F
+ MEPROP UID '4D00B058024F'
+ MEPROP Name 'Tl3FrameLinesSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранение информации по опечатанным линиям (для отрисовки не работает).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4D00B058024F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D00C79803BB // f_Logger
+ HWL ME_4D00C7FC0159 // f_Filer
+ HWL ME_51B6F72203A6 // f_Printing
+ HWL ME_5270A1060242 // NeedClear
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D00B6A50143 // Exists
+ HWL ME_4D00BAD501C9 // LogLines
+ HWL ME_4D00CCAB029E // SetLogger
+ HWL ME_4D00CCF000BC // RemoveLogger
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D00B058024F_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D00C63C03E2 // Il3FrameLinesLogger
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D00BFE20327 // Tl3FrameLine
+ ME_4D00C33B009D // PObject
+ ME_4D00CBB5035E // FreeAndNil
+ ME_4D00CF9803D8 // Tl3LinePartDrawType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
+ UP extprop:rc:SelfName 'FrameLinesSpy'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FrameLinesSpy'
+
+ENDME // ME_4D00B058024F Tl3FrameLinesSpy

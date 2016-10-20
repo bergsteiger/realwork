@@ -1,0 +1,74 @@
+// K517772970_TcsAACImport 53218B090017 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53218B090017
+
+ME ME_53218B32031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218B090017 // K517772970_TcsAACImport
+ ;
+ MELINK Target WL? 'ME_530356A1014F' // csImport
+ ;
+
+ENDME // ME_53218B32031A 
+
+ME ME_53BA86880386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53218B090017 // K517772970_TcsAACImport
+ ;
+ MELINK Target WL? 'ME_5317040F0257' // TcsAACImport
+ ;
+
+ENDME // ME_53BA86880386 
+
+MEREF ME_5320088202FB_ME_53218B090017_over
+ MELINK Original WL 'ME_5320088202FB' '532008240001.ms.model.script' // TaskClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_5320088202FB_ME_53218B090017_over TaskClass
+
+MEREF ME_53214C4500B5_ME_53218B090017_G
+ MELINK Original WL? 'ME_53214C4500B5' // K517772970_TcsImportTaskItem
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53214C4500B5_ME_53218B090017_G K517772970_TcsImportTaskItem
+
+%%InheritedBy ME_53214C4500B5 ME_53218B090017
+
+ME ME_53218B090017
+ MEPROP UID '53218B090017'
+ MEPROP Name 'K517772970_TcsAACImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:517772970}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_531FF6280311' // TaskSaveLoad
+ ;
+ MELIST Inherits
+   Seq: ( ME_53214C4500B5_ME_53218B090017_G // K517772970_TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5320088202FB_ME_53218B090017_over // TaskClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53218B32031A // csImport
+ ME_53BA86880386 // TcsAACImport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsAACImport.pas'
+ UP extprop:pas:TypeName 'TK517772970_TcsAACImport'
+ UP extprop:rc:SelfName 'K517772970_TcsAACImport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53218B090017 K517772970_TcsAACImport

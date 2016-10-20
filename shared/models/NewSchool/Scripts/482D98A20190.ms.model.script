@@ -1,0 +1,69 @@
+// TevCustomMemoTextSource 482D98A20190 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482D98A20190
+
+ME ME_482DA0D702D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482D98A20190 // TevCustomMemoTextSource
+ ;
+ MELINK Target WL? 'ME_482D888D039E' // TevCustomMemoContainer
+ ;
+
+ENDME // ME_482DA0D702D8 
+
+MEREF ME_47D1602000C6_ME_482D98A20190_over
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47D1602000C6_ME_482D98A20190_over Create
+
+MEREF ME_482D9A030221_ME_482D98A20190_over
+ MELINK Original WL 'ME_482D9A030221' '482BFB7C00B6.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_482D9A030221_ME_482D98A20190_over DoMakeDocumentContainer
+
+MEREF ME_482D98DE00A9_ME_482D98A20190_G
+ MELINK Original WL? 'ME_482D98DE00A9' // TevTextSource
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482D98DE00A9_ME_482D98A20190_G TevTextSource
+
+%%InheritedBy ME_482D98DE00A9 ME_482D98A20190
+
+ME ME_482D98A20190
+ MEPROP UID '482D98A20190'
+ MEPROP Name 'TevCustomMemoTextSource'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4829D7D50156' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( ME_482D98DE00A9_ME_482D98A20190_G // TevTextSource
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_482D98A20190_over // Create
+ ME_482D9A030221_ME_482D98A20190_over // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_482DA0D702D8 // TevCustomMemoContainer
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '23.05.1997 09:10'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomMemoTextSource.pas'
+ UP extprop:rc:SelfName 'MemoTextSource'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evCustomMemoTextSource'
+
+ENDME // ME_482D98A20190 TevCustomMemoTextSource

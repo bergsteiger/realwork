@@ -1,0 +1,64 @@
+// Tl3FormCanvas 4F916FD10199 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F916FD10199
+
+ME ME_4FAE57A50373
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ ;
+
+ENDME // ME_4FAE57A50373 aForm
+
+ME ME_4FAE57980326
+ MEPROP UID '4FAE57980326'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F916FD10199 // Tl3FormCanvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FAE57A50373 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4FAE57980326 Create
+
+MEREF ME_48C68AA40296_ME_4F916FD10199_G
+ MELINK Original WL? 'ME_48C68AA40296' // Tl3WinControlCanvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48C68AA40296_ME_4F916FD10199_G Tl3WinControlCanvas
+
+%%InheritedBy ME_48C68AA40296 ME_4F916FD10199
+
+ME ME_4F916FD10199
+ MEPROP UID '4F916FD10199'
+ MEPROP Name 'Tl3FormCanvas'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_48C68AA40296_ME_4F916FD10199_G // Tl3WinControlCanvas
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4FAE57980326 // Create
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FormCanvas.pas'
+ UP extprop:rc:SelfName 'FormCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FormCanvas'
+
+ENDME // ME_4F916FD10199 Tl3FormCanvas

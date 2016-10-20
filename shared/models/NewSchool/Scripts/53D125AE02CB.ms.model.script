@@ -51,7 +51,7 @@ ME ME_54779C5903A7
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_54776921001A // TvcmBaseMenuForChromeLike
  ;
- MELINK Target WL 'ME_5477971800CE' '5477970600C6.ms.model.script' // TvcmMenuForChromeLikeItemWrap
+ MELINK Target WL? 'ME_5477971800CE' // TvcmMenuForChromeLikeItemWrap
  ;
  MELIST Attributes
    Seq: ( HWL ME_54779C5F02BC // Index
@@ -59,6 +59,12 @@ ME ME_54779C5903A7
  ; // Attributes
 
 ENDME // ME_54779C5903A7 Items
+
+MEREF ME_545C51CB0171_ME_54776921001A_G
+ MELINK Original WL? 'ME_545C51CB0171' // TvcmBaseMenuForChromeLike
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_545C51CB0171_ME_54776921001A_G TvcmBaseMenuForChromeLike
 
 %%InheritedBy ME_545C51CB0171 ME_54776921001A
 
@@ -73,7 +79,7 @@ ME ME_54776921001A
  MELINK Parent HWL ME_53D125AE02CB // ChromeLike
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_545C51CB0171' // TvcmBaseMenuForChromeLike
+   Seq: ( ME_545C51CB0171_ME_54776921001A_G // TvcmBaseMenuForChromeLike
  )
  ; // Inherits
  MELIST Attributes
@@ -131,7 +137,7 @@ ME ME_551D5407013B
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_551D53DB0049 // TChromeLikeTabSetControl
  ;
- MELINK Target WL 'ME_5507F22E0057' '533E6F73014E.ms.model.script' // TChromeLikeTab
+ MELINK Target WL 'ME_5507F22E0057' '5507EFFD01FE.ms.model.script' // TChromeLikeTab
  ;
  MELIST Attributes
    Seq: ( HWL ME_551D540B020E // Index
@@ -139,6 +145,12 @@ ME ME_551D5407013B
  ; // Attributes
 
 ENDME // ME_551D5407013B Tabs
+
+MEREF ME_5507EFFD01FE_ME_551D53DB0049_G
+ MELINK Original WL? 'ME_5507EFFD01FE' // TChromeLikeTabSetControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5507EFFD01FE_ME_551D53DB0049_G TChromeLikeTabSetControl
 
 %%InheritedBy ME_5507EFFD01FE ME_551D53DB0049
 
@@ -153,7 +165,7 @@ ME ME_551D53DB0049
  MELINK Parent HWL ME_53D125AE02CB // ChromeLike
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5507EFFD01FE' '533E6F73014E.ms.model.script' // TChromeLikeTabSetControl
+   Seq: ( ME_5507EFFD01FE_ME_551D53DB0049_G // TChromeLikeTabSetControl
  )
  ; // Inherits
  MELIST Attributes
@@ -239,10 +251,16 @@ ME ME_551D72CA0359
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
  ;
- MELINK Target WL 'ME_547869730335' '5477970600C6.ms.model.script' // TRectWrap
+ MELINK Target WL? 'ME_547869730335' // TRectWrap
  ;
 
 ENDME // ME_551D72CA0359 PositionRect
+
+MEREF ME_5507F22E0057_ME_551D67AC02C4_G
+ MELINK Original WL 'ME_5507F22E0057' '5507EFFD01FE.ms.model.script' // TChromeLikeTab
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5507F22E0057_ME_551D67AC02C4_G TChromeLikeTab
 
 %%InheritedBy ME_5507F22E0057 ME_551D67AC02C4
 
@@ -257,7 +275,7 @@ ME ME_551D67AC02C4
  MELINK Parent HWL ME_53D125AE02CB // ChromeLike
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_5507F22E0057' '533E6F73014E.ms.model.script' // TChromeLikeTab
+   Seq: ( ME_5507F22E0057_ME_551D67AC02C4_G // TChromeLikeTab
  )
  ; // Inherits
  MELIST Attributes

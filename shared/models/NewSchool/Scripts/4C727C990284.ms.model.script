@@ -1,0 +1,99 @@
+// Tf1DocumentTagDataFromDTP 4C727C990284 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C727C990284
+
+MEREF ME_4C727B5001D1_ME_4C727EE60209_G
+ MELINK Original WL 'ME_4C727B5001D1' '4C72A40000A6.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C727B5001D1_ME_4C727EE60209_G Create
+
+MEREF ME_4C6E935500EF_ME_4C727EE60209_R
+ MELINK Original WL 'ME_4C6E935500EF' '4C6E92E9016E.ms.model.script' // If1TagDataProvider
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C6E935500EF_ME_4C727EE60209_R If1TagDataProvider
+
+%%ImplementedBy ME_4C6E935500EF ME_4C727EE60209
+
+%%InheritedBy ME_4C727B5001D1 ME_4C727EE60209
+
+ME ME_4C727EE60209
+ MEPROP UID '4C727EE60209'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C727C990284 // Tf1DocumentTagDataFromDTP
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C727B5001D1_ME_4C727EE60209_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C6E935500EF_ME_4C727EE60209_R // If1TagDataProvider
+ )
+ ; // Implements
+
+ENDME // ME_4C727EE60209 Make
+
+MEREF ME_4C7281C90170_ME_4C727C990284_impl
+ MELINK Original WL 'ME_4C7281C90170' '4C72A40000A6.ms.model.script' // GetChildID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C7281C90170_ME_4C727C990284_impl GetChildID
+
+MEREF ME_4C7289B80158_ME_4C727C990284_impl
+ MELINK Original WL 'ME_4C7289B80158' '4C72A40000A6.ms.model.script' // GetParentLayerID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4C7289B80158_ME_4C727C990284_impl GetParentLayerID
+
+MEREF ME_4C727C5B007B_ME_4C727C990284_G
+ MELINK Original WL 'ME_4C727C5B007B' '4C72A40000A6.ms.model.script' // Tf1ListTagDataFromDTPPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C727C5B007B_ME_4C727C990284_G Tf1ListTagDataFromDTPPrim
+
+%%InheritedBy ME_4C727C5B007B ME_4C727C990284
+
+ME ME_4C727C990284
+ MEPROP UID '4C727C990284'
+ MEPROP Name 'Tf1DocumentTagDataFromDTP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C726B20031E' // TagDataProviders
+ ;
+ MELIST Inherits
+   Seq: ( ME_4C727C5B007B_ME_4C727C990284_G // Tf1ListTagDataFromDTPPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C727EE60209 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C7281C90170_ME_4C727C990284_impl // GetChildID
+ ME_4C7289B80158_ME_4C727C990284_impl // GetParentLayerID
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '23.08.2010 17:50'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1DocumentTagDataFromDTP.pas'
+ UP extprop:rc:SelfName 'f1DocumentTagDataFromDTP'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'f1DocumentTagDataFromDTP'
+
+ENDME // ME_4C727C990284 Tf1DocumentTagDataFromDTP

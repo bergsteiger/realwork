@@ -1,0 +1,161 @@
+// K204114253 4BCE9DB603BB TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4BCE9DB603BB
+
+FORWARD ME_4BCE9DB603BB
+
+MEREF ME_482ACC330173_ME_4BCEAB07027C_G
+ MELINK Original WL? 'ME_482ACC330173' // TelCustomEdit
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_482ACC330173_ME_4BCEAB07027C_G TelCustomEdit
+
+%%InheritedBy ME_482ACC330173 ME_4BCEAB07027C
+
+ME ME_4BCEAB07027C
+ MEPROP UID '4BCEAB07027C'
+ MEPROP Name 'TelCustomEditHack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BCE9DB603BB // K204114253
+ ;
+ MELIST Inherits
+   Seq: ( ME_482ACC330173_ME_4BCEAB07027C_G // TelCustomEdit
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'elCustomEditHack'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BCEAB07027C TelCustomEditHack
+
+ME ME_4BCEA043008C
+ MEPROP UID '4BCEA043008C'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BCE9DB603BB // K204114253
+ ;
+ MELINK Target WL? 'ME_4BCE9D210265' // elCustomEdit
+ ;
+
+ENDME // ME_4BCEA043008C FormClass
+
+FORWARD ME_4BCE9E6D027F
+
+ME ME_4BCEAC5A01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BCE9E6D027F // DoIt
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4BCEAC5A01A1 
+
+ME ME_4BCE9E6D027F
+ MEPROP UID '4BCE9E6D027F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BCE9DB603BB // K204114253
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4BCEAC5A01A1 // l3CStr
+ )
+ ; // Dependencies
+
+ENDME // ME_4BCE9E6D027F DoIt
+
+ME ME_4BCE9DBF00EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BCE9DB603BB // K204114253
+ ;
+ MELINK Target WL? 'ME_4BCE9D210265' // elCustomEdit
+ ;
+
+ENDME // ME_4BCE9DBF00EE 
+
+ME ME_4BCE9DE2003E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BCE9DB603BB // K204114253
+ ;
+ MELINK Target WL? 'ME_4B322E2E0270' // evdSchema
+ ;
+
+ENDME // ME_4BCE9DE2003E 
+
+MEREF ME_4B30EEEB01EF_ME_4BCE9DB603BB_G
+ MELINK Original WL 'ME_4B30EEEB01EF' '4B3235370235.ms.model.script' // TVCMBaseTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B30EEEB01EF_ME_4BCE9DB603BB_G TVCMBaseTest
+
+MEREF ME_4BCE9EF8033F_ME_4BCE9DB603BB_R
+ MELINK Original WL? 'ME_4BCE9EF8033F' // FormProducer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BCE9EF8033F_ME_4BCE9DB603BB_R FormProducer
+
+%%ImplementedBy ME_4BCE9EF8033F ME_4BCE9DB603BB
+
+%%InheritedBy ME_4B30EEEB01EF ME_4BCE9DB603BB
+
+ME ME_4BCE9DB603BB
+ MEPROP UID '4BCE9DB603BB'
+ MEPROP Name 'K204114253'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$204114253]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B30C89F035F' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B30EEEB01EF_ME_4BCE9DB603BB_G // TVCMBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4BCE9EF8033F_ME_4BCE9DB603BB_R // FormProducer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4BCEA043008C // FormClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BCE9E6D027F // DoIt
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BCEAB07027C // TelCustomEditHack
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BCE9DBF00EE // elCustomEdit
+ ME_4BCE9DE2003E // evdSchema
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\K204114253.pas'
+ UP extprop:pas:TypeName 'TK204114253'
+ UP extprop:rc:SelfName 'K204114253'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BCE9DB603BB K204114253

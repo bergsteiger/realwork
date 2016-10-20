@@ -257,18 +257,30 @@ ME ME_4F5E408600D1
 
 ENDME // ME_4F5E408600D1 
 
-ME ME_493E4F7E039B_ME_4DC011350154
+MEREF ME_493E4F7E039B_ME_4DC011350154_impl
  MELINK Original WL 'ME_493E4F7E039B' '491B305A0096.ms.model.script' // Generate
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_493E4F7E039B_ME_4DC011350154 Generate
+ENDMEREF // ME_493E4F7E039B_ME_4DC011350154_impl Generate
 
-ME ME_4DC010300124_ME_4DC011350154
+MEREF ME_4DC010300124_ME_4DC011350154_impl
  MELINK Original WL 'ME_4DC010300124' '4DC00FC302B7.ms.model.script' // dsBaloonWarning
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
-ENDME // ME_4DC010300124_ME_4DC011350154 dsBaloonWarning
+ENDMEREF // ME_4DC010300124_ME_4DC011350154_impl dsBaloonWarning
+
+MEREF ME_494778CD004F_ME_4DC011350154_G
+ MELINK Original WL? 'ME_494778CD004F' // vcmTinyUseCaseController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_494778CD004F_ME_4DC011350154_G vcmTinyUseCaseController
+
+MEREF ME_4DC0100200B7_ME_4DC011350154_R
+ MELINK Original WL 'ME_4DC0100200B7' '4DC00FC302B7.ms.model.script' // IsdsMainWindow
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DC0100200B7_ME_4DC011350154_R IsdsMainWindow
 
 %%ImplementedBy ME_4DC0100200B7 ME_4DC011350154
 
@@ -286,11 +298,11 @@ ME ME_4DC011350154
  MELINK Parent WL? 'ME_4DC010B802AF' // MainWindowControllersRealization
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_494778CD004F' // vcmTinyUseCaseController
+   Seq: ( ME_494778CD004F_ME_4DC011350154_G // vcmTinyUseCaseController
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4DC0100200B7' '4DC00FC302B7.ms.model.script' // IsdsMainWindow
+   Seq: ( ME_4DC0100200B7_ME_4DC011350154_R // IsdsMainWindow
  )
  ; // Implements
  MELIST Attributes
@@ -299,8 +311,8 @@ ME ME_4DC011350154
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_493E4F7E039B_ME_4DC011350154 // Generate
- ME_4DC010300124_ME_4DC011350154 // dsBaloonWarning
+   Seq: ( ME_493E4F7E039B_ME_4DC011350154_impl // Generate
+ ME_4DC010300124_ME_4DC011350154_impl // dsBaloonWarning
  )
  ; // Implemented
  MELIST Constants

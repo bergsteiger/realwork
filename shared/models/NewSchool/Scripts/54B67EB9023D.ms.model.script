@@ -1,0 +1,104 @@
+// Tl3SimpleMemoryManagerPrim 54B67EB9023D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B67EB9023D
+
+FORWARD ME_54B68024012F
+
+ME ME_54B6802D0156
+ MEPROP UID '54B6802D0156'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B68024012F // Create
+ ;
+
+ENDME // ME_54B6802D0156 DoIt
+
+ME ME_54B68024012F
+ MEPROP UID '54B68024012F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6802D0156 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B68024012F Create
+
+ME ME_54B684120169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B67EB9023D // Tl3SimpleMemoryManagerPrim
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B684120169 
+
+MEREF ME_479F2AFB0397_ME_54B67EB9023D_over
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2AFB0397_ME_54B67EB9023D_over Release
+
+MEREF ME_516137AD0362_ME_54B67EB9023D_G
+ MELINK Original WL? 'ME_516137AD0362' // TRefcounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516137AD0362_ME_54B67EB9023D_G TRefcounted
+
+MEREF ME_54B6852C0241_ME_54B67EB9023D_G
+ MELINK Original WL? 'ME_54B6852C0241' // l3CriticalSectionHolderPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54B6852C0241_ME_54B67EB9023D_G l3CriticalSectionHolderPrim
+
+%%InheritedBy ME_516137AD0362 ME_54B67EB9023D
+%%InheritedBy ME_54B6852C0241 ME_54B67EB9023D
+
+ME ME_54B67EB9023D
+ MEPROP UID '54B67EB9023D'
+ MEPROP Name 'Tl3SimpleMemoryManagerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( ME_516137AD0362_ME_54B67EB9023D_G // TRefcounted
+ ME_54B6852C0241_ME_54B67EB9023D_G // l3CriticalSectionHolderPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54B68024012F // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479F2AFB0397_ME_54B67EB9023D_over // Release
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54B684120169 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3SimpleMemoryManagerPrim.pas'
+ UP extprop:rc:SelfName 'SimpleMemoryManagerPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3SimpleMemoryManagerPrim'
+
+ENDME // ME_54B67EB9023D Tl3SimpleMemoryManagerPrim

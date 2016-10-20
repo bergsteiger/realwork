@@ -1,0 +1,120 @@
+// TtfwDictionaryCache 55A3DF0603C6 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A3DF0603C6
+
+ME ME_55C1E4290136
+ MEPROP UID '55C1E4290136'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_55C1E4290136 FindDataType
+
+ME ME_55AF818D02D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ MELINK Target WL? 'ME_55A63D300062' // TtfwMainDictionaryCache
+ ;
+
+ENDME // ME_55AF818D02D4 
+
+ME ME_55C1E42502FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A3DF0603C6 // TtfwDictionaryCache
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_55C1E42502FD 
+
+MEREF ME_47B9BAFD01F4_ME_55A3DF0603C6_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_55A3DF0603C6_over CompareItemWithData
+
+MEREF ME_559E857A037A_ME_55A3DF0603C6_over
+ MELINK Original WL 'ME_559E857A037A' '55A63C1701BE.ms.model.script' // FindDictionary
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_559E857A037A_ME_55A3DF0603C6_over FindDictionary
+
+MEREF ME_55A663000019_ME_55A3DF0603C6_over
+ MELINK Original WL 'ME_55A663000019' '55A63C1701BE.ms.model.script' // Remove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_55A663000019_ME_55A3DF0603C6_over Remove
+
+MEREF ME_55C0BC550280_ME_55A3DF0603C6_G
+ MELINK Original WL? 'ME_55C0BC550280' // TtfwDictionaryCachePrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_55C0BC550280_ME_55A3DF0603C6_G TtfwDictionaryCachePrim
+
+MEREF ME_47B47E230134_ME_55A3DF0603C6_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_55A3DF0603C6_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_55A3DF0603C6
+
+%%InheritedBy ME_55C0BC550280 ME_55A3DF0603C6
+
+ME ME_55A3DF0603C6
+ MEPROP UID '55A3DF0603C6'
+ MEPROP Name 'TtfwDictionaryCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F2275C00012' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_55C0BC550280_ME_55A3DF0603C6_G // TtfwDictionaryCachePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_55A3DF0603C6_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55C1E4290136 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_55A3DF0603C6_over // CompareItemWithData
+ ME_559E857A037A_ME_55A3DF0603C6_over // FindDictionary
+ ME_55A663000019_ME_55A3DF0603C6_over // Remove
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55AF818D02D4 // TtfwMainDictionaryCache
+ ME_55C1E42502FD // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'seCacheDict'
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryCache.pas'
+ UP extprop:rc:SelfName 'DictionaryCache'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwDictionaryCache'
+
+ENDME // ME_55A3DF0603C6 TtfwDictionaryCache

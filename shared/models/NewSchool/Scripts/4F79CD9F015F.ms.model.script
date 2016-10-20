@@ -39,7 +39,7 @@ ME ME_4F79D07902E1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
  ;
- MELINK Target WL 'ME_4F72CAA90045' '528E3DE20137.ms.model.script' // Tl3ComponentInfoHelper
+ MELINK Target WL? 'ME_4F72CAA90045' // Tl3ComponentInfoHelper
  ;
 
 ENDME // ME_4F79D07902E1 
@@ -69,17 +69,29 @@ ME ME_51238F56033F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
  ;
- MELINK Target WL 'ME_4DEF306102FF' '4DEF302C0007.ms.model.script' // TtfwScriptEngineEX
+ MELINK Target WL? 'ME_4DEF306102FF' // TtfwScriptEngineEX
  ;
 
 ENDME // ME_51238F56033F 
 
-ME ME_52F2269B0373_ME_4F79CD9F015F
- MELINK Original WL 'ME_52F2269B0373' '50883A2E00B3.ms.model.script' // BeforeApplicationRun
+MEREF ME_52F2269B0373_ME_4F79CD9F015F_over
+ MELINK Original WL 'ME_52F2269B0373' '4AB22E140136.ms.model.script' // BeforeApplicationRun
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" true
-ENDME // ME_52F2269B0373_ME_4F79CD9F015F BeforeApplicationRun
+ENDMEREF // ME_52F2269B0373_ME_4F79CD9F015F_over BeforeApplicationRun
+
+MEREF ME_52F21A610247_ME_4F79CD9F015F_G
+ MELINK Original WL? 'ME_52F21A610247' // GUIAppTester
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F21A610247_ME_4F79CD9F015F_G GUIAppTester
+
+MEREF ME_523040FB01AA_ME_4F79CD9F015F_R
+ MELINK Original WL 'ME_523040FB01AA' '50883A2E00B3.ms.model.script' // MvcmApplication
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_523040FB01AA_ME_4F79CD9F015F_R MvcmApplication
 
 %%ImplementedBy ME_523040FB01AA ME_4F79CD9F015F
 
@@ -98,15 +110,15 @@ ME ME_4F79CD9F015F
  MELINK Parent WL? 'ME_4F79CD2603DF' // AppTestingSupport
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_52F21A610247' // GUIAppTester
+   Seq: ( ME_52F21A610247_ME_4F79CD9F015F_G // GUIAppTester
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_523040FB01AA' '50883A2E00B3.ms.model.script' // MvcmApplication
+   Seq: ( ME_523040FB01AA_ME_4F79CD9F015F_R // MvcmApplication
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_52F2269B0373_ME_4F79CD9F015F // BeforeApplicationRun
+   Seq: ( ME_52F2269B0373_ME_4F79CD9F015F_over // BeforeApplicationRun
  )
  ; // Overridden
  MELIST Dependencies

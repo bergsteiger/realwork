@@ -1,0 +1,145 @@
+// Tl3FontManagerPrimPrim 53147FD702AC SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53147FD702AC
+%%Inner ME_53147FD702AC
+
+FORWARD ME_53147FD702AC
+
+ME ME_53148388028F
+ MEPROP UID '53148388028F'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_53148388028F l3Items_NoSort
+
+ME ME_53148397004B
+ MEPROP UID '53148397004B'
+ MEPROP Name 'l3Items_CaseUnsensitive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ;
+ UP extprop:rc:SelfName 'Items_CaseUnsensitive'
+
+ENDME // ME_53148397004B l3Items_CaseUnsensitive
+
+ME ME_5314804E0154
+ MEPROP UID '5314804E0154'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ;
+ MELINK Target WL? 'ME_484CE8FF0292' // Tl3LogFont
+ ;
+
+ENDME // ME_5314804E0154 ItemType
+
+ME ME_531480E600B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_531480E600B2 
+
+ME ME_5314814800BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53147FD702AC // Tl3FontManagerPrimPrim
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_5314814800BA 
+
+MEREF ME_47B2C42A0163_ME_53147FD702AC_impl
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDMEREF // ME_47B2C42A0163_ME_53147FD702AC_impl AssignItem
+
+MEREF ME_47B99D4503A2_ME_53147FD702AC_impl
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_47B99D4503A2_ME_53147FD702AC_impl CompareExistingItems
+
+MEREF ME_47B99E920196_ME_53147FD702AC_G
+ MELINK Original WL? 'ME_47B99E920196' // l3UncomparabeObjectRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B99E920196_ME_53147FD702AC_G l3UncomparabeObjectRefList
+
+MEREF ME_4A54DD4E036F_ME_53147FD702AC_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_53147FD702AC_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B99E920196 ME_53147FD702AC
+%%InheritedBy ME_4A54DD4E036F ME_53147FD702AC
+
+ME ME_53147FD702AC
+ MEPROP UID '53147FD702AC'
+ MEPROP Name 'Tl3FontManagerPrimPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B99E920196_ME_53147FD702AC_G // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F_ME_53147FD702AC_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5314804E0154 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_53147FD702AC_impl // AssignItem
+ ME_47B99D4503A2_ME_53147FD702AC_impl // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_53148388028F // l3Items_NoSort
+ HWL ME_53148397004B // l3Items_CaseUnsensitive
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_531480E600B2 // l3String
+ ME_5314814800BA // Indexes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
+ UP extprop:rc:SelfName 'FontManagerPrimPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FontManagerPrimPrim'
+
+ENDME // ME_53147FD702AC Tl3FontManagerPrimPrim

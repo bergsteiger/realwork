@@ -21,10 +21,16 @@ ME ME_567ACC2E02F3
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_567ACC1F028D // kwKeyValuesPack
  ;
- MELINK Target WL 'ME_4F216D8D01A0' '4DAEEA14018A.ms.model.script' // TkwCompiledProcedure
+ MELINK Target WL? 'ME_4F216D8D01A0' // TkwCompiledProcedure
  ;
 
 ENDME // ME_567ACC2E02F3 
+
+MEREF ME_567ACBF70376_ME_567ACC1F028D_G
+ MELINK Original WL? 'ME_567ACBF70376' // TkwKeyValues
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_567ACBF70376_ME_567ACC1F028D_G TkwKeyValues
 
 %%InjectedBy ME_4F216D8D01A0 ME_567ACC1F028D
 
@@ -42,7 +48,7 @@ ME ME_567ACC1F028D
  MELINK Parent WL? 'ME_4DAEEA14018A' // Scripting Axiomatics
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_567ACBF70376' '4DAEEA14018A.ms.model.script' // TkwKeyValues
+   Seq: ( ME_567ACBF70376_ME_567ACC1F028D_G // TkwKeyValues
  )
  ; // Inherits
  MELIST Operations

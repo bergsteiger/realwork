@@ -1,0 +1,293 @@
+// TevdTextToFirstParaAdder 4CDD7C01013F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDD7C01013F
+
+ME ME_4CDD7C8003A6
+ MEPROP UID '4CDD7C8003A6'
+ MEPROP Name 'f_Text'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD7C8003A6 f_Text
+
+ME ME_4CDD7D660269
+ MEPROP UID '4CDD7D660269'
+ MEPROP Name 'f_WasAdd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CDD7D660269 f_WasAdd
+
+FORWARD ME_4CDD7CC5001A
+
+ME ME_4CDD7CF8038F
+ MEPROP Name 'theGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_4CDD7CF8038F theGenerator
+
+ME ME_4CDD7CF803AB
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD7CF803AB aText
+
+ME ME_4CDD7CCF0273
+ MEPROP UID '4CDD7CCF0273'
+ MEPROP Name '<<>> DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD7CC5001A // SetTo
+ ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CDD7CF8038F // theGenerator
+ ME_4CDD7CF803AB // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4CDD7CCF0273 <<>> DoIt
+
+ME ME_4CDD7D430102
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7CC5001A // SetTo
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CDD7D430102 
+
+ME ME_4CDD7CC5001A
+ MEPROP UID '4CDD7CC5001A'
+ MEPROP Name 'SetTo'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD7CCF0273 // <<>> DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CDD7D430102 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" true
+
+ENDME // ME_4CDD7CC5001A SetTo
+
+FORWARD ME_4CDD7CFF03C8
+
+ME ME_4CDD7D0A021E
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CDD7D0A021E aText
+
+ME ME_4CDD7D0600CA
+ MEPROP UID '4CDD7D0600CA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD7CFF03C8 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CDD7D0A021E // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4CDD7D0600CA DoIt
+
+ME ME_4CDD7CFF03C8
+ MEPROP UID '4CDD7CFF03C8'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD7D0600CA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDD7CFF03C8 Create
+
+ME ME_4CDD7EBC036D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CDD7EBC036D 
+
+ME ME_4CDD80D0006F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL? 'ME_4773DEF0021B' // Tl3CustomString
+ ;
+
+ENDME // ME_4CDD80D0006F 
+
+ME ME_4CDD8345017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_4CDD8345017B 
+
+ME ME_4CDD835C0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_47F24AFB0308' '469D0AC7005E.ms.model.script' // Layers
+ ;
+
+ENDME // ME_4CDD835C0099 
+
+ME ME_4CDD852A0016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_4CDD852A0016 
+
+ME ME_4CDD860100AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_4CDD860100AA 
+
+ME ME_4CDD87EB0046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDD7C01013F // TevdTextToFirstParaAdder
+ ;
+ MELINK Target WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+
+ENDME // ME_4CDD87EB0046 
+
+MEREF ME_479731C50290_ME_4CDD7C01013F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4CDD7C01013F_over Cleanup
+
+MEREF ME_49E4883E0176_ME_4CDD7C01013F_over
+ MELINK Original WL 'ME_49E4883E0176' '49E487650342.ms.model.script' // DoWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E4883E0176_ME_4CDD7C01013F_over DoWritePara
+
+MEREF ME_49E487650342_ME_4CDD7C01013F_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_4CDD7C01013F_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_4CDD7C01013F
+
+ME ME_4CDD7C01013F
+ MEPROP UID '4CDD7C01013F'
+ MEPROP Name 'TevdTextToFirstParaAdder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтр, добавляющий текст к первому параграфу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_4CDD7C01013F_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CDD7C8003A6 // f_Text
+ HWL ME_4CDD7D660269 // f_WasAdd
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDD7CC5001A // SetTo
+ HWL ME_4CDD7CFF03C8 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CDD7C01013F_over // Cleanup
+ ME_49E4883E0176_ME_4CDD7C01013F_over // DoWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CDD7EBC036D // Tk2TagID
+ ME_4CDD80D0006F // Tl3CustomString
+ ME_4CDD8345017B // HyperLink
+ ME_4CDD835C0099 // Layers
+ ME_4CDD852A0016 // l3String
+ ME_4CDD860100AA // Ik2Tag
+ ME_4CDD87EB0046 // Indexes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '12.11.2010 20:41'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdTextToFirstParaAdder.pas'
+ UP extprop:rc:SelfName 'dTextToFirstParaAdder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdTextToFirstParaAdder'
+
+ENDME // ME_4CDD7C01013F TevdTextToFirstParaAdder

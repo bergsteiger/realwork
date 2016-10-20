@@ -1,0 +1,308 @@
+// TcaJournal 56BD8F200154 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56BD8F200154
+
+ME ME_56BDCB8B0200
+ MEPROP UID '56BDCB8B0200'
+ MEPROP Name 'f_HTJournal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+
+ENDME // ME_56BDCB8B0200 f_HTJournal
+
+ME ME_56BDCB9C0272
+ MEPROP UID '56BDCB9C0272'
+ MEPROP Name 'f_PGJournal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+
+ENDME // ME_56BDCB9C0272 f_PGJournal
+
+FORWARD ME_56BD9BFD0109
+
+ME ME_56BD9C080211
+ MEPROP Name 'aFactory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_554C78BD038C' '5432518A0316.ms.model.script' // IdaTableQueryFactory
+ ;
+
+ENDME // ME_56BD9C080211 aFactory
+
+ME ME_56BDCBC5033B
+ MEPROP Name 'aHTJournal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+
+ENDME // ME_56BDCBC5033B aHTJournal
+
+ME ME_56BDCBC5035A
+ MEPROP Name 'aPGJournal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+
+ENDME // ME_56BDCBC5035A aPGJournal
+
+ME ME_56BD9C06005F
+ MEPROP UID '56BD9C06005F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56BD9BFD0109 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_56BD9C080211 // aFactory
+ ME_56BDCBC5033B // aHTJournal
+ ME_56BDCBC5035A // aPGJournal
+ )
+ ; // Parameters
+
+ENDME // ME_56BD9C06005F DoIt
+
+ME ME_56BD9BFD0109
+ MEPROP UID '56BD9BFD0109'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56BD9C06005F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56BD9BFD0109 Create
+
+MEREF ME_56BD9BFD0109_ME_56BD9C15024A_G
+ MELINK Original HWL ME_56BD9BFD0109 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_56BD9BFD0109_ME_56BD9C15024A_G Create
+
+MEREF ME_5540922C0376_ME_56BD9C15024A_R
+ MELINK Original WL 'ME_5540922C0376' '5432518A0316.ms.model.script' // IdaJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5540922C0376_ME_56BD9C15024A_R IdaJournal
+
+%%ImplementedBy ME_5540922C0376 ME_56BD9C15024A
+
+%%InheritedBy ME_56BD9BFD0109 ME_56BD9C15024A
+
+ME ME_56BD9C15024A
+ MEPROP UID '56BD9C15024A'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELIST Inherits
+   Seq: ( ME_56BD9BFD0109_ME_56BD9C15024A_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5540922C0376_ME_56BD9C15024A_R // IdaJournal
+ )
+ ; // Implements
+
+ENDME // ME_56BD9C15024A Make
+
+ME ME_56E2B4A90066
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL? 'ME_552D07EB03CB' // TdaScheme
+ ;
+
+ENDME // ME_56E2B4A90066 
+
+ME ME_56E2B4B8036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL? 'ME_55C84D190010' // TdaSelectFieldList
+ ;
+
+ENDME // ME_56E2B4B8036A 
+
+ME ME_56E2BB24017D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL? 'ME_56DFD1470338' // TcaResultSet
+ ;
+
+ENDME // ME_56E2BB24017D 
+
+ME ME_56E2BB400190
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56BD8F200154 // TcaJournal
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_56E2BB400190 
+
+MEREF ME_5549F6220397_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_5549F6220397' '559A3BD901CC.ms.model.script' // DoLogEvent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_5549F6220397_ME_56BD8F200154_impl DoLogEvent
+
+MEREF ME_559A42120304_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559A42120304' '559A3BD901CC.ms.model.script' // CurStatTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ UP "reads field" true
+ENDMEREF // ME_559A42120304_ME_56BD8F200154_impl CurStatTree
+
+MEREF ME_559B6A290200_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559B6A290200' '559A3BD901CC.ms.model.script' // CheckUser
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A290200_ME_56BD8F200154_impl CheckUser
+
+MEREF ME_559B6A7C03AA_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559B6A7C03AA' '559A3BD901CC.ms.model.script' // UserChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A7C03AA_ME_56BD8F200154_impl UserChanged
+
+MEREF ME_559B6A8C0034_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559B6A8C0034' '559A3BD901CC.ms.model.script' // SessionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B6A8C0034_ME_56BD8F200154_impl SessionChanged
+
+MEREF ME_559B889B030B_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559B889B030B' '559A3BD901CC.ms.model.script' // DoStartCaching
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B889B030B_ME_56BD8F200154_impl DoStartCaching
+
+MEREF ME_559B88B00126_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559B88B00126' '559A3BD901CC.ms.model.script' // DoStopCaching
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559B88B00126_ME_56BD8F200154_impl DoStopCaching
+
+MEREF ME_559CF9D300FA_ME_56BD8F200154_impl
+ MELINK Original WL 'ME_559CF9D300FA' '559A3BD901CC.ms.model.script' // MakeResultSet
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_559CF9D300FA_ME_56BD8F200154_impl MakeResultSet
+
+MEREF ME_479731C50290_ME_56BD8F200154_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_56BD8F200154_over Cleanup
+
+MEREF ME_56F2622600C7_ME_56BD8F200154_over
+ MELINK Original WL 'ME_56F2622600C7' '559A3BD901CC.ms.model.script' // NeedLogSessionBegin
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56F2622600C7_ME_56BD8F200154_over NeedLogSessionBegin
+
+MEREF ME_56F271D602AB_ME_56BD8F200154_over
+ MELINK Original WL 'ME_56F271D602AB' '559A3BD901CC.ms.model.script' // NeedLogSessionEnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_56F271D602AB_ME_56BD8F200154_over NeedLogSessionEnd
+
+MEREF ME_559A3BD901CC_ME_56BD8F200154_G
+ MELINK Original WL? 'ME_559A3BD901CC' // TdaJournal
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_559A3BD901CC_ME_56BD8F200154_G TdaJournal
+
+%%InheritedBy ME_559A3BD901CC ME_56BD8F200154
+
+ME ME_56BD8F200154
+ MEPROP UID '56BD8F200154'
+ MEPROP Name 'TcaJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_56A86AF40350' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_559A3BD901CC_ME_56BD8F200154_G // TdaJournal
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56BDCB8B0200 // f_HTJournal
+ HWL ME_56BDCB9C0272 // f_PGJournal
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56BD9BFD0109 // Create
+ HWL ME_56BD9C15024A // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5549F6220397_ME_56BD8F200154_impl // DoLogEvent
+ ME_559A42120304_ME_56BD8F200154_impl // CurStatTree
+ ME_559B6A290200_ME_56BD8F200154_impl // CheckUser
+ ME_559B6A7C03AA_ME_56BD8F200154_impl // UserChanged
+ ME_559B6A8C0034_ME_56BD8F200154_impl // SessionChanged
+ ME_559B889B030B_ME_56BD8F200154_impl // DoStartCaching
+ ME_559B88B00126_ME_56BD8F200154_impl // DoStopCaching
+ ME_559CF9D300FA_ME_56BD8F200154_impl // MakeResultSet
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56BD8F200154_over // Cleanup
+ ME_56F2622600C7_ME_56BD8F200154_over // NeedLogSessionBegin
+ ME_56F271D602AB_ME_56BD8F200154_over // NeedLogSessionEnd
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_56E2B4A90066 // TdaScheme
+ ME_56E2B4B8036A // TdaSelectFieldList
+ ME_56E2BB24017D // TcaResultSet
+ ME_56E2BB400190 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caJournal.pas'
+ UP extprop:rc:SelfName 'caJournal'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'caJournal'
+
+ENDME // ME_56BD8F200154 TcaJournal

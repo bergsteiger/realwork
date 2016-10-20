@@ -1,0 +1,76 @@
+// TmsmWordByNameList 57B2D8A80322 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B2D8A80322
+
+ME ME_57B2D9670011
+ MEPROP UID '57B2D9670011'
+ MEPROP Name 'FindDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2D8A80322 // TmsmWordByNameList
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57B2D9670011 FindDataType
+
+MEREF ME_47B9BAFD01F4_ME_57B2D8A80322_over
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47B9BAFD01F4_ME_57B2D8A80322_over CompareItemWithData
+
+MEREF ME_57B2D8400355_ME_57B2D8A80322_G
+ MELINK Original WL? 'ME_57B2D8400355' // TmsmWordByNameListPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B2D8400355_ME_57B2D8A80322_G TmsmWordByNameListPrim
+
+MEREF ME_47B47E230134_ME_57B2D8A80322_R
+ MELINK Original WL? 'ME_47B47E230134' // l3Searcher
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B47E230134_ME_57B2D8A80322_R l3Searcher
+
+%%ImplementedBy ME_47B47E230134 ME_57B2D8A80322
+
+%%InheritedBy ME_57B2D8400355 ME_57B2D8A80322
+
+ME ME_57B2D8A80322
+ MEPROP UID '57B2D8A80322'
+ MEPROP Name 'TmsmWordByNameList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57B2D67D038F' // WordsCache
+ ;
+ MELIST Inherits
+   Seq: ( ME_57B2D8400355_ME_57B2D8A80322_G // TmsmWordByNameListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B47E230134_ME_57B2D8A80322_R // l3Searcher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57B2D9670011 // FindDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47B9BAFD01F4_ME_57B2D8A80322_over // CompareItemWithData
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWordByNameList.pas'
+ UP extprop:rc:SelfName 'msmWordByNameList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmWordByNameList'
+
+ENDME // ME_57B2D8A80322 TmsmWordByNameList

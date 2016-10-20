@@ -1,0 +1,133 @@
+// TTabInTableTest 4D5A45CE00ED TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5A45CE00ED
+
+ME ME_4D5A4CC800DA
+ MEPROP Name 'aCellPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4D5A4CC800DA aCellPoint
+
+ME ME_4D5A4CA602E5
+ MEPROP UID '4D5A4CA602E5'
+ MEPROP Name 'CheckPoint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A45CE00ED // TTabInTableTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5A4CC800DA // aCellPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4D5A4CA602E5 CheckPoint
+
+ME ME_4D5A4CD801F7
+ MEPROP UID '4D5A4CD801F7'
+ MEPROP Name 'GetDownMoveCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'Количество смещений вниз' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A45CE00ED // TTabInTableTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A4CD801F7 GetDownMoveCount
+
+ME ME_4D5A4CFB029F
+ MEPROP UID '4D5A4CFB029F'
+ MEPROP Name 'GetTabMoveCount'
+ MEPROP Class class_Operation
+ %SUMMARY 'Количество смещений по табуляциии' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5A45CE00ED // TTabInTableTest
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D5A4CFB029F GetTabMoveCount
+
+ME ME_4D5A4C8F018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D5A45CE00ED // TTabInTableTest
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4D5A4C8F018C 
+
+MEREF ME_4BE419AF0217_ME_4D5A45CE00ED_impl
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4BE419AF0217_ME_4D5A45CE00ED_impl DoVisit
+
+MEREF ME_4BE425C70228_ME_4D5A45CE00ED_G
+ MELINK Original WL? 'ME_4BE425C70228' // TTextEditorVisitor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE425C70228_ME_4D5A45CE00ED_G TTextEditorVisitor
+
+MEREF ME_4C500D6101D8_ME_4D5A45CE00ED_R
+ MELINK Original WL? 'ME_4C500D6101D8' // CursorMover
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4C500D6101D8_ME_4D5A45CE00ED_R CursorMover
+
+%%ImplementedBy ME_4C500D6101D8 ME_4D5A45CE00ED
+
+%%InheritedBy ME_4BE425C70228 ME_4D5A45CE00ED
+
+ME ME_4D5A45CE00ED
+ MEPROP UID '4D5A45CE00ED'
+ MEPROP Name 'TTabInTableTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Теситрование поведения таблицации в таблице' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4BE425C70228_ME_4D5A45CE00ED_G // TTextEditorVisitor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4C500D6101D8_ME_4D5A45CE00ED_R // CursorMover
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4D5A4CA602E5 // CheckPoint
+ HWL ME_4D5A4CD801F7 // GetDownMoveCount
+ HWL ME_4D5A4CFB029F // GetTabMoveCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BE419AF0217_ME_4D5A45CE00ED_impl // DoVisit
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4D5A4C8F018C // InevBasePoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\TabInTableTest.pas'
+ UP extprop:rc:SelfName 'TabInTableTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'TabInTableTest'
+
+ENDME // ME_4D5A45CE00ED TTabInTableTest

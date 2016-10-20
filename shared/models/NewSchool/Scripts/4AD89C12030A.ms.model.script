@@ -1,0 +1,233 @@
+// TvcmMakeParams 4AD89C12030A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD89C12030A
+
+ME ME_4AD89CCB0356
+ MEPROP UID '4AD89CCB0356'
+ MEPROP Name 'f_Container'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4AD89C12030A // TvcmMakeParams
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AD89CCB0356 f_Container
+
+ME ME_4AD89CD9010C
+ MEPROP UID '4AD89CD9010C'
+ MEPROP Name 'f_Aggregate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4AD89C12030A // TvcmMakeParams
+ ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_4AD89CD9010C f_Aggregate
+
+ME ME_4AD89CF002B2
+ MEPROP UID '4AD89CF002B2'
+ MEPROP Name 'f_Owner'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4AD89C12030A // TvcmMakeParams
+ ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4AD89CF002B2 f_Owner
+
+ME ME_4AD89D15003E
+ MEPROP Name 'anAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_4AD89D15003E anAggregate
+
+ME ME_4AD89D150082
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AD89D150082 aContainer
+
+ME ME_4AD89D1500CA
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4AD89D1500CA anOwner
+
+ME ME_4AD89CFA01E7
+ MEPROP UID '4AD89CFA01E7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD89C12030A // TvcmMakeParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD89D15003E // anAggregate
+ ME_4AD89D150082 // aContainer
+ ME_4AD89D1500CA // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4AD89CFA01E7 Create
+
+ME ME_4AD89D22030D
+ MEPROP Name 'anAggregate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930CC501C9' '4683F37902CF.ms.model.script' // IvcmAggregate
+ ;
+
+ENDME // ME_4AD89D22030D anAggregate
+
+ME ME_4AD89D220359
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AD89D220359 aContainer
+
+ME ME_4AD89D2203A4
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4AD89D2203A4 anOwner
+
+ME ME_4AD89D1D006F
+ MEPROP UID '4AD89D1D006F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD89C12030A // TvcmMakeParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD89D22030D // anAggregate
+ ME_4AD89D220359 // aContainer
+ ME_4AD89D2203A4 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4AD89D1D006F Make
+
+MEREF ME_49930FC002C3_ME_4AD89C12030A_impl
+ MELINK Original WL 'ME_49930FC002C3' '4683F37902CF.ms.model.script' // Owner
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49930FC002C3_ME_4AD89C12030A_impl Owner
+
+MEREF ME_49930FD200AC_ME_4AD89C12030A_impl
+ MELINK Original WL 'ME_49930FD200AC' '4683F37902CF.ms.model.script' // Aggregate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49930FD200AC_ME_4AD89C12030A_impl Aggregate
+
+MEREF ME_49930FE602DE_ME_4AD89C12030A_impl
+ MELINK Original WL 'ME_49930FE602DE' '4683F37902CF.ms.model.script' // Container
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_49930FE602DE_ME_4AD89C12030A_impl Container
+
+MEREF ME_479731C50290_ME_4AD89C12030A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4AD89C12030A_over Cleanup
+
+MEREF ME_49E7754802A9_ME_4AD89C12030A_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_4AD89C12030A_G Tl3ProtoObject
+
+MEREF ME_49930F8B0367_ME_4AD89C12030A_R
+ MELINK Original WL 'ME_49930F8B0367' '4683F37902CF.ms.model.script' // IvcmMakeParams
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49930F8B0367_ME_4AD89C12030A_R IvcmMakeParams
+
+%%ImplementedBy ME_49930F8B0367 ME_4AD89C12030A
+
+%%InheritedBy ME_49E7754802A9 ME_4AD89C12030A
+
+ME ME_4AD89C12030A
+ MEPROP UID '4AD89C12030A'
+ MEPROP Name 'TvcmMakeParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47D0E1500033' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_4AD89C12030A_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49930F8B0367_ME_4AD89C12030A_R // IvcmMakeParams
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AD89CCB0356 // f_Container
+ HWL ME_4AD89CD9010C // f_Aggregate
+ HWL ME_4AD89CF002B2 // f_Owner
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AD89CFA01E7 // Create
+ HWL ME_4AD89D1D006F // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49930FC002C3_ME_4AD89C12030A_impl // Owner
+ ME_49930FD200AC_ME_4AD89C12030A_impl // Aggregate
+ ME_49930FE602DE_ME_4AD89C12030A_impl // Container
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AD89C12030A_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '16.10.2009 20:15'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas'
+ UP extprop:rc:SelfName 'MakeParams'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmMakeParams'
+
+ENDME // ME_4AD89C12030A TvcmMakeParams

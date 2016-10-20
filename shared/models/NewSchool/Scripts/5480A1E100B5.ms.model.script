@@ -1,0 +1,166 @@
+// Tm3TempStream 5480A1E100B5 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5480A1E100B5
+
+FORWARD ME_5480A22102AA
+
+ME ME_5480A23D01A6
+ MEPROP Name 'APath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_5480A23D01A6 APath
+
+ME ME_5480A23D01CD
+ MEPROP Name 'AExt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_5480A23D01CD AExt
+
+ME ME_5480A22F0399
+ MEPROP UID '5480A22F0399'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5480A22102AA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5480A23D01A6 // APath
+ ME_5480A23D01CD // AExt
+ )
+ ; // Parameters
+
+ENDME // ME_5480A22F0399 DoIt
+
+ME ME_5481A134016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5480A22102AA // Create
+ ;
+ MELINK Target WL? 'ME_5481A114014B' // m2TMPLib
+ ;
+
+ENDME // ME_5481A134016B 
+
+ME ME_5481A5770314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5480A22102AA // Create
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_5481A5770314 
+
+ME ME_5480A22102AA
+ MEPROP UID '5480A22102AA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5480A1E100B5 // Tm3TempStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5480A22F0399 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5481A134016B // m2TMPLib
+ ME_5481A5770314 // Windows
+ )
+ ; // Dependencies
+
+ENDME // ME_5480A22102AA Create
+
+MEREF ME_5480A22102AA_ME_5480A250033D_G
+ MELINK Original HWL ME_5480A22102AA // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5480A22102AA_ME_5480A250033D_G Create
+
+MEREF ME_46A5AFF103CA_ME_5480A250033D_R
+ MELINK Original WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_46A5AFF103CA_ME_5480A250033D_R IStream
+
+%%ImplementedBy ME_46A5AFF103CA ME_5480A250033D
+
+%%InheritedBy ME_5480A22102AA ME_5480A250033D
+
+ME ME_5480A250033D
+ MEPROP UID '5480A250033D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5480A1E100B5 // Tm3TempStream
+ ;
+ MELIST Inherits
+   Seq: ( ME_5480A22102AA_ME_5480A250033D_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_46A5AFF103CA_ME_5480A250033D_R // IStream
+ )
+ ; // Implements
+
+ENDME // ME_5480A250033D Make
+
+MEREF ME_4FA276920090_ME_5480A1E100B5_G
+ MELINK Original WL? 'ME_4FA276920090' // Tm3FileStream
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FA276920090_ME_5480A1E100B5_G Tm3FileStream
+
+%%InheritedBy ME_4FA276920090 ME_5480A1E100B5
+
+ME ME_5480A1E100B5
+ MEPROP UID '5480A1E100B5'
+ MEPROP Name 'Tm3TempStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_5485B0D1026C' // Streams
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FA276920090_ME_5480A1E100B5_G // Tm3FileStream
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5480A22102AA // Create
+ HWL ME_5480A250033D // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3TempStream.pas'
+ UP extprop:rc:SelfName 'm3TempStream'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'm3TempStream'
+
+ENDME // ME_5480A1E100B5 Tm3TempStream

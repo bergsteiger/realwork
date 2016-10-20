@@ -4,11 +4,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_495504A000F2
 
-ME ME_492406340209_ME_495504A000F2
+MEREF ME_492406340209_ME_495504A000F2_over
  MELINK Original WL 'ME_492406340209' '4924015202CD.ms.model.script' // GetOperations
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_492406340209_ME_495504A000F2 GetOperations
+ENDMEREF // ME_492406340209_ME_495504A000F2_over GetOperations
+
+MEREF ME_492437620004_ME_495504A000F2_G
+ MELINK Original WL? 'ME_492437620004' // TdsTreeAttributeSelect
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492437620004_ME_495504A000F2_G TdsTreeAttributeSelect
 
 %%InheritedBy ME_492437620004 ME_495504A000F2
 
@@ -24,11 +30,11 @@ ME ME_495504A000F2
  MELINK Parent WL? 'ME_491D9414002B' // Admin
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492437620004' // TdsTreeAttributeSelect
+   Seq: ( ME_492437620004_ME_495504A000F2_G // TdsTreeAttributeSelect
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_492406340209_ME_495504A000F2 // GetOperations
+   Seq: ( ME_492406340209_ME_495504A000F2_over // GetOperations
  )
  ; // Overridden
  UP "author" 'Λσκόνεφ Π.Β'

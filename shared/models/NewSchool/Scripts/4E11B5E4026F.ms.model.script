@@ -1,0 +1,46 @@
+// K272662869 4E11B5E4026F TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E11B5E4026F
+
+MEREF ME_4CC81D4101AC_ME_4E11B5E4026F_over
+ MELINK Original WL 'ME_4CC81D4101AC' '4CC815A00031.ms.model.script' // GetSelectParam
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CC81D4101AC_ME_4E11B5E4026F_over GetSelectParam
+
+MEREF ME_4DCA1D3D034A_ME_4E11B5E4026F_G
+ MELINK Original WL? 'ME_4DCA1D3D034A' // THorzMergeCells
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DCA1D3D034A_ME_4E11B5E4026F_G THorzMergeCells
+
+%%InheritedBy ME_4DCA1D3D034A ME_4E11B5E4026F
+
+ME ME_4E11B5E4026F
+ MEPROP UID '4E11B5E4026F'
+ MEPROP Name 'K272662869'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$272662869]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D02571C01D0' // 7.7
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DCA1D3D034A_ME_4E11B5E4026F_G // THorzMergeCells
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CC81D4101AC_ME_4E11B5E4026F_over // GetSelectParam
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K272662869.pas'
+ UP extprop:pas:TypeName 'TK272662869'
+ UP extprop:rc:SelfName 'K272662869'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E11B5E4026F K272662869

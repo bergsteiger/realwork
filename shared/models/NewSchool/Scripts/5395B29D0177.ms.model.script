@@ -1,0 +1,35 @@
+// TCsReplyProcedures 5395B29D0177 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_5395C8DC03A7_ME_5395B29D0177_G
+ MELINK Original WL? 'ME_5395C8DC03A7' // TCsReplyProceduresWithRegistering
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5395C8DC03A7_ME_5395B29D0177_G TCsReplyProceduresWithRegistering
+
+%%InheritedBy ME_5395C8DC03A7 ME_5395B29D0177
+
+ME ME_5395B29D0177
+ MEPROP UID '5395B29D0177'
+ MEPROP Name 'TCsReplyProcedures'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс для регистрации "ответных процедур" сервера для запросов от клиента. Синглетон. Используется для "логики по-умолчанию". Т.е. когда сервер у нас в приложении ОДИН' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_538DA26C020A' // ServerSide
+ ;
+ MELIST Inherits
+   Seq: ( ME_5395C8DC03A7_ME_5395B29D0177_G // TCsReplyProceduresWithRegistering
+ )
+ ; // Inherits
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsReplyProcedures.pas'
+ UP extprop:rc:SelfName 'CsReplyProcedures'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'CsReplyProcedures'
+
+ENDME // ME_5395B29D0177 TCsReplyProcedures

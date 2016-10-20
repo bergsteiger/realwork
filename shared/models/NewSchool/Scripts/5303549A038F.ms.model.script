@@ -8,19 +8,25 @@ FORWARD ME_5303549A038F
 
 FORWARD ME_530354C00376
 
-ME ME_53E0D9150023_ME_530354C00376
+MEREF ME_53E0D9150023_ME_530354C00376_over
  MELINK Original WL 'ME_53E0D9150023' '52F8C2AE0042.ms.model.script' // TaskResult
  ;
  MEPROP OpKind opkind_Overridden
  UP "pm" true
  UP "reads field" true
-ENDME // ME_53E0D9150023_ME_530354C00376 TaskResult
+ENDMEREF // ME_53E0D9150023_ME_530354C00376_over TaskResult
 
-ME ME_53E1CB0C03C9_ME_530354C00376
+MEREF ME_53E1CB0C03C9_ME_530354C00376_over
  MELINK Original WL 'ME_53E1CB0C03C9' '52F8C2AE0042.ms.model.script' // GetTaskResultClass : TcsClassResultClass
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_53E1CB0C03C9_ME_530354C00376 GetTaskResultClass : TcsClassResultClass
+ENDMEREF // ME_53E1CB0C03C9_ME_530354C00376_over GetTaskResultClass : TcsClassResultClass
+
+MEREF ME_53F46C710363_ME_530354C00376_G
+ MELINK Original WL? 'ME_53F46C710363' // TcsAutoClassTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53F46C710363_ME_530354C00376_G TcsAutoClassTask
 
 %%InheritedBy ME_53F46C710363 ME_530354C00376
 
@@ -35,12 +41,12 @@ ME ME_530354C00376
  MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_53F46C710363' '52F8C298005C.ms.model.script' // TcsAutoClassTask
+   Seq: ( ME_53F46C710363_ME_530354C00376_G // TcsAutoClassTask
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_53E0D9150023_ME_530354C00376 // TaskResult
- ME_53E1CB0C03C9_ME_530354C00376 // GetTaskResultClass : TcsClassResultClass
+   Seq: ( ME_53E0D9150023_ME_530354C00376_over // TaskResult
+ ME_53E1CB0C03C9_ME_530354C00376_over // GetTaskResultClass : TcsClassResultClass
  )
  ; // Overridden
  UP "finished" false
@@ -54,7 +60,7 @@ ME ME_53F47244008E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
  ;
- MELINK Target WL 'ME_53F472280036' '52FA3DD30094.ms.model.script' // TalcuAutoClassTaskResult
+ MELINK Target WL? 'ME_53F472280036' // TalcuAutoClassTaskResult
  ;
 
 ENDME // ME_53F47244008E 

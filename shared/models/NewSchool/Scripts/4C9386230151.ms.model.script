@@ -1,0 +1,80 @@
+// TExcludedTestsFolders 4C9386230151 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9386230151
+
+FORWARD ME_4C938674023A
+
+ME ME_4C93867E028A
+ MEPROP UID '4C93867E028A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C938674023A // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C93867E028A DoIt
+
+ME ME_4C938674023A
+ MEPROP UID '4C938674023A'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C9386230151 // TExcludedTestsFolders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C93867E028A // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4C938674023A Exists
+
+MEREF ME_4773DCE302FF_ME_4C9386230151_G
+ MELINK Original WL? 'ME_4773DCE302FF' // Tl3StringList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DCE302FF_ME_4C9386230151_G Tl3StringList
+
+%%InheritedBy ME_4773DCE302FF ME_4C9386230151
+
+ME ME_4C9386230151
+ MEPROP UID '4C9386230151'
+ MEPROP Name 'TExcludedTestsFolders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Папки тестов исключаемые из запуска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4B2A112B011A' // Source
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DCE302FF_ME_4C9386230151_G // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C938674023A // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '17.09.2010 19:16'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\ExcludedTestsFolders.pas'
+ UP extprop:rc:SelfName 'ExcludedTestsFolders'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ExcludedTestsFolders'
+
+ENDME // ME_4C9386230151 TExcludedTestsFolders

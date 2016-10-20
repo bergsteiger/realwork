@@ -1,0 +1,100 @@
+// TalcuBaseEngineHolder 53CE4F2F008D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53CE4F2F008D
+
+ME ME_53CE4F5F0206
+ MEPROP UID '53CE4F5F0206'
+ MEPROP Name 'BaseEngine'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ MELINK Target WL? 'ME_53CCCA5B036F' // TalcuBaseEngine
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53CE4F5F0206 BaseEngine
+
+ME ME_561CCA19026B
+ MEPROP UID '561CCA19026B'
+ MEPROP Name 'IsBaseLocked'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_561CCA19026B IsBaseLocked
+
+ME ME_53CE578B0132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CE4F2F008D // TalcuBaseEngineHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53CE578B0132 
+
+MEREF ME_479731C50290_ME_53CE4F2F008D_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_53CE4F2F008D_over Cleanup
+
+MEREF ME_49E7754802A9_ME_53CE4F2F008D_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_53CE4F2F008D_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_53CE4F2F008D
+
+ME ME_53CE4F2F008D
+ MEPROP UID '53CE4F2F008D'
+ MEPROP Name 'TalcuBaseEngineHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_53CCCA40004C' // BaseEngine
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_53CE4F2F008D_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53CE4F5F0206 // BaseEngine
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_561CCA19026B // IsBaseLocked
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53CE4F2F008D_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53CE578B0132 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
+ UP extprop:rc:SelfName 'alcuBaseEngineHolder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuBaseEngineHolder'
+
+ENDME // ME_53CE4F2F008D TalcuBaseEngineHolder

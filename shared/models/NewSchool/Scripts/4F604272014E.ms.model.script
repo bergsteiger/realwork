@@ -1,0 +1,152 @@
+// TkwSelectCellsWord 4F604272014E SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F604272014E
+
+FORWARD ME_4F6042D20081
+
+ME ME_4F6042F603B1
+ MEPROP UID '4F6042F603B1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6042D20081 // IsVertical
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F6042F603B1 DoIt
+
+ME ME_4F6042D20081
+ MEPROP UID '4F6042D20081'
+ MEPROP Name 'IsVertical'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'При выделении мышь движется сверху вниз.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6042F603B1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6042D20081 IsVertical
+
+ME ME_4F6044D201C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4F6044D201C2 
+
+ME ME_4F6044E30016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4F6044E30016 
+
+ME ME_4F6044F10074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4F6044F10074 
+
+ME ME_4F604503012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4F604503012A 
+
+ME ME_4F60451400B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F604272014E // TkwSelectCellsWord
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4F60451400B3 
+
+MEREF ME_4F4CB81200CA_ME_4F604272014E_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4F604272014E_impl DoWithEditor
+
+MEREF ME_4F4CB625027A_ME_4F604272014E_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4F604272014E_G TkwEditorFromStackWord
+
+MEREF ME_4F549BD300D3_ME_4F604272014E_G
+ MELINK Original WL? 'ME_4F549BD300D3' // kwEditorGetTableFromCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F549BD300D3_ME_4F604272014E_G kwEditorGetTableFromCursor
+
+%%InheritedBy ME_4F4CB625027A ME_4F604272014E
+%%InheritedBy ME_4F549BD300D3 ME_4F604272014E
+
+ME ME_4F604272014E
+ MEPROP UID '4F604272014E'
+ MEPROP Name 'TkwSelectCellsWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь выделения мышью части таблицы в редакторе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4F604272014E_G // TkwEditorFromStackWord
+ ME_4F549BD300D3_ME_4F604272014E_G // kwEditorGetTableFromCursor
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F6042D20081 // IsVertical
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4F604272014E_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F6044D201C2 // l3FillChar
+ ME_4F6044E30016 // Tl3Point
+ ME_4F6044F10074 // InevMap
+ ME_4F604503012A // evL3CoreConsts
+ ME_4F60451400B3 // IevHotSpot
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas'
+ UP extprop:rc:SelfName 'SelectCellsWord'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwSelectCellsWord'
+
+ENDME // ME_4F604272014E TkwSelectCellsWord

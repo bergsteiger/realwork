@@ -4,11 +4,17 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4958986800FE
 
-ME ME_49589999029F_ME_4958986800FE
+MEREF ME_49589999029F_ME_4958986800FE_over
  MELINK Original WL 'ME_49589999029F' '47EA20430108.ms.model.script' // DoGet_PreviewCaleeArea
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49589999029F_ME_4958986800FE DoGet_PreviewCaleeArea
+ENDMEREF // ME_49589999029F_ME_4958986800FE_over DoGet_PreviewCaleeArea
+
+MEREF ME_4958980300D5_ME_4958986800FE_G
+ MELINK Original WL? 'ME_4958980300D5' // TdsChildDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4958980300D5_ME_4958986800FE_G TdsChildDocument
 
 %%InheritedBy ME_4958980300D5 ME_4958986800FE
 
@@ -25,11 +31,11 @@ ME ME_4958986800FE
  MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4958980300D5' // TdsChildDocument
+   Seq: ( ME_4958980300D5_ME_4958986800FE_G // TdsChildDocument
  )
  ; // Inherits
  MELIST Overridden
-   Seq: ( ME_49589999029F_ME_4958986800FE // DoGet_PreviewCaleeArea
+   Seq: ( ME_49589999029F_ME_4958986800FE_over // DoGet_PreviewCaleeArea
  )
  ; // Overridden
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsTranslation.pas'

@@ -58,7 +58,7 @@ ENDME // ME_9B180FFE55CF DoIt
 ME ME_52B9A7B2027D
  MEPROP UID '52B9A7B2027D'
  MEPROP Name 'RequestTabPosition'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -90,7 +90,7 @@ ENDME // ME_0618BA809CBA DoIt
 ME ME_52B9A85201C2
  MEPROP UID '52B9A85201C2'
  MEPROP Name 'DoActivePrevPage'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -103,6 +103,18 @@ ME ME_52B9A85201C2
  ; // Operations
 
 ENDME // ME_52B9A85201C2 DoActivePrevPage
+
+MEREF ME_52B993FB000A_ME_4E36C0C3014B_G
+ MELINK Original WL? 'ME_52B993FB000A' // TElXPThemedControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52B993FB000A_ME_4E36C0C3014B_G TElXPThemedControl
+
+MEREF ME_4E36C0310173_ME_4E36C0C3014B_R
+ MELINK Original WL 'ME_4E36C0310173' '4E36C0130013.ms.model.script' // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E36C0310173_ME_4E36C0C3014B_R Возможность выполнения действия по нажатию на страницу, а не переключение на неё
 
 %%ImplementedBy ME_4E36C0310173 ME_4E36C0C3014B
 
@@ -119,11 +131,11 @@ ME ME_4E36C0C3014B
  MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52B993FB000A' '499ABF4F02A1.ms.model.script' // TElXPThemedControl
+   Seq: ( ME_52B993FB000A_ME_4E36C0C3014B_G // TElXPThemedControl
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4E36C0310173' '4E36C0130013.ms.model.script' // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
+   Seq: ( ME_4E36C0310173_ME_4E36C0C3014B_R // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
  )
  ; // Implements
  MELIST Operations

@@ -1,0 +1,66 @@
+// TvcmUserFriendlyControlList 559E5F080019 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559E5F080019
+
+ME ME_559E5F32026E
+ MEPROP UID '559E5F32026E'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559E5F080019 // TvcmUserFriendlyControlList
+ ;
+ MELINK Target WL 'ME_499301BF0067' '499EAAE502A8.ms.model.script' // IvcmUserFriendlyControl
+ ;
+
+ENDME // ME_559E5F32026E ItemType
+
+MEREF ME_4A54DD4E036F_ME_559E5F080019_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_559E5F080019_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D830369_ME_559E5F080019_R
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_559E5F080019_R l3InterfaceRefList
+
+%%ImplementedBy ME_47B57D830369 ME_559E5F080019
+
+%%InheritedBy ME_4A54DD4E036F ME_559E5F080019
+
+ME ME_559E5F080019
+ MEPROP UID '559E5F080019'
+ MEPROP Name 'TvcmUserFriendlyControlList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4AB34028023E' // Components
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_559E5F080019_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D830369_ME_559E5F080019_R // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559E5F32026E // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserFriendlyControlList.pas'
+ UP extprop:rc:SelfName 'UserFriendlyControlList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmUserFriendlyControlList'
+
+ENDME // ME_559E5F080019 TvcmUserFriendlyControlList

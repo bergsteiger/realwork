@@ -1,0 +1,91 @@
+// TnsHistoryTree 490AE2C7034B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490AE2C7034B
+
+ME ME_490AE326000B
+ MEPROP UID '490AE326000B'
+ MEPROP Name 'MaxCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Определяет максимальное количество элементов в дереве. Ноль означает неограниченное количество элементов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490AE2C7034B // TnsHistoryTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_490AE326000B MaxCount
+
+ME ME_490AE30101A2
+ MEPROP Name 'aMaxCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_490AE30101A2 aMaxCount
+
+ME ME_490AE2F50049
+ MEPROP UID '490AE2F50049'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490AE2C7034B // TnsHistoryTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_490AE30101A2 // aMaxCount
+ )
+ ; // Parameters
+
+ENDME // ME_490AE2F50049 Create
+
+MEREF ME_4909EF3B02B1_ME_490AE2C7034B_G
+ MELINK Original WL? 'ME_4909EF3B02B1' // TnsBaseMainMenuTree
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4909EF3B02B1_ME_490AE2C7034B_G TnsBaseMainMenuTree
+
+%%InheritedBy ME_4909EF3B02B1 ME_490AE2C7034B
+
+ME ME_490AE2C7034B
+ MEPROP UID '490AE2C7034B'
+ MEPROP Name 'TnsHistoryTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Содержит поля и методы общие для деревьев содержащих последние открытые документы и запросы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4909EECE01D5' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( ME_4909EF3B02B1_ME_490AE2C7034B_G // TnsBaseMainMenuTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_490AE326000B // MaxCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_490AE2F50049 // Create
+ )
+ ; // Operations
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '2004/12/06 10:34:07'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\nsHistoryTree.pas'
+ UP extprop:rc:SelfName 'HistoryTree'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsHistoryTree'
+
+ENDME // ME_490AE2C7034B TnsHistoryTree

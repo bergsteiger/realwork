@@ -1,0 +1,195 @@
+// Tl3ObjectsMemoryManager 545CDF7D0249 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545CDF7D0249
+
+FORWARD ME_545CDFD70320
+
+ME ME_545CDFE003C0
+ MEPROP UID '545CDFE003C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CDFD70320 // Create
+ ;
+
+ENDME // ME_545CDFE003C0 DoIt
+
+ME ME_545CDFD70320
+ MEPROP UID '545CDFD70320'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545CDFE003C0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545CDFD70320 Create
+
+FORWARD ME_545CE0010153
+
+ME ME_545CE01B034E
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_545CE01B034E anObject
+
+ME ME_545CE018009C
+ MEPROP UID '545CE018009C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CE0010153 // FreeMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_545CE01B034E // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_545CE018009C DoIt
+
+ME ME_545CE0010153
+ MEPROP UID '545CE0010153'
+ MEPROP Name 'FreeMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545CE018009C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545CE0010153 FreeMem
+
+FORWARD ME_545CE0BF0347
+
+ME ME_545CE10D01D4
+ MEPROP Name 'thePlace'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_545CE10D01D4 thePlace
+
+ME ME_545CE10D0207
+ MEPROP Name 'aClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476775CB036A' '4807744200AA.ms.model.script' // TClass
+ ;
+
+ENDME // ME_545CE10D0207 aClass
+
+ME ME_545CE0D40350
+ MEPROP UID '545CE0D40350'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CE0BF0347 // GetMem
+ ;
+ MELIST Parameters
+   Seq: ( ME_545CE10D01D4 // thePlace
+ ME_545CE10D0207 // aClass
+ )
+ ; // Parameters
+
+ENDME // ME_545CE0D40350 DoIt
+
+ME ME_545CE0BF0347
+ MEPROP UID '545CE0BF0347'
+ MEPROP Name 'GetMem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545CE0D40350 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_545CE0BF0347 GetMem
+
+ME ME_545CF29A007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ ;
+ MELINK Target WL? 'ME_51DD554C0205' // Tl3MemUtils
+ ;
+
+ENDME // ME_545CF29A007F 
+
+ME ME_545D0B0E00E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545CDF7D0249 // Tl3ObjectsMemoryManager
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_545D0B0E00E8 
+
+MEREF ME_5453AE0C0100_ME_545CDF7D0249_G
+ MELINK Original WL? 'ME_5453AE0C0100' // Tl3SimpleMemoryManager
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5453AE0C0100_ME_545CDF7D0249_G Tl3SimpleMemoryManager
+
+%%InheritedBy ME_5453AE0C0100 ME_545CDF7D0249
+
+ME ME_545CDF7D0249
+ MEPROP UID '545CDF7D0249'
+ MEPROP Name 'Tl3ObjectsMemoryManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_545CDF1002C9' // MemoryManagers
+ ;
+ MELIST Inherits
+   Seq: ( ME_5453AE0C0100_ME_545CDF7D0249_G // Tl3SimpleMemoryManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_545CDFD70320 // Create
+ HWL ME_545CE0010153 // FreeMem
+ HWL ME_545CE0BF0347 // GetMem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_545CF29A007F // Tl3MemUtils
+ ME_545D0B0E00E8 // IntToStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ObjectsMemoryManager.pas'
+ UP extprop:rc:SelfName 'ObjectsMemoryManager'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3ObjectsMemoryManager'
+
+ENDME // ME_545CDF7D0249 Tl3ObjectsMemoryManager

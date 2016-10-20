@@ -1,0 +1,41 @@
+UNIT IsSameType.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ IsSameModelElement.ms.dict
+;
+
+USES
+ TypeNamePrimPrim.ms.dict
+;
+
+BOOLEAN elem_func IsSameType
+  ModelElement IN anOther
+ RULES
+  ( Self anOther .IsSameModelElement )
+   true
+  ( Self IsString )
+   RULES
+    ( anOther IsString )
+     false
+    DEFAULT 
+     ( Self anOther .TypeNamePrimPrim == )
+   ; // RULES
+  ( anOther IsString )
+   RULES
+    ( Self IsString )
+     false
+    DEFAULT 
+     ( Self .TypeNamePrimPrim anOther == )
+   ; // RULES
+  ( Self .TypeNamePrimPrim anOther .TypeNamePrimPrim == )
+   true
+  DEFAULT
+   false 
+ ; // RULES  
+ >>> Result 
+; // IsSameType
+

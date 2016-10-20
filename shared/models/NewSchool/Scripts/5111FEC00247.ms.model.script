@@ -1,0 +1,820 @@
+// TddCellProperty 5111FEC00247 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5111FEC00247
+
+FORWARD ME_5111FEC00247
+
+FORWARD ME_572C719103DE
+
+ME ME_572C71A2012B
+ MEPROP UID '572C71A2012B'
+ MEPROP Name 'dd_otNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_572C719103DE // TddOffsetType
+ ;
+
+ENDME // ME_572C71A2012B dd_otNone
+
+ME ME_572C71AC0314
+ MEPROP UID '572C71AC0314'
+ MEPROP Name 'dd_otByTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_572C719103DE // TddOffsetType
+ ;
+
+ENDME // ME_572C71AC0314 dd_otByTab
+
+ME ME_572C71B80038
+ MEPROP UID '572C71B80038'
+ MEPROP Name 'dd_otByColumn'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_572C719103DE // TddOffsetType
+ ;
+
+ENDME // ME_572C71B80038 dd_otByColumn
+
+ME ME_572C71C30163
+ MEPROP UID '572C71C30163'
+ MEPROP Name 'dd_otByLeftIndent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_572C719103DE // TddOffsetType
+ ;
+
+ENDME // ME_572C71C30163 dd_otByLeftIndent
+
+ME ME_572C71D000C9
+ MEPROP UID '572C71D000C9'
+ MEPROP Name 'dd_otByPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_572C719103DE // TddOffsetType
+ ;
+
+ENDME // ME_572C71D000C9 dd_otByPage
+
+ME ME_572C719103DE
+ MEPROP UID '572C719103DE'
+ MEPROP Name 'TddOffsetType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_572C71A2012B // dd_otNone
+ HWL ME_572C71AC0314 // dd_otByTab
+ HWL ME_572C71B80038 // dd_otByColumn
+ HWL ME_572C71C30163 // dd_otByLeftIndent
+ HWL ME_572C71D000C9 // dd_otByPage
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_572C719103DE TddOffsetType
+
+ME ME_52CF97F0005F
+ MEPROP UID '52CF97F0005F'
+ MEPROP Name 'Border'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL? 'ME_4F6843EE00B1' // TddBorder
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_52CF97F0005F Border
+
+ME ME_52CF98730373
+ MEPROP UID '52CF98730373'
+ MEPROP Name 'BottomPad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF98730373 BottomPad
+
+ME ME_52CF98AC0144
+ MEPROP UID '52CF98AC0144'
+ MEPROP Name 'CellSpan'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF98AC0144 CellSpan
+
+ME ME_52CF98EA024E
+ MEPROP UID '52CF98EA024E'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF98EA024E Index
+
+ME ME_52CF99160319
+ MEPROP UID '52CF99160319'
+ MEPROP Name 'LeftPad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF99160319 LeftPad
+
+ME ME_52CF995801E6
+ MEPROP UID '52CF995801E6'
+ MEPROP Name 'PatternBackColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF995801E6 PatternBackColor
+
+ME ME_52CF9980008B
+ MEPROP UID '52CF9980008B'
+ MEPROP Name 'PatternBackColorIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9980008B PatternBackColorIndex
+
+ME ME_52CF99AC02E2
+ MEPROP UID '52CF99AC02E2'
+ MEPROP Name 'PatternForeColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF99AC02E2 PatternForeColor
+
+ME ME_52CF9A6F0068
+ MEPROP UID '52CF9A6F0068'
+ MEPROP Name 'PatternForeColorIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9A6F0068 PatternForeColorIndex
+
+ME ME_52CF9AFB013D
+ MEPROP UID '52CF9AFB013D'
+ MEPROP Name 'RightPad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9AFB013D RightPad
+
+ME ME_52CF9B4F006D
+ MEPROP UID '52CF9B4F006D'
+ MEPROP Name 'CellOffset'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'На самом деле это не ширина, а смещение (по крайней мере у преобразования из текста в табилцу).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9B4F006D CellOffset
+
+ME ME_52CF9BF70075
+ MEPROP UID '52CF9BF70075'
+ MEPROP Name 'CellJust'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_52CF9BB7016C' '52CFA9D5031E.ms.model.script' // TddCellJust
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9BF70075 CellJust
+
+ME ME_52CF9D210162
+ MEPROP UID '52CF9D210162'
+ MEPROP Name 'IsPercent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9D210162 IsPercent
+
+ME ME_52CF9DA00000
+ MEPROP UID '52CF9DA00000'
+ MEPROP Name 'Merged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9DA00000 Merged
+
+ME ME_52CF9DBD0351
+ MEPROP UID '52CF9DBD0351'
+ MEPROP Name 'MergeFirst'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9DBD0351 MergeFirst
+
+ME ME_52CF9E460086
+ MEPROP UID '52CF9E460086'
+ MEPROP Name 'VMerged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Ячейки принадлежит к объедененым по вертикали.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9E460086 VMerged
+
+ME ME_52CF9E7602DA
+ MEPROP UID '52CF9E7602DA'
+ MEPROP Name 'VMergeFirst'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Флаг устанавливается, чтобы можно было определить вертикальное выравнивание:'#13#10'          если попадается еще одна ячейка с таким флагом в колонке, то ей устанавливают'#13#10'          флаг VMerged. Начало объединения VMergeFirst = False.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CF9E7602DA VMergeFirst
+
+ME ME_52CF9F5201BD
+ MEPROP UID '52CF9F5201BD'
+ MEPROP Name 'IsBorder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_52CF9F5201BD IsBorder
+
+ME ME_52CFA1A603D2
+ MEPROP UID '52CFA1A603D2'
+ MEPROP Name 'f_ClearBorder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_525E6D880262' '52CFA9D5031E.ms.model.script' // TddClearBoder
+ ;
+
+ENDME // ME_52CFA1A603D2 f_ClearBorder
+
+ME ME_52CFA5EC000C
+ MEPROP UID '52CFA5EC000C'
+ MEPROP Name 'RowSpan'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFA5EC000C RowSpan
+
+ME ME_52CFA7390005
+ MEPROP UID '52CFA7390005'
+ MEPROP Name 'TopPad'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_52CFA7390005 TopPad
+
+ME ME_53C518000047
+ MEPROP UID '53C518000047'
+ MEPROP Name 'AlignCell'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_53C518000047 AlignCell
+
+ME ME_55128EE00378
+ MEPROP UID '55128EE00378'
+ MEPROP Name 'CellWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55128EE00378 CellWidth
+
+ME ME_572C71E402B6
+ MEPROP UID '572C71E402B6'
+ MEPROP Name 'OffsetType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target HWL ME_572C719103DE // TddOffsetType
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_572C71E402B6 OffsetType
+
+FORWARD ME_52CF9FF4019B
+
+ME ME_52CFA02500CE
+ MEPROP Name 'aClearBorder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_525E6D880262' '52CFA9D5031E.ms.model.script' // TddClearBoder
+ ;
+
+ENDME // ME_52CFA02500CE aClearBorder
+
+ME ME_52CFA01003B8
+ MEPROP UID '52CFA01003B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CF9FF4019B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFA02500CE // aClearBorder
+ )
+ ; // Parameters
+
+ENDME // ME_52CFA01003B8 DoIt
+
+ME ME_52CF9FF4019B
+ MEPROP UID '52CF9FF4019B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFA01003B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52CF9FF4019B Create
+
+FORWARD ME_5614C68F0041
+
+ME ME_5614C6B601E9
+ MEPROP UID '5614C6B601E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5614C68F0041 // IsCellOffseDefault
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5614C6B601E9 DoIt
+
+ME ME_5614C68F0041
+ MEPROP UID '5614C68F0041'
+ MEPROP Name 'IsCellOffseDefault'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5614C6B601E9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5614C68F0041 IsCellOffseDefault
+
+FORWARD ME_52CFA04E02A8
+
+ME ME_52CFA07E036C
+ MEPROP Name 'aCellProperty'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5111FEC00247 // TddCellProperty
+ ;
+
+ENDME // ME_52CFA07E036C aCellProperty
+
+ME ME_52CFA0660313
+ MEPROP UID '52CFA0660313'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CFA04E02A8 // Assign
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFA07E036C // aCellProperty
+ )
+ ; // Parameters
+
+ENDME // ME_52CFA0660313 DoIt
+
+ME ME_52CFA04E02A8
+ MEPROP UID '52CFA04E02A8'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFA0660313 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52CFA04E02A8 Assign
+
+ME ME_52CFA7F4022B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_52CFA7F4022B 
+
+ME ME_52CFAF220317
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_51DD5C720260' '52CFA9D5031E.ms.model.script' // Common
+ ;
+
+ENDME // ME_52CFAF220317 
+
+ME ME_52CFB46900DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5111FEC00247 // TddCellProperty
+ ;
+ MELINK Target WL 'ME_52CFB420035C' '4F6843D50173.ms.model.script' // ddGetMinimalCellWidth
+ ;
+
+ENDME // ME_52CFB46900DA 
+
+MEREF ME_525E369F0158_ME_5111FEC00247_impl
+ MELINK Original WL 'ME_525E369F0158' '4F6843FC0241.ms.model.script' // MergeWith
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E369F0158_ME_5111FEC00247_impl MergeWith
+
+MEREF ME_525E37430345_ME_5111FEC00247_impl
+ MELINK Original WL 'ME_525E37430345' '4F6843FC0241.ms.model.script' // InheriteFrom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E37430345_ME_5111FEC00247_impl InheriteFrom
+
+MEREF ME_525E377B007E_ME_5111FEC00247_impl
+ MELINK Original WL 'ME_525E377B007E' '4F6843FC0241.ms.model.script' // Write2Generator
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E377B007E_ME_5111FEC00247_impl Write2Generator
+
+MEREF ME_525E478A0232_ME_5111FEC00247_impl
+ MELINK Original WL 'ME_525E478A0232' '4F6843FC0241.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E478A0232_ME_5111FEC00247_impl Reset
+
+MEREF ME_525E47E10065_ME_5111FEC00247_impl
+ MELINK Original WL 'ME_525E47E10065' '4F6843FC0241.ms.model.script' // Diff
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_525E47E10065_ME_5111FEC00247_impl Diff
+
+MEREF ME_479731C50290_ME_5111FEC00247_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_5111FEC00247_over Cleanup
+
+MEREF ME_518A13330058_ME_5111FEC00247_over
+ MELINK Original WL 'ME_518A13330058' '4F6843FC0241.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_518A13330058_ME_5111FEC00247_over Clear
+
+MEREF ME_4F6843FC0241_ME_5111FEC00247_G
+ MELINK Original WL? 'ME_4F6843FC0241' // TddPropertyObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F6843FC0241_ME_5111FEC00247_G TddPropertyObject
+
+%%InheritedBy ME_4F6843FC0241 ME_5111FEC00247
+
+ME ME_5111FEC00247
+ MEPROP UID '5111FEC00247'
+ MEPROP Name 'TddCellProperty'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F6843C101D1' // ddCommon
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F6843FC0241_ME_5111FEC00247_G // TddPropertyObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52CF97F0005F // Border
+ HWL ME_52CF98730373 // BottomPad
+ HWL ME_52CF98AC0144 // CellSpan
+ HWL ME_52CF98EA024E // Index
+ HWL ME_52CF99160319 // LeftPad
+ HWL ME_52CF995801E6 // PatternBackColor
+ HWL ME_52CF9980008B // PatternBackColorIndex
+ HWL ME_52CF99AC02E2 // PatternForeColor
+ HWL ME_52CF9A6F0068 // PatternForeColorIndex
+ HWL ME_52CF9AFB013D // RightPad
+ HWL ME_52CF9B4F006D // CellOffset
+ HWL ME_52CF9BF70075 // CellJust
+ HWL ME_52CF9D210162 // IsPercent
+ HWL ME_52CF9DA00000 // Merged
+ HWL ME_52CF9DBD0351 // MergeFirst
+ HWL ME_52CF9E460086 // VMerged
+ HWL ME_52CF9E7602DA // VMergeFirst
+ HWL ME_52CF9F5201BD // IsBorder
+ HWL ME_52CFA1A603D2 // f_ClearBorder
+ HWL ME_52CFA5EC000C // RowSpan
+ HWL ME_52CFA7390005 // TopPad
+ HWL ME_53C518000047 // AlignCell
+ HWL ME_55128EE00378 // CellWidth
+ HWL ME_572C71E402B6 // OffsetType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52CF9FF4019B // Create
+ HWL ME_5614C68F0041 // IsCellOffseDefault
+ HWL ME_52CFA04E02A8 // Assign
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_525E369F0158_ME_5111FEC00247_impl // MergeWith
+ ME_525E37430345_ME_5111FEC00247_impl // InheriteFrom
+ ME_525E377B007E_ME_5111FEC00247_impl // Write2Generator
+ ME_525E478A0232_ME_5111FEC00247_impl // Reset
+ ME_525E47E10065_ME_5111FEC00247_impl // Diff
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5111FEC00247_over // Cleanup
+ ME_518A13330058_ME_5111FEC00247_over // Clear
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_572C719103DE // TddOffsetType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52CFA7F4022B // l3Free
+ ME_52CFAF220317 // Common
+ ME_52CFB46900DA // ddGetMinimalCellWidth
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddCellProperty.pas'
+ UP extprop:rc:SelfName 'ddCellProperty'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ddCellProperty'
+
+ENDME // ME_5111FEC00247 TddCellProperty

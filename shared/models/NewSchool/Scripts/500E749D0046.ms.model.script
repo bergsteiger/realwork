@@ -22,7 +22,7 @@ ENDME // ME_500E74CD0101 DoIt
 ME ME_500E74C30088
  MEPROP UID '500E74C30088'
  MEPROP Name 'BlockViewKind'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_abstractmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -36,11 +36,17 @@ ME ME_500E74C30088
 
 ENDME // ME_500E74C30088 BlockViewKind
 
-ME ME_49147B4602C0_ME_500E749D0046
+MEREF ME_49147B4602C0_ME_500E749D0046_over
  MELINK Original WL 'ME_49147B4602C0' '5017EAF4027D.ms.model.script' // GetIsNeedChangePosition
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_49147B4602C0_ME_500E749D0046 GetIsNeedChangePosition
+ENDMEREF // ME_49147B4602C0_ME_500E749D0046_over GetIsNeedChangePosition
+
+MEREF ME_493D63D20049_ME_500E749D0046_G
+ MELINK Original WL? 'ME_493D63D20049' // TdsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_493D63D20049_ME_500E749D0046_G TdsDocument
 
 %%InheritedBy ME_493D63D20049 ME_500E749D0046
 
@@ -56,7 +62,7 @@ ME ME_500E749D0046
  MELINK Parent WL? 'ME_4FF2E66802B4' // AACImplementation
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_493D63D20049' // TdsDocument
+   Seq: ( ME_493D63D20049_ME_500E749D0046_G // TdsDocument
  )
  ; // Inherits
  MELIST Operations
@@ -64,7 +70,7 @@ ME ME_500E749D0046
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_49147B4602C0_ME_500E749D0046 // GetIsNeedChangePosition
+   Seq: ( ME_49147B4602C0_ME_500E749D0046_over // GetIsNeedChangePosition
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

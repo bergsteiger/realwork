@@ -30,6 +30,24 @@ ME ME_4DAC3F130187
 
 ENDME // ME_4DAC3F130187 
 
+MEREF ME_4EA59DA70226_ME_4AB1355B01EA_G
+ MELINK Original WL? 'ME_4EA59DA70226' // PrimDockedWarning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4EA59DA70226_ME_4AB1355B01EA_G PrimDockedWarning
+
+MEREF ME_4BD877A3035C_ME_4AB1355B01EA_R
+ MELINK Original WL 'ME_4BD877A3035C' '4BD856E802F9.ms.model.script' // Warning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD877A3035C_ME_4AB1355B01EA_R Warning
+
+MEREF ME_4E76FC4000A4_ME_4AB1355B01EA_R
+ MELINK Original WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4E76FC4000A4_ME_4AB1355B01EA_R Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+
 %%ImplementedBy ME_4BD877A3035C ME_4AB1355B01EA
 %%ImplementedBy ME_4E76FC4000A4 ME_4AB1355B01EA
 
@@ -48,12 +66,12 @@ ME ME_4AB1355B01EA
  MELINK Parent WL? 'ME_498B135601B6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4EA59DA70226' // PrimDockedWarning
+   Seq: ( ME_4EA59DA70226_ME_4AB1355B01EA_G // PrimDockedWarning
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4BD877A3035C' '4BD856E802F9.ms.model.script' // Warning
- WL 'ME_4E76FC4000A4' '484FA67302D7.ms.model.script' // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
+   Seq: ( ME_4BD877A3035C_ME_4AB1355B01EA_R // Warning
+ ME_4E76FC4000A4_ME_4AB1355B01EA_R // Если с медали пытаемся вызвать вкладку соответствующего предупреждения, а оно уже открыто, то оно должно закрываться, а операция должна называться "Скрыть текст предупреждения"
  )
  ; // Implements
  MELIST Operations

@@ -1,0 +1,90 @@
+// TmsmSaveChangedElements 57E10D840208 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E10D840208
+
+ME ME_57E10DA702BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E10D840208 // TmsmSaveChangedElements
+ ;
+ MELINK Target WL? 'ME_57E103E402B8' // TmsmChangedElementsPrim
+ ;
+
+ENDME // ME_57E10DA702BF 
+
+ME ME_57FB89460135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E10D840208 // TmsmSaveChangedElements
+ ;
+ MELINK Target WL? 'ME_57F7BA1703A5' // TmsmChangedElements
+ ;
+
+ENDME // ME_57FB89460135 
+
+MEREF ME_57CEB1F602D1_ME_57E10D840208_impl
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB1C1010D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57CEB1F602D1_ME_57E10D840208_impl DoDoIt
+
+MEREF ME_57EB6D020381_ME_57E10D840208_impl
+ MELINK Original WL 'ME_57EB6D020381' '57CEB1C1010D.ms.model.script' // GetEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_57EB6D020381_ME_57E10D840208_impl GetEnabled
+
+MEREF ME_57EBADA9033E_ME_57E10D840208_over
+ MELINK Original WL 'ME_57EBADA9033E' '57CEB1C1010D.ms.model.script' // InitOperationParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_57EBADA9033E_ME_57E10D840208_over InitOperationParams
+
+MEREF ME_57CEB1C1010D_ME_57E10D840208_G
+ MELINK Original WL? 'ME_57CEB1C1010D' // TmsmOperation
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57CEB1C1010D_ME_57E10D840208_G TmsmOperation
+
+%%InheritedBy ME_57CEB1C1010D ME_57E10D840208
+
+ME ME_57E10D840208
+ MEPROP UID '57E10D840208'
+ MEPROP Name 'TmsmSaveChangedElements'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57CEBB9200EA' // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( ME_57CEB1C1010D_ME_57E10D840208_G // TmsmOperation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57E10D840208_impl // DoDoIt
+ ME_57EB6D020381_ME_57E10D840208_impl // GetEnabled
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57EBADA9033E_ME_57E10D840208_over // InitOperationParams
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E10DA702BF // TmsmChangedElementsPrim
+ ME_57FB89460135 // TmsmChangedElements
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmSaveChangedElements.pas'
+ UP extprop:rc:SelfName 'msmSaveChangedElements'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmSaveChangedElements'
+
+ENDME // ME_57E10D840208 TmsmSaveChangedElements

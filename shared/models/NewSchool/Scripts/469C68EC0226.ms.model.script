@@ -43,7 +43,7 @@ ENDME // ME_4CDD4F5401D4 DoIt
 ME ME_4CDD4F46039D
  MEPROP UID '4CDD4F46039D'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -57,6 +57,18 @@ ME ME_4CDD4F46039D
 
 ENDME // ME_4CDD4F46039D Create
 
+MEREF ME_4CDD4F46039D_ME_4CDD4F24009A_G
+ MELINK Original HWL ME_4CDD4F46039D // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDD4F46039D_ME_4CDD4F24009A_G Create
+
+MEREF ME_4680F4790135_ME_4CDD4F24009A_R
+ MELINK Original WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F4790135_ME_4CDD4F24009A_R IDataObject
+
 %%ImplementedBy ME_4680F4790135 ME_4CDD4F24009A
 
 %%InheritedBy ME_4CDD4F46039D ME_4CDD4F24009A
@@ -64,7 +76,7 @@ ENDME // ME_4CDD4F46039D Create
 ME ME_4CDD4F24009A
  MEPROP UID '4CDD4F24009A'
  MEPROP Name 'Make'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -72,11 +84,11 @@ ME ME_4CDD4F24009A
  MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4CDD4F46039D // Create
+   Seq: ( ME_4CDD4F46039D_ME_4CDD4F24009A_G // Create
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+   Seq: ( ME_4680F4790135_ME_4CDD4F24009A_R // IDataObject
  )
  ; // Implements
 
@@ -218,17 +230,23 @@ ME ME_49AE42460099
 
 ENDME // ME_49AE42460099 
 
-ME ME_48F3504301B7_ME_469C68EC0226
- MELINK Original WL 'ME_48F3504301B7' '4680F5600033.ms.model.script' // WriteFilesAndSetNames
+MEREF ME_48F3504301B7_ME_469C68EC0226_over
+ MELINK Original WL 'ME_48F3504301B7' '4680F5AA0274.ms.model.script' // WriteFilesAndSetNames
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48F3504301B7_ME_469C68EC0226 WriteFilesAndSetNames
+ENDMEREF // ME_48F3504301B7_ME_469C68EC0226_over WriteFilesAndSetNames
 
-ME ME_48F4B33501DE_ME_469C68EC0226
+MEREF ME_48F4B33501DE_ME_469C68EC0226_over
  MELINK Original WL 'ME_48F4B33501DE' '4680F8DE02E2.ms.model.script' // GetFormats
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48F4B33501DE_ME_469C68EC0226 GetFormats
+ENDMEREF // ME_48F4B33501DE_ME_469C68EC0226_over GetFormats
+
+MEREF ME_4680F8DE02E2_ME_469C68EC0226_G
+ MELINK Original WL? 'ME_4680F8DE02E2' // l3TreeDataObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4680F8DE02E2_ME_469C68EC0226_G l3TreeDataObject
 
 %%InheritedBy ME_4680F8DE02E2 ME_469C68EC0226
 
@@ -245,7 +263,7 @@ ME ME_469C68EC0226
  MELINK Parent WL? 'ME_469C688102A3' // DataObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4680F8DE02E2' // l3TreeDataObject
+   Seq: ( ME_4680F8DE02E2_ME_469C68EC0226_G // l3TreeDataObject
  )
  ; // Inherits
  MELIST Operations
@@ -256,8 +274,8 @@ ME ME_469C68EC0226
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_48F3504301B7_ME_469C68EC0226 // WriteFilesAndSetNames
- ME_48F4B33501DE_ME_469C68EC0226 // GetFormats
+   Seq: ( ME_48F3504301B7_ME_469C68EC0226_over // WriteFilesAndSetNames
+ ME_48F4B33501DE_ME_469C68EC0226_over // GetFormats
  )
  ; // Overridden
  MELIST Dependencies

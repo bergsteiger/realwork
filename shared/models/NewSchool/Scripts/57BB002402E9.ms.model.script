@@ -1,0 +1,53 @@
+// TtfwWordDeleteListeners 57BB002402E9 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BB002402E9
+
+ME ME_57BB003E00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_57BB002402E9 // TtfwWordDeleteListeners
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_57BB003E00D5 
+
+MEREF ME_57BAFF5F01D5_ME_57BB002402E9_G
+ MELINK Original WL? 'ME_57BAFF5F01D5' // TItfwWordListenerList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57BAFF5F01D5_ME_57BB002402E9_G TItfwWordListenerList
+
+%%InjectedBy ME_4DAEED140007 ME_57BB002402E9
+
+%%InheritedBy ME_57BAFF5F01D5 ME_57BB002402E9
+
+ME ME_57BB002402E9
+ MEPROP UID '57BB002402E9'
+ MEPROP Name 'TtfwWordDeleteListeners'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_57BAFF3C02B9' // WordsListening
+ ;
+ MELIST Inherits
+   Seq: ( ME_57BAFF5F01D5_ME_57BB002402E9_G // TItfwWordListenerList
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57BB003E00D5 // TtfwWord
+ )
+ ; // Dependencies
+ UP "singleton" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+ UP extprop:rc:SelfName 'WordDeleteListeners'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwWordDeleteListeners'
+
+ENDME // ME_57BB002402E9 TtfwWordDeleteListeners

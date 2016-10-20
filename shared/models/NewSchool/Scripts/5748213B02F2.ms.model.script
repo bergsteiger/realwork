@@ -1,0 +1,189 @@
+// SectionImpl 5748213B02F2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5748213B02F2
+
+ME ME_574821F801F8
+ MEPROP UID '574821F801F8'
+ MEPROP Name 'server_section'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+
+ENDME // ME_574821F801F8 server_section
+
+ME ME_574D3DB3034F
+ MEPROP UID '574D3DB3034F'
+ MEPROP Name 'caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" true
+
+ENDME // ME_574D3DB3034F caption
+
+ME ME_5748215D010B
+ MEPROP Name 'server_section'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_5748215D010B server_section
+
+ME ME_5748214B008D
+ MEPROP UID '5748214B008D'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELIST Parameters
+   Seq: ( ME_5748215D010B // server_section
+ )
+ ; // Parameters
+
+ENDME // ME_5748214B008D make
+
+ME ME_574821A70373
+ MEPROP UID '574821A70373'
+ MEPROP Name 'get_items'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELINK Target WL 'ME_4E36C8550143' '4DD24BD40021.ms.model.script' // SectionItemList
+ ;
+
+ENDME // ME_574821A70373 get_items
+
+ME ME_57482234032A
+ MEPROP UID '57482234032A'
+ MEPROP Name 'clear_cache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+
+ENDME // ME_57482234032A clear_cache
+
+ME ME_574825A0002D
+ MEPROP Name 'type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E3011A101F7' '4DD24BD40021.ms.model.script' // SectionType
+ ;
+
+ENDME // ME_574825A0002D type
+
+ME ME_5748258C020E
+ MEPROP UID '5748258C020E'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELIST Parameters
+   Seq: ( ME_574825A0002D // type
+ )
+ ; // Parameters
+
+ENDME // ME_5748258C020E make
+
+ME ME_574828C20279
+ MEPROP UID '574828C20279'
+ MEPROP Name 'get_section_id'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP TargetStereotype 'const,cached'
+
+ENDME // ME_574828C20279 get_section_id
+
+ME ME_574DA22000A6
+ MEPROP UID '574DA22000A6'
+ MEPROP Name 'destroy_server_servants'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+
+ENDME // ME_574DA22000A6 destroy_server_servants
+
+ME ME_57482B4F00F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELINK Target WL 'ME_4E313DB8007F' '4DD24D8C0359.ms.model.script' // SectionTypeConverter
+ ;
+
+ENDME // ME_57482B4F00F6 
+
+ME ME_57482C9401A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5748213B02F2 // SectionImpl
+ ;
+ MELINK Target WL? 'ME_460A6EF8024B' // ApplicationHelper
+ ;
+
+ENDME // ME_57482C9401A6 
+
+ME ME_5748213B02F2
+ MEPROP UID '5748213B02F2'
+ MEPROP Name 'SectionImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4DD24D8C0359' // MainMenu_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_574821F801F8 // server_section
+ HWL ME_574D3DB3034F // caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5748214B008D // make
+ HWL ME_574821A70373 // get_items
+ HWL ME_57482234032A // clear_cache
+ HWL ME_5748258C020E // make
+ HWL ME_574828C20279 // get_section_id
+ HWL ME_574DA22000A6 // destroy_server_servants
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57482B4F00F6 // SectionTypeConverter
+ ME_57482C9401A6 // ApplicationHelper
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\MainMenu_i\SectionImpl.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\MainMenu_i\SectionImpl.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SectionImpl.pas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5748213B02F2 SectionImpl

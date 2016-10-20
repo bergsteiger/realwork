@@ -9,80 +9,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_4ABA137C00E5
 %%Inner ME_4ABA137C00E5
 
-FORWARD ME_4ABA137C00E5
-
-FORWARD ME_5231A17601FD
-
-FORWARD ME_5231A23D03D2
-
-ME ME_5231A2F602F1
- MEPROP UID '5231A2F602F1'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5231A23D03D2 // HasInstance
- ;
- MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
- ;
-
-ENDME // ME_5231A2F602F1 DoIt
-
-ME ME_5231A23D03D2
- MEPROP UID '5231A23D03D2'
- MEPROP Name 'HasInstance'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5231A17601FD // TnsConfigurationProperties
- ;
- MELIST Operations
-   Seq: ( HWL ME_5231A2F602F1 // DoIt
- )
- ; // Operations
- UP "is static" true
-
-ENDME // ME_5231A23D03D2 HasInstance
-
-%%ImplementedBy ME_4683CF0601DB ME_5231A17601FD
-
-%%InheritedBy ME_4AB8CB630173 ME_5231A17601FD
-
-ME ME_5231A17601FD
- MEPROP UID '5231A17601FD'
- MEPROP Name 'TnsConfigurationProperties'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4ABA137C00E5 // Config
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AB8CB630173' '47D0E1500033.ms.model.script' // TvcmStringList
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4683CF0601DB' '467BAB7F021E.ms.model.script' // IvcmStrings
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_5231A23D03D2 // HasInstance
- )
- ; // Operations
- MESTRINGLIST DiagramsNames
-   Seq: ( 'Main' )
- ; // DiagramsNames
- UP "singleton" true
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas'
- UP extprop:rc:SelfName 'ConfigurationProperties'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'nsConfigurationProperties'
-
-ENDME // ME_5231A17601FD TnsConfigurationProperties
-
 ME ME_4ABA137C00E5
  MEPROP UID '4ABA137C00E5'
  MEPROP Name 'Config'
@@ -98,7 +24,7 @@ ME ME_4ABA137C00E5
  WL? 'ME_4AD5B874003D' // nsAppConfig
  WL? 'ME_4B97B148028B' // nsAppConfigRes
  WL? 'ME_5174ED3802CD' // ConfigurationListRes
- HWL ME_5231A17601FD // TnsConfigurationProperties
+ WL? 'ME_5231A17601FD' // TnsConfigurationProperties
  WL? 'ME_52725F2C0069' // StyleTableRes
  )
  ; // Children

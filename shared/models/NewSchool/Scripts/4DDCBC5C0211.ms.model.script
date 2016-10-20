@@ -19,34 +19,52 @@ ME ME_BB4E7F470CF2
 
 ENDME // ME_BB4E7F470CF2 
 
-ME ME_4DDCE9110130_ME_4DDCD6BB0231
+MEREF ME_4DDCE9110130_ME_4DDCD6BB0231_impl
  MELINK Original WL 'ME_4DDCE9110130' '4DDCD71E027C.ms.model.script' // RightEdition
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4DDCE9110130_ME_4DDCD6BB0231 RightEdition
+ENDMEREF // ME_4DDCE9110130_ME_4DDCD6BB0231_impl RightEdition
 
-ME ME_4DDD0C170344_ME_4DDCD6BB0231
+MEREF ME_4DDD0C170344_ME_4DDCD6BB0231_impl
  MELINK Original WL 'ME_4DDD0C170344' '4DDCD71E027C.ms.model.script' // DocumentContainer
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4DDD0C170344_ME_4DDCD6BB0231 DocumentContainer
+ENDMEREF // ME_4DDD0C170344_ME_4DDCD6BB0231_impl DocumentContainer
 
-ME ME_4DF9D63B0360_ME_4DDCD6BB0231
+MEREF ME_4DF9D63B0360_ME_4DDCD6BB0231_impl
  MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" true
  UP "reflectable" true
-ENDME // ME_4DF9D63B0360_ME_4DDCD6BB0231 DocInfo
+ENDMEREF // ME_4DF9D63B0360_ME_4DDCD6BB0231_impl DocInfo
 
-ME ME_4F2BF187026F_ME_4DDCD6BB0231
+MEREF ME_4F2BF187026F_ME_4DDCD6BB0231_impl
  MELINK Original WL 'ME_4F2BF187026F' '4DDCD71E027C.ms.model.script' // LeftEdition
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4F2BF187026F_ME_4DDCD6BB0231 LeftEdition
+ENDMEREF // ME_4F2BF187026F_ME_4DDCD6BB0231_impl LeftEdition
+
+MEREF ME_4DDCD6800267_ME_4DDCD6BB0231_G
+ MELINK Original WL? 'ME_4DDCD6800267' // ChangesBetweenEditons
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCD6800267_ME_4DDCD6BB0231_G ChangesBetweenEditons
+
+MEREF ME_4DDCDE8F01B8_ME_4DDCD6BB0231_G
+ MELINK Original WL 'ME_4DDCDE8F01B8' '4DDCD636016C.ms.model.script' // DocumentChanges
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCDE8F01B8_ME_4DDCD6BB0231_G DocumentChanges
+
+MEREF ME_4DDCD7520351_ME_4DDCD6BB0231_R
+ MELINK Original WL 'ME_4DDCD7520351' '4DDCD71E027C.ms.model.script' // Changes
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DDCD7520351_ME_4DDCD6BB0231_R Changes
 
 %%ImplementedBy ME_4DDCD7520351 ME_4DDCD6BB0231
 
@@ -64,19 +82,19 @@ ME ME_4DDCD6BB0231
  MELINK Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4DDCD6800267' // ChangesBetweenEditons
- WL 'ME_4DDCDE8F01B8' '4DDCD636016C.ms.model.script' // DocumentChanges
+   Seq: ( ME_4DDCD6800267_ME_4DDCD6BB0231_G // ChangesBetweenEditons
+ ME_4DDCDE8F01B8_ME_4DDCD6BB0231_G // DocumentChanges
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4DDCD7520351' '4DDCD71E027C.ms.model.script' // Changes
+   Seq: ( ME_4DDCD7520351_ME_4DDCD6BB0231_R // Changes
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_4DDCE9110130_ME_4DDCD6BB0231 // RightEdition
- ME_4DDD0C170344_ME_4DDCD6BB0231 // DocumentContainer
- ME_4DF9D63B0360_ME_4DDCD6BB0231 // DocInfo
- ME_4F2BF187026F_ME_4DDCD6BB0231 // LeftEdition
+   Seq: ( ME_4DDCE9110130_ME_4DDCD6BB0231_impl // RightEdition
+ ME_4DDD0C170344_ME_4DDCD6BB0231_impl // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD6BB0231_impl // DocInfo
+ ME_4F2BF187026F_ME_4DDCD6BB0231_impl // LeftEdition
  )
  ; // Implemented
  MELIST Dependencies
@@ -90,13 +108,19 @@ ME ME_4DDCD6BB0231
 
 ENDME // ME_4DDCD6BB0231 Parent
 
+MEREF ME_50096E800075_ME_9C7EE9D70E75_G
+ MELINK Original WL 'ME_50096E800075' '4FFC337003AF.ms.model.script' // TvcmNeedMakeFormEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50096E800075_ME_9C7EE9D70E75_G TvcmNeedMakeFormEvent
+
 %%InheritedBy ME_50096E800075 ME_9C7EE9D70E75
 
 ME ME_9C7EE9D70E75
  MEPROP UID '9C7EE9D70E75'
  MEPROP Name 'Parent_Parent_DocumentChanges_NeedMakeForm'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик OnNeedMakeForm для Parent' ;
@@ -105,7 +129,7 @@ ME ME_9C7EE9D70E75
  MELINK Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+   Seq: ( ME_50096E800075_ME_9C7EE9D70E75_G // TvcmNeedMakeFormEvent
  )
  ; // Inherits
  UPLINK Speller HWL ME_4DDCD6BB0231 // Parent
@@ -113,18 +137,24 @@ ME ME_9C7EE9D70E75
 
 ENDME // ME_9C7EE9D70E75 Parent_Parent_DocumentChanges_NeedMakeForm
 
-ME ME_47A042E100E2_ME_4DDCBC5C0211
+MEREF ME_47A042E100E2_ME_4DDCBC5C0211_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4DDCBC5C0211 InitFields
+ENDMEREF // ME_47A042E100E2_ME_4DDCBC5C0211_over InitFields
 
-ME ME_4FFE854A009B_ME_4DDCBC5C0211
- MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+MEREF ME_4FFE854A009B_ME_4DDCBC5C0211_over
+ MELINK Original WL 'ME_4FFE854A009B' '4FFE84F00388.ms.model.script' // GetInstance
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" true
-ENDME // ME_4FFE854A009B_ME_4DDCBC5C0211 GetInstance
+ENDMEREF // ME_4FFE854A009B_ME_4DDCBC5C0211_over GetInstance
+
+MEREF ME_47B97312006D_ME_4DDCBC5C0211_G
+ MELINK Original WL? 'ME_47B97312006D' // TvcmFormSetFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B97312006D_ME_4DDCBC5C0211_G TvcmFormSetFactory
 
 %%InheritedBy ME_47B97312006D ME_4DDCBC5C0211
 
@@ -141,7 +171,7 @@ ME ME_4DDCBC5C0211
  MELINK Parent WL? 'ME_4DDBAF2B0028' // ChangesBetweenEditions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+   Seq: ( ME_47B97312006D_ME_4DDCBC5C0211_G // TvcmFormSetFactory
  )
  ; // Inherits
  MELIST Operations
@@ -149,8 +179,8 @@ ME ME_4DDCBC5C0211
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_4DDCBC5C0211 // InitFields
- ME_4FFE854A009B_ME_4DDCBC5C0211 // GetInstance
+   Seq: ( ME_47A042E100E2_ME_4DDCBC5C0211_over // InitFields
+ ME_4FFE854A009B_ME_4DDCBC5C0211_over // GetInstance
  )
  ; // Overridden
  MELIST Children

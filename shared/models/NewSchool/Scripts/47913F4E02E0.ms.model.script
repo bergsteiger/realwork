@@ -22,7 +22,7 @@ ENDME // ME_F75173F1519C DoIt
 ME ME_5000565C019C
  MEPROP UID '5000565C019C'
  MEPROP Name 'ClearFields'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -54,7 +54,7 @@ ENDME // ME_9D9721D30B3D DoIt
 ME ME_500056650395
  MEPROP UID '500056650395'
  MEPROP Name 'BeforeClearFields'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -86,7 +86,7 @@ ENDME // ME_E324E01C588F DoIt
 ME ME_52BC2B9401F3
  MEPROP UID '52BC2B9401F3'
  MEPROP Name 'AfterDestroyCalled'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -118,7 +118,7 @@ ENDME // ME_581BD320EDBA DoIt
 ME ME_531EEB8503AE
  MEPROP UID '531EEB8503AE'
  MEPROP Name 'AfterFree'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'функция, вызываемая после каждого уменьшении счетчика ссылок на объект, не приводящего к уничтожению объекта' ;
@@ -149,7 +149,7 @@ ENDME // ME_53AC02C10212 DoIt
 ME ME_53AC02B602E3
  MEPROP UID '53AC02B602E3'
  MEPROP Name 'InitAfterAlloc'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -181,7 +181,7 @@ ENDME // ME_5453AC4D01F0 DoIt
 ME ME_5453AC3702B2
  MEPROP UID '5453AC3702B2'
  MEPROP Name 'AllocInstanceMem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -212,7 +212,7 @@ ENDME // ME_5453AC750033 DoIt
 ME ME_5453AC66022A
  MEPROP UID '5453AC66022A'
  MEPROP Name 'FreeInstanceMem'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -265,7 +265,7 @@ ENDME // ME_561158060056 DoIt
 ME ME_561145D802BB
  MEPROP UID '561145D802BB'
  MEPROP Name 'QueryInterface'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -427,7 +427,7 @@ ME ME_545CF8990292
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47913F4E02E0 // l3UnknownPrim
  ;
- MELINK Target WL 'ME_51DD554C0205' '51DAD7EA02D0.ms.model.script' // Tl3MemUtils
+ MELINK Target WL? 'ME_51DD554C0205' // Tl3MemUtils
  ;
 
 ENDME // ME_545CF8990292 
@@ -442,26 +442,44 @@ ME ME_54B7B3160366
 
 ENDME // ME_54B7B3160366 
 
-ME ME_47913C24007F_ME_47913F4E02E0
+MEREF ME_47913C24007F_ME_47913F4E02E0_impl
  MELINK Original WL 'ME_47913C24007F' '4807744200AA.ms.model.script' // __AddRef
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C24007F_ME_47913F4E02E0 __AddRef
+ENDMEREF // ME_47913C24007F_ME_47913F4E02E0_impl __AddRef
 
-ME ME_47913C5301A1_ME_47913F4E02E0
+MEREF ME_47913C5301A1_ME_47913F4E02E0_impl
  MELINK Original WL 'ME_47913C5301A1' '4807744200AA.ms.model.script' // __Release
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913C5301A1_ME_47913F4E02E0 __Release
+ENDMEREF // ME_47913C5301A1_ME_47913F4E02E0_impl __Release
 
-ME ME_47913CBF0265_ME_47913F4E02E0
+MEREF ME_47913CBF0265_ME_47913F4E02E0_impl
  MELINK Original WL 'ME_47913CBF0265' '4807744200AA.ms.model.script' // QueryInterface
  ;
  MEPROP OpKind opkind_Implemented
  UP "calling conventions" 'stdcall'
-ENDME // ME_47913CBF0265_ME_47913F4E02E0 QueryInterface
+ENDMEREF // ME_47913CBF0265_ME_47913F4E02E0_impl QueryInterface
+
+MEREF ME_4BE42D490361_ME_47913F4E02E0_G
+ MELINK Original WL? 'ME_4BE42D490361' // l3CheckStamp
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BE42D490361_ME_47913F4E02E0_G l3CheckStamp
+
+MEREF ME_51612ED700B4_ME_47913F4E02E0_G
+ MELINK Original WL? 'ME_51612ED700B4' // RefCountedPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51612ED700B4_ME_47913F4E02E0_G RefCountedPrim
+
+MEREF ME_516D4A8D0232_ME_47913F4E02E0_R
+ MELINK Original WL 'ME_516D4A8D0232' '4807744200AA.ms.model.script' // MIUnknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516D4A8D0232_ME_47913F4E02E0_R MIUnknown
 
 %%ImplementedBy ME_516D4A8D0232 ME_47913F4E02E0
 
@@ -481,12 +499,12 @@ ME ME_47913F4E02E0
  MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4BE42D490361' // l3CheckStamp
- WL? 'ME_51612ED700B4' // RefCountedPrim
+   Seq: ( ME_4BE42D490361_ME_47913F4E02E0_G // l3CheckStamp
+ ME_51612ED700B4_ME_47913F4E02E0_G // RefCountedPrim
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_516D4A8D0232' '4807744200AA.ms.model.script' // MIUnknown
+   Seq: ( ME_516D4A8D0232_ME_47913F4E02E0_R // MIUnknown
  )
  ; // Implements
  MELIST Operations
@@ -507,9 +525,9 @@ ME ME_47913F4E02E0
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_47913C24007F_ME_47913F4E02E0 // __AddRef
- ME_47913C5301A1_ME_47913F4E02E0 // __Release
- ME_47913CBF0265_ME_47913F4E02E0 // QueryInterface
+   Seq: ( ME_47913C24007F_ME_47913F4E02E0_impl // __AddRef
+ ME_47913C5301A1_ME_47913F4E02E0_impl // __Release
+ ME_47913CBF0265_ME_47913F4E02E0_impl // QueryInterface
  )
  ; // Implemented
  MELIST Dependencies

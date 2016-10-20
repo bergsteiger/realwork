@@ -1,0 +1,160 @@
+// TnpNavigatorListPrim 4F61DFF20168 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F61DFF20168
+
+ME ME_4F61E016020A
+ MEPROP UID '4F61E016020A'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4F61DFF20168 // TnpNavigatorListPrim
+ ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61E016020A ItemType
+
+FORWARD ME_4F61E05F00EE
+
+ME ME_4F61E07600DD
+ MEPROP Name 'aNavigator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61E07600DD aNavigator
+
+ME ME_4F61E06F007B
+ MEPROP UID '4F61E06F007B'
+ MEPROP Name 'Reg'
+ MEPROP Class class_Operation
+ %SUMMARY 'зарегистрировать навигатор' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61E05F00EE // Reg
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61E07600DD // aNavigator
+ )
+ ; // Parameters
+
+ENDME // ME_4F61E06F007B Reg
+
+ME ME_4F61E05F00EE
+ MEPROP UID '4F61E05F00EE'
+ MEPROP Name 'Reg'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'зарегистрировать навигатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DFF20168 // TnpNavigatorListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61E06F007B // Reg
+ )
+ ; // Operations
+
+ENDME // ME_4F61E05F00EE Reg
+
+FORWARD ME_4F61E080034B
+
+ME ME_4F61E0970178
+ MEPROP Name 'aNavigator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52BAD1C40174' '4C8A252E01C2.ms.model.script' // TvtNavigatorPrim
+ ;
+
+ENDME // ME_4F61E0970178 aNavigator
+
+ME ME_4F61E09602A1
+ MEPROP UID '4F61E09602A1'
+ MEPROP Name 'UnReg'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61E080034B // UnReg
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F61E0970178 // aNavigator
+ )
+ ; // Parameters
+
+ENDME // ME_4F61E09602A1 UnReg
+
+ME ME_4F61E080034B
+ MEPROP UID '4F61E080034B'
+ MEPROP Name 'UnReg'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'дерегистрировать навигатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F61DFF20168 // TnpNavigatorListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F61E09602A1 // UnReg
+ )
+ ; // Operations
+
+ENDME // ME_4F61E080034B UnReg
+
+MEREF ME_47B57B7800A7_ME_4F61DFF20168_G
+ MELINK Original WL? 'ME_47B57B7800A7' // l3ObjectPtrList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57B7800A7_ME_4F61DFF20168_G l3ObjectPtrList
+
+MEREF ME_4A54DD4E036F_ME_4F61DFF20168_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_4F61DFF20168_G Tl3ProtoDataContainer
+
+%%InheritedBy ME_47B57B7800A7 ME_4F61DFF20168
+%%InheritedBy ME_4A54DD4E036F ME_4F61DFF20168
+
+ME ME_4F61DFF20168
+ MEPROP UID '4F61DFF20168'
+ MEPROP Name 'TnpNavigatorListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список навигаторов созданных в приложении. Список используется для рассылки сообщений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47CD07B900E0' // vtNavigator
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57B7800A7_ME_4F61DFF20168_G // l3ObjectPtrList
+ ME_4A54DD4E036F_ME_4F61DFF20168_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F61E016020A // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F61E05F00EE // Reg
+ HWL ME_4F61E080034B // UnReg
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\npNavigatorListPrim.pas'
+ UP extprop:rc:SelfName 'npNavigatorListPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'npNavigatorListPrim'
+
+ENDME // ME_4F61DFF20168 TnpNavigatorListPrim

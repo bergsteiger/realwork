@@ -1,0 +1,56 @@
+// TevTextCursorPair 53D64B570304 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D64B570304
+
+ME ME_53D78C350085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D64B570304 // TevTextCursorPair
+ ;
+ MELINK Target WL? 'ME_48577C150116' // TevTextPara
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_53D78C350085 
+
+MEREF ME_53D26C1A026F_ME_53D64B570304_G
+ MELINK Original WL? 'ME_53D26C1A026F' // TevLeafParaCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D26C1A026F_ME_53D64B570304_G TevLeafParaCursorPair
+
+%%InjectedBy ME_48577C150116 ME_53D64B570304
+
+%%InheritedBy ME_53D26C1A026F ME_53D64B570304
+
+ME ME_53D64B570304
+ MEPROP UID '53D64B570304'
+ MEPROP Name 'TevTextCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_53D26C1A026F_ME_53D64B570304_G // TevLeafParaCursorPair
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D78C350085 // TevTextPara
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTextCursorPair.pas'
+ UP extprop:rc:SelfName 'TextCursorPair'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTextCursorPair'
+
+ENDME // ME_53D64B570304 TevTextCursorPair

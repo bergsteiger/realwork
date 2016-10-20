@@ -4,38 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 %%Inner ME_57C3F2CB000D
 
-FORWARD ME_57C3F2CB000D
-
-%%ImplementedBy ME_57C5572B036F ME_57C3F3540027
-
-%%InheritedBy ME_49E7754802A9 ME_57C3F3540027
-
-ME ME_57C3F3540027
- MEPROP UID '57C3F3540027'
- MEPROP Name 'TtfwCS'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57C3F2CB000D // MultiThread
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL? 'ME_57C5572B036F' // seCriticalSectionHolder
- )
- ; // Implements
- UP "singleton" true
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
- UP extprop:rc:SelfName 'CS'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'tfwCS'
-
-ENDME // ME_57C3F3540027 TtfwCS
-
 ME ME_57C3F2CB000D
  MEPROP UID '57C3F2CB000D'
  MEPROP Name 'MultiThread'
@@ -47,7 +15,7 @@ ME ME_57C3F2CB000D
  MELINK Parent WL? 'ME_54CF97B10370' // ScriptEngine$Core
  ;
  MELIST Children
-   Seq: ( HWL ME_57C3F3540027 // TtfwCS
+   Seq: ( WL? 'ME_57C3F3540027' // TtfwCS
  )
  ; // Children
  MELIST Depends

@@ -110,7 +110,7 @@ ENDME // ME_5232E8A80209 DoIt
 ME ME_5232E8A0007B
  MEPROP UID '5232E8A0007B'
  MEPROP Name 'CanAdd'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Проверяет можно ли добавить еще одно поле к реквизиту' ;
@@ -143,7 +143,7 @@ ENDME // ME_5232E8CE007E DoIt
 ME ME_5232E8C7000B
  MEPROP UID '5232E8C7000B'
  MEPROP Name 'CanOpenTree'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Проверяет можно ли открыть окно выбора реквизита' ;
@@ -189,7 +189,7 @@ ENDME // ME_5232E8F90089 DoIt
 ME ME_5232E8F20155
  MEPROP UID '5232E8F20155'
  MEPROP Name 'GetReqAsString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -206,7 +206,7 @@ ENDME // ME_5232E8F20155 GetReqAsString
 ME ME_5232E907013E
  MEPROP UID '5232E907013E'
  MEPROP Name 'Save'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -219,7 +219,7 @@ ENDME // ME_5232E907013E Save
 ME ME_5232E92800F6
  MEPROP UID '5232E92800F6'
  MEPROP Name 'Load'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -232,7 +232,7 @@ ENDME // ME_5232E92800F6 Load
 ME ME_5232E9410043
  MEPROP UID '5232E9410043'
  MEPROP Name 'CheckAttr'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -245,7 +245,7 @@ ENDME // ME_5232E9410043 CheckAttr
 ME ME_5232E94C01DD
  MEPROP UID '5232E94C01DD'
  MEPROP Name 'ReqClear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -258,7 +258,7 @@ ENDME // ME_5232E94C01DD ReqClear
 ME ME_5232E95400B8
  MEPROP UID '5232E95400B8'
  MEPROP Name 'OpenSelectWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -303,7 +303,7 @@ ENDME // ME_5232E98602F8 DoIt
 ME ME_5232E98101D5
  MEPROP UID '5232E98101D5'
  MEPROP Name 'IsSet'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Если True, то в компоненте установлено значение' ;
@@ -321,7 +321,7 @@ ENDME // ME_5232E98101D5 IsSet
 ME ME_5232E9CB024E
  MEPROP UID '5232E9CB024E'
  MEPROP Name 'MakeFieldValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -350,7 +350,7 @@ ENDME // ME_555495500093 DoIt
 ME ME_5554953A023D
  MEPROP UID '5554953A023D'
  MEPROP Name 'GetReqAsStrings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -364,12 +364,18 @@ ME ME_5554953A023D
 
 ENDME // ME_5554953A023D GetReqAsStrings
 
-ME ME_4CD0181A0355_ME_46837A96015C
+MEREF ME_4CD0181A0355_ME_46837A96015C_impl
  MELINK Original WL 'ME_4CD0181A0355' '47CD5C7602CD.ms.model.script' // Modified
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_4CD0181A0355_ME_46837A96015C Modified
+ENDMEREF // ME_4CD0181A0355_ME_46837A96015C_impl Modified
+
+MEREF ME_4CD017E001C0_ME_46837A96015C_G
+ MELINK Original WL 'ME_4CD017E001C0' '47CD5C7602CD.ms.model.script' // IqaReqPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CD017E001C0_ME_46837A96015C_G IqaReqPrim
 
 %%InheritedBy ME_4CD017E001C0 ME_46837A96015C
 
@@ -386,7 +392,7 @@ ME ME_46837A96015C
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4CD017E001C0' '47CD5C7602CD.ms.model.script' // IqaReqPrim
+   Seq: ( ME_4CD017E001C0_ME_46837A96015C_G // IqaReqPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -411,7 +417,7 @@ ME ME_46837A96015C
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4CD0181A0355_ME_46837A96015C // Modified
+   Seq: ( ME_4CD0181A0355_ME_46837A96015C_impl // Modified
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -453,7 +459,7 @@ ENDME // ME_5232EA56024D DoIt
 ME ME_5232EA510243
  MEPROP UID '5232EA510243'
  MEPROP Name 'GetAttributesFromView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Вычитываем флаги операций из дерева (создаёт поля ввода) и устанавливаем фокус в последнее добавленное поле' ;
@@ -468,11 +474,17 @@ ME ME_5232EA510243
 
 ENDME // ME_5232EA510243 GetAttributesFromView
 
-ME ME_467813E40207_ME_468395190206
+MEREF ME_467813E40207_ME_468395190206_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_468395190206 CheckStamp
+ENDMEREF // ME_467813E40207_ME_468395190206_impl CheckStamp
+
+MEREF ME_467821770204_ME_468395190206_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_468395190206_G InevBase
 
 %%InheritedBy ME_467821770204 ME_468395190206
 
@@ -488,7 +500,7 @@ ME ME_468395190206
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_468395190206_G // InevBase
  )
  ; // Inherits
  MELIST Operations
@@ -496,7 +508,7 @@ ME ME_468395190206
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_468395190206 // CheckStamp
+   Seq: ( ME_467813E40207_ME_468395190206_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -541,11 +553,17 @@ ME ME_5232EB690203
 
 ENDME // ME_5232EB690203 EndDate
 
-ME ME_467813E40207_ME_4683952C022B
+MEREF ME_467813E40207_ME_4683952C022B_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_4683952C022B CheckStamp
+ENDMEREF // ME_467813E40207_ME_4683952C022B_impl CheckStamp
+
+MEREF ME_467821770204_ME_4683952C022B_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_4683952C022B_G InevBase
 
 %%InheritedBy ME_467821770204 ME_4683952C022B
 
@@ -561,7 +579,7 @@ ME ME_4683952C022B
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_4683952C022B_G // InevBase
  )
  ; // Inherits
  MELIST Attributes
@@ -570,7 +588,7 @@ ME ME_4683952C022B
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_4683952C022B // CheckStamp
+   Seq: ( ME_467813E40207_ME_4683952C022B_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -665,7 +683,7 @@ ENDME // ME_5232FEBB000B DoIt
 ME ME_5232FEB60232
  MEPROP UID '5232FEB60232'
  MEPROP Name 'IsStartDateEmpty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -697,7 +715,7 @@ ENDME // ME_5232FECD033C DoIt
 ME ME_5232FEC70307
  MEPROP UID '5232FEC70307'
  MEPROP Name 'IsEndDateEmpty'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -776,11 +794,17 @@ ME ME_468395AD02B5
 
 ENDME // ME_468395AD02B5 Number
 
-ME ME_467813E40207_ME_4683955C039D
+MEREF ME_467813E40207_ME_4683955C039D_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_4683955C039D CheckStamp
+ENDMEREF // ME_467813E40207_ME_4683955C039D_impl CheckStamp
+
+MEREF ME_467821770204_ME_4683955C039D_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_4683955C039D_G InevBase
 
 %%InheritedBy ME_467821770204 ME_4683955C039D
 
@@ -796,7 +820,7 @@ ME ME_4683955C039D
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_4683955C039D_G // InevBase
  )
  ; // Inherits
  MELIST Attributes
@@ -805,7 +829,7 @@ ME ME_4683955C039D
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_4683955C039D // CheckStamp
+   Seq: ( ME_467813E40207_ME_4683955C039D_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1028,11 +1052,17 @@ ME ME_5233098B027F
 
 ENDME // ME_5233098B027F ConsultationSended
 
-ME ME_467813E40207_ME_468396A8039D
+MEREF ME_467813E40207_ME_468396A8039D_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_468396A8039D CheckStamp
+ENDMEREF // ME_467813E40207_ME_468396A8039D_impl CheckStamp
+
+MEREF ME_467821770204_ME_468396A8039D_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_468396A8039D_G InevBase
 
 %%InheritedBy ME_467821770204 ME_468396A8039D
 
@@ -1049,7 +1079,7 @@ ME ME_468396A8039D
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_468396A8039D_G // InevBase
  )
  ; // Inherits
  MELIST Attributes
@@ -1060,7 +1090,7 @@ ME ME_468396A8039D
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_468396A8039D // CheckStamp
+   Seq: ( ME_467813E40207_ME_468396A8039D_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1089,11 +1119,17 @@ ME ME_52330A2B0190
 
 ENDME // ME_52330A2B0190 Query
 
-ME ME_467813E40207_ME_523309E20374
+MEREF ME_467813E40207_ME_523309E20374_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_523309E20374 CheckStamp
+ENDMEREF // ME_467813E40207_ME_523309E20374_impl CheckStamp
+
+MEREF ME_467821770204_ME_523309E20374_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_523309E20374_G InevBase
 
 %%InheritedBy ME_467821770204 ME_523309E20374
 
@@ -1110,7 +1146,7 @@ ME ME_523309E20374
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_523309E20374_G // InevBase
  )
  ; // Inherits
  MELIST Attributes
@@ -1118,7 +1154,7 @@ ME ME_523309E20374
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_523309E20374 // CheckStamp
+   Seq: ( ME_467813E40207_ME_523309E20374_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1160,7 +1196,7 @@ ENDME // ME_5232EB04027D DoIt
 ME ME_5232EAFF0300
  MEPROP UID '5232EAFF0300'
  MEPROP Name 'FillReqListAsString'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -1272,18 +1308,24 @@ ME ME_52330B120253
 
 ENDME // ME_52330B120253 Filter
 
-ME ME_467813E40207_ME_4AE88A470290
+MEREF ME_467813E40207_ME_4AE88A470290_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_4AE88A470290 CheckStamp
+ENDMEREF // ME_467813E40207_ME_4AE88A470290_impl CheckStamp
 
-ME ME_52330A2B0190_ME_4AE88A470290
+MEREF ME_52330A2B0190_ME_4AE88A470290_impl
  MELINK Original HWL ME_52330A2B0190 // Query
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
-ENDME // ME_52330A2B0190_ME_4AE88A470290 Query
+ENDMEREF // ME_52330A2B0190_ME_4AE88A470290_impl Query
+
+MEREF ME_523309E20374_ME_4AE88A470290_G
+ MELINK Original HWL ME_523309E20374 // InsQueryContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_523309E20374_ME_4AE88A470290_G InsQueryContainer
 
 %%InheritedBy ME_523309E20374 ME_4AE88A470290
 
@@ -1299,7 +1341,7 @@ ME ME_4AE88A470290
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_523309E20374 // InsQueryContainer
+   Seq: ( ME_523309E20374_ME_4AE88A470290_G // InsQueryContainer
  )
  ; // Inherits
  MELIST Attributes
@@ -1308,8 +1350,8 @@ ME ME_4AE88A470290
  )
  ; // Attributes
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_4AE88A470290 // CheckStamp
- ME_52330A2B0190_ME_4AE88A470290 // Query
+   Seq: ( ME_467813E40207_ME_4AE88A470290_impl // CheckStamp
+ ME_52330A2B0190_ME_4AE88A470290_impl // Query
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -1378,7 +1420,7 @@ ENDME // ME_52330EFD0215 DoIt
 ME ME_52330EEE0192
  MEPROP UID '52330EEE0192'
  MEPROP Name 'Create'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1441,7 +1483,7 @@ ENDME // ME_52330F1803A5 DoIt
 ME ME_52330F130017
  MEPROP UID '52330F130017'
  MEPROP Name 'CreateFmt'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_Constructor ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1455,11 +1497,23 @@ ME ME_52330F130017
 
 ENDME // ME_52330F130017 CreateFmt
 
-ME ME_48077504027E_ME_52330CD700F3
+MEREF ME_48077504027E_ME_52330CD700F3_over
  MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_48077504027E_ME_52330CD700F3 Destroy
+ENDMEREF // ME_48077504027E_ME_52330CD700F3_over Destroy
+
+MEREF ME_4787A405013D_ME_52330CD700F3_G
+ MELINK Original WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4787A405013D_ME_52330CD700F3_G Exception
+
+MEREF ME_516130FB0241_ME_52330CD700F3_R
+ MELINK Original WL 'ME_516130FB0241' '4AB0C3C60310.ms.model.script' // MObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516130FB0241_ME_52330CD700F3_R MObject
 
 %%ImplementedBy ME_516130FB0241 ME_52330CD700F3
 
@@ -1476,11 +1530,11 @@ ME ME_52330CD700F3
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+   Seq: ( ME_4787A405013D_ME_52330CD700F3_G // Exception
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_516130FB0241' '4AB0C3C60310.ms.model.script' // MObject
+   Seq: ( ME_516130FB0241_ME_52330CD700F3_R // MObject
  )
  ; // Implements
  MELIST Attributes
@@ -1493,7 +1547,7 @@ ME ME_52330CD700F3
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_48077504027E_ME_52330CD700F3 // Destroy
+   Seq: ( ME_48077504027E_ME_52330CD700F3_over // Destroy
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames
@@ -1502,6 +1556,12 @@ ME ME_52330CD700F3
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_52330CD700F3 EqaException
+
+MEREF ME_52330CD700F3_ME_523310290133_G
+ MELINK Original HWL ME_52330CD700F3 // EqaException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52330CD700F3_ME_523310290133_G EqaException
 
 %%InheritedBy ME_52330CD700F3 ME_523310290133
 
@@ -1517,11 +1577,17 @@ ME ME_523310290133
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52330CD700F3 // EqaException
+   Seq: ( ME_52330CD700F3_ME_523310290133_G // EqaException
  )
  ; // Inherits
 
 ENDME // ME_523310290133 EqaRequiredValue
+
+MEREF ME_52330CD700F3_ME_5233103B036E_G
+ MELINK Original HWL ME_52330CD700F3 // EqaException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52330CD700F3_ME_5233103B036E_G EqaException
 
 %%InheritedBy ME_52330CD700F3 ME_5233103B036E
 
@@ -1537,11 +1603,17 @@ ME ME_5233103B036E
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52330CD700F3 // EqaException
+   Seq: ( ME_52330CD700F3_ME_5233103B036E_G // EqaException
  )
  ; // Inherits
 
 ENDME // ME_5233103B036E EqaDuplicateValue
+
+MEREF ME_52330CD700F3_ME_5233104B0021_G
+ MELINK Original HWL ME_52330CD700F3 // EqaException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52330CD700F3_ME_5233104B0021_G EqaException
 
 %%InheritedBy ME_52330CD700F3 ME_5233104B0021
 
@@ -1557,11 +1629,17 @@ ME ME_5233104B0021
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52330CD700F3 // EqaException
+   Seq: ( ME_52330CD700F3_ME_5233104B0021_G // EqaException
  )
  ; // Inherits
 
 ENDME // ME_5233104B0021 EqaInvalidValue
+
+MEREF ME_52330CD700F3_ME_5233105B0151_G
+ MELINK Original HWL ME_52330CD700F3 // EqaException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52330CD700F3_ME_5233105B0151_G EqaException
 
 %%InheritedBy ME_52330CD700F3 ME_5233105B0151
 
@@ -1576,11 +1654,17 @@ ME ME_5233105B0151
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52330CD700F3 // EqaException
+   Seq: ( ME_52330CD700F3_ME_5233105B0151_G // EqaException
  )
  ; // Inherits
 
 ENDME // ME_5233105B0151 EqaSilentAbort
+
+MEREF ME_52330CD700F3_ME_5233120E00D4_G
+ MELINK Original HWL ME_52330CD700F3 // EqaException
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52330CD700F3_ME_5233120E00D4_G EqaException
 
 %%InheritedBy ME_52330CD700F3 ME_5233120E00D4
 
@@ -1595,7 +1679,7 @@ ME ME_5233120E00D4
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52330CD700F3 // EqaException
+   Seq: ( ME_52330CD700F3_ME_5233120E00D4_G // EqaException
  )
  ; // Inherits
  UP "isClassRef" true
@@ -1761,7 +1845,7 @@ ENDME // ME_5233024E0199 DoIt
 ME ME_523302260240
  MEPROP UID '523302260240'
  MEPROP Name 'FinishOpenTree'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1778,7 +1862,7 @@ ENDME // ME_523302260240 FinishOpenTree
 ME ME_52330265006F
  MEPROP UID '52330265006F'
  MEPROP Name 'ReadSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1791,7 +1875,7 @@ ENDME // ME_52330265006F ReadSettings
 ME ME_5233030F0167
  MEPROP UID '5233030F0167'
  MEPROP Name 'WriteSettings'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1804,7 +1888,7 @@ ENDME // ME_5233030F0167 WriteSettings
 ME ME_5233031801BE
  MEPROP UID '5233031801BE'
  MEPROP Name 'InitUpdate'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1817,7 +1901,7 @@ ENDME // ME_5233031801BE InitUpdate
 ME ME_5233031F027E
  MEPROP UID '5233031F027E'
  MEPROP Name 'Clear'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1830,7 +1914,7 @@ ENDME // ME_5233031F027E Clear
 ME ME_5233032700CE
  MEPROP UID '5233032700CE'
  MEPROP Name 'ClearContextMistakes'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1869,7 +1953,7 @@ ENDME // ME_5233034D03B7 DoIt
 ME ME_52330349022C
  MEPROP UID '52330349022C'
  MEPROP Name 'AddValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1912,7 +1996,7 @@ ENDME // ME_5233035D0352 DoIt
 ME ME_523303590369
  MEPROP UID '523303590369'
  MEPROP Name 'DeleteValue'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1929,7 +2013,7 @@ ENDME // ME_523303590369 DeleteValue
 ME ME_5233037903AD
  MEPROP UID '5233037903AD'
  MEPROP Name 'DeleteAll'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1942,7 +2026,7 @@ ENDME // ME_5233037903AD DeleteAll
 ME ME_5233038D008F
  MEPROP UID '5233038D008F'
  MEPROP Name 'OpenSelectWindow'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -1970,7 +2054,7 @@ ENDME // ME_523303AE020C DoIt
 ME ME_523303A90350
  MEPROP UID '523303A90350'
  MEPROP Name 'ChangableReq'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Изменяющаеся значение при изменении реквизита' ;
@@ -2004,7 +2088,7 @@ ENDME // ME_523303FF0045 DoIt
 ME ME_523303F700C1
  MEPROP UID '523303F700C1'
  MEPROP Name 'GetName4Query'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращают имя для запроса' ;
@@ -2038,7 +2122,7 @@ ENDME // ME_523304C400CE DoIt
 ME ME_523304BF01B5
  MEPROP UID '523304BF01B5'
  MEPROP Name 'GetCurrentReq'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает текущий реквизит для контрола' ;
@@ -2071,7 +2155,7 @@ ENDME // ME_523304E300A5 DoIt
 ME ME_523304D6011A
  MEPROP UID '523304D6011A'
  MEPROP Name 'GetCurrentField'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает текущий контрол для реквизита' ;
@@ -2115,7 +2199,7 @@ ENDME // ME_5233051F03CE DoIt
 ME ME_5233051C0075
  MEPROP UID '5233051C0075'
  MEPROP Name 'CreateTree'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2164,7 +2248,7 @@ ENDME // ME_52330563020A DoIt
 ME ME_5233055D02D2
  MEPROP UID '5233055D02D2'
  MEPROP Name 'Save'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2181,7 +2265,7 @@ ENDME // ME_5233055D02D2 Save
 ME ME_5233057001A7
  MEPROP UID '5233057001A7'
  MEPROP Name 'Load'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2222,7 +2306,7 @@ ENDME // ME_5233057F02B1 DoIt
 ME ME_5233057A0279
  MEPROP UID '5233057A0279'
  MEPROP Name 'IsSomeFieldFilled'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2265,7 +2349,7 @@ ENDME // ME_523305FE0199 DoIt
 ME ME_523305F8011B
  MEPROP UID '523305F8011B'
  MEPROP Name 'ChangeStateAll'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2282,7 +2366,7 @@ ENDME // ME_523305F8011B ChangeStateAll
 ME ME_5233060F0343
  MEPROP UID '5233060F0343'
  MEPROP Name 'Check'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2321,7 +2405,7 @@ ENDME // ME_5233063601F6 DoIt
 ME ME_5233063202E8
  MEPROP UID '5233063202E8'
  MEPROP Name 'DateQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2364,7 +2448,7 @@ ENDME // ME_52330668016C DoIt
 ME ME_523306640146
  MEPROP UID '523306640146'
  MEPROP Name 'ModifiedChanged'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2381,7 +2465,7 @@ ENDME // ME_523306640146 ModifiedChanged
 ME ME_523307F40383
  MEPROP UID '523307F40383'
  MEPROP Name 'ExecQuery'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2422,7 +2506,7 @@ ENDME // ME_52330848021E DoIt
 ME ME_5233084202DD
  MEPROP UID '5233084202DD'
  MEPROP Name 'FindAttr'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Возвращает атрибут по имени' ;
@@ -2455,7 +2539,7 @@ ENDME // ME_5233086703AD DoIt
 ME ME_5233086001AF
  MEPROP UID '5233086001AF'
  MEPROP Name 'GettingFromView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2472,7 +2556,7 @@ ENDME // ME_5233086001AF GettingFromView
 ME ME_523308730027
  MEPROP UID '523308730027'
  MEPROP Name 'StartGettingFromView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2485,7 +2569,7 @@ ENDME // ME_523308730027 StartGettingFromView
 ME ME_5233087C020F
  MEPROP UID '5233087C020F'
  MEPROP Name 'FinishGettingFromView'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -2495,11 +2579,17 @@ ME ME_5233087C020F
 
 ENDME // ME_5233087C020F FinishGettingFromView
 
-ME ME_467813E40207_ME_468395810205
+MEREF ME_467813E40207_ME_468395810205_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_468395810205 CheckStamp
+ENDMEREF // ME_467813E40207_ME_468395810205_impl CheckStamp
+
+MEREF ME_467821770204_ME_468395810205_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_468395810205_G InevBase
 
 %%InheritedBy ME_467821770204 ME_468395810205
 
@@ -2515,7 +2605,7 @@ ME ME_468395810205
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_468395810205_G // InevBase
  )
  ; // Inherits
  MELIST Attributes
@@ -2559,7 +2649,7 @@ ME ME_468395810205
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_468395810205 // CheckStamp
+   Seq: ( ME_467813E40207_ME_468395810205_impl // CheckStamp
  )
  ; // Implemented
  MESTRINGLIST DiagramsNames
@@ -2572,17 +2662,29 @@ ENDME // ME_468395810205 IqaMgrSearch
 
 FORWARD ME_5232EADB0377
 
-ME ME_467813E40207_ME_5232EADB0377
+MEREF ME_467813E40207_ME_5232EADB0377_impl
  MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_467813E40207_ME_5232EADB0377 CheckStamp
+ENDMEREF // ME_467813E40207_ME_5232EADB0377_impl CheckStamp
 
-ME ME_5232EAFF0300_ME_5232EADB0377
+MEREF ME_5232EAFF0300_ME_5232EADB0377_impl
  MELINK Original HWL ME_5232EAFF0300 // FillReqListAsString
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_5232EAFF0300_ME_5232EADB0377 FillReqListAsString
+ENDMEREF // ME_5232EAFF0300_ME_5232EADB0377_impl FillReqListAsString
+
+MEREF ME_467821770204_ME_5232EADB0377_G
+ MELINK Original WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_467821770204_ME_5232EADB0377_G InevBase
+
+MEREF ME_5500443F0322_ME_5232EADB0377_R
+ MELINK Original HWL ME_5500443F0322 // MqaMorphoReq
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5500443F0322_ME_5232EADB0377_R MqaMorphoReq
 
 %%ImplementedBy ME_5500443F0322 ME_5232EADB0377
 
@@ -2600,16 +2702,16 @@ ME ME_5232EADB0377
  MELINK Parent HWL ME_46837A08002C // nsQueryInterfaces
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+   Seq: ( ME_467821770204_ME_5232EADB0377_G // InevBase
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_5500443F0322 // MqaMorphoReq
+   Seq: ( ME_5500443F0322_ME_5232EADB0377_R // MqaMorphoReq
  )
  ; // Implements
  MELIST Implemented
-   Seq: ( ME_467813E40207_ME_5232EADB0377 // CheckStamp
- ME_5232EAFF0300_ME_5232EADB0377 // FillReqListAsString
+   Seq: ( ME_467813E40207_ME_5232EADB0377_impl // CheckStamp
+ ME_5232EAFF0300_ME_5232EADB0377_impl // FillReqListAsString
  )
  ; // Implemented
  UP extprop:rc:SelfName 'qaMorphoReq'

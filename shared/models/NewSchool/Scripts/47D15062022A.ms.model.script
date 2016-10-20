@@ -1,0 +1,128 @@
+// Tl3Bitmap 47D15062022A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47D15062022A
+
+FORWARD ME_47D15062022A
+
+MEREF ME_478E3C97021E_ME_47D158AC010F_G
+ MELINK Original WL? 'ME_478E3C97021E' // Tl3Canvas
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_478E3C97021E_ME_47D158AC010F_G Tl3Canvas
+
+%%InheritedBy ME_478E3C97021E ME_47D158AC010F
+
+ME ME_47D158AC010F
+ MEPROP UID '47D158AC010F'
+ MEPROP Name 'Tl3BitmapCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D15062022A // Tl3Bitmap
+ ;
+ MELIST Inherits
+   Seq: ( ME_478E3C97021E_ME_47D158AC010F_G // Tl3Canvas
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'BitmapCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47D158AC010F Tl3BitmapCanvas
+
+ME ME_47D1585203D5
+ MEPROP UID '47D1585203D5'
+ MEPROP Name 'f_Canvas'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D15062022A // Tl3Bitmap
+ ;
+ MELINK Target WL? 'ME_478E3C97021E' // Tl3Canvas
+ ;
+
+ENDME // ME_47D1585203D5 f_Canvas
+
+ME ME_47D1587401BD
+ MEPROP UID '47D1587401BD'
+ MEPROP Name 'CanvasEx'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47D15062022A // Tl3Bitmap
+ ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_47D1587401BD CanvasEx
+
+MEREF ME_479731C50290_ME_47D15062022A_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_47D15062022A_over Cleanup
+
+MEREF ME_47913F970159_ME_47D15062022A_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_47D15062022A_G l3Unknown
+
+MEREF ME_47D15723038A_ME_47D15062022A_G
+ MELINK Original WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D15723038A_ME_47D15062022A_G TBitmap
+
+%%InheritedBy ME_47913F970159 ME_47D15062022A
+%%InheritedBy ME_47D15723038A ME_47D15062022A
+
+ME ME_47D15062022A
+ MEPROP UID '47D15062022A'
+ MEPROP Name 'Tl3Bitmap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_47913F970159_ME_47D15062022A_G // l3Unknown
+ ME_47D15723038A_ME_47D15062022A_G // TBitmap
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47D1585203D5 // f_Canvas
+ HWL ME_47D1587401BD // CanvasEx
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47D15062022A_over // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47D158AC010F // Tl3BitmapCanvas
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '15.12.2006 14:01'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Bitmap.pas'
+ UP extprop:rc:SelfName 'Bitmap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3Bitmap'
+
+ENDME // ME_47D15062022A Tl3Bitmap

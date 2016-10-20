@@ -1,0 +1,42 @@
+// ClearTemplateStorage 53B647A9029B ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B647A9029B
+
+ME ME_53B648AB028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B647A9029B // ClearTemplateStorage
+ ;
+ MELINK Target WL 'ME_53B648700029' '4E4B5F29031C.ms.model.script' // arClearTemplateStorage
+ ;
+
+ENDME // ME_53B648AB028A 
+
+ME ME_53B647A9029B
+ MEPROP UID '53B647A9029B'
+ MEPROP Name 'ClearTemplateStorage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает данные для ''Текстового шаблона''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL? 'ME_4F6195640184' // CommonArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53B648AB028A // arClearTemplateStorage
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearTemplateStorage.pas'
+ UP extprop:pas:TypeName 'TkwClearTemplateStorage'
+ UP extprop:rc:SelfName 'ClearTemplateStorage'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwClearTemplateStorage'
+
+ENDME // ME_53B647A9029B ClearTemplateStorage

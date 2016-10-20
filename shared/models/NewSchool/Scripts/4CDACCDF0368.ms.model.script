@@ -6,6 +6,12 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4CDACCDF0368
 
+MEREF ME_47D15723038A_ME_4CDAD96402B1_G
+ MELINK Original WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47D15723038A_ME_4CDAD96402B1_G TBitmap
+
 %%InheritedBy ME_47D15723038A ME_4CDAD96402B1
 
 ME ME_4CDAD96402B1
@@ -20,7 +26,7 @@ ME ME_4CDAD96402B1
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47D15723038A' '47D15712022D.ms.model.script' // TBitmap
+   Seq: ( ME_47D15723038A_ME_4CDAD96402B1_G // TBitmap
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts true
@@ -76,7 +82,7 @@ ENDME // ME_4CDAD28A0047 Get
 ME ME_4CDAD282005F
  MEPROP UID '4CDAD282005F'
  MEPROP Name 'Name'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -108,7 +114,7 @@ ENDME // ME_4CDAD2A80030 Get
 ME ME_4CDAD29D0169
  MEPROP UID '4CDAD29D0169'
  MEPROP Name 'ShortName'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -140,7 +146,7 @@ ENDME // ME_4CDAE16503B9 Get
 ME ME_4CDAE15C035B
  MEPROP UID '4CDAE15C035B'
  MEPROP Name 'DPI'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -172,7 +178,7 @@ ENDME // ME_5301CC170042 DoIt
 ME ME_5301CBFE023E
  MEPROP UID '5301CBFE023E'
  MEPROP Name 'MakePreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -202,7 +208,7 @@ ENDME // ME_5592657103A5 DoIt
 ME ME_5592655F00B2
  MEPROP UID '5592655F00B2'
  MEPROP Name 'ClearPreview'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -221,7 +227,7 @@ ME ME_4CDACFF60016
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
- MELINK Target WL 'ME_4CDACFDB00AB' '47EA968D0155.ms.model.script' // TevBitmapDataObject
+ MELINK Target WL? 'ME_4CDACFDB00AB' // TevBitmapDataObject
  ;
 
 ENDME // ME_4CDACFF60016 
@@ -231,7 +237,7 @@ ME ME_4CDAD078002E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
- MELINK Target WL 'ME_495878B40393' '491DCA2C00A9.ms.model.script' // TnsFixedHAFMacroReplacer
+ MELINK Target WL? 'ME_495878B40393' // TnsFixedHAFMacroReplacer
  ;
 
 ENDME // ME_4CDAD078002E 
@@ -241,7 +247,7 @@ ME ME_4CDAD0D00388
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
- MELINK Target WL 'ME_4CDAD0C70184' '4CDABA8F024B.ms.model.script' // TnsObjectPreview
+ MELINK Target WL? 'ME_4CDAD0C70184' // TnsObjectPreview
  ;
 
 ENDME // ME_4CDAD0D00388 
@@ -261,18 +267,24 @@ ME ME_4CDAD7360295
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4CDACCDF0368 // PrintableBitmap
  ;
- MELINK Target WL 'ME_47F2317F015E' '491DCA2C00A9.ms.model.script' // TnsHAFPainter
+ MELINK Target WL? 'ME_47F2317F015E' // TnsHAFPainter
  ;
 
 ENDME // ME_4CDAD7360295 
 
-ME ME_4CDAC5E902FF_ME_4CDACCDF0368
+MEREF ME_4CDAC5E902FF_ME_4CDACCDF0368_impl
  MELINK Original WL 'ME_4CDAC5E902FF' '4CDABAD0032E.ms.model.script' // Preview
  ;
  MEPROP OpKind opkind_Implemented
  UP "needs field" false
  UP "pm" true
-ENDME // ME_4CDAC5E902FF_ME_4CDACCDF0368 Preview
+ENDMEREF // ME_4CDAC5E902FF_ME_4CDACCDF0368_impl Preview
+
+MEREF ME_4CDABAD0032E_ME_4CDACCDF0368_G
+ MELINK Original WL? 'ME_4CDABAD0032E' // Printable
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4CDABAD0032E_ME_4CDACCDF0368_G Printable
 
 %%InheritedBy ME_4CDABAD0032E ME_4CDACCDF0368
 
@@ -288,7 +300,7 @@ ME ME_4CDACCDF0368
  MELINK Parent WL? 'ME_4CDABA8F024B' // Printing
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4CDABAD0032E' // Printable
+   Seq: ( ME_4CDABAD0032E_ME_4CDACCDF0368_G // Printable
  )
  ; // Inherits
  MELIST Attributes
@@ -305,7 +317,7 @@ ME ME_4CDACCDF0368
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4CDAC5E902FF_ME_4CDACCDF0368 // Preview
+   Seq: ( ME_4CDAC5E902FF_ME_4CDACCDF0368_impl // Preview
  )
  ; // Implemented
  MELIST Children

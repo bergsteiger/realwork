@@ -1,0 +1,70 @@
+// Tl3InterfacedInterfaceList 47CBED200390 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CBED200390
+
+ME ME_47CECC4F0323
+ MEPROP UID '47CECC4F0323'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CBED200390 // Tl3InterfacedInterfaceList
+ ;
+ MELINK Target WL 'ME_46A609DD00F9' '4677FBA70343.ms.model.script' // Il3InterfaceList
+ ;
+
+ENDME // ME_47CECC4F0323 ListType
+
+MEREF ME_4773DC580043_ME_47CBED200390_G
+ MELINK Original WL? 'ME_4773DC580043' // Tl3InterfaceList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4773DC580043_ME_47CBED200390_G Tl3InterfaceList
+
+MEREF ME_47CED1980057_ME_47CBED200390_R
+ MELINK Original WL? 'ME_47CED1980057' // l3InterfacedList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47CED1980057_ME_47CBED200390_R l3InterfacedList
+
+%%ImplementedBy ME_47CED1980057 ME_47CBED200390
+
+%%InheritedBy ME_4773DC580043 ME_47CBED200390
+
+ME ME_47CBED200390
+ MEPROP UID '47CBED200390'
+ MEPROP Name 'Tl3InterfacedInterfaceList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47913B47006E' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_4773DC580043_ME_47CBED200390_G // Tl3InterfaceList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47CED1980057_ME_47CBED200390_R // l3InterfacedList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47CECC4F0323 // ListType
+ )
+ ; // Attributes
+ UP "UseNewGen" true
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '03.03.2008 15:22'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfacedInterfaceList.pas'
+ UP extprop:rc:SelfName 'InterfacedInterfaceList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3InterfacedInterfaceList'
+
+ENDME // ME_47CBED200390 Tl3InterfacedInterfaceList

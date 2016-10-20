@@ -1,0 +1,72 @@
+// TvgBitmap 4D5415920189 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D5415920189
+
+FORWARD ME_4D5415920189
+
+MEREF ME_4D4956480326_ME_5326B4F301BF_G
+ MELINK Original WL? 'ME_4D4956480326' // TvgObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D4956480326_ME_5326B4F301BF_G TvgObject
+
+%%InheritedBy ME_4D4956480326 ME_5326B4F301BF
+
+ME ME_5326B4F301BF
+ MEPROP UID '5326B4F301BF'
+ MEPROP Name 'TvgBitmapObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D5415920189 // TvgBitmap
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D4956480326_ME_5326B4F301BF_G // TvgObject
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'BitmapObject'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5326B4F301BF TvgBitmapObject
+
+MEREF ME_4D542A150195_ME_4D5415920189_G
+ MELINK Original WL? 'ME_4D542A150195' // TvgCustomBitmap
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4D542A150195_ME_4D5415920189_G TvgCustomBitmap
+
+%%InheritedBy ME_4D542A150195 ME_4D5415920189
+
+ME ME_4D5415920189
+ MEPROP UID '4D5415920189'
+ MEPROP Name 'TvgBitmap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4CFCE51A00B0' // Impl
+ ;
+ MELIST Inherits
+   Seq: ( ME_4D542A150195_ME_4D5415920189_G // TvgCustomBitmap
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5326B4F301BF // TvgBitmapObject
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vgBitmap.pas'
+ UP extprop:rc:SelfName 'Bitmap'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgBitmap'
+
+ENDME // ME_4D5415920189 TvgBitmap

@@ -25,6 +25,10 @@ ME ME_484F7A5501AB
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48563BA400A9 // Навигация
  ;
+ MELIST Implements
+   Seq: (  // Автоматическая история работы
+ )
+ ; // Implements
 
 ENDME // ME_484F7A5501AB История навигации
 
@@ -39,6 +43,10 @@ ME ME_484F77120164
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48563BA400A9 // Навигация
  ;
+ MELIST Implements
+   Seq: (  // Основные приемы работы с системой
+ )
+ ; // Implements
 
 ENDME // ME_484F77120164 Основное меню (устарел)
 
@@ -53,8 +61,18 @@ ME ME_48563D4D00D5
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_48563BA400A9 // Навигация
  ;
+ MELIST Implements
+   Seq: (  // Основные приемы работы с системой
+ )
+ ; // Implements
 
 ENDME // ME_48563D4D00D5 Панель задач
+
+MEREF ME_484F77120164_ME_48563E65020C_G
+ MELINK Original HWL ME_484F77120164 // Основное меню (устарел)
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484F77120164_ME_48563E65020C_G Основное меню (устарел)
 
 %%InheritedBy ME_484F77120164 ME_48563E65020C
 
@@ -70,7 +88,7 @@ ME ME_48563E65020C
  MELINK Parent HWL ME_48563BA400A9 // Навигация
  ;
  MELIST Inherits
-   Seq: ( HWL ME_484F77120164 // Основное меню (устарел)
+   Seq: ( ME_484F77120164_ME_48563E65020C_G // Основное меню (устарел)
  )
  ; // Inherits
 
@@ -240,6 +258,12 @@ ME ME_4F7442D6021F
 
 ENDME // ME_4F7442D6021F Должна быть кнопка Онлайн-архив
 
+MEREF ME_48563E65020C_ME_4AC1D84F0398_G
+ MELINK Original HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48563E65020C_ME_4AC1D84F0398_G Упрощенное Основное Меню (устарел)
+
 %%InheritedBy ME_48563E65020C ME_4AC1D84F0398
 
 ME ME_4AC1D84F0398
@@ -254,7 +278,7 @@ ME ME_4AC1D84F0398
  MELINK Parent HWL ME_48563BA400A9 // Навигация
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
+   Seq: ( ME_48563E65020C_ME_4AC1D84F0398_G // Упрощенное Основное Меню (устарел)
  )
  ; // Inherits
  MELIST Children

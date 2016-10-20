@@ -1,0 +1,517 @@
+// TvcmBaseCollection 4FFC4C800030 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FFC4C800030
+%%Inner ME_4FFC4C800030
+%%Inner ME_4FFC4C800030
+
+FORWARD ME_4FFC4C800030
+
+ME ME_5607EAC702C8
+ MEPROP UID '5607EAC702C8'
+ MEPROP Name '_UnknownNeedsQI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+
+ENDME // ME_5607EAC702C8 _UnknownNeedsQI
+
+ME ME_5607EAD3017E
+ MEPROP UID '5607EAD3017E'
+ MEPROP Name '_UnknownNotNeedL3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ UP "ifndef" 'vcmNeedL3'
+
+ENDME // ME_5607EAD3017E _UnknownNotNeedL3
+
+MEREF ME_4FFC4C800030_ME_52A1ED79003E_G
+ MELINK Original HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC4C800030_ME_52A1ED79003E_G TvcmBaseCollection
+
+%%InheritedBy ME_4FFC4C800030 ME_52A1ED79003E
+
+ME ME_52A1ED79003E
+ MEPROP UID '52A1ED79003E'
+ MEPROP Name 'RvcmBaseCollection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FFC4C800030_ME_52A1ED79003E_G // TvcmBaseCollection
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A1ED79003E RvcmBaseCollection
+
+ME ME_5607EB150143
+ MEPROP UID '5607EB150143'
+ MEPROP Name 'Sorted'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5607EB150143 Sorted
+
+FORWARD ME_5607EB680196
+
+ME ME_5607EB7100B0
+ MEPROP UID '5607EB7100B0'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5607EB680196 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5607EB7100B0 anIndex
+
+ME ME_5607EB680196
+ MEPROP UID '5607EB680196'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELINK Target WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5607EB7100B0 // anIndex
+ )
+ ; // Attributes
+ UP "pm" true
+
+ENDME // ME_5607EB680196 Items
+
+ME ME_5607EC18014E
+ MEPROP UID '5607EC18014E'
+ MEPROP Name 'f_FoundItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELINK Target WL? 'ME_4FFC335A011F' // TvcmPrimCollectionItem
+ ;
+
+ENDME // ME_5607EC18014E f_FoundItem
+
+FORWARD ME_5607EE8B03CD
+
+ME ME_5607EE9A00AD
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5607EE9A00AD aName
+
+ME ME_5607EE9701BB
+ MEPROP UID '5607EE9701BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5607EE8B03CD // FindItemByName
+ ;
+ MELINK Target WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_5607EE9A00AD // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5607EE9701BB DoIt
+
+ME ME_5607EE8B03CD
+ MEPROP UID '5607EE8B03CD'
+ MEPROP Name 'FindItemByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5607EE9701BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5607EE8B03CD FindItemByName
+
+ME ME_5607EC4F0276
+ MEPROP UID '5607EC4F0276'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+
+ENDME // ME_5607EC4F0276 Sort
+
+FORWARD ME_5607EE5400CB
+
+ME ME_5607EE5F0125
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF32A03B6' '478CF30500C1.ms.model.script' // TPersistent
+ ;
+
+ENDME // ME_5607EE5F0125 anOwner
+
+ME ME_5607EE5C03A5
+ MEPROP UID '5607EE5C03A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5607EE5400CB // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5607EE5F0125 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_5607EE5C03A5 DoIt
+
+ME ME_5607EE5400CB
+ MEPROP UID '5607EE5400CB'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5607EE5C03A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5607EE5400CB Create
+
+FORWARD ME_5607EE71032D
+
+ME ME_5607EE7A0125
+ MEPROP UID '5607EE7A0125'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5607EE71032D // GetItemClass
+ ;
+ MELINK Target WL 'ME_4F8E7BED02DC' '478CF30500C1.ms.model.script' // TCollectionItemClass
+ ;
+
+ENDME // ME_5607EE7A0125 DoIt
+
+ME ME_5607EE71032D
+ MEPROP UID '5607EE71032D'
+ MEPROP Name 'GetItemClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5607EE7A0125 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_5607EE71032D GetItemClass
+
+MEREF ME_5607EE8B03CD_ME_5607EEA50071_G
+ MELINK Original HWL ME_5607EE8B03CD // FindItemByName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5607EE8B03CD_ME_5607EEA50071_G FindItemByName
+
+%%InheritedBy ME_5607EE8B03CD ME_5607EEA50071
+
+ME ME_5607EEA50071
+ MEPROP UID '5607EEA50071'
+ MEPROP Name 'CheckItemByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Inherits
+   Seq: ( ME_5607EE8B03CD_ME_5607EEA50071_G // FindItemByName
+ )
+ ; // Inherits
+
+ENDME // ME_5607EEA50071 CheckItemByName
+
+MEREF ME_5607EE8B03CD_ME_5607EEB3007A_G
+ MELINK Original HWL ME_5607EE8B03CD // FindItemByName
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5607EE8B03CD_ME_5607EEB3007A_G FindItemByName
+
+%%InheritedBy ME_5607EE8B03CD ME_5607EEB3007A
+
+ME ME_5607EEB3007A
+ MEPROP UID '5607EEB3007A'
+ MEPROP Name 'FindItemByCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Inherits
+   Seq: ( ME_5607EE8B03CD_ME_5607EEB3007A_G // FindItemByName
+ )
+ ; // Inherits
+
+ENDME // ME_5607EEB3007A FindItemByCaption
+
+FORWARD ME_5607EEC401EC
+
+ME ME_5607EECF02FA
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C8750015' '467BAB7F021E.ms.model.script' // TvcmControlID
+ ;
+
+ENDME // ME_5607EECF02FA anID
+
+ME ME_5607EECC0156
+ MEPROP UID '5607EECC0156'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5607EEC401EC // FindItemByID
+ ;
+ MELINK Target WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_5607EECF02FA // anID
+ )
+ ; // Parameters
+
+ENDME // ME_5607EECC0156 DoIt
+
+ME ME_5607EEC401EC
+ MEPROP UID '5607EEC401EC'
+ MEPROP Name 'FindItemByID'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5607EECC0156 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5607EEC401EC FindItemByID
+
+FORWARD ME_5607EEDB0193
+
+ME ME_5607EEE40385
+ MEPROP Name 'aItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55D076150061' '4FFC3347011F.ms.model.script' // TvcmBaseCollectionItemPrim
+ ;
+
+ENDME // ME_5607EEE40385 aItem
+
+ME ME_5607EEE203E1
+ MEPROP UID '5607EEE203E1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5607EEDB0193 // CaptionChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_5607EEE40385 // aItem
+ )
+ ; // Parameters
+
+ENDME // ME_5607EEE203E1 DoIt
+
+ME ME_5607EEDB0193
+ MEPROP UID '5607EEDB0193'
+ MEPROP Name 'CaptionChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5607EEE203E1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5607EEDB0193 CaptionChanged
+
+ME ME_56081385004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFC4C800030 // TvcmBaseCollection
+ ;
+ MELINK Target WL? 'ME_47878E0E0191' // l3String
+ ;
+
+ENDME // ME_56081385004F 
+
+MEREF ME_479731C50290_ME_4FFC4C800030_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4FFC4C800030_over Cleanup
+
+MEREF ME_479F2B3302C1_ME_4FFC4C800030_over
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479F2B3302C1_ME_4FFC4C800030_over BeforeAddToCache
+
+MEREF ME_47A6FEE600FC_ME_4FFC4C800030_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_4FFC4C800030_over IsCacheable
+
+MEREF ME_4F8E7A900279_ME_4FFC4C800030_over
+ MELINK Original WL 'ME_4F8E7A900279' '478CF30500C1.ms.model.script' // Notify
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4F8E7A900279_ME_4FFC4C800030_over Notify
+
+MEREF ME_4FFC4CA60156_ME_4FFC4C800030_G
+ MELINK Original WL 'ME_4FFC4CA60156' '478CF30500C1.ms.model.script' // TOwnedCollection
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FFC4CA60156_ME_4FFC4C800030_G TOwnedCollection
+
+MEREF ME_47913F970159_ME_4FFC4C800030_R
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4FFC4C800030_R l3Unknown
+
+%%ImplementedBy ME_47913F970159 ME_4FFC4C800030
+
+%%InheritedBy ME_4FFC4CA60156 ME_4FFC4C800030
+
+ME ME_4FFC4C800030
+ MEPROP UID '4FFC4C800030'
+ MEPROP Name 'TvcmBaseCollection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4FFC33380166' // Collections
+ ;
+ MELIST Inherits
+   Seq: ( ME_4FFC4CA60156_ME_4FFC4C800030_G // TOwnedCollection
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47913F970159_ME_4FFC4C800030_R // l3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5607EB150143 // Sorted
+ HWL ME_5607EB680196 // Items
+ HWL ME_5607EC18014E // f_FoundItem
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5607EE8B03CD // FindItemByName
+ HWL ME_5607EC4F0276 // Sort
+ HWL ME_5607EE5400CB // Create
+ HWL ME_5607EE71032D // GetItemClass
+ HWL ME_5607EEA50071 // CheckItemByName
+ HWL ME_5607EEB3007A // FindItemByCaption
+ HWL ME_5607EEC401EC // FindItemByID
+ HWL ME_5607EEDB0193 // CaptionChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FFC4C800030_over // Cleanup
+ ME_479F2B3302C1_ME_4FFC4C800030_over // BeforeAddToCache
+ ME_47A6FEE600FC_ME_4FFC4C800030_over // IsCacheable
+ ME_4F8E7A900279_ME_4FFC4C800030_over // Notify
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5607EAC702C8 // _UnknownNeedsQI
+ HWL ME_5607EAD3017E // _UnknownNotNeedL3
+ HWL ME_52A1ED79003E // RvcmBaseCollection
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_56081385004F // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollection.pas'
+ UP extprop:rc:SelfName 'Collection'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmBaseCollection'
+
+ENDME // ME_4FFC4C800030 TvcmBaseCollection

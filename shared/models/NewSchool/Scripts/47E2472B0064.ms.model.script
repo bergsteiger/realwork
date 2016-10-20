@@ -1,0 +1,66 @@
+// Tl3NodeList 47E2472B0064 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E2472B0064
+
+ME ME_47E2477200E4
+ MEPROP UID '47E2477200E4'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E2472B0064 // Tl3NodeList
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_47E2477200E4 ItemType
+
+MEREF ME_47B57D830369_ME_47E2472B0064_G
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_47E2472B0064_G l3InterfaceRefList
+
+MEREF ME_47BC3A07027F_ME_47E2472B0064_G
+ MELINK Original WL? 'ME_47BC3A07027F' // Tl3SimpleDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47BC3A07027F_ME_47E2472B0064_G Tl3SimpleDataContainer
+
+%%InheritedBy ME_47B57D830369 ME_47E2472B0064
+%%InheritedBy ME_47BC3A07027F ME_47E2472B0064
+
+ME ME_47E2472B0064
+ MEPROP UID '47E2472B0064'
+ MEPROP Name 'Tl3NodeList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список узлов дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E246C90144' // l3Trees
+ ;
+ MELIST Inherits
+   Seq: ( ME_47B57D830369_ME_47E2472B0064_G // l3InterfaceRefList
+ ME_47BC3A07027F_ME_47E2472B0064_G // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E2477200E4 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '20.03.2008 14:11'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3NodeList.pas'
+ UP extprop:rc:SelfName 'NodeList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3NodeList'
+
+ENDME // ME_47E2472B0064 Tl3NodeList

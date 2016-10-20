@@ -1,0 +1,53 @@
+// TevdNativeReader 483E80FA0312 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483E80FA0312
+
+ME ME_555DB61203D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483E80FA0312 // TevdNativeReader
+ ;
+ MELINK Target WL? 'ME_555DB607006F' // evdNativeReaderServices
+ ;
+
+ENDME // ME_555DB61203D5 
+
+MEREF ME_483E81520007_ME_483E80FA0312_G
+ MELINK Original WL? 'ME_483E81520007' // Tk2CustomFileParser
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_483E81520007_ME_483E80FA0312_G Tk2CustomFileParser
+
+%%InheritedBy ME_483E81520007 ME_483E80FA0312
+
+ME ME_483E80FA0312
+ MEPROP UID '483E80FA0312'
+ MEPROP Name 'TevdNativeReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читатель тегов в формате evd.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_483E80C9025F' // Readers
+ ;
+ MELIST Inherits
+   Seq: ( ME_483E81520007_ME_483E80FA0312_G // Tk2CustomFileParser
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_555DB61203D5 // evdNativeReaderServices
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '05.10.1999 13:53'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeReader.pas'
+ UP extprop:rc:SelfName 'dNativeReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdNativeReader'
+
+ENDME // ME_483E80FA0312 TevdNativeReader

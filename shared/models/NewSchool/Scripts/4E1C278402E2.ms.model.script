@@ -1,0 +1,72 @@
+// TevdAllParaEliminator 4E1C278402E2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E1C278402E2
+
+ME ME_4E1C27B0037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1C278402E2 // TevdAllParaEliminator
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_4E1C27B0037B 
+
+MEREF ME_49E488070386_ME_4E1C278402E2_over
+ MELINK Original WL 'ME_49E488070386' '49E487650342.ms.model.script' // ParaTypeForFiltering
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E488070386_ME_4E1C278402E2_over ParaTypeForFiltering
+
+MEREF ME_49E48829016F_ME_4E1C278402E2_over
+ MELINK Original WL 'ME_49E48829016F' '49E487650342.ms.model.script' // NeedWritePara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_49E48829016F_ME_4E1C278402E2_over NeedWritePara
+
+MEREF ME_49E487650342_ME_4E1C278402E2_G
+ MELINK Original WL? 'ME_49E487650342' // TevdLeafParaFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487650342_ME_4E1C278402E2_G TevdLeafParaFilter
+
+%%InheritedBy ME_49E487650342 ME_4E1C278402E2
+
+ME ME_4E1C278402E2
+ MEPROP UID '4E1C278402E2'
+ MEPROP Name 'TevdAllParaEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECB8BD00A8' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487650342_ME_4E1C278402E2_G // TevdLeafParaFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49E488070386_ME_4E1C278402E2_over // ParaTypeForFiltering
+ ME_49E48829016F_ME_4E1C278402E2_over // NeedWritePara
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E1C27B0037B // Para
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '12.07.2011 14:54'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdAllParaEliminator.pas'
+ UP extprop:rc:SelfName 'dAllParaEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evdAllParaEliminator'
+
+ENDME // ME_4E1C278402E2 TevdAllParaEliminator

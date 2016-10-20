@@ -1,0 +1,163 @@
+// TdaProgressProcHolder 552523F2014F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552523F2014F
+
+ME ME_552524710094
+ MEPROP UID '552524710094'
+ MEPROP Name 'f_Proc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552523F2014F // TdaProgressProcHolder
+ ;
+ MELINK Target WL 'ME_4F1922630272' '4678193C009C.ms.model.script' // Tl3ProgressProc
+ ;
+
+ENDME // ME_552524710094 f_Proc
+
+FORWARD ME_552524220076
+
+ME ME_5525243B0196
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F1922630272' '4678193C009C.ms.model.script' // Tl3ProgressProc
+ ;
+
+ENDME // ME_5525243B0196 aProc
+
+ME ME_5525242B0171
+ MEPROP UID '5525242B0171'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552524220076 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5525243B0196 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_5525242B0171 DoIt
+
+ME ME_552524220076
+ MEPROP UID '552524220076'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552523F2014F // TdaProgressProcHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5525242B0171 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552524220076 Create
+
+MEREF ME_552524220076_ME_5525244202B3_G
+ MELINK Original HWL ME_552524220076 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_552524220076_ME_5525244202B3_G Create
+
+MEREF ME_5525141A025A_ME_5525244202B3_R
+ MELINK Original WL 'ME_5525141A025A' '5432518A0316.ms.model.script' // IdaProgressSubscriber
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5525141A025A_ME_5525244202B3_R IdaProgressSubscriber
+
+%%ImplementedBy ME_5525141A025A ME_5525244202B3
+
+%%InheritedBy ME_552524220076 ME_5525244202B3
+
+ME ME_5525244202B3
+ MEPROP UID '5525244202B3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552523F2014F // TdaProgressProcHolder
+ ;
+ MELIST Inherits
+   Seq: ( ME_552524220076_ME_5525244202B3_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5525141A025A_ME_5525244202B3_R // IdaProgressSubscriber
+ )
+ ; // Implements
+
+ENDME // ME_5525244202B3 Make
+
+MEREF ME_552514570311_ME_552523F2014F_impl
+ MELINK Original WL 'ME_552514570311' '5432518A0316.ms.model.script' // DoProgressNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_552514570311_ME_552523F2014F_impl DoProgressNotify
+
+MEREF ME_49E7754802A9_ME_552523F2014F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_552523F2014F_G Tl3ProtoObject
+
+MEREF ME_5525141A025A_ME_552523F2014F_R
+ MELINK Original WL 'ME_5525141A025A' '5432518A0316.ms.model.script' // IdaProgressSubscriber
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5525141A025A_ME_552523F2014F_R IdaProgressSubscriber
+
+%%ImplementedBy ME_5525141A025A ME_552523F2014F
+
+%%InheritedBy ME_49E7754802A9 ME_552523F2014F
+
+ME ME_552523F2014F
+ MEPROP UID '552523F2014F'
+ MEPROP Name 'TdaProgressProcHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_552523F2014F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5525141A025A_ME_552523F2014F_R // IdaProgressSubscriber
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_552524710094 // f_Proc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_552524220076 // Create
+ HWL ME_5525244202B3 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_552514570311_ME_552523F2014F_impl // DoProgressNotify
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daProgressProcHolder.pas'
+ UP extprop:rc:SelfName 'daProgressProcHolder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daProgressProcHolder'
+
+ENDME // ME_552523F2014F TdaProgressProcHolder

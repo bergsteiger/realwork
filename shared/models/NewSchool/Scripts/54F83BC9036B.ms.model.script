@@ -1,0 +1,102 @@
+// TtasSaveLoadRealization 54F83BC9036B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F83BC9036B
+
+ME ME_54F83BEF0258
+ MEPROP UID '54F83BEF0258'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+
+ENDME // ME_54F83BEF0258 new_ini_op
+
+ME ME_54F83C2F0123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ MELINK Target WL? 'ME_4AE864B801C5' // nsQueryUtils
+ ;
+
+ENDME // ME_54F83C2F0123 
+
+MEREF ME_54F839B602DC_ME_54F83BC9036B_impl
+ MELINK Original WL 'ME_54F839B602DC' '54F835DA0012.ms.model.script' // LoadFromQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F839B602DC_ME_54F83BC9036B_impl LoadFromQuery
+
+MEREF ME_54F839D803D3_ME_54F83BC9036B_impl
+ MELINK Original WL 'ME_54F839D803D3' '54F835DA0012.ms.model.script' // SaveToQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F839D803D3_ME_54F83BC9036B_impl SaveToQuery
+
+MEREF ME_54F85E5A00B4_ME_54F83BC9036B_impl
+ MELINK Original WL 'ME_54F85E5A00B4' '54F835DA0012.ms.model.script' // IsQuerySaved
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_54F85E5A00B4_ME_54F83BC9036B_impl IsQuerySaved
+
+MEREF ME_4A54DD4E036F_ME_54F83BC9036B_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_54F83BC9036B_G Tl3ProtoDataContainer
+
+MEREF ME_54F836540343_ME_54F83BC9036B_R
+ MELINK Original WL 'ME_54F836540343' '54F835DA0012.ms.model.script' // ItasSaveLoadProcessor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_54F836540343_ME_54F83BC9036B_R ItasSaveLoadProcessor
+
+%%ImplementedBy ME_54F836540343 ME_54F83BC9036B
+
+%%InheritedBy ME_4A54DD4E036F ME_54F83BC9036B
+
+ME ME_54F83BC9036B
+ MEPROP UID '54F83BC9036B'
+ MEPROP Name 'TtasSaveLoadRealization'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F83B9F01BB' // TreeAttributeSelectSaveLoadRealization
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_54F83BC9036B_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_54F836540343_ME_54F83BC9036B_R // ItasSaveLoadProcessor
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_54F83BEF0258 // new_ini_op
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54F839B602DC_ME_54F83BC9036B_impl // LoadFromQuery
+ ME_54F839D803D3_ME_54F83BC9036B_impl // SaveToQuery
+ ME_54F85E5A00B4_ME_54F83BC9036B_impl // IsQuerySaved
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54F83C2F0123 // nsQueryUtils
+ )
+ ; // Dependencies
+ UP "singleton" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas'
+ UP extprop:rc:SelfName 'tasSaveLoadRealization'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tasSaveLoadRealization'
+
+ENDME // ME_54F83BC9036B TtasSaveLoadRealization

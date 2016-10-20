@@ -1,0 +1,259 @@
+// TtfwIncludeLike 4DC3A1A30235 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3A1A30235
+
+FORWARD ME_4DC3A24D0330
+
+ME ME_4DC3A62E03C7
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4DC3A62E03C7 aContext
+
+ME ME_4DC3A26C018D
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DC3A26C018D aFileName
+
+ME ME_4DC3A2660092
+ MEPROP UID '4DC3A2660092'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC3A24D0330 // DoIncluded
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DC3A62E03C7 // aContext
+ ME_4DC3A26C018D // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4DC3A2660092 DoIt
+
+ME ME_4DC3A24D0330
+ MEPROP UID '4DC3A24D0330'
+ MEPROP Name 'DoIncluded'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DC3A2660092 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DC3A24D0330 DoIncluded
+
+FORWARD ME_4F3AA4E10327
+
+ME ME_4F3AA4F002FB
+ MEPROP UID '4F3AA4F002FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F3AA4E10327 // GetIncludedClass
+ ;
+ MELINK Target WL 'ME_4F3AA333004F' '4DC2DF5D0167.ms.model.script' // RkwIncluded
+ ;
+
+ENDME // ME_4F3AA4F002FB DoIt
+
+ME ME_4F3AA4E10327
+ MEPROP UID '4F3AA4E10327'
+ MEPROP Name 'GetIncludedClass'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F3AA4F002FB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F3AA4E10327 GetIncludedClass
+
+FORWARD ME_4F47673F03B0
+
+ME ME_4F47711F0091
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F47711F0091 aFileName
+
+ME ME_4F47676A003B
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F47676A003B aContext
+
+ME ME_4F47675C032D
+ MEPROP UID '4F47675C032D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F47673F03B0 // MakeIncluded
+ ;
+ MELINK Target WL? 'ME_4DC2DF5D0167' // TkwIncluded
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F47711F0091 // aFileName
+ ME_4F47676A003B // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4F47675C032D DoIt
+
+ME ME_4F47673F03B0
+ MEPROP UID '4F47673F03B0'
+ MEPROP Name 'MakeIncluded'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F47675C032D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F47673F03B0 MakeIncluded
+
+ME ME_4DC3A20801DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELINK Target WL? 'ME_4DC2DF5D0167' // TkwIncluded
+ ;
+
+ENDME // ME_4DC3A20801DD 
+
+ME ME_4DC3A22F03A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELINK Target WL 'ME_4ACF4D6E03B5' '47878E0E0191.ms.model.script' // l3Str
+ ;
+
+ENDME // ME_4DC3A22F03A2 
+
+ME ME_4DC3A24101DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DC3A24101DA 
+
+ME ME_4F3E9C3301CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3A1A30235 // TtfwIncludeLike
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_4F3E9C3301CE 
+
+MEREF ME_4DB6CE2302C9_ME_4DC3A1A30235_over
+ MELINK Original WL 'ME_4DB6CE2302C9' '4DB6C8F30161.ms.model.script' // AfterCompile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB6CE2302C9_ME_4DC3A1A30235_over AfterCompile
+
+MEREF ME_4DB9B502013D_ME_4DC3A1A30235_over
+ MELINK Original WL 'ME_4DB9B502013D' '4DB6C8F30161.ms.model.script' // AcceptsKeyWordAfter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB9B502013D_ME_4DC3A1A30235_over AcceptsKeyWordAfter
+
+MEREF ME_4DC19432023E_ME_4DC3A1A30235_over
+ MELINK Original WL 'ME_4DC19432023E' '4DB6C8F30161.ms.model.script' // DoStringToken
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DC19432023E_ME_4DC3A1A30235_over DoStringToken
+
+MEREF ME_4DB6C8F30161_ME_4DC3A1A30235_G
+ MELINK Original WL? 'ME_4DB6C8F30161' // TtfwCompilingWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB6C8F30161_ME_4DC3A1A30235_G TtfwCompilingWord
+
+%%InheritedBy ME_4DB6C8F30161 ME_4DC3A1A30235
+
+ME ME_4DC3A1A30235
+ MEPROP UID '4DC3A1A30235'
+ MEPROP Name 'TtfwIncludeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка Include-совместимых слов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4F4763EC02CB' // IncludesAndUses
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB6C8F30161_ME_4DC3A1A30235_G // TtfwCompilingWord
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DC3A24D0330 // DoIncluded
+ HWL ME_4F3AA4E10327 // GetIncludedClass
+ HWL ME_4F47673F03B0 // MakeIncluded
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DB6CE2302C9_ME_4DC3A1A30235_over // AfterCompile
+ ME_4DB9B502013D_ME_4DC3A1A30235_over // AcceptsKeyWordAfter
+ ME_4DC19432023E_ME_4DC3A1A30235_over // DoStringToken
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DC3A20801DD // TkwIncluded
+ ME_4DC3A22F03A2 // l3Str
+ ME_4DC3A24101DA // FreeAndNil
+ ME_4F3E9C3301CE // Tl3SortIndex
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '06.05.2011 11:22'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIncludeLike.pas'
+ UP extprop:rc:SelfName 'IncludeLike'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwIncludeLike'
+
+ENDME // ME_4DC3A1A30235 TtfwIncludeLike

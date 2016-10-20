@@ -1,0 +1,128 @@
+// TScrollAndLinesTest 4E54DE280369 TestCase Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E54DE280369
+
+FORWARD ME_4E54DE74026A
+
+ME ME_4E54DEE90205
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4C9B20790302' // PrimTextLoad
+ ;
+
+ENDME // ME_4E54DEE90205 aForm
+
+ME ME_4E54DEA90145
+ MEPROP UID '4E54DEA90145'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E54DE74026A // DoScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E54DEE90205 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4E54DEA90145 DoIt
+
+ME ME_4E54DE74026A
+ MEPROP UID '4E54DE74026A'
+ MEPROP Name 'DoScroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E54DE280369 // TScrollAndLinesTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E54DEA90145 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E54DE74026A DoScroll
+
+FORWARD ME_4E54E5E2009E
+
+ME ME_4E54E5F3021D
+ MEPROP UID '4E54E5F3021D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E54E5E2009E // GetScrollCount
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E54E5F3021D DoIt
+
+ME ME_4E54E5E2009E
+ MEPROP UID '4E54E5E2009E'
+ MEPROP Name 'GetScrollCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E54DE280369 // TScrollAndLinesTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E54E5F3021D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E54E5E2009E GetScrollCount
+
+MEREF ME_4BE419AF0217_ME_4E54DE280369_over
+ MELINK Original WL 'ME_4BE419AF0217' '4BE418BB001F.ms.model.script' // DoVisit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4BE419AF0217_ME_4E54DE280369_over DoVisit
+
+MEREF ME_4DA6907500D9_ME_4E54DE280369_G
+ MELINK Original WL? 'ME_4DA6907500D9' // TLinesTest
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DA6907500D9_ME_4E54DE280369_G TLinesTest
+
+%%InheritedBy ME_4DA6907500D9 ME_4E54DE280369
+
+ME ME_4E54DE280369
+ MEPROP UID '4E54DE280369'
+ MEPROP Name 'TScrollAndLinesTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL? 'ME_4D02566F01E6' // EditorTests
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DA6907500D9_ME_4E54DE280369_G // TLinesTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E54DE74026A // DoScroll
+ HWL ME_4E54E5E2009E // GetScrollCount
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4BE419AF0217_ME_4E54DE280369_over // DoVisit
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\ScrollAndLinesTest.pas'
+ UP extprop:rc:SelfName 'ScrollAndLinesTest'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ScrollAndLinesTest'
+
+ENDME // ME_4E54DE280369 TScrollAndLinesTest

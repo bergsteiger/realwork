@@ -1,0 +1,65 @@
+// TevDocumentEliminator 4E2836190160 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E2836190160
+
+ME ME_4E28368100A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2836190160 // TevDocumentEliminator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4E28368100A2 
+
+MEREF ME_4CA3006302BC_ME_4E2836190160_over
+ MELINK Original WL 'ME_4CA3006302BC' '49E487A70144.ms.model.script' // NeedTranslateChildToNext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4CA3006302BC_ME_4E2836190160_over NeedTranslateChildToNext
+
+MEREF ME_49E487A70144_ME_4E2836190160_G
+ MELINK Original WL? 'ME_49E487A70144' // Tk2TagFilter
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E487A70144_ME_4E2836190160_G Tk2TagFilter
+
+%%InheritedBy ME_49E487A70144 ME_4E2836190160
+
+ME ME_4E2836190160
+ MEPROP UID '4E2836190160'
+ MEPROP Name 'TevDocumentEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47ECACA70141' // Generators
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E487A70144_ME_4E2836190160_G // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CA3006302BC_ME_4E2836190160_over // NeedTranslateChildToNext
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E28368100A2 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '21.07.2011 18:22'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentEliminator.pas'
+ UP extprop:rc:SelfName 'DocumentEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentEliminator'
+
+ENDME // ME_4E2836190160 TevDocumentEliminator

@@ -1,0 +1,154 @@
+// pop_editor_GetSelectionTextInFormat 4EC10AB3000A ScriptKeyword Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EC10AB3000A
+
+ME ME_4EC10B9F033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_480F78BC0146' // l3Utils
+ ;
+
+ENDME // ME_4EC10B9F033D 
+
+ME ME_4EC11A290190
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4EC11A290190 
+
+ME ME_50BA2EBE0204
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_50BA2EBE0204 
+
+ME ME_5200DD0F026E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_4A2CFFA30282' // TevdBlockNameAdder
+ ;
+
+ENDME // ME_5200DD0F026E 
+
+ME ME_52315AAF0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_4E664CB30360' // TevdDocumentMarksEliminator
+ ;
+
+ENDME // ME_52315AAF0244 
+
+ME ME_52315AB40265
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_4DDE3E97005C' // TevdMarkEliminator
+ ;
+
+ENDME // ME_52315AB40265 
+
+ME ME_5548CDCA00E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL? 'ME_52F8B15003A7' // TddPicturePathListner
+ ;
+
+ENDME // ME_5548CDCA00E8 
+
+ME ME_5549FC2303D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EC10AB3000A // pop_editor_GetSelectionTextInFormat
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_5549FC2303D8 
+
+MEREF ME_4F4CB81200CA_ME_4EC10AB3000A_impl
+ MELINK Original WL 'ME_4F4CB81200CA' '4F4CB625027A.ms.model.script' // DoWithEditor
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4F4CB81200CA_ME_4EC10AB3000A_impl DoWithEditor
+
+MEREF ME_4DB0614603C8_ME_4EC10AB3000A_over
+ MELINK Original WL 'ME_4DB0614603C8' '54D229E702B6.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB0614603C8_ME_4EC10AB3000A_over GetWordNameForRegister
+
+MEREF ME_4F4CB625027A_ME_4EC10AB3000A_G
+ MELINK Original WL? 'ME_4F4CB625027A' // TkwEditorFromStackWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4F4CB625027A_ME_4EC10AB3000A_G TkwEditorFromStackWord
+
+%%InheritedBy ME_4F4CB625027A ME_4EC10AB3000A
+
+ME ME_4EC10AB3000A
+ MEPROP UID '4EC10AB3000A'
+ MEPROP Name 'pop_editor_GetSelectionTextInFormat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает текст параграфа в указанном формате' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4F4CB50403CC' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( ME_4F4CB625027A_ME_4EC10AB3000A_G // TkwEditorFromStackWord
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F4CB81200CA_ME_4EC10AB3000A_impl // DoWithEditor
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4EC10AB3000A_over // GetWordNameForRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EC10B9F033D // l3Utils
+ ME_4EC11A290190 // InevTagGenerator
+ ME_50BA2EBE0204 // evParaTools
+ ME_5200DD0F026E // TevdBlockNameAdder
+ ME_52315AAF0244 // TevdDocumentMarksEliminator
+ ME_52315AB40265 // TevdMarkEliminator
+ ME_5548CDCA00E8 // TddPicturePathListner
+ ME_5549FC2303D8 // Clipboard Formats
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '14.11.2011 16:34'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionTextInFormat.pas'
+ UP extprop:pas:TypeName 'TkwPopEditorGetSelectionTextInFormat'
+ UP extprop:rc:SelfName 'PopEditorGetSelectionTextInFormat'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPopEditorGetSelectionTextInFormat'
+
+ENDME // ME_4EC10AB3000A pop_editor_GetSelectionTextInFormat

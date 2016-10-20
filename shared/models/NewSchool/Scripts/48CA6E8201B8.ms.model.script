@@ -1,0 +1,405 @@
+// Tl3FrameLines 48CA6E8201B8 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48CA6E8201B8
+
+ME ME_4D01F1E60013
+ MEPROP UID '4D01F1E60013'
+ MEPROP Name 'f_LastFoundObjIndex'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Используется для тестов для формирования уникального имени лога для таблицы' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "ifdef" 'nsTest'
+
+ENDME // ME_4D01F1E60013 f_LastFoundObjIndex
+
+ME ME_48CA6EE2008E
+ MEPROP UID '48CA6EE2008E'
+ MEPROP Name 'f_FrameObjects'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив списка линий по данной координате' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_48CA6C24020B' // Tl3FrameObjectList
+ ;
+
+ENDME // ME_48CA6EE2008E f_FrameObjects
+
+ME ME_51B9669500F6
+ MEPROP UID '51B9669500F6'
+ MEPROP Name 'f_Behaviour'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL 'ME_51B9640502D4' '467C0CAA02AB.ms.model.script' // Tl3FrameObjectBehaviour
+ ;
+
+ENDME // ME_51B9669500F6 f_Behaviour
+
+FORWARD ME_51B96284001B
+
+ME ME_51B9629F00ED
+ MEPROP UID '51B9629F00ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B96284001B // GetFrameObjects
+ ;
+ MELINK Target WL? 'ME_48CA6C24020B' // Tl3FrameObjectList
+ ;
+
+ENDME // ME_51B9629F00ED DoIt
+
+ME ME_51B96284001B
+ MEPROP UID '51B96284001B'
+ MEPROP Name 'GetFrameObjects'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B9629F00ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B96284001B GetFrameObjects
+
+ME ME_48CA6F0403D4
+ MEPROP UID '48CA6F0403D4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'конструктор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+
+ENDME // ME_48CA6F0403D4 Make
+
+ME ME_48CA70380217
+ MEPROP Name 'anObjID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48CA70380217 anObjID
+
+ME ME_48CA703303A3
+ MEPROP UID '48CA703303A3'
+ MEPROP Name 'InternalFrameObject'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает объект отрисовки по ключу' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_48CA64150378' // Tl3FrameObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA70380217 // anObjID
+ )
+ ; // Parameters
+
+ENDME // ME_48CA703303A3 InternalFrameObject
+
+ME ME_48CA70500146
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_48CA70500146 aCanvas
+
+ME ME_48CA70500173
+ MEPROP Name 'aFrame'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603530283' '4677FBA70343.ms.model.script' // Tl3Frame
+ ;
+
+ENDME // ME_48CA70500173 aFrame
+
+ME ME_48CA7050019F
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_48CA7050019F aRect
+
+ME ME_48CA70430236
+ MEPROP UID '48CA70430236'
+ MEPROP Name 'UpdateFrameRect'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавить к aRect отсутпы границ рамок' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CA70500146 // aCanvas
+ ME_48CA70500173 // aFrame
+ ME_48CA7050019F // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_48CA70430236 UpdateFrameRect
+
+ME ME_48CA6FA4011B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_48CA64150378' // Tl3FrameObject
+ ;
+
+ENDME // ME_48CA6FA4011B 
+
+ME ME_48CA710A0037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_4773D64E036C' // l3Base
+ ;
+
+ENDME // ME_48CA710A0037 
+
+ME ME_48CA711A00D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL 'ME_48AC2BDA0309' '4678193C009C.ms.model.script' // PObject
+ ;
+
+ENDME // ME_48CA711A00D7 
+
+ME ME_48CA71AF0299
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_47A066980016' // l3MinMax
+ ;
+
+ENDME // ME_48CA71AF0299 
+
+ME ME_48CA71BF020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_48A41FF10094' // Windows
+ ;
+
+ENDME // ME_48CA71BF020F 
+
+ME ME_4D00F9A50085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CA6E8201B8 // Tl3FrameLines
+ ;
+ MELINK Target WL? 'ME_4D00B058024F' // Tl3FrameLinesSpy
+ ;
+
+ENDME // ME_4D00F9A50085 
+
+MEREF ME_4A4CB2B2031F_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2B2031F' '467C0CAA02AB.ms.model.script' // StartFrameObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2B2031F_ME_48CA6E8201B8_impl StartFrameObject
+
+MEREF ME_4A4CB2BE0134_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2BE0134' '467C0CAA02AB.ms.model.script' // FinishFrameObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2BE0134_ME_48CA6E8201B8_impl FinishFrameObject
+
+MEREF ME_4A4CB2C300F6_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2C300F6' '467C0CAA02AB.ms.model.script' // AddFrame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2C300F6_ME_48CA6E8201B8_impl AddFrame
+
+MEREF ME_4A4CB2D20019_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2D20019' '467C0CAA02AB.ms.model.script' // AlignBoundary
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2D20019_ME_48CA6E8201B8_impl AlignBoundary
+
+MEREF ME_4A4CB2DD02ED_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2DD02ED' '467C0CAA02AB.ms.model.script' // DrawAllLines
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2DD02ED_ME_48CA6E8201B8_impl DrawAllLines
+
+MEREF ME_4A4CB2E1010D_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A4CB2E1010D' '467C0CAA02AB.ms.model.script' // DrawFrame
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A4CB2E1010D_ME_48CA6E8201B8_impl DrawFrame
+
+MEREF ME_4A810BC702C0_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A810BC702C0' '467C0CAA02AB.ms.model.script' // FinishedFO
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_4A810BC702C0_ME_48CA6E8201B8_impl FinishedFO
+
+MEREF ME_4A928509010C_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4A928509010C' '467C0CAA02AB.ms.model.script' // GetLineWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4A928509010C_ME_48CA6E8201B8_impl GetLineWidth
+
+MEREF ME_4AB873270004_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4AB873270004' '467C0CAA02AB.ms.model.script' // ReadAlignData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4AB873270004_ME_48CA6E8201B8_impl ReadAlignData
+
+MEREF ME_4AB8736B0062_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4AB8736B0062' '467C0CAA02AB.ms.model.script' // WriteAlignData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4AB8736B0062_ME_48CA6E8201B8_impl WriteAlignData
+
+MEREF ME_4D01F080037C_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4D01F080037C' '467C0CAA02AB.ms.model.script' // SetNeedLogging
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'nsTest'
+ENDMEREF // ME_4D01F080037C_ME_48CA6E8201B8_impl SetNeedLogging
+
+MEREF ME_4E54CF2D00D3_ME_48CA6E8201B8_impl
+ MELINK Original WL 'ME_4E54CF2D00D3' '467C0CAA02AB.ms.model.script' // ClearFrameObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'nsTest'
+ENDMEREF // ME_4E54CF2D00D3_ME_48CA6E8201B8_impl ClearFrameObject
+
+MEREF ME_479731C50290_ME_48CA6E8201B8_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_48CA6E8201B8_over Cleanup
+
+MEREF ME_47A042E100E2_ME_48CA6E8201B8_over
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_47A042E100E2_ME_48CA6E8201B8_over InitFields
+
+MEREF ME_4AE5CA2D0034_ME_48CA6E8201B8_G
+ MELINK Original WL? 'ME_4AE5CA2D0034' // Tl3CProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4AE5CA2D0034_ME_48CA6E8201B8_G Tl3CProtoObject
+
+MEREF ME_475E5FCB018F_ME_48CA6E8201B8_R
+ MELINK Original WL 'ME_475E5FCB018F' '467C0CAA02AB.ms.model.script' // Il3FrameLines
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_475E5FCB018F_ME_48CA6E8201B8_R Il3FrameLines
+
+%%ImplementedBy ME_475E5FCB018F ME_48CA6E8201B8
+
+%%InheritedBy ME_4AE5CA2D0034 ME_48CA6E8201B8
+
+ME ME_48CA6E8201B8
+ MEPROP UID '48CA6E8201B8'
+ MEPROP Name 'Tl3FrameLines'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Комментарии к использованию: '#13#10'Есть возможность отрисовывать все накопленные линии сразу или по одному '#13#10'объекту (в качестве идентификатора выступает PID). Последнее используется '#13#10'при выводе на печать. При выводе на экран накапливается информация для всех '#13#10'таблиц, а потом выводить все за один прием выводится. Можно использовать'#13#10'для любых объектов, имеющих рамку, но пока используется только для таблиц.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_473C3BEE0334' // l3Canvas
+ ;
+ MELIST Inherits
+   Seq: ( ME_4AE5CA2D0034_ME_48CA6E8201B8_G // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_475E5FCB018F_ME_48CA6E8201B8_R // Il3FrameLines
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D01F1E60013 // f_LastFoundObjIndex
+ HWL ME_48CA6EE2008E // f_FrameObjects
+ HWL ME_51B9669500F6 // f_Behaviour
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51B96284001B // GetFrameObjects
+ HWL ME_48CA6F0403D4 // Make
+ HWL ME_48CA703303A3 // InternalFrameObject
+ HWL ME_48CA70430236 // UpdateFrameRect
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A4CB2B2031F_ME_48CA6E8201B8_impl // StartFrameObject
+ ME_4A4CB2BE0134_ME_48CA6E8201B8_impl // FinishFrameObject
+ ME_4A4CB2C300F6_ME_48CA6E8201B8_impl // AddFrame
+ ME_4A4CB2D20019_ME_48CA6E8201B8_impl // AlignBoundary
+ ME_4A4CB2DD02ED_ME_48CA6E8201B8_impl // DrawAllLines
+ ME_4A4CB2E1010D_ME_48CA6E8201B8_impl // DrawFrame
+ ME_4A810BC702C0_ME_48CA6E8201B8_impl // FinishedFO
+ ME_4A928509010C_ME_48CA6E8201B8_impl // GetLineWidth
+ ME_4AB873270004_ME_48CA6E8201B8_impl // ReadAlignData
+ ME_4AB8736B0062_ME_48CA6E8201B8_impl // WriteAlignData
+ ME_4D01F080037C_ME_48CA6E8201B8_impl // SetNeedLogging
+ ME_4E54CF2D00D3_ME_48CA6E8201B8_impl // ClearFrameObject
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48CA6E8201B8_over // Cleanup
+ ME_47A042E100E2_ME_48CA6E8201B8_over // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48CA6FA4011B // Tl3FrameObject
+ ME_48CA710A0037 // l3Base
+ ME_48CA711A00D7 // PObject
+ ME_48CA71AF0299 // l3MinMax
+ ME_48CA71BF020F // Windows
+ ME_4D00F9A50085 // Tl3FrameLinesSpy
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP "started" '02.10.06 16:27'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLines.pas'
+ UP extprop:rc:SelfName 'FrameLines'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'l3FrameLines'
+
+ENDME // ME_48CA6E8201B8 Tl3FrameLines

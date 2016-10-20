@@ -1,0 +1,86 @@
+// TevDocumentsCachePrim 5506FEE90052 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5506FEE90052
+
+FORWARD ME_5506FEE90052
+
+FORWARD ME_5506FF1A0056
+
+ME ME_5506FF2402ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5506FF1A0056 // TevDocumentsCacheService
+ ;
+ MELINK Target WL? 'ME_5506FEA6012A' // Tl3DocumentsCacheService
+ ;
+
+ENDME // ME_5506FF2402ED 
+
+ME ME_5506FF33002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5506FF1A0056 // TevDocumentsCacheService
+ ;
+ MELINK Target WL? 'ME_47F100430323' // TevDocumentsCache
+ ;
+
+ENDME // ME_5506FF33002C 
+
+MEREF ME_49E7754802A9_ME_5506FF1A0056_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_5506FF1A0056_G Tl3ProtoObject
+
+%%InheritedBy ME_49E7754802A9 ME_5506FF1A0056
+
+ME ME_5506FF1A0056
+ MEPROP UID '5506FF1A0056'
+ MEPROP Name 'TevDocumentsCacheService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5506FEE90052 // TevDocumentsCachePrim
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_5506FF1A0056_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5506FF2402ED // Tl3DocumentsCacheService
+ ME_5506FF33002C // TevDocumentsCache
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'DocumentsCacheService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5506FF1A0056 TevDocumentsCacheService
+
+ME ME_5506FEE90052
+ MEPROP UID '5506FEE90052'
+ MEPROP Name 'TevDocumentsCachePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47F086170200' // DocumentContainers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5506FF1A0056 // TevDocumentsCacheService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evDocumentsCachePrim.pas'
+ UP extprop:rc:SelfName 'DocumentsCachePrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evDocumentsCachePrim'
+
+ENDME // ME_5506FEE90052 TevDocumentsCachePrim

@@ -54,11 +54,23 @@ ME ME_57D94E90032D
 
 ENDME // ME_57D94E90032D 
 
-ME ME_57ADFB33027D_ME_57C9879A032D
+MEREF ME_57ADFB33027D_ME_57C9879A032D_over
  MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57ADFB33027D_ME_57C9879A032D InitOwnView
+ENDMEREF // ME_57ADFB33027D_ME_57C9879A032D_over InitOwnView
+
+MEREF ME_57B6C958008A_ME_57C9879A032D_G
+ MELINK Original WL? 'ME_57B6C958008A' // msmListViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B6C958008A_ME_57C9879A032D_G msmListViewController
+
+MEREF ME_57C977AE0264_ME_57C9879A032D_R
+ MELINK Original WL? 'ME_57C977AE0264' // msmMEListLikeViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57C977AE0264_ME_57C9879A032D_R msmMEListLikeViewController
 
 %%ImplementedBy ME_57C977AE0264 ME_57C9879A032D
 
@@ -76,15 +88,15 @@ ME ME_57C9879A032D
  MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57B6C958008A' // msmListViewController
+   Seq: ( ME_57B6C958008A_ME_57C9879A032D_G // msmListViewController
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL? 'ME_57C977AE0264' // msmMEListLikeViewController
+   Seq: ( ME_57C977AE0264_ME_57C9879A032D_R // msmMEListLikeViewController
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_57ADFB33027D_ME_57C9879A032D // InitOwnView
+   Seq: ( ME_57ADFB33027D_ME_57C9879A032D_over // InitOwnView
  )
  ; // Overridden
  MELIST Dependencies

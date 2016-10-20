@@ -122,7 +122,7 @@ ENDME // ME_4E25B60100D1
 ME ME_4A8AACD503DC
  MEPROP UID '4A8AACD503DC'
  MEPROP Name 'TextSourceGetControlItemImg'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -147,11 +147,17 @@ ME ME_4A8AACD503DC
 
 ENDME // ME_4A8AACD503DC TextSourceGetControlItemImg
 
-ME ME_4A8E8F2E0195_ME_4A8AACAE0356
+MEREF ME_4A8E8F2E0195_ME_4A8AACAE0356_over
  MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4A8E8F2E0195_ME_4A8AACAE0356 InitControls
+ENDMEREF // ME_4A8E8F2E0195_ME_4A8AACAE0356_over InitControls
+
+MEREF ME_4A82BCFA02EF_ME_4A8AACAE0356_R
+ MELINK Original WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A82BCFA02EF_ME_4A8AACAE0356_R MvcmEntityForm
 
 %%ImplementedBy ME_4A82BCFA02EF ME_4A8AACAE0356
 
@@ -167,7 +173,7 @@ ME ME_4A8AACAE0356
  MELINK Parent WL? 'ME_4A7C0BB70162' // Base Forms
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+   Seq: ( ME_4A82BCFA02EF_ME_4A8AACAE0356_R // MvcmEntityForm
  )
  ; // Implements
  MELIST Attributes
@@ -179,7 +185,7 @@ ME ME_4A8AACAE0356
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_4A8E8F2E0195_ME_4A8AACAE0356 // InitControls
+   Seq: ( ME_4A8E8F2E0195_ME_4A8AACAE0356_over // InitControls
  )
  ; // Overridden
  MESTRINGLIST DiagramsNames

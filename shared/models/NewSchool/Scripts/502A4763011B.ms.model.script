@@ -1,0 +1,148 @@
+// TatSyncedStringFileReader 502A4763011B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502A4763011B
+
+ME ME_502A49FA0248
+ MEPROP UID '502A49FA0248'
+ MEPROP Name 'f_LockFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502A4763011B // TatSyncedStringFileReader
+ ;
+ MELINK Target WL? 'ME_4FEB10B100CD' // TatLockFile
+ ;
+
+ENDME // ME_502A49FA0248 f_LockFile
+
+ME ME_502A5188007A
+ MEPROP UID '502A5188007A'
+ MEPROP Name 'f_SyncFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502A4763011B // TatSyncedStringFileReader
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502A5188007A f_SyncFile
+
+ME ME_502A49E300E7
+ MEPROP Name 'aStringFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502A49E300E7 aStringFile
+
+ME ME_502A49E30126
+ MEPROP Name 'aSyncFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_502A49E30126 aSyncFile
+
+ME ME_502A49CD0158
+ MEPROP UID '502A49CD0158'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502A4763011B // TatSyncedStringFileReader
+ ;
+ MELIST Parameters
+   Seq: ( ME_502A49E300E7 // aStringFile
+ ME_502A49E30126 // aSyncFile
+ )
+ ; // Parameters
+
+ENDME // ME_502A49CD0158 Create
+
+ME ME_502A4A370189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502A4763011B // TatSyncedStringFileReader
+ ;
+ MELINK Target WL? 'ME_47877EB202FB' // SysUtils
+ ;
+
+ENDME // ME_502A4A370189 
+
+MEREF ME_48077504027E_ME_502A4763011B_over
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48077504027E_ME_502A4763011B_over Destroy
+
+MEREF ME_502A459F005A_ME_502A4763011B_over
+ MELINK Original WL 'ME_502A459F005A' '5037CED40333.ms.model.script' // AcquireNext
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_502A459F005A_ME_502A4763011B_over AcquireNext
+
+MEREF ME_502AACD103A6_ME_502A4763011B_over
+ MELINK Original WL 'ME_502AACD103A6' '5037CED40333.ms.model.script' // Reset
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_502AACD103A6_ME_502A4763011B_over Reset
+
+MEREF ME_502A45570012_ME_502A4763011B_G
+ MELINK Original WL? 'ME_502A45570012' // TatStringFileReader
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_502A45570012_ME_502A4763011B_G TatStringFileReader
+
+%%InheritedBy ME_502A45570012 ME_502A4763011B
+
+ME ME_502A4763011B
+ MEPROP UID '502A4763011B'
+ MEPROP Name 'TatSyncedStringFileReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48076E7F0260' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( ME_502A45570012_ME_502A4763011B_G // TatStringFileReader
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_502A49FA0248 // f_LockFile
+ HWL ME_502A5188007A // f_SyncFile
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_502A49CD0158 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_502A4763011B_over // Destroy
+ ME_502A459F005A_ME_502A4763011B_over // AcquireNext
+ ME_502AACD103A6_ME_502A4763011B_over // Reset
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_502A4A370189 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atSyncedStringFileReader.pas'
+ UP extprop:rc:SelfName 'atSyncedStringFileReader'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'atSyncedStringFileReader'
+
+ENDME // ME_502A4763011B TatSyncedStringFileReader

@@ -1,0 +1,94 @@
+// TeeTextCursorPair 54BE505F0038 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54BE505F0038
+
+ME ME_54BE526A02CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_54BE505F0038 // TeeTextCursorPair
+ ;
+ MELINK Target WL? 'ME_54BE514101E5' // TeeTextPara
+ ;
+ UP "injects as" 'range'
+
+ENDME // ME_54BE526A02CF 
+
+ME ME_54BE5F4E00B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54BE505F0038 // TeeTextCursorPair
+ ;
+ MELINK Target WL? 'ME_54BE4C0B0137' // eeCursorTools
+ ;
+
+ENDME // ME_54BE5F4E00B0 
+
+ME ME_54BE5F98016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54BE505F0038 // TeeTextCursorPair
+ ;
+ MELINK Target WL? 'ME_47F1F3BC0330' // evParaTools
+ ;
+
+ENDME // ME_54BE5F98016F 
+
+MEREF ME_4A29477801BF_ME_54BE505F0038_over
+ MELINK Original WL 'ME_4A29477801BF' '47F4D44C01BF.ms.model.script' // DoGetFont
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A29477801BF_ME_54BE505F0038_over DoGetFont
+
+MEREF ME_4A3A61DC00AB_ME_54BE505F0038_over
+ MELINK Original WL 'ME_4A3A61DC00AB' '47F4D44C01BF.ms.model.script' // GetInevDataFormattingModify
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4A3A61DC00AB_ME_54BE505F0038_over GetInevDataFormattingModify
+
+MEREF ME_53D64B570304_ME_54BE505F0038_G
+ MELINK Original WL? 'ME_53D64B570304' // TevTextCursorPair
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53D64B570304_ME_54BE505F0038_G TevTextCursorPair
+
+%%InjectedBy ME_54BE514101E5 ME_54BE505F0038
+
+%%InheritedBy ME_53D64B570304 ME_54BE505F0038
+
+ME ME_54BE505F0038
+ MEPROP UID '54BE505F0038'
+ MEPROP Name 'TeeTextCursorPair'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54BE4A3A005B' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_53D64B570304_ME_54BE505F0038_G // TevTextCursorPair
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4A29477801BF_ME_54BE505F0038_over // DoGetFont
+ ME_4A3A61DC00AB_ME_54BE505F0038_over // GetInevDataFormattingModify
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54BE526A02CF // TeeTextPara
+ ME_54BE5F4E00B0 // eeCursorTools
+ ME_54BE5F98016F // evParaTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextCursorPair.pas'
+ UP extprop:rc:SelfName 'eeTextCursorPair'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'eeTextCursorPair'
+
+ENDME // ME_54BE505F0038 TeeTextCursorPair

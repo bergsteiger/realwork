@@ -43,11 +43,23 @@ ME ME_493D48C10397
 
 ENDME // ME_493D48C10397 
 
-ME ME_491476B001D3_ME_493D480502CF
+MEREF ME_491476B001D3_ME_493D480502CF_over
  MELINK Original WL 'ME_491476B001D3' '5017EAF4027D.ms.model.script' // MakeDisplayName
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_491476B001D3_ME_493D480502CF MakeDisplayName
+ENDMEREF // ME_491476B001D3_ME_493D480502CF_over MakeDisplayName
+
+MEREF ME_491D64430036_ME_493D480502CF_G
+ MELINK Original WL? 'ME_491D64430036' // dsDocument
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_491D64430036_ME_493D480502CF_G dsDocument
+
+MEREF ME_4937D1550372_ME_493D480502CF_R
+ MELINK Original WL 'ME_4937D1550372' '491B305A0096.ms.model.script' // IdsDocumentWithFlash
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4937D1550372_ME_493D480502CF_R IdsDocumentWithFlash
 
 %%ImplementedBy ME_4937D1550372 ME_493D480502CF
 
@@ -66,11 +78,11 @@ ME ME_493D480502CF
  MELINK Parent WL? 'ME_493D465902FA' // DocumentAndList
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_491D64430036' // dsDocument
+   Seq: ( ME_491D64430036_ME_493D480502CF_G // dsDocument
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4937D1550372' '491B305A0096.ms.model.script' // IdsDocumentWithFlash
+   Seq: ( ME_4937D1550372_ME_493D480502CF_R // IdsDocumentWithFlash
  )
  ; // Implements
  MELIST Attributes
@@ -79,7 +91,7 @@ ME ME_493D480502CF
  )
  ; // Attributes
  MELIST Overridden
-   Seq: ( ME_491476B001D3_ME_493D480502CF // MakeDisplayName
+   Seq: ( ME_491476B001D3_ME_493D480502CF_over // MakeDisplayName
  )
  ; // Overridden
  MELIST Dependencies

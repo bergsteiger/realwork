@@ -1,0 +1,57 @@
+// TalcuAutoAnnoExportTaskPrim 53F59F27018A SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F59F27018A
+
+MEREF ME_53FB28170339_ME_53F59F27018A_over
+ MELINK Original WL 'ME_53FB28170339' '52FA49C7022C.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_53FB28170339_ME_53F59F27018A_over GetDescription
+
+MEREF ME_530355800106_ME_53F59F27018A_G
+ MELINK Original WL? 'ME_530355800106' // TalcuExport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_530355800106_ME_53F59F27018A_G TalcuExport
+
+MEREF ME_53BA72FA0145_ME_53F59F27018A_R
+ MELINK Original WL 'ME_53BA72FA0145' '484A470100DD.ms.model.script' // AutoAnnoExportTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53BA72FA0145_ME_53F59F27018A_R AutoAnnoExportTask
+
+%%ImplementedBy ME_53BA72FA0145 ME_53F59F27018A
+
+%%InheritedBy ME_530355800106 ME_53F59F27018A
+
+ME ME_53F59F27018A
+ MEPROP UID '53F59F27018A'
+ MEPROP Name 'TalcuAutoAnnoExportTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52FA3DD30094' // Lists
+ ;
+ MELIST Inherits
+   Seq: ( ME_530355800106_ME_53F59F27018A_G // TalcuExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53BA72FA0145_ME_53F59F27018A_R // AutoAnnoExportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53FB28170339_ME_53F59F27018A_over // GetDescription
+ )
+ ; // Overridden
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoAnnoExportTaskPrim.pas'
+ UP extprop:rc:SelfName 'alcuAutoAnnoExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'alcuAutoAnnoExportTaskPrim'
+
+ENDME // ME_53F59F27018A TalcuAutoAnnoExportTaskPrim

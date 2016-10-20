@@ -1,0 +1,67 @@
+// TevBreakParaCursor 4B1D20D500C2 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1D20D500C2
+
+ME ME_53D09E860141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4B1D20D500C2 // TevBreakParaCursor
+ ;
+ MELINK Target WL? 'ME_48567BA50307' // TevPageBreak
+ ;
+ UP "injects as" 'cursor'
+
+ENDME // ME_53D09E860141 
+
+MEREF ME_49DF6D3F02F9_ME_4B1D20D500C2_G
+ MELINK Original WL? 'ME_49DF6D3F02F9' // TevSolidParaCursor
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49DF6D3F02F9_ME_4B1D20D500C2_G TevSolidParaCursor
+
+MEREF ME_4B1D1CE30270_ME_4B1D20D500C2_R
+ MELINK Original WL? 'ME_4B1D1CE30270' // nevBreakParaAnchorModify
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1D1CE30270_ME_4B1D20D500C2_R nevBreakParaAnchorModify
+
+%%InjectedBy ME_48567BA50307 ME_4B1D20D500C2
+
+%%ImplementedBy ME_4B1D1CE30270 ME_4B1D20D500C2
+
+%%InheritedBy ME_49DF6D3F02F9 ME_4B1D20D500C2
+
+ME ME_4B1D20D500C2
+ MEPROP UID '4B1D20D500C2'
+ MEPROP Name 'TevBreakParaCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47E3DF460095' // Cursors
+ ;
+ MELIST Inherits
+   Seq: ( ME_49DF6D3F02F9_ME_4B1D20D500C2_G // TevSolidParaCursor
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_4B1D1CE30270_ME_4B1D20D500C2_R // nevBreakParaAnchorModify
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_53D09E860141 // TevPageBreak
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evBreakParaCursor.pas'
+ UP extprop:rc:SelfName 'BreakParaCursor'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evBreakParaCursor'
+
+ENDME // ME_4B1D20D500C2 TevBreakParaCursor

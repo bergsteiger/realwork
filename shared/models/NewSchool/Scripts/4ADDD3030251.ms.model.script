@@ -33,7 +33,7 @@ ENDME // ME_4C8DDE97021C DoIt
 ME ME_4C8DDE6B01A6
  MEPROP UID '4C8DDE6B01A6'
  MEPROP Name 'DoBack'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -76,7 +76,7 @@ ENDME // ME_4C8DDEB30144 DoIt
 ME ME_4C8DDEA5007E
  MEPROP UID '4C8DDEA5007E'
  MEPROP Name 'DoForward'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -131,7 +131,7 @@ ME ME_51E69A8100F0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4ADDD3030251 // OfficeLikeMain
  ;
- MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
  ;
 
 ENDME // ME_51E69A8100F0 
@@ -156,7 +156,7 @@ ME ME_57454D72022B
 
 ENDME // ME_57454D72022B 
 
-ME ME_4ADDD377028F_ME_4ADDD3030251
+MEREF ME_4ADDD377028F_ME_4ADDD3030251_impl
  MELINK Original WL 'ME_4ADDD377028F' '494F898C013E.ms.model.script' // Exit
  ;
  MEPROP OpKind opkind_Implemented
@@ -169,9 +169,9 @@ ME ME_4ADDD377028F_ME_4ADDD3030251
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4ADDD377028F_ME_4ADDD3030251 Exit
+ENDMEREF // ME_4ADDD377028F_ME_4ADDD3030251_impl Exit
 
-ME ME_4ADDDC550118_ME_4ADDD3030251
+MEREF ME_4ADDDC550118_ME_4ADDD3030251_impl
  MELINK Original WL 'ME_4ADDDC550118' '494F898C013E.ms.model.script' // Back
  ;
  MEPROP OpKind opkind_Implemented
@@ -184,9 +184,9 @@ ME ME_4ADDDC550118_ME_4ADDD3030251
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4ADDDC550118_ME_4ADDD3030251 Back
+ENDMEREF // ME_4ADDDC550118_ME_4ADDD3030251_impl Back
 
-ME ME_4ADDDC630097_ME_4ADDD3030251
+MEREF ME_4ADDDC630097_ME_4ADDD3030251_impl
  MELINK Original WL 'ME_4ADDDC630097' '494F898C013E.ms.model.script' // Forward
  ;
  MEPROP OpKind opkind_Implemented
@@ -199,13 +199,31 @@ ME ME_4ADDDC630097_ME_4ADDD3030251
  UP "is FormActivate" false
  UP "is query" false
  UP "no prefix" false
-ENDME // ME_4ADDDC630097_ME_4ADDD3030251 Forward
+ENDMEREF // ME_4ADDDC630097_ME_4ADDD3030251_impl Forward
 
-ME ME_47D1602000C6_ME_4ADDD3030251
+MEREF ME_47D1602000C6_ME_4ADDD3030251_over
  MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47D1602000C6_ME_4ADDD3030251 Create
+ENDMEREF // ME_47D1602000C6_ME_4ADDD3030251_over Create
+
+MEREF ME_49525C7A0114_ME_4ADDD3030251_G
+ MELINK Original WL? 'ME_49525C7A0114' // TvcmMainForm
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49525C7A0114_ME_4ADDD3030251_G TvcmMainForm
+
+MEREF ME_4A8ED77F0142_ME_4ADDD3030251_R
+ MELINK Original WL 'ME_4A8ED77F0142' '494F898C013E.ms.model.script' // Common
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A8ED77F0142_ME_4ADDD3030251_R Common
+
+MEREF ME_4ADDDC4C0255_ME_4ADDD3030251_R
+ MELINK Original WL 'ME_4ADDDC4C0255' '494F898C013E.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4ADDDC4C0255_ME_4ADDD3030251_R History
 
 %%ImplementedBy ME_4A8ED77F0142 ME_4ADDD3030251
 %%ImplementedBy ME_4ADDDC4C0255 ME_4ADDD3030251
@@ -224,12 +242,12 @@ ME ME_4ADDD3030251
  MELINK Parent WL? 'ME_4ADDCE970294' // OfficeLike
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+   Seq: ( ME_49525C7A0114_ME_4ADDD3030251_G // TvcmMainForm
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4A8ED77F0142' '494F898C013E.ms.model.script' // Common
- WL 'ME_4ADDDC4C0255' '494F898C013E.ms.model.script' // History
+   Seq: ( ME_4A8ED77F0142_ME_4ADDD3030251_R // Common
+ ME_4ADDDC4C0255_ME_4ADDD3030251_R // History
  )
  ; // Implements
  MELIST Operations
@@ -240,13 +258,13 @@ ME ME_4ADDD3030251
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4ADDD377028F_ME_4ADDD3030251 // Exit
- ME_4ADDDC550118_ME_4ADDD3030251 // Back
- ME_4ADDDC630097_ME_4ADDD3030251 // Forward
+   Seq: ( ME_4ADDD377028F_ME_4ADDD3030251_impl // Exit
+ ME_4ADDDC550118_ME_4ADDD3030251_impl // Back
+ ME_4ADDDC630097_ME_4ADDD3030251_impl // Forward
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_47D1602000C6_ME_4ADDD3030251 // Create
+   Seq: ( ME_47D1602000C6_ME_4ADDD3030251_over // Create
  )
  ; // Overridden
  MELIST Dependencies

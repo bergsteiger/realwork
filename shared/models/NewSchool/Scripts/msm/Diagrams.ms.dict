@@ -68,6 +68,22 @@ USES
  IsNil.ms.dict
 ;
 
+USES
+ DiagramsSuffix.ms.dict
+;
+
+USES
+ ViewSuffix.ms.dict
+;
+
+USES
+ cPathSep.ms.dict
+;
+
+USES
+ DiagramsRoot.ms.dict
+;
+
 elem_iterator msm:Diagrams
  Cached:
  (
@@ -85,13 +101,14 @@ elem_iterator msm:Diagrams
    DEFAULT
     begin
      VAR l_Name
-     Self .WordName '_view' .CutSuffix >>> l_Name
-     VAR l_DictName
-     l_Name MEPrefix .CutPrefix >>> l_DictName
-     l_DictName DiagramExt Cat >>> l_DictName
-     l_Name '_diagrams' Cat >>> l_Name
+     Self .WordName ViewSuffix .CutSuffix >>> l_Name
+     VAR l_DiagramsDictName
+     l_Name MEPrefix .CutPrefix >>> l_DiagramsDictName
+     l_DiagramsDictName DiagramExt Cat >>> l_DiagramsDictName
+     [ DiagramsRoot l_DiagramsDictName ] cPathSep strings:CatSep >>> l_DiagramsDictName
+     l_Name DiagramsSuffix Cat >>> l_Name
      VAR l_DigramsHolder 
-     WL l_Name l_DictName >>> l_DigramsHolder
+     WL l_Name l_DiagramsDictName >>> l_DigramsHolder
      RULES
       ( l_DigramsHolder .IsNil )
        nil

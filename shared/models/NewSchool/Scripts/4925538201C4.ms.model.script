@@ -1,0 +1,317 @@
+// TdeDiction 4925538201C4 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4925538201C4
+
+ME ME_4B1E9B5B02B0
+ MEPROP UID '4B1E9B5B02B0'
+ MEPROP Name 'f_DictLanguage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4925538201C4 // TdeDiction
+ ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_4B1E9B5B02B0 f_DictLanguage
+
+ME ME_52D3CE3E0256
+ MEPROP UID '52D3CE3E0256'
+ MEPROP Name 'f_ContextMap'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4925538201C4 // TdeDiction
+ ;
+ MELINK Target WL 'ME_52D3BD980262' '491D57C802CD.ms.model.script' // InsLangToContextMap
+ ;
+
+ENDME // ME_52D3CE3E0256 f_ContextMap
+
+FORWARD ME_4B1E9B7E023E
+
+ME ME_52D3CDBA02E4
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_52D3CDBA02E4 aDocument
+
+ME ME_52D3CDBA02FB
+ MEPROP Name 'aDictLanguage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+ MEPROP Value 'LG_RUSSIAN'
+ MELINK ValueType WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+ UP extprop:pas:Value 'bsTypes.LG_RUSSIAN'
+
+ENDME // ME_52D3CDBA02FB aDictLanguage
+
+ME ME_52D3CDBA0316
+ MEPROP Name 'aContextMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52D3BD980262' '491D57C802CD.ms.model.script' // InsLangToContextMap
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_52D3BD980262' '491D57C802CD.ms.model.script' // InsLangToContextMap
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D3CDBA0316 aContextMap
+
+ME ME_4B1E9B8800C1
+ MEPROP UID '4B1E9B8800C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E9B7E023E // Make
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D3CDBA02E4 // aDocument
+ ME_52D3CDBA02FB // aDictLanguage
+ ME_52D3CDBA0316 // aContextMap
+ )
+ ; // Parameters
+
+ENDME // ME_4B1E9B8800C1 DoIt
+
+ME ME_4B1E9E740374
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E9B7E023E // Make
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B1E9E740374 
+
+ME ME_4B1E9B7E023E
+ MEPROP UID '4B1E9B7E023E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4925538201C4 // TdeDiction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E9B8800C1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1E9E740374 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_4B1E9B7E023E Make
+
+FORWARD ME_4B1E9BA80018
+
+ME ME_4B1E9BBB03CC
+ MEPROP Name 'aDocInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4B1E9BBB03CC aDocInfo
+
+ME ME_4B1E9BBC000A
+ MEPROP Name 'aLang'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47EA082B021A' '47EA07FA02CE.ms.model.script' // TbsLanguage
+ ;
+
+ENDME // ME_4B1E9BBC000A aLang
+
+ME ME_4B1E9BB30134
+ MEPROP UID '4B1E9BB30134'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E9BA80018 // Convert
+ ;
+ MELINK Target WL 'ME_492553F8032A' '491D57C802CD.ms.model.script' // IdeDiction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1E9BBB03CC // aDocInfo
+ ME_4B1E9BBC000A // aLang
+ )
+ ; // Parameters
+
+ENDME // ME_4B1E9BB30134 DoIt
+
+ME ME_4B1E9E92002F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E9BA80018 // Convert
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B1E9E92002F 
+
+ME ME_4B1E9E9D006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1E9BA80018 // Convert
+ ;
+ MELINK Target WL 'ME_4B1E84EF03CC' '49258B61023C.ms.model.script' // TbsDocumentContainer
+ ;
+
+ENDME // ME_4B1E9E9D006B 
+
+ME ME_4B1E9BA80018
+ MEPROP UID '4B1E9BA80018'
+ MEPROP Name 'Convert'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4925538201C4 // TdeDiction
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E9BB30134 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B1E9E92002F // FreeAndNil
+ ME_4B1E9E9D006B // TbsDocumentContainer
+ )
+ ; // Dependencies
+ UP "is static" true
+
+ENDME // ME_4B1E9BA80018 Convert
+
+ME ME_4B1E9EFB0183
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4925538201C4 // TdeDiction
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B1E9EFB0183 
+
+MEREF ME_4B1D157B01C9_ME_4925538201C4_impl
+ MELINK Original WL 'ME_4B1D157B01C9' '491D57C802CD.ms.model.script' // DictLanguage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_4B1D157B01C9_ME_4925538201C4_impl DictLanguage
+
+MEREF ME_52D3BE9302D6_ME_4925538201C4_impl
+ MELINK Original WL 'ME_52D3BE9302D6' '491D57C802CD.ms.model.script' // ContextMap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDMEREF // ME_52D3BE9302D6_ME_4925538201C4_impl ContextMap
+
+MEREF ME_479731C50290_ME_4925538201C4_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_4925538201C4_over Cleanup
+
+MEREF ME_4B1E714A0125_ME_4925538201C4_over
+ MELINK Original WL 'ME_4B1E714A0125' '491C0BE302FF.ms.model.script' // DefaultDocType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1E714A0125_ME_4925538201C4_over DefaultDocType
+
+MEREF ME_4B1E749D033C_ME_4925538201C4_over
+ MELINK Original WL 'ME_4B1E749D033C' '491C0BE302FF.ms.model.script' // AssignFromClone
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4B1E749D033C_ME_4925538201C4_over AssignFromClone
+
+MEREF ME_4B1E70D20312_ME_4925538201C4_G
+ MELINK Original WL? 'ME_4B1E70D20312' // TdeCommonDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B1E70D20312_ME_4925538201C4_G TdeCommonDiction
+
+MEREF ME_492553F8032A_ME_4925538201C4_R
+ MELINK Original WL 'ME_492553F8032A' '491D57C802CD.ms.model.script' // IdeDiction
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492553F8032A_ME_4925538201C4_R IdeDiction
+
+%%ImplementedBy ME_492553F8032A ME_4925538201C4
+
+%%InheritedBy ME_4B1E70D20312 ME_4925538201C4
+
+ME ME_4925538201C4
+ MEPROP UID '4925538201C4'
+ MEPROP Name 'TdeDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_491D5B360381' // Diction
+ ;
+ MELIST Inherits
+   Seq: ( ME_4B1E70D20312_ME_4925538201C4_G // TdeCommonDiction
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_492553F8032A_ME_4925538201C4_R // IdeDiction
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B1E9B5B02B0 // f_DictLanguage
+ HWL ME_52D3CE3E0256 // f_ContextMap
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1E9B7E023E // Make
+ HWL ME_4B1E9BA80018 // Convert
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1D157B01C9_ME_4925538201C4_impl // DictLanguage
+ ME_52D3BE9302D6_ME_4925538201C4_impl // ContextMap
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4925538201C4_over // Cleanup
+ ME_4B1E714A0125_ME_4925538201C4_over // DefaultDocType
+ ME_4B1E749D033C_ME_4925538201C4_over // AssignFromClone
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B1E9EFB0183 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '08.12.2009'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\deDiction.pas'
+ UP extprop:rc:SelfName 'deDiction'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'deDiction'
+
+ENDME // ME_4925538201C4 TdeDiction

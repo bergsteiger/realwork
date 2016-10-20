@@ -1,0 +1,45 @@
+// TcsMdpSyncImport 574C16DD0300 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_574C16470035_ME_574C16DD0300_G
+ MELINK Original WL? 'ME_574C16470035' // TcsMdpSyncPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574C16470035_ME_574C16DD0300_G TcsMdpSyncPrim
+
+MEREF ME_574C15170175_ME_574C16DD0300_R
+ MELINK Original WL 'ME_574C15170175' '484A470100DD.ms.model.script' // mdpSyncImport
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_574C15170175_ME_574C16DD0300_R mdpSyncImport
+
+%%ImplementedBy ME_574C15170175 ME_574C16DD0300
+
+%%InheritedBy ME_574C16470035 ME_574C16DD0300
+
+ME ME_574C16DD0300
+ MEPROP UID '574C16DD0300'
+ MEPROP Name 'TcsMdpSyncImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_574C16470035_ME_574C16DD0300_G // TcsMdpSyncPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_574C15170175_ME_574C16DD0300_R // mdpSyncImport
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncImport.pas'
+ UP extprop:rc:SelfName 'csMdpSyncImport'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMdpSyncImport'
+
+ENDME // ME_574C16DD0300 TcsMdpSyncImport

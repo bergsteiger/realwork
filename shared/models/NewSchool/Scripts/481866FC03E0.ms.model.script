@@ -1,0 +1,151 @@
+// TnevObjectHolder 481866FC03E0 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481866FC03E0
+
+ME ME_481867A701C9
+ MEPROP UID '481867A701C9'
+ MEPROP Name 'f_Obj'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_481866FC03E0 // TnevObjectHolder
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_481867A701C9 f_Obj
+
+ME ME_481867CD00CA
+ MEPROP Name 'anObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_481867CD00CA anObject
+
+ME ME_481867C20088
+ MEPROP UID '481867C20088'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481866FC03E0 // TnevObjectHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_481867CD00CA // anObject
+ )
+ ; // Parameters
+
+ENDME // ME_481867C20088 Create
+
+ME ME_49AB93860302
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481866FC03E0 // TnevObjectHolder
+ ;
+ MELINK Target WL? 'ME_47BC391D0259' // Tl3SimpleObject
+ ;
+
+ENDME // ME_49AB93860302 
+
+MEREF ME_4918253C0297_ME_481866FC03E0_impl
+ MELINK Original WL 'ME_4918253C0297' '48185C4002DC.ms.model.script' // DoInvalidateShape
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_4918253C0297_ME_481866FC03E0_impl DoInvalidateShape
+
+MEREF ME_491829480128_ME_481866FC03E0_impl
+ MELINK Original WL 'ME_491829480128' '48185C4002DC.ms.model.script' // GetTagReader
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_491829480128_ME_481866FC03E0_impl GetTagReader
+
+MEREF ME_491829620101_ME_481866FC03E0_impl
+ MELINK Original WL 'ME_491829620101' '48185C4002DC.ms.model.script' // GetTagWriter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDMEREF // ME_491829620101_ME_481866FC03E0_impl GetTagWriter
+
+MEREF ME_479731C50290_ME_481866FC03E0_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_481866FC03E0_over Cleanup
+
+MEREF ME_47A6FEE600FC_ME_481866FC03E0_over
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDMEREF // ME_47A6FEE600FC_ME_481866FC03E0_over IsCacheable
+
+MEREF ME_48185EEB0234_ME_481866FC03E0_over
+ MELINK Original WL 'ME_48185EEB0234' '48185C4002DC.ms.model.script' // GetObj
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_48185EEB0234_ME_481866FC03E0_over GetObj
+
+MEREF ME_48185C4002DC_ME_481866FC03E0_G
+ MELINK Original WL? 'ME_48185C4002DC' // TnevObjectHolderPrim
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_48185C4002DC_ME_481866FC03E0_G TnevObjectHolderPrim
+
+%%InheritedBy ME_48185C4002DC ME_481866FC03E0
+
+ME ME_481866FC03E0
+ MEPROP UID '481866FC03E0'
+ MEPROP Name 'TnevObjectHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_481DB8210016' // Document
+ ;
+ MELIST Inherits
+   Seq: ( ME_48185C4002DC_ME_481866FC03E0_G // TnevObjectHolderPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_481867A701C9 // f_Obj
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_481867C20088 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4918253C0297_ME_481866FC03E0_impl // DoInvalidateShape
+ ME_491829480128_ME_481866FC03E0_impl // GetTagReader
+ ME_491829620101_ME_481866FC03E0_impl // GetTagWriter
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_481866FC03E0_over // Cleanup
+ ME_47A6FEE600FC_ME_481866FC03E0_over // IsCacheable
+ ME_48185EEB0234_ME_481866FC03E0_over // GetObj
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49AB93860302 // Tl3SimpleObject
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '30.04.2008 16:34'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevObjectHolder.pas'
+ UP extprop:rc:SelfName 'ObjectHolder'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nevObjectHolder'
+
+ENDME // ME_481866FC03E0 TnevObjectHolder

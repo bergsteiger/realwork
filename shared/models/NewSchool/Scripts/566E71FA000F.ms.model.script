@@ -1,0 +1,198 @@
+// TdaFieldParamDescription 566E71FA000F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_566E71FA000F
+
+ME ME_566E73940151
+ MEPROP UID '566E73940151'
+ MEPROP Name 'f_Description'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_566E73940151 f_Description
+
+FORWARD ME_566E721A02B9
+
+ME ME_566E735C0295
+ MEPROP Name 'aFieldDescription'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55377C5F0162' '5432518A0316.ms.model.script' // IdaFieldDescription
+ ;
+
+ENDME // ME_566E735C0295 aFieldDescription
+
+ME ME_566E72240133
+ MEPROP UID '566E72240133'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566E721A02B9 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_566E735C0295 // aFieldDescription
+ )
+ ; // Parameters
+
+ENDME // ME_566E72240133 DoIt
+
+ME ME_566E721A02B9
+ MEPROP UID '566E721A02B9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_566E72240133 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_566E721A02B9 Create
+
+MEREF ME_566E721A02B9_ME_566E73610319_G
+ MELINK Original HWL ME_566E721A02B9 // Create
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_566E721A02B9_ME_566E73610319_G Create
+
+MEREF ME_5555ADD202AB_ME_566E73610319_R
+ MELINK Original WL 'ME_5555ADD202AB' '5432518A0316.ms.model.script' // IdaParamDescription
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5555ADD202AB_ME_566E73610319_R IdaParamDescription
+
+%%ImplementedBy ME_5555ADD202AB ME_566E73610319
+
+%%InheritedBy ME_566E721A02B9 ME_566E73610319
+
+ME ME_566E73610319
+ MEPROP UID '566E73610319'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_566E71FA000F // TdaFieldParamDescription
+ ;
+ MELIST Inherits
+   Seq: ( ME_566E721A02B9_ME_566E73610319_G // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5555ADD202AB_ME_566E73610319_R // IdaParamDescription
+ )
+ ; // Implements
+
+ENDME // ME_566E73610319 Make
+
+MEREF ME_5555C5620242_ME_566E71FA000F_impl
+ MELINK Original WL 'ME_5555C5620242' '5432518A0316.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5555C5620242_ME_566E71FA000F_impl Name
+
+MEREF ME_5555C57C023A_ME_566E71FA000F_impl
+ MELINK Original WL 'ME_5555C57C023A' '5432518A0316.ms.model.script' // DataType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5555C57C023A_ME_566E71FA000F_impl DataType
+
+MEREF ME_5555C5AB0144_ME_566E71FA000F_impl
+ MELINK Original WL 'ME_5555C5AB0144' '5432518A0316.ms.model.script' // Size
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_5555C5AB0144_ME_566E71FA000F_impl Size
+
+MEREF ME_56725D45021B_ME_566E71FA000F_impl
+ MELINK Original WL 'ME_56725D45021B' '5432518A0316.ms.model.script' // ParamType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDMEREF // ME_56725D45021B_ME_566E71FA000F_impl ParamType
+
+MEREF ME_479731C50290_ME_566E71FA000F_over
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_479731C50290_ME_566E71FA000F_over Cleanup
+
+MEREF ME_49E7754802A9_ME_566E71FA000F_G
+ MELINK Original WL? 'ME_49E7754802A9' // Tl3ProtoObject
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49E7754802A9_ME_566E71FA000F_G Tl3ProtoObject
+
+MEREF ME_5555ADD202AB_ME_566E71FA000F_R
+ MELINK Original WL 'ME_5555ADD202AB' '5432518A0316.ms.model.script' // IdaParamDescription
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5555ADD202AB_ME_566E71FA000F_R IdaParamDescription
+
+%%ImplementedBy ME_5555ADD202AB ME_566E71FA000F
+
+%%InheritedBy ME_49E7754802A9 ME_566E71FA000F
+
+ME ME_566E71FA000F
+ MEPROP UID '566E71FA000F'
+ MEPROP Name 'TdaFieldParamDescription'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_54F85B2500FB' // Provider
+ ;
+ MELIST Inherits
+   Seq: ( ME_49E7754802A9_ME_566E71FA000F_G // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_5555ADD202AB_ME_566E71FA000F_R // IdaParamDescription
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_566E73940151 // f_Description
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_566E721A02B9 // Create
+ HWL ME_566E73610319 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5555C5620242_ME_566E71FA000F_impl // Name
+ ME_5555C57C023A_ME_566E71FA000F_impl // DataType
+ ME_5555C5AB0144_ME_566E71FA000F_impl // Size
+ ME_56725D45021B_ME_566E71FA000F_impl // ParamType
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_566E71FA000F_over // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daFieldParamDescription.pas'
+ UP extprop:rc:SelfName 'daFieldParamDescription'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'daFieldParamDescription'
+
+ENDME // ME_566E71FA000F TdaFieldParamDescription

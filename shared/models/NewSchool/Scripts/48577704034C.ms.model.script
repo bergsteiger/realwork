@@ -1,0 +1,77 @@
+// WevTextPara 48577704034C Wrapper Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48577704034C
+
+ME ME_4857776D00FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48577704034C // WevTextPara
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4857776D00FC 
+
+ME ME_485779670323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48577704034C // WevTextPara
+ ;
+ MELINK Target WL? 'ME_47AC6F0B025E' // k2Base
+ ;
+
+ENDME // ME_485779670323 
+
+MEREF ME_484FD34600BA_ME_48577704034C_G
+ MELINK Original WL? 'ME_484FD34600BA' // WevPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_484FD34600BA_ME_48577704034C_G WevPara
+
+MEREF ME_485683750360_ME_48577704034C_R
+ MELINK Original WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_485683750360_ME_48577704034C_R TextPara
+
+%%ImplementedBy ME_485683750360 ME_48577704034C
+
+%%InheritedBy ME_484FD34600BA ME_48577704034C
+
+ME ME_48577704034C
+ MEPROP UID '48577704034C'
+ MEPROP Name 'WevTextPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Wrapper ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_48492FC0029D' // Standard
+ ;
+ MELIST Inherits
+   Seq: ( ME_484FD34600BA_ME_48577704034C_G // WevPara
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_485683750360_ME_48577704034C_R // TextPara
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4857776D00FC // Tk2TagID
+ ME_485779670323 // k2Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '02.11.2004 16:53'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextPara_Wrap.pas'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'evTextPara_Wrap'
+
+ENDME // ME_48577704034C WevTextPara

@@ -1,0 +1,66 @@
+// TvcmCustOpsRepGroupList 559F8C7A0213 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559F8C7A0213
+
+ME ME_559F8C960133
+ MEPROP UID '559F8C960133'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559F8C7A0213 // TvcmCustOpsRepGroupList
+ ;
+ MELINK Target WL 'ME_4992FD760178' '49940C8E00DA.ms.model.script' // IvcmCustOpsRepGroup
+ ;
+
+ENDME // ME_559F8C960133 ItemType
+
+MEREF ME_4A54DD4E036F_ME_559F8C7A0213_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_559F8C7A0213_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D830369_ME_559F8C7A0213_R
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_559F8C7A0213_R l3InterfaceRefList
+
+%%ImplementedBy ME_47B57D830369 ME_559F8C7A0213
+
+%%InheritedBy ME_4A54DD4E036F ME_559F8C7A0213
+
+ME ME_559F8C7A0213
+ MEPROP UID '559F8C7A0213'
+ MEPROP Name 'TvcmCustOpsRepGroupList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4C8DD8B8006C' // TasksPanel
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_559F8C7A0213_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D830369_ME_559F8C7A0213_R // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_559F8C960133 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas'
+ UP extprop:rc:SelfName 'CustOpsRepGroupList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmCustOpsRepGroupList'
+
+ENDME // ME_559F8C7A0213 TvcmCustOpsRepGroupList

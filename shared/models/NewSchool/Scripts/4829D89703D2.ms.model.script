@@ -22,7 +22,7 @@ ENDME // ME_54C0FF9100C7 DoIt
 ME ME_54C0FF7C0012
  MEPROP UID '54C0FF7C0012'
  MEPROP Name 'InTable'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -85,7 +85,7 @@ ENDME // ME_54C10B0B02F8 DoIt
 ME ME_54C10AFF0075
  MEPROP UID '54C10AFF0075'
  MEPROP Name 'InsertPageBreak'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -117,7 +117,7 @@ ENDME // ME_0EC2705A2042 DoIt
 ME ME_54C10BEA0345
  MEPROP UID '54C10BEA0345'
  MEPROP Name 'DecIndent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -149,7 +149,7 @@ ENDME // ME_421635D10724 DoIt
 ME ME_54C10BFE0098
  MEPROP UID '54C10BFE0098'
  MEPROP Name 'IncIndent'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
@@ -194,7 +194,7 @@ ENDME // ME_55CDBD930265 DoIt
 ME ME_55CDBD7600D4
  MEPROP UID '55CDBD7600D4'
  MEPROP Name 'DoSearchHyperLink'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -231,6 +231,12 @@ ME ME_48F4EBE40039
 
 ENDME // ME_48F4EBE40039 
 
+MEREF ME_4B877C5101C1_ME_4829D89703D2_G
+ MELINK Original WL? 'ME_4B877C5101C1' // TevCustomEditorModelPart
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4B877C5101C1_ME_4829D89703D2_G TevCustomEditorModelPart
+
 %%InheritedBy ME_4B877C5101C1 ME_4829D89703D2
 
 ME ME_4829D89703D2
@@ -246,7 +252,7 @@ ME ME_4829D89703D2
  MELINK Parent WL? 'ME_4829D7D50156' // Editors
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_4B877C5101C1' // TevCustomEditorModelPart
+   Seq: ( ME_4B877C5101C1_ME_4829D89703D2_G // TevCustomEditorModelPart
  )
  ; // Inherits
  MELIST Operations

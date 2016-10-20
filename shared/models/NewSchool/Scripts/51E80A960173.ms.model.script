@@ -1,0 +1,63 @@
+// TIUnknownRefList 51E80A960173 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E80A960173
+
+ME ME_51E80AD90205
+ MEPROP UID '51E80AD90205'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51E80A960173 // TIUnknownRefList
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_51E80AD90205 ItemType
+
+MEREF ME_516137AD0362_ME_51E80A960173_G
+ MELINK Original WL? 'ME_516137AD0362' // TRefcounted
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_516137AD0362_ME_51E80A960173_G TRefcounted
+
+MEREF ME_51E809AD001D_ME_51E80A960173_G
+ MELINK Original WL? 'ME_51E809AD001D' // InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_51E809AD001D_ME_51E80A960173_G InterfaceRefList
+
+%%InheritedBy ME_516137AD0362 ME_51E80A960173
+%%InheritedBy ME_51E809AD001D ME_51E80A960173
+
+ME ME_51E80A960173
+ MEPROP UID '51E80A960173'
+ MEPROP Name 'TIUnknownRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ССЫЛОК на IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_51DEB22001AC' // FinalContainers
+ ;
+ MELIST Inherits
+   Seq: ( ME_516137AD0362_ME_51E80A960173_G // TRefcounted
+ ME_51E809AD001D_ME_51E80A960173_G // InterfaceRefList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51E80AD90205 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\SandBox\IUnknownRefList.pas'
+ UP extprop:rc:SelfName 'IUnknownRefList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'IUnknownRefList'
+
+ENDME // ME_51E80A960173 TIUnknownRefList

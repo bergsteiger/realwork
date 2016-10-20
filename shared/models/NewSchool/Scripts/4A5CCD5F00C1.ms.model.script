@@ -40,11 +40,17 @@ ME ME_4A5CCD9D028D
 
 ENDME // ME_4A5CCD9D028D GetViewBounds
 
-ME ME_4A5CCBFC00B3_ME_4A5CCD5F00C1
+MEREF ME_4A5CCBFC00B3_ME_4A5CCD5F00C1_impl
  MELINK Original WL 'ME_4A5CCBFC00B3' '47C5207602D1.ms.model.script' // ViewBounds
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_4A5CCBFC00B3_ME_4A5CCD5F00C1 ViewBounds
+ENDMEREF // ME_4A5CCBFC00B3_ME_4A5CCD5F00C1_impl ViewBounds
+
+MEREF ME_4A5CCBAE03C6_ME_4A5CCD5F00C1_R
+ MELINK Original WL 'ME_4A5CCBAE03C6' '47C5207602D1.ms.model.script' // MnevViewBounds
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A5CCBAE03C6_ME_4A5CCD5F00C1_R MnevViewBounds
 
 %%ImplementedBy ME_4A5CCBAE03C6 ME_4A5CCD5F00C1
 
@@ -61,7 +67,7 @@ ME ME_4A5CCD5F00C1
  MELINK Parent WL? 'ME_47E3DF460095' // Cursors
  ;
  MELIST Implements
-   Seq: ( WL 'ME_4A5CCBAE03C6' '47C5207602D1.ms.model.script' // MnevViewBounds
+   Seq: ( ME_4A5CCBAE03C6_ME_4A5CCD5F00C1_R // MnevViewBounds
  )
  ; // Implements
  MELIST Operations
@@ -69,7 +75,7 @@ ME ME_4A5CCD5F00C1
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4A5CCBFC00B3_ME_4A5CCD5F00C1 // ViewBounds
+   Seq: ( ME_4A5CCBFC00B3_ME_4A5CCD5F00C1_impl // ViewBounds
  )
  ; // Implemented
  UP intf.pas:Path 'common\components\gui\Garant\Everest\nevViewBounds.imp.pas'

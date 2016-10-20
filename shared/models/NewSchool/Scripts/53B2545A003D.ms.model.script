@@ -1,0 +1,45 @@
+// TcsSpellCorrectTaskPrim 53B2545A003D SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEREF ME_52F8C2BF0110_ME_53B2545A003D_G
+ MELINK Original WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_52F8C2BF0110_ME_53B2545A003D_G TddProcessTask
+
+MEREF ME_53B2547E0014_ME_53B2545A003D_R
+ MELINK Original WL 'ME_53B2547E0014' '484A470100DD.ms.model.script' // SpellCorrectTask
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_53B2547E0014_ME_53B2545A003D_R SpellCorrectTask
+
+%%ImplementedBy ME_53B2547E0014 ME_53B2545A003D
+
+%%InheritedBy ME_52F8C2BF0110 ME_53B2545A003D
+
+ME ME_53B2545A003D
+ MEPROP UID '53B2545A003D'
+ MEPROP Name 'TcsSpellCorrectTaskPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_52F8C298005C' // Tasks
+ ;
+ MELIST Inherits
+   Seq: ( ME_52F8C2BF0110_ME_53B2545A003D_G // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_53B2547E0014_ME_53B2545A003D_R // SpellCorrectTask
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas'
+ UP extprop:rc:SelfName 'csSpellCorrectTaskPrim'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csSpellCorrectTaskPrim'
+
+ENDME // ME_53B2545A003D TcsSpellCorrectTaskPrim

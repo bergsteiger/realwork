@@ -1,0 +1,180 @@
+// TncsReceiveThread 54534F1A00BF SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54534F1A00BF
+
+FORWARD ME_5453828F0059
+
+ME ME_545382B4034A
+ MEPROP UID '545382B4034A'
+ MEPROP Name 'c_ReadTimeout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5453828F0059 // ThreadTimeouts
+ ;
+ MEPROP Value 300
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 300
+
+ENDME // ME_545382B4034A c_ReadTimeout
+
+ME ME_5453828F0059
+ MEPROP UID '5453828F0059'
+ MEPROP Name 'ThreadTimeouts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545382B4034A // c_ReadTimeout
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5453828F0059 ThreadTimeouts
+
+ME ME_5453795603AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_5453795603AE 
+
+ME ME_5453795B02A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL? 'ME_538DE3F001DC' // Tl3TempMemoryStream
+ ;
+
+ENDME // ME_5453795B02A8 
+
+ME ME_545388B80110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_545388B80110 
+
+ME ME_54538F000128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_54538F000128 
+
+ME ME_54539217001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_54539217001B 
+
+ME ME_545B8147003C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL? 'ME_54539F4702B1' // TncsMessageFactory
+ ;
+
+ENDME // ME_545B8147003C 
+
+ME ME_546306C60283
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL 'ME_5461CFB8002C' '5461F0A303D6.ms.model.script' // TncsMessageKind
+ ;
+
+ENDME // ME_546306C60283 
+
+ME ME_548AC9510214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54534F1A00BF // TncsReceiveThread
+ ;
+ MELINK Target WL? 'ME_548AC7FB0046' // ncsProfile
+ ;
+
+ENDME // ME_548AC9510214 
+
+MEREF ME_4911B69E037D_ME_54534F1A00BF_over
+ MELINK Original WL 'ME_4911B69E037D' '4773D64E036C.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4911B69E037D_ME_54534F1A00BF_over DoExecute
+
+MEREF ME_5460B6230039_ME_54534F1A00BF_G
+ MELINK Original WL? 'ME_5460B6230039' // TncsTransporterIOThread
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_5460B6230039_ME_54534F1A00BF_G TncsTransporterIOThread
+
+%%InheritedBy ME_5460B6230039 ME_54534F1A00BF
+
+ME ME_54534F1A00BF
+ MEPROP UID '54534F1A00BF'
+ MEPROP Name 'TncsReceiveThread'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_544E0148010D' // Messages
+ ;
+ MELIST Inherits
+   Seq: ( ME_5460B6230039_ME_54534F1A00BF_G // TncsTransporterIOThread
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4911B69E037D_ME_54534F1A00BF_over // DoExecute
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_5453828F0059 // ThreadTimeouts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5453795603AE // TStream
+ ME_5453795B02A8 // Tl3TempMemoryStream
+ ME_545388B80110 // FreeAndNil
+ ME_54538F000128 // l3System
+ ME_54539217001B // TncsMessage
+ ME_545B8147003C // TncsMessageFactory
+ ME_546306C60283 // TncsMessageKind
+ ME_548AC9510214 // ncsProfile
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsReceiveThread.pas'
+ UP extprop:rc:SelfName 'ncsReceiveThread'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ncsReceiveThread'
+
+ENDME // ME_54534F1A00BF TncsReceiveThread

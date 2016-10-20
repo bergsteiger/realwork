@@ -1,0 +1,66 @@
+// TvcmZoneTypeList 55F5644A029F SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55F5644A029F
+
+ME ME_55F564CD0251
+ MEPROP UID '55F564CD0251'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55F5644A029F // TvcmZoneTypeList
+ ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_55F564CD0251 ItemType
+
+MEREF ME_4A54DD4E036F_ME_55F5644A029F_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_55F5644A029F_G Tl3ProtoDataContainer
+
+MEREF ME_49142D7000F3_ME_55F5644A029F_R
+ MELINK Original WL? 'ME_49142D7000F3' // l3EnumList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_49142D7000F3_ME_55F5644A029F_R l3EnumList
+
+%%ImplementedBy ME_49142D7000F3 ME_55F5644A029F
+
+%%InheritedBy ME_4A54DD4E036F ME_55F5644A029F
+
+ME ME_55F5644A029F
+ MEPROP UID '55F5644A029F'
+ MEPROP Name 'TvcmZoneTypeList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_47DF70170311' // vcmCore
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_55F5644A029F_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_49142D7000F3_ME_55F5644A029F_R // l3EnumList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55F564CD0251 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmZoneTypeList.pas'
+ UP extprop:rc:SelfName 'ZoneTypeList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vcmZoneTypeList'
+
+ENDME // ME_55F5644A029F TvcmZoneTypeList

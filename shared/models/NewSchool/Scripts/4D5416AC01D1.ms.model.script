@@ -1,0 +1,114 @@
+// TvgCustomControl 4D5416AC01D1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D5416AC01D1
+%%Inner ME_4D5416AC01D1
+
+FORWARD ME_4D5416AC01D1
+
+ME ME_4D5416D403C3
+ MEPROP UID '4D5416D403C3'
+ MEPROP Name '_UnknownIsComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+
+ENDME // ME_4D5416D403C3 _UnknownIsComponent
+
+ME ME_4D5416E2012C
+ MEPROP UID '4D5416E2012C'
+ MEPROP Name 'l3Unknown_NoIUnknown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ UP extprop:rc:SelfName 'Unknown_NoIUnknown'
+
+ENDME // ME_4D5416E2012C l3Unknown_NoIUnknown
+
+ME ME_4D54174B0316
+ MEPROP Name 'Dummy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D54174B0316 Dummy
+
+ME ME_4D54173D03B8
+ MEPROP UID '4D54173D03B8'
+ MEPROP Name 'Free'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для ловли Free' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5416AC01D1 // TvgCustomControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D54174B0316 // Dummy
+ )
+ ; // Parameters
+
+ENDME // ME_4D54173D03B8 Free
+
+MEREF ME_47913F970159_ME_4D5416AC01D1_G
+ MELINK Original WL? 'ME_47913F970159' // l3Unknown
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47913F970159_ME_4D5416AC01D1_G l3Unknown
+
+MEREF ME_47E1388A03A7_ME_4D5416AC01D1_G
+ MELINK Original WL 'ME_47E1388A03A7' '47E11FC3021E.ms.model.script' // TCustomControl
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47E1388A03A7_ME_4D5416AC01D1_G TCustomControl
+
+%%InheritedBy ME_47913F970159 ME_4D5416AC01D1
+%%InheritedBy ME_47E1388A03A7 ME_4D5416AC01D1
+
+ME ME_4D5416AC01D1
+ MEPROP UID '4D5416AC01D1'
+ MEPROP Name 'TvgCustomControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4D52A63D0365' // lulin
+ ;
+ MELIST Inherits
+   Seq: ( ME_47913F970159_ME_4D5416AC01D1_G // l3Unknown
+ ME_47E1388A03A7_ME_4D5416AC01D1_G // TCustomControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D54173D03B8 // Free
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4D5416D403C3 // _UnknownIsComponent
+ HWL ME_4D5416E2012C // l3Unknown_NoIUnknown
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" true
+ UP "no hands" true
+ UP "started" '10.02.2011 19:47'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomControl.pas'
+ UP extprop:rc:SelfName 'Control'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vgCustomControl'
+
+ENDME // ME_4D5416AC01D1 TvgCustomControl

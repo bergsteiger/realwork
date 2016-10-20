@@ -6,6 +6,24 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_550C0EE00301
 
+MEREF ME_4BD6DC630189_ME_550C0F2603D5_G
+ MELINK Original WL 'ME_4BD6DC630189' '4958E868009C.ms.model.script' // ut_mmmMain
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD6DC630189_ME_550C0F2603D5_G ut_mmmMain
+
+MEREF ME_4BD96ADF0136_ME_550C0F2603D5_G
+ MELINK Original WL 'ME_4BD96ADF0136' '4BD856E802F9.ms.model.script' // MedicMainMenu
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4BD96ADF0136_ME_550C0F2603D5_G MedicMainMenu
+
+MEREF ME_550C0D1A00CC_ME_550C0F2603D5_R
+ MELINK Original WL 'ME_550C0D1A00CC' '4AC241AC01FC.ms.model.script' // dsInpharmMainMenuData
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_550C0D1A00CC_ME_550C0F2603D5_R dsInpharmMainMenuData
+
 %%ImplementedBy ME_550C0D1A00CC ME_550C0F2603D5
 
 %%InheritedBy ME_4BD6DC630189 ME_550C0F2603D5
@@ -22,12 +40,12 @@ ME ME_550C0F2603D5
  MELINK Parent HWL ME_550C0EE00301 // InpharmMainMenu
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4BD6DC630189' '4958E868009C.ms.model.script' // ut_mmmMain
- WL 'ME_4BD96ADF0136' '4BD856E802F9.ms.model.script' // MedicMainMenu
+   Seq: ( ME_4BD6DC630189_ME_550C0F2603D5_G // ut_mmmMain
+ ME_4BD96ADF0136_ME_550C0F2603D5_G // MedicMainMenu
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_550C0D1A00CC' '4AC241AC01FC.ms.model.script' // dsInpharmMainMenuData
+   Seq: ( ME_550C0D1A00CC_ME_550C0F2603D5_R // dsInpharmMainMenuData
  )
  ; // Implements
  UP "ActivateIfUpdate" 'None'
@@ -37,13 +55,19 @@ ME ME_550C0F2603D5
 
 ENDME // ME_550C0F2603D5 Main
 
+MEREF ME_50096E800075_ME_C1D9743E0694_G
+ MELINK Original WL 'ME_50096E800075' '4FFC337003AF.ms.model.script' // TvcmNeedMakeFormEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_50096E800075_ME_C1D9743E0694_G TvcmNeedMakeFormEvent
+
 %%InheritedBy ME_50096E800075 ME_C1D9743E0694
 
 ME ME_C1D9743E0694
  MEPROP UID 'C1D9743E0694'
  MEPROP Name 'Main_Parent_ut_mmmMain_NeedMakeForm'
  UP IsSummoned true
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Обработчик OnNeedMakeForm для Main' ;
@@ -52,7 +76,7 @@ ME ME_C1D9743E0694
  MELINK Parent HWL ME_550C0EE00301 // InpharmMainMenu
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+   Seq: ( ME_50096E800075_ME_C1D9743E0694_G // TvcmNeedMakeFormEvent
  )
  ; // Inherits
  UPLINK Speller HWL ME_550C0F2603D5 // Main
@@ -60,18 +84,24 @@ ME ME_C1D9743E0694
 
 ENDME // ME_C1D9743E0694 Main_Parent_ut_mmmMain_NeedMakeForm
 
-ME ME_47A042E100E2_ME_550C0EE00301
+MEREF ME_47A042E100E2_ME_550C0EE00301_over
  MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_550C0EE00301 InitFields
+ENDMEREF // ME_47A042E100E2_ME_550C0EE00301_over InitFields
 
-ME ME_4FFE854A009B_ME_550C0EE00301
- MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+MEREF ME_4FFE854A009B_ME_550C0EE00301_over
+ MELINK Original WL 'ME_4FFE854A009B' '4FFE84F00388.ms.model.script' // GetInstance
  ;
  MEPROP OpKind opkind_Overridden
  UP "is static" true
-ENDME // ME_4FFE854A009B_ME_550C0EE00301 GetInstance
+ENDMEREF // ME_4FFE854A009B_ME_550C0EE00301_over GetInstance
+
+MEREF ME_47B97312006D_ME_550C0EE00301_G
+ MELINK Original WL? 'ME_47B97312006D' // TvcmFormSetFactory
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B97312006D_ME_550C0EE00301_G TvcmFormSetFactory
 
 %%InheritedBy ME_47B97312006D ME_550C0EE00301
 
@@ -87,7 +117,7 @@ ME ME_550C0EE00301
  MELINK Parent WL? 'ME_4AA0D66F0159' // Inpharm
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+   Seq: ( ME_47B97312006D_ME_550C0EE00301_G // TvcmFormSetFactory
  )
  ; // Inherits
  MELIST Operations
@@ -95,8 +125,8 @@ ME ME_550C0EE00301
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_550C0EE00301 // InitFields
- ME_4FFE854A009B_ME_550C0EE00301 // GetInstance
+   Seq: ( ME_47A042E100E2_ME_550C0EE00301_over // InitFields
+ ME_4FFE854A009B_ME_550C0EE00301_over // GetInstance
  )
  ; // Overridden
  MELIST Children

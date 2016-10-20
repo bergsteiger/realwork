@@ -4,11 +4,23 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4EFC5A8502E2
 
-ME ME_4EFC5A6501C9_ME_4EFC5A8502E2
+MEREF ME_4EFC5A6501C9_ME_4EFC5A8502E2_over
  MELINK Original WL 'ME_4EFC5A6501C9' '492189D90209.ms.model.script' // GetIsForSynchroView
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_4EFC5A6501C9_ME_4EFC5A8502E2 GetIsForSynchroView
+ENDMEREF // ME_4EFC5A6501C9_ME_4EFC5A8502E2_over GetIsForSynchroView
+
+MEREF ME_492189D90209_ME_4EFC5A8502E2_G
+ MELINK Original WL? 'ME_492189D90209' // TdsWarning
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_492189D90209_ME_4EFC5A8502E2_G TdsWarning
+
+MEREF ME_4FD0899600AE_ME_4EFC5A8502E2_R
+ MELINK Original WL 'ME_4FD0899600AE' '484FA67302D7.ms.model.script' // Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4FD0899600AE_ME_4EFC5A8502E2_R Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
 
 %%ImplementedBy ME_4FD0899600AE ME_4EFC5A8502E2
 
@@ -26,15 +38,15 @@ ME ME_4EFC5A8502E2
  MELINK Parent WL? 'ME_47F22C7501F6' // Document
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_492189D90209' // TdsWarning
+   Seq: ( ME_492189D90209_ME_4EFC5A8502E2_G // TdsWarning
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4FD0899600AE' '484FA67302D7.ms.model.script' // Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
+   Seq: ( ME_4FD0899600AE_ME_4EFC5A8502E2_R // Если баллон относится к синхронному просмотру, то ссылки `Переключиться в актуальную редакцию документа` быть не должно
  )
  ; // Implements
  MELIST Overridden
-   Seq: ( ME_4EFC5A6501C9_ME_4EFC5A8502E2 // GetIsForSynchroView
+   Seq: ( ME_4EFC5A6501C9_ME_4EFC5A8502E2_over // GetIsForSynchroView
  )
  ; // Overridden
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsSynchroViewWarning.pas'

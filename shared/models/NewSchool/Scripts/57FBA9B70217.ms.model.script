@@ -63,12 +63,18 @@ ME ME_11FE2580740E
 
 ENDME // ME_11FE2580740E DoIt
 
+MEREF ME_47881B22005A_ME_57FBAD4B01C7_G
+ MELINK Original WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47881B22005A_ME_57FBAD4B01C7_G TNotifyEvent
+
 %%InheritedBy ME_47881B22005A ME_57FBAD4B01C7
 
 ME ME_57FBAD4B01C7
  MEPROP UID '57FBAD4B01C7'
  MEPROP Name 'DoTextChange'
- MEPROP Class class_Class
+ MEPROP Class class_Operation
  MELINK Stereotype st_virtualmethod ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility ProtectedAccess
@@ -76,7 +82,7 @@ ME ME_57FBAD4B01C7
  MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+   Seq: ( ME_47881B22005A_ME_57FBAD4B01C7_G // TNotifyEvent
  )
  ; // Inherits
  MELIST Operations
@@ -101,7 +107,7 @@ ME ME_57FCD3E80040
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57FBA9B70217 // msmEditViewController
  ;
- MELINK Target WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+ MELINK Target WL? 'ME_4F473F9402D8' // TtfwCStringFactory
  ;
 
 ENDME // ME_57FCD3E80040 
@@ -116,17 +122,23 @@ ME ME_57FCD4330199
 
 ENDME // ME_57FCD4330199 
 
-ME ME_57ADFB33027D_ME_57FBA9B70217
+MEREF ME_57ADFB33027D_ME_57FBA9B70217_impl
  MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57ADFB33027D_ME_57FBA9B70217 InitOwnView
+ENDMEREF // ME_57ADFB33027D_ME_57FBA9B70217_impl InitOwnView
 
-ME ME_57B6A49900F4_ME_57FBA9B70217
- MELINK Original WL 'ME_57B6A49900F4' '57AAE90E02B6.ms.model.script' // LinkDataToView
+MEREF ME_57B6A49900F4_ME_57FBA9B70217_over
+ MELINK Original WL 'ME_57B6A49900F4' '57B1F28B030D.ms.model.script' // LinkDataToView
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57B6A49900F4_ME_57FBA9B70217 LinkDataToView
+ENDMEREF // ME_57B6A49900F4_ME_57FBA9B70217_over LinkDataToView
+
+MEREF ME_57B179D70299_ME_57FBA9B70217_G
+ MELINK Original WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_57B179D70299_ME_57FBA9B70217_G msmConcreteModelOwnViewController
 
 %%InheritedBy ME_57B179D70299 ME_57FBA9B70217
 
@@ -142,7 +154,7 @@ ME ME_57FBA9B70217
  MELINK Parent WL? 'ME_57AE0E4B00C5' // ConcreteViewControllers
  ;
  MELIST Inherits
-   Seq: ( WL? 'ME_57B179D70299' // msmConcreteModelOwnViewController
+   Seq: ( ME_57B179D70299_ME_57FBA9B70217_G // msmConcreteModelOwnViewController
  )
  ; // Inherits
  MELIST Attributes
@@ -155,11 +167,11 @@ ME ME_57FBA9B70217
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_57ADFB33027D_ME_57FBA9B70217 // InitOwnView
+   Seq: ( ME_57ADFB33027D_ME_57FBA9B70217_impl // InitOwnView
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_57B6A49900F4_ME_57FBA9B70217 // LinkDataToView
+   Seq: ( ME_57B6A49900F4_ME_57FBA9B70217_over // LinkDataToView
  )
  ; // Overridden
  MELIST Dependencies

@@ -1,0 +1,237 @@
+// TtfwModuleOperationWordEx 5770F145022B SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5770F145022B
+
+ME ME_5770F3C70177
+ MEPROP UID '5770F3C70177'
+ MEPROP Name 'f_ModuleOperationCode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL 'ME_4683CF84010A' '467BAB7F021E.ms.model.script' // TvcmMOPID
+ ;
+
+ENDME // ME_5770F3C70177 f_ModuleOperationCode
+
+FORWARD ME_5770F2320299
+
+ME ME_5770F26F0089
+ MEPROP Name 'aCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CF84010A' '467BAB7F021E.ms.model.script' // TvcmMOPID
+ ;
+
+ENDME // ME_5770F26F0089 aCode
+
+ME ME_5770F47301B7
+ MEPROP Name 'aModule'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_52A08E6701A1' // TvcmModulesCollectionItem
+ ;
+
+ENDME // ME_5770F47301B7 aModule
+
+ME ME_5770F4A10197
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL? 'ME_4FFC3347011F' // TvcmBaseCollectionItem
+ ;
+
+ENDME // ME_5770F4A10197 anOp
+
+ME ME_5770F24201BC
+ MEPROP UID '5770F24201BC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F2320299 // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_5770F26F0089 // aCode
+ ME_5770F47301B7 // aModule
+ ME_5770F4A10197 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_5770F24201BC DoIt
+
+ME ME_5770F2320299
+ MEPROP UID '5770F2320299'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5770F24201BC // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_5770F2320299 Register
+
+ME ME_5770F31B00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_5770F31B00A8 
+
+ME ME_5770F31F02F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL? 'ME_4DB6CD4203D4' // TkwString
+ ;
+
+ENDME // ME_5770F31F02F8 
+
+ME ME_5770F3230125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL? 'ME_4D7A109601C2' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_5770F3230125 
+
+ME ME_5770F3260216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL? 'ME_52A08E6701A1' // TvcmModulesCollectionItem
+ ;
+
+ENDME // ME_5770F3260216 
+
+ME ME_5770F32A00BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL? 'ME_4AB24EF502BB' // vcmBaseMenuManager
+ ;
+
+ENDME // ME_5770F32A00BD 
+
+ME ME_5770F32D02DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL 'ME_4787B1BA031F' '4787B0A8007B.ms.model.script' // El3DuplicateItem
+ ;
+
+ENDME // ME_5770F32D02DE 
+
+ME ME_5770F331028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_5770F331028C 
+
+ME ME_5770FF8C03B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
+ ;
+ MELINK Target WL? 'ME_4AB34044026A' // TvcmModulesCollection
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_5770FF8C03B5 
+
+MEREF ME_4DB079E00084_ME_5770F145022B_over
+ MELINK Original WL 'ME_4DB079E00084' '4DB060930263.ms.model.script' // GetModuleOperationCode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDMEREF // ME_4DB079E00084_ME_5770F145022B_over GetModuleOperationCode
+
+MEREF ME_4DC2E05B03DD_ME_5770F145022B_over
+ MELINK Original WL 'ME_4DC2E05B03DD' '54D229E702B6.ms.model.script' // ReallyNeedRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDMEREF // ME_4DC2E05B03DD_ME_5770F145022B_over ReallyNeedRegister
+
+MEREF ME_4DB060930263_ME_5770F145022B_G
+ MELINK Original WL? 'ME_4DB060930263' // TtfwModuleOperationWord
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4DB060930263_ME_5770F145022B_G TtfwModuleOperationWord
+
+%%InjectedBy ME_4AB34044026A ME_5770F145022B
+
+%%InheritedBy ME_4DB060930263 ME_5770F145022B
+
+ME ME_5770F145022B
+ MEPROP UID '5770F145022B'
+ MEPROP Name 'TtfwModuleOperationWordEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4E200FED0213' // Operations
+ ;
+ MELIST Inherits
+   Seq: ( ME_4DB060930263_ME_5770F145022B_G // TtfwModuleOperationWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5770F3C70177 // f_ModuleOperationCode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5770F2320299 // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DB079E00084_ME_5770F145022B_over // GetModuleOperationCode
+ ME_4DC2E05B03DD_ME_5770F145022B_over // ReallyNeedRegister
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5770F31B00A8 // vcmDispatcher
+ ME_5770F31F02F8 // TkwString
+ ME_5770F3230125 // TvcmBaseOperationsCollectionItem
+ ME_5770F3260216 // TvcmModulesCollectionItem
+ ME_5770F32A00BD // vcmBaseMenuManager
+ ME_5770F32D02DE // El3DuplicateItem
+ ME_5770F331028C // FreeAndNil
+ ME_5770FF8C03B5 // TvcmModulesCollection
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWordEx.pas'
+ UP extprop:rc:SelfName 'ModuleOperationWordEx'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'tfwModuleOperationWordEx'
+
+ENDME // ME_5770F145022B TtfwModuleOperationWordEx

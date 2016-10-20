@@ -1,0 +1,66 @@
+// TnsNodeBaseList 5582D69A0367 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5582D69A0367
+
+ME ME_5582D7310205
+ MEPROP UID '5582D7310205'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582D69A0367 // TnsNodeBaseList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5582D7310205 ItemType
+
+MEREF ME_4A54DD4E036F_ME_5582D69A0367_G
+ MELINK Original WL? 'ME_4A54DD4E036F' // Tl3ProtoDataContainer
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_4A54DD4E036F_ME_5582D69A0367_G Tl3ProtoDataContainer
+
+MEREF ME_47B57D830369_ME_5582D69A0367_R
+ MELINK Original WL? 'ME_47B57D830369' // l3InterfaceRefList
+ ;
+ MEPROP OpKind opkind_ReferencedType
+ENDMEREF // ME_47B57D830369_ME_5582D69A0367_R l3InterfaceRefList
+
+%%ImplementedBy ME_47B57D830369 ME_5582D69A0367
+
+%%InheritedBy ME_4A54DD4E036F ME_5582D69A0367
+
+ME ME_5582D69A0367
+ MEPROP UID '5582D69A0367'
+ MEPROP Name 'TnsNodeBaseList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL? 'ME_4A85282C0252' // LiteSearch
+ ;
+ MELIST Inherits
+   Seq: ( ME_4A54DD4E036F_ME_5582D69A0367_G // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( ME_47B57D830369_ME_5582D69A0367_R // l3InterfaceRefList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5582D7310205 // ItemType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsNodeBaseList.pas'
+ UP extprop:rc:SelfName 'NodeBaseList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'nsNodeBaseList'
+
+ENDME // ME_5582D69A0367 TnsNodeBaseList
